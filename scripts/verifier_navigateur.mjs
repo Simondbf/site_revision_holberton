@@ -59,13 +59,21 @@ try {
     await page.screenshot({ path: capture });
   }
 
-  await page.setViewportSize({ width: 390, height: 844 });
-  await page.goto(origin + '/' + routeNotion('Pointeurs et tableaux C', 'Indices de tableau'));
-  const imageMobile = page.locator('#courseArticle .lesson-visual svg').first();
+  // Un nouveau contexte émule une vraie première visite mobile, et non le
+  // redimensionnement artificiel d'une session de bureau.
+  const mobile = await navigateur.newPage({
+    viewport: { width: 390, height: 844 },
+    deviceScaleFactor: 1,
+    isMobile: true,
+    hasTouch: true
+  });
+  mobile.on('pageerror', error => erreurs.push('Mobile : ' + error.message));
+  await mobile.goto(origin + '/' + routeNotion('Pointeurs et tableaux C', 'Indices de tableau'));
+  const imageMobile = mobile.locator('#courseArticle .lesson-visual svg').first();
   await imageMobile.waitFor({ state: 'visible', timeout: 12000 });
   const size = await imageMobile.boundingBox();
   assert.ok(size && size.width < 390 && size.width > 240, 'Schéma trop large sur mobile.');
-  await page.screenshot({ path: 'apercus/tableau-mobile.png' });
+  await mobile.screenshot({ path: 'apercus/tableau-mobile.png' });
 
   assert.deepEqual(erreurs, [], 'Erreurs JavaScript navigateur : ' + erreurs.join(' / '));
   console.log('Test navigateur réussi : fenêtre modale, cinq cours illustrés et vue mobile.');
