@@ -26,10 +26,11 @@ jobs:
       - name: Vérifier la syntaxe du test navigateur
         run: node --check scripts/verifier_navigateur.mjs
 
-      - name: Préparer Chromium
-        run: |
-          npm install --no-save --no-package-lock playwright
-          npx playwright install --with-deps chromium
+      - name: Installer Playwright
+        run: npm install --no-save --no-package-lock playwright
+
+      - name: Vérifier le navigateur Chrome installé
+        run: google-chrome --version
 
       - name: Tester les illustrations et la navigation
         run: node scripts/verifier_navigateur.mjs

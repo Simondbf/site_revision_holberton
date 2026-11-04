@@ -153,6 +153,25 @@ body.dark .lesson-visual figcaption{color:#c5d9e7}
 #courseArticle .lesson-panel h3{font-size:18px;margin:23px 0 8px}
 #courseArticle .lesson-panel:first-child{margin-top:0}
 @media(max-width:790px){#courseArticle.course-list{gap:20px}#courseArticle .lesson-panel{scroll-margin-top:195px;padding:18px 15px}}
+
+/* Parcours direct depuis les post-it, lecture continue et sommaire synchronisé */
+#courseSidebar .side-notions a.active{
+  border-left:3px solid var(--primary);
+  padding-left:7px;
+  font-weight:800;
+  background:var(--surface-alt);
+  color:var(--primary)
+}
+#courseSidebar{overscroll-behavior:contain;scrollbar-width:thin}
+#courseArticle .lesson-panel .lead{
+  background:var(--surface-alt);
+  padding:14px 17px;
+  border-radius:12px;
+  border-left:3px solid #66a8d9;
+  line-height:1.6
+}
+#courseArticle .lesson-panel .lead strong{color:var(--text)}
+#courseArticle .lesson-panel.lesson-selected{border-color:#8fb8db}
 </style>
 </head>
 <body>
@@ -178,7 +197,7 @@ body.dark .lesson-visual figcaption{color:#c5d9e7}
 <section class="hero" id="hero"><div class="hero-content"><div class="eyebrow">Mes cours · Mes révisions</div><h1>Comprendre, retenir,<br><strong>progresser à ton rythme.</strong></h1><p>Un espace clair pour retrouver les notions réellement abordées dans les cours et projets <strong>Holberton</strong> : Shell, Linux, programmation C, pointeurs, Docker, Git et plus encore.</p><div class="hero-actions"><button class="cta" id="start">Explorer les fiches</button><button class="cta cta-secondary" id="goFavorites">☆ Mes favoris</button></div><div class="stats"><span id="countTopics"></span><span id="countCards"></span><span>Accessible hors ligne</span></div></div></section>
 <section id="browse"><div class="sectionhead"><div><h2 id="listingTitle">Thèmes de révision</h2><p id="listingSubtitle">Des explications courtes et structurées, par sujet.</p></div></div><label class="searchfield"><span aria-hidden="true">⌕</span><input id="search" type="search" autocomplete="off" placeholder="Par exemple : tableau, printf, Docker…" aria-label="Rechercher dans les fiches"></label><div id="searchSummary" class="results-label hidden" aria-live="polite"></div><div id="cards" class="cards"></div><div id="results" class="defs hidden"></div></section>
 <section id="detail" class="hidden"><button id="back" class="linkbtn">← Tous les thèmes</button><div class="crumb" id="breadcrumb"></div><h2 id="detailTitle" class="detail-title"></h2><p id="detailCount" class="detail-intro"></p><div id="definitions" class="defs"></div></section>
-<section id="course" class="hidden"><button class="linkbtn" id="courseBack" type="button">← Retour au thème</button><div class="crumb" id="courseBreadcrumb"></div><article class="course-article" id="courseArticle"></article></section>
+<section id="course" class="hidden"><button class="linkbtn" id="courseBack" type="button">← Retour aux fiches</button><div class="crumb" id="courseBreadcrumb"></div><article class="course-article" id="courseArticle"></article></section>
 <section id="favorites" class="hidden"><div class="sectionhead"><div><h2>Mes favoris</h2><p>Retrouve rapidement les notions enregistrées sur cet appareil.</p></div></div><div class="mininote">Les favoris sont enregistrés dans ce navigateur uniquement. Ils ne sont pas synchronisés entre les appareils.</div><div id="favoriteItems" class="defs" style="margin-top:15px"></div></section>
 <section id="about" class="hidden"><div class="sectionhead"><div><h2>À propos de ce support</h2><p>Un support de révision librement consultable, sans compte.</p></div></div><div class="helpgrid"><article class="def"><h3>Origine des fiches</h3><p>Les notions sont synthétisées à partir des cours, exercices et échanges Holberton déjà travaillés. Ce site est une initiative pédagogique indépendante et ne constitue pas une documentation officielle de l’école.</p></article><article class="def"><h3>Fonctionnement hors ligne</h3><p>Télécharge le fichier index.html ou décompresse l’archive du site, puis ouvre index.html dans ton navigateur. Les fiches et la recherche restent disponibles sans Internet.</p></article><article class="def"><h3>Recherche</h3><p>La barre de recherche permet de retrouver les mots-clés à travers les titres, les définitions et les thèmes.</p></article><article class="def"><h3>Favoris et affichage</h3><p>Marque une notion avec l’étoile pour la retrouver ici. Les liens de cours sont partageables ; le thème et les favoris restent propres à ce navigateur.</p></article></div>
 <section class="project-info" aria-labelledby="about-community"><h3 id="about-community">Un site de révision collaboratif</h3>
@@ -194,12 +213,7 @@ body.dark .lesson-visual figcaption{color:#c5d9e7}
 <div class="footer"><span>Holberton Révision</span><span>Dernière mise à jour : novembre 2026</span></div>
 </main>
 </div>
-<dialog id="conceptDialog" class="concept-dialog" aria-label="Explication détaillée">
-  <div class="dialog-inner">
-    <div class="dialog-top"><span class="dialog-label">EXPLICATION DÉTAILLÉE</span><button type="button" id="modalClose" class="dialog-close" aria-label="Fermer l’explication">×</button></div>
-    <div id="modalBody"></div>
-  </div>
-</dialog>
+
 <noscript><div class="shell" style="padding:20px">Active JavaScript pour consulter les fiches intégrées à cette page.</div></noscript>
 <script id="content-data" type="application/json">{"sections":[{"title":"Bases informatiques","icon":"monitor","items":[{"term":"Hardware / Software","definition":"Matériel physique / programmes exécutés par la machine."},{"term":"Système d’exploitation","definition":"Gère les ressources, les processus, la mémoire, les fichiers et les périphériques."},{"term":"Kernel","definition":"Noyau du système d’exploitation ; interface entre logiciels et ressources matérielles."},{"term":"Linux / Ubuntu","definition":"Linux est un noyau et une famille de systèmes ; Ubuntu est une distribution utilisant Linux."},{"term":"WSL","definition":"Sous-système Windows pour Linux : environnement Linux utilisable sur Windows."},{"term":"GUI / CLI","definition":"Interface graphique / interface en ligne de commande."}]},{"title":"Terminal et Shell","icon":"terminal","items":[{"term":"Terminal","definition":"Application permettant de saisir des commandes et d’afficher leurs résultats."},{"term":"Shell","definition":"Programme qui interprète les commandes et lance les autres programmes."},{"term":"Bash","definition":"Shell courant sur Linux."},{"term":"Script Shell","definition":"Fichier texte qui contient une suite de commandes exécutables par un Shell."}]},{"title":"Chemins et fichiers Linux","icon":"folder","items":[{"term":"Racine /","definition":"Début de l’arborescence Linux."},{"term":"~","definition":"Dossier personnel de l’utilisateur."},{"term":". / ..","definition":"Dossier courant / dossier parent."},{"term":"Chemin absolu","definition":"Part de /, indépendamment du répertoire actuel."},{"term":"Chemin relatif","definition":"Dépend du répertoire actuel."},{"term":"pwd / cd / ls","definition":"Afficher le dossier actuel / changer de dossier / lister les fichiers."},{"term":"mkdir / touch","definition":"Créer un dossier / créer un fichier vide ou actualiser sa date."},{"term":"cp / mv / rm","definition":"Copier / déplacer-renommer / supprimer."},{"term":"cat / file / find / man","definition":"Afficher le contenu / type du fichier / rechercher / consulter le manuel."}]},{"title":"Permissions et flux","icon":"shield","items":[{"term":"r w x","definition":"r = lecture (4), w = écriture (2), x = exécution (1) ; rwx = 7 (4 + 2 + 1)."},{"term":"chmod / chown / sudo","definition":"Changer les permissions / propriétaire / utiliser des privilèges élevés."},{"term":"stdin / stdout / stderr","definition":"Entrée standard (0) / sortie standard (1) / erreurs (2)."},{"term":"> et >>","definition":"Écraser un fichier avec la sortie / ajouter à la fin."},{"term":"2> et \u003c","definition":"Rediriger les erreurs / prendre un fichier comme entrée."},{"term":"|","definition":"Relier la sortie d’une commande à l’entrée d’une autre."},{"term":"&& / || en Shell","definition":"Exécuter la commande suivante en cas de succès / en cas d’échec."},{"term":"grep / wc -l / tr","definition":"Rechercher / compter les lignes / transformer des caractères."},{"term":"sort / uniq / cut / head / tail / rev","definition":"Trier / dédupliquer les lignes voisines / extraire / début / fin / inverser les caractères."},{"term":"grep -A 3","definition":"Affiche la ligne contenant le motif recherché et les trois lignes suivantes. -B montre les lignes avant et -C les lignes autour."},{"term":"grep -i / -v / -c","definition":"-i ignore la casse ; -v inverse la sélection ; -c compte les lignes correspondant au motif."},{"term":"sort / uniq","definition":"sort ordonne les lignes ; uniq supprime uniquement les lignes répétées consécutives : on utilise souvent sort avant uniq."}]},{"title":"Variables et Bash","icon":"variable","items":[{"term":"Affectation","definition":"BEST=School : pas d’espaces autour du =."},{"term":"Variable Shell","definition":"Variable définie dans le Shell en cours, non nécessairement exportée."},{"term":"Variable locale","definition":"Déclarée avec local dans une fonction Bash ; portée limitée à la fonction."},{"term":"Variable d’environnement","definition":"Variable exportée et transmise aux processus enfants."},{"term":"export / unset","definition":"Exporter une variable / supprimer une variable ou fonction."},{"term":"set / printenv","definition":"Paramètres et variables du Shell / environnement."},{"term":"alias / unalias","definition":"Créer / retirer un raccourci de commande."},{"term":"source / .","definition":"Exécuter un script dans le Shell courant."},{"term":"PATH","definition":"Liste des dossiers recherchés pour trouver une commande, séparés par :."},{"term":"$VAR / ${VAR}","definition":"Lire la valeur / délimiter explicitement le nom."},{"term":"$(commande)","definition":"Substitution de commande : récupérer sa sortie."},{"term":"$((...))","definition":"Évaluation arithmétique."},{"term":"$? / $1 / $#","definition":"Code retour / premier argument / nombre d’arguments positionnels."},{"term":"Découper PATH","definition":"tr \":\" \"\\n\" transforme les séparateurs « : » en retours à la ligne. Le nombre de répertoires peut se déduire des séparateurs, en traitant le dernier élément."}]},{"title":"Conditions et boucles C","icon":"repeat","items":[{"term":"if / else if / else","definition":"Choisir une branche selon des conditions."},{"term":"== / !=","definition":"Égalité / différence. Attention à ne pas confondre = et ==."},{"term":"\u003c > \u003c= >=","definition":"Comparaisons."},{"term":"&& / || / !","definition":"ET logique / OU logique / négation."},{"term":"for","definition":"Initialisation, test, mise à jour ; forme compacte de boucle."},{"term":"while","definition":"Teste sa condition avant chaque itération."},{"term":"do…while","definition":"Teste après exécution : le corps tourne au moins une fois."},{"term":"Itération","definition":"Un passage dans une boucle."},{"term":"0 et booléens C","definition":"0 est faux ; toute valeur différente de 0 est vraie dans une condition."},{"term":"Boucles imbriquées","definition":"Une boucle placée dans une autre ; le coût dépend des bornes et du travail effectué."}]},{"title":"Git et GitHub","icon":"git-branch","items":[{"term":"Git","definition":"Logiciel de gestion de versions distribué."},{"term":"GitHub","definition":"Service d’hébergement et de collaboration pour des dépôts Git."},{"term":"Repository","definition":"Dépôt du code et de son historique."},{"term":"Staging","definition":"Zone de préparation des modifications avant commit."},{"term":"Commit","definition":"Instantané enregistré dans l’historique local."},{"term":"Branch / merge","definition":"Branche de développement / fusion."},{"term":"Pull request","definition":"Proposition de modifications à examiner avant une fusion éventuelle."},{"term":"Conflit de fusion","definition":"Git ne peut pas résoudre automatiquement des changements concurrents."},{"term":"git status / add / commit","definition":"État / préparation / enregistrement."},{"term":"git push / pull / fetch","definition":"Envoyer / récupérer et intégrer / seulement récupérer."},{"term":"git clone / log / switch","definition":"Copier un dépôt / historique / changer de branche."}]},{"title":"Docker","icon":"boxes","items":[{"term":"Image","definition":"Modèle pour créer des conteneurs."},{"term":"Conteneur","definition":"Instance créée à partir d’une image."},{"term":"Dockerfile","definition":"Recette textuelle de construction d’une image."},{"term":"VM vs conteneur","definition":"VM : OS invité ; conteneur : partage le noyau de l’hôte sous Linux."},{"term":"FROM / COPY","definition":"Image de base / copie de fichiers dans l’image."},{"term":"RUN / CMD","definition":"Commande à la construction / commande par défaut au démarrage."},{"term":"docker pull / run","definition":"Télécharger une image / créer et démarrer un conteneur."},{"term":"docker images / ps -a / inspect","definition":"Images / tous les conteneurs / informations détaillées."},{"term":"Portabilité et isolation","definition":"Livrer l’application avec ses dépendances ; isoler des environnements."},{"term":"Cohérence et reproductibilité","definition":"Limiter les écarts entre environnements et pouvoir refaire la construction."}]},{"title":"Programmation C","icon":"code","items":[{"term":"main()","definition":"Point d’entrée d’un programme C classique."},{"term":"Prototype vs définition","definition":"Un prototype annonce une signature ; la définition contient le corps de la fonction."},{"term":"void","definition":"Indique une absence de valeur de retour ou de paramètres selon le contexte."},{"term":"return","definition":"Renvoie une valeur à l’appelant et termine la fonction courante."},{"term":"printf / _putchar","definition":"Affichage formaté / écriture d’un caractère."},{"term":"%d / %c / %.6f","definition":"Entier décimal / caractère / réel avec six décimales."},{"term":"ASCII","definition":"Associe des nombres aux caractères de base ; le caractère '0' vaut 48 en ASCII."},{"term":"Compilation vs édition de liens","definition":"Prétraitement et compilation vers le code objet, puis liaison des objets et bibliothèques pour produire l’exécutable."},{"term":"undefined reference","definition":"Définition nécessaire introuvable lors de l’édition de liens."},{"term":"gcc -o nom source.c","definition":"Compiler un fichier source et nommer l’exécutable."},{"term":"GNU89","definition":"Déclarations de variables au début de leur bloc, avant les instructions."},{"term":"gcc -E","definition":"Arrête la chaîne de compilation après le préprocesseur : le résultat est du code source prétraité."},{"term":"gcc -S","definition":"Compile vers un fichier assembleur .s, sans assembler ni effectuer l’édition de liens."},{"term":"gcc -c","definition":"Compile en un fichier objet .o, sans édition de liens."},{"term":"gcc -o","definition":"Permet de choisir le nom du fichier de sortie, par exemple gcc main.c -o cisfun."},{"term":"puts / printf","definition":"puts affiche une chaîne en ajoutant un saut de ligne ; printf utilise une chaîne de format pour afficher des valeurs."},{"term":"Types entiers en C","definition":"char, short, int, long et long long représentent des valeurs entières ; leurs tailles exactes dépendent de la plateforme."},{"term":"signed et unsigned","definition":"signed permet des valeurs négatives et positives ; unsigned ne représente que des valeurs non négatives."},{"term":"float et double","definition":"float et double représentent des nombres à virgule flottante, souvent avec une précision limitée."},{"term":"char et caractère","definition":"char représente un petit entier utilisé notamment pour les caractères ; 'A' est une constante de caractère."}]},{"title":"Pointeurs et tableaux C","icon":"mouse-pointer","items":[{"term":"Pointeur (pointer)","definition":"Variable dont la valeur est une adresse mémoire. Exemple : int *p; déclare un pointeur vers un int."},{"term":"Adresse mémoire","definition":"Emplacement où une variable est stockée. On ne choisit généralement pas soi-même son adresse."},{"term":"& (opérateur d’adresse)","definition":"&n produit l’adresse de la variable n ; p = &n fait pointer p vers n."},{"term":"* dans une déclaration","definition":"int *p; : p est une variable de type « pointeur vers int ». Le * indique le type de variable déclaré."},{"term":"* dans une expression","definition":"*p accède à l’objet situé à l’adresse contenue dans p : c’est le déréférencement."},{"term":"Modifier une valeur par un pointeur","definition":"Si p = &n, alors *p = 402; modifie n, qui prend la valeur 402."},{"term":"Valeur de p, *p et &p","definition":"p contient une adresse ; *p est la valeur pointée ; &p est l’adresse mémoire du pointeur lui-même."},{"term":"Type pointé","definition":"int *p pointe vers un int ; char *q pointe vers un char. Le type sert notamment à interpréter les valeurs et à avancer dans un tableau."},{"term":"%p avec printf","definition":"Le spécificateur %p permet d’afficher une adresse ; l’argument correspondant doit être un void * (conversion explicite recommandée)."},{"term":"sizeof","definition":"sizeof donne la taille en octets d’un type ou d’un objet. Exemple : sizeof(int) pour un entier."},{"term":"Tailles des pointeurs","definition":"Sur de nombreux Linux 64 bits, un pointeur d’objet occupe 8 octets ; sa taille dépend de la plateforme."},{"term":"Passage d’arguments par valeur","definition":"En C, un paramètre reçoit une copie de l’argument. Modifier un paramètre int local ne modifie pas la variable initiale."},{"term":"Passer une adresse à une fonction","definition":"Une fonction recevant int *p peut modifier la variable de l’appelant grâce à *p ; le pointeur lui-même reste passé par valeur."},{"term":"Tableau","definition":"Zone contiguë de mémoire contenant plusieurs éléments de même type : int a[5]; réserve 5 entiers."},{"term":"Indices de tableau","definition":"Les indices commencent à 0 : a[0] est le premier élément et a[4] le cinquième dans int a[5]."},{"term":"Tableau ≠ pointeur","definition":"Un tableau n’est pas une variable pointeur. Son nom identifie le tableau et ne peut pas recevoir une nouvelle adresse par affectation."},{"term":"Conversion tableau → pointeur","definition":"Dans la plupart des expressions, le nom du tableau est converti en pointeur vers son premier élément. Ainsi a et &a[0] désignent la même adresse."},{"term":"sizeof(tableau)","definition":"sizeof(a) donne la taille de tout le tableau (nombre d’éléments × taille d’un élément), pas celle d’un pointeur."},{"term":"&tableau","definition":"&a désigne l’adresse du tableau entier. Elle a la même position mémoire que &a[0], mais un type différent."},{"term":"Arithmétique des pointeurs","definition":"Ajouter 1 à un pointeur vers int avance de sizeof(int) octets, donc d’un élément int."},{"term":"Notation équivalente","definition":"Pour un tableau a, a[2] désigne le même élément que *(a + 2)."},{"term":"Chaîne de caractères en C","definition":"Suite de caractères stockée notamment dans un tableau de char et terminée par le caractère nul \\0."},{"term":"Caractère nul","definition":"\\0 a pour valeur numérique 0 et marque la fin d’une chaîne C, par exemple dans char a[10] = \"Holberton\";."},{"term":"%s avec printf","definition":"Le format %s affiche les caractères d’une chaîne jusqu’au caractère nul de fin."},{"term":"Exercices d’observation","definition":"Pour comprendre un pointeur, distinguer à chaque ligne : variable, adresse contenue dans le pointeur et valeur à cette adresse."},{"term":"Initialisation d'un tableau","definition":"Un tableau peut recevoir des valeurs dès sa création : int nombres[3] = {10, 20, 30};"},{"term":"Parcourir un tableau","definition":"Une boucle peut visiter chaque élément d'un tableau en utilisant un indice qui va de 0 à la taille moins 1."},{"term":"Tableau à deux dimensions","definition":"int grille[2][3] contient deux lignes de trois éléments ; grille[1][2] désigne la troisième case de la seconde ligne."},{"term":"Échanger deux caractères","definition":"Pour échanger deux cases, on conserve provisoirement l'une des valeurs dans une variable temporaire."},{"term":"Principe d'inversion d'une chaîne","definition":"Inverser une chaîne consiste à échanger le premier et le dernier caractère, puis à progresser vers le centre."}]},{"title":"Modulo et arithmétique","icon":"percent","items":[{"term":"%","definition":"Reste de la division entière."},{"term":"/ avec des entiers","definition":"Quotient entier tronqué vers zéro."},{"term":"n % 2","definition":"Reste par 2 ; permet de tester la parité."},{"term":"n % 10","definition":"Reste par 10 : dernier chiffre pour un entier positif."},{"term":"n / 10","definition":"Supprime le dernier chiffre d’un entier positif."},{"term":"n % 100","definition":"Conserve les deux derniers chiffres d’un entier positif."},{"term":"12 / 10","definition":"Résultat entier : 1."},{"term":"12 % 10","definition":"Reste : 2."},{"term":"89 % 7","definition":"Reste : 5."}]},{"title":"Incrémentation et décrémentation","icon":"arrow-down-up","items":[{"term":"i++","definition":"Utiliser l’ancienne valeur de i, puis ajouter 1."},{"term":"++i","definition":"Ajouter 1, puis utiliser la nouvelle valeur."},{"term":"i--","definition":"Utiliser l’ancienne valeur, puis retirer 1."},{"term":"--i","definition":"Retirer 1, puis utiliser la nouvelle valeur."},{"term":"while(i--) avec i=9","definition":"Affiche 876543210 si on affiche i dans le corps."},{"term":"while(--i) avec i=9","definition":"Affiche 87654321 si on affiche i dans le corps."}]},{"title":"Mesures et performance","icon":"timer","items":[{"term":"clock()","definition":"Renvoie une mesure du temps CPU consommé par le programme, de type clock_t."},{"term":"CLOCKS_PER_SEC","definition":"Nombre d’unités de clock() par seconde."},{"term":"Durée CPU","definition":"(double)(fin - début) / CLOCKS_PER_SEC."},{"term":"time()","definition":"Temps calendaire ; utile pour les dates, généralement moins adapté aux très courtes durées."},{"term":"Temps CPU vs réel","definition":"Temps consommé par le processeur / temps écoulé sur une horloge."},{"term":"Moyenne","definition":"Somme des mesures divisée par leur nombre."},{"term":"Rapport de lenteur","definition":"Temps lent / temps rapide."},{"term":"Réduction du temps (%)","definition":"(temps lent - temps rapide) / temps lent × 100."},{"term":"Complexité","definition":"Dépend des itérations et des opérations, pas seulement du nombre de boucles."},{"term":"Préparation des données","definition":"BUILD_DATA : temps passé à créer ou charger les données avant le calcul."},{"term":"Traitement principal","definition":"PROCESS : durée du calcul ou traitement principal sur les données."},{"term":"Réduction des résultats","definition":"REDUCE : durée de regroupement ou de synthèse des résultats intermédiaires."},{"term":"Durée totale et phases","definition":"TOTAL représente la durée globale mesurée ; elle peut différer de BUILD_DATA + PROCESS + REDUCE."}]},{"title":"IA responsable","icon":"sparkles","items":[{"term":"Capacités","definition":"Expliquer, résumer, traduire, proposer des pistes et aider au débogage."},{"term":"Limites","definition":"Réponses plausibles mais incorrectes, contexte manquant, biais."},{"term":"Vérification","definition":"Tester le code, consulter la documentation, recouper les informations."},{"term":"Responsabilité","definition":"Comprendre et contrôler le résultat, pas simplement copier une réponse."}]},{"title":"Qualité et méthode en C","items":[{"term":"Prototype de fonction","definition":"Déclare le type de retour et les paramètres d’une fonction avant son utilisation ; la définition fournit son corps."},{"term":"Entête de fonction","definition":"Une fonction C doit posséder une signature adaptée : type de retour, nom, liste de paramètres."},{"term":"Tester séparément","definition":"Tester de petits cas et lire les avertissements du compilateur aide à comprendre une erreur sans recopier une solution."},{"term":"Taille des types","definition":"sizeof donne la taille en octets d’un type ou d’un objet sur la machine utilisée ; ne pas supposer une taille universelle pour int ou un pointeur."},{"term":"Compilation et liaison","definition":"Le préprocesseur prépare le texte, le compilateur produit du code, l’assembleur génère des objets, et l’éditeur de liens crée l’exécutable."},{"term":"Commentaires et lisibilité","definition":"Utiliser des noms compréhensibles, une indentation cohérente et des commentaires utiles plutôt que paraphraser chaque instruction."}]},{"title":"Green IT et énergie","items":[{"term":"Temps d’exécution","definition":"Durée écoulée pendant l’exécution d’une tâche ; elle dépend du programme et de l’environnement de mesure."},{"term":"Temps CPU","definition":"Quantité de temps pendant laquelle le processeur travaille pour un programme. Ce n’est pas toujours la même valeur que le temps réel écoulé."},{"term":"Mesure reproductible","definition":"Comparer des programmes sur le même matériel, avec les mêmes entrées, en répétant les mesures et en décrivant les conditions."},{"term":"Temps et énergie","definition":"À puissance moyenne identique, prolonger l’exécution augmente l’énergie consommée. Mais une durée plus faible ne garantit pas à elle seule une consommation d’énergie plus faible."},{"term":"Limites des mesures","definition":"Les tâches en arrière-plan, la température, le système et la précision des instruments peuvent modifier les résultats."},{"term":"Décision d’ingénierie","definition":"Choisir des optimisations en confrontant les résultats mesurés, leur reproductibilité et les contraintes de lisibilité et de maintenance."},{"term":"Puissance et énergie consommée","definition":"L'énergie dépend de la puissance pendant la durée d'exécution ; une exécution plus courte n'est pas automatiquement moins énergivore."}]}]}</script>
 <script id="course-data" type="application/json">{"Bases informatiques":{"lead":"Avant d’apprendre une commande ou un langage, il est utile de comprendre ce qui se passe dans une machine. Le matériel exécute des instructions ; le système d’exploitation organise les ressources ; les logiciels s’appuient sur cet ensemble.","why":"Quand une commande échoue, demande-toi à quel niveau se situe le problème : programme, système d’exploitation, stockage, réseau ou matériel.","example":"Une application lit un fichier → le système d’exploitation vérifie les accès → le stockage fournit les données.","detail":"Retenir le rôle de chaque couche permet de mieux diagnostiquer les erreurs."},"Terminal et Shell":{"lead":"Le terminal est la fenêtre dans laquelle tu écris. Le shell est le programme qui lit tes commandes et décide comment les exécuter. Bash est l’un des shells les plus courants sous Linux.","why":"Cette distinction devient importante dès qu’on écrit des scripts ou qu’une commande fonctionne dans un environnement mais pas un autre.","example":"echo \"Bonjour\"\npwd","detail":"Le shell interprète la ligne ; les commandes affichent du texte ou interrogent le système."},"Chemins et fichiers Linux":{"lead":"Sous Linux, les fichiers et dossiers sont organisés en une seule arborescence qui commence à la racine « / ». Un chemin absolu indique une destination complète ; un chemin relatif dépend du dossier courant.","why":"Avant de copier ou de supprimer un fichier, vérifie toujours le chemin réellement ciblé.","example":"pwd\nls -la\ncd ../","detail":"« pwd » montre où tu te trouves ; « .. » désigne le dossier parent."},"Permissions et flux":{"lead":"Les permissions définissent qui peut lire, modifier ou exécuter un fichier. Les flux standard permettent à un programme de recevoir des données, d’afficher un résultat et de signaler ses erreurs.","why":"On peut souvent résoudre un problème sans changer le programme : vérifier les droits ou rediriger correctement un flux suffit.","example":"ls -l fichier.txt\ncommande > sortie.txt 2> erreurs.txt","detail":"« > » redirige la sortie standard ; « 2> » redirige les erreurs."},"Variables et Bash":{"lead":"Une variable permet de conserver une valeur que le shell réutilisera. Une variable exportée est aussi transmise aux processus enfants : c’est notamment le cas de PATH, qui aide à trouver les exécutables.","why":"Comprendre les expansions, variables et commandes internes de Bash permet d'automatiser sans perdre le contrôle de l'environnement.","example":"BEST=School\necho \"$BEST\"\nexport BEST\nprintenv BEST","detail":"Il n’y a pas d’espace autour du signe « = » lors d’une affectation Bash."},"Conditions et boucles C":{"lead":"Un programme choisit une action avec une condition et répète une action avec une boucle. En C, la condition est évaluée comme fausse si elle vaut zéro, et vraie sinon.","why":"Le plus utile est de pouvoir suivre mentalement l’état des variables à chaque passage dans une branche ou une boucle.","example":"int i;\nfor (i = 0; i \u003c 3; i++)\n    printf(\"%d\\n\", i);","detail":"Cette boucle affiche 0, 1 puis 2. Le test est effectué avant chaque itération."},"Git et GitHub":{"lead":"Git enregistre les évolutions d’un projet. GitHub héberge un dépôt Git et facilite la collaboration, mais on peut utiliser Git sans GitHub.","why":"Git aide à suivre les modifications ; GitHub facilite leur partage et leur relecture avant intégration.","example":"git status\ngit add fichier.c\ngit commit -m \"Ajoute une explication\"","detail":"Vérifie « git status » avant un commit pour éviter d’ajouter des fichiers involontaires."},"Docker":{"lead":"Docker sert à exécuter une application dans un environnement reproductible. On construit ou récupère une image, puis on démarre un conteneur à partir de cette image. Le conteneur reste isolé, mais partage le noyau de la machine hôte.","why":"Docker permet de construire et d'exécuter des applications à partir d'images réutilisables dans des environnements compatibles.","example":"docker pull hello-world\ndocker run --rm hello-world\ndocker ps -a","detail":"Une image est un modèle ; un conteneur est une instance de ce modèle en cours d’exécution ou arrêtée."},"Programmation C":{"lead":"En C, le programme est composé de fonctions manipulant des valeurs de types précis. Le compilateur vérifie et transforme le code source ; l’éditeur de liens assemble ensuite ce qui est nécessaire pour produire un exécutable.","why":"Comprendre les types, l'affichage, les fonctions et les étapes de compilation aide à écrire du C et à interpréter les erreurs.","example":"#include \u003cstdio.h>\n\nint main(void)\n{\n    puts(\"Bonjour\");\n    return 0;\n}","detail":"« main » est le point d’entrée classique ; « return 0 » indique une fin normale."},"Pointeurs et tableaux C":{"lead":"Un pointeur ne contient pas directement la donnée : il contient une adresse. L’opérateur & permet d’obtenir l’adresse d’un objet ; l’opérateur * permet d’accéder à la valeur désignée par un pointeur valide.","why":"C’est essentiel pour modifier une variable depuis une fonction, parcourir un tableau et comprendre comment les chaînes sont stockées.","example":"int n = 42;\nint *p = &n;\n*p = 7;\n/* n vaut maintenant 7 */","detail":"Ne déréférence jamais un pointeur non initialisé : il doit désigner un objet valide."},"Modulo et arithmétique":{"lead":"Le modulo donne le reste d’une division entière. C’est un outil pratique pour examiner la parité, extraire des chiffres ou gérer des cycles.","why":"En C, division entière et division flottante n’ont pas le même résultat. Le signe du reste mérite une attention particulière avec les nombres négatifs.","example":"int a = 17 / 5;  /* 3 */\nint b = 17 % 5;  /* 2 */","detail":"Les deux opérandes étant entiers, « / » produit ici un quotient entier."},"Incrémentation et décrémentation":{"lead":"Les opérateurs ++ et -- modifient une variable de 1. Leur position détermine si l’expression produit l’ancienne valeur ou la nouvelle.","why":"Ces opérateurs changent les valeurs utilisées dans les expressions et les boucles ; l'ordre du test et de la mise à jour est déterminant.","example":"int i = 3;\nint a = i++;  /* a = 3, i = 4 */","detail":"La post-incrémentation renvoie l’ancienne valeur avant l’incrémentation."},"Mesures et performance":{"lead":"Mesurer un programme demande de choisir une grandeur : temps écoulé, temps CPU ou consommation de ressources. Aucune mesure isolée ne raconte toute l’histoire.","why":"Comparer deux programmes n’a de sens que si les conditions de test et la méthode de mesure sont cohérentes.","example":"clock_t debut = clock();\n/* travail à mesurer */\nclock_t fin = clock();","detail":"Le temps CPU peut être calculé avec (fin - debut) / CLOCKS_PER_SEC, en convertissant en double."},"IA responsable":{"lead":"Une IA peut t’aider à reformuler un cours, chercher des pistes et comprendre un message d’erreur. Elle peut aussi produire une explication plausible mais incorrecte.","why":"Garde un rôle actif : vérifie les affirmations, teste le code et assure-toi de comprendre chaque étape.","example":"1. Formuler un problème précis\n2. Examiner la réponse\n3. Vérifier dans la documentation et tester","detail":"L’objectif n’est pas d’obtenir une réponse à copier, mais de développer ta compréhension."},"Qualité et méthode en C":{"lead":"Un code correct est un code dont le comportement est compris et vérifié. Les petits tests indépendants, les prototypes cohérents et une lecture attentive des diagnostics font gagner du temps.","why":"La qualité commence avant le dernier test : on avance plus efficacement par fonctions courtes et cas simples.","example":"/* Pour une fonction de chaîne : */\n/* tester la chaîne vide, un caractère, */\n/* puis plusieurs caractères. */","detail":"Teste aussi les cas limites compatibles avec le contrat de la fonction."},"Green IT et énergie":{"lead":"Un programme utilise des ressources physiques : processeur, mémoire, stockage, réseau et énergie. Une optimisation utile se mesure, elle ne se devine pas.","why":"Une exécution plus courte peut réduire certains coûts, mais la consommation dépend aussi du matériel et de sa puissance pendant l’exécution.","example":"Comparer deux solutions :\n- même machine\n- mêmes données\n- plusieurs essais","detail":"La reproductibilité et le contexte comptent autant que le résultat brut."}}</script>
@@ -226,7 +240,6 @@ const routeTopic=si=>`#theme/${sectionSlug[si]}`;
 const categorySlug=()=>sidebarGroups.map(([name])=>slug(name));
 const routeCategory=gi=>`#categorie/${categorySlug()[gi]}`;
 const routeCourse=(si,ii)=>`#cours/${sectionSlug[si]}/${conceptSlug[si][ii]}`;
-const routePreview=(si,ii)=>`#apercu/${sectionSlug[si]}/${conceptSlug[si][ii]}`;
 let favorites=[];try{favorites=JSON.parse(localStorage.getItem('holberton-favorites-v2')||'[]');if(!Array.isArray(favorites))favorites=[]}catch{}
 const store=()=>{try{localStorage.setItem('holberton-favorites-v2',JSON.stringify(favorites))}catch{}};
 let dark=false;try{dark=localStorage.getItem('holberton-dark-v2')==='yes'}catch{}
@@ -248,15 +261,36 @@ function renderSidebar(){
 }
 function closeSidebar(){$('courseSidebar').classList.remove('side-open');$('sideShade').hidden=true;$('sideToggle').setAttribute('aria-expanded','false')}
 $('sideToggle').onclick=()=>{const on=$('courseSidebar').classList.toggle('side-open');$('sideShade').hidden=!on;$('sideToggle').setAttribute('aria-expanded',String(on))};$('sideShade').onclick=closeSidebar;
-function updateSidebar(){document.querySelectorAll('[data-side-target]').forEach(a=>{let active=location.hash===a.dataset.sideTarget;a.classList.toggle('active',active);if(active)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});document.querySelectorAll('.navbtn').forEach(b=>b.classList.toggle('active',b.dataset.page===currentPage));}
+function updateSidebar(){
+ const reading=!$('course').classList.contains('hidden')&&topicIndex>=0&&currentConcept>=0;
+ const current=reading?routeCourse(topicIndex,currentConcept):location.hash;
+ document.querySelectorAll('[data-side-target]').forEach(a=>{
+  const active=a.dataset.sideTarget===current;
+  a.classList.toggle('active',active);
+  if(active)a.setAttribute('aria-current',reading?'location':'page');
+  else a.removeAttribute('aria-current');
+ });
+ document.querySelectorAll('.navbtn').forEach(b=>b.classList.toggle('active',b.dataset.page===currentPage));
+}
 function panel(id,scroll=true){for(const p of panels)$(p).classList.toggle('hidden',p!==id);$('hero').classList.toggle('hidden',id!=='browse'||currentPage!=='home');updateSidebar();if(scroll)window.scrollTo({top:0,behavior:'instant'})}
 function renderTopics(indices=sections.map((_,i)=>i)){$('cards').innerHTML=indices.map(si=>[sections[si],si]).map(([s,si])=>`<a class="topic" href="${routeTopic(si)}" style="text-decoration:none"><span class="topic-icon">${esc(icons[si%icons.length])}</span><span><h3>${esc(s.title)}</h3><p>${s.items.length} notions à revoir</p></span><span class="arrow">›</span></a>`).join('')}
-function definitionCard(it){const saved=favorites.includes(it.id);return `<article class="def" tabindex="0" data-card-route="${routePreview(it.si,it.ii)}" aria-label="Ouvrir l’explication de ${esc(it.term)}"><h3>${esc(it.term)}</h3><button class="fav-btn ${saved?'saved':''}" type="button" data-fav="${it.id}" aria-label="${saved?'Retirer des':'Ajouter aux'} favoris : ${esc(it.term)}">${saved?'★':'☆'}</button><p>${esc(it.definition)}</p><a class="card-hit" href="${routePreview(it.si,it.ii)}" data-preview="${it.id}" aria-label="Lire l’explication détaillée de ${esc(it.term)}"></a><div class="mininote">${esc(it.topic)}</div></article>`}
+function definitionCard(it){const saved=favorites.includes(it.id);return `<article class="def" tabindex="0" data-card-route="${routeCourse(it.si,it.ii)}" aria-label="Ouvrir le cours de ${esc(it.term)}"><h3>${esc(it.term)}</h3><button class="fav-btn ${saved?'saved':''}" type="button" data-fav="${it.id}" aria-label="${saved?'Retirer des':'Ajouter aux'} favoris : ${esc(it.term)}">${saved?'★':'☆'}</button><p>${esc(it.definition)}</p><a class="card-hit" href="${routeCourse(it.si,it.ii)}" data-course-link="${it.id}" aria-label="Ouvrir le cours détaillé de ${esc(it.term)}"></a><div class="mininote">${esc(it.topic)}</div></article>`}
 function wireFav(container){container.querySelectorAll('[data-fav]').forEach(btn=>btn.onclick=()=>{const id=btn.dataset.fav;favorites=favorites.includes(id)?favorites.filter(x=>x!==id):[...favorites,id];store();if(currentPage==='favorites')drawFavorites();else if(currentPage==='topics'&&topicIndex>=0)drawTopic(topicIndex);else if($('search').value.trim())search()})}
-function wirePreviews(container){container.querySelectorAll('[data-preview]').forEach(a=>a.addEventListener('click',()=>{lastNonModalHash=location.hash||'#accueil';modalOriginScroll=window.scrollY;wasOpenedHere=true}));container.querySelectorAll('[data-card-route]').forEach(card=>{card.addEventListener('click',e=>{if(!e.target.closest('a,button'))card.querySelector('[data-preview]').click()});card.addEventListener('keydown',e=>{if(e.target===card&&(e.key==='Enter'||e.key===' ')){e.preventDefault();card.querySelector('[data-preview]').click()}})})}
-function drawTopic(si){const s=sections[si];$('detailTitle').textContent=s.title;$('detailCount').textContent=s.items.length+' notions · Clique sur une fiche pour ouvrir l’explication, ou utilise le sommaire pour accéder à sa page de cours.';$('breadcrumb').textContent='Fiches / '+s.title;$('definitions').innerHTML=s.items.map((it,ii)=>definitionCard({...it,si,ii,topic:s.title,id:`${si}:${ii}`})).join('');wireFav($('definitions'));wirePreviews($('definitions'))}
-function drawFavorites(){const items=all.filter(it=>favorites.includes(it.id));$('favoriteItems').innerHTML=items.length?items.map(definitionCard).join(''):'<div class="empty">Aucun favori pour le moment. Ouvre une fiche et utilise ☆ pour enregistrer les notions importantes.</div>';wireFav($('favoriteItems'));wirePreviews($('favoriteItems'))}
-function search(){const val=norm($('search').value.trim());if(!val){$('cards').classList.remove('hidden');$('results').classList.add('hidden');$('searchSummary').classList.add('hidden');return}const matched=all.filter(it=>norm(it.term+' '+it.definition+' '+it.topic).includes(val));$('cards').classList.add('hidden');$('results').classList.remove('hidden');$('searchSummary').classList.remove('hidden');$('searchSummary').textContent=matched.length+' résultat'+(matched.length>1?'s':'');$('results').innerHTML=matched.length?matched.map(definitionCard).join(''):'<div class="empty">Aucune notion trouvée. Essaie un autre mot ou une autre commande.</div>';wireFav($('results'));wirePreviews($('results'))}
+function wireCourseLinks(container){
+ container.querySelectorAll('[data-course-link]').forEach(a=>a.addEventListener('click',rememberCardOrigin));
+ container.querySelectorAll('[data-card-route]').forEach(card=>{
+  card.addEventListener('click',e=>{if(!e.target.closest('a,button'))card.querySelector('[data-course-link]').click()});
+  card.addEventListener('keydown',e=>{
+   if(e.target===card&&(e.key==='Enter'||e.key===' ')){
+    e.preventDefault();
+    card.querySelector('[data-course-link]').click();
+   }
+  });
+ });
+}
+function drawTopic(si){const s=sections[si];$('detailTitle').textContent=s.title;$('detailCount').textContent=s.items.length+' notions · Clique sur un post-it pour accéder directement à sa notion dans le cours continu.';$('breadcrumb').textContent='Fiches / '+s.title;$('definitions').innerHTML=s.items.map((it,ii)=>definitionCard({...it,si,ii,topic:s.title,id:`${si}:${ii}`})).join('');wireFav($('definitions'));wireCourseLinks($('definitions'))}
+function drawFavorites(){const items=all.filter(it=>favorites.includes(it.id));$('favoriteItems').innerHTML=items.length?items.map(definitionCard).join(''):'<div class="empty">Aucun favori pour le moment. Utilise ☆ sur les fiches pour enregistrer les notions importantes.</div>';wireFav($('favoriteItems'));wireCourseLinks($('favoriteItems'))}
+function search(){const val=norm($('search').value.trim());if(!val){$('cards').classList.remove('hidden');$('results').classList.add('hidden');$('searchSummary').classList.add('hidden');return}const matched=all.filter(it=>norm(it.term+' '+it.definition+' '+it.topic).includes(val));$('cards').classList.add('hidden');$('results').classList.remove('hidden');$('searchSummary').classList.remove('hidden');$('searchSummary').textContent=matched.length+' résultat'+(matched.length>1?'s':'');$('results').innerHTML=matched.length?matched.map(definitionCard).join(''):'<div class="empty">Aucune notion trouvée. Essaie un autre mot ou une autre commande.</div>';wireFav($('results'));wireCourseLinks($('results'))}
 const lessonRefs=[
  [['Linux : pages de manuel','https://man7.org/linux/man-pages/'],['Microsoft Learn : WSL','https://learn.microsoft.com/fr-fr/windows/wsl/compare-versions']],
  [['GNU : manuel Bash','https://www.gnu.org/software/bash/manual/bash.html']],
@@ -660,42 +694,161 @@ function scrollToCourseNotion(si,ii){
  const panel=document.getElementById(`notion-${si}-${ii}`);
  if(panel){const y=panel.getBoundingClientRect().top+window.scrollY-(window.matchMedia('(max-width:790px)').matches?185:110);window.scrollTo({top:Math.max(0,y),left:0,behavior:'instant'});}
 }
-const dlg=$('conceptDialog');let lastNonModalHash='#accueil',wasOpenedHere=false,modalOriginScroll=0,closingProgrammatically=false;
-function showPreview(si,ii){$('modalBody').innerHTML=`<div class="modal-body">${lessonContent(si,ii)}<a class="modal-open-page" href="${routeCourse(si,ii)}">Ouvrir la page complète →</a></div>`;if(!dlg.open)dlg.showModal()}
-function closeDialogSilently(){if(dlg.open){closingProgrammatically=true;dlg.close();closingProgrammatically=false}}
-function closePreview(){if(wasOpenedHere&&window.history.length>1){wasOpenedHere=false;history.back()}else{const target=lastNonModalHash||routeTopic(topicIndex>=0?topicIndex:0);history.replaceState(null,'',target);renderRoute()}}
-$('modalClose').onclick=closePreview;
-dlg.addEventListener('click',e=>{if(e.target===dlg)closePreview()});
-dlg.addEventListener('cancel',e=>{e.preventDefault();closePreview()});
-$('modalBody').addEventListener('click',e=>{const a=e.target.closest('a.modal-open-page');if(a){wasOpenedHere=false;lastNonModalHash=location.hash}});
-function parseRoute(){const parts=decodeURIComponent(location.hash.replace(/^#/,'' )).split('/');const page=parts[0]||'accueil';if(page==='categorie'){const gi=categorySlug().indexOf(parts[1]);return gi<0?{page:'fiches'}:{page,gi}}if(['theme','cours','apercu'].includes(page)){const si=sectionSlug.indexOf(parts[1]);if(si<0)return {page:'fiches'};if(page==='theme')return{page,si};const ii=conceptSlug[si].indexOf(parts[2]);if(ii<0)return {page:'theme',si};return{page,si,ii}}return{page:['accueil','fiches','favoris','apropos'].includes(page)?page:'accueil'}}
-function renderRoute(){const r=parseRoute();document.title=(r.page==='cours'||r.page==='apercu')?`${sections[r.si].items[r.ii].term} · Holberton Révision`:(r.page==='theme'?`${sections[r.si].title} · Holberton Révision`:'Holberton Révision · Fiches de cours');const previousPage=currentPage;const wasModal=dlg.open;if(r.page==='apercu'){
-  // La page de fond reste intacte pour le retour à la fiche, comme demandé.
-  if(!wasModal){if(!wasOpenedHere)lastNonModalHash=routeTopic(r.si);if(previousPage==='home'&&topicIndex<0){currentPage='topics';topicIndex=r.si;drawTopic(r.si);panel('detail',false)} }
-  showPreview(r.si,r.ii);return
+
+ let savedCardOrigin=null,pendingCardRestoration=null,courseNavigationSerial=0,scrollSpyScheduled=false;
+ function rememberCardOrigin(){
+  savedCardOrigin={
+   hash:location.hash||'#accueil',
+   scrollY:window.scrollY,
+   search:$('search').value,
+   quickSearch:$('quickSearch').value
+  };
  }
- closeDialogSilently();wasOpenedHere=false;
- if(r.page==='theme'){
-   currentPage='topics';topicIndex=r.si;currentConcept=-1;drawTopic(r.si);const gi=sidebarGroups.findIndex(g=>g[1].includes(r.si));if(gi>=0){openedGroups=new Set([gi]);openedTopics=new Set([r.si]);renderSidebar()}panel('detail',!wasModal);if(wasModal)window.scrollTo(0,modalOriginScroll);
- }else if(r.page==='cours'){
-   currentPage='topics';topicIndex=r.si;currentConcept=r.ii;drawCourse(r.si,r.ii);panel('course',false);requestAnimationFrame(()=>requestAnimationFrame(()=>scrollToCourseNotion(r.si,r.ii)));
-   const gi=sidebarGroups.findIndex(g=>g[1].includes(r.si));if(gi>=0){if(!openedGroups.has(gi)||!openedTopics.has(r.si)){openedGroups=new Set([gi]);openedTopics=new Set([r.si]);renderSidebar()}}
- }else if(r.page==='categorie'){
-   currentPage='category';topicIndex=-1;currentConcept=-1;openedGroups=new Set([r.gi]);openedTopics=new Set();renderSidebar();renderTopics(sidebarGroups[r.gi][1]);$('search').value='';$('quickSearch').value='';$('listingTitle').textContent=sidebarGroups[r.gi][0];$('listingSubtitle').textContent='Choisis un thème pour afficher ses fiches et ses explications.';search();panel('browse');document.title=sidebarGroups[r.gi][0]+' · Holberton Révision';
-   }else if(r.page==='favoris'){
-   currentPage='favorites';topicIndex=-1;drawFavorites();panel('favorites');
- }else if(r.page==='apropos'){
-   currentPage='about';topicIndex=-1;panel('about');
- }else{
-   currentPage=r.page==='fiches'?'topics':'home';topicIndex=-1;renderTopics();panel('browse');$('search').value=$('quickSearch').value;search();$('listingTitle').textContent=currentPage==='home'?'Thèmes de révision':'Toutes les fiches';$('listingSubtitle').textContent='Des explications courtes et structurées, par sujet.';
+ function revealSideNotion(si,ii){
+  const sidebar=$('courseSidebar');
+  const target=routeCourse(si,ii);
+  const link=Array.from(sidebar.querySelectorAll('[data-side-target]')).find(a=>a.dataset.sideTarget===target);
+  if(!link || link.offsetParent===null)return;
+  const parent=sidebar.getBoundingClientRect(),box=link.getBoundingClientRect();
+  const topEdge=parent.top+55,bottomEdge=parent.bottom-38;
+  if(box.top<topEdge)sidebar.scrollTop-=Math.ceil(topEdge-box.top);
+  else if(box.bottom>bottomEdge)sidebar.scrollTop+=Math.ceil(box.bottom-bottomEdge);
  }
- updateSidebar();
-}
+ function setReadingNotion(si,ii,forceReveal=false){
+  if($('course').classList.contains('hidden')||topicIndex!==si)return;
+  const changed=currentConcept!==ii;
+  currentConcept=ii;
+  if(changed||forceReveal){
+   $('courseArticle').querySelectorAll('.lesson-panel').forEach((node,i)=>node.classList.toggle('lesson-selected',i===ii));
+   updateSidebar();
+   revealSideNotion(si,ii);
+  }
+ }
+ function syncNotionWithScroll(){
+  if($('course').classList.contains('hidden')||topicIndex<0)return;
+  const panels=Array.from($('courseArticle').querySelectorAll('.lesson-panel'));
+  if(!panels.length)return;
+  const threshold=Math.min(window.innerHeight*.32,260);
+  let selected=0;
+  for(let i=0;i<panels.length;i++){
+   if(panels[i].getBoundingClientRect().top<=threshold)selected=i;
+   else break;
+  }
+  setReadingNotion(topicIndex,selected);
+ }
+ function onMainScroll(){
+  if(scrollSpyScheduled)return;
+  scrollSpyScheduled=true;
+  requestAnimationFrame(()=>{
+   scrollSpyScheduled=false;
+   syncNotionWithScroll();
+  });
+ }
+ window.addEventListener('scroll',onMainScroll,{passive:true});
+ function returnToCards(){
+  if(savedCardOrigin){
+   pendingCardRestoration={...savedCardOrigin};
+   go(savedCardOrigin.hash);
+  }else if(topicIndex>=0)go(routeTopic(topicIndex));
+  else go('#fiches');
+ }
+ function restoreCardPosition(){
+  if(!pendingCardRestoration||pendingCardRestoration.hash!==location.hash)return;
+  const restore=pendingCardRestoration;
+  pendingCardRestoration=null;
+  if(!$('browse').classList.contains('hidden')){
+   $('quickSearch').value=restore.quickSearch;
+   $('search').value=restore.search;
+   search();
+  }
+  requestAnimationFrame(()=>requestAnimationFrame(()=>{
+   if(location.hash!==restore.hash||!$('course').classList.contains('hidden'))return;
+   window.scrollTo({top:restore.scrollY,behavior:'instant'});
+  }));
+ }
+ function parseRoute(){
+  const parts=decodeURIComponent(location.hash.replace(/^#/,'' )).split('/');
+  const page=parts[0]||'accueil';
+  if(page==='categorie'){
+   const gi=categorySlug().indexOf(parts[1]);
+   return gi<0?{page:'fiches'}:{page,gi};
+  }
+  if(['theme','cours','apercu'].includes(page)){
+   const si=sectionSlug.indexOf(parts[1]);
+   if(si<0)return {page:'fiches'};
+   if(page==='theme')return {page,si};
+   const ii=conceptSlug[si].indexOf(parts[2]);
+   if(ii<0)return {page:'theme',si};
+   return page==='apercu'?{page:'cours',si,ii,legacy:true}:{page,si,ii};
+  }
+  return {page:['accueil','fiches','favoris','apropos'].includes(page)?page:'accueil'};
+ }
+ function renderRoute(){
+  const r=parseRoute();
+  if(r.legacy)history.replaceState(history.state,'',routeCourse(r.si,r.ii));
+  const previousWasCourse=!$('course').classList.contains('hidden');
+  if(previousWasCourse && savedCardOrigin && location.hash===savedCardOrigin.hash && !pendingCardRestoration){
+   pendingCardRestoration={...savedCardOrigin};
+  }
+  document.title=r.page==='cours'?`${sections[r.si].items[r.ii].term} · Holberton Révision`
+    :r.page==='theme'?`${sections[r.si].title} · Holberton Révision`:'Holberton Révision · Fiches de cours';
+  if(r.page==='theme'){
+   courseNavigationSerial++;
+   currentPage='topics';topicIndex=r.si;currentConcept=-1;
+   drawTopic(r.si);
+   const gi=sidebarGroups.findIndex(g=>g[1].includes(r.si));
+   if(gi>=0){openedGroups=new Set([gi]);openedTopics=new Set([r.si]);renderSidebar()}
+   panel('detail');
+  }else if(r.page==='cours'){
+   currentPage='topics';topicIndex=r.si;currentConcept=r.ii;
+   drawCourse(r.si,r.ii);
+   const gi=sidebarGroups.findIndex(g=>g[1].includes(r.si));
+   if(gi>=0&&(!openedGroups.has(gi)||!openedTopics.has(r.si))){
+    openedGroups=new Set([gi]);openedTopics=new Set([r.si]);renderSidebar();
+   }
+   panel('course',false);
+   const serial=++courseNavigationSerial,si=r.si,ii=r.ii;
+   requestAnimationFrame(()=>requestAnimationFrame(()=>{
+    if(serial!==courseNavigationSerial||$('course').classList.contains('hidden')||topicIndex!==si)return;
+    scrollToCourseNotion(si,ii);
+    setReadingNotion(si,ii,true);
+   }));
+  }else if(r.page==='categorie'){
+   courseNavigationSerial++;
+   currentPage='category';topicIndex=-1;currentConcept=-1;
+   openedGroups=new Set([r.gi]);openedTopics=new Set();renderSidebar();
+   renderTopics(sidebarGroups[r.gi][1]);
+   $('search').value='';$('quickSearch').value='';
+   $('listingTitle').textContent=sidebarGroups[r.gi][0];
+   $('listingSubtitle').textContent='Choisis un thème pour afficher ses fiches et ses explications.';
+   search();panel('browse');
+   document.title=sidebarGroups[r.gi][0]+' · Holberton Révision';
+  }else if(r.page==='favoris'){
+   courseNavigationSerial++;
+   currentPage='favorites';topicIndex=-1;currentConcept=-1;
+   drawFavorites();panel('favorites');
+  }else if(r.page==='apropos'){
+   courseNavigationSerial++;
+   currentPage='about';topicIndex=-1;currentConcept=-1;
+   panel('about');
+  }else{
+   courseNavigationSerial++;
+   currentPage=r.page==='fiches'?'topics':'home';
+   topicIndex=-1;currentConcept=-1;
+   renderTopics();panel('browse');
+   $('search').value=$('quickSearch').value;search();
+   $('listingTitle').textContent=currentPage==='home'?'Thèmes de révision':'Toutes les fiches';
+   $('listingSubtitle').textContent='Des explications courtes et structurées, par sujet.';
+  }
+  updateSidebar();
+  if(r.page!=='cours')restoreCardPosition();
+ }
+
 function go(h){if(location.hash===h)renderRoute();else location.hash=h}
 $('search').addEventListener('input',()=>{$('quickSearch').value=$('search').value;search()});
 $('quickSearch').addEventListener('input',()=>{const q=$('quickSearch').value; if(location.hash!=='#fiches'){go('#fiches')} $('search').value=q;renderTopics();search()});
 $('back').onclick=()=>go('#fiches');
-$('courseBack').onclick=()=>go(routeTopic(topicIndex));
+$('courseBack').onclick=returnToCards;
 $('start').onclick=()=>go('#fiches');$('goFavorites').onclick=()=>go('#favoris');
 $('brandHome').onclick=e=>{e.preventDefault();go('#accueil')};
 document.querySelectorAll('[data-page]').forEach(b=>b.onclick=()=>go({home:'#accueil',topics:'#fiches',favorites:'#favoris',about:'#apropos'}[b.dataset.page]));
