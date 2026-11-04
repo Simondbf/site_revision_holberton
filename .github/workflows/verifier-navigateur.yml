@@ -1,0 +1,40 @@
+name: Tester les illustrations dans un navigateur
+
+on:
+  pull_request:
+    paths:
+      - 'index.html'
+      - 'scripts/verifier_navigateur.mjs'
+      - '.github/workflows/verifier-navigateur.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  navigateur:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - name: Récupérer les fichiers
+        uses: actions/checkout@v4
+
+      - name: Installer Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Préparer Chromium
+        run: |
+          npm install --no-save --no-package-lock playwright
+          npx playwright install --with-deps chromium
+
+      - name: Tester les illustrations et la navigation
+        run: node scripts/verifier_navigateur.mjs
+
+      - name: Enregistrer les captures de vérification
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: apercus-illustrations
+          path: apercus/
+          if-no-files-found: ignore
