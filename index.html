@@ -464,12 +464,12 @@ function visualEnergy(){
 }
 function visualSigned(){
  const b=[];
- b.push(visualText(350,37,"Plages de valeurs — exemple de principe"));
- for(const [y,label,vals]of [[84,"signed",["−3","−2","−1","0","1","2","3"]],[174,"unsigned",["0","1","2","3","4","5","6"]]]){
- b.push(visualText(77,y+26,label,"vtext vlabel"));
- vals.forEach((t,i)=>{const x=142+i*76;b.push(visualBox(x,y,67,53,i===3&&label==="signed"?"#f1eaff":"#eaf6ff"));b.push(visualText(x+33,y+33,t,"vtext vlabel"))});
+ b.push(visualText(350,30,"Exemple théorique sur 3 bits, en complément à deux"));
+ for(const [y,label,vals]of [[65,"Signé",["−4","−3","−2","−1","0","1","2","3"]],[165,"Non signé",["0","1","2","3","4","5","6","7"]]]){
+ b.push(visualText(84,y+29,label,"vtext vlabel"));
+ vals.forEach((t,i)=>{const x=140+i*67;b.push(visualBox(x,y,61,62,i===4&&label==="Signé"?"#fff0db":"#eaf6ff"));b.push(visualText(x+30,y+37,t,"vtext vlabel"))});
  }
- return visualFigure("Signé ou non signé : quelle plage de valeurs ?","Un type signé peut représenter des nombres négatifs et positifs ; un type non signé représente des valeurs non négatives. Les bornes réelles dépendent du type et de sa largeur en bits.",b.join(""));
+ return visualFigure("Signé / non signé : le même nombre de bits, deux plages","Illustration abstraite sur trois bits (aucun type entier C standard ne se limite à trois bits). En complément à deux, les valeurs signées vont de −4 à +3 ; les non signées de 0 à 7. Les tailles réelles dépendent des types C et de la machine.",b.join(""));
 }
 function visualPath(){
  const b=[];
