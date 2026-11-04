@@ -122,6 +122,26 @@ header .shell{max-width:1580px;padding:0 28px}
 @media(max-width:980px){.site-layout{grid-template-columns:250px minmax(0,1fr);gap:14px}.header-search{max-width:225px;min-width:120px}.topbar{gap:9px}}
 @media(max-width:790px){.site-layout{display:block;padding:0 16px}.course-sidebar{width:min(340px,88vw);padding:15px}.header-search{order:2;max-width:none;width:100%;flex-basis:100%;margin-bottom:5px}.topnav{order:3}.themebtn{margin-left:auto}}
 @media(max-width:660px){header .shell{padding:9px 14px}.topnav{order:4;width:100%;gap:0}.header-search{order:3}.topbar{align-items:center}.brandmark{margin-right:auto}}
+
+/* Illustrations pédagogiques SVG intégrées, sans ressource extérieure */
+.lesson-visual{margin:24px 0;padding:18px 20px 14px;border:1px solid #aed3ef;border-radius:18px;background:#f5fbff;box-shadow:0 6px 18px rgba(20,70,110,.06)}
+.lesson-visual-title{font-weight:800;font-size:16px;line-height:1.35;color:#17406d;margin-bottom:13px}
+.lesson-visual svg{display:block;width:100%;height:auto;max-height:360px;overflow:visible;aspect-ratio:700/260}
+.lesson-visual figcaption{color:#3f586d;font-size:13px;line-height:1.55;margin-top:12px}
+.lesson-visual figcaption strong{color:#17406d}
+.lesson-visual svg text{font-family:system-ui,-apple-system,Segoe UI,sans-serif}
+.lesson-visual svg .vtext{fill:#183554}
+.lesson-visual svg .vsmall{font-size:13px}
+.lesson-visual svg .vlabel{font-size:16px;font-weight:750}
+.lesson-visual svg .vvalue{font-size:22px;font-weight:800}
+.lesson-visual svg .vmuted{fill:#58738d}
+.lesson-visual svg .vwhite{fill:#fff}
+.lesson-visual svg .vblue{fill:#1874b8}
+.lesson-visual svg .vorange{fill:#a45410}
+body.dark .lesson-visual{border-color:#39617d;background:#182c45}
+body.dark .lesson-visual-title,body.dark .lesson-visual figcaption strong{color:#bfe4ff}
+body.dark .lesson-visual figcaption{color:#c5d9e7}
+@media(max-width:650px){.lesson-visual{padding:13px 10px}.lesson-visual-title{font-size:14px;padding:0 6px}.lesson-visual figcaption{padding:0 6px;font-size:12px}.lesson-visual svg{min-height:155px}}
 </style>
 </head>
 <body>
@@ -244,6 +264,210 @@ const lessonRefs=[
  [['Référence du langage C','https://en.cppreference.com/w/c'],['Documentation GCC','https://gcc.gnu.org/onlinedocs/gcc/Overall-Options.html']],
  [['Green Software Foundation','https://greensoftware.foundation/'],['Agence internationale de l’énergie','https://www.iea.org/']],
 ];
+function visualBox(x,y,w,h,fill="#ffffff",stroke="#b4d1e6",r=13){
+ return `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${r}" fill="${fill}" stroke="${stroke}" stroke-width="2"/>`;
+}
+function visualText(x,y,value,style="vtext vlabel",anchor="middle"){
+ return `<text x="${x}" y="${y}" text-anchor="${anchor}" class="${style}">${esc(value)}</text>`;
+}
+function visualArrow(x1,y1,x2,y2,color="#257ab8",width=3){
+ const a=Math.atan2(y2-y1,x2-x1),tip=11;const n1=[x2-tip*Math.cos(a-.48),y2-tip*Math.sin(a-.48)],n2=[x2-tip*Math.cos(a+.48),y2-tip*Math.sin(a+.48)];
+ return `<path d="M ${x1} ${y1} L ${x2} ${y2} M ${n1[0].toFixed(1)} ${n1[1].toFixed(1)} L ${x2} ${y2} L ${n2[0].toFixed(1)} ${n2[1].toFixed(1)}" stroke="${color}" stroke-width="${width}" fill="none" stroke-linecap="round" stroke-linejoin="round"/>`;
+}
+function visualFigure(title,summary,body){
+ return `<figure class="lesson-visual"><div class="lesson-visual-title">🔎 ${esc(title)}</div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 260" role="img" aria-label="${esc(summary)}" focusable="false"><rect width="700" height="260" rx="12" fill="#ffffff"/>${body}</svg><figcaption><strong>À comprendre :</strong> ${esc(summary)}</figcaption></figure>`;
+}
+function visualPointer(value){
+ const b=[];
+ b.push(visualBox(48,70,235,120,"#e8f6ff"));
+ b.push(visualBox(450,70,205,120,"#eaf7ed","#a1d0ba"));
+ b.push(visualText(165,100,"p : int *"));
+ b.push(visualText(165,133,"0x1000","vtext vvalue"));
+ b.push(visualText(165,165,"adresse de p : 0x2000","vmuted vsmall"));
+ b.push(visualText(551,100,"n : int"));
+ b.push(visualText(551,142,String(value),"vtext vvalue"));
+ b.push(visualText(551,169,"adresse : 0x1000","vmuted vsmall"));
+ b.push(visualArrow(292,130,438,130));
+ b.push(visualText(365,107,"*p → "+value,"vblue vlabel"));
+ b.push(visualText(350,41,"p contient l’adresse de n","vtext vlabel"));
+ return visualFigure("Adresse, pointeur et valeur","Adresses 0x1000 et 0x2000 purement fictives : p contient l’adresse de n ; *p donne accès à sa valeur "+value+". Le pointeur a lui aussi sa propre adresse.",b.join(""));
+}
+function visualStreet(values,highlight){
+ const b=[],n=values.length,step=Math.min(132,620/n),x0=(700-n*step)/2;
+ b.push(visualText(350,34,"Chaque indice désigne une case, en partant de 0"));
+ for(let i=0;i<n;i++){const x=x0+i*step+4,w=step-8,color=i===highlight?"#fff0d9":"#e9f6ff",border=i===highlight?"#eead64":"#b8d9ef";
+ b.push(`<path d="M ${x+3} 110 L ${x+w/2} 80 L ${x+w-3} 110" stroke="${border}" stroke-width="3" fill="none" stroke-linejoin="round"/>`);
+ b.push(visualBox(x,110,w,99,color,border,9));
+ b.push(visualText(x+w/2,140,"indice "+i,"vmuted vsmall"));
+ b.push(visualText(x+w/2,181,String(values[i]),"vtext vvalue"));
+ }
+ const x=x0+highlight*step+step/2;
+ b.push(visualArrow(x,58,x,75,"#de8a31",3));
+ b.push(visualText(350,242,"Une case = un élément du tableau","vtext vlabel"));
+ return visualFigure("La rue des cases du tableau","Le premier indice est 0. Par exemple, l'indice "+highlight+" désigne la "+(highlight+1)+"e case ; le décalage s'effectue en éléments, pas nécessairement en octets.",b.join(""));
+}
+function visualArrayVsPointer(){
+ const b=[];
+ b.push(visualText(350,30,"Deux objets différents en mémoire"));
+ b.push(visualText(122,71,"tableau a[3]","vtext vlabel"));
+ for(let i=0;i<3;i++){const x=45+i*110;b.push(visualBox(x,91,99,75,i===0?"#e0f3ff":"#f0f8ff"));b.push(visualText(x+49,115,"a["+i+"]","vmuted vsmall"));b.push(visualText(x+49,150,String(i+1),"vtext vvalue"))}
+ b.push(visualBox(457,91,189,75,"#fff0dc","#edbd76"));
+ b.push(visualText(552,116,"p : int *","vtext vlabel"));
+ b.push(visualText(552,147,"&a[0]","vtext vvalue"));
+ b.push(visualArrow(450,186,96,186));
+ b.push(visualText(350,222,"p stocke une adresse ; a contient les éléments","vtext vlabel"));
+ return visualFigure("Un tableau n'est pas un pointeur","a est l'objet contenant 3 entiers contigus ; p est un objet distinct contenant une adresse vers a[0]. sizeof(a) mesure tout le tableau, sizeof(p) le pointeur.",b.join(""));
+}
+function visualTrain(chars){
+ const b=[],n=chars.length,step=112,x0=(700-n*step)/2;
+ b.push(visualText(350,43,"Une chaîne est un train de caractères"));
+ for(let i=0;i<n;i++){const x=x0+i*step+5,term=i===n-1;
+ b.push(visualBox(x,88,step-12,91,term?"#fff0dc":"#e6f4ff",term?"#e0a95e":"#9ac7e6",10));
+ b.push(visualText(x+(step-12)/2,123,term?"fin":"case "+i,"vmuted vsmall"));
+ b.push(visualText(x+(step-12)/2,159,chars[i],"vtext vvalue"));
+ b.push(`<circle cx="${x+24}" cy="190" r="9" fill="#466882"/><circle cx="${x+step-36}" cy="190" r="9" fill="#466882"/>`);
+ if(i<n-1)b.push(`<path d="M ${x+step-12} 161 H ${x+step+5}" stroke="#647d95" stroke-width="4"/>`);
+ }
+ b.push(visualText(350,232,"Le terminus '\\0' n'est pas affiché par %s","vtext vlabel"));
+ return visualFigure("Le train des caractères","Le dernier wagon contient le caractère nul '\\0' (valeur 0) : il termine la chaîne en mémoire. Ce n'est pas le caractère imprimable '0'.",b.join(""));
+}
+function visualSwap(){
+ const b=[];const panels=[{title:"Départ",cells:["a = A","b = B","tmp = ?"]},{title:"Sauvegarde",cells:["a = A","b = B","tmp = A"]},{title:"Après échange",cells:["a = B","b = A","tmp = A"]}];
+ panels.forEach((p,i)=>{const x=28+i*228;b.push(visualBox(x,56,214,157,i===2?"#e9f7ec":"#eaf6ff"));b.push(visualText(x+107,83,p.title));p.cells.forEach((t,j)=>{const xx=x+13+j*65;b.push(visualBox(xx,111,57,64,j===2?"#fff1dd":"#fff","#bad5e6",7));b.push(visualText(xx+28,132,t.split(" = ")[0],"vmuted vsmall"));b.push(visualText(xx+28,166,t.split(" = ")[1],"vtext vvalue"))});if(i<2)b.push(visualArrow(x+214,130,x+227,130));});
+ return visualFigure("Échanger deux caractères avec un récipient temporaire","On copie d'abord a dans tmp, on copie b dans a, puis tmp dans b. Le schéma montre les valeurs après les étapes ; la variable temporaire évite de perdre A.",b.join(""));
+}
+function visualReverse(){
+ const b=[],steps=[["A","B","C","D","E"],["E","B","C","D","A"],["E","D","C","B","A"]];
+ steps.forEach((row,j)=>{const y=30+j*79;b.push(visualText(63,y+32,j===0?"Départ":j===1?"1er échange":"2e échange","vmuted vsmall","middle"));row.forEach((ch,i)=>{const x=154+i*103,hot=j===0?(i===0||i===4):j===1?(i===1||i===3):false;b.push(visualBox(x,y,87,55,hot?"#fff0d9":"#eaf6ff",hot?"#dfad76":"#b8d9ef",9));b.push(visualText(x+43,y+35,ch,"vtext vvalue"));})});
+ return visualFigure("Inverser « ABCDE » : deux échanges suffisent","On échange d'abord les caractères des extrémités, puis ceux juste à l'intérieur. Pour une chaîne C valide, le caractère nul reste à sa place après les lettres.",b.join(""));
+}
+function visualMatrix(){
+ const b=[];const x0=180,y0=55;
+ b.push(visualText(350,30,"2 lignes × 3 colonnes"));
+ for(let row=0;row<2;row++)for(let col=0;col<3;col++){const x=x0+col*116,y=y0+row*85,hot=row===1&&col===2;b.push(visualBox(x,y,104,76,hot?"#ffedcd":"#eaf6ff",hot?"#dfad76":"#b4d1e6",9));b.push(visualText(x+52,y+25,"["+row+"]["+col+"]","vmuted vsmall"));b.push(visualText(x+52,y+58,String(row*3+col+1),"vtext vvalue"))}
+ b.push(visualText(350,239,"grille[1][2] contient 6","vblue vlabel"));
+ return visualFigure("Le tableau à deux dimensions comme une grille","Le premier indice choisit la ligne, le second la colonne. Les deux indices commencent à zéro. grille[1][2] est la troisième case de la deuxième ligne.",b.join(""));
+}
+function visualCondition(){
+ const b=[];
+ b.push(`<path d="M350 35 L490 108 L350 182 L210 108 Z" fill="#eaf6ff" stroke="#76b7df" stroke-width="3"/>`);
+ b.push(visualText(350,103,"Condition","vtext vlabel"));
+ b.push(visualText(350,127,"vraie ?","vtext vlabel"));
+ b.push(visualArrow(210,108,130,108));b.push(visualArrow(490,108,575,108));
+ b.push(visualText(167,86,"oui","vblue vlabel"));b.push(visualText(531,86,"non","vblue vlabel"));
+ b.push(visualBox(30,119,180,74,"#e9f7ec","#9bcaaa"));b.push(visualBox(502,119,170,74,"#fff1dd","#e3b777"));
+ b.push(visualText(120,166,"bloc if","vtext vlabel"));b.push(visualText(585,166,"else","vtext vlabel"));
+ return visualFigure("Une condition sélectionne un chemin","Si la condition est vraie, le bloc if s'exécute ; sinon, le bloc else s'exécute, s'il existe. else if permet de tester d'autres conditions dans l'ordre.",b.join(""));
+}
+function visualLoop(which){
+ const b=[],name=which==="for"?"for":which==="while"?"while":"do…while";
+ b.push(visualText(350,32,"Parcours simplifié d'une boucle "+name));
+ if(which==="for"){
+   [[45,"Initialisation"],[225,"Test"],[405,"Corps"],[565,"Mise à jour"]].forEach(([x,t],i)=>{b.push(visualBox(x,94,i===3?126:146,75,i===1?"#fff0d8":"#eaf6ff"));b.push(visualText(x+(i===3?63:73),136,t,"vtext vlabel"));if(i<3)b.push(visualArrow(x+150,131,x+173,131))});
+   b.push(`<path d="M 633 176 V 220 H 300 V 177" fill="none" stroke="#3989c2" stroke-width="3"/>`);b.push(visualArrow(300,195,300,177));b.push(visualText(454,209,"retour au test","vmuted vsmall"));
+ }else if(which==="while"){
+   b.push(visualBox(145,83,190,79,"#fff0d8"));b.push(visualText(240,127,"Tester","vtext vlabel"));b.push(visualArrow(346,122,424,122));
+   b.push(visualBox(433,83,185,79,"#eaf6ff"));b.push(visualText(525,127,"Corps","vtext vlabel"));
+   b.push(`<path d="M 524 171 V 217 H 240 V 171" fill="none" stroke="#3989c2" stroke-width="3"/>`);b.push(visualArrow(240,191,240,171));b.push(visualText(350,55,"Faux → sortir sans exécuter le corps","vmuted vsmall"));
+ }else{
+   b.push(visualBox(145,83,190,79,"#eaf6ff"));b.push(visualText(240,127,"Corps","vtext vlabel"));b.push(visualArrow(346,122,424,122));b.push(visualBox(433,83,185,79,"#fff0d8"));b.push(visualText(525,127,"Tester","vtext vlabel"));
+   b.push(`<path d="M 525 171 V 217 H 240 V 171" fill="none" stroke="#3989c2" stroke-width="3"/>`);b.push(visualArrow(240,191,240,171));b.push(visualText(350,55,"Le corps s'exécute au moins une fois","vmuted vsmall"));
+ }
+ return visualFigure("Visualiser la boucle "+name,which==="for"?"Initialiser, tester, exécuter, mettre à jour puis recommencer tant que la condition est vraie.":which==="while"?"Tester d'abord : si la condition est fausse dès le début, le corps n'est jamais exécuté.":"Exécuter le corps une première fois, puis tester la condition. Le corps s'exécute donc au moins une fois.",b.join(""));
+}
+function visualGit(){
+ const b=[],cards=[["Dossier de travail","fichiers modifiés"],["Index (staging)","changements choisis"],["Historique Git","commit local"]];
+ cards.forEach((p,i)=>{const x=22+i*227;b.push(visualBox(x,70,208,125,i===2?"#e7f7ec":"#eaf6ff"));b.push(visualText(x+104,106,p[0],"vtext vlabel"));b.push(visualText(x+104,143,p[1],"vmuted vsmall"));if(i<2){b.push(visualArrow(x+213,126,x+226,126));b.push(visualText(x+215,58,i===0?"git add":"git commit","vblue vsmall"));}});
+ return visualFigure("Les trois espaces d'un changement Git","git add prépare une sélection de modifications dans l'index. git commit enregistre cette sélection dans l'historique local ; git push est une étape distincte vers le dépôt distant.",b.join(""));
+}
+function visualDocker(){
+ const b=[],cards=[["Dockerfile","recette"],["Image","modèle immuable"],["Conteneur A","instance lancée"]];
+ cards.forEach((p,i)=>{const x=23+i*227;b.push(visualBox(x,65,209,132,i===1?"#fff2de":"#eaf6ff"));b.push(visualText(x+104,111,p[0],"vtext vlabel"));b.push(visualText(x+104,149,p[1],"vmuted vsmall"));if(i<2){b.push(visualArrow(x+212,130,x+226,130));b.push(visualText(x+218,58,i===0?"build":"run","vblue vsmall"));}});
+ b.push(visualArrow(459,197,459,217));b.push(visualBox(471,207,189,39,"#e9f7ed"));b.push(visualText(566,233,"Conteneur B","vtext vlabel"));b.push(visualText(350,31,"Une image peut créer plusieurs conteneurs"));
+ return visualFigure("De la recette Docker aux conteneurs","Un Dockerfile sert à fabriquer une image. Une même image peut lancer plusieurs conteneurs indépendants ; chaque conteneur est une instance, pas une copie du noyau Linux.",b.join(""));
+}
+function visualDockerVM(){
+ const b=[];
+ b.push(visualText(190,31,"Conteneurs","vtext vlabel"));b.push(visualText(517,31,"Machines virtuelles","vtext vlabel"));
+ for(const [x,vm]of [[45,false],[372,true]]){
+  b.push(visualBox(x,63,277,183,"#f3f9ff"));
+  b.push(visualBox(x+16,80,245,40,"#e6f5ff"));b.push(visualText(x+138,106,"Applications","vtext vlabel"));
+  if(vm){b.push(visualBox(x+16,124,245,44,"#fff1d8"));b.push(visualText(x+138,152,"Noyau invité","vtext vlabel"));b.push(visualBox(x+16,174,245,48,"#e8f0fc"));b.push(visualText(x+138,202,"Hyperviseur / hôte","vtext vlabel"))}
+  else{b.push(visualBox(x+16,124,245,98,"#e9f5ea"));b.push(visualText(x+138,155,"Noyau de l'hôte","vtext vlabel"));b.push(visualText(x+138,184,"partagé","vmuted vlabel"))}
+ }
+ return visualFigure("Conteneur ou machine virtuelle ?","Les conteneurs Linux partagent le noyau de leur hôte Linux. Chaque machine virtuelle dispose d'un noyau invité. Sur Windows, Docker Desktop utilise généralement une VM Linux pour héberger les conteneurs Linux.",b.join(""));
+}
+function visualShellPipe(){
+ const b=[];b.push(visualBox(34,89,194,98,"#eaf6ff"));b.push(visualText(131,130,"Commande A","vtext vlabel"));b.push(visualText(131,157,"stdout","vmuted vsmall"));
+ b.push(visualBox(482,89,192,98,"#e8f7ed"));b.push(visualText(578,130,"Commande B","vtext vlabel"));b.push(visualText(578,157,"stdin","vmuted vsmall"));
+ b.push(visualArrow(238,132,472,132,"#2179b7",5));b.push(visualText(355,110,"|","vblue vvalue"));
+ b.push(visualArrow(130,192,130,224,"#c76c48",3));b.push(visualText(242,229,"stderr de A : sortie séparée","vmuted vsmall","start"));
+ return visualFigure("Le tuyau relie deux commandes","Le symbole | relie stdout de la commande A à stdin de B. Par défaut, stderr de A ne passe pas dans ce tuyau : il reste séparé.",b.join(""));
+}
+function visualCompile(){
+ const b=[],labels=["source.c","source.i","code.s","objet.o","exécutable"];
+ labels.forEach((v,i)=>{const x=18+i*137;b.push(visualBox(x,90,119,82,i===4?"#eaf8ea":"#eaf6ff"));b.push(visualText(x+59,125,v,"vtext vlabel"));b.push(visualText(x+59,151,["C","prétraité","assembleur","objet","programme"][i],"vmuted vsmall"));if(i<4){b.push(visualArrow(x+122,132,x+134,132));b.push(visualText(x+126,72,["-E","-S","-c","liaison"][i],"vblue vsmall"));}});
+ return visualFigure("Les étapes de compilation C","Prétraitement → compilation en assembleur → assemblage en objet → édition de liens. Les options -E, -S et -c arrêtent GCC avant les étapes suivantes.",b.join(""));
+}
+function visualTiming(){
+ const b=[]; const labels=[["Temps écoulé",560,"#8dbddf"],["Temps CPU",350,"#f0b775"]];
+ labels.forEach((a,i)=>{const y=70+i*91;b.push(visualText(98,y+21,a[0],"vtext vlabel"));b.push(visualBox(203,y,425,46,"#edf4fa"));b.push(visualBox(203,y,a[1]*.74,46,a[2],a[2],8));b.push(visualText(650,y+27,i===0?"5 s":"3 s","vtext vlabel"))});
+ b.push(visualText(350,244,"Valeurs d'illustration, pas des mesures réelles","vmuted vsmall"));
+ return visualFigure("Temps écoulé et temps CPU : deux mesures différentes","Le temps écoulé inclut les attentes ; le temps CPU mesure le travail processeur. Les deux dépendent du programme et, avec plusieurs cœurs, le temps CPU cumulé peut dépasser le temps écoulé.",b.join(""));
+}
+function visualEnergy(){
+ const b=[];
+ for(let i=0;i<2;i++){const x=34+i*335,values=i===0?["20 W","10 s","200 J"]:["45 W","5 s","225 J"];
+ b.push(visualBox(x,62,301,145,i===0?"#eaf6ff":"#fff1dd"));
+ b.push(visualText(x+151,96,i===0?"Cas A":"Cas B","vtext vlabel"));
+ b.push(visualText(x+151,135,values[0]+" × "+values[1],"vtext vvalue"));
+ b.push(visualText(x+151,179,"= "+values[2],"vtext vvalue"));
+ }
+ b.push(visualText(350,237,"Plus rapide n'implique pas toujours moins d'énergie","vblue vlabel"));
+ return visualFigure("L'énergie, ce n'est pas seulement la durée","À puissance constante, E (joules) = P (watts) × t (secondes). Ici B est deux fois plus rapide, mais consomme 225 J contre 200 J pour A. Valeurs purement fictives.",b.join(""));
+}
+function visualSigned(){
+ const b=[];
+ b.push(visualText(350,37,"Plages de valeurs — exemple de principe"));
+ for(const [y,label,vals]of [[84,"signed",["−3","−2","−1","0","1","2","3"]],[174,"unsigned",["0","1","2","3","4","5","6"]]]){
+ b.push(visualText(77,y+26,label,"vtext vlabel"));
+ vals.forEach((t,i)=>{const x=142+i*76;b.push(visualBox(x,y,67,53,i===3&&label==="signed"?"#f1eaff":"#eaf6ff"));b.push(visualText(x+33,y+33,t,"vtext vlabel"))});
+ }
+ return visualFigure("Signé ou non signé : quelle plage de valeurs ?","Un type signé peut représenter des nombres négatifs et positifs ; un type non signé représente des valeurs non négatives. Les bornes réelles dépendent du type et de sa largeur en bits.",b.join(""));
+}
+function visualPath(){
+ const b=[];
+ const items=[["/usr/local/bin","rien"],["/usr/bin","programme trouvé"],["/bin","non parcouru"]];
+ items.forEach(([path,status],i)=>{const x=21+i*228;b.push(visualBox(x,78,211,128,i===1?"#e8f8eb":"#eaf6ff"));b.push(visualText(x+105,117,path,"vtext vlabel"));b.push(visualText(x+105,159,status,"vmuted vsmall"));if(i<2)b.push(visualArrow(x+214,141,x+225,141))});
+ b.push(visualText(350,33,"PATH = dossiers parcourus dans l'ordre"));
+ return visualFigure("Comment Bash recherche une commande dans PATH","Lorsqu'une commande ne contient pas de slash, le shell cherche généralement un exécutable dans les dossiers de PATH, de gauche à droite ; la recherche s'arrête au premier exécutable trouvé.",b.join(""));
+}
+function pedagogicVisual(si,ii){
+ const k=`${si}:${ii}`;
+ const pointerValues={0:98,1:98,2:98,3:3,4:98,5:402,6:42,8:42,12:7};
+ if(si===9 && Object.hasOwn(pointerValues,ii))return visualPointer(pointerValues[ii]);
+ const arraySets={13:[10,20,30,40,50],14:[10,20,30,40,50],16:[1,2,3],19:[10,20,30],20:[10,20,30],25:[10,20,0,0],26:[2,4,6]};
+ if(si===9 && Object.hasOwn(arraySets,ii))return visualStreet(arraySets[ii],ii===20?2:ii===19?1:0);
+ if(si===9 && [15,17,18].includes(ii))return visualArrayVsPointer();
+ if(si===9 && [21,22,23].includes(ii))return visualTrain(ii===22?["O","K","\\0"]:ii===23?["S","a","l","u","t","\\0"]:["B","O","N","\\0"]);
+ if(k==="9:27")return visualMatrix();
+ if(k==="9:28")return visualSwap();
+ if(k==="9:29")return visualReverse();
+ if(k==="5:0")return visualCondition();
+ if(k==="5:4")return visualLoop("for");
+ if(k==="5:5")return visualLoop("while");
+ if(k==="5:6")return visualLoop("do");
+ if(["6:3","6:4","6:8"].includes(k))return visualGit();
+ if(["7:0","7:1","7:2","7:4","7:5","7:6"].includes(k))return visualDocker();
+ if(k==="7:3")return visualDockerVM();
+ if(["3:2","3:5"].includes(k))return visualShellPipe();
+ if(["8:7","8:11","8:12","8:13","8:14","14:4"].includes(k))return visualCompile();
+ if(["12:4","15:1"].includes(k))return visualTiming();
+ if(["15:3","15:6"].includes(k))return visualEnergy();
+ if(["8:17"].includes(k))return visualSigned();
+ if(["4:8","4:13"].includes(k))return visualPath();
+ return "";
+}
 function flowDiagram(title,labels,caption){
  return `<figure class="lesson-diagram" role="group" aria-label="${esc(title)}"><div class="diagram-title">${esc(title)}</div><div class="diagram-flow">${labels.map((label,i)=>`${i?'<span class="diagram-arrow" aria-hidden="true">→</span>':''}<div class="diagram-node">${esc(label)}</div>`).join('')}</div><figcaption>${esc(caption)}</figcaption></figure>`;
 }
@@ -253,6 +477,8 @@ function chartDiagram(title,opts){
  return `<figure class="lesson-diagram" aria-label="${esc(title)}"><div class="diagram-title">${esc(title)}</div><div class="diagram-bars">${labels.map((label,i)=>`<div class="diagram-bar-row"><span>${esc(label)}</span><div class="diagram-bar-track"><div class="diagram-bar-fill" style="width:${Math.max(2,Math.round(100*values[i]/max))}%"></div></div><strong>${values[i]} ${esc(unit)}</strong></div>`).join('')}</div><figcaption>Schéma pédagogique : les valeurs servent à illustrer le principe, pas à représenter une mesure réelle.</figcaption></figure>`;
 }
 function diagramFor(si,ii){
+ const visual=pedagogicVisual(si,ii);
+ if(visual)return visual;
  const key=`${si}:${ii}`;
  if(['0:1','0:2'].includes(key))return flowDiagram('Du logiciel au matériel',['Application','Système / noyau','Processeur et disque'],'Le programme demande au noyau d’utiliser les ressources.');
  if(key==='0:4')return flowDiagram('WSL 2 dans Windows',['Windows','Machine virtuelle légère','Noyau Linux / Ubuntu'],'La distribution Linux dispose de son propre noyau dans WSL 2.');
