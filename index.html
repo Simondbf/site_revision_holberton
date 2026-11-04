@@ -277,7 +277,7 @@ function visualArrow(x1,y1,x2,y2,color="#257ab8",width=3){
  return `<path d="M ${x1} ${y1} L ${x2} ${y2} M ${n1[0].toFixed(1)} ${n1[1].toFixed(1)} L ${x2} ${y2} L ${n2[0].toFixed(1)} ${n2[1].toFixed(1)}" stroke="${color}" stroke-width="${width}" fill="none" stroke-linecap="round" stroke-linejoin="round"/>`;
 }
 function visualFigure(title,summary,body){
- return `<figure class="lesson-visual"><div class="lesson-visual-title">🔎 ${esc(title)}</div><div class="visual-viewport" tabindex="0" role="region" aria-label="Illustration défilable horizontalement"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 260" role="img" aria-label="${esc(summary)}" focusable="false"><rect width="700" height="260" rx="12" fill="#ffffff"/>${body}</svg></div><p class="visual-scroll-hint" aria-hidden="true">↔ Fais glisser pour parcourir le schéma</p><figcaption><strong>À comprendre :</strong> ${esc(summary)}</figcaption></figure>`;
+ return `<figure class="lesson-visual"><div class="lesson-visual-title">🔎 ${esc(title)}</div><p class="visual-scroll-hint" aria-hidden="true">↔ Fais glisser pour parcourir le schéma</p><div class="visual-viewport" tabindex="0" role="region" aria-label="Illustration défilable horizontalement"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 260" role="img" aria-label="${esc(summary)}" focusable="false"><rect width="700" height="260" rx="12" fill="#ffffff"/>${body}</svg></div><figcaption><strong>À comprendre :</strong> ${esc(summary)}</figcaption></figure>`;
 }
 function visualPointer(value){
  const b=[];
