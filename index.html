@@ -141,7 +141,9 @@ header .shell{max-width:1580px;padding:0 28px}
 body.dark .lesson-visual{border-color:#39617d;background:#182c45}
 body.dark .lesson-visual-title,body.dark .lesson-visual figcaption strong{color:#bfe4ff}
 body.dark .lesson-visual figcaption{color:#c5d9e7}
-@media(max-width:650px){.lesson-visual{padding:13px 10px}.lesson-visual-title{font-size:14px;padding:0 6px}.lesson-visual figcaption{padding:0 6px;font-size:12px}.lesson-visual svg{min-height:155px}}
+.visual-viewport{max-width:100%;overflow-x:auto;overscroll-behavior-x:contain;border-radius:12px}
+.visual-scroll-hint{display:none;color:#366d93;font-size:12px;line-height:1.4;margin:6px 0 0}
+@media(max-width:650px){.lesson-visual{padding:13px 10px}.lesson-visual-title{font-size:14px;padding:0 6px}.lesson-visual figcaption{padding:0 6px;font-size:12px}.lesson-visual svg{width:650px;min-width:650px;max-width:none;max-height:none;aspect-ratio:700/260}.visual-scroll-hint{display:block}.visual-viewport{scrollbar-width:thin;scrollbar-color:#9dc2dd transparent}}
 </style>
 </head>
 <body>
@@ -275,7 +277,7 @@ function visualArrow(x1,y1,x2,y2,color="#257ab8",width=3){
  return `<path d="M ${x1} ${y1} L ${x2} ${y2} M ${n1[0].toFixed(1)} ${n1[1].toFixed(1)} L ${x2} ${y2} L ${n2[0].toFixed(1)} ${n2[1].toFixed(1)}" stroke="${color}" stroke-width="${width}" fill="none" stroke-linecap="round" stroke-linejoin="round"/>`;
 }
 function visualFigure(title,summary,body){
- return `<figure class="lesson-visual"><div class="lesson-visual-title">🔎 ${esc(title)}</div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 260" role="img" aria-label="${esc(summary)}" focusable="false"><rect width="700" height="260" rx="12" fill="#ffffff"/>${body}</svg><figcaption><strong>À comprendre :</strong> ${esc(summary)}</figcaption></figure>`;
+ return `<figure class="lesson-visual"><div class="lesson-visual-title">🔎 ${esc(title)}</div><div class="visual-viewport" tabindex="0" role="region" aria-label="Illustration défilable horizontalement"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 260" role="img" aria-label="${esc(summary)}" focusable="false"><rect width="700" height="260" rx="12" fill="#ffffff"/>${body}</svg></div><p class="visual-scroll-hint" aria-hidden="true">↔ Fais glisser pour parcourir le schéma</p><figcaption><strong>À comprendre :</strong> ${esc(summary)}</figcaption></figure>`;
 }
 function visualPointer(value){
  const b=[];
