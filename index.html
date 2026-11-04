@@ -456,22 +456,31 @@ function visualCompile(){
  labels.forEach((v,i)=>{const x=18+i*137;b.push(visualBox(x,90,119,82,i===4?"#eaf8ea":"#eaf6ff"));b.push(visualText(x+59,125,v,"vtext vlabel"));b.push(visualText(x+59,151,["C","prétraité","assembleur","objet","programme"][i],"vmuted vsmall"));if(i<4){b.push(visualArrow(x+122,132,x+134,132));b.push(visualText(x+126,72,["-E","-S","-c","liaison"][i],"vblue vsmall"));}});
  return visualFigure("Les étapes de compilation C","Prétraitement → compilation en assembleur → assemblage en objet → édition de liens. Les options -E, -S et -c arrêtent GCC avant les étapes suivantes.",b.join(""));
 }
-function visualTiming(){
- const b=[]; const labels=[["Temps écoulé",560,"#8dbddf"],["Temps CPU",350,"#f0b775"]];
- labels.forEach((a,i)=>{const y=70+i*91;b.push(visualText(98,y+21,a[0],"vtext vlabel"));b.push(visualBox(203,y,425,46,"#edf4fa"));b.push(visualBox(203,y,a[1]*.74,46,a[2],a[2],8));b.push(visualText(650,y+27,i===0?"5 s":"3 s","vtext vlabel"))});
- b.push(visualText(350,244,"Valeurs d'illustration, pas des mesures réelles","vmuted vsmall"));
- return visualFigure("Temps écoulé et temps CPU : deux mesures différentes","Le temps écoulé inclut les attentes ; le temps CPU mesure le travail processeur. Les deux dépendent du programme et, avec plusieurs cœurs, le temps CPU cumulé peut dépasser le temps écoulé.",b.join(""));
+function visualTiming(mode){
+ const cpu=mode==="io-wait"?0.3:3,elapsed=5,b=[];
+ [["Temps écoulé",elapsed,"#8dbddf"],["Temps CPU",cpu,"#f0b775"]].forEach((a,i)=>{
+  const y=70+i*91;
+  b.push(visualText(98,y+21,a[0],"vtext vlabel"));
+  b.push(visualBox(203,y,425,46,"#edf4fa"));
+  b.push(visualBox(203,y,Math.max(12,Math.round(410*a[1]/elapsed)),46,a[2],a[2],8));
+  b.push(visualText(650,y+27,String(a[1]).replace(".",",")+" s","vtext vlabel"));
+ });
+ b.push(visualText(350,244,"Chiffres d'illustration, non mesurés","vmuted vsmall"));
+ return visualFigure("Deux façons de mesurer le temps","Temps écoulé = attente + calcul ; temps CPU = travail du processeur. Dans cet exemple fictif, "+(mode==="io-wait"?"une tâche d'entrée-sortie attend 5 s et utilise 0,3 s de CPU.":"un traitement dure 5 s et utilise 3 s de CPU.")+" Avec plusieurs cœurs, le temps CPU cumulé peut aussi dépasser le temps écoulé.",b.join(""));
 }
-function visualEnergy(){
+function visualEnergy(mode){
+ const variants=mode==="speed-more-energy" ? [[20,10,200],[45,5,225]]:[[10,10,100],[20,4,80]];
  const b=[];
- for(let i=0;i<2;i++){const x=34+i*335,values=i===0?["20 W","10 s","200 J"]:["45 W","5 s","225 J"];
- b.push(visualBox(x,62,301,145,i===0?"#eaf6ff":"#fff1dd"));
- b.push(visualText(x+151,96,i===0?"Cas A":"Cas B","vtext vlabel"));
- b.push(visualText(x+151,135,values[0]+" × "+values[1],"vtext vvalue"));
- b.push(visualText(x+151,179,"= "+values[2],"vtext vvalue"));
- }
- b.push(visualText(350,237,"Plus rapide n'implique pas toujours moins d'énergie","vblue vlabel"));
- return visualFigure("L'énergie, ce n'est pas seulement la durée","À puissance constante, E (joules) = P (watts) × t (secondes). Ici B est deux fois plus rapide, mais consomme 225 J contre 200 J pour A. Valeurs purement fictives.",b.join(""));
+ variants.forEach((values,i)=>{
+  const x=34+i*335;
+  b.push(visualBox(x,62,301,145,i===0?"#eaf6ff":"#fff1dd"));
+  b.push(visualText(x+151,96,i===0?"Cas A":"Cas B","vtext vlabel"));
+  b.push(visualText(x+151,135,values[0]+" W × "+values[1]+" s","vtext vvalue"));
+  b.push(visualText(x+151,179,"= "+values[2]+" J","vtext vvalue"));
+ });
+ b.push(visualText(350,237,"Énergie = puissance × durée","vblue vlabel"));
+ const comment=mode==="speed-more-energy"?"Le cas B est plus rapide mais consomme plus d'énergie : 225 J au lieu de 200 J.":"Dans cet autre exemple, B est plus rapide et consomme moins : 80 J au lieu de 100 J.";
+ return visualFigure("Puissance, durée et énergie","Valeurs fictives : à puissance constante, E (joules) = P (watts) × t (secondes). "+comment+" La durée seule ne permet donc pas de conclure.",b.join(""));
 }
 function visualSigned(){
  const b=[];
@@ -501,6 +510,40 @@ function visualPermissions(){
  });
  return visualFigure("Les permissions : 4 + 2 + 1, puis chmod 754","Les droits r, w et x valent 4, 2 et 1. Dans 754 : propriétaire = 7 = rwx, groupe = 5 = r-x, autres = 4 = r--. Ce sont des chiffres octaux ; chaque chiffre code trois bits, pas un octet. Pour les dossiers, x autorise notamment la traversée.",b.join(""));
 }
+function visualStreams(){
+ const b=[];
+ b.push(visualBox(222,79,258,104,"#eaf6ff"));
+ b.push(visualText(351,127,"Programme","vtext vvalue"));
+ b.push(visualText(351,157,"exécutable","vmuted vsmall"));
+ b.push(visualBox(16,95,155,82,"#f0f7ff"));
+ b.push(visualText(93,127,"stdin (0)","vtext vlabel"));
+ b.push(visualText(93,154,"entrée","vmuted vsmall"));
+ b.push(visualBox(527,41,160,81,"#e8f7ed"));
+ b.push(visualText(606,70,"stdout (1)","vtext vlabel"));
+ b.push(visualText(606,98,"résultats","vmuted vsmall"));
+ b.push(visualBox(527,151,160,81,"#fff1df"));
+ b.push(visualText(606,180,"stderr (2)","vtext vlabel"));
+ b.push(visualText(606,207,"erreurs","vmuted vsmall"));
+ b.push(visualArrow(180,132,210,132));
+ b.push(visualArrow(490,114,515,81));
+ b.push(visualArrow(490,152,515,190,"#c67c40"));
+ return visualFigure("Les trois flux standards","stdin (0) fournit des données au programme ; stdout (1) et stderr (2) sont deux sorties distinctes. Un tube | transmet seulement stdout par défaut.",b.join(""));
+}
+function visualPhases(){
+ const b=[],arr=[["BUILD_DATA",60],["PROCESS",270],["REDUCE",480]];
+ for(let i=0;i<3;i++){const [label,x]=arr[i];b.push(visualBox(x,91,167,75,i===1?"#fff1df":"#eaf6ff"));b.push(visualText(x+83,130,label,"vtext vlabel"));if(i<2)b.push(visualArrow(x+174,130,x+201,130))}
+ b.push(`<path d="M 58 180 V 199 H 646 V 180" fill="none" stroke="#3989c2" stroke-width="4"/>`);
+ b.push(visualText(352,231,"TOTAL : l'ensemble, avec d'autres coûts possibles","vblue vlabel"));
+ b.push(visualText(350,49,"Des étapes mesurées à l'intérieur d'une durée globale","vtext vlabel"));
+ return visualFigure("Mesurer les phases d'un traitement","BUILD_DATA, PROCESS et REDUCE désignent des durées de phases. TOTAL est une mesure englobante, pas une quatrième étape exécutée après REDUCE. Il peut aussi inclure de la coordination ou des opérations intermédiaires.",b.join(""));
+}
+function visualIncrement(mode){
+ const isPost=mode==="post";
+ const b=[];
+ const scenarios=isPost?[["Avant", "i = 4", "x = ?"],["Évaluation","x reçoit 4","i passe à 5"],["Après","i = 5","x = 4"]]:[["Avant","i = 4","x = ?"],["Évaluation","i passe à 5","x reçoit 5"],["Après","i = 5","x = 5"]];
+ scenarios.forEach((data,i)=>{const x=17+i*228;b.push(visualBox(x,75,211,129,i===2?"#e8f7ed":"#eaf6ff"));b.push(visualText(x+104,108,data[0],"vtext vlabel"));b.push(visualText(x+104,142,data[1],"vtext vlabel"));b.push(visualText(x+104,178,data[2],"vmuted vlabel"));if(i<2)b.push(visualArrow(x+214,136,x+226,136))});
+ return visualFigure(isPost?"Post-incrémentation : x = i++":"Pré-incrémentation : x = ++i",isPost?"L'expression i++ fournit l'ancienne valeur 4 à x, puis i devient 5.":"L'expression ++i augmente i de 4 à 5 avant d'attribuer la nouvelle valeur à x.",b.join(""));
+}
 function visualPath(){
  const b=[];
  const items=[["/usr/local/bin","rien"],["/usr/bin","programme trouvé"],["/bin","non parcouru"]];
@@ -514,7 +557,7 @@ function pedagogicVisual(si,ii){
  const pointerValues={0:98,1:98,2:98,3:3,4:98,5:402,6:42,8:42,12:7};
  if(si===9 && Object.hasOwn(pointerValues,ii))return visualPointer(pointerValues[ii]);
  const arraySets={13:[10,20,30,40,50],14:[10,20,30,40,50],16:[1,2,3],19:[10,20,30],20:[10,20,30],25:[10,20,0,0],26:[2,4,6]};
- if(si===9 && Object.hasOwn(arraySets,ii))return visualStreet(arraySets[ii],ii===20?2:ii===19?1:0);
+ if(si===9 && Object.hasOwn(arraySets,ii))return visualStreet(arraySets[ii],ii===20?2:ii===19?1:ii===14?4:0);
  if(si===9 && ii===15)return visualArrayVsPointer();
  if(si===9 && ii===17)return visualArraySizes();
  if(si===9 && ii===18)return visualWholeArray();
@@ -530,11 +573,17 @@ function pedagogicVisual(si,ii){
  if(["6:5","6:6","6:7"].includes(k))return visualGitBranch();
  if(["7:0","7:1","7:2","7:4","7:5","7:6"].includes(k))return visualDocker();
  if(k==="7:3")return visualDockerVM();
- if(["3:2","3:5"].includes(k))return visualShellPipe();
+ if(k==="3:2")return visualStreams();
+ if(k==="3:5")return visualShellPipe();
  if(["8:7","8:11","8:12","8:13","8:14","14:4"].includes(k))return visualCompile();
- if(["12:4","15:1"].includes(k))return visualTiming();
- if(["15:3","15:6"].includes(k))return visualEnergy();
+ if(k==="12:4")return visualTiming("regular");
+ if(k==="15:1")return visualTiming("io-wait");
+ if(k==="15:3")return visualEnergy("faster-less-energy");
+ if(k==="15:6")return visualEnergy("speed-more-energy");
  if(["8:17"].includes(k))return visualSigned();
+ if(k==="11:0")return visualIncrement("post");
+ if(k==="11:1")return visualIncrement("pre");
+ if(k==="12:12")return visualPhases();
  if(["4:8","4:13"].includes(k))return visualPath();
  return "";
 }
@@ -568,10 +617,12 @@ function diagramFor(si,ii){
  if(['9:21','9:22'].includes(key))return `<figure class="lesson-diagram"><div class="diagram-title">Le train des caractères : "BON"</div><div class="diagram-array">${['B','O','N','\\0'].map((v,i)=>`<div><span class="array-index">Case ${i}</span><span class="array-value">${esc(v)}</span></div>`).join('')}</div><figcaption>La case finale contient le caractère nul de valeur zéro. Elle marque la fin de la chaîne C sans s'afficher.</figcaption></figure>`;
  if(key==='9:27')return `<figure class="lesson-diagram"><div class="diagram-title">La grille 2 × 3</div><div class="diagram-array">${[1,2,3,4,5,6].map((v,i)=>`<div><span class="array-index">[${Math.floor(i/3)}][${i%3}]</span><span class="array-value">${v}</span></div>`).join('')}</div><figcaption>grille[1][2] désigne la case de la deuxième ligne, troisième colonne : valeur 6.</figcaption></figure>`;
  if(key==='8:16')return flowDiagram('Familles de types C',['Entiers','char · int · long','Flottants','float · double'],'Les tailles et précisions exactes dépendent de l’implémentation.');
- if(key==='12:12')return flowDiagram('Mesurer les étapes',['BUILD_DATA','PROCESS','REDUCE','TOTAL'],'TOTAL mesure l’ensemble ; il peut inclure des opérations entre les trois phases.');
+ 
  if(key==='9:28')return flowDiagram('Échanger sans perdre une valeur',['a → temporaire','b → a','temporaire → b'],'La variable temporaire évite d’écraser une valeur.');
  if(['9:13','9:14','9:19','9:20'].includes(key))return `<figure class="lesson-diagram" aria-label="Schéma d’un tableau de quatre entiers"><div class="diagram-title">Un tableau de quatre cases</div><div class="diagram-array">${[10,20,30,40].map((n,i)=>`<div><span class="array-index">Indice ${i}</span><span class="array-value">${n}</span></div>`).join('')}</div><figcaption>Pour un tableau de quatre éléments, les indices valides vont de 0 à 3.</figcaption></figure>`;
- if(['10:0','10:7','10:8'].includes(key))return flowDiagram('Division entière et reste',['89','7 × 12 = 84','Reste : 5'],'89 = 7 × 12 + 5.');
+ if(key==='10:0')return flowDiagram('Division et reste',['17','5 × 3 = 15','Reste : 2'],'17 = 5 × 3 + 2.');
+ if(key==='10:7')return flowDiagram('Reste de 12 / 10',['12','10 × 1 = 10','Reste : 2'],'12 = 10 × 1 + 2.');
+ if(key==='10:8')return flowDiagram('Reste de 89 / 7',['89','7 × 12 = 84','Reste : 5'],'89 = 7 × 12 + 5.');
  if(['11:0','11:1'].includes(key))return flowDiagram('Avant / après incrémentation',['i = 4','i++ ou ++i','i = 5'],'La différence porte sur la valeur de l’expression, pas la valeur finale de i.');
  if(key==='12:4')return chartDiagram('Temps CPU et temps réel : exemple',{labels:['CPU','Réel'],values:[2,5],unit:'s'});
  if(key==='13:2')return flowDiagram('Vérifier une réponse d’IA',['Proposition IA','Documentation','Petit test','Conclusion vérifiée'],'Une réponse plausible ne remplace pas la validation.');
