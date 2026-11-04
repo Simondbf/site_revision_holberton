@@ -72,8 +72,19 @@ try {
   const imageMobile = mobile.locator('#courseArticle .lesson-visual svg').first();
   await imageMobile.waitFor({ state: 'visible', timeout: 12000 });
   const size = await imageMobile.boundingBox();
-  assert.ok(size && size.width < 390 && size.width > 240, 'Schéma trop large sur mobile.');
+  const defilement = await mobile.locator('#courseArticle .visual-viewport').first().evaluate(el => ({
+    largeurVisible: el.clientWidth,
+    largeurTotale: el.scrollWidth,
+    deplacementInitial: el.scrollLeft
+  }));
+  assert.ok(size && size.width >= 630, 'La taille de lecture du schéma a été réduite sur mobile.');
+  assert.ok(defilement.largeurVisible < 390 && defilement.largeurTotale > defilement.largeurVisible + 200,
+    'Le dessin doit défiler à l’intérieur de la fiche, sans déborder de la page.');
+  assert.ok(await mobile.locator('#courseArticle .visual-scroll-hint').first().isVisible(),
+    'L’indication de défilement sur mobile est absente.');
   await mobile.screenshot({ path: 'apercus/tableau-mobile.png' });
+  await mobile.locator('#courseArticle .visual-viewport').first().evaluate(el => { el.scrollLeft = 220; });
+  await mobile.screenshot({ path: 'apercus/tableau-mobile-defilement.png' });
 
   assert.deepEqual(erreurs, [], 'Erreurs JavaScript navigateur : ' + erreurs.join(' / '));
   console.log('Test navigateur réussi : fenêtre modale, cinq cours illustrés et vue mobile.');
