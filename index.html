@@ -607,7 +607,7 @@ function drawCourse(si,ii){
 }
 function scrollToCourseNotion(si,ii){
  const panel=document.getElementById(`notion-${si}-${ii}`);
- if(panel)panel.scrollIntoView({block:'start',behavior:'auto'});
+ if(panel){const y=panel.getBoundingClientRect().top+window.scrollY-(window.matchMedia('(max-width:790px)').matches?185:110);window.scrollTo({top:Math.max(0,y),left:0,behavior:'instant'});}
 }
 const dlg=$('conceptDialog');let lastNonModalHash='#accueil',wasOpenedHere=false,modalOriginScroll=0,closingProgrammatically=false;
 function showPreview(si,ii){$('modalBody').innerHTML=`<div class="modal-body">${lessonContent(si,ii)}<a class="modal-open-page" href="${routeCourse(si,ii)}">Ouvrir la page complète →</a></div>`;if(!dlg.open)dlg.showModal()}
@@ -627,7 +627,7 @@ function renderRoute(){const r=parseRoute();document.title=(r.page==='cours'||r.
  if(r.page==='theme'){
    currentPage='topics';topicIndex=r.si;currentConcept=-1;drawTopic(r.si);const gi=sidebarGroups.findIndex(g=>g[1].includes(r.si));if(gi>=0){openedGroups=new Set([gi]);openedTopics=new Set([r.si]);renderSidebar()}panel('detail',!wasModal);if(wasModal)window.scrollTo(0,modalOriginScroll);
  }else if(r.page==='cours'){
-   currentPage='topics';topicIndex=r.si;currentConcept=r.ii;drawCourse(r.si,r.ii);panel('course',false);scrollToCourseNotion(r.si,r.ii);
+   currentPage='topics';topicIndex=r.si;currentConcept=r.ii;drawCourse(r.si,r.ii);panel('course',false);requestAnimationFrame(()=>requestAnimationFrame(()=>scrollToCourseNotion(r.si,r.ii)));
    const gi=sidebarGroups.findIndex(g=>g[1].includes(r.si));if(gi>=0){if(!openedGroups.has(gi)||!openedTopics.has(r.si)){openedGroups=new Set([gi]);openedTopics=new Set([r.si]);renderSidebar()}}
  }else if(r.page==='categorie'){
    currentPage='category';topicIndex=-1;currentConcept=-1;openedGroups=new Set([r.gi]);openedTopics=new Set();renderSidebar();renderTopics(sidebarGroups[r.gi][1]);$('search').value='';$('quickSearch').value='';$('listingTitle').textContent=sidebarGroups[r.gi][0];$('listingSubtitle').textContent='Choisis un thème pour afficher ses fiches et ses explications.';search();panel('browse');document.title=sidebarGroups[r.gi][0]+' · Holberton Révision';
