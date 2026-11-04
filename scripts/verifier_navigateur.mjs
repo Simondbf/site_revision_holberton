@@ -26,7 +26,7 @@ mkdirSync('apercus',{recursive:true});
 let browser;
 const errors=[];
 try{
- browser=await chromium.launch({headless:true});
+ browser=await chromium.launch(process.env.CI?{channel:'chrome',headless:true}:{headless:true});
  const page=await browser.newPage({viewport:{width:1330,height:900},deviceScaleFactor:1});
  page.on('pageerror',e=>errors.push(e.message));
 
