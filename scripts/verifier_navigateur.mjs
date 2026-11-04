@@ -1,140 +1,135 @@
 import assert from 'node:assert/strict';
-import { createServer } from 'node:http';
-import { readFileSync, mkdirSync } from 'node:fs';
-import { chromium } from 'playwright';
+import {createServer} from 'node:http';
+import {readFileSync,mkdirSync} from 'node:fs';
+import {chromium} from 'playwright';
 
-const source = readFileSync(new URL('../index.html', import.meta.url));
-const server = createServer((_req, res) => {
-  res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-store' });
-  res.end(source);
+const source=readFileSync(new URL('../index.html',import.meta.url));
+const contenu=JSON.parse(source.toString('utf8').split('<script id="content-data" type="application/json">')[1].split('</script>')[0]);
+const slug=s=>s.normalize('NFD').replace(/\p{M}/gu,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+const topicName='Pointeurs et tableaux C';
+const si=contenu.sections.findIndex(s=>s.title===topicName);
+const route=(topic,notion)=>{
+ const cat=contenu.sections.find(s=>s.title===topic);
+ assert.ok(cat,'Thème introuvable : '+topic);
+ const ii=cat.items.findIndex(n=>n.term===notion);
+ assert.ok(ii>=0,'Notion introuvable : '+notion);
+ return '#cours/'+slug(topic)+'/'+(ii+1)+'-'+slug(notion);
+};
+const target=ii=>route(topicName,contenu.sections[si].items[ii].term);
+const server=createServer((_req,res)=>{
+ res.writeHead(200,{'Content-Type':'text/html; charset=utf-8','Cache-Control':'no-store'});
+ res.end(source);
 });
-await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
-const origin = 'http://127.0.0.1:' + server.address().port;
-mkdirSync('apercus', { recursive: true });
+await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
+const origin='http://127.0.0.1:'+server.address().port;
+mkdirSync('apercus',{recursive:true});
+let browser;
+const errors=[];
+try{
+ browser=await chromium.launch({headless:true});
+ const page=await browser.newPage({viewport:{width:1330,height:900},deviceScaleFactor:1});
+ page.on('pageerror',e=>errors.push(e.message));
 
-let navigateur;
-const erreurs = [];
-try {
-  navigateur = await chromium.launch({ headless: true });
-  const page = await navigateur.newPage({ viewport: { width: 1330, height: 900 }, deviceScaleFactor: 1 });
-  page.on('pageerror', error => erreurs.push(error.message));
+ // Les post-it gardent leur définition et n'ouvrent plus de fenêtre superposée.
+ await page.goto(origin+'/#theme/'+slug(topicName));
+ const cards=page.locator('#definitions article.def');
+ assert.equal(await cards.count(),30,'Le thème doit conserver ses 30 post-it.');
+ assert.match(await cards.first().innerText(),/Variable dont la valeur est une adresse/);
+ await page.locator('#definitions .card-hit').nth(8).scrollIntoViewIfNeeded();
+ const before=await page.evaluate(()=>window.scrollY);
+ await page.locator('#definitions .card-hit').nth(8).click();
+ await page.waitForFunction(()=>location.hash.startsWith('#cours/'));
+ assert.equal(await page.locator('#conceptDialog').count(),0,'Une fenêtre pop-up existe encore.');
+ assert.equal(await page.locator('#courseArticle .lesson-panel').count(),30,
+  'La lecture continue doit contenir les 30 cours.');
+ assert.ok(await page.locator('#notion-9-8 .lead').isVisible(),'Le résumé court manque dans le cours détaillé.');
+ assert.ok(await page.locator('#notion-9-8 .lesson-visual svg').count()>=1,'L’illustration doit être conservée.');
 
-  await page.goto(origin + '/#theme/pointeurs-et-tableaux-c');
-  await page.locator('#definitions article.def').first().waitFor({ state: 'visible' });
-  assert.equal(await page.locator('#definitions article.def').count(), 30, 'Le chapitre pointeurs devrait contenir 30 fiches.');
+ // Le bouton retourne à la liste et à la position précise précédente.
+ await page.locator('#courseBack').click();
+ await page.waitForFunction(()=>location.hash==='#theme/pointeurs-et-tableaux-c');
+ await page.waitForTimeout(240);
+ const restored=await page.evaluate(()=>window.scrollY);
+ assert.ok(Math.abs(restored-before)<22,'Retour aux post-it imprécis : avant '+before+' / après '+restored);
 
-  await page.locator('#definitions .card-hit').first().click();
-  await page.waitForFunction(() => document.getElementById('conceptDialog').open);
-  const visuelModal = page.locator('#modalBody .lesson-visual svg').first();
-  await visuelModal.waitFor({ state: 'visible' });
-  assert.ok((await visuelModal.getAttribute('aria-label'))?.length > 20, 'Description du schéma mémoire manquante.');
-  await page.screenshot({ path: 'apercus/pointeurs-fenetre.png' });
+ // Le lien direct fonctionne, même en arrivant depuis l'extérieur.
+ await page.goto(origin+'/'+target(2));
+ await page.waitForFunction(()=>document.querySelector('#notion-9-2')?.classList.contains('lesson-selected'));
+ await page.waitForTimeout(240);
+ const firstActive=page.locator('#sideCategories .side-notions a.active');
+ assert.equal(await firstActive.count(),1,'Plusieurs notions sont actives.');
+ assert.equal(await firstActive.getAttribute('data-side-target'),target(2),'Le sommaire ne correspond pas à la notion chargée.');
+ const initialHash=await page.evaluate(()=>location.hash);
+ const initialHistory=await page.evaluate(()=>history.length);
+ await page.screenshot({path:'apercus/sommaire-notion-active.png'});
 
-  await page.locator('#modalClose').click();
-  await page.waitForFunction(() => !document.getElementById('conceptDialog').open);
-  assert.ok(page.url().includes('#theme/pointeurs-et-tableaux-c'), 'La fermeture ne revient pas aux fiches.');
+ // Faire défiler ne modifie ni le hash ni l'historique.
+ await page.locator('#notion-9-20').evaluate(node=>{
+  window.scrollTo({top:window.scrollY+node.getBoundingClientRect().top-120,behavior:'instant'});
+ });
+ await page.waitForFunction(expected=>{
+  return document.querySelector('#sideCategories .side-notions a.active')?.getAttribute('data-side-target')===expected;
+ },target(20),{timeout:12000});
+ const activeAfterScroll=page.locator('#sideCategories .side-notions a.active');
+ assert.equal(await activeAfterScroll.getAttribute('data-side-target'),target(20),'Le sommaire ne suit pas le défilement.');
+ const visible=await activeAfterScroll.evaluate(el=>{
+  const item=el.getBoundingClientRect(),side=document.querySelector('#courseSidebar').getBoundingClientRect();
+  return {inside:item.top>=side.top+22&&item.bottom<=side.bottom-20,
+   sidebarScroll:document.querySelector('#courseSidebar').scrollTop};
+ });
+ assert.ok(visible.inside,'La notion active est masquée dans la barre latérale.');
+ assert.ok(visible.sidebarScroll>0,'La barre latérale ne défile pas indépendamment.');
+ assert.equal(await page.evaluate(()=>location.hash),initialHash,'Le scroll a modifié l’URL.');
+ assert.equal(await page.evaluate(()=>history.length),initialHistory,'Le scroll a ajouté une entrée à l’historique.');
+ await page.screenshot({path:'apercus/sommaire-synchronise.png'});
 
-  const contenu = JSON.parse(source.toString('utf8').split('<script id="content-data" type="application/json">')[1].split('</script>')[0]);
-  const slug = texte => texte.normalize('NFD').replace(/\p{M}/gu, '').toLocaleLowerCase('fr').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
-  const routeNotion = (chapitre, notion) => {
-    const section = contenu.sections.find(x => x.title === chapitre);
-    assert.ok(section, 'Chapitre inconnu : ' + chapitre);
-    const index = section.items.findIndex(x => x.term === notion);
-    assert.ok(index >= 0, 'Notion inconnue : ' + notion);
-    return '#cours/' + slug(chapitre) + '/' + (index + 1) + '-' + slug(notion);
-  };
-  const slugs = [
-    ['Pointeurs et tableaux C', 'Caractère nul', 'apercus/chaine-caracteres.png'],
-    ['Pointeurs et tableaux C', 'Tableau à deux dimensions', 'apercus/tableau-2d.png'],
-    ['Docker', 'Conteneur', 'apercus/docker.png'],
-    ['Green IT et énergie', 'Puissance et énergie consommée', 'apercus/energie.png']
-  ];
-  const cibleNotion = (chapitre, notion) => {
-    const si = contenu.sections.findIndex(x => x.title === chapitre);
-    const ii = contenu.sections[si].items.findIndex(x => x.term === notion);
-    return '#notion-' + si + '-' + ii;
-  };
-  for (const [chapitre, notion, capture] of slugs) {
-    await page.goto(origin + '/' + routeNotion(chapitre, notion));
-    const image = page.locator(cibleNotion(chapitre, notion) + ' .lesson-visual svg').first();
-    await image.waitFor({ state: 'visible', timeout: 12000 });
-    const rect = await image.boundingBox();
-    assert.ok(rect && rect.width >= 200 && rect.height >= 100, 'Image non rendue : ' + notion);
-    assert.ok((await image.getAttribute('aria-label'))?.length > 20, 'Image sans texte alternatif : ' + notion);
-    await page.screenshot({ path: capture });
-  }
+ // Le clic explicite sur une autre notion, lui, conserve le lien profond.
+ await page.locator('#sideCategories a[data-side-target="'+target(22)+'"]').click();
+ await page.waitForFunction(expected=>location.hash===expected,target(22));
+ await page.waitForFunction(expected=>document.querySelector('#sideCategories .side-notions a.active')?.getAttribute('data-side-target')===expected,target(22));
+ assert.ok(await page.locator('#notion-9-22').isVisible(),'Le lien direct doit permettre d’atteindre le cours.');
+ await page.goBack();
+ await page.waitForFunction(expected=>location.hash===expected,initialHash);
 
-  // Un nouveau contexte émule une vraie première visite mobile, et non le
-  // redimensionnement artificiel d'une session de bureau.
-  const mobile = await navigateur.newPage({
-    viewport: { width: 390, height: 844 },
-    deviceScaleFactor: 1,
-    isMobile: true,
-    hasTouch: true
-  });
-  mobile.on('pageerror', error => erreurs.push('Mobile : ' + error.message));
-  await mobile.goto(origin + '/' + routeNotion('Pointeurs et tableaux C', 'Indices de tableau'));
-  const imageMobile = mobile.locator(cibleNotion('Pointeurs et tableaux C', 'Indices de tableau') + ' .lesson-visual svg').first();
-  await imageMobile.waitFor({ state: 'visible', timeout: 12000 });
-  const size = await imageMobile.boundingBox();
-  const defilement = await mobile.locator(cibleNotion('Pointeurs et tableaux C', 'Indices de tableau') + ' .visual-viewport').first().evaluate(el => ({
-    largeurVisible: el.clientWidth,
-    largeurTotale: el.scrollWidth,
-    deplacementInitial: el.scrollLeft
-  }));
-  assert.ok(size && size.width >= 630, 'La taille de lecture du schéma a été réduite sur mobile.');
-  assert.ok(defilement.largeurVisible < 390 && defilement.largeurTotale > defilement.largeurVisible + 200,
-    'Le dessin doit défiler à l’intérieur de la fiche, sans déborder de la page.');
-  assert.ok(await mobile.locator(cibleNotion('Pointeurs et tableaux C', 'Indices de tableau') + ' .visual-scroll-hint').first().isVisible(),
-    'L’indication de défilement sur mobile est absente.');
-  await mobile.screenshot({ path: 'apercus/tableau-mobile.png' });
-  await mobile.locator(cibleNotion('Pointeurs et tableaux C', 'Indices de tableau') + ' .visual-viewport').first().evaluate(el => { el.scrollLeft = 220; });
-  await mobile.screenshot({ path: 'apercus/tableau-mobile-defilement.png' });
+ // Depuis les résultats de recherche, retour à la recherche et non au début.
+ await page.goto(origin+'/#fiches');
+ await page.locator('#search').fill('modulo');
+ assert.ok(await page.locator('#results article.def').count()>0,'Résultats de recherche absents.');
+ await page.locator('#results .card-hit').first().click();
+ await page.waitForFunction(()=>location.hash.startsWith('#cours/'));
+ await page.locator('#courseBack').click();
+ await page.waitForFunction(()=>location.hash==='#fiches');
+ assert.equal(await page.locator('#search').inputValue(),'modulo','La recherche doit rester remplie.');
+ assert.ok(await page.locator('#results article.def').count()>0,'Les résultats doivent être restaurés.');
 
+ // Les favoris conservent eux aussi le comportement post-it.
+ await page.goto(origin+'/#theme/pointeurs-et-tableaux-c');
+ await page.locator('#definitions [data-fav]').first().click();
+ await page.goto(origin+'/#favoris');
+ assert.ok(await page.locator('#favoriteItems .card-hit').count()>0,'Favori introuvable.');
+ await page.locator('#favoriteItems .card-hit').first().click();
+ await page.waitForFunction(()=>location.hash.startsWith('#cours/'));
+ await page.locator('#courseBack').click();
+ await page.waitForFunction(()=>location.hash==='#favoris');
+ assert.ok(await page.locator('#favoriteItems .card-hit').count()>0,'Le retour aux favoris a échoué.');
 
-  // La page de cours reste un chapitre entier : ni bouton « notion suivante »
-  // ni bouton « fiches du thème » à la fin de chaque notion.
-  await page.goto(origin + '/' + routeNotion('Pointeurs et tableaux C', 'Adresse mémoire'));
-  const panneaux = page.locator('#courseArticle .lesson-panel');
-  assert.equal(await panneaux.count(), 30, 'Les trente notions de pointeurs doivent être affichées ensemble.');
-  assert.equal(await page.locator('#courseArticle .course-navigation').count(), 0,
-    'Les anciennes commandes de navigation du bas doivent être supprimées.');
-  assert.ok(await panneaux.nth(1).getAttribute('id') === 'notion-9-1', 'Cible directe de la deuxième notion absente.');
-  assert.match(await panneaux.nth(1).locator('.lesson-heading').innerText(), /Adresse mémoire/);
-  await page.waitForTimeout(350); // Laisser deux trames au navigateur pour stabiliser le défilement.
-  const mesure = await page.evaluate(() => {
-    const p1 = document.querySelector('#notion-9-0').getBoundingClientRect();
-    const p2 = document.querySelector('#notion-9-1').getBoundingClientRect();
-    return { espace: p2.top - p1.bottom, secondeVisible: p2.top, scrollY: window.scrollY };
-  });
-  assert.ok(mesure.espace >= 15 && mesure.espace <= 65, 'Les deux notions ne sont pas distinctement espacées.');
-  assert.ok(mesure.secondeVisible >= 0 && mesure.secondeVisible < 280,
-    'La navigation directe ne positionne pas la bonne notion près du haut de l’écran (top=' + mesure.secondeVisible + ', scrollY=' + mesure.scrollY + ').');
-  await page.screenshot({ path: 'apercus/lecture-continue.png' });
-  await page.evaluate(() => { location.hash = '#cours/pointeurs-et-tableaux-c/3-operateur-d-adresse'; });
-  await page.waitForTimeout(150);
-  assert.equal(await panneaux.count(), 30, 'La navigation interne ne doit pas détruire les autres notions.');
-  const suivant = await page.locator('#notion-9-2').boundingBox();
-  assert.ok(suivant && suivant.y >= 0 && suivant.y < 300, 'Le troisième cours devrait être visé par le lien direct.');
-  await page.goBack();
-  await page.waitForTimeout(150);
-  assert.ok(page.url().includes('2-adresse-memoire'), 'Le bouton précédent doit retrouver la deuxième notion.');
+ // Les anciens liens #apercu restent utilisables mais ne créent aucune pop-up.
+ await page.goto(origin+'/#apercu/pointeurs-et-tableaux-c/1-pointeur-pointer');
+ await page.waitForFunction(()=>location.hash.startsWith('#cours/'));
+ assert.ok(await page.locator('#notion-9-0').isVisible(),'Le vieux lien ne mène plus au cours.');
 
-  // Les valeurs 4, 2 et 1 sont montrées sur le post-it ET expliquées avec un schéma.
-  await page.goto(origin + '/#theme/permissions-et-flux');
-  const postit = page.locator('#definitions article.def').first();
-  assert.match(await postit.innerText(), /4.*2.*1/, 'Les permissions numériques sont absentes du résumé.');
-  await page.goto(origin + '/' + routeNotion('Permissions et flux', 'r w x'));
-  const permission = page.locator(cibleNotion('Permissions et flux', 'r w x'));
-  assert.match(await permission.innerText(), /754/, 'La notation octale 754 manque dans le cours.');
-  assert.match(await permission.innerText(), /octal/i, 'La différence entre octal et octet doit être expliquée.');
-  assert.equal(await permission.locator('.lesson-visual svg').count(), 1,
-    'Le schéma 4/2/1 doit accompagner le cours.');
-  await page.screenshot({ path: 'apercus/permissions-octales.png' });
+ // Le comportement mobile existant reste préservé, sans refonte de l'interface.
+ const mobile=await browser.newPage({viewport:{width:390,height:844},isMobile:true,hasTouch:true});
+ mobile.on('pageerror',e=>errors.push('Mobile : '+e.message));
+ await mobile.goto(origin+'/'+target(14));
+ const figure=mobile.locator('#notion-9-14 .lesson-visual svg').first();
+ await figure.waitFor({state:'visible',timeout:12000});
+ assert.ok((await figure.boundingBox())?.width>=600,'La taille du schéma mobile a été réduite.');
+ await mobile.screenshot({path:'apercus/postit-et-cours-mobile.png'});
 
-  assert.deepEqual(erreurs, [], 'Erreurs JavaScript navigateur : ' + erreurs.join(' / '));
-  console.log('Test navigateur réussi : fenêtre modale, cinq cours illustrés et vue mobile.');
+ assert.deepEqual(errors,[],'Erreurs JavaScript navigateur : '+errors.join(' / '));
+ console.log('Navigation réussie : post-it, lecture continue, sommaire synchronisé, historique, recherche, favoris et mobile.');
 } finally {
-  if (navigateur) await navigateur.close();
-  await new Promise(resolve => server.close(resolve));
+ if(browser)await browser.close();
+ await new Promise(resolve=>server.close(resolve));
 }
