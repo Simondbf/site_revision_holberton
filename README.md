@@ -9,8 +9,9 @@ Un support de révision **indépendant**, consultable librement, qui associe des
 - **Accueil** : découvrir les thèmes et le nombre de notions.
 - **Catégories** : choisir un grand domaine, puis un thème.
 - **Fiches** : lire le résumé sans ouvrir le cours complet.
-- **Explications** : cliquer sur une fiche pour ouvrir l'explication au-dessus de la page. Échap ou un clic à l'extérieur ferme la fenêtre.
-- **Sommaire** : accéder directement à une notion, dont l'adresse peut être partagée.
+- **Cours détaillés** : cliquer sur un post-it pour rejoindre sa notion dans un chapitre à lecture continue, sans fenêtre superposée.
+- **Retour aux fiches** : le bouton du haut retrouve la liste et sa position de défilement précédente lorsqu'on arrive depuis un post-it.
+- **Sommaire synchronisé** : pendant la lecture continue, la notion active se surligne automatiquement dans le menu de gauche, qui défile indépendamment pour la garder visible. Les liens directs sont partageables ; le simple défilement n'ajoute aucune entrée à l'historique.
 - **Favoris** : conserver ses notions préférées dans le navigateur utilisé, sans compte.
 - **Recherche** : retrouver une notion par son nom, sa définition ou son thème.
 
