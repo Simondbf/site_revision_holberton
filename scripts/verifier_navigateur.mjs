@@ -34,14 +34,23 @@ try {
   await page.waitForFunction(() => !document.getElementById('conceptDialog').open);
   assert.ok(page.url().includes('#theme/pointeurs-et-tableaux-c'), 'La fermeture ne revient pas aux fiches.');
 
+  const contenu = JSON.parse(source.toString('utf8').match(/<script id="content-data" type="application\\/json">([\\s\\S]*?)<\\/script>/)[1]);
+  const slug = texte => texte.normalize('NFD').replace(/[\\u0300-\\u036f]/g, '').toLocaleLowerCase('fr').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  const routeNotion = (chapitre, notion) => {
+    const section = contenu.sections.find(x => x.title === chapitre);
+    assert.ok(section, 'Chapitre inconnu : ' + chapitre);
+    const index = section.items.findIndex(x => x.term === notion);
+    assert.ok(index >= 0, 'Notion inconnue : ' + notion);
+    return '#cours/' + slug(chapitre) + '/' + (index + 1) + '-' + slug(notion);
+  };
   const slugs = [
-    ['pointeurs-et-tableaux-c', 'caractere-nul', 'apercus/chaine-caracteres.png'],
-    ['pointeurs-et-tableaux-c', 'tableau-a-deux-dimensions', 'apercus/tableau-2d.png'],
-    ['docker', 'conteneur', 'apercus/docker.png'],
-    ['green-it-et-energie', 'puissance-et-energie-consommee', 'apercus/energie.png']
+    ['Pointeurs et tableaux C', 'Caractère nul', 'apercus/chaine-caracteres.png'],
+    ['Pointeurs et tableaux C', 'Tableau à deux dimensions', 'apercus/tableau-2d.png'],
+    ['Docker', 'Conteneur', 'apercus/docker.png'],
+    ['Green IT et énergie', 'Puissance et énergie consommée', 'apercus/energie.png']
   ];
   for (const [chapitre, notion, capture] of slugs) {
-    await page.goto(origin + '/#cours/' + chapitre + '/' + notion);
+    await page.goto(origin + '/' + routeNotion(chapitre, notion));
     const image = page.locator('#courseArticle .lesson-visual svg').first();
     await image.waitFor({ state: 'visible', timeout: 12000 });
     const rect = await image.boundingBox();
@@ -51,7 +60,7 @@ try {
   }
 
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.goto(origin + '/#cours/pointeurs-et-tableaux-c/indices-de-tableau');
+  await page.goto(origin + '/' + routeNotion('Pointeurs et tableaux C', 'Indices de tableau'));
   const imageMobile = page.locator('#courseArticle .lesson-visual svg').first();
   await imageMobile.waitFor({ state: 'visible', timeout: 12000 });
   const size = await imageMobile.boundingBox();
