@@ -45,7 +45,10 @@ const scripts = [...html.matchAll(/<script(?![^>]*type="application\/json")[^>]*
 assert.equal(scripts.length, 1, 'Le site doit conserver un script principal unique');
 new Script(scripts[0][1], { filename: 'site.js' }); // Analyse syntaxique sans exécuter le code.
 assert.ok(html.includes('id="quickSearch"'), 'Recherche globale absente');
-assert.ok(html.includes('id="conceptDialog"'), 'Fenêtre de cours absente');
+assert.ok(!html.includes('id="conceptDialog"'), 'Les anciennes fenêtres superposées doivent être supprimées');
+assert.ok(html.includes('data-course-link'), 'Post-it sans accès direct au cours');
+assert.ok(html.includes('function syncNotionWithScroll'), 'Suivi de la notion active absent');
+assert.ok(html.includes('function restoreCardPosition'), 'Retour à la position des fiches absent');
 assert.ok(!html.includes('pas synchronisés par Google Drive'), 'Ancienne mention Google Drive');
 
 console.log('Contrôle réussi : ' + data.sections.length + ' thèmes, ' + total + ' notions, JavaScript valide.');
