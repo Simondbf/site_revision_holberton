@@ -381,10 +381,46 @@ function visualGit(){
  return visualFigure("Les trois espaces d'un changement Git","git add prépare une sélection de modifications dans l'index. git commit enregistre cette sélection dans l'historique local ; git push est une étape distincte vers le dépôt distant.",b.join(""));
 }
 function visualDocker(){
- const b=[],cards=[["Dockerfile","recette"],["Image","modèle immuable"],["Conteneur A","instance lancée"]];
- cards.forEach((p,i)=>{const x=23+i*227;b.push(visualBox(x,65,209,132,i===1?"#fff2de":"#eaf6ff"));b.push(visualText(x+104,111,p[0],"vtext vlabel"));b.push(visualText(x+104,149,p[1],"vmuted vsmall"));if(i<2){b.push(visualArrow(x+212,130,x+226,130));b.push(visualText(x+218,58,i===0?"build":"run","vblue vsmall"));}});
- b.push(visualArrow(459,197,459,217));b.push(visualBox(471,207,189,39,"#e9f7ed"));b.push(visualText(566,233,"Conteneur B","vtext vlabel"));b.push(visualText(350,31,"Une image peut créer plusieurs conteneurs"));
- return visualFigure("De la recette Docker aux conteneurs","Un Dockerfile sert à fabriquer une image. Une même image peut lancer plusieurs conteneurs indépendants ; chaque conteneur est une instance, pas une copie du noyau Linux.",b.join(""));
+ const b=[];
+ b.push(visualBox(28,91,175,113,"#eaf6ff"));
+ b.push(visualText(115,132,"Dockerfile","vtext vlabel"));b.push(visualText(115,167,"recette de build","vmuted vsmall"));
+ b.push(visualBox(267,91,173,113,"#fff1dd"));
+ b.push(visualText(353,132,"Image","vtext vlabel"));b.push(visualText(353,167,"modèle réutilisable","vmuted vsmall"));
+ b.push(visualBox(503,38,178,89,"#eaf7ee"));
+ b.push(visualText(592,75,"Conteneur A","vtext vlabel"));
+ b.push(visualText(592,98,"instance 1","vmuted vsmall"));
+ b.push(visualBox(503,166,178,89,"#eaf7ee"));
+ b.push(visualText(592,202,"Conteneur B","vtext vlabel"));
+ b.push(visualText(592,224,"instance 2","vmuted vsmall"));
+ b.push(visualArrow(209,145,257,145));b.push(visualText(231,130,"build","vblue vsmall"));
+ b.push(visualArrow(447,134,494,88));b.push(visualArrow(447,159,494,205));b.push(visualText(465,148,"run","vblue vsmall"));
+ return visualFigure("Une image, plusieurs conteneurs","Le Dockerfile permet de construire l'image. Depuis cette même image, Docker peut lancer plusieurs conteneurs distincts ; aucun conteneur n'est créé à partir de l'autre dans ce schéma.",b.join(""));
+}
+function visualGitBranch(){
+ const b=[];
+ b.push(visualText(350,32,"Une branche propose des changements, sans toucher à main"));
+ b.push(visualBox(24,98,160,92,"#edf6ff"));b.push(visualText(104,135,"Base commune","vtext vlabel"));b.push(visualText(104,162,"commit initial","vmuted vsmall"));
+ b.push(visualBox(271,56,168,79,"#e8f7ed"));b.push(visualText(355,89,"main","vtext vlabel"));b.push(visualText(355,114,"version stable","vmuted vsmall"));
+ b.push(visualBox(271,162,168,79,"#eaf6ff"));b.push(visualText(355,195,"branche","vtext vlabel"));b.push(visualText(355,219,"travail isolé","vmuted vsmall"));
+ b.push(visualBox(526,103,157,103,"#fff1dc"));b.push(visualText(604,141,"Pull request","vtext vlabel"));b.push(visualText(604,167,"revue et fusion","vmuted vsmall"));
+ b.push(visualArrow(190,128,262,94));b.push(visualArrow(190,161,262,198));b.push(visualArrow(445,198,516,158));
+ b.push(visualArrow(525,125,446,97,"#74916e"));
+ return visualFigure("Branches et pull requests GitHub","Une branche isole tes modifications ; une pull request permet de les proposer et de les relire avant une éventuelle fusion dans main. L'ouverture d'une PR ne publie rien automatiquement sur ton serveur.",b.join(""));
+}
+function visualArraySizes(){
+ const b=[];b.push(visualText(350,40,"int a[5] : cinq objets int contigus"));
+ for(let i=0;i<5;i++){const x=52+i*122;b.push(visualBox(x,90,112,81,"#eaf6ff"));b.push(visualText(x+56,127,"a["+i+"]","vtext vlabel"));b.push(visualText(x+56,151,"int","vmuted vsmall"))}
+ b.push(visualText(350,221,"sizeof(a) = 5 × sizeof(a[0])","vblue vvalue"));
+ return visualFigure("sizeof appliqué à un tableau entier","Dans le même bloc de déclaration, sizeof(a) mesure tout le tableau de cinq éléments. sizeof(a[0]) mesure un seul int. Dans un paramètre de fonction déclaré int a[], le paramètre est traité comme un pointeur.",b.join(""));
+}
+function visualWholeArray(){
+ const b=[];
+ b.push(visualText(350,32,"Un même emplacement de départ, deux types"));
+ for(let i=0;i<5;i++){const x=70+i*113;b.push(visualBox(x,103,105,75,i===0?"#fff1dd":"#eaf6ff"));b.push(visualText(x+52,137,"a["+i+"]","vtext vlabel"));b.push(visualText(x+52,162,"int","vmuted vsmall"))}
+ b.push(visualArrow(123,61,123,94,"#d48835"));b.push(visualText(123,51,"&a[0] : int *","vorange vlabel"));
+ b.push(`<path d="M70 190 V 202 H 627 V 190" fill="none" stroke="#3989c2" stroke-width="3"/>`);
+ b.push(visualText(350,234,"&a : int (*)[5] — pointeur vers le tableau","vblue vlabel"));
+ return visualFigure("Adresse du premier élément ou du tableau ?","&a[0] a le type « pointeur vers int » ; &a a le type « pointeur vers tableau de cinq int ». Les deux correspondent au même début de zone mémoire, mais pas au même type.",b.join(""));
 }
 function visualDockerVM(){
  const b=[];
@@ -448,7 +484,9 @@ function pedagogicVisual(si,ii){
  if(si===9 && Object.hasOwn(pointerValues,ii))return visualPointer(pointerValues[ii]);
  const arraySets={13:[10,20,30,40,50],14:[10,20,30,40,50],16:[1,2,3],19:[10,20,30],20:[10,20,30],25:[10,20,0,0],26:[2,4,6]};
  if(si===9 && Object.hasOwn(arraySets,ii))return visualStreet(arraySets[ii],ii===20?2:ii===19?1:0);
- if(si===9 && [15,17,18].includes(ii))return visualArrayVsPointer();
+ if(si===9 && ii===15)return visualArrayVsPointer();
+ if(si===9 && ii===17)return visualArraySizes();
+ if(si===9 && ii===18)return visualWholeArray();
  if(si===9 && [21,22,23].includes(ii))return visualTrain(ii===22?["O","K","\\0"]:ii===23?["S","a","l","u","t","\\0"]:["B","O","N","\\0"]);
  if(k==="9:27")return visualMatrix();
  if(k==="9:28")return visualSwap();
@@ -458,6 +496,7 @@ function pedagogicVisual(si,ii){
  if(k==="5:5")return visualLoop("while");
  if(k==="5:6")return visualLoop("do");
  if(["6:3","6:4","6:8"].includes(k))return visualGit();
+ if(["6:5","6:6","6:7"].includes(k))return visualGitBranch();
  if(["7:0","7:1","7:2","7:4","7:5","7:6"].includes(k))return visualDocker();
  if(k==="7:3")return visualDockerVM();
  if(["3:2","3:5"].includes(k))return visualShellPipe();
