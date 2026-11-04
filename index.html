@@ -240,7 +240,6 @@ const routeTopic=si=>`#theme/${sectionSlug[si]}`;
 const categorySlug=()=>sidebarGroups.map(([name])=>slug(name));
 const routeCategory=gi=>`#categorie/${categorySlug()[gi]}`;
 const routeCourse=(si,ii)=>`#cours/${sectionSlug[si]}/${conceptSlug[si][ii]}`;
-const routePreview=(si,ii)=>`#apercu/${sectionSlug[si]}/${conceptSlug[si][ii]}`;
 let favorites=[];try{favorites=JSON.parse(localStorage.getItem('holberton-favorites-v2')||'[]');if(!Array.isArray(favorites))favorites=[]}catch{}
 const store=()=>{try{localStorage.setItem('holberton-favorites-v2',JSON.stringify(favorites))}catch{}};
 let dark=false;try{dark=localStorage.getItem('holberton-dark-v2')==='yes'}catch{}
@@ -262,15 +261,36 @@ function renderSidebar(){
 }
 function closeSidebar(){$('courseSidebar').classList.remove('side-open');$('sideShade').hidden=true;$('sideToggle').setAttribute('aria-expanded','false')}
 $('sideToggle').onclick=()=>{const on=$('courseSidebar').classList.toggle('side-open');$('sideShade').hidden=!on;$('sideToggle').setAttribute('aria-expanded',String(on))};$('sideShade').onclick=closeSidebar;
-function updateSidebar(){document.querySelectorAll('[data-side-target]').forEach(a=>{let active=location.hash===a.dataset.sideTarget;a.classList.toggle('active',active);if(active)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});document.querySelectorAll('.navbtn').forEach(b=>b.classList.toggle('active',b.dataset.page===currentPage));}
+function updateSidebar(){
+ const reading=!$('course').classList.contains('hidden')&&topicIndex>=0&&currentConcept>=0;
+ const current=reading?routeCourse(topicIndex,currentConcept):location.hash;
+ document.querySelectorAll('[data-side-target]').forEach(a=>{
+  const active=a.dataset.sideTarget===current;
+  a.classList.toggle('active',active);
+  if(active)a.setAttribute('aria-current',reading?'location':'page');
+  else a.removeAttribute('aria-current');
+ });
+ document.querySelectorAll('.navbtn').forEach(b=>b.classList.toggle('active',b.dataset.page===currentPage));
+}
 function panel(id,scroll=true){for(const p of panels)$(p).classList.toggle('hidden',p!==id);$('hero').classList.toggle('hidden',id!=='browse'||currentPage!=='home');updateSidebar();if(scroll)window.scrollTo({top:0,behavior:'instant'})}
 function renderTopics(indices=sections.map((_,i)=>i)){$('cards').innerHTML=indices.map(si=>[sections[si],si]).map(([s,si])=>`<a class="topic" href="${routeTopic(si)}" style="text-decoration:none"><span class="topic-icon">${esc(icons[si%icons.length])}</span><span><h3>${esc(s.title)}</h3><p>${s.items.length} notions à revoir</p></span><span class="arrow">›</span></a>`).join('')}
 function definitionCard(it){const saved=favorites.includes(it.id);return `<article class="def" tabindex="0" data-card-route="${routeCourse(it.si,it.ii)}" aria-label="Ouvrir le cours de ${esc(it.term)}"><h3>${esc(it.term)}</h3><button class="fav-btn ${saved?'saved':''}" type="button" data-fav="${it.id}" aria-label="${saved?'Retirer des':'Ajouter aux'} favoris : ${esc(it.term)}">${saved?'★':'☆'}</button><p>${esc(it.definition)}</p><a class="card-hit" href="${routeCourse(it.si,it.ii)}" data-course-link="${it.id}" aria-label="Ouvrir le cours détaillé de ${esc(it.term)}"></a><div class="mininote">${esc(it.topic)}</div></article>`}
 function wireFav(container){container.querySelectorAll('[data-fav]').forEach(btn=>btn.onclick=()=>{const id=btn.dataset.fav;favorites=favorites.includes(id)?favorites.filter(x=>x!==id):[...favorites,id];store();if(currentPage==='favorites')drawFavorites();else if(currentPage==='topics'&&topicIndex>=0)drawTopic(topicIndex);else if($('search').value.trim())search()})}
-function wirePreviews(container){container.querySelectorAll('[data-preview]').forEach(a=>a.addEventListener('click',()=>{lastNonModalHash=location.hash||'#accueil';modalOriginScroll=window.scrollY;wasOpenedHere=true}));container.querySelectorAll('[data-card-route]').forEach(card=>{card.addEventListener('click',e=>{if(!e.target.closest('a,button'))card.querySelector('[data-preview]').click()});card.addEventListener('keydown',e=>{if(e.target===card&&(e.key==='Enter'||e.key===' ')){e.preventDefault();card.querySelector('[data-preview]').click()}})})}
-function drawTopic(si){const s=sections[si];$('detailTitle').textContent=s.title;$('detailCount').textContent=s.items.length+' notions · Clique sur un post-it pour accéder directement à sa notion dans le cours continu.';$('breadcrumb').textContent='Fiches / '+s.title;$('definitions').innerHTML=s.items.map((it,ii)=>definitionCard({...it,si,ii,topic:s.title,id:`${si}:${ii}`})).join('');wireFav($('definitions'));wirePreviews($('definitions'))}
-function drawFavorites(){const items=all.filter(it=>favorites.includes(it.id));$('favoriteItems').innerHTML=items.length?items.map(definitionCard).join(''):'<div class="empty">Aucun favori pour le moment. Utilise ☆ sur les fiches pour enregistrer les notions importantes.</div>';wireFav($('favoriteItems'));wirePreviews($('favoriteItems'))}
-function search(){const val=norm($('search').value.trim());if(!val){$('cards').classList.remove('hidden');$('results').classList.add('hidden');$('searchSummary').classList.add('hidden');return}const matched=all.filter(it=>norm(it.term+' '+it.definition+' '+it.topic).includes(val));$('cards').classList.add('hidden');$('results').classList.remove('hidden');$('searchSummary').classList.remove('hidden');$('searchSummary').textContent=matched.length+' résultat'+(matched.length>1?'s':'');$('results').innerHTML=matched.length?matched.map(definitionCard).join(''):'<div class="empty">Aucune notion trouvée. Essaie un autre mot ou une autre commande.</div>';wireFav($('results'));wirePreviews($('results'))}
+function wireCourseLinks(container){
+ container.querySelectorAll('[data-course-link]').forEach(a=>a.addEventListener('click',rememberCardOrigin));
+ container.querySelectorAll('[data-card-route]').forEach(card=>{
+  card.addEventListener('click',e=>{if(!e.target.closest('a,button'))card.querySelector('[data-course-link]').click()});
+  card.addEventListener('keydown',e=>{
+   if(e.target===card&&(e.key==='Enter'||e.key===' ')){
+    e.preventDefault();
+    card.querySelector('[data-course-link]').click();
+   }
+  });
+ });
+}
+function drawTopic(si){const s=sections[si];$('detailTitle').textContent=s.title;$('detailCount').textContent=s.items.length+' notions · Clique sur un post-it pour accéder directement à sa notion dans le cours continu.';$('breadcrumb').textContent='Fiches / '+s.title;$('definitions').innerHTML=s.items.map((it,ii)=>definitionCard({...it,si,ii,topic:s.title,id:`${si}:${ii}`})).join('');wireFav($('definitions'));wireCourseLinks($('definitions'))}
+function drawFavorites(){const items=all.filter(it=>favorites.includes(it.id));$('favoriteItems').innerHTML=items.length?items.map(definitionCard).join(''):'<div class="empty">Aucun favori pour le moment. Utilise ☆ sur les fiches pour enregistrer les notions importantes.</div>';wireFav($('favoriteItems'));wireCourseLinks($('favoriteItems'))}
+function search(){const val=norm($('search').value.trim());if(!val){$('cards').classList.remove('hidden');$('results').classList.add('hidden');$('searchSummary').classList.add('hidden');return}const matched=all.filter(it=>norm(it.term+' '+it.definition+' '+it.topic).includes(val));$('cards').classList.add('hidden');$('results').classList.remove('hidden');$('searchSummary').classList.remove('hidden');$('searchSummary').textContent=matched.length+' résultat'+(matched.length>1?'s':'');$('results').innerHTML=matched.length?matched.map(definitionCard).join(''):'<div class="empty">Aucune notion trouvée. Essaie un autre mot ou une autre commande.</div>';wireFav($('results'));wireCourseLinks($('results'))}
 const lessonRefs=[
  [['Linux : pages de manuel','https://man7.org/linux/man-pages/'],['Microsoft Learn : WSL','https://learn.microsoft.com/fr-fr/windows/wsl/compare-versions']],
  [['GNU : manuel Bash','https://www.gnu.org/software/bash/manual/bash.html']],
@@ -674,42 +694,161 @@ function scrollToCourseNotion(si,ii){
  const panel=document.getElementById(`notion-${si}-${ii}`);
  if(panel){const y=panel.getBoundingClientRect().top+window.scrollY-(window.matchMedia('(max-width:790px)').matches?185:110);window.scrollTo({top:Math.max(0,y),left:0,behavior:'instant'});}
 }
-const dlg=$('conceptDialog');let lastNonModalHash='#accueil',wasOpenedHere=false,modalOriginScroll=0,closingProgrammatically=false;
-function showPreview(si,ii){$('modalBody').innerHTML=`<div class="modal-body">${lessonContent(si,ii)}<a class="modal-open-page" href="${routeCourse(si,ii)}">Ouvrir la page complète →</a></div>`;if(!dlg.open)dlg.showModal()}
-function closeDialogSilently(){if(dlg.open){closingProgrammatically=true;dlg.close();closingProgrammatically=false}}
-function closePreview(){if(wasOpenedHere&&window.history.length>1){wasOpenedHere=false;history.back()}else{const target=lastNonModalHash||routeTopic(topicIndex>=0?topicIndex:0);history.replaceState(null,'',target);renderRoute()}}
-$('modalClose').onclick=closePreview;
-dlg.addEventListener('click',e=>{if(e.target===dlg)closePreview()});
-dlg.addEventListener('cancel',e=>{e.preventDefault();closePreview()});
-$('modalBody').addEventListener('click',e=>{const a=e.target.closest('a.modal-open-page');if(a){wasOpenedHere=false;lastNonModalHash=location.hash}});
-function parseRoute(){const parts=decodeURIComponent(location.hash.replace(/^#/,'' )).split('/');const page=parts[0]||'accueil';if(page==='categorie'){const gi=categorySlug().indexOf(parts[1]);return gi<0?{page:'fiches'}:{page,gi}}if(['theme','cours','apercu'].includes(page)){const si=sectionSlug.indexOf(parts[1]);if(si<0)return {page:'fiches'};if(page==='theme')return{page,si};const ii=conceptSlug[si].indexOf(parts[2]);if(ii<0)return {page:'theme',si};return{page,si,ii}}return{page:['accueil','fiches','favoris','apropos'].includes(page)?page:'accueil'}}
-function renderRoute(){const r=parseRoute();document.title=(r.page==='cours'||r.page==='apercu')?`${sections[r.si].items[r.ii].term} · Holberton Révision`:(r.page==='theme'?`${sections[r.si].title} · Holberton Révision`:'Holberton Révision · Fiches de cours');const previousPage=currentPage;const wasModal=dlg.open;if(r.page==='apercu'){
-  // La page de fond reste intacte pour le retour à la fiche, comme demandé.
-  if(!wasModal){if(!wasOpenedHere)lastNonModalHash=routeTopic(r.si);if(previousPage==='home'&&topicIndex<0){currentPage='topics';topicIndex=r.si;drawTopic(r.si);panel('detail',false)} }
-  showPreview(r.si,r.ii);return
+
+ let savedCardOrigin=null,pendingCardRestoration=null,courseNavigationSerial=0,scrollSpyScheduled=false;
+ function rememberCardOrigin(){
+  savedCardOrigin={
+   hash:location.hash||'#accueil',
+   scrollY:window.scrollY,
+   search:$('search').value,
+   quickSearch:$('quickSearch').value
+  };
  }
- closeDialogSilently();wasOpenedHere=false;
- if(r.page==='theme'){
-   currentPage='topics';topicIndex=r.si;currentConcept=-1;drawTopic(r.si);const gi=sidebarGroups.findIndex(g=>g[1].includes(r.si));if(gi>=0){openedGroups=new Set([gi]);openedTopics=new Set([r.si]);renderSidebar()}panel('detail',!wasModal);if(wasModal)window.scrollTo(0,modalOriginScroll);
- }else if(r.page==='cours'){
-   currentPage='topics';topicIndex=r.si;currentConcept=r.ii;drawCourse(r.si,r.ii);panel('course',false);requestAnimationFrame(()=>requestAnimationFrame(()=>scrollToCourseNotion(r.si,r.ii)));
-   const gi=sidebarGroups.findIndex(g=>g[1].includes(r.si));if(gi>=0){if(!openedGroups.has(gi)||!openedTopics.has(r.si)){openedGroups=new Set([gi]);openedTopics=new Set([r.si]);renderSidebar()}}
- }else if(r.page==='categorie'){
-   currentPage='category';topicIndex=-1;currentConcept=-1;openedGroups=new Set([r.gi]);openedTopics=new Set();renderSidebar();renderTopics(sidebarGroups[r.gi][1]);$('search').value='';$('quickSearch').value='';$('listingTitle').textContent=sidebarGroups[r.gi][0];$('listingSubtitle').textContent='Choisis un thème pour afficher ses fiches et ses explications.';search();panel('browse');document.title=sidebarGroups[r.gi][0]+' · Holberton Révision';
-   }else if(r.page==='favoris'){
-   currentPage='favorites';topicIndex=-1;drawFavorites();panel('favorites');
- }else if(r.page==='apropos'){
-   currentPage='about';topicIndex=-1;panel('about');
- }else{
-   currentPage=r.page==='fiches'?'topics':'home';topicIndex=-1;renderTopics();panel('browse');$('search').value=$('quickSearch').value;search();$('listingTitle').textContent=currentPage==='home'?'Thèmes de révision':'Toutes les fiches';$('listingSubtitle').textContent='Des explications courtes et structurées, par sujet.';
+ function revealSideNotion(si,ii){
+  const sidebar=$('courseSidebar');
+  const target=routeCourse(si,ii);
+  const link=Array.from(sidebar.querySelectorAll('[data-side-target]')).find(a=>a.dataset.sideTarget===target);
+  if(!link || link.offsetParent===null)return;
+  const parent=sidebar.getBoundingClientRect(),box=link.getBoundingClientRect();
+  const topEdge=parent.top+55,bottomEdge=parent.bottom-38;
+  if(box.top<topEdge)sidebar.scrollTop-=Math.ceil(topEdge-box.top);
+  else if(box.bottom>bottomEdge)sidebar.scrollTop+=Math.ceil(box.bottom-bottomEdge);
  }
- updateSidebar();
-}
+ function setReadingNotion(si,ii,forceReveal=false){
+  if($('course').classList.contains('hidden')||topicIndex!==si)return;
+  const changed=currentConcept!==ii;
+  currentConcept=ii;
+  if(changed||forceReveal){
+   $('courseArticle').querySelectorAll('.lesson-panel').forEach((node,i)=>node.classList.toggle('lesson-selected',i===ii));
+   updateSidebar();
+   revealSideNotion(si,ii);
+  }
+ }
+ function syncNotionWithScroll(){
+  if($('course').classList.contains('hidden')||topicIndex<0)return;
+  const panels=Array.from($('courseArticle').querySelectorAll('.lesson-panel'));
+  if(!panels.length)return;
+  const threshold=Math.min(window.innerHeight*.32,260);
+  let selected=0;
+  for(let i=0;i<panels.length;i++){
+   if(panels[i].getBoundingClientRect().top<=threshold)selected=i;
+   else break;
+  }
+  setReadingNotion(topicIndex,selected);
+ }
+ function onMainScroll(){
+  if(scrollSpyScheduled)return;
+  scrollSpyScheduled=true;
+  requestAnimationFrame(()=>{
+   scrollSpyScheduled=false;
+   syncNotionWithScroll();
+  });
+ }
+ window.addEventListener('scroll',onMainScroll,{passive:true});
+ function returnToCards(){
+  if(savedCardOrigin){
+   pendingCardRestoration={...savedCardOrigin};
+   go(savedCardOrigin.hash);
+  }else if(topicIndex>=0)go(routeTopic(topicIndex));
+  else go('#fiches');
+ }
+ function restoreCardPosition(){
+  if(!pendingCardRestoration||pendingCardRestoration.hash!==location.hash)return;
+  const restore=pendingCardRestoration;
+  pendingCardRestoration=null;
+  if(!$('browse').classList.contains('hidden')){
+   $('quickSearch').value=restore.quickSearch;
+   $('search').value=restore.search;
+   search();
+  }
+  requestAnimationFrame(()=>requestAnimationFrame(()=>{
+   if(location.hash!==restore.hash||!$('course').classList.contains('hidden'))return;
+   window.scrollTo({top:restore.scrollY,behavior:'instant'});
+  }));
+ }
+ function parseRoute(){
+  const parts=decodeURIComponent(location.hash.replace(/^#/,'' )).split('/');
+  const page=parts[0]||'accueil';
+  if(page==='categorie'){
+   const gi=categorySlug().indexOf(parts[1]);
+   return gi<0?{page:'fiches'}:{page,gi};
+  }
+  if(['theme','cours','apercu'].includes(page)){
+   const si=sectionSlug.indexOf(parts[1]);
+   if(si<0)return {page:'fiches'};
+   if(page==='theme')return {page,si};
+   const ii=conceptSlug[si].indexOf(parts[2]);
+   if(ii<0)return {page:'theme',si};
+   return page==='apercu'?{page:'cours',si,ii,legacy:true}:{page,si,ii};
+  }
+  return {page:['accueil','fiches','favoris','apropos'].includes(page)?page:'accueil'};
+ }
+ function renderRoute(){
+  const r=parseRoute();
+  if(r.legacy)history.replaceState(history.state,'',routeCourse(r.si,r.ii));
+  const previousWasCourse=!$('course').classList.contains('hidden');
+  if(previousWasCourse && savedCardOrigin && location.hash===savedCardOrigin.hash && !pendingCardRestoration){
+   pendingCardRestoration={...savedCardOrigin};
+  }
+  document.title=r.page==='cours'?`${sections[r.si].items[r.ii].term} · Holberton Révision`
+    :r.page==='theme'?`${sections[r.si].title} · Holberton Révision`:'Holberton Révision · Fiches de cours';
+  if(r.page==='theme'){
+   courseNavigationSerial++;
+   currentPage='topics';topicIndex=r.si;currentConcept=-1;
+   drawTopic(r.si);
+   const gi=sidebarGroups.findIndex(g=>g[1].includes(r.si));
+   if(gi>=0){openedGroups=new Set([gi]);openedTopics=new Set([r.si]);renderSidebar()}
+   panel('detail');
+  }else if(r.page==='cours'){
+   currentPage='topics';topicIndex=r.si;currentConcept=r.ii;
+   drawCourse(r.si,r.ii);
+   const gi=sidebarGroups.findIndex(g=>g[1].includes(r.si));
+   if(gi>=0&&(!openedGroups.has(gi)||!openedTopics.has(r.si))){
+    openedGroups=new Set([gi]);openedTopics=new Set([r.si]);renderSidebar();
+   }
+   panel('course',false);
+   const serial=++courseNavigationSerial,si=r.si,ii=r.ii;
+   requestAnimationFrame(()=>requestAnimationFrame(()=>{
+    if(serial!==courseNavigationSerial||$('course').classList.contains('hidden')||topicIndex!==si)return;
+    scrollToCourseNotion(si,ii);
+    setReadingNotion(si,ii,true);
+   }));
+  }else if(r.page==='categorie'){
+   courseNavigationSerial++;
+   currentPage='category';topicIndex=-1;currentConcept=-1;
+   openedGroups=new Set([r.gi]);openedTopics=new Set();renderSidebar();
+   renderTopics(sidebarGroups[r.gi][1]);
+   $('search').value='';$('quickSearch').value='';
+   $('listingTitle').textContent=sidebarGroups[r.gi][0];
+   $('listingSubtitle').textContent='Choisis un thème pour afficher ses fiches et ses explications.';
+   search();panel('browse');
+   document.title=sidebarGroups[r.gi][0]+' · Holberton Révision';
+  }else if(r.page==='favoris'){
+   courseNavigationSerial++;
+   currentPage='favorites';topicIndex=-1;currentConcept=-1;
+   drawFavorites();panel('favorites');
+  }else if(r.page==='apropos'){
+   courseNavigationSerial++;
+   currentPage='about';topicIndex=-1;currentConcept=-1;
+   panel('about');
+  }else{
+   courseNavigationSerial++;
+   currentPage=r.page==='fiches'?'topics':'home';
+   topicIndex=-1;currentConcept=-1;
+   renderTopics();panel('browse');
+   $('search').value=$('quickSearch').value;search();
+   $('listingTitle').textContent=currentPage==='home'?'Thèmes de révision':'Toutes les fiches';
+   $('listingSubtitle').textContent='Des explications courtes et structurées, par sujet.';
+  }
+  updateSidebar();
+  if(r.page!=='cours')restoreCardPosition();
+ }
+
 function go(h){if(location.hash===h)renderRoute();else location.hash=h}
 $('search').addEventListener('input',()=>{$('quickSearch').value=$('search').value;search()});
 $('quickSearch').addEventListener('input',()=>{const q=$('quickSearch').value; if(location.hash!=='#fiches'){go('#fiches')} $('search').value=q;renderTopics();search()});
 $('back').onclick=()=>go('#fiches');
-$('courseBack').onclick=()=>go(routeTopic(topicIndex));
+$('courseBack').onclick=returnToCards;
 $('start').onclick=()=>go('#fiches');$('goFavorites').onclick=()=>go('#favoris');
 $('brandHome').onclick=e=>{e.preventDefault();go('#accueil')};
 document.querySelectorAll('[data-page]').forEach(b=>b.onclick=()=>go({home:'#accueil',topics:'#fiches',favorites:'#favoris',about:'#apropos'}[b.dataset.page]));
