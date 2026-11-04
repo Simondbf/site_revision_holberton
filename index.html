@@ -207,10 +207,12 @@ let currentPage='home',topicIndex=-1,currentConcept=-1;
 const sidebarGroups=[['Fondamentaux',[0,1,2,3]],['Shell & ligne de commande',[4]],['Programmation en C',[5,8,9,10,11,14]],['Outils de développement',[6,7]],['Méthodes & numérique',[12,13,15]]];
 let openedGroups=new Set([2]),openedTopics=new Set([9]);
 function renderSidebar(){
+ const previousScroll=$('courseSidebar').scrollTop;
  $('sideCategories').innerHTML=sidebarGroups.map(([name,ids],gi)=>`<div class="side-group"><div class="side-group-row"><a class="side-group-link" href="${routeCategory(gi)}" data-side-target="${routeCategory(gi)}">${esc(name)}</a><button class="side-group-arrow" type="button" data-side-group="${gi}" aria-label="${openedGroups.has(gi)?'Replier':'Déplier'} la catégorie ${esc(name)}" aria-expanded="${openedGroups.has(gi)}">${openedGroups.has(gi)?'▾':'▸'}</button></div><div class="side-group-body" data-group-content="${gi}" ${openedGroups.has(gi)?'':'hidden'}>${ids.map(si=>`<div class="side-topic-bar"><a href="${routeTopic(si)}" data-side-target="${routeTopic(si)}">${esc(sections[si].title)}</a><button type="button" data-side-toggle="${si}" aria-label="${openedTopics.has(si)?'Replier':'Afficher'} les notions de ${esc(sections[si].title)}" aria-expanded="${openedTopics.has(si)}">${openedTopics.has(si)?'▾':'▸'}</button></div><div class="side-notions" data-notions="${si}" ${openedTopics.has(si)?'':'hidden'}>${sections[si].items.map((it,ii)=>`<a href="${routeCourse(si,ii)}" data-side-target="${routeCourse(si,ii)}">${esc(it.term)}</a>`).join('')}</div>`).join('')}</div></div>`).join('');
  $('sideCategories').querySelectorAll('[data-side-group]').forEach(b=>b.onclick=()=>{const gi=+b.dataset.sideGroup;const isOpen=openedGroups.has(gi);openedGroups=isOpen?new Set():new Set([gi]);openedTopics=new Set();renderSidebar()});
  $('sideCategories').querySelectorAll('[data-side-toggle]').forEach(b=>b.onclick=()=>{const si=+b.dataset.sideToggle;const gi=sidebarGroups.findIndex(g=>g[1].includes(si));const isOpen=openedTopics.has(si);openedGroups=new Set([gi]);openedTopics=isOpen?new Set():new Set([si]);renderSidebar()});
  $('sideCategories').querySelectorAll('a').forEach(a=>a.addEventListener('click',closeSidebar));
+ $('courseSidebar').scrollTop=previousScroll;
  updateSidebar();
 }
 function closeSidebar(){$('courseSidebar').classList.remove('side-open');$('sideShade').hidden=true;$('sideToggle').setAttribute('aria-expanded','false')}
@@ -307,12 +309,12 @@ function renderRoute(){const r=parseRoute();document.title=(r.page==='cours'||r.
  }
  closeDialogSilently();wasOpenedHere=false;
  if(r.page==='theme'){
-   currentPage='topics';topicIndex=r.si;currentConcept=-1;drawTopic(r.si);panel('detail',!wasModal);if(wasModal)window.scrollTo(0,modalOriginScroll);
+   currentPage='topics';topicIndex=r.si;currentConcept=-1;drawTopic(r.si);const gi=sidebarGroups.findIndex(g=>g[1].includes(r.si));if(gi>=0){openedGroups=new Set([gi]);openedTopics=new Set([r.si]);renderSidebar()}panel('detail',!wasModal);if(wasModal)window.scrollTo(0,modalOriginScroll);
  }else if(r.page==='cours'){
    currentPage='topics';topicIndex=r.si;currentConcept=r.ii;drawCourse(r.si,r.ii);panel('course');
    const gi=sidebarGroups.findIndex(g=>g[1].includes(r.si));if(gi>=0){if(!openedGroups.has(gi)||!openedTopics.has(r.si)){openedGroups=new Set([gi]);openedTopics=new Set([r.si]);renderSidebar()}}
  }else if(r.page==='categorie'){
-   currentPage='category';topicIndex=-1;currentConcept=-1;renderTopics(sidebarGroups[r.gi][1]);$('search').value='';$('quickSearch').value='';$('listingTitle').textContent=sidebarGroups[r.gi][0];$('listingSubtitle').textContent='Choisis un thème pour afficher ses fiches et ses explications.';search();panel('browse');document.title=sidebarGroups[r.gi][0]+' · Holberton Révision';
+   currentPage='category';topicIndex=-1;currentConcept=-1;openedGroups=new Set([r.gi]);openedTopics=new Set();renderSidebar();renderTopics(sidebarGroups[r.gi][1]);$('search').value='';$('quickSearch').value='';$('listingTitle').textContent=sidebarGroups[r.gi][0];$('listingSubtitle').textContent='Choisis un thème pour afficher ses fiches et ses explications.';search();panel('browse');document.title=sidebarGroups[r.gi][0]+' · Holberton Révision';
    }else if(r.page==='favoris'){
    currentPage='favorites';topicIndex=-1;drawFavorites();panel('favorites');
  }else if(r.page==='apropos'){
