@@ -23,6 +23,9 @@ jobs:
         with:
           node-version: "22"
 
+      - name: Vérifier la syntaxe du test navigateur
+        run: node --check scripts/verifier_navigateur.mjs
+
       - name: Préparer Chromium
         run: |
           npm install --no-save --no-package-lock playwright
