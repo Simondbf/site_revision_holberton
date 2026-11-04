@@ -144,6 +144,15 @@ body.dark .lesson-visual figcaption{color:#c5d9e7}
 .visual-viewport{max-width:100%;overflow-x:auto;overscroll-behavior-x:contain;border-radius:12px}
 .visual-scroll-hint{display:none;color:#366d93;font-size:12px;line-height:1.4;margin:6px 0 0}
 @media(max-width:650px){.lesson-visual{padding:13px 10px}.lesson-visual-title{font-size:14px;padding:0 6px}.lesson-visual figcaption{padding:0 6px;font-size:12px}.lesson-visual svg{width:650px;min-width:650px;max-width:none;max-height:none;aspect-ratio:700/260}.visual-scroll-hint{display:block}.visual-viewport{scrollbar-width:thin;scrollbar-color:#9dc2dd transparent}}
+
+/* Lecture continue : chaque notion est indépendante, avec un espace visible. */
+#courseArticle.course-list{display:flex;flex-direction:column;gap:26px;background:none;border:0;box-shadow:none;padding:0;overflow:visible}
+#courseArticle .lesson-panel{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:clamp(20px,4vw,38px);box-shadow:var(--shadow);scroll-margin-top:120px}
+#courseArticle .lesson-panel.lesson-selected{border-color:#8fb8db}
+#courseArticle .lesson-panel .lesson-heading{font-size:clamp(25px,3.4vw,36px);font-weight:850;line-height:1.25;margin:8px 0 14px;overflow-wrap:anywhere}
+#courseArticle .lesson-panel h3{font-size:18px;margin:23px 0 8px}
+#courseArticle .lesson-panel:first-child{margin-top:0}
+@media(max-width:790px){#courseArticle.course-list{gap:20px}#courseArticle .lesson-panel{scroll-margin-top:195px;padding:18px 15px}}
 </style>
 </head>
 <body>
@@ -559,7 +568,27 @@ function lessonContent(si,ii){
  const refs=lessonRefs[si]||[];
  return `<div class="lesson-eyebrow">${esc(sections[si].title)}</div><h1>${esc(it.term)}</h1><p class="lead"><strong>Le résumé :</strong> ${esc(it.definition)}</p><h2>Comprendre la notion</h2><p>${esc(explain)}</p>${diagramFor(si,ii)}${aid.analogy?`<aside class="teaching-analogy"><strong>💡 Une image pour comprendre</strong><p>${esc(aid.analogy)}</p></aside>`:''}${rationale?`<h2>Pourquoi c’est utile</h2><p>${esc(rationale)}</p>`:''}${extra?`<h2>Exemple pour comprendre</h2><pre class="lesson-example"><code>${esc(extra)}</code></pre>${aid.explained?`<p class="lesson-explained"><strong>Décryptage de l’exemple :</strong> ${esc(aid.explained)}</p>`:''}`:''}${note?`<h2>À retenir</h2><p class="tip">${esc(note)}</p>`:''}<div class="lesson-sources"><strong>Pour aller plus loin :</strong> ${refs.map(([title,url])=>`<a href="${url}" target="_blank" rel="noopener noreferrer">${esc(title)} ↗</a>`).join(' ')}<p>Explications pédagogiques rédigées pour ce site ; ce ne sont pas des textes officiels de Holberton. Les exemples sont simplifiés.</p></div>`;
 }
-function drawCourse(si,ii){const it=sections[si].items[ii];$('courseBreadcrumb').textContent='Cours / '+sections[si].title+' / '+it.term;$('courseArticle').innerHTML=lessonContent(si,ii)+`<nav class="course-navigation" aria-label="Navigation entre les notions"><a href="${routeTopic(si)}">← Fiches du thème</a>${ii+1<sections[si].items.length?`<a href="${routeCourse(si,ii+1)}">Notion suivante →</a>`:''}</nav>`}
+let displayedCourseTopic=-1;
+function drawCourse(si,ii){
+ const section=sections[si];
+ $('courseBreadcrumb').textContent='Cours / '+section.title+' · '+section.items.length+' notions';
+ const content=$('courseArticle');
+ if(displayedCourseTopic!==si || content.querySelectorAll('.lesson-panel').length!==section.items.length){
+  content.classList.add('course-list');
+  content.innerHTML=section.items.map((it,index)=>{
+   // Un titre par notion (h2) puis des sous-titres (h3) : la fenêtre d'aperçu conserve sa mise en page.
+   const html=lessonContent(si,index).replaceAll('<h2>','<h3>').replaceAll('</h2>','</h3>')
+      .replace('<h1>','<h2 class="lesson-heading">').replace('</h1>','</h2>');
+   return `<section class="lesson-panel" id="notion-${si}-${index}" aria-labelledby="titre-notion-${si}-${index}">${html.replace('<h2 class="lesson-heading">',`<h2 class="lesson-heading" id="titre-notion-${si}-${index}">`)}</section>`;
+  }).join('');
+  displayedCourseTopic=si;
+ }
+ content.querySelectorAll('.lesson-panel').forEach((panel,index)=>panel.classList.toggle('lesson-selected',index===ii));
+}
+function scrollToCourseNotion(si,ii){
+ const panel=document.getElementById(`notion-${si}-${ii}`);
+ if(panel)panel.scrollIntoView({block:'start',behavior:'auto'});
+}
 const dlg=$('conceptDialog');let lastNonModalHash='#accueil',wasOpenedHere=false,modalOriginScroll=0,closingProgrammatically=false;
 function showPreview(si,ii){$('modalBody').innerHTML=`<div class="modal-body">${lessonContent(si,ii)}<a class="modal-open-page" href="${routeCourse(si,ii)}">Ouvrir la page complète →</a></div>`;if(!dlg.open)dlg.showModal()}
 function closeDialogSilently(){if(dlg.open){closingProgrammatically=true;dlg.close();closingProgrammatically=false}}
@@ -578,7 +607,7 @@ function renderRoute(){const r=parseRoute();document.title=(r.page==='cours'||r.
  if(r.page==='theme'){
    currentPage='topics';topicIndex=r.si;currentConcept=-1;drawTopic(r.si);const gi=sidebarGroups.findIndex(g=>g[1].includes(r.si));if(gi>=0){openedGroups=new Set([gi]);openedTopics=new Set([r.si]);renderSidebar()}panel('detail',!wasModal);if(wasModal)window.scrollTo(0,modalOriginScroll);
  }else if(r.page==='cours'){
-   currentPage='topics';topicIndex=r.si;currentConcept=r.ii;drawCourse(r.si,r.ii);panel('course');
+   currentPage='topics';topicIndex=r.si;currentConcept=r.ii;drawCourse(r.si,r.ii);panel('course',false);scrollToCourseNotion(r.si,r.ii);
    const gi=sidebarGroups.findIndex(g=>g[1].includes(r.si));if(gi>=0){if(!openedGroups.has(gi)||!openedTopics.has(r.si)){openedGroups=new Set([gi]);openedTopics=new Set([r.si]);renderSidebar()}}
  }else if(r.page==='categorie'){
    currentPage='category';topicIndex=-1;currentConcept=-1;openedGroups=new Set([r.gi]);openedTopics=new Set();renderSidebar();renderTopics(sidebarGroups[r.gi][1]);$('search').value='';$('quickSearch').value='';$('listingTitle').textContent=sidebarGroups[r.gi][0];$('listingSubtitle').textContent='Choisis un thème pour afficher ses fiches et ses explications.';search();panel('browse');document.title=sidebarGroups[r.gi][0]+' · Holberton Révision';
