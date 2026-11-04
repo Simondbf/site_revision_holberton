@@ -25,3 +25,4 @@ jobs:
         run: |
           node scripts/verifier_site.mjs
           node scripts/verifier_visuels.mjs
+          node scripts/verifier_contenu.mjs
