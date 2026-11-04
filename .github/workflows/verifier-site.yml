@@ -22,4 +22,6 @@ jobs:
           node-version: "22"
 
       - name: Vérifier les cours et le JavaScript
-        run: node scripts/verifier_site.mjs
+        run: |
+          node scripts/verifier_site.mjs
+          node scripts/verifier_visuels.mjs
