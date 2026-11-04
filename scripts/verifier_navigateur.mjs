@@ -101,14 +101,15 @@ try {
     'Les anciennes commandes de navigation du bas doivent être supprimées.');
   assert.ok(await panneaux.nth(1).getAttribute('id') === 'notion-9-1', 'Cible directe de la deuxième notion absente.');
   assert.match(await panneaux.nth(1).locator('.lesson-heading').innerText(), /Adresse mémoire/);
+  await page.waitForTimeout(350); // Laisser deux trames au navigateur pour stabiliser le défilement.
   const mesure = await page.evaluate(() => {
     const p1 = document.querySelector('#notion-9-0').getBoundingClientRect();
     const p2 = document.querySelector('#notion-9-1').getBoundingClientRect();
-    return { espace: p2.top - p1.bottom, secondeVisible: p2.top };
+    return { espace: p2.top - p1.bottom, secondeVisible: p2.top, scrollY: window.scrollY };
   });
   assert.ok(mesure.espace >= 15 && mesure.espace <= 65, 'Les deux notions ne sont pas distinctement espacées.');
   assert.ok(mesure.secondeVisible >= 0 && mesure.secondeVisible < 280,
-    'La navigation directe ne positionne pas la bonne notion près du haut de l’écran.');
+    'La navigation directe ne positionne pas la bonne notion près du haut de l’écran (top=' + mesure.secondeVisible + ', scrollY=' + mesure.scrollY + ').');
   await page.screenshot({ path: 'apercus/lecture-continue.png' });
   await page.evaluate(() => { location.hash = '#cours/pointeurs-et-tableaux-c/3-operateur-d-adresse'; });
   await page.waitForTimeout(150);
