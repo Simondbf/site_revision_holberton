@@ -34,8 +34,8 @@ try {
   await page.waitForFunction(() => !document.getElementById('conceptDialog').open);
   assert.ok(page.url().includes('#theme/pointeurs-et-tableaux-c'), 'La fermeture ne revient pas aux fiches.');
 
-  const contenu = JSON.parse(source.toString('utf8').match(/<script id="content-data" type="application\\/json">([\\s\\S]*?)<\\/script>/)[1]);
-  const slug = texte => texte.normalize('NFD').replace(/[\\u0300-\\u036f]/g, '').toLocaleLowerCase('fr').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  const contenu = JSON.parse(source.toString('utf8').split('<script id="content-data" type="application/json">')[1].split('</script>')[0]);
+  const slug = texte => texte.normalize('NFD').replace(/\p{M}/gu, '').toLocaleLowerCase('fr').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
   const routeNotion = (chapitre, notion) => {
     const section = contenu.sections.find(x => x.title === chapitre);
     assert.ok(section, 'Chapitre inconnu : ' + chapitre);
