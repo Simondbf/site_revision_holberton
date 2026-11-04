@@ -633,7 +633,7 @@ function lessonContent(si,ii){
  const it=sections[si].items[ii],cr=courseData[sections[si].title]||{},p=si===9?pointerData[String(ii)]:extendedLessons[`${si}:${ii}`];
  const explain=p?p.explanation:it.definition;
  const extra=p?p.example:(cr.example||'');
- const note=(p&&p.note)?p.note:(cr.detail||'');
+ const note=(p&&p.note)?p.note:''; // Une note doit appartenir à la notion, jamais à un autre cours.
  const aid=teachingNotes[`${si}:${ii}`]||{};
  const rationale=cr.why||'';
  const refs=lessonRefs[si]||[];
