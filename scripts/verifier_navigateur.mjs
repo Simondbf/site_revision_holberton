@@ -35,15 +35,16 @@ try{
  const cards=page.locator('#definitions article.def');
  assert.equal(await cards.count(),30,'Le thème doit conserver ses 30 post-it.');
  assert.match(await cards.first().innerText(),/Variable dont la valeur est une adresse/);
- await page.locator('#definitions .card-hit').nth(8).scrollIntoViewIfNeeded();
+ await page.locator('#definitions .card-hit').nth(5).scrollIntoViewIfNeeded();
  const before=await page.evaluate(()=>window.scrollY);
- await page.locator('#definitions .card-hit').nth(8).click();
+ await page.locator('#definitions .card-hit').nth(5).click();
  await page.waitForFunction(()=>location.hash.startsWith('#cours/'));
  assert.equal(await page.locator('#conceptDialog').count(),0,'Une fenêtre pop-up existe encore.');
  assert.equal(await page.locator('#courseArticle .lesson-panel').count(),30,
   'La lecture continue doit contenir les 30 cours.');
- assert.ok(await page.locator('#notion-9-8 .lead').isVisible(),'Le résumé court manque dans le cours détaillé.');
- assert.ok(await page.locator('#notion-9-8 .lesson-visual svg').count()>=1,'L’illustration doit être conservée.');
+ assert.ok(await page.locator('#notion-9-5 .lead').isVisible(),'Le résumé court manque dans le cours détaillé.');
+ assert.ok(await page.locator('#notion-9-5 .lesson-visual svg').count()===1,'Le schéma de modification par pointeur est manquant.');
+ assert.ok(await page.locator('#notion-9-8 .lesson-visual svg').count()===0,'Une illustration inutile reste affichée pour %p.');
 
  // Le bouton retourne à la liste et à la position précise précédente.
  await page.locator('#courseBack').click();
