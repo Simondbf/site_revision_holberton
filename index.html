@@ -172,6 +172,23 @@ body.dark .lesson-visual figcaption{color:#c5d9e7}
 }
 #courseArticle .lesson-panel .lead strong{color:var(--text)}
 #courseArticle .lesson-panel.lesson-selected{border-color:#8fb8db}
+
+/* La navigation du chapitre reste accessible, même tout en bas du cours. */
+#course .course-toolbar{
+ position:sticky;
+ top:var(--course-sticky-top,84px);
+ z-index:16;
+ display:flex;align-items:center;gap:15px;flex-wrap:wrap;
+ padding:10px 15px;margin:0 0 16px;
+ background:var(--surface);border:1px solid var(--line);
+ border-radius:13px;box-shadow:0 5px 16px rgba(18,42,66,.12);
+}
+#course .course-toolbar #courseBack{flex-shrink:0}
+#course .course-toolbar .crumb{margin:0;min-width:0}
+@media(max-width:790px){
+ #course .course-toolbar{gap:8px;padding:8px 10px}
+ #course .course-toolbar .crumb{font-size:11px}
+}
 </style>
 </head>
 <body>
@@ -197,7 +214,7 @@ body.dark .lesson-visual figcaption{color:#c5d9e7}
 <section class="hero" id="hero"><div class="hero-content"><div class="eyebrow">Mes cours · Mes révisions</div><h1>Comprendre, retenir,<br><strong>progresser à ton rythme.</strong></h1><p>Un espace clair pour retrouver les notions réellement abordées dans les cours et projets <strong>Holberton</strong> : Shell, Linux, programmation C, pointeurs, Docker, Git et plus encore.</p><div class="hero-actions"><button class="cta" id="start">Explorer les fiches</button><button class="cta cta-secondary" id="goFavorites">☆ Mes favoris</button></div><div class="stats"><span id="countTopics"></span><span id="countCards"></span><span>Accessible hors ligne</span></div></div></section>
 <section id="browse"><div class="sectionhead"><div><h2 id="listingTitle">Thèmes de révision</h2><p id="listingSubtitle">Des explications courtes et structurées, par sujet.</p></div></div><label class="searchfield"><span aria-hidden="true">⌕</span><input id="search" type="search" autocomplete="off" placeholder="Par exemple : tableau, printf, Docker…" aria-label="Rechercher dans les fiches"></label><div id="searchSummary" class="results-label hidden" aria-live="polite"></div><div id="cards" class="cards"></div><div id="results" class="defs hidden"></div></section>
 <section id="detail" class="hidden"><button id="back" class="linkbtn">← Tous les thèmes</button><div class="crumb" id="breadcrumb"></div><h2 id="detailTitle" class="detail-title"></h2><p id="detailCount" class="detail-intro"></p><div id="definitions" class="defs"></div></section>
-<section id="course" class="hidden"><button class="linkbtn" id="courseBack" type="button">← Retour aux fiches</button><div class="crumb" id="courseBreadcrumb"></div><article class="course-article" id="courseArticle"></article></section>
+<section id="course" class="hidden"><div class="course-toolbar" id="courseToolbar"><button class="linkbtn" id="courseBack" type="button">← Retour aux fiches</button><div class="crumb" id="courseBreadcrumb"></div></div><article class="course-article" id="courseArticle"></article></section>
 <section id="favorites" class="hidden"><div class="sectionhead"><div><h2>Mes favoris</h2><p>Retrouve rapidement les notions enregistrées sur cet appareil.</p></div></div><div class="mininote">Les favoris sont enregistrés dans ce navigateur uniquement. Ils ne sont pas synchronisés entre les appareils.</div><div id="favoriteItems" class="defs" style="margin-top:15px"></div></section>
 <section id="about" class="hidden"><div class="sectionhead"><div><h2>À propos de ce support</h2><p>Un support de révision librement consultable, sans compte.</p></div></div><div class="helpgrid"><article class="def"><h3>Origine des fiches</h3><p>Les notions sont synthétisées à partir des cours, exercices et échanges Holberton déjà travaillés. Ce site est une initiative pédagogique indépendante et ne constitue pas une documentation officielle de l’école.</p></article><article class="def"><h3>Fonctionnement hors ligne</h3><p>Télécharge le fichier index.html ou décompresse l’archive du site, puis ouvre index.html dans ton navigateur. Les fiches et la recherche restent disponibles sans Internet.</p></article><article class="def"><h3>Recherche</h3><p>La barre de recherche permet de retrouver les mots-clés à travers les titres, les définitions et les thèmes.</p></article><article class="def"><h3>Favoris et affichage</h3><p>Marque une notion avec l’étoile pour la retrouver ici. Les liens de cours sont partageables ; le thème et les favoris restent propres à ce navigateur.</p></article></div>
 <section class="project-info" aria-labelledby="about-community"><h3 id="about-community">Un site de révision collaboratif</h3>
@@ -382,9 +399,20 @@ function visualSwap(){
  return visualFigure("Échanger deux caractères avec un récipient temporaire","On copie d'abord a dans tmp, on copie b dans a, puis tmp dans b. Le schéma montre les valeurs après les étapes ; la variable temporaire évite de perdre A.",b.join(""));
 }
 function visualReverse(){
- const b=[],steps=[["A","B","C","D","E"],["E","B","C","D","A"],["E","D","C","B","A"]];
- steps.forEach((row,j)=>{const y=30+j*79;b.push(visualText(63,y+32,j===0?"Départ":j===1?"1er échange":"2e échange","vmuted vsmall","middle"));row.forEach((ch,i)=>{const x=154+i*103,hot=j===0?(i===0||i===4):j===1?(i===1||i===3):false;b.push(visualBox(x,y,87,55,hot?"#fff0d9":"#eaf6ff",hot?"#dfad76":"#b8d9ef",9));b.push(visualText(x+43,y+35,ch,"vtext vvalue"));})});
- return visualFigure("Inverser « ABCDE » : deux échanges suffisent","On échange d'abord les caractères des extrémités, puis ceux juste à l'intérieur. Pour une chaîne C valide, le caractère nul reste à sa place après les lettres.",b.join(""));
+ const b=[];
+ const states=[["A","B","C"],["C","B","A"]];
+ states.forEach((row,j)=>{
+  const y=58+j*110;
+  b.push(visualText(83,y+35,j===0?"Avant":"Après","vtext vlabel"));
+  row.forEach((ch,i)=>{
+   const x=180+i*120;
+   const edge=i!==1;
+   b.push(visualBox(x,y,106,78,edge&&j===0?"#fff0d9":"#eaf6ff",edge&&j===0?"#dfad76":"#b8d9ef",9));
+   b.push(visualText(x+53,y+49,ch,"vtext vvalue"));
+  });
+  if(j===0)b.push(visualText(612,y+48,"⇅","vblue vvalue"));
+ });
+ return visualFigure("Inverser la chaîne « ABC »","On échange le premier et le dernier caractère : ABC devient CBA. Le caractère central B reste en place et le terminateur nul \\0 reste après les lettres.",b.join(""));
 }
 function visualMatrix(){
  const b=[];const x0=180,y0=55;
@@ -585,41 +613,240 @@ function visualPath(){
  b.push(visualText(350,33,"PATH = dossiers parcourus dans l'ordre"));
  return visualFigure("Comment Bash recherche une commande dans PATH","Lorsqu'une commande ne contient pas de slash, le shell cherche généralement un exécutable dans les dossiers de PATH, de gauche à droite ; la recherche s'arrête au premier exécutable trouvé.",b.join(""));
 }
+
+function visualMemoryAddress(){
+ const b=[];
+ b.push(visualText(350,32,"Chaque objet occupe un emplacement mémoire"));
+ b.push(visualBox(68,72,254,125,"#e9f6ff"));b.push(visualText(195,102,"Adresse : 0x1000","vblue vlabel"));
+ b.push(visualText(195,148,"n = 98","vtext vvalue"));
+ b.push(visualText(195,175,"objet de type int","vmuted vsmall"));
+ b.push(visualBox(378,72,254,125,"#f0f7ff"));b.push(visualText(505,102,"Adresse : 0x2000","vblue vlabel"));
+ b.push(visualText(505,148,"autre variable","vtext vlabel"));
+ b.push(visualText(505,175,"autre emplacement","vmuted vsmall"));
+ return visualFigure("Adresse mémoire : où se trouve n ?","Un objet comme n occupe une zone de mémoire. L'adresse fictive 0x1000 sert à la localiser ; 98 est sa valeur, pas son adresse. Les adresses affichées ici ne sont pas réelles.",b.join(""));
+}
+function visualAddressOf(){
+ const b=[];
+ b.push(visualBox(37,80,169,105,"#e8f7ed"));b.push(visualText(122,116,"int n = 98","vtext vlabel"));b.push(visualText(122,147,"n vaut 98","vmuted vsmall"));
+ b.push(visualArrow(214,134,274,134));
+ b.push(visualBox(281,80,144,105,"#fff0dc"));b.push(visualText(353,123,"&n","vtext vvalue"));b.push(visualText(353,149,"adresse de n","vmuted vsmall"));
+ b.push(visualArrow(433,134,484,134));
+ b.push(visualBox(491,80,169,105,"#e9f6ff"));b.push(visualText(575,122,"0x1000","vtext vvalue"));b.push(visualText(575,151,"adresse fictive","vmuted vsmall"));
+ return visualFigure("L'opérateur & produit une adresse","&n récupère l'adresse de la variable n. Dans l'exemple, cette adresse peut être affectée à int *p ; &n n'est pas la valeur 98.",b.join(""));
+}
+function visualPointerDeclaration(){
+ const b=[];
+ b.push(visualBox(47,57,274,96,"#eaf6ff"));b.push(visualText(184,103,"int *p;","vtext vvalue"));b.push(visualText(184,133,"p : pointeur vers int","vmuted vsmall"));
+ b.push(visualBox(366,57,286,96,"#fff1dc"));b.push(visualText(509,103,"int *p, q;","vtext vvalue"));b.push(visualText(509,133,"p : int *   ·   q : int","vmuted vsmall"));
+ b.push(visualText(350,198,"Déclaration ≠ déréférencement","vblue vlabel"));
+ b.push(visualText(350,227,"À ce stade, p n'est pas initialisé","vmuted vlabel"));
+ return visualFigure("Le * dans une déclaration : quel est le type de p ?","Dans int *p, l'astérisque indique que p est un pointeur vers int. Il n'effectue aucune lecture mémoire. Un pointeur local non initialisé ne doit pas être déréférencé.",b.join(""));
+}
+function visualDereference(){
+ const b=[];
+ b.push(visualBox(25,81,180,114,"#eaf6ff"));b.push(visualText(115,115,"p : int *","vtext vlabel"));b.push(visualText(115,157,"0x1000","vtext vvalue"));
+ b.push(visualArrow(211,137,278,137));
+ b.push(visualBox(284,81,163,114,"#fff0dd"));b.push(visualText(365,120,"*p","vtext vvalue"));b.push(visualText(365,158,"lire à l'adresse","vmuted vsmall"));
+ b.push(visualArrow(453,137,514,137));
+ b.push(visualBox(520,81,156,114,"#eaf7ed"));b.push(visualText(598,120,"n","vtext vlabel"));b.push(visualText(598,160,"98","vtext vvalue"));
+ return visualFigure("Déréférencer : lire l'objet pointé","p contient l'adresse fictive 0x1000 de n. L'expression *p permet ici de lire la valeur 98 ; elle exige que p désigne un objet valide.",b.join(""));
+}
+function visualWriteThroughPointer(){
+ const b=[],twos=[{x:38,v:98,title:"Avant *p = 402"},{x:399,v:402,title:"Après *p = 402"}];
+ twos.forEach(z=>{
+  b.push(visualBox(z.x,59,266,158,z.v===98?"#eaf6ff":"#e8f7ed"));
+  b.push(visualText(z.x+133,94,z.title,"vtext vlabel"));
+  b.push(visualText(z.x+133,133,"p → n (0x1000)","vmuted vlabel"));
+  b.push(visualText(z.x+133,181,"n = "+z.v,"vtext vvalue"));
+ });
+ b.push(visualArrow(312,137,388,137));
+ return visualFigure("Modifier une valeur avec *p = 402","L'affectation *p = 402 écrit dans n. La valeur de n passe de 98 à 402, mais l'adresse 0x1000 contenue dans p ne change pas (adresse fictive).",b.join(""));
+}
+function visualThreePointerExpressions(){
+ const b=[],sets=[
+  ["p","0x1000","adresse de n"],
+  ["*p","42","valeur de n"],
+  ["&p","0x2000","adresse de p"]
+ ];
+ sets.forEach((v,i)=>{
+  const x=22+i*228;
+  b.push(visualBox(x,72,211,129,i===1?"#eaf7ec":"#eaf6ff"));
+  b.push(visualText(x+105,108,v[0],"vtext vvalue"));
+  b.push(visualText(x+105,153,v[1],"vtext vvalue"));
+  b.push(visualText(x+105,182,v[2],"vmuted vsmall"));
+ });
+ return visualFigure("p, *p et &p ne veulent pas dire la même chose","Pour int n = 42 et int *p = &n : p contient une adresse, *p lit 42, &p est l'adresse du pointeur p lui-même. Les valeurs 0x1000 et 0x2000 sont fictives.",b.join(""));
+}
+function visualPassByValue(){
+ const b=[];
+ b.push(visualBox(28,58,198,154,"#eaf6ff"));b.push(visualText(127,91,"Appelant","vtext vlabel"));b.push(visualText(127,140,"n = 42","vtext vvalue"));b.push(visualText(127,174,"reste à 42","vmuted vsmall"));
+ b.push(visualArrow(231,132,282,132));
+ b.push(visualBox(287,58,198,154,"#fff1dc"));b.push(visualText(386,91,"Paramètre x","vtext vlabel"));b.push(visualText(386,140,"x = 42","vtext vvalue"));b.push(visualText(386,174,"copie de n","vmuted vsmall"));
+ b.push(visualArrow(489,132,536,132));
+ b.push(visualBox(543,58,133,154,"#eaf7ed"));b.push(visualText(609,91,"x = 7","vtext vlabel"));b.push(visualText(609,140,"n = 42","vtext vlabel"));
+ return visualFigure("Passage par valeur : la fonction reçoit une copie","Avec change(n), la fonction reçoit une variable x distincte de n. Modifier x n'affecte pas n, qui conserve 42.",b.join(""));
+}
+function visualPassingAddress(){
+ const b=[];
+ b.push(visualBox(25,63,198,138,"#eaf6ff"));b.push(visualText(124,97,"Appelant","vtext vlabel"));b.push(visualText(124,134,"n = 42","vtext vvalue"));b.push(visualText(124,169,"&n = 0x1000","vmuted vsmall"));
+ b.push(visualArrow(228,134,279,134));
+ b.push(visualBox(285,63,201,138,"#fff0dc"));b.push(visualText(386,96,"changer(&n)","vtext vlabel"));b.push(visualText(386,135,"p = 0x1000","vtext vlabel"));b.push(visualText(386,168,"*p = 7","vtext vlabel"));
+ b.push(visualArrow(490,134,539,134));
+ b.push(visualBox(545,63,133,138,"#eaf7ed"));b.push(visualText(611,99,"Après","vtext vlabel"));b.push(visualText(611,146,"n = 7","vtext vvalue"));
+ return visualFigure("Passer &n à une fonction pour modifier n","La fonction reçoit une copie de l'adresse de n, puis *p = 7 modifie l'objet n de l'appelant. L'adresse 0x1000 est fictive.",b.join(""));
+}
+function visualArrayStorage(){
+ const b=[],v=[10,20,30,40,50];
+ b.push(visualText(350,35,"int a[5] : cinq cases int contiguës"));
+ v.forEach((n,i)=>{
+  const x=35+i*130;
+  b.push(visualBox(x,77,120,105,"#eaf6ff"));
+  b.push(visualText(x+60,116,"a["+i+"]","vmuted vsmall"));
+  b.push(visualText(x+60,161,String(n),"vtext vvalue"));
+ });
+ b.push(visualText(350,224,"Une seule zone mémoire, cinq éléments du même type","vblue vlabel"));
+ return visualFigure("Un tableau : des éléments contigus","Dans int a[5] = {10,20,30,40,50}, a contient cinq entiers placés à la suite en mémoire. Les indices valides vont de 0 à 4.",b.join(""));
+}
+function visualPointerAdvance(){
+ const b=[],v=[10,20,30];
+ v.forEach((n,i)=>{
+  const x=116+i*159;
+  b.push(visualBox(x,80,145,100,i===1?"#fff0d9":"#eaf6ff"));
+  b.push(visualText(x+72,110,"a["+i+"]","vmuted vsmall"));
+  b.push(visualText(x+72,159,String(n),"vtext vvalue"));
+ });
+ b.push(visualText(183,43,"p = &a[0]","vblue vlabel"));
+ b.push(visualArrow(183,50,183,71));
+ b.push(visualText(502,43,"p + 1 = &a[1]","vorange vlabel"));
+ b.push(visualArrow(502,50,346,71,"#b3712e"));
+ b.push(visualText(350,220,"Avancer d'un élément int = sizeof(int) octets","vtext vlabel"));
+ return visualFigure("L'arithmétique des pointeurs avance par éléments","Si p pointe sur a[0], p + 1 pointe sur a[1] et permet de lire 20. Le pas est sizeof(int) octets, pas toujours 4.",b.join(""));
+}
+function visualIndexEqualsPointer(){
+ const b=[];
+ b.push(visualBox(29,73,205,124,"#eaf6ff"));
+ b.push(visualText(132,112,"a[2]","vtext vvalue"));
+ b.push(visualText(132,158,"30","vtext vvalue"));
+ b.push(visualText(350,139,"≡","vblue vvalue"));
+ b.push(visualBox(461,73,212,124,"#eaf7ec"));
+ b.push(visualText(567,112,"*(a + 2)","vtext vvalue"));
+ b.push(visualText(567,158,"30","vtext vvalue"));
+ return visualFigure("Deux écritures pour la troisième case","Avec int a[3]={10,20,30}, a[2] et *(a+2) désignent le même objet, de valeur 30. L'équivalence n'autorise pas un indice hors limites.",b.join(""));
+}
+function visualCStringHolberton(){
+ const b=[],chars=[..."Holberton","\\0"];
+ b.push(visualText(350,36,'char mot[10] = "Holberton"'));
+ const w=61,start=21;
+ chars.forEach((ch,i)=>{
+  const x=start+i*66,end=i===chars.length-1;
+  b.push(visualBox(x,85,w,105,end?"#fff0d8":"#eaf6ff",end?"#dfad76":"#b4d1e6",8));
+  b.push(visualText(x+w/2,115,String(i),"vmuted vsmall"));
+  b.push(visualText(x+w/2,160,ch,"vtext vlabel"));
+ });
+ b.push(visualText(350,224,"9 lettres + le terminateur \\0 = 10 cases","vblue vlabel"));
+ return visualFigure("Une chaîne C se termine par \\0","« Holberton » contient neuf caractères. char mot[10] réserve dix cases : neuf lettres, puis le caractère nul de valeur 0 dans mot[9].",b.join(""));
+}
+function visualArrayInitialization(){
+ const b=[],v=[10,20,0,0];
+ b.push(visualText(350,35,"int nombres[4] = {10, 20};"));
+ v.forEach((n,i)=>{
+  const x=66+i*144,end=i>=2;
+  b.push(visualBox(x,82,132,103,end?"#fff0dd":"#eaf6ff"));
+  b.push(visualText(x+66,117,"nombres["+i+"]","vmuted vsmall"));
+  b.push(visualText(x+66,163,String(n),"vtext vvalue"));
+ });
+ b.push(visualText(350,225,"Les cases non précisées sont initialisées à zéro","vblue vlabel"));
+ return visualFigure("Initialisation partielle d'un tableau","Quatre éléments sont réservés. Seules les deux premières valeurs sont fournies ; les deux autres sont automatiquement initialisées à 0.",b.join(""));
+}
+function visualArrayLoop(){
+ const b=[],v=[2,4,6];
+ b.push(visualText(350,35,"for (i = 0; i < 3; ++i)"));
+ v.forEach((n,i)=>{
+  const x=126+i*155;
+  b.push(visualBox(x,89,142,107,"#eaf6ff"));
+  b.push(visualText(x+71,120,"i = "+i,"vmuted vsmall"));
+  b.push(visualText(x+71,168,String(n),"vtext vvalue"));
+  if(i<2)b.push(visualArrow(x+146,142,x+158,142));
+ });
+ b.push(visualText(350,231,"Affichage : 2 puis 4 puis 6 ; arrêt à i = 3","vblue vlabel"));
+ return visualFigure("Parcourir le tableau sans dépasser sa fin","La boucle lit tab[0], tab[1] et tab[2] : 2, 4 et 6. Quand i atteint 3, la condition i < 3 devient fausse, donc tab[3] n'est jamais lu.",b.join(""));
+}
+function visualDockerfileStages(){
+ const b=[],stages=[["FROM","image de base"],["COPY","ajout de fichiers"],["RUN","build"],["CMD","au lancement"]];
+ stages.forEach((v,i)=>{
+  const x=23+i*173;
+  b.push(visualBox(x,80,155,109,i===3?"#fff0db":"#eaf6ff"));
+  b.push(visualText(x+77,115,v[0],"vtext vvalue"));
+  b.push(visualText(x+77,155,v[1],"vmuted vsmall"));
+  if(i<3)b.push(visualArrow(x+159,137,x+170,137));
+ });
+ b.push(visualText(350,225,"Le Dockerfile décrit comment construire l'image","vblue vlabel"));
+ return visualFigure("FROM, COPY, RUN et CMD ne jouent pas le même rôle","FROM choisit une image de base, COPY copie depuis le contexte de build, RUN exécute pendant le build et CMD indique une commande par défaut lorsque le conteneur démarre.",b.join(""));
+}
+function visualPullRequest(){
+ const b=[];
+ const items=[["Branche","commits proposés"],["Revue","commentaires/tests"],["Fusion","intégration à main"]];
+ items.forEach((v,i)=>{
+  const x=28+i*229;
+  b.push(visualBox(x,81,203,113,i===2?"#eaf7ed":"#eaf6ff"));
+  b.push(visualText(x+101,121,v[0],"vtext vlabel"));
+  b.push(visualText(x+101,159,v[1],"vmuted vsmall"));
+  if(i<2)b.push(visualArrow(x+208,138,x+224,138));
+ });
+ return visualFigure("Une pull request : proposer, examiner, intégrer","Une pull request demande l'intégration des changements d'une branche. Les tests et la revue précèdent une fusion éventuelle ; ouvrir la PR ne la fusionne pas automatiquement.",b.join(""));
+}
+
 function pedagogicVisual(si,ii){
- const k=`${si}:${ii}`;
- if(si===3 && (ii===0 || ii===1))return visualPermissions();
- const pointerValues={0:98,1:98,2:98,3:3,4:98,5:402,6:42,8:42,12:7};
- if(si===9 && Object.hasOwn(pointerValues,ii))return visualPointer(pointerValues[ii]);
- const arraySets={13:[10,20,30,40,50],14:[10,20,30,40,50],16:[1,2,3],19:[10,20,30],20:[10,20,30],25:[10,20,0,0],26:[2,4,6]};
- if(si===9 && Object.hasOwn(arraySets,ii))return visualStreet(arraySets[ii],ii===20?2:ii===19?1:ii===14?4:0);
- if(si===9 && ii===15)return visualArrayVsPointer();
- if(si===9 && ii===17)return visualArraySizes();
- if(si===9 && ii===18)return visualWholeArray();
- if(si===9 && [21,22,23].includes(ii))return visualTrain(ii===22?["O","K","\\0"]:ii===23?["S","a","l","u","t","\\0"]:["B","O","N","\\0"]);
- if(k==="9:27")return visualMatrix();
- if(k==="9:28")return visualSwap();
- if(k==="9:29")return visualReverse();
- if(k==="5:0")return visualCondition();
- if(k==="5:4")return visualLoop("for");
- if(k==="5:5")return visualLoop("while");
- if(k==="5:6")return visualLoop("do");
- if(["6:3","6:4","6:8"].includes(k))return visualGit();
- if(["6:5","6:6","6:7"].includes(k))return visualGitBranch();
- if(["7:0","7:1","7:2","7:4","7:5","7:6"].includes(k))return visualDocker();
- if(k==="7:3")return visualDockerVM();
- if(k==="3:2")return visualStreams();
- if(k==="3:5")return visualShellPipe();
- if(["8:7","8:11","8:12","8:13","8:14","14:4"].includes(k))return visualCompile();
- if(k==="12:4")return visualTiming("regular");
- if(k==="15:1")return visualTiming("io-wait");
- if(k==="15:3")return visualEnergy("faster-less-energy");
- if(k==="15:6")return visualEnergy("speed-more-energy");
- if(["8:17"].includes(k))return visualSigned();
- if(k==="11:0")return visualIncrement("post");
- if(k==="11:1")return visualIncrement("pre");
- if(k==="12:12")return visualPhases();
- if(["4:8","4:13"].includes(k))return visualPath();
- return "";
+ const k=si+':'+ii;
+ // Chaque dessin doit correspondre à l'opération exacte étudiée.
+ // Ne pas afficher une illustration quand elle n'apporte rien.
+ if(k==='3:0')return visualPermissions();
+ if(k==='3:2')return visualStreams();
+ if(k==='3:5')return visualShellPipe();
+ if(k==='4:8')return visualPath();
+ if(k==='5:0')return visualCondition();
+ if(k==='5:4')return visualLoop('for');
+ if(k==='5:5')return visualLoop('while');
+ if(k==='5:6')return visualLoop('do');
+ if(k==='6:3')return visualGit();
+ if(k==='6:5')return visualGitBranch();
+ if(k==='6:6')return visualPullRequest();
+ if(k==='7:0')return visualDocker();
+ if(k==='7:2')return visualDockerfileStages();
+ if(k==='7:3')return visualDockerVM();
+ if(k==='8:7')return visualCompile();
+ if(k==='8:17')return visualSigned();
+ if(k==='9:0')return visualPointer(98);
+ if(k==='9:1')return visualMemoryAddress();
+ if(k==='9:2')return visualAddressOf();
+ if(k==='9:3')return visualPointerDeclaration();
+ if(k==='9:4')return visualDereference();
+ if(k==='9:5')return visualWriteThroughPointer();
+ if(k==='9:6')return visualThreePointerExpressions();
+ if(k==='9:11')return visualPassByValue();
+ if(k==='9:12')return visualPassingAddress();
+ if(k==='9:13')return visualArrayStorage();
+ if(k==='9:14')return visualStreet([10,20,30,40,50],4);
+ if(k==='9:15')return visualArrayVsPointer();
+ if(k==='9:17')return visualArraySizes();
+ if(k==='9:18')return visualWholeArray();
+ if(k==='9:19')return visualPointerAdvance();
+ if(k==='9:20')return visualIndexEqualsPointer();
+ if(k==='9:21')return visualCStringHolberton();
+ if(k==='9:22')return visualTrain(['O','K','\\0']);
+ if(k==='9:25')return visualArrayInitialization();
+ if(k==='9:26')return visualArrayLoop();
+ if(k==='9:27')return visualMatrix();
+ if(k==='9:28')return visualSwap();
+ if(k==='9:29')return visualReverse();
+ if(k==='11:0')return visualIncrement('post');
+ if(k==='11:1')return visualIncrement('pre');
+ if(k==='12:4')return visualTiming('regular');
+ if(k==='12:12')return visualPhases();
+ if(k==='15:1')return visualTiming('io-wait');
+ if(k==='15:3')return visualEnergy('faster-less-energy');
+ if(k==='15:6')return visualEnergy('speed-more-energy');
+ return '';
 }
 function flowDiagram(title,labels,caption){
  return `<figure class="lesson-diagram" role="group" aria-label="${esc(title)}"><div class="diagram-title">${esc(title)}</div><div class="diagram-flow">${labels.map((label,i)=>`${i?'<span class="diagram-arrow" aria-hidden="true">→</span>':''}<div class="diagram-node">${esc(label)}</div>`).join('')}</div><figcaption>${esc(caption)}</figcaption></figure>`;
@@ -630,37 +857,20 @@ function chartDiagram(title,opts){
  return `<figure class="lesson-diagram" aria-label="${esc(title)}"><div class="diagram-title">${esc(title)}</div><div class="diagram-bars">${labels.map((label,i)=>`<div class="diagram-bar-row"><span>${esc(label)}</span><div class="diagram-bar-track"><div class="diagram-bar-fill" style="width:${Math.max(2,Math.round(100*values[i]/max))}%"></div></div><strong>${values[i]} ${esc(unit)}</strong></div>`).join('')}</div><figcaption>Schéma pédagogique : les valeurs servent à illustrer le principe, pas à représenter une mesure réelle.</figcaption></figure>`;
 }
 function diagramFor(si,ii){
- const visual=pedagogicVisual(si,ii);
- if(visual)return visual;
- const key=`${si}:${ii}`;
- if(['0:1','0:2'].includes(key))return flowDiagram('Du logiciel au matériel',['Application','Système / noyau','Processeur et disque'],'Le programme demande au noyau d’utiliser les ressources.');
- if(key==='0:4')return flowDiagram('WSL 2 dans Windows',['Windows','Machine virtuelle légère','Noyau Linux / Ubuntu'],'La distribution Linux dispose de son propre noyau dans WSL 2.');
- if(key==='1:1')return flowDiagram('La ligne de commande',['Terminal','Shell Bash','Programme exécuté'],'Le terminal affiche, le shell interprète, le programme agit.');
- if(key==='2:3')return flowDiagram('Un chemin absolu',['/','home','simon','notes.txt'],'Le chemin commence à la racine du système.');
- if(key==='3:2')return flowDiagram('Les flux d’un programme',['stdin (0)','Programme','stdout (1) / stderr (2)'],'Le programme peut écrire des résultats et des erreurs séparément.');
- if(key==='3:5')return flowDiagram('Le tube entre deux commandes',['Commande A','Sortie standard','Entrée de B'],'Le symbole | fait passer les données de A à B.');
- if(key==='4:8')return flowDiagram('Recherche d’une commande',['PATH','Dossier 1','Dossier 2','Exécutable'],'Bash parcourt les dossiers dans l’ordre indiqué.');
- if(key==='5:4')return flowDiagram('Le fonctionnement d’un for',['Initialiser','Tester','Exécuter','Mettre à jour'],'La boucle revient au test tant que la condition reste vraie.');
- if(['6:3','6:4','6:8'].includes(key))return flowDiagram('Le parcours d’un changement Git',['Fichiers modifiés','git add','git commit','Historique local'],'Le commit concerne les fichiers préparés.');
- if(key==='6:9')return flowDiagram('Travail local et distant',['Dépôt local','git push','Dépôt distant'],'git fetch / pull récupèrent des éléments depuis le distant.');
- if(['7:0','7:1','7:2'].includes(key))return flowDiagram('De l’image au conteneur',['Dockerfile','docker build','Image','Conteneur'],'L’image sert à lancer des instances de conteneurs.');
- if(['8:7','8:11','8:12','8:13','14:4'].includes(key))return flowDiagram('Les étapes de GCC',['.c','Prétraitement','Compilation','Assemblage','Liaison','.exe / a.out'],'Les options -E, -S et -c s’arrêtent à des étapes différentes.');
- if(['9:0','9:5','9:6','9:2','9:4'].includes(key))return `<figure class="lesson-diagram" aria-label="Schéma mémoire : pointeur et valeur"><div class="diagram-title">Un pointeur et sa variable</div><svg viewBox="0 0 580 170" role="img" aria-label="La variable p contient l’adresse de n et pointe vers la case contenant 42"><rect x="25" y="40" width="200" height="94" rx="12" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/><rect x="350" y="40" width="200" height="94" rx="12" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/><text x="48" y="70" fill="var(--muted)" font-size="17">p (int *)</text><text x="48" y="110" fill="var(--text)" font-size="26" font-weight="bold">&amp;n</text><text x="373" y="70" fill="var(--muted)" font-size="17">n (int)</text><text x="373" y="110" fill="var(--text)" font-size="26" font-weight="bold">42</text><path d="M235 86 H335" stroke="var(--primary)" stroke-width="5" stroke-linecap="round"/><path d="M323 75 L339 86 L323 97" fill="none" stroke="var(--primary)" stroke-width="5" stroke-linejoin="round"/><text x="290" y="68" text-anchor="middle" fill="var(--muted)" font-size="14">*p</text></svg><figcaption>p contient l’adresse de n ; *p accède à la valeur 42.</figcaption></figure>`;
-
- if(['9:16','9:20'].includes(key))return `<figure class="lesson-diagram"><div class="diagram-title">De l'adresse de départ à la case voulue</div><div class="diagram-array">${[10,20,30,40].map((v,i)=>`<div><span class="array-index">Maison ${i}</span><span class="array-value">${v}</span></div>`).join('')}</div><figcaption>Le pointeur vers la première maison donne l'adresse de départ ; l'indice 2 indique la troisième maison (valeur 30). Ce schéma simplifie le fonctionnement réel de la mémoire.</figcaption></figure>`;
- if(['9:21','9:22'].includes(key))return `<figure class="lesson-diagram"><div class="diagram-title">Le train des caractères : "BON"</div><div class="diagram-array">${['B','O','N','\\0'].map((v,i)=>`<div><span class="array-index">Case ${i}</span><span class="array-value">${esc(v)}</span></div>`).join('')}</div><figcaption>La case finale contient le caractère nul de valeur zéro. Elle marque la fin de la chaîne C sans s'afficher.</figcaption></figure>`;
- if(key==='9:27')return `<figure class="lesson-diagram"><div class="diagram-title">La grille 2 × 3</div><div class="diagram-array">${[1,2,3,4,5,6].map((v,i)=>`<div><span class="array-index">[${Math.floor(i/3)}][${i%3}]</span><span class="array-value">${v}</span></div>`).join('')}</div><figcaption>grille[1][2] désigne la case de la deuxième ligne, troisième colonne : valeur 6.</figcaption></figure>`;
- if(key==='8:16')return flowDiagram('Familles de types C',['Entiers','char · int · long','Flottants','float · double'],'Les tailles et précisions exactes dépendent de l’implémentation.');
- 
- if(key==='9:28')return flowDiagram('Échanger sans perdre une valeur',['a → temporaire','b → a','temporaire → b'],'La variable temporaire évite d’écraser une valeur.');
- if(['9:13','9:14','9:19','9:20'].includes(key))return `<figure class="lesson-diagram" aria-label="Schéma d’un tableau de quatre entiers"><div class="diagram-title">Un tableau de quatre cases</div><div class="diagram-array">${[10,20,30,40].map((n,i)=>`<div><span class="array-index">Indice ${i}</span><span class="array-value">${n}</span></div>`).join('')}</div><figcaption>Pour un tableau de quatre éléments, les indices valides vont de 0 à 3.</figcaption></figure>`;
+ const image=pedagogicVisual(si,ii);
+ if(image)return image;
+ const key=si+':'+ii;
+ // Aucune image n'est obligatoire : n'afficher que des dessins pertinents.
+ if(key==='0:1')return flowDiagram('Le rôle du système d’exploitation',['Application','Système / noyau','Matériel'],'Le système d’exploitation fournit aux programmes un accès contrôlé aux ressources.');
+ if(key==='0:4')return flowDiagram('WSL 2 dans Windows',['Windows','Machine virtuelle légère','Noyau Linux / Ubuntu'],'WSL 2 exécute une distribution Linux au moyen d’un noyau Linux dans une VM légère.');
+ if(key==='1:1')return flowDiagram('Le shell entre l’utilisateur et le programme',['Terminal','Shell Bash','Programme exécuté'],'Le terminal affiche les échanges ; le shell interprète les commandes et lance les programmes.');
+ if(key==='2:3')return flowDiagram('Un chemin absolu',['/','home','simon','notes.txt'],'Un chemin absolu part toujours de la racine / (chemin fictif d’exemple).');
+ if(key==='6:9')return flowDiagram('Travailler avec un dépôt distant',['Dépôt local','git push','Dépôt distant'],'git fetch récupère sans fusionner ; git pull récupère puis intègre selon la configuration.');
+ if(key==='8:16')return flowDiagram('Familles de types en C',['Entiers','char · int · long','Flottants','float · double'],'La taille et la précision des types dépendent de la plateforme.');
  if(key==='10:0')return flowDiagram('Division et reste',['17','5 × 3 = 15','Reste : 2'],'17 = 5 × 3 + 2.');
  if(key==='10:7')return flowDiagram('Reste de 12 / 10',['12','10 × 1 = 10','Reste : 2'],'12 = 10 × 1 + 2.');
  if(key==='10:8')return flowDiagram('Reste de 89 / 7',['89','7 × 12 = 84','Reste : 5'],'89 = 7 × 12 + 5.');
- if(['11:0','11:1'].includes(key))return flowDiagram('Avant / après incrémentation',['i = 4','i++ ou ++i','i = 5'],'La différence porte sur la valeur de l’expression, pas la valeur finale de i.');
- if(key==='12:4')return chartDiagram('Temps CPU et temps réel : exemple',{labels:['CPU','Réel'],values:[2,5],unit:'s'});
- if(key==='13:2')return flowDiagram('Vérifier une réponse d’IA',['Proposition IA','Documentation','Petit test','Conclusion vérifiée'],'Une réponse plausible ne remplace pas la validation.');
- if(key==='15:3')return flowDiagram('Comprendre l’énergie',['Puissance (W)','× Durée (s)','Énergie (J)'],'À puissance constante, E = P × t.');
+ if(key==='13:2')return flowDiagram('Vérifier une affirmation d’IA',['Proposition IA','Documentation','Petit test','Conclusion vérifiée'],'Une réponse plausible ne remplace pas sa vérification.');
  return '';
 }
 function lessonContent(si,ii){
@@ -692,7 +902,11 @@ function drawCourse(si,ii){
 }
 function scrollToCourseNotion(si,ii){
  const panel=document.getElementById(`notion-${si}-${ii}`);
- if(panel){const y=panel.getBoundingClientRect().top+window.scrollY-(window.matchMedia('(max-width:790px)').matches?185:110);window.scrollTo({top:Math.max(0,y),left:0,behavior:'instant'});}
+ if(!panel)return;
+ const header=document.querySelector('body > header');
+ const offset=(header?.getBoundingClientRect().height||84)+($('courseToolbar')?.getBoundingClientRect().height||56)+14;
+ const y=panel.getBoundingClientRect().top+window.scrollY-offset;
+ window.scrollTo({top:Math.max(0,y),left:0,behavior:'instant'});
 }
 
  let savedCardOrigin=null,pendingCardRestoration=null,courseNavigationSerial=0,scrollSpyScheduled=false;
@@ -852,6 +1066,13 @@ $('courseBack').onclick=returnToCards;
 $('start').onclick=()=>go('#fiches');$('goFavorites').onclick=()=>go('#favoris');
 $('brandHome').onclick=e=>{e.preventDefault();go('#accueil')};
 document.querySelectorAll('[data-page]').forEach(b=>b.onclick=()=>go({home:'#accueil',topics:'#fiches',favorites:'#favoris',about:'#apropos'}[b.dataset.page]));
+const updateCourseToolbarOffset=()=>{
+ const header=document.querySelector('body > header');
+ document.documentElement.style.setProperty('--course-sticky-top',(header?.getBoundingClientRect().height||84)+'px');
+};
+updateCourseToolbarOffset();
+if('ResizeObserver' in window)new ResizeObserver(updateCourseToolbarOffset).observe(document.querySelector('body > header'));
+window.addEventListener('resize',updateCourseToolbarOffset,{passive:true});
 renderTopics();renderSidebar();window.addEventListener('hashchange',renderRoute);renderRoute();
 })();
 </script>
