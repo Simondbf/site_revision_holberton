@@ -172,6 +172,23 @@ body.dark .lesson-visual figcaption{color:#c5d9e7}
 }
 #courseArticle .lesson-panel .lead strong{color:var(--text)}
 #courseArticle .lesson-panel.lesson-selected{border-color:#8fb8db}
+
+/* La navigation du chapitre reste accessible, même tout en bas du cours. */
+#course .course-toolbar{
+ position:sticky;
+ top:var(--course-sticky-top,84px);
+ z-index:16;
+ display:flex;align-items:center;gap:15px;flex-wrap:wrap;
+ padding:10px 15px;margin:0 0 16px;
+ background:var(--surface);border:1px solid var(--line);
+ border-radius:13px;box-shadow:0 5px 16px rgba(18,42,66,.12);
+}
+#course .course-toolbar #courseBack{flex-shrink:0}
+#course .course-toolbar .crumb{margin:0;min-width:0}
+@media(max-width:790px){
+ #course .course-toolbar{gap:8px;padding:8px 10px}
+ #course .course-toolbar .crumb{font-size:11px}
+}
 </style>
 </head>
 <body>
@@ -197,7 +214,7 @@ body.dark .lesson-visual figcaption{color:#c5d9e7}
 <section class="hero" id="hero"><div class="hero-content"><div class="eyebrow">Mes cours · Mes révisions</div><h1>Comprendre, retenir,<br><strong>progresser à ton rythme.</strong></h1><p>Un espace clair pour retrouver les notions réellement abordées dans les cours et projets <strong>Holberton</strong> : Shell, Linux, programmation C, pointeurs, Docker, Git et plus encore.</p><div class="hero-actions"><button class="cta" id="start">Explorer les fiches</button><button class="cta cta-secondary" id="goFavorites">☆ Mes favoris</button></div><div class="stats"><span id="countTopics"></span><span id="countCards"></span><span>Accessible hors ligne</span></div></div></section>
 <section id="browse"><div class="sectionhead"><div><h2 id="listingTitle">Thèmes de révision</h2><p id="listingSubtitle">Des explications courtes et structurées, par sujet.</p></div></div><label class="searchfield"><span aria-hidden="true">⌕</span><input id="search" type="search" autocomplete="off" placeholder="Par exemple : tableau, printf, Docker…" aria-label="Rechercher dans les fiches"></label><div id="searchSummary" class="results-label hidden" aria-live="polite"></div><div id="cards" class="cards"></div><div id="results" class="defs hidden"></div></section>
 <section id="detail" class="hidden"><button id="back" class="linkbtn">← Tous les thèmes</button><div class="crumb" id="breadcrumb"></div><h2 id="detailTitle" class="detail-title"></h2><p id="detailCount" class="detail-intro"></p><div id="definitions" class="defs"></div></section>
-<section id="course" class="hidden"><button class="linkbtn" id="courseBack" type="button">← Retour aux fiches</button><div class="crumb" id="courseBreadcrumb"></div><article class="course-article" id="courseArticle"></article></section>
+<section id="course" class="hidden"><div class="course-toolbar" id="courseToolbar"><button class="linkbtn" id="courseBack" type="button">← Retour aux fiches</button><div class="crumb" id="courseBreadcrumb"></div></div><article class="course-article" id="courseArticle"></article></section>
 <section id="favorites" class="hidden"><div class="sectionhead"><div><h2>Mes favoris</h2><p>Retrouve rapidement les notions enregistrées sur cet appareil.</p></div></div><div class="mininote">Les favoris sont enregistrés dans ce navigateur uniquement. Ils ne sont pas synchronisés entre les appareils.</div><div id="favoriteItems" class="defs" style="margin-top:15px"></div></section>
 <section id="about" class="hidden"><div class="sectionhead"><div><h2>À propos de ce support</h2><p>Un support de révision librement consultable, sans compte.</p></div></div><div class="helpgrid"><article class="def"><h3>Origine des fiches</h3><p>Les notions sont synthétisées à partir des cours, exercices et échanges Holberton déjà travaillés. Ce site est une initiative pédagogique indépendante et ne constitue pas une documentation officielle de l’école.</p></article><article class="def"><h3>Fonctionnement hors ligne</h3><p>Télécharge le fichier index.html ou décompresse l’archive du site, puis ouvre index.html dans ton navigateur. Les fiches et la recherche restent disponibles sans Internet.</p></article><article class="def"><h3>Recherche</h3><p>La barre de recherche permet de retrouver les mots-clés à travers les titres, les définitions et les thèmes.</p></article><article class="def"><h3>Favoris et affichage</h3><p>Marque une notion avec l’étoile pour la retrouver ici. Les liens de cours sont partageables ; le thème et les favoris restent propres à ce navigateur.</p></article></div>
 <section class="project-info" aria-labelledby="about-community"><h3 id="about-community">Un site de révision collaboratif</h3>
@@ -692,7 +709,11 @@ function drawCourse(si,ii){
 }
 function scrollToCourseNotion(si,ii){
  const panel=document.getElementById(`notion-${si}-${ii}`);
- if(panel){const y=panel.getBoundingClientRect().top+window.scrollY-(window.matchMedia('(max-width:790px)').matches?185:110);window.scrollTo({top:Math.max(0,y),left:0,behavior:'instant'});}
+ if(!panel)return;
+ const header=document.querySelector('body > header');
+ const offset=(header?.getBoundingClientRect().height||84)+($('courseToolbar')?.getBoundingClientRect().height||56)+14;
+ const y=panel.getBoundingClientRect().top+window.scrollY-offset;
+ window.scrollTo({top:Math.max(0,y),left:0,behavior:'instant'});
 }
 
  let savedCardOrigin=null,pendingCardRestoration=null,courseNavigationSerial=0,scrollSpyScheduled=false;
@@ -852,6 +873,13 @@ $('courseBack').onclick=returnToCards;
 $('start').onclick=()=>go('#fiches');$('goFavorites').onclick=()=>go('#favoris');
 $('brandHome').onclick=e=>{e.preventDefault();go('#accueil')};
 document.querySelectorAll('[data-page]').forEach(b=>b.onclick=()=>go({home:'#accueil',topics:'#fiches',favorites:'#favoris',about:'#apropos'}[b.dataset.page]));
+const updateCourseToolbarOffset=()=>{
+ const header=document.querySelector('body > header');
+ document.documentElement.style.setProperty('--course-sticky-top',(header?.getBoundingClientRect().height||84)+'px');
+};
+updateCourseToolbarOffset();
+if('ResizeObserver' in window)new ResizeObserver(updateCourseToolbarOffset).observe(document.querySelector('body > header'));
+window.addEventListener('resize',updateCourseToolbarOffset,{passive:true});
 renderTopics();renderSidebar();window.addEventListener('hashchange',renderRoute);renderRoute();
 })();
 </script>
