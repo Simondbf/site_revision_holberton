@@ -76,8 +76,9 @@ const expected={
 for(const[key,needles]of Object.entries(expected)){
  const view=visualKeys.get(key);
  assert.ok(view,'Schéma indispensable absent pour '+key);
+ const searchable=view.replaceAll('&amp;','&').replaceAll('&lt;','<').replaceAll('&gt;','>');
  for(const term of needles){
-  assert.ok(view.toLowerCase().includes(term.toLowerCase()),'Schéma '+key+' ne contient pas le concept '+term);
+  assert.ok(searchable.toLowerCase().includes(term.toLowerCase()),'Schéma '+key+' ne contient pas le concept '+term);
  }
 }
 // Plusieurs images quasiment identiques ont été retirées volontairement.
