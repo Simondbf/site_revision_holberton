@@ -12,7 +12,7 @@ const pointers=block('pointer-data');
 const counts=sections.map(s=>s.items.length);
 const number=counts.reduce((a,b)=>a+b,0);
 
-assert.equal(number,171,'La liste des 171 notions doit rester complète.');
+assert.equal(number,174,'La liste des 174 notions doit rester complète.');
 let notes=0;
 for(const [si,section]of sections.entries()){
   for(const [ii,item]of section.items.entries()){
@@ -24,7 +24,7 @@ for(const [si,section]of sections.entries()){
     notes++;
   }
 }
-assert.equal(notes,171);
+assert.equal(notes,174);
 assert.ok(!html.includes("const note=(p&&p.note)?p.note:(cr.detail"),'Ne pas réutiliser la note générique du chapitre.');
 
 const travail=mkdtempSync(join(tmpdir(),'holberton-pedagogie-'));
@@ -43,7 +43,10 @@ try{
     {name:'Pointeur transmis à une fonction',source:pointers['12'].example+'\n',output:'7\n'},
     {name:'Affichage float et double',source:extra['8:18'].example+'\n',output:'0.10\n'},
     {name:'while(i--)',source:asProgram(extra['11:4'].example),output:'876543210'},
-    {name:'while(--i)',source:asProgram(extra['11:5'].example),output:'87654321'}
+    {name:'while(--i)',source:asProgram(extra['11:5'].example),output:'87654321'},
+    {name:'Codes 0 et 1 renvoyés par une fonction',source:extra['8:20'].example+'\n',output:'1 0\n'},
+    {name:'Retour d’un caractère',source:extra['8:21'].example+'\n',output:'H\n'},
+    {name:'Retour d’un pointeur',source:extra['8:22'].example+'\n',output:'7\n'}
   ];
   for(const [i,test]of testsC.entries()){
     const exe=join(travail,'exemple-'+i);
@@ -52,6 +55,9 @@ try{
   }
   assert.equal(run('bash',['-c',extra['3:7'].example]).trim(),'3',
     'Le comptage des lignes avec wc -l devrait afficher 3.');
+  assert.match(extra['8:20'].explanation, /EXIT_FAILURE/, 'Codes de retour de main mal expliqués.');
+  assert.match(extra['8:21'].note, /char \*/, 'Différence entre char et pointeur absente.');
+  assert.match(extra['8:22'].note, /variable locale/, 'Durée de vie des pointeurs absente.');
   assert.ok(extra['3:0'].note.includes('octal'),'La notation octale 4/2/1 doit être expliquée.');
   assert.ok(pointers['19'].explanation.includes('sizeof(int)'),'Le déplacement d’un pointeur ne doit pas être codé en dur.');
   assert.match(extra['11:4'].note, /-1/,'while(i--) se termine avec i à -1.');
