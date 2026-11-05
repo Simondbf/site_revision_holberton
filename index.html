@@ -398,7 +398,7 @@ function visualSwap(){
  panels.forEach((p,i)=>{const x=28+i*228;b.push(visualBox(x,56,214,157,i===2?"#e9f7ec":"#eaf6ff"));b.push(visualText(x+107,83,p.title));p.cells.forEach((t,j)=>{const xx=x+13+j*65;b.push(visualBox(xx,111,57,64,j===2?"#fff1dd":"#fff","#bad5e6",7));b.push(visualText(xx+28,132,t.split(" = ")[0],"vmuted vsmall"));b.push(visualText(xx+28,166,t.split(" = ")[1],"vtext vvalue"))});if(i<2)b.push(visualArrow(x+214,130,x+227,130));});
  return visualFigure("Échanger deux caractères avec un récipient temporaire","On copie d'abord a dans tmp, on copie b dans a, puis tmp dans b. Le schéma montre les valeurs après les étapes ; la variable temporaire évite de perdre A.",b.join(""));
 }
-function newReverse(){
+function visualReverse(){
  const b=[];
  const states=[["A","B","C"],["C","B","A"]];
  states.forEach((row,j)=>{
