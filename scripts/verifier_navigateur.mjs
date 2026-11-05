@@ -83,6 +83,43 @@ try{
  assert.equal(await page.evaluate(()=>history.length),initialHistory,'Le scroll a ajouté une entrée à l’historique.');
  await page.screenshot({path:'apercus/sommaire-synchronise.png'});
 
+ // Le retour reste réellement visible après un long défilement dans le chapitre.
+ const toolbar=await page.evaluate(()=>{
+  const button=document.querySelector('#courseBack').getBoundingClientRect();
+  const top=document.querySelector('body > header').getBoundingClientRect().bottom;
+  const bar=document.querySelector('#courseToolbar').getBoundingClientRect();
+  return {buttonY:button.top,buttonBottom:button.bottom,headerBottom:top,
+   toolbarTop:bar.top,viewport:window.innerHeight,toolbarPosition:getComputedStyle(document.querySelector('#courseToolbar')).position};
+ });
+ assert.equal(toolbar.toolbarPosition,'sticky','La barre Retour aux fiches doit être sticky.');
+ assert.ok(toolbar.buttonY>=toolbar.headerBottom-3 && toolbar.buttonBottom<toolbar.viewport-6,
+  'Le bouton Retour aux fiches disparaît après défilement : '+JSON.stringify(toolbar));
+ await page.screenshot({path:'apercus/retour-persistant.png'});
+
+ // Contrôler non seulement la présence des images, mais leur sens.
+ const notions=await page.evaluate(()=>{
+  return [...document.querySelectorAll('#courseArticle .lesson-panel')].map((panel,index)=>{
+   const visual=panel.querySelector('figure.lesson-visual, figure.lesson-diagram');
+   return {index,title:panel.querySelector('.lesson-heading')?.textContent||'',image:visual?.outerHTML||'',
+     visualTitle:visual?.querySelector('.lesson-visual-title, .diagram-title')?.textContent||''};
+  });
+ });
+ const firstImages=notions.slice(0,7);
+ assert.equal(firstImages.filter(n=>n.image).length,7,'Les sept premières notions ont besoin de dessins précis.');
+ assert.equal(new Set(firstImages.map(n=>n.image)).size,7,'Les sept premières notions réutilisent le même schéma.');
+ for(const [ii,keyword]of [[0,'pointeur'],[1,'Adresse mémoire'],[2,'opérateur &'],[3,'déclaration'],
+     [4,'Déréférencer'],[5,'Modifier une valeur'],[6,'p, *p et &p']]){
+  assert.ok(firstImages[ii].visualTitle.toLowerCase().includes(keyword.toLowerCase()),
+   'Schéma de la notion '+ii+' incorrect : '+firstImages[ii].visualTitle);
+ }
+ assert.equal(new Set(notions.filter(n=>n.image).map(n=>n.image)).size,
+  notions.filter(n=>n.image).length,
+  'Plusieurs autres schémas du chapitre Pointeurs sont identiques.');
+ await page.locator('#notion-9-1 .lesson-visual').screenshot({path:'apercus/adresse-memoire.png'});
+ await page.locator('#notion-9-2 .lesson-visual').screenshot({path:'apercus/operateur-adresse.png'});
+ await page.locator('#notion-9-5 .lesson-visual').screenshot({path:'apercus/modification-par-pointeur.png'});
+
+
  // Le clic explicite sur une autre notion, lui, conserve le lien profond.
  await page.locator('#sideCategories a[data-side-target="'+target(22)+'"]').click();
  await page.waitForFunction(expected=>location.hash===expected,target(22));
