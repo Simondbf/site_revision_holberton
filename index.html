@@ -398,10 +398,21 @@ function visualSwap(){
  panels.forEach((p,i)=>{const x=28+i*228;b.push(visualBox(x,56,214,157,i===2?"#e9f7ec":"#eaf6ff"));b.push(visualText(x+107,83,p.title));p.cells.forEach((t,j)=>{const xx=x+13+j*65;b.push(visualBox(xx,111,57,64,j===2?"#fff1dd":"#fff","#bad5e6",7));b.push(visualText(xx+28,132,t.split(" = ")[0],"vmuted vsmall"));b.push(visualText(xx+28,166,t.split(" = ")[1],"vtext vvalue"))});if(i<2)b.push(visualArrow(x+214,130,x+227,130));});
  return visualFigure("Échanger deux caractères avec un récipient temporaire","On copie d'abord a dans tmp, on copie b dans a, puis tmp dans b. Le schéma montre les valeurs après les étapes ; la variable temporaire évite de perdre A.",b.join(""));
 }
-function visualReverse(){
- const b=[],steps=[["A","B","C","D","E"],["E","B","C","D","A"],["E","D","C","B","A"]];
- steps.forEach((row,j)=>{const y=30+j*79;b.push(visualText(63,y+32,j===0?"Départ":j===1?"1er échange":"2e échange","vmuted vsmall","middle"));row.forEach((ch,i)=>{const x=154+i*103,hot=j===0?(i===0||i===4):j===1?(i===1||i===3):false;b.push(visualBox(x,y,87,55,hot?"#fff0d9":"#eaf6ff",hot?"#dfad76":"#b8d9ef",9));b.push(visualText(x+43,y+35,ch,"vtext vvalue"));})});
- return visualFigure("Inverser « ABCDE » : deux échanges suffisent","On échange d'abord les caractères des extrémités, puis ceux juste à l'intérieur. Pour une chaîne C valide, le caractère nul reste à sa place après les lettres.",b.join(""));
+function newReverse(){
+ const b=[];
+ const states=[["A","B","C"],["C","B","A"]];
+ states.forEach((row,j)=>{
+  const y=58+j*110;
+  b.push(visualText(83,y+35,j===0?"Avant":"Après","vtext vlabel"));
+  row.forEach((ch,i)=>{
+   const x=180+i*120;
+   const edge=i!==1;
+   b.push(visualBox(x,y,106,78,edge&&j===0?"#fff0d9":"#eaf6ff",edge&&j===0?"#dfad76":"#b8d9ef",9));
+   b.push(visualText(x+53,y+49,ch,"vtext vvalue"));
+  });
+  if(j===0)b.push(visualText(612,y+48,"⇅","vblue vvalue"));
+ });
+ return visualFigure("Inverser la chaîne « ABC »","On échange le premier et le dernier caractère : ABC devient CBA. Le caractère central B reste en place et le terminateur nul \\0 reste après les lettres.",b.join(""));
 }
 function visualMatrix(){
  const b=[];const x0=180,y0=55;
