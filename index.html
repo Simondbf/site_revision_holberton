@@ -796,6 +796,29 @@ function visualPullRequest(){
  return visualFigure("Une pull request : proposer, examiner, intégrer","Une pull request demande l'intégration des changements d'une branche. Les tests et la revue précèdent une fusion éventuelle ; ouvrir la PR ne la fusionne pas automatiquement.",b.join(""));
 }
 
+function visualMallocDecision(mode){
+ const one=mode==='one';
+ const b=[];
+ const request=one?'malloc(sizeof *p)':'malloc(3 * sizeof *p)';
+ const output=one?'*p = 42':'p[0] = 98, p[1] = -1024, p[2] = 402';
+ b.push(visualBox(25,80,202,96,"#eaf6ff"));
+ b.push(visualText(126,115,request,"vtext vlabel"));
+ b.push(visualText(126,157,"mémoire non initialisée","vmuted vsmall"));
+ b.push(visualArrow(233,128,280,128));
+ b.push(visualBox(286,80,141,96,"#fff0dd"));
+ b.push(visualText(356,119,"p == NULL ?","vtext vlabel"));
+ b.push(visualText(356,151,"Tester d'abord","vmuted vsmall"));
+ b.push(visualArrow(433,103,470,66,"#bc6530"));
+ b.push(visualBox(475,22,203,84,"#fff0ed"));
+ b.push(visualText(576,51,"Oui : échec","vtext vlabel"));
+ b.push(visualText(576,81,"ne pas toucher au bloc","vmuted vsmall"));
+ b.push(visualArrow(433,156,471,199,"#247e65"));
+ b.push(visualBox(475,176,203,64,"#e8f7ed"));
+ b.push(visualText(576,200,"Non : allocation OK","vtext vlabel"));
+ b.push(visualText(576,226,output,one?"vblue vlabel":"vmuted vsmall"));
+ return visualFigure(one?"malloc : allocation d'un entier":"malloc : contrôler NULL avant d'utiliser le tableau",one?"On demande la place pour un entier. Si malloc renvoie NULL, on ne déréférence pas p. Sinon, on écrit 42 et on finit par free(p).":"On demande trois entiers. Un échec NULL impose un traitement d'erreur ; uniquement en cas de réussite, on écrit les valeurs dans p[0], p[1] et p[2]. Puis on libère le bloc avec free(p).",b.join(""));
+}
+
 function pedagogicVisual(si,ii){
  const k=si+':'+ii;
  // Chaque dessin doit correspondre à l'opération exacte étudiée.
@@ -839,7 +862,7 @@ function pedagogicVisual(si,ii){
  if(k==='9:27')return visualMatrix();
  if(k==='9:28')return visualSwap();
  if(k==='9:29')return visualReverse();
- if(k==='9:30')return flowDiagram('malloc : demander un bloc',['Demande : 3 × sizeof(int)','Adresse du bloc ou NULL','Écriture dans les 3 cases'],'Le bloc n’est pas initialisé : vérifier NULL puis remplir les cases avant de les lire.');
+ if(k==='9:30')return visualMallocDecision('one');
  if(k==='9:31')return flowDiagram('free : fin de vie du bloc',['Bloc alloué','free(p)','Bloc non accessible'],'Après free, aucun pointeur ne doit réutiliser l’ancien bloc.');
  if(k==='11:0')return visualIncrement('post');
  if(k==='11:1')return visualIncrement('pre');
@@ -864,7 +887,7 @@ function diagramFor(si,ii){
  const key=si+':'+ii;
  if(key==='9:32')return flowDiagram('Durée de vie des données',['Entrée dans la fonction','Variables locales créées','Sortie : locales terminées'],'Un bloc malloc éventuel reste, lui, alloué jusqu’à free.');
  if(key==='9:33')return flowDiagram('Deux écritures différentes',['const char *p : littéral','char s[] : copie','s[0] modifiable'],'L’écriture par p dans le littéral est interdite ; le tableau s peut être modifié.');
- if(key==='9:34')return flowDiagram('Tester le résultat de malloc',['malloc(...)','p == NULL ?','Utiliser p seulement si non NULL'],'Si l’allocation échoue, traiter l’erreur sans déréférencer p.');
+ if(key==='9:34')return visualMallocDecision('array');
  if(key==='9:35')return flowDiagram('Une fuite mémoire',['malloc : bloc réservé','Adresse perdue','Bloc non libéré'],'Une allocation sans chemin de libération peut entraîner une fuite.');
  if(key==='9:36')return flowDiagram('Contrôle par Valgrind',['Compiler avec -g','Exécuter sous Memcheck','Lire le bilan des fuites'],'Contrôler les blocs perdus et les blocs encore alloués à la sortie.');
  // Aucune image n'est obligatoire : n'afficher que des dessins pertinents.
