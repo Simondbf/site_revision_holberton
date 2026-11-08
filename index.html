@@ -796,6 +796,35 @@ function visualPullRequest(){
  return visualFigure("Une pull request : proposer, examiner, intégrer","Une pull request demande l'intégration des changements d'une branche. Les tests et la revue précèdent une fusion éventuelle ; ouvrir la PR ne la fusionne pas automatiquement.",b.join(""));
 }
 
+function visualMallocOne(){
+ const b=[];
+ b.push(visualBox(33,80,230,110,"#eaf6ff"));
+ b.push(visualText(148,107,"int *p","vtext vlabel"));
+ b.push(visualText(148,144,"malloc(sizeof *p)","vtext vlabel"));
+ b.push(visualText(148,172,"p : adresse ou NULL","vmuted vsmall"));
+ b.push(visualArrow(268,135,344,135));
+ b.push(visualBox(350,80,305,110,"#e8f7ed"));
+ b.push(visualText(502,110,"Si p != NULL","vtext vlabel"));
+ b.push(visualText(502,146,"*p = 42","vtext vvalue"));
+ b.push(visualText(502,171,"1 case int utilisable","vmuted vsmall"));
+ b.push(visualText(350,231,"Puis free(p) quand le bloc n'est plus utile","vblue vlabel"));
+ return visualFigure("malloc : un entier alloué dans le tas","malloc(sizeof *p) demande la place pour un seul entier, sans l'initialiser. Il faut vérifier p != NULL avant *p = 42, puis libérer le bloc avec free(p).",b.join(""));
+}
+function visualLiteralVsArray(){
+ const b=[];
+ b.push(visualBox(28,62,308,159,"#eaf6ff"));
+ b.push(visualText(182,93,'const char *p = "School";',"vtext vlabel"));
+ b.push(visualText(182,128,"p pointe vers un littéral","vtext vlabel"));
+ b.push(visualText(182,166,"Écriture dans le littéral","vmuted vsmall"));
+ b.push(visualText(182,191,"interdite en C","vorange vlabel"));
+ b.push(visualBox(366,62,308,159,"#e8f7ed"));
+ b.push(visualText(520,93,'char s[] = "School";',"vtext vlabel"));
+ b.push(visualText(520,128,"s possède sa copie","vtext vlabel"));
+ b.push(visualText(520,166,"s[0] = 's';","vtext vvalue"));
+ b.push(visualText(520,191,'Résultat : "school"',"vblue vlabel"));
+ return visualFigure("Littéral et tableau : deux objets distincts","À gauche, p désigne un littéral qu'on ne doit pas modifier. À droite, s est un tableau local initialisé par une copie des caractères ; s[0] peut être modifié. Il ne s'agit pas de deux étapes successives.",b.join(""));
+}
+
 function visualMallocDecision(mode){
  const one=mode==='one';
  const b=[];
@@ -862,7 +891,7 @@ function pedagogicVisual(si,ii){
  if(k==='9:27')return visualMatrix();
  if(k==='9:28')return visualSwap();
  if(k==='9:29')return visualReverse();
- if(k==='9:30')return visualMallocDecision('one');
+ if(k==='9:30')return visualMallocOne();
  if(k==='9:31')return flowDiagram('free : fin de vie du bloc',['Bloc alloué','free(p)','Bloc non accessible'],'Après free, aucun pointeur ne doit réutiliser l’ancien bloc.');
  if(k==='11:0')return visualIncrement('post');
  if(k==='11:1')return visualIncrement('pre');
@@ -886,7 +915,7 @@ function diagramFor(si,ii){
  if(image)return image;
  const key=si+':'+ii;
  if(key==='9:32')return flowDiagram('Durée de vie des données',['Entrée dans la fonction','Variables locales créées','Sortie : locales terminées'],'Un bloc malloc éventuel reste, lui, alloué jusqu’à free.');
- if(key==='9:33')return flowDiagram('Deux écritures différentes',['const char *p : littéral','char s[] : copie','s[0] modifiable'],'L’écriture par p dans le littéral est interdite ; le tableau s peut être modifié.');
+ if(key==='9:33')return visualLiteralVsArray();
  if(key==='9:34')return visualMallocDecision('array');
  if(key==='9:35')return flowDiagram('Une fuite mémoire',['malloc : bloc réservé','Adresse perdue','Bloc non libéré'],'Une allocation sans chemin de libération peut entraîner une fuite.');
  if(key==='9:36')return flowDiagram('Contrôle par Valgrind',['Compiler avec -g','Exécuter sous Memcheck','Lire le bilan des fuites'],'Contrôler les blocs perdus et les blocs encore alloués à la sortie.');
