@@ -49,7 +49,8 @@ assert.ok(!html.includes('id="conceptDialog"'), 'Les anciennes fenêtres superpo
 assert.ok(html.includes('data-course-link'), 'Post-it sans accès direct au cours');
 assert.ok(html.includes('function syncNotionWithScroll'), 'Suivi de la notion active absent');
 assert.ok(html.includes('function restoreCardPosition'), 'Retour à la position des fiches absent');
-assert.ok(html.includes("if(k==='9:30')return visualMallocDecision('one')"), 'Schéma malloc simple non adapté à son exemple');
+assert.ok(html.includes("if(k==='9:30')return visualMallocOne()"), 'Schéma malloc simple non adapté à son exemple');
+assert.ok(html.includes("if(key==='9:33')return visualLiteralVsArray()"), 'Comparaison littéral/tableau spécifique absente');
 assert.ok(html.includes("if(key==='9:34')return visualMallocDecision('array')"), 'Schéma du test NULL non adapté à son exemple');
 assert.ok(html.includes('Oui : échec') && html.includes('Non : allocation OK'), 'Les deux branches du test NULL doivent être visibles');
 assert.ok(html.includes("const output=one?'*p = 42':'98, -1024, 402'"), 'Les valeurs des schémas doivent correspondre aux exemples C');
