@@ -800,7 +800,7 @@ function visualMallocDecision(mode){
  const one=mode==='one';
  const b=[];
  const request=one?'malloc(sizeof *p)':'malloc(3 * sizeof *p)';
- const output=one?'*p = 42':'p[0] = 98, p[1] = -1024, p[2] = 402';
+ const output=one?'*p = 42':'98, -1024, 402';
  b.push(visualBox(25,80,202,96,"#eaf6ff"));
  b.push(visualText(126,115,request,"vtext vlabel"));
  b.push(visualText(126,157,"mémoire non initialisée","vmuted vsmall"));
@@ -815,7 +815,7 @@ function visualMallocDecision(mode){
  b.push(visualArrow(433,156,471,199,"#247e65"));
  b.push(visualBox(475,176,203,64,"#e8f7ed"));
  b.push(visualText(576,200,"Non : allocation OK","vtext vlabel"));
- b.push(visualText(576,226,output,one?"vblue vlabel":"vmuted vsmall"));
+ b.push(visualText(576,226,output,"vblue vlabel"));
  return visualFigure(one?"malloc : allocation d'un entier":"malloc : contrôler NULL avant d'utiliser le tableau",one?"On demande la place pour un entier. Si malloc renvoie NULL, on ne déréférence pas p. Sinon, on écrit 42 et on finit par free(p).":"On demande trois entiers. Un échec NULL impose un traitement d'erreur ; uniquement en cas de réussite, on écrit les valeurs dans p[0], p[1] et p[2]. Puis on libère le bloc avec free(p).",b.join(""));
 }
 
