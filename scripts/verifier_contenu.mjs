@@ -67,6 +67,9 @@ try{
   assert.match(pointers['33'].note, /char s\[\]/, 'Différence littéral/tableau absente.');
   assert.match(pointers['30'].explanation, /NULL/, 'Échec de malloc non expliqué.');
   assert.match(pointers['31'].note, /doubles free/, 'Double libération non expliquée.');
+  assert.match(sections[8].items[3].definition, /si son type de retour le prévoit/, 'return ne renvoie pas toujours une valeur.');
+  assert.match(extra['8:10'].explanation, /-pedantic-errors/, 'GNU89 et C89 strict sont confondus.');
+  assert.match(extra['4:2'].note, /BEST=School/, 'La variable non exportée de Holberton est mal distinguée de local.');
   assert.match(extra['8:20'].explanation, /EXIT_FAILURE/, 'Codes de retour de main mal expliqués.');
   assert.match(extra['8:21'].note, /char \*/, 'Différence entre char et pointeur absente.');
   assert.match(extra['8:22'].note, /variable locale/, 'Durée de vie des pointeurs absente.');
