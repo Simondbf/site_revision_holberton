@@ -49,6 +49,10 @@ assert.ok(!html.includes('id="conceptDialog"'), 'Les anciennes fenêtres superpo
 assert.ok(html.includes('data-course-link'), 'Post-it sans accès direct au cours');
 assert.ok(html.includes('function syncNotionWithScroll'), 'Suivi de la notion active absent');
 assert.ok(html.includes('function restoreCardPosition'), 'Retour à la position des fiches absent');
+assert.ok(html.includes("if(k==='9:30')return visualMallocDecision('one')"), 'Schéma malloc simple non adapté à son exemple');
+assert.ok(html.includes("if(key==='9:34')return visualMallocDecision('array')"), 'Schéma du test NULL non adapté à son exemple');
+assert.ok(html.includes('Oui : échec') && html.includes('Non : allocation OK'), 'Les deux branches du test NULL doivent être visibles');
+assert.ok(html.includes("const output=one?'*p = 42':'98, -1024, 402'"), 'Les valeurs des schémas doivent correspondre aux exemples C');
 assert.ok(!html.includes('pas synchronisés par Google Drive'), 'Ancienne mention Google Drive');
 
 console.log('Contrôle réussi : ' + data.sections.length + ' thèmes, ' + total + ' notions, JavaScript valide.');
