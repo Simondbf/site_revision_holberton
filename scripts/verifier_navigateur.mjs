@@ -8,6 +8,8 @@ const contenu=JSON.parse(source.toString('utf8').split('<script id="content-data
 const slug=s=>s.normalize('NFD').replace(/\p{M}/gu,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
 const topicName='Pointeurs et tableaux C';
 const si=contenu.sections.findIndex(s=>s.title===topicName);
+assert.ok(si>=0,'Thème Pointeurs introuvable.');
+const expectedCards=contenu.sections[si].items.length;
 const route=(topic,notion)=>{
  const cat=contenu.sections.find(s=>s.title===topic);
  assert.ok(cat,'Thème introuvable : '+topic);
@@ -33,15 +35,15 @@ try{
  // Les post-it gardent leur définition et n'ouvrent plus de fenêtre superposée.
  await page.goto(origin+'/#theme/'+slug(topicName));
  const cards=page.locator('#definitions article.def');
- assert.equal(await cards.count(),30,'Le thème doit conserver ses 30 post-it.');
+ assert.equal(await cards.count(),expectedCards,'Le thème doit afficher tous ses post-it.');
  assert.match(await cards.first().innerText(),/Variable dont la valeur est une adresse/);
  await page.locator('#definitions .card-hit').nth(5).scrollIntoViewIfNeeded();
  const before=await page.evaluate(()=>window.scrollY);
  await page.locator('#definitions .card-hit').nth(5).click();
  await page.waitForFunction(()=>location.hash.startsWith('#cours/'));
  assert.equal(await page.locator('#conceptDialog').count(),0,'Une fenêtre pop-up existe encore.');
- assert.equal(await page.locator('#courseArticle .lesson-panel').count(),30,
-  'La lecture continue doit contenir les 30 cours.');
+ assert.equal(await page.locator('#courseArticle .lesson-panel').count(),expectedCards,
+  'La lecture continue doit contenir toutes les notions du thème.');
  assert.ok(await page.locator('#notion-9-5 .lead').isVisible(),'Le résumé court manque dans le cours détaillé.');
  assert.ok(await page.locator('#notion-9-5 .lesson-visual svg').count()===1,'Le schéma de modification par pointeur est manquant.');
  assert.ok(await page.locator('#notion-9-8 .lesson-visual svg').count()===0,'Une illustration inutile reste affichée pour %p.');
