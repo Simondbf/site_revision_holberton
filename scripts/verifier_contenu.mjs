@@ -12,7 +12,7 @@ const pointers=block('pointer-data');
 const counts=sections.map(s=>s.items.length);
 const number=counts.reduce((a,b)=>a+b,0);
 
-assert.equal(number,176,'La liste des 176 notions doit rester complète.');
+assert.equal(number,182,'La liste des 182 notions doit rester complète.');
 let notes=0;
 for(const [si,section]of sections.entries()){
   for(const [ii,item]of section.items.entries()){
@@ -24,7 +24,7 @@ for(const [si,section]of sections.entries()){
     notes++;
   }
 }
-assert.equal(notes,176);
+assert.equal(notes,182);
 assert.ok(!html.includes("const note=(p&&p.note)?p.note:(cr.detail"),'Ne pas réutiliser la note générique du chapitre.');
 
 const travail=mkdtempSync(join(tmpdir(),'holberton-pedagogie-'));
@@ -48,7 +48,12 @@ try{
     {name:'Retour d’un caractère',source:extra['8:21'].example+'\n',output:'H\n'},
     {name:'Retour d’un pointeur',source:extra['8:22'].example+'\n',output:'7\n'},
     {name:'malloc — allouer un entier',source:pointers['30'].example+'\n',output:'42\n'},
-    {name:'free — libérer un tableau alloué',source:pointers['31'].example+'\n',output:'7 9\n'}
+    {name:'free — libérer un tableau alloué',source:pointers['31'].example+'\n',output:'7 9\n'},
+    {name:'Allocation automatique',source:pointers['32'].example+'\n',output:'4\n'},
+    {name:'Tableau modifiable et littéral',source:pointers['33'].example+'\n',output:'School / school\n'},
+    {name:'Contrôle du retour de malloc',source:pointers['34'].example+'\n',output:'98, -1024, 402\n'},
+    {name:'Allocation et libération sans fuite',source:pointers['35'].example+'\n',output:'-524\n'},
+    {name:'Tableau char et .rodata',source:pointers['37'].example+'\n',output:'school\n'}
   ];
   for(const [i,test]of testsC.entries()){
     const exe=join(travail,'exemple-'+i);
@@ -57,6 +62,9 @@ try{
   }
   assert.equal(run('bash',['-c',extra['3:7'].example]).trim(),'3',
     'Le comptage des lignes avec wc -l devrait afficher 3.');
+  assert.match(pointers['36'].example, /valgrind --leak-check=full/, 'Commande Valgrind absente.');
+  assert.match(pointers['35'].explanation, /fuite mémoire/, 'Fuite non expliquée.');
+  assert.match(pointers['33'].note, /char s\[\]/, 'Différence littéral/tableau absente.');
   assert.match(pointers['30'].explanation, /NULL/, 'Échec de malloc non expliqué.');
   assert.match(pointers['31'].note, /doubles free/, 'Double libération non expliquée.');
   assert.match(extra['8:20'].explanation, /EXIT_FAILURE/, 'Codes de retour de main mal expliqués.');
