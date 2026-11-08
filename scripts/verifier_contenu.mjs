@@ -12,7 +12,7 @@ const pointers=block('pointer-data');
 const counts=sections.map(s=>s.items.length);
 const number=counts.reduce((a,b)=>a+b,0);
 
-assert.equal(number,174,'La liste des 174 notions doit rester complète.');
+assert.equal(number,176,'La liste des 176 notions doit rester complète.');
 let notes=0;
 for(const [si,section]of sections.entries()){
   for(const [ii,item]of section.items.entries()){
@@ -24,7 +24,7 @@ for(const [si,section]of sections.entries()){
     notes++;
   }
 }
-assert.equal(notes,174);
+assert.equal(notes,176);
 assert.ok(!html.includes("const note=(p&&p.note)?p.note:(cr.detail"),'Ne pas réutiliser la note générique du chapitre.');
 
 const travail=mkdtempSync(join(tmpdir(),'holberton-pedagogie-'));
@@ -46,7 +46,9 @@ try{
     {name:'while(--i)',source:asProgram(extra['11:5'].example),output:'87654321'},
     {name:'Codes 0 et 1 renvoyés par une fonction',source:extra['8:20'].example+'\n',output:'1 0\n'},
     {name:'Retour d’un caractère',source:extra['8:21'].example+'\n',output:'H\n'},
-    {name:'Retour d’un pointeur',source:extra['8:22'].example+'\n',output:'7\n'}
+    {name:'Retour d’un pointeur',source:extra['8:22'].example+'\n',output:'7\n'},
+    {name:'malloc — allouer un entier',source:pointers['30'].example+'\n',output:'42\n'},
+    {name:'free — libérer un tableau alloué',source:pointers['31'].example+'\n',output:'7 9\n'}
   ];
   for(const [i,test]of testsC.entries()){
     const exe=join(travail,'exemple-'+i);
@@ -55,6 +57,8 @@ try{
   }
   assert.equal(run('bash',['-c',extra['3:7'].example]).trim(),'3',
     'Le comptage des lignes avec wc -l devrait afficher 3.');
+  assert.match(pointers['30'].explanation, /NULL/, 'Échec de malloc non expliqué.');
+  assert.match(pointers['31'].note, /doubles free/, 'Double libération non expliquée.');
   assert.match(extra['8:20'].explanation, /EXIT_FAILURE/, 'Codes de retour de main mal expliqués.');
   assert.match(extra['8:21'].note, /char \*/, 'Différence entre char et pointeur absente.');
   assert.match(extra['8:22'].note, /variable locale/, 'Durée de vie des pointeurs absente.');
