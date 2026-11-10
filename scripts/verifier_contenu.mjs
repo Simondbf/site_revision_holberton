@@ -12,7 +12,7 @@ const pointers=block('pointer-data');
 const counts=sections.map(s=>s.items.length);
 const number=counts.reduce((a,b)=>a+b,0);
 
-assert.equal(number,182,'La liste des 182 notions doit rester complète.');
+assert.equal(number,189,'La liste des 189 notions doit rester complète.');
 let notes=0;
 for(const [si,section]of sections.entries()){
   for(const [ii,item]of section.items.entries()){
@@ -24,7 +24,7 @@ for(const [si,section]of sections.entries()){
     notes++;
   }
 }
-assert.equal(notes,182);
+assert.equal(notes,189);
 assert.ok(!html.includes("const note=(p&&p.note)?p.note:(cr.detail"),'Ne pas réutiliser la note générique du chapitre.');
 
 const travail=mkdtempSync(join(tmpdir(),'holberton-pedagogie-'));
@@ -53,7 +53,14 @@ try{
     {name:'Tableau modifiable et littéral',source:pointers['33'].example+'\n',output:'School / school\n'},
     {name:'Contrôle du retour de malloc',source:pointers['34'].example+'\n',output:'98, -1024, 402\n'},
     {name:'Allocation et libération sans fuite',source:pointers['35'].example+'\n',output:'-524\n'},
-    {name:'Tableau char et .rodata',source:pointers['37'].example+'\n',output:'school\n'}
+    {name:'Tableau char et .rodata',source:pointers['37'].example+'\n',output:'school\n'},
+    {name:'malloc 10 éléments avec sizeof',source:pointers['38'].example+'\n',output:'98 402\n'},
+    {name:'strlen et terminateur nul',source:pointers['39'].example+'\n',output:'11 Best School\n'},
+    {name:'strcpy vers tableau suffisant',source:pointers['40'].example+'\n',output:'Best School\n'},
+    {name:'strdup POSIX et free',source:pointers['41'].example+'\n',output:'Best School\n'},
+    {name:'pile et tas',source:pointers['42'].example+'\n',output:'5 7\n'},
+    {name:'free sur un bloc malloc valide',source:pointers['43'].example+'\n',output:'Best School\n'},
+    {name:'pointeur initialise',source:pointers['44'].example+'\n',output:'98\n'}
   ];
   for(const [i,test]of testsC.entries()){
     const exe=join(travail,'exemple-'+i);
@@ -62,6 +69,12 @@ try{
   }
   assert.equal(run('bash',['-c',extra['3:7'].example]).trim(),'3',
     'Le comptage des lignes avec wc -l devrait afficher 3.');
+  assert.match(pointers['38'].explanation, /640 octets/, 'malloc(64 * 10) mal expliqué.');
+  assert.match(pointers['39'].explanation, /12 en C/, 'strlen versus sizeof mal expliqué.');
+  assert.match(pointers['40'].explanation, /contrôle de NULL/, 'Contrôle allocation et strcpy absent.');
+  assert.match(pointers['41'].note, /POSIX/, 'Portabilité strdup absente.');
+  assert.match(pointers['43'].note, /free\(NULL\)/, 'Cas free(NULL) absent.');
+  assert.match(pointers['44'].note, /pas nécessairement un segfault/, 'UB non initialisé mal expliquée.');
   assert.match(pointers['36'].example, /valgrind --leak-check=full/, 'Commande Valgrind absente.');
   assert.match(pointers['35'].explanation, /fuite mémoire/, 'Fuite non expliquée.');
   assert.match(pointers['33'].note, /char s\[\]/, 'Différence littéral/tableau absente.');
