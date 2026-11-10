@@ -12,7 +12,7 @@ const pointers=block('pointer-data');
 const counts=sections.map(s=>s.items.length);
 const number=counts.reduce((a,b)=>a+b,0);
 
-assert.equal(number,189,'La liste des 189 notions doit rester complète.');
+assert.equal(number,190,'La liste des 190 notions doit rester complète.');
 let notes=0;
 for(const [si,section]of sections.entries()){
   for(const [ii,item]of section.items.entries()){
@@ -24,7 +24,7 @@ for(const [si,section]of sections.entries()){
     notes++;
   }
 }
-assert.equal(notes,189);
+assert.equal(notes,190);
 assert.ok(!html.includes("const note=(p&&p.note)?p.note:(cr.detail"),'Ne pas réutiliser la note générique du chapitre.');
 
 const travail=mkdtempSync(join(tmpdir(),'holberton-pedagogie-'));
@@ -60,13 +60,24 @@ try{
     {name:'strdup POSIX et free',source:pointers['41'].example+'\n',output:'Best School\n'},
     {name:'pile et tas',source:pointers['42'].example+'\n',output:'5 7\n'},
     {name:'free sur un bloc malloc valide',source:pointers['43'].example+'\n',output:'Best School\n'},
-    {name:'pointeur initialise',source:pointers['44'].example+'\n',output:'98\n'}
+    {name:'pointeur initialise',source:pointers['44'].example+'\n',output:'98\n'},
+    {name:'exit — retour normal',source:extra['8:23'].example+'\n',output:'Le programme continue\n'}
   ];
   for(const [i,test]of testsC.entries()){
     const exe=join(travail,'exemple-'+i);
     run('gcc',['-std=gnu89','-pedantic-errors','-x','c','-o',exe,'-'],{input:test.source});
     assert.equal(run(exe,[]),test.output,'Résultat incorrect : '+test.name);
   }
+  const exempleExit=extra['8:23'].example.replace('verifier(1);','verifier(0);');
+  assert.notEqual(exempleExit,extra['8:23'].example,'Branche d’échec exit(98) introuvable.');
+  const exeExit=join(travail,'test-exit-98');
+  run('gcc',['-std=gnu89','-pedantic-errors','-x','c','-o',exeExit,'-'],{input:exempleExit});
+  const resultatExit=spawnSync(exeExit,[],{encoding:'utf8',timeout:15000});
+  if(resultatExit.error)throw resultatExit.error;
+  assert.equal(resultatExit.status,98,'exit(98) doit terminer avec le statut 98 sous Linux.');
+  assert.equal(resultatExit.stdout,'','Aucune instruction après exit(98) ne doit être exécutée.');
+  assert.match(extra['8:23'].explanation,/EXIT_FAILURE/,'Exit portable non expliqué.');
+  assert.match(extra['8:23'].note,/free\(\)/,'Différence exit et free absente.');
   assert.equal(run('bash',['-c',extra['3:7'].example]).trim(),'3',
     'Le comptage des lignes avec wc -l devrait afficher 3.');
   assert.match(pointers['38'].explanation, /640 octets/, 'malloc(64 * 10) mal expliqué.');
