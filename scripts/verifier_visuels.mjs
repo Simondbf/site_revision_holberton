@@ -71,7 +71,14 @@ const expected={
  '9:26':['tab[2]','6'],
  '9:27':['grille[1][2]','6'],
  '9:28':['temporaire','tmp'],
- '9:29':['inverser','CBA']
+ '9:29':['inverser','CBA'],
+ '9:38':['sizeof(int)','Dix'],
+ '9:39':['strlen','12'],
+ '9:40':['strcpy','destination'],
+ '9:41':['strdup','free'],
+ '9:42':['automatique','tas'],
+ '9:43':['free','littéral'],
+ '9:44':['non initialisé','comportement indéfini']
 };
 for(const[key,needles]of Object.entries(expected)){
  const view=visualKeys.get(key);
