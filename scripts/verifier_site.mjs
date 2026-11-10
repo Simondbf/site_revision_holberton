@@ -38,7 +38,7 @@ for (const [si, section] of data.sections.entries()) {
     total++;
   }
 }
-assert.ok(total >= 182, 'Des fiches semblent avoir disparu');
+assert.ok(total >= 189, 'Des fiches semblent avoir disparu');
 assert.ok(Object.keys(aide).length > 0, 'Analogies pédagogiques manquantes');
 
 const scripts = [...html.matchAll(/<script(?![^>]*type="application\/json")[^>]*>([\s\S]*?)<\/script>/g)];
@@ -54,6 +54,11 @@ assert.ok(html.includes("if(key==='9:33')return visualLiteralVsArray()"), 'Compa
 assert.ok(html.includes("if(key==='9:34')return visualMallocDecision('array')"), 'Schéma du test NULL non adapté à son exemple');
 assert.ok(html.includes('Oui : échec') && html.includes('Non : allocation OK'), 'Les deux branches du test NULL doivent être visibles');
 assert.ok(html.includes("const output=one?'*p = 42':'98, -1024, 402'"), 'Les valeurs des schémas doivent correspondre aux exemples C');
+for (let i = 38; i <= 44; i++) {
+  assert.ok(pointeurs[String(i)]?.example && pointeurs[String(i)]?.note, 'Quiz mémoire incomplet : 9:' + i);
+}
+assert.ok(html.includes("if(k==='9:39')return visualStringSizeQuiz()"), 'Schéma de strlen/sizeof manquant');
+assert.ok(html.includes("if(k==='9:44')return visualUninitializedQuiz()"), 'Schéma de pointeur non initialisé manquant');
 assert.ok(!html.includes('pas synchronisés par Google Drive'), 'Ancienne mention Google Drive');
 
 console.log('Contrôle réussi : ' + data.sections.length + ' thèmes, ' + total + ' notions, JavaScript valide.');
