@@ -49,6 +49,7 @@ const expected={
  '7:0':['Docker','image'],
  '7:2':['Dockerfile','CMD'],
  '8:7':['compilation C','.o'],
+ '8:23':['return','exit(98)','programme'],
  '9:0':['Adresse, pointeur','*p'],
  '9:1':['Adresse mémoire','0x1000'],
  '9:2':["opérateur &",'&n'],
