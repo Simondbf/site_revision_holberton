@@ -74,7 +74,7 @@ try{
   assert.match(pointers['40'].explanation, /contrôle de NULL/, 'Contrôle allocation et strcpy absent.');
   assert.match(pointers['41'].note, /POSIX/, 'Portabilité strdup absente.');
   assert.match(pointers['43'].note, /free\(NULL\)/, 'Cas free(NULL) absent.');
-  assert.match(pointers['44'].note, /pas nécessairement un segfault/, 'UB non initialisé mal expliquée.');
+  assert.match(pointers['44'].note, /jamais une garantie/, 'UB non initialisé mal expliquée.');
   assert.match(pointers['36'].example, /valgrind --leak-check=full/, 'Commande Valgrind absente.');
   assert.match(pointers['35'].explanation, /fuite mémoire/, 'Fuite non expliquée.');
   assert.match(pointers['33'].note, /char s\[\]/, 'Différence littéral/tableau absente.');
