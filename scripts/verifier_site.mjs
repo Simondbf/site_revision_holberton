@@ -38,7 +38,7 @@ for (const [si, section] of data.sections.entries()) {
     total++;
   }
 }
-assert.ok(total >= 207, 'Des fiches semblent avoir disparu');
+assert.ok(total >= 209, 'Des fiches semblent avoir disparu');
 assert.ok(Object.keys(aide).length > 0, 'Analogies pédagogiques manquantes');
 
 const scripts = [...html.matchAll(/<script(?![^>]*type="application\/json")[^>]*>([\s\S]*?)<\/script>/g)];
@@ -63,7 +63,9 @@ assert.ok(extra['8:23']?.explanation && extra['8:23']?.note, 'Fiche exit absente
 assert.ok(html.includes("if(k==='8:23')return visualExitVsReturn()"), 'Schéma return / exit manquant');
 assert.equal(data.sections[16]?.title, 'Structures et typedef en C',
  'Le thème des structures doit exister sans déplacer les anciens thèmes.');
-assert.equal(data.sections[16].items.length,17,'Les 17 notions sur struct et typedef sont attendues.');
+assert.equal(data.sections[16].items.length,19,'Les 19 notions sur struct et typedef sont attendues.');
+assert.ok(extra['16:17']?.explanation?.includes('Betty'), 'Documentation de struct absente');
+assert.ok(extra['16:18']?.explanation?.includes('incomplet'), 'Alias de type struct anticipé absent');
 assert.ok(html.includes("['Programmation en C',[5,8,9,10,11,14,16]]"),
  'Le nouveau thème doit apparaître dans la navigation C.');
 assert.ok(html.includes('if(si===16)return visualStructureLesson(ii)'),
