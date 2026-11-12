@@ -65,6 +65,8 @@ const expected={
  '16:14':["padding","offsetof"],
  '16:15':["malloc(sizeof *p)","free(p)"],
  '16:16':["suivant = NULL","valeur = 3"],
+ '16:17':['Betty','@x:'],
+ '16:18':['type incomplet','point p'],
  '9:0':['Adresse, pointeur','*p'],
  '9:1':['Adresse mémoire','0x1000'],
  '9:2':["opérateur &",'&n'],
