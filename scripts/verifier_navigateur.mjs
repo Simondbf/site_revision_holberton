@@ -158,6 +158,23 @@ try{
  await page.waitForFunction(()=>location.hash.startsWith('#cours/'));
  assert.ok(await page.locator('#notion-9-0').isVisible(),'Le vieux lien ne mène plus au cours.');
 
+ // Nouveau chapitre : fiches, schémas et liens directs restent utilisables.
+ await page.goto(origin+'/#theme/structures-et-typedef-en-c');
+ assert.equal(await page.locator('#definitions article.def').count(),17,
+  'Le nouveau thème doit contenir les 17 post-it.');
+ await page.locator('#definitions .card-hit').first().click();
+ await page.waitForFunction(()=>location.hash.startsWith('#cours/structures-et-typedef-en-c/'));
+ assert.equal(await page.locator('#courseArticle .lesson-panel').count(),17,
+  'Le chapitre Structures doit afficher 17 cours.');
+ assert.equal(await page.locator('#notion-16-0 figure.lesson-visual').count(),1,
+  'Schéma de définition de struct absent.');
+ assert.equal(await page.locator('#notion-16-3 figure.lesson-visual').count(),1,
+  'Schéma de l’opérateur -> absent.');
+ await page.screenshot({path:'apercus/structures-typedef-desktop.png'});
+ await page.goto(origin+'/'+route('Structures et typedef en C','Accès par pointeur avec ->'));
+ await page.waitForFunction(()=>document.querySelector('#notion-16-3')?.classList.contains('lesson-selected'));
+ assert.ok(await page.locator('#notion-16-3').isVisible(),'Lien profond sur les structures défaillant.');
+
  // Le comportement mobile existant reste préservé, sans refonte de l'interface.
  const mobile=await browser.newPage({viewport:{width:390,height:844},isMobile:true,hasTouch:true});
  mobile.on('pageerror',e=>errors.push('Mobile : '+e.message));
