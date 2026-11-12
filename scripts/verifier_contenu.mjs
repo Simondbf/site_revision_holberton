@@ -12,7 +12,7 @@ const pointers=block('pointer-data');
 const counts=sections.map(s=>s.items.length);
 const number=counts.reduce((a,b)=>a+b,0);
 
-assert.equal(number,190,'La liste des 190 notions doit rester complète.');
+assert.equal(number,207,'La liste des 207 notions doit rester complète.');
 let notes=0;
 for(const [si,section]of sections.entries()){
   for(const [ii,item]of section.items.entries()){
@@ -24,7 +24,7 @@ for(const [si,section]of sections.entries()){
     notes++;
   }
 }
-assert.equal(notes,190);
+assert.equal(notes,207);
 assert.ok(!html.includes("const note=(p&&p.note)?p.note:(cr.detail"),'Ne pas réutiliser la note générique du chapitre.');
 
 const travail=mkdtempSync(join(tmpdir(),'holberton-pedagogie-'));
@@ -61,13 +61,38 @@ try{
     {name:'pile et tas',source:pointers['42'].example+'\n',output:'5 7\n'},
     {name:'free sur un bloc malloc valide',source:pointers['43'].example+'\n',output:'Best School\n'},
     {name:'pointeur initialise',source:pointers['44'].example+'\n',output:'98\n'},
-    {name:'exit — retour normal',source:extra['8:23'].example+'\n',output:'Le programme continue\n'}
+    {name:'exit — retour normal',source:extra['8:23'].example+'\n',output:'Le programme continue\n'},
+    {name:'struct/typedef 16:0',source:extra['16:0'].example+'\n',output:"2 3\n"},
+    {name:'struct/typedef 16:1',source:extra['16:1'].example+'\n',output:"3 7\n"},
+    {name:'struct/typedef 16:2',source:extra['16:2'].example+'\n',output:"7 3\n"},
+    {name:'struct/typedef 16:3',source:extra['16:3'].example+'\n',output:"9 9\n"},
+    {name:'struct/typedef 16:4',source:extra['16:4'].example+'\n',output:"4 5 0\n"},
+    {name:'struct/typedef 16:6',source:extra['16:6'].example+'\n',output:"3 4\n"},
+    {name:'struct/typedef 16:7',source:extra['16:7'].example+'\n',output:"8 5\n"},
+    {name:'struct/typedef 16:8',source:extra['16:8'].example+'\n',output:"2 9\n"},
+    {name:'struct/typedef 16:9',source:extra['16:9'].example+'\n',output:"2\n"},
+    {name:'struct/typedef 16:10',source:extra['16:10'].example+'\n',output:"9\n"},
+    {name:'struct/typedef 16:11',source:extra['16:11'].example+'\n',output:"42\n"},
+    {name:'struct/typedef 16:12',source:extra['16:12'].example+'\n',output:"4\n"},
+    {name:'struct/typedef 16:13',source:extra['16:13'].example+'\n',output:"1 2\n"},
+    {name:'struct/typedef 16:14',source:extra['16:14'].example+'\n',output:"1\n"},
+    {name:'struct/typedef 16:15',source:extra['16:15'].example+'\n',output:"6 2\n"},
+    {name:'struct/typedef 16:16',source:extra['16:16'].example+'\n',output:"3 1\n"}
   ];
   for(const [i,test]of testsC.entries()){
     const exe=join(travail,'exemple-'+i);
     run('gcc',['-std=gnu89','-pedantic-errors','-x','c','-o',exe,'-'],{input:test.source});
     assert.equal(run(exe,[]),test.output,'Résultat incorrect : '+test.name);
   }
+  const c99exe=join(travail,'exemple-initialisation-designee');
+  run('gcc',['-std=c99','-pedantic-errors','-x','c','-o',c99exe,'-'],
+    {input:extra['16:5'].example});
+  assert.equal(run(c99exe,[]),'3 7\n',
+    'Les initialiseurs désignés sont testés en C99, pas en GNU89 strict.');
+  assert.match(extra['16:5'].note, /GNU89/, 'Avertissement GNU89 absent.');
+  assert.match(extra['16:14'].explanation, /padding/, 'Alignement des structures mal décrit.');
+  assert.match(extra['16:8'].note, /pointeurs/, 'Copie superficielle des membres pointeurs oubliée.');
+  assert.match(extra['16:16'].note, /NULL/, 'Structure autoréférentielle manquante.');
   const exempleExit=extra['8:23'].example.replace('verifier(1);','verifier(0);');
   assert.notEqual(exempleExit,extra['8:23'].example,'Branche d’échec exit(98) introuvable.');
   const exeExit=join(travail,'test-exit-98');
