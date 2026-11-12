@@ -160,15 +160,17 @@ try{
 
  // Nouveau chapitre : fiches, schémas et liens directs restent utilisables.
  await page.goto(origin+'/#theme/structures-et-typedef-en-c');
- assert.equal(await page.locator('#definitions article.def').count(),17,
-  'Le nouveau thème doit contenir les 17 post-it.');
+ assert.equal(await page.locator('#definitions article.def').count(),19,
+  'Le nouveau thème doit contenir les 19 post-it.');
  await page.locator('#definitions .card-hit').first().click();
  await page.waitForFunction(()=>location.hash.startsWith('#cours/structures-et-typedef-en-c/'));
- await page.waitForFunction(()=>document.querySelectorAll('#courseArticle .lesson-panel').length===17);
- assert.equal(await page.locator('#courseArticle .lesson-panel').count(),17,
-  'Le chapitre Structures doit afficher 17 cours.');
+ await page.waitForFunction(()=>document.querySelectorAll('#courseArticle .lesson-panel').length===19);
+ assert.equal(await page.locator('#courseArticle .lesson-panel').count(),19,
+  'Le chapitre Structures doit afficher 19 cours.');
  assert.equal(await page.locator('#notion-16-0 figure.lesson-visual').count(),1,
   'Schéma de définition de struct absent.');
+ assert.equal(await page.locator('#notion-16-17 figure.lesson-visual').count(),1, 'Schéma Betty absent.');
+ assert.equal(await page.locator('#notion-16-18 figure.lesson-visual').count(),1, 'Schéma typedef anticipé absent.');
  assert.equal(await page.locator('#notion-16-3 figure.lesson-visual').count(),1,
   'Schéma de l’opérateur -> absent.');
  await page.screenshot({path:'apercus/structures-typedef-desktop.png'});
