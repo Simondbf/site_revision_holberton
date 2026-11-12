@@ -17,7 +17,7 @@ const extra = bloc('extra-lessons');
 const pointeurs = bloc('pointer-data');
 const aide = bloc('teaching-notes');
 
-assert.ok(data.sections.length >= 16, 'Des catégories ont disparu');
+assert.ok(data.sections.length >= 17, 'Des catégories ont disparu');
 const slugs = new Set();
 let total = 0;
 for (const [si, section] of data.sections.entries()) {
@@ -38,7 +38,7 @@ for (const [si, section] of data.sections.entries()) {
     total++;
   }
 }
-assert.ok(total >= 171, 'Des fiches semblent avoir disparu');
+assert.ok(total >= 209, 'Des fiches semblent avoir disparu');
 assert.ok(Object.keys(aide).length > 0, 'Analogies pédagogiques manquantes');
 
 const scripts = [...html.matchAll(/<script(?![^>]*type="application\/json")[^>]*>([\s\S]*?)<\/script>/g)];
@@ -49,6 +49,27 @@ assert.ok(!html.includes('id="conceptDialog"'), 'Les anciennes fenêtres superpo
 assert.ok(html.includes('data-course-link'), 'Post-it sans accès direct au cours');
 assert.ok(html.includes('function syncNotionWithScroll'), 'Suivi de la notion active absent');
 assert.ok(html.includes('function restoreCardPosition'), 'Retour à la position des fiches absent');
+assert.ok(html.includes("if(k==='9:30')return visualMallocOne()"), 'Schéma malloc simple non adapté à son exemple');
+assert.ok(html.includes("if(key==='9:33')return visualLiteralVsArray()"), 'Comparaison littéral/tableau spécifique absente');
+assert.ok(html.includes("if(key==='9:34')return visualMallocDecision('array')"), 'Schéma du test NULL non adapté à son exemple');
+assert.ok(html.includes('Oui : échec') && html.includes('Non : allocation OK'), 'Les deux branches du test NULL doivent être visibles');
+assert.ok(html.includes("const output=one?'*p = 42':'98, -1024, 402'"), 'Les valeurs des schémas doivent correspondre aux exemples C');
+for (let i = 38; i <= 44; i++) {
+  assert.ok(pointeurs[String(i)]?.example && pointeurs[String(i)]?.note, 'Quiz mémoire incomplet : 9:' + i);
+}
+assert.ok(html.includes("if(k==='9:39')return visualStringSizeQuiz()"), 'Schéma de strlen/sizeof manquant');
+assert.ok(html.includes("if(k==='9:44')return visualUninitializedQuiz()"), 'Schéma de pointeur non initialisé manquant');
+assert.ok(extra['8:23']?.explanation && extra['8:23']?.note, 'Fiche exit absente');
+assert.ok(html.includes("if(k==='8:23')return visualExitVsReturn()"), 'Schéma return / exit manquant');
+assert.equal(data.sections[16]?.title, 'Structures et typedef en C',
+ 'Le thème des structures doit exister sans déplacer les anciens thèmes.');
+assert.equal(data.sections[16].items.length,19,'Les 19 notions sur struct et typedef sont attendues.');
+assert.ok(extra['16:17']?.explanation?.includes('Betty'), 'Documentation de struct absente');
+assert.ok(extra['16:18']?.explanation?.includes('incomplet'), 'Alias de type struct anticipé absent');
+assert.ok(html.includes("['Programmation en C',[5,8,9,10,11,14,16]]"),
+ 'Le nouveau thème doit apparaître dans la navigation C.');
+assert.ok(html.includes('if(si===16)return visualStructureLesson(ii)'),
+ 'Schémas du chapitre struct non connectés.');
 assert.ok(!html.includes('pas synchronisés par Google Drive'), 'Ancienne mention Google Drive');
 
 console.log('Contrôle réussi : ' + data.sections.length + ' thèmes, ' + total + ' notions, JavaScript valide.');
