@@ -938,8 +938,106 @@ function visualExitVsReturn(){
  return visualFigure("return ou exit : ce qui s'arrête","return quitte la fonction courante, tandis que exit(98) termine le processus entier. Dans main, return 0 termine aussi le programme avec succès.",b.join(""));
 }
 
+
+function visualStructureLesson(ii){
+ const b=[];
+ const add=(x,y,w,h,title,details,green=false)=>{
+  b.push(visualBox(x,y,w,h,green?"#e8f7ed":"#eaf6ff"));
+  b.push(visualText(x+w/2,y+33,title,"vtext vlabel"));
+  details.forEach((line,j)=>b.push(visualText(x+w/2,y+72+j*30,line,j===0?"vtext vvalue":"vmuted vlabel")));
+ };
+ let title,caption;
+ switch(ii){
+  case 0:
+   title="Définir un type struct";
+   caption="struct point décrit deux membres entiers, x et y. La définition seule ne crée pas encore de variable.";
+   add(168,52,364,162,"struct point",["int x;","int y;"]);break;
+  case 2:
+   title="Le point accède à un membre précis";
+   caption="p.x est le membre x de la variable p. L'affectation p.x = 7 laisse p.y à 3.";
+   add(189,47,322,174,"Objet p : struct point",["p.x = 7","p.y = 3"],true);break;
+  case 3:
+   title="La flèche suit un pointeur vers la struct";
+   caption="ptr contient l'adresse de p. ptr->x et (*ptr).x désignent le même membre de p ; ici x vaut 9.";
+   add(25,69,230,135,"ptr : struct point *",["&p"]);
+   b.push(visualArrow(266,138,390,138));
+   add(404,69,269,135,"Objet p",["x = 9","y = 3"],true);break;
+  case 4:
+   title="Initialisation positionnelle des membres";
+   caption="Pour struct dimensions d = {4, 5}, les valeurs suivent l'ordre de déclaration et le dernier membre est initialisé à zéro.";
+   add(22,76,207,133,"largeur",["4"]);
+   add(245,76,207,133,"hauteur",["5"]);
+   add(468,76,207,133,"profondeur",["0"],true);break;
+  case 5:
+   title="Initialisation désignée : ordre indépendant";
+   caption="Avec C99, les noms .age et .id désignent directement les membres, même si leur ordre écrit diffère de la déclaration. GNU89 strict avec -pedantic-errors n'accepte pas cette syntaxe.";
+   add(24,70,300,137,"Syntaxe C99",[".age = 7",".id = 3"]);
+   b.push(visualArrow(328,137,370,137));
+   add(377,70,296,137,"struct carte",["id = 3","age = 7"],true);break;
+  case 6:
+   title="Un tableau contient plusieurs objets struct";
+   caption="a[0] contient x = 1, y = 2. a[1] contient x = 3, y = 4. L'expression a[1].y vaut 4.";
+   add(35,73,285,145,"a[0] : struct point",["x = 1","y = 2"]);
+   add(380,73,285,145,"a[1] : struct point",["x = 3","y = 4"],true);break;
+  case 7:
+   title="Une structure à l'intérieur d'une autre";
+   caption="Le membre position de personnage est lui-même une struct coord. On accède à x avec p.position.x.";
+   b.push(visualBox(65,36,568,193,"#eaf6ff"));
+   b.push(visualText(350,71,"p : struct personnage","vtext vlabel"));
+   add(157,91,386,116,"position : struct coord",["x = 8","y = 5"],true);break;
+  case 8:
+   title="L'affectation copie les valeurs";
+   caption="Après b = a puis b.x = 9, a.x reste 2. La copie d'un éventuel membre pointeur ne duplique pas les données pointées.";
+   add(35,73,285,142,"a : structure d'origine",["x = 2"]);
+   add(380,73,285,142,"b : copie indépendante",["x = 9"],true);break;
+  case 9:
+   title="Passage par valeur : l'original reste intact";
+   caption="changer(p) reçoit une copie. La fonction modifie copie.x à 9, mais l'objet original p garde x = 2.";
+   add(29,74,287,142,"p, chez l'appelant",["x = 2"]);
+   b.push(visualArrow(319,145,374,145));
+   add(382,74,288,142,"copie, dans changer()",["x = 9"],true);break;
+  case 10:
+   title="Passage par adresse : modifier l'original";
+   caption="changer(&point) reçoit l'adresse du point original ; p->x = 9 écrit dans ce même objet.";
+   add(24,71,274,145,"Paramètre p : point *",["&point"]);
+   b.push(visualArrow(302,140,379,140));
+   add(387,71,288,145,"point : objet original",["x = 9"],true);break;
+  case 11:
+   title="typedef ne crée pas un nouveau type distinct";
+   caption="identifiant est un alias du type unsigned int. L'expression identifiant id = 42U déclare un objet unsigned int.";
+   add(32,71,279,139,"Type d'origine",["unsigned int"]);
+   b.push(visualText(350,143,"=","vtext vvalue"));
+   add(391,71,278,139,"Nom alias",["identifiant"],true);break;
+  case 12:
+   title="Le tag et l'alias désignent le même type";
+   caption="struct animal et animal_t nomment le même type. L'objet a de type animal_t contient age = 4.";
+   add(32,70,279,143,"Étiquette",["struct animal"]);
+   b.push(visualText(350,143,"=","vtext vvalue"));
+   add(391,70,278,143,"Alias typedef",["animal_t"],true);break;
+  case 14:
+   title="Le padding peut séparer les membres";
+   caption="Schéma non à l'échelle : entre char c et int n, le compilateur peut insérer du padding. La disposition réelle dépend de la plateforme, à mesurer avec sizeof et offsetof.";
+   add(26,71,192,138,"Premier membre",["char c"]);
+   add(252,71,192,138,"Zone éventuelle",["padding ?"]);
+   add(478,71,192,138,"Autre membre",["int n"],true);break;
+  case 15:
+   title="Allouer toute une struct avec malloc";
+   caption="p pointe vers une structure allouée par malloc(sizeof *p). Vérifier p != NULL, remplir x = 6 et y = 2, puis appeler free(p).";
+   add(20,75,252,137,"Pointeur p",["adresse du bloc"]);
+   b.push(visualArrow(278,143,380,143));
+   add(389,75,288,137,"struct point allouée",["x = 6","y = 2"],true);break;
+  case 16:
+   title="Un noeud contient une adresse de suivant";
+   caption="Le noeud n contient valeur = 3 et un pointeur suivant = NULL. Il ne contient pas un deuxième struct noeud complet.";
+   add(104,67,492,149,"n : struct noeud",["valeur = 3","suivant = NULL"],true);break;
+  default:return '';
+ }
+ return visualFigure(title,caption,b.join(""));
+}
+
 function pedagogicVisual(si,ii){
  const k=si+':'+ii;
+ if(si===16)return visualStructureLesson(ii);
  // Chaque dessin doit correspondre à l'opération exacte étudiée.
  // Ne pas afficher une illustration quand elle n'apporte rien.
  if(k==='3:0')return visualPermissions();
