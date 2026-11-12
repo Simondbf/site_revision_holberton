@@ -164,6 +164,7 @@ try{
   'Le nouveau thème doit contenir les 17 post-it.');
  await page.locator('#definitions .card-hit').first().click();
  await page.waitForFunction(()=>location.hash.startsWith('#cours/structures-et-typedef-en-c/'));
+ await page.waitForFunction(()=>document.querySelectorAll('#courseArticle .lesson-panel').length===17);
  assert.equal(await page.locator('#courseArticle .lesson-panel').count(),17,
   'Le chapitre Structures doit afficher 17 cours.');
  assert.equal(await page.locator('#notion-16-0 figure.lesson-visual').count(),1,
