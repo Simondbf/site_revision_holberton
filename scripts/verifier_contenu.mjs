@@ -12,7 +12,7 @@ const pointers=block('pointer-data');
 const counts=sections.map(s=>s.items.length);
 const number=counts.reduce((a,b)=>a+b,0);
 
-assert.equal(number,207,'La liste des 207 notions doit rester complète.');
+assert.equal(number,209,'La liste des 209 notions doit rester complète.');
 let notes=0;
 for(const [si,section]of sections.entries()){
   for(const [ii,item]of section.items.entries()){
@@ -24,7 +24,7 @@ for(const [si,section]of sections.entries()){
     notes++;
   }
 }
-assert.equal(notes,207);
+assert.equal(notes,209);
 assert.ok(!html.includes("const note=(p&&p.note)?p.note:(cr.detail"),'Ne pas réutiliser la note générique du chapitre.');
 
 const travail=mkdtempSync(join(tmpdir(),'holberton-pedagogie-'));
@@ -77,13 +77,26 @@ try{
     {name:'struct/typedef 16:13',source:extra['16:13'].example+'\n',output:"1 2\n"},
     {name:'struct/typedef 16:14',source:extra['16:14'].example+'\n',output:"1\n"},
     {name:'struct/typedef 16:15',source:extra['16:15'].example+'\n',output:"6 2\n"},
-    {name:'struct/typedef 16:16',source:extra['16:16'].example+'\n',output:"3 1\n"}
+    {name:'struct/typedef 16:16',source:extra['16:16'].example+'\n',output:"3 1\n"},
+    {name:'Betty struct documentation C valid',source:'#include <stdio.h>\n'+extra['16:17'].example+'\nint main(void) { struct point p = {1, 2}; printf("%d %d\\n",p.x,p.y); return 0; }\n',output:'1 2\n'},
+    {name:'typedef forward type completed',source:extra['16:18'].example+'\n',output:'1 2\n'}
   ];
   for(const [i,test]of testsC.entries()){
     const exe=join(travail,'exemple-'+i);
     run('gcc',['-std=gnu89','-pedantic-errors','-x','c','-o',exe,'-'],{input:test.source});
     assert.equal(run(exe,[]),test.output,'Résultat incorrect : '+test.name);
   }
+  const c99quiz=extra['16:18'].example.replace('point p = {1, 2};','point p = { .y = 2, .x = 1 };');
+  assert.notEqual(c99quiz, extra['16:18'].example, 'Cas du quiz désigné absent.');
+  const quizexe=join(travail,'typedef-designe-c99');
+  run('gcc',['-std=c99','-pedantic-errors','-x','c','-o',quizexe,'-'],{input:c99quiz});
+  assert.equal(run(quizexe,[]),'1 2\n','Les deux initialiseurs doivent donner les mêmes membres.');
+  const enGnu89=spawnSync('gcc',['-std=gnu89','-pedantic-errors','-x','c','-o',join(travail,'designe-gnu89'),'-'],
+    {input:c99quiz,encoding:'utf8',timeout:15000});
+  if(enGnu89.error)throw enGnu89.error;
+  assert.notEqual(enGnu89.status,0,'Initialiseur désigné C99 accepté à tort en mode GNU89 pédant.');
+  assert.match(extra['16:17'].note,/Betty/, 'Documentation Betty manquante.');
+  assert.match(extra['16:18'].explanation,/incomplet/, 'Typedef anticipé incomplet mal expliqué.');
   const c99exe=join(travail,'exemple-initialisation-designee');
   run('gcc',['-std=c99','-pedantic-errors','-x','c','-o',c99exe,'-'],
     {input:extra['16:5'].example});
