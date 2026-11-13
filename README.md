@@ -37,7 +37,11 @@ Le projet est volontairement facile à ouvrir sans compilation : on peut consult
 
 ## Publier une nouvelle version
 
-**La branche `main` n'est pas automatiquement publiée sur le VPS.** Une pull request doit être relue, fusionnée puis déployée explicitement sur le serveur. Ne jamais mettre de jetons, mots de passe ou identifiants secrets dans un fichier public.
+**La publication est automatisée côté VPS** : un service `holberton-deploy.service` et un timer systemd `holberton-deploy.timer` vérifient `main` environ toutes les cinq minutes. Le script `/usr/local/sbin/update-holberton-revision` compare le fichier distant au fichier en production, sauvegarde l'ancienne version et remplace `site/index.html` uniquement si le contenu a changé. Cette procédure a été activée et confirmée dans les journaux systemd le 13 novembre 2026.
+
+Les modifications passent toujours par une pull request et une fusion manuelle dans `main`. **Attention : le timer ne vérifie pas les résultats des GitHub Actions** ; il faut attendre des contrôles réussis avant de fusionner. Aucun secret de serveur ne doit figurer dans le dépôt.
+
+**Évolution prévue à ne pas oublier :** au moment d'ajouter les comptes utilisateurs, l'API et les quiz adaptatifs, remplacer cette publication périodique par un déploiement piloté par GitHub Actions, conditionné à la réussite des tests et adapté aux changements de base de données (sauvegardes, migrations, retour arrière). Désactiver alors le timer pour éviter deux méthodes concurrentes de déploiement.
 
 ## Évolutions envisagées
 
