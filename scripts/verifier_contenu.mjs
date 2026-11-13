@@ -12,7 +12,7 @@ const pointers=block('pointer-data');
 const counts=sections.map(s=>s.items.length);
 const number=counts.reduce((a,b)=>a+b,0);
 
-assert.equal(number,214,'La liste des 214 notions doit rester complète.');
+assert.equal(number,215,'La liste des 215 notions doit rester complète.');
 let notes=0;
 for(const [si,section]of sections.entries()){
   for(const [ii,item]of section.items.entries()){
@@ -24,7 +24,7 @@ for(const [si,section]of sections.entries()){
     notes++;
   }
 }
-assert.equal(notes,214);
+assert.equal(notes,215);
 assert.ok(!html.includes("const note=(p&&p.note)?p.note:(cr.detail"),'Ne pas réutiliser la note générique du chapitre.');
 
 const travail=mkdtempSync(join(tmpdir(),'holberton-pedagogie-'));
@@ -64,6 +64,7 @@ try{
     {name:'realloc — agrandir proprement',source:pointers['45'].example+'\n',output:'7 10\n'},
     {name:'segfault — exemple valide',source:pointers['46'].example+'\n',output:'42\n'},
     {name:'exit — retour normal',source:extra['8:23'].example+'\n',output:'Le programme continue\n'},
+    {name:'scanf — lecture entier au clavier',source:extra['8:25'].example+'\n',input:'18\n',output:'Age : Age saisi : 18\n'},
     {name:'struct/typedef 16:0',source:extra['16:0'].example+'\n',output:"2 3\n"},
     {name:'struct/typedef 16:1',source:extra['16:1'].example+'\n',output:"3 7\n"},
     {name:'struct/typedef 16:2',source:extra['16:2'].example+'\n',output:"7 3\n"},
@@ -88,7 +89,7 @@ try{
   for(const [i,test]of testsC.entries()){
     const exe=join(travail,'exemple-'+i);
     run('gcc',['-std=gnu89','-pedantic-errors','-x','c','-o',exe,'-'],{input:test.source});
-    assert.equal(run(exe,[]),test.output,'Résultat incorrect : '+test.name);
+    assert.equal(run(exe,[],{input:test.input||''}),test.output,'Résultat incorrect : '+test.name);
   }
   const c99quiz=extra['16:18'].example.replace('point p = {1, 2};','point p = { .y = 2, .x = 1 };');
   assert.notEqual(c99quiz, extra['16:18'].example, 'Cas du quiz désigné absent.');
@@ -118,6 +119,9 @@ try{
   if(resultatExit.error)throw resultatExit.error;
   assert.equal(resultatExit.status,98,'exit(98) doit terminer avec le statut 98 sous Linux.');
   assert.equal(resultatExit.stdout,'','Aucune instruction après exit(98) ne doit être exécutée.');
+  assert.match(extra['8:25'].explanation,/&age/,'scanf doit expliquer l’adresse de variable.');
+  assert.match(extra['8:25'].explanation,/nombre de conversions/,'scanf doit expliquer la valeur renvoyée.');
+  assert.match(extra['8:25'].note,/fgets/,'scanf doit présenter une alternative pour les chaînes.');
   assert.match(extra['8:23'].explanation,/EXIT_FAILURE/,'Exit portable non expliqué.');
   assert.match(extra['8:23'].note,/free\(\)/,'Différence exit et free absente.');
   assert.equal(run('bash',['-c',extra['3:7'].example]).trim(),'3',
