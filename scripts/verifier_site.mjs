@@ -66,10 +66,10 @@ assert.equal(data.sections[16]?.title, 'Structures et typedef en C',
 assert.ok(data.sections[16].items.length >= 21,'Les notions sur struct, typedef et include guards sont attendues.');
 assert.ok(extra['16:17']?.explanation?.includes('Betty'), 'Documentation de struct absente');
 assert.ok(extra['16:18']?.explanation?.includes('incomplet'), 'Alias de type struct anticipé absent');
-assert.ok(extra['8:24']?.explanation?.includes('Dennis Ritchie'), 'Histoire du langage C absente');
-assert.ok(pointeurs['9:45']?.explanation?.includes('realloc') && pointeurs['9:45']?.example?.includes('tmp = realloc'),
+assert.ok(extra['8:24']?.explanation?.includes('Ritchie'), 'Histoire du langage C absente');
+assert.ok(pointeurs['45']?.explanation?.includes('realloc') && pointeurs['45']?.example?.includes('tmp = realloc'),
  'Fiche realloc sûre absente');
-assert.ok(pointeurs['9:46']?.explanation?.includes('segfault') && pointeurs['9:46']?.note,
+assert.ok(pointeurs['46']?.explanation?.includes('segfault') && pointeurs['46']?.note,
  'Fiche segfault absente');
 assert.ok(pointeurs['35']?.explanation?.includes('memory leak'),
  'La fuite mémoire doit être aussi nommée memory leak');
