@@ -180,6 +180,15 @@ try{
  await page.waitForFunction(()=>document.querySelector('#notion-16-3')?.classList.contains('lesson-selected'));
  assert.ok(await page.locator('#notion-16-3').isVisible(),'Lien profond sur les structures défaillant.');
 
+ // Les explications longues, notamment scanf(), restent aérées dans les cours.
+ await page.goto(origin+'/'+route('Programmation C','scanf() — lire une saisie au clavier'));
+ await page.waitForFunction(()=>document.querySelector('#notion-8-25')?.classList.contains('lesson-selected'));
+ const scanfParagraphs=page.locator('#notion-8-25 .lesson-reading p');
+ assert.ok(await scanfParagraphs.count()>=4,'Le cours scanf reste un bloc de texte trop compact.');
+ assert.ok((await scanfParagraphs.first().innerText()).includes('scanf'),
+  'Le texte de scanf a disparu pendant le découpage.');
+ await page.screenshot({path:'apercus/scanf-cours-aere.png'});
+
  // Le comportement mobile existant reste préservé, sans refonte de l'interface.
  const mobile=await browser.newPage({viewport:{width:390,height:844},isMobile:true,hasTouch:true});
  mobile.on('pageerror',e=>errors.push('Mobile : '+e.message));
