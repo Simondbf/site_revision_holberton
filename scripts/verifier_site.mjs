@@ -87,7 +87,7 @@ assert.ok(html.includes("['Programmation en C',[5,8,9,10,11,14,16]]"),
  'Le nouveau thème doit apparaître dans la navigation C.');
 assert.ok(html.includes('function lessonParagraphs(value)') && html.includes('lessonParagraphs(explain)'), 
  'Mise en page des explications en paragraphes absente');
-assert.ok(extra['8:25']?.explanation?.split(/\\n\\n/).length >= 4,
+assert.ok(extra['8:25']?.explanation?.split(/\n\n/).length >= 4,
  'Les explications de scanf doivent être structurées en plusieurs paragraphes');
 assert.ok(html.includes('if(si===16)return visualStructureLesson(ii)'),
  'Schémas du chapitre struct non connectés.');
