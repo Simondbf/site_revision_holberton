@@ -12,7 +12,7 @@ const pointers=block('pointer-data');
 const counts=sections.map(s=>s.items.length);
 const number=counts.reduce((a,b)=>a+b,0);
 
-assert.equal(number,209,'La liste des 209 notions doit rester complète.');
+assert.equal(number,215,'La liste des 215 notions doit rester complète.');
 let notes=0;
 for(const [si,section]of sections.entries()){
   for(const [ii,item]of section.items.entries()){
@@ -24,7 +24,7 @@ for(const [si,section]of sections.entries()){
     notes++;
   }
 }
-assert.equal(notes,209);
+assert.equal(notes,215);
 assert.ok(!html.includes("const note=(p&&p.note)?p.note:(cr.detail"),'Ne pas réutiliser la note générique du chapitre.');
 
 const travail=mkdtempSync(join(tmpdir(),'holberton-pedagogie-'));
@@ -61,11 +61,14 @@ try{
     {name:'pile et tas',source:pointers['42'].example+'\n',output:'5 7\n'},
     {name:'free sur un bloc malloc valide',source:pointers['43'].example+'\n',output:'Best School\n'},
     {name:'pointeur initialise',source:pointers['44'].example+'\n',output:'98\n'},
+    {name:'realloc — agrandir proprement',source:pointers['45'].example+'\n',output:'7 10\n'},
+    {name:'segfault — exemple valide',source:pointers['46'].example+'\n',output:'42\n'},
     {name:'exit — retour normal',source:extra['8:23'].example+'\n',output:'Le programme continue\n'},
+    {name:'scanf — lecture entier au clavier',source:extra['8:25'].example+'\n',input:'18\n',output:'Age : Age saisi : 18\n'},
     {name:'struct/typedef 16:0',source:extra['16:0'].example+'\n',output:"2 3\n"},
     {name:'struct/typedef 16:1',source:extra['16:1'].example+'\n',output:"3 7\n"},
     {name:'struct/typedef 16:2',source:extra['16:2'].example+'\n',output:"7 3\n"},
-    {name:'struct/typedef 16:3',source:extra['16:3'].example+'\n',output:"9 9\n"},
+    {name:'struct/typedef 16:3',source:extra['16:3'].example+'\n',output:"9 9 9\n"},
     {name:'struct/typedef 16:4',source:extra['16:4'].example+'\n',output:"4 5 0\n"},
     {name:'struct/typedef 16:6',source:extra['16:6'].example+'\n',output:"3 4\n"},
     {name:'struct/typedef 16:7',source:extra['16:7'].example+'\n',output:"8 5\n"},
@@ -79,12 +82,14 @@ try{
     {name:'struct/typedef 16:15',source:extra['16:15'].example+'\n',output:"6 2\n"},
     {name:'struct/typedef 16:16',source:extra['16:16'].example+'\n',output:"3 1\n"},
     {name:'Betty struct documentation C valid',source:'#include <stdio.h>\n'+extra['16:17'].example+'\nint main(void) { struct point p = {1, 2}; printf("%d %d\\n",p.x,p.y); return 0; }\n',output:'1 2\n'},
-    {name:'typedef forward type completed',source:extra['16:18'].example+'\n',output:'1 2\n'}
+    {name:'typedef forward type completed',source:extra['16:18'].example+'\n',output:'1 2\n'},
+    {name:'struct objet et pointeur — même membre',source:extra['16:19'].example+'\n',output:'130 130\n'},
+    {name:'include guard — double définition protégée',source:extra['16:20'].example+'\n'+extra['16:20'].example+'\n#include <stdio.h>\nint main(void) { struct point p = {1, 2}; printf("%d %d\\n", p.x, p.y); return 0; }\n',output:'1 2\n'}
   ];
   for(const [i,test]of testsC.entries()){
     const exe=join(travail,'exemple-'+i);
     run('gcc',['-std=gnu89','-pedantic-errors','-x','c','-o',exe,'-'],{input:test.source});
-    assert.equal(run(exe,[]),test.output,'Résultat incorrect : '+test.name);
+    assert.equal(run(exe,[],{input:test.input||''}),test.output,'Résultat incorrect : '+test.name);
   }
   const c99quiz=extra['16:18'].example.replace('point p = {1, 2};','point p = { .y = 2, .x = 1 };');
   assert.notEqual(c99quiz, extra['16:18'].example, 'Cas du quiz désigné absent.');
@@ -114,6 +119,9 @@ try{
   if(resultatExit.error)throw resultatExit.error;
   assert.equal(resultatExit.status,98,'exit(98) doit terminer avec le statut 98 sous Linux.');
   assert.equal(resultatExit.stdout,'','Aucune instruction après exit(98) ne doit être exécutée.');
+  assert.match(extra['8:25'].explanation,/&age/,'scanf doit expliquer l’adresse de variable.');
+  assert.match(extra['8:25'].explanation,/nombre de conversions/,'scanf doit expliquer la valeur renvoyée.');
+  assert.match(extra['8:25'].note,/fgets/,'scanf doit présenter une alternative pour les chaînes.');
   assert.match(extra['8:23'].explanation,/EXIT_FAILURE/,'Exit portable non expliqué.');
   assert.match(extra['8:23'].note,/free\(\)/,'Différence exit et free absente.');
   assert.equal(run('bash',['-c',extra['3:7'].example]).trim(),'3',
@@ -125,6 +133,10 @@ try{
   assert.match(pointers['43'].note, /free\(NULL\)/, 'Cas free(NULL) absent.');
   assert.match(pointers['44'].note, /jamais une garantie/, 'UB non initialisé mal expliquée.');
   assert.match(pointers['36'].example, /valgrind --leak-check=full/, 'Commande Valgrind absente.');
+  assert.match(pointers['45'].explanation,/pointeur temporaire|tmp/, 'realloc doit gérer l’échec sans perdre le bloc.');
+  assert.match(pointers['46'].explanation,/SIGSEGV/, 'Segfault et signal SIGSEGV absents.');
+  assert.match(extra['8:24'].explanation,/Ritchie/, 'Histoire du C absente.');
+  assert.match(extra['16:20'].example,/#ifndef POINT_H/, 'Include guards absents.');
   assert.match(pointers['35'].explanation, /fuite mémoire/, 'Fuite non expliquée.');
   assert.match(pointers['33'].note, /char s\[\]/, 'Différence littéral/tableau absente.');
   assert.match(pointers['30'].explanation, /NULL/, 'Échec de malloc non expliqué.');

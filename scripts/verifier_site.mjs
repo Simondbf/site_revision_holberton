@@ -63,9 +63,26 @@ assert.ok(extra['8:23']?.explanation && extra['8:23']?.note, 'Fiche exit absente
 assert.ok(html.includes("if(k==='8:23')return visualExitVsReturn()"), 'Schéma return / exit manquant');
 assert.equal(data.sections[16]?.title, 'Structures et typedef en C',
  'Le thème des structures doit exister sans déplacer les anciens thèmes.');
-assert.equal(data.sections[16].items.length,19,'Les 19 notions sur struct et typedef sont attendues.');
+assert.ok(data.sections[16].items.length >= 21,'Les notions sur struct, typedef et include guards sont attendues.');
 assert.ok(extra['16:17']?.explanation?.includes('Betty'), 'Documentation de struct absente');
 assert.ok(extra['16:18']?.explanation?.includes('incomplet'), 'Alias de type struct anticipé absent');
+assert.ok(extra['8:24']?.explanation?.includes('Ritchie'), 'Histoire du langage C absente');
+assert.ok(pointeurs['45']?.explanation?.includes('realloc') && pointeurs['45']?.example?.includes('tmp = realloc'),
+ 'Fiche realloc sûre absente');
+assert.ok(pointeurs['46']?.explanation?.includes('segfault') && pointeurs['46']?.note,
+ 'Fiche segfault absente');
+assert.ok(pointeurs['35']?.explanation?.includes('memory leak'),
+ 'La fuite mémoire doit être aussi nommée memory leak');
+assert.ok(pointeurs['36']?.example?.includes('--leak-check=full'),
+ 'Exemple de diagnostic Valgrind absent');
+assert.ok(extra['16:2']?.explanation?.includes('OBJET') && extra['16:3']?.explanation?.includes('POINTEUR'),
+ 'Différence . / -> insuffisamment explicitée');
+assert.ok(extra['16:19']?.explanation?.includes('même membre'),
+ 'Comparaison point / flèche absente');
+assert.ok(extra['16:20']?.example?.includes('#ifndef POINT_H') && extra['16:20']?.example?.includes('#endif'),
+ 'Include guards absents');
+assert.ok(html.includes('case 19:') && html.includes('case 20:'),
+ 'Schémas point/flèche et include guards manquants');
 assert.ok(html.includes("['Programmation en C',[5,8,9,10,11,14,16]]"),
  'Le nouveau thème doit apparaître dans la navigation C.');
 assert.ok(html.includes('if(si===16)return visualStructureLesson(ii)'),
