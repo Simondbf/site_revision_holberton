@@ -1533,7 +1533,7 @@ function parseRoute(){
   }else if(r.page==='quiz'){
    courseNavigationSerial++;
    currentPage='quiz';topicIndex=-1;currentConcept=-1;
-   renderQuiz();panel('quiz');document.title='Quiz adaptatif · Holberton Révision';
+   quizRender();panel('quiz');document.title='Quiz adaptatif · Holberton Révision';
   }else if(r.page==='favoris'){
    courseNavigationSerial++;
    currentPage='favorites';topicIndex=-1;currentConcept=-1;
