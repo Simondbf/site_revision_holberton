@@ -202,6 +202,25 @@ try{
   'La nouvelle fiche strncpy doit rester aérée.');
  await page.screenshot({path:'apercus/strncpy-cours-aere.png'});
 
+ // Nouvelles fiches : navigation profonde, paragraphes lisibles et source officielle.
+ await page.goto(origin+'/'+route('Pointeurs et tableaux C','Valgrind : « definitely lost » et les octets perdus'));
+ await page.waitForFunction(()=>document.querySelector('#notion-9-58')?.classList.contains('lesson-selected'));
+ assert.ok(await page.locator('#notion-9-58 .lesson-reading p').count()>=3,
+  'Le cours definitely lost doit être aéré.');
+ assert.match(await page.locator('#notion-9-58').innerText(),/32 bytes in 1 blocks/,
+  'Le rapport Valgrind n’apparaît pas dans la fiche.');
+ assert.ok((await page.locator('#notion-9-58 .lesson-sources a').allTextContents())
+  .some(x=>x.includes('Memcheck')),'Lien vers le manuel Valgrind absent.');
+ await page.goto(origin+'/'+route('Pointeurs et tableaux C','Dépassement de tampon sur la pile — erreur avant malloc'));
+ await page.waitForFunction(()=>document.querySelector('#notion-9-55')?.classList.contains('lesson-selected'));
+ assert.match(await page.locator('#notion-9-55').innerText(),/PENDANT la lecture/,
+  'L’erreur survenant avant malloc doit être expliquée.');
+ await page.screenshot({path:'apercus/lecture-depassement-tampon.png'});
+ await page.goto(origin+'/'+route('Qualité et méthode en C','Invariant — condition qui doit rester vraie'));
+ await page.waitForFunction(()=>document.querySelector('#notion-14-7')?.classList.contains('lesson-selected'));
+ assert.ok(await page.locator('#notion-14-7 .lesson-reading p').count()>=3,
+  'La notion d’invariant doit être structurée.');
+
  // Le comportement mobile existant reste préservé, sans refonte de l'interface.
  const mobile=await browser.newPage({viewport:{width:390,height:844},isMobile:true,hasTouch:true});
  mobile.on('pageerror',e=>errors.push('Mobile : '+e.message));
