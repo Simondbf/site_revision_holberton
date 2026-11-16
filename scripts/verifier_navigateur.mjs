@@ -10,6 +10,8 @@ const topicName='Pointeurs et tableaux C';
 const si=contenu.sections.findIndex(s=>s.title===topicName);
 assert.ok(si>=0,'Thème Pointeurs introuvable.');
 const expectedCards=contenu.sections[si].items.length;
+const structureItems=contenu.sections.find(s=>s.title==='Structures et typedef en C')?.items;
+assert.ok(structureItems?.length>=21,'Le chapitre Structures et typedef a perdu des fiches.');
 const route=(topic,notion)=>{
  const cat=contenu.sections.find(s=>s.title===topic);
  assert.ok(cat,'Thème introuvable : '+topic);
@@ -160,12 +162,12 @@ try{
 
  // Nouveau chapitre : fiches, schémas et liens directs restent utilisables.
  await page.goto(origin+'/#theme/structures-et-typedef-en-c');
- assert.equal(await page.locator('#definitions article.def').count(),21,
+ assert.equal(await page.locator('#definitions article.def').count(),structureItems.length,
   'Le nouveau thème doit contenir les 21 post-it.');
  await page.locator('#definitions .card-hit').first().click();
  await page.waitForFunction(()=>location.hash.startsWith('#cours/structures-et-typedef-en-c/'));
- await page.waitForFunction(()=>document.querySelectorAll('#courseArticle .lesson-panel').length===21);
- assert.equal(await page.locator('#courseArticle .lesson-panel').count(),21,
+ await page.waitForFunction(count=>document.querySelectorAll('#courseArticle .lesson-panel').length===count,structureItems.length);
+ assert.equal(await page.locator('#courseArticle .lesson-panel').count(),structureItems.length,
   'Le chapitre Structures doit afficher 21 cours.');
  assert.equal(await page.locator('#notion-16-0 figure.lesson-visual').count(),1,
   'Schéma de définition de struct absent.');
