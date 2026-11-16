@@ -16,7 +16,7 @@
       "options": [
         {
           "id": "A",
-          "text": "Prototype vs définition"
+          "text": "main()"
         },
         {
           "id": "B",
@@ -28,11 +28,11 @@
         },
         {
           "id": "D",
-          "text": "main()"
+          "text": "Prototype vs définition"
         }
       ],
       "correct_option_ids": [
-        "D"
+        "A"
       ],
       "explanation": "La définition est extraite du résumé de la fiche correspondante.",
       "source_urls": [
@@ -56,23 +56,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Point d’entrée d’un programme C classique."
+          "text": "Définition nécessaire introuvable lors de l’édition de liens."
         },
         {
           "id": "B",
-          "text": "Dennis Ritchie a conçu le langage C aux Bell Labs au début des années 1970 ; il a aussi joué un rôle majeur dans le développement d’Unix."
-        },
-        {
-          "id": "C",
           "text": "Un prototype annonce une signature ; la définition contient le corps de la fonction."
         },
         {
+          "id": "C",
+          "text": "Dennis Ritchie a conçu le langage C aux Bell Labs au début des années 1970 ; il a aussi joué un rôle majeur dans le développement d’Unix."
+        },
+        {
           "id": "D",
-          "text": "Définition nécessaire introuvable lors de l’édition de liens."
+          "text": "Point d’entrée d’un programme C classique."
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "Le résumé de la fiche indique : Point d’entrée d’un programme C classique.",
       "source_urls": [
@@ -104,11 +104,11 @@
         },
         {
           "id": "C",
-          "text": "Culture générale : Dennis Ritchie = créateur du C. Unix = travail collectif, notamment avec Ken Thompson. Brian Kernighan est coauteur du célèbre livre K&R, pas le créateur du langage."
+          "text": "Le prototype annonce une fonction ; seule la définition fournit le code exécuté."
         },
         {
           "id": "D",
-          "text": "Le prototype annonce une fonction ; seule la définition fournit le code exécuté."
+          "text": "Culture générale : Dennis Ritchie = créateur du C. Unix = travail collectif, notamment avec Ken Thompson. Brian Kernighan est coauteur du célèbre livre K&R, pas le créateur du langage."
         }
       ],
       "correct_option_ids": [
@@ -136,24 +136,24 @@
       "options": [
         {
           "id": "A",
-          "text": "INVALID_WRITE, UNINITIALIZED_VALUE, MEMORY_LEAK_DEFINITE, USE_AFTER_FREE et INDIRECT_LEAK sont des catégories d'erreurs ; elles ne correspondent pas toutes à des messages littéraux de Valgrind."
+          "text": "Point d’entrée d’un programme C classique."
         },
         {
           "id": "B",
-          "text": "Reste de la division entière."
-        },
-        {
-          "id": "C",
           "text": "Dans main, return 0 (ou EXIT_SUCCESS) signifie succès. EXIT_FAILURE permet d’indiquer un échec de manière portable ; la signification de return 1 n’est pas universelle pour toutes les implémentations."
         },
         {
+          "id": "C",
+          "text": "Reste de la division entière."
+        },
+        {
           "id": "D",
-          "text": "Point d’entrée d’un programme C classique."
+          "text": "INVALID_WRITE, UNINITIALIZED_VALUE, MEMORY_LEAK_DEFINITE, USE_AFTER_FREE et INDIRECT_LEAK sont des catégories d'erreurs ; elles ne correspondent pas toutes à des messages littéraux de Valgrind."
         }
       ],
       "correct_option_ids": [
-        "C",
-        "D"
+        "A",
+        "B"
       ],
       "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
       "source_urls": [
@@ -178,11 +178,11 @@
       "options": [
         {
           "id": "A",
-          "text": "Prototype vs définition"
+          "text": "undefined reference"
         },
         {
           "id": "B",
-          "text": "undefined reference"
+          "text": "Prototype vs définition"
         },
         {
           "id": "C",
@@ -194,7 +194,7 @@
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "La définition est extraite du résumé de la fiche correspondante.",
       "source_urls": [
@@ -218,23 +218,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Point d’entrée d’un programme C classique."
+          "text": "Un prototype annonce une signature ; la définition contient le corps de la fonction."
         },
         {
           "id": "B",
-          "text": "Définition nécessaire introuvable lors de l’édition de liens."
-        },
-        {
-          "id": "C",
           "text": "puts affiche une chaîne en ajoutant un saut de ligne ; printf utilise une chaîne de format pour afficher des valeurs."
         },
         {
+          "id": "C",
+          "text": "Définition nécessaire introuvable lors de l’édition de liens."
+        },
+        {
           "id": "D",
-          "text": "Un prototype annonce une signature ; la définition contient le corps de la fonction."
+          "text": "Point d’entrée d’un programme C classique."
         }
       ],
       "correct_option_ids": [
-        "D"
+        "A"
       ],
       "explanation": "Le résumé de la fiche indique : Un prototype annonce une signature ; la définition contient le corps de la fonction.",
       "source_urls": [
@@ -258,23 +258,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Le prototype annonce une fonction ; seule la définition fournit le code exécuté."
-        },
-        {
-          "id": "B",
           "text": "Dans main, return 0 (ou EXIT_SUCCESS) signifie succès. EXIT_FAILURE permet d’indiquer un échec de manière portable ; la signification de return 1 n’est pas universelle pour toutes les implémentations."
         },
         {
+          "id": "B",
+          "text": "puts ajoute un saut de ligne ; printf n'en ajoute que si le format le demande."
+        },
+        {
           "id": "C",
-          "text": "« undefined reference » est généralement une erreur de liaison : vérifie les définitions et fichiers liés."
+          "text": "Le prototype annonce une fonction ; seule la définition fournit le code exécuté."
         },
         {
           "id": "D",
-          "text": "puts ajoute un saut de ligne ; printf n'en ajoute que si le format le demande."
+          "text": "« undefined reference » est généralement une erreur de liaison : vérifie les définitions et fichiers liés."
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "La fiche indique : Le prototype annonce une fonction ; seule la définition fournit le code exécuté.",
       "source_urls": [
@@ -298,11 +298,11 @@
       "options": [
         {
           "id": "A",
-          "text": "Un prototype annonce une signature ; la définition contient le corps de la fonction."
+          "text": "Créer / retirer un raccourci de commande."
         },
         {
           "id": "B",
-          "text": "Créer / retirer un raccourci de commande."
+          "text": "Un prototype annonce une signature ; la définition contient le corps de la fonction."
         },
         {
           "id": "C",
@@ -314,7 +314,7 @@
         }
       ],
       "correct_option_ids": [
-        "A",
+        "B",
         "D"
       ],
       "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
@@ -340,7 +340,7 @@
       "options": [
         {
           "id": "A",
-          "text": "undefined reference"
+          "text": "return d’un pointeur (int *)"
         },
         {
           "id": "B",
@@ -348,7 +348,7 @@
         },
         {
           "id": "C",
-          "text": "return d’un pointeur (int *)"
+          "text": "undefined reference"
         },
         {
           "id": "D",
@@ -384,19 +384,19 @@
         },
         {
           "id": "B",
-          "text": "Une fonction de type int * renvoie une adresse ou NULL ; l’objet pointé doit encore exister lors de son utilisation."
+          "text": "Définition nécessaire introuvable lors de l’édition de liens."
         },
         {
           "id": "C",
-          "text": "Indique une absence de valeur de retour ou de paramètres selon le contexte."
+          "text": "Une fonction de type int * renvoie une adresse ou NULL ; l’objet pointé doit encore exister lors de son utilisation."
         },
         {
           "id": "D",
-          "text": "Définition nécessaire introuvable lors de l’édition de liens."
+          "text": "Indique une absence de valeur de retour ou de paramètres selon le contexte."
         }
       ],
       "correct_option_ids": [
-        "C"
+        "D"
       ],
       "explanation": "Le résumé de la fiche indique : Indique une absence de valeur de retour ou de paramètres selon le contexte.",
       "source_urls": [
@@ -420,23 +420,23 @@
       "options": [
         {
           "id": "A",
-          "text": "« undefined reference » est généralement une erreur de liaison : vérifie les définitions et fichiers liés."
-        },
-        {
-          "id": "B",
-          "text": "Ne retourne jamais l’adresse d’une variable locale automatique. Un pointeur renvoyé doit rester valide lors de son utilisation, ou valoir NULL ; teste NULL avant tout déréférencement."
-        },
-        {
-          "id": "C",
           "text": "puts ajoute un saut de ligne ; printf n'en ajoute que si le format le demande."
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "void en retour : aucun résultat ; (void) dans les paramètres : aucun paramètre."
+        },
+        {
+          "id": "C",
+          "text": "« undefined reference » est généralement une erreur de liaison : vérifie les définitions et fichiers liés."
+        },
+        {
+          "id": "D",
+          "text": "Ne retourne jamais l’adresse d’une variable locale automatique. Un pointeur renvoyé doit rester valide lors de son utilisation, ou valoir NULL ; teste NULL avant tout déréférencement."
         }
       ],
       "correct_option_ids": [
-        "D"
+        "B"
       ],
       "explanation": "La fiche indique : void en retour : aucun résultat ; (void) dans les paramètres : aucun paramètre.",
       "source_urls": [
@@ -464,7 +464,7 @@
         },
         {
           "id": "B",
-          "text": "Indique une absence de valeur de retour ou de paramètres selon le contexte."
+          "text": "Un segfault (souvent signalé par « Segmentation fault ») est un arrêt causé par un accès mémoire interdit ; un comportement indéfini en C ne provoque cependant pas toujours ce signal."
         },
         {
           "id": "C",
@@ -472,12 +472,12 @@
         },
         {
           "id": "D",
-          "text": "Un segfault (souvent signalé par « Segmentation fault ») est un arrêt causé par un accès mémoire interdit ; un comportement indéfini en C ne provoque cependant pas toujours ce signal."
+          "text": "Indique une absence de valeur de retour ou de paramètres selon le contexte."
         }
       ],
       "correct_option_ids": [
         "A",
-        "B"
+        "D"
       ],
       "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
       "source_urls": [
@@ -502,11 +502,11 @@
       "options": [
         {
           "id": "A",
-          "text": "return"
+          "text": "EOF — détecter la fin d'une entrée"
         },
         {
           "id": "B",
-          "text": "puts / printf"
+          "text": "return"
         },
         {
           "id": "C",
@@ -514,11 +514,11 @@
         },
         {
           "id": "D",
-          "text": "EOF — détecter la fin d'une entrée"
+          "text": "puts / printf"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "La définition est extraite du résumé de la fiche correspondante.",
       "source_urls": [
@@ -542,23 +542,23 @@
       "options": [
         {
           "id": "A",
-          "text": "EOF est une valeur entière spéciale signalant la fin d'un flux ou une erreur ; getchar retourne un int et scanf peut aussi renvoyer EOF."
-        },
-        {
-          "id": "B",
-          "text": "Termine immédiatement une fonction, en renvoyant une valeur si son type de retour le prévoit."
-        },
-        {
-          "id": "C",
           "text": "puts affiche une chaîne en ajoutant un saut de ligne ; printf utilise une chaîne de format pour afficher des valeurs."
         },
         {
-          "id": "D",
+          "id": "B",
+          "text": "EOF est une valeur entière spéciale signalant la fin d'un flux ou une erreur ; getchar retourne un int et scanf peut aussi renvoyer EOF."
+        },
+        {
+          "id": "C",
           "text": "Une fonction de type int * renvoie une adresse ou NULL ; l’objet pointé doit encore exister lors de son utilisation."
+        },
+        {
+          "id": "D",
+          "text": "Termine immédiatement une fonction, en renvoyant une valeur si son type de retour le prévoit."
         }
       ],
       "correct_option_ids": [
-        "B"
+        "D"
       ],
       "explanation": "Le résumé de la fiche indique : Termine immédiatement une fonction, en renvoyant une valeur si son type de retour le prévoit.",
       "source_urls": [
@@ -582,7 +582,7 @@
       "options": [
         {
           "id": "A",
-          "text": "Ne retourne jamais l’adresse d’une variable locale automatique. Un pointeur renvoyé doit rester valide lors de son utilisation, ou valoir NULL ; teste NULL avant tout déréférencement."
+          "text": "puts ajoute un saut de ligne ; printf n'en ajoute que si le format le demande."
         },
         {
           "id": "B",
@@ -590,15 +590,15 @@
         },
         {
           "id": "C",
-          "text": "La valeur après return doit être compatible avec le type de retour déclaré. return; est possible dans une fonction void ; le code placé après un return exécuté n’est pas atteint."
+          "text": "Ne retourne jamais l’adresse d’une variable locale automatique. Un pointeur renvoyé doit rester valide lors de son utilisation, ou valoir NULL ; teste NULL avant tout déréférencement."
         },
         {
           "id": "D",
-          "text": "puts ajoute un saut de ligne ; printf n'en ajoute que si le format le demande."
+          "text": "La valeur après return doit être compatible avec le type de retour déclaré. return; est possible dans une fonction void ; le code placé après un return exécuté n’est pas atteint."
         }
       ],
       "correct_option_ids": [
-        "C"
+        "D"
       ],
       "explanation": "La fiche indique : La valeur après return doit être compatible avec le type de retour déclaré. return; est possible dans une fonction void ; le code placé après un return exécuté n’est pas atteint.",
       "source_urls": [
@@ -622,11 +622,11 @@
       "options": [
         {
           "id": "A",
-          "text": "Dossier personnel de l’utilisateur."
+          "text": "Afficher le contenu / type du fichier / rechercher / consulter le manuel."
         },
         {
           "id": "B",
-          "text": "La valeur après return doit être compatible avec le type de retour déclaré. return; est possible dans une fonction void ; le code placé après un return exécuté n’est pas atteint."
+          "text": "Dossier personnel de l’utilisateur."
         },
         {
           "id": "C",
@@ -634,12 +634,12 @@
         },
         {
           "id": "D",
-          "text": "Afficher le contenu / type du fichier / rechercher / consulter le manuel."
+          "text": "La valeur après return doit être compatible avec le type de retour déclaré. return; est possible dans une fonction void ; le code placé après un return exécuté n’est pas atteint."
         }
       ],
       "correct_option_ids": [
-        "B",
-        "C"
+        "C",
+        "D"
       ],
       "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
       "source_urls": [
@@ -704,7 +704,7 @@
       "options": [
         {
           "id": "A",
-          "text": "Affichage formaté / écriture d’un caractère."
+          "text": "EOF est une valeur entière spéciale signalant la fin d'un flux ou une erreur ; getchar retourne un int et scanf peut aussi renvoyer EOF."
         },
         {
           "id": "B",
@@ -712,7 +712,7 @@
         },
         {
           "id": "C",
-          "text": "EOF est une valeur entière spéciale signalant la fin d'un flux ou une erreur ; getchar retourne un int et scanf peut aussi renvoyer EOF."
+          "text": "Affichage formaté / écriture d’un caractère."
         },
         {
           "id": "D",
@@ -720,7 +720,7 @@
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "Le résumé de la fiche indique : Affichage formaté / écriture d’un caractère.",
       "source_urls": [
@@ -744,23 +744,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Ne retourne jamais l’adresse d’une variable locale automatique. Un pointeur renvoyé doit rester valide lors de son utilisation, ou valoir NULL ; teste NULL avant tout déréférencement."
-        },
-        {
-          "id": "B",
-          "text": "Le caractère '0' possède un code numérique ; ce n'est pas l'entier 0."
-        },
-        {
-          "id": "C",
           "text": "_putchar n'est pas une fonction standard C : elle doit être fournie par le projet ou une bibliothèque."
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "Un retour EOF n'est pas le caractère '\\0'. Conserver le résultat de getchar dans un int. Pour distinguer fin de fichier et erreur de lecture, consulter feof et ferror."
+        },
+        {
+          "id": "C",
+          "text": "Le caractère '0' possède un code numérique ; ce n'est pas l'entier 0."
+        },
+        {
+          "id": "D",
+          "text": "Ne retourne jamais l’adresse d’une variable locale automatique. Un pointeur renvoyé doit rester valide lors de son utilisation, ou valoir NULL ; teste NULL avant tout déréférencement."
         }
       ],
       "correct_option_ids": [
-        "C"
+        "A"
       ],
       "explanation": "La fiche indique : _putchar n'est pas une fonction standard C : elle doit être fournie par le projet ou une bibliothèque.",
       "source_urls": [
@@ -784,24 +784,24 @@
       "options": [
         {
           "id": "A",
-          "text": "_putchar n'est pas une fonction standard C : elle doit être fournie par le projet ou une bibliothèque."
-        },
-        {
-          "id": "B",
-          "text": "int grille[2][3] contient deux lignes de trois éléments ; grille[1][2] désigne la troisième case de la seconde ligne."
-        },
-        {
-          "id": "C",
           "text": "Une allocation peut échouer : contrôler le pointeur avant toute lecture ou écriture dans le bloc demandé."
         },
         {
-          "id": "D",
+          "id": "B",
+          "text": "_putchar n'est pas une fonction standard C : elle doit être fournie par le projet ou une bibliothèque."
+        },
+        {
+          "id": "C",
           "text": "Affichage formaté / écriture d’un caractère."
+        },
+        {
+          "id": "D",
+          "text": "int grille[2][3] contient deux lignes de trois éléments ; grille[1][2] désigne la troisième case de la seconde ligne."
         }
       ],
       "correct_option_ids": [
-        "A",
-        "D"
+        "B",
+        "C"
       ],
       "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
       "source_urls": [
@@ -826,7 +826,7 @@
       "options": [
         {
           "id": "A",
-          "text": "ASCII"
+          "text": "%d / %c / %.6f"
         },
         {
           "id": "B",
@@ -834,7 +834,7 @@
         },
         {
           "id": "C",
-          "text": "%d / %c / %.6f"
+          "text": "ASCII"
         },
         {
           "id": "D",
@@ -842,7 +842,7 @@
         }
       ],
       "correct_option_ids": [
-        "C"
+        "A"
       ],
       "explanation": "La définition est extraite du résumé de la fiche correspondante.",
       "source_urls": [
@@ -870,7 +870,7 @@
         },
         {
           "id": "B",
-          "text": "Compile en un fichier objet .o, sans édition de liens."
+          "text": "Entier décimal / caractère / réel avec six décimales."
         },
         {
           "id": "C",
@@ -878,11 +878,11 @@
         },
         {
           "id": "D",
-          "text": "Entier décimal / caractère / réel avec six décimales."
+          "text": "Compile en un fichier objet .o, sans édition de liens."
         }
       ],
       "correct_option_ids": [
-        "D"
+        "B"
       ],
       "explanation": "Le résumé de la fiche indique : Entier décimal / caractère / réel avec six décimales.",
       "source_urls": [
@@ -906,23 +906,23 @@
       "options": [
         {
           "id": "A",
-          "text": "En printf, le spécificateur doit correspondre au type fourni ; %.6f affiche six décimales."
-        },
-        {
-          "id": "B",
           "text": "Le caractère '0' possède un code numérique ; ce n'est pas l'entier 0."
         },
         {
-          "id": "C",
+          "id": "B",
           "text": "Un retour EOF n'est pas le caractère '\\0'. Conserver le résultat de getchar dans un int. Pour distinguer fin de fichier et erreur de lecture, consulter feof et ferror."
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "gcc -c produit un fichier objet (.o), sans liaison vers l'exécutable final."
+        },
+        {
+          "id": "D",
+          "text": "En printf, le spécificateur doit correspondre au type fourni ; %.6f affiche six décimales."
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "La fiche indique : En printf, le spécificateur doit correspondre au type fourni ; %.6f affiche six décimales.",
       "source_urls": [
@@ -946,7 +946,7 @@
       "options": [
         {
           "id": "A",
-          "text": "Entier décimal / caractère / réel avec six décimales."
+          "text": "Un include guard (#ifndef, #define, #endif) évite qu’un même en-tête soit traité plusieurs fois dans une même unité de traduction."
         },
         {
           "id": "B",
@@ -954,7 +954,7 @@
         },
         {
           "id": "C",
-          "text": "Un include guard (#ifndef, #define, #endif) évite qu’un même en-tête soit traité plusieurs fois dans une même unité de traduction."
+          "text": "Entier décimal / caractère / réel avec six décimales."
         },
         {
           "id": "D",
@@ -962,7 +962,7 @@
         }
       ],
       "correct_option_ids": [
-        "A",
+        "C",
         "D"
       ],
       "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
@@ -992,19 +992,19 @@
         },
         {
           "id": "B",
-          "text": "ASCII"
-        },
-        {
-          "id": "C",
           "text": "%d / %c / %.6f"
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "gcc -c"
+        },
+        {
+          "id": "D",
+          "text": "ASCII"
         }
       ],
       "correct_option_ids": [
-        "B"
+        "D"
       ],
       "explanation": "La définition est extraite du résumé de la fiche correspondante.",
       "source_urls": [
@@ -1028,23 +1028,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Compile en un fichier objet .o, sans édition de liens."
-        },
-        {
-          "id": "B",
-          "text": "Dans main, 0 indique une réussite ; dans une autre fonction, 0 et 1 ont le sens défini par cette fonction."
-        },
-        {
-          "id": "C",
           "text": "Associe des nombres aux caractères de base ; le caractère '0' vaut 48 en ASCII."
         },
         {
-          "id": "D",
+          "id": "B",
+          "text": "Compile en un fichier objet .o, sans édition de liens."
+        },
+        {
+          "id": "C",
           "text": "Entier décimal / caractère / réel avec six décimales."
+        },
+        {
+          "id": "D",
+          "text": "Dans main, 0 indique une réussite ; dans une autre fonction, 0 et 1 ont le sens défini par cette fonction."
         }
       ],
       "correct_option_ids": [
-        "C"
+        "A"
       ],
       "explanation": "Le résumé de la fiche indique : Associe des nombres aux caractères de base ; le caractère '0' vaut 48 en ASCII.",
       "source_urls": [
@@ -1068,23 +1068,23 @@
       "options": [
         {
           "id": "A",
-          "text": "gcc -c produit un fichier objet (.o), sans liaison vers l'exécutable final."
+          "text": "Le caractère '0' possède un code numérique ; ce n'est pas l'entier 0."
         },
         {
           "id": "B",
-          "text": "Ne confonds pas le code de fin de main et les valeurs renvoyées par les autres fonctions : leur signification dépend du contexte. EXIT_SUCCESS et EXIT_FAILURE sont les constantes portables de <stdlib.h>."
-        },
-        {
-          "id": "C",
           "text": "En printf, le spécificateur doit correspondre au type fourni ; %.6f affiche six décimales."
         },
         {
+          "id": "C",
+          "text": "gcc -c produit un fichier objet (.o), sans liaison vers l'exécutable final."
+        },
+        {
           "id": "D",
-          "text": "Le caractère '0' possède un code numérique ; ce n'est pas l'entier 0."
+          "text": "Ne confonds pas le code de fin de main et les valeurs renvoyées par les autres fonctions : leur signification dépend du contexte. EXIT_SUCCESS et EXIT_FAILURE sont les constantes portables de <stdlib.h>."
         }
       ],
       "correct_option_ids": [
-        "D"
+        "A"
       ],
       "explanation": "La fiche indique : Le caractère '0' possède un code numérique ; ce n'est pas l'entier 0.",
       "source_urls": [
@@ -1108,11 +1108,11 @@
       "options": [
         {
           "id": "A",
-          "text": "Le caractère '0' possède un code numérique ; ce n'est pas l'entier 0."
+          "text": "Le spécificateur %p permet d’afficher une adresse ; l’argument correspondant doit être un void * (conversion explicite recommandée)."
         },
         {
           "id": "B",
-          "text": "Associe des nombres aux caractères de base ; le caractère '0' vaut 48 en ASCII."
+          "text": "Le caractère '0' possède un code numérique ; ce n'est pas l'entier 0."
         },
         {
           "id": "C",
@@ -1120,12 +1120,12 @@
         },
         {
           "id": "D",
-          "text": "Le spécificateur %p permet d’afficher une adresse ; l’argument correspondant doit être un void * (conversion explicite recommandée)."
+          "text": "Associe des nombres aux caractères de base ; le caractère '0' vaut 48 en ASCII."
         }
       ],
       "correct_option_ids": [
-        "A",
-        "B"
+        "B",
+        "D"
       ],
       "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
       "source_urls": [
@@ -1150,7 +1150,7 @@
       "options": [
         {
           "id": "A",
-          "text": "Compilation vs édition de liens"
+          "text": "strtol() — convertir une entrée en entier"
         },
         {
           "id": "B",
@@ -1158,15 +1158,15 @@
         },
         {
           "id": "C",
-          "text": "gcc -c"
+          "text": "Compilation vs édition de liens"
         },
         {
           "id": "D",
-          "text": "strtol() — convertir une entrée en entier"
+          "text": "gcc -c"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "La définition est extraite du résumé de la fiche correspondante.",
       "source_urls": [
@@ -1190,15 +1190,15 @@
       "options": [
         {
           "id": "A",
-          "text": "Compile en un fichier objet .o, sans édition de liens."
+          "text": "Prétraitement et compilation vers le code objet, puis liaison des objets et bibliothèques pour produire l’exécutable."
         },
         {
           "id": "B",
-          "text": "strtol convertit une chaîne en long ; vérifier les chiffres lus, les caractères restants et les dépassements avec errno."
+          "text": "Compile en un fichier objet .o, sans édition de liens."
         },
         {
           "id": "C",
-          "text": "Prétraitement et compilation vers le code objet, puis liaison des objets et bibliothèques pour produire l’exécutable."
+          "text": "strtol convertit une chaîne en long ; vérifier les chiffres lus, les caractères restants et les dépassements avec errno."
         },
         {
           "id": "D",
@@ -1206,7 +1206,7 @@
         }
       ],
       "correct_option_ids": [
-        "C"
+        "A"
       ],
       "explanation": "Le résumé de la fiche indique : Prétraitement et compilation vers le code objet, puis liaison des objets et bibliothèques pour produire l’exécutable.",
       "source_urls": [
@@ -1230,23 +1230,23 @@
       "options": [
         {
           "id": "A",
-          "text": "La chaîne complète passe par prétraitement, compilation, assemblage puis édition de liens."
+          "text": "gcc -c produit un fichier objet (.o), sans liaison vers l'exécutable final."
         },
         {
           "id": "B",
-          "text": "Contrôler simultanément fin == ligne, errno == ERANGE et les caractères restants : une entrée comme 42abc ne doit pas être acceptée silencieusement. strtol renvoie un long, pas automatiquement un int."
-        },
-        {
-          "id": "C",
           "text": "Ne confonds pas le code de fin de main et les valeurs renvoyées par les autres fonctions : leur signification dépend du contexte. EXIT_SUCCESS et EXIT_FAILURE sont les constantes portables de <stdlib.h>."
         },
         {
+          "id": "C",
+          "text": "Contrôler simultanément fin == ligne, errno == ERANGE et les caractères restants : une entrée comme 42abc ne doit pas être acceptée silencieusement. strtol renvoie un long, pas automatiquement un int."
+        },
+        {
           "id": "D",
-          "text": "gcc -c produit un fichier objet (.o), sans liaison vers l'exécutable final."
+          "text": "La chaîne complète passe par prétraitement, compilation, assemblage puis édition de liens."
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "La fiche indique : La chaîne complète passe par prétraitement, compilation, assemblage puis édition de liens.",
       "source_urls": [
@@ -1274,20 +1274,20 @@
         },
         {
           "id": "B",
-          "text": "La chaîne complète passe par prétraitement, compilation, assemblage puis édition de liens."
-        },
-        {
-          "id": "C",
           "text": "sizeof donne la taille en octets d’un type ou d’un objet sur la machine utilisée ; ne pas supposer une taille universelle pour int ou un pointeur."
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "« struct chat » nomme un type ; « struct chat felix; » déclare une variable de ce type."
+        },
+        {
+          "id": "D",
+          "text": "La chaîne complète passe par prétraitement, compilation, assemblage puis édition de liens."
         }
       ],
       "correct_option_ids": [
         "A",
-        "B"
+        "D"
       ],
       "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
       "source_urls": [
@@ -1320,15 +1320,15 @@
         },
         {
           "id": "C",
-          "text": "strtol() — convertir une entrée en entier"
+          "text": "undefined reference"
         },
         {
           "id": "D",
-          "text": "undefined reference"
+          "text": "strtol() — convertir une entrée en entier"
         }
       ],
       "correct_option_ids": [
-        "D"
+        "C"
       ],
       "explanation": "La définition est extraite du résumé de la fiche correspondante.",
       "source_urls": [
@@ -1352,7 +1352,7 @@
       "options": [
         {
           "id": "A",
-          "text": "Définition nécessaire introuvable lors de l’édition de liens."
+          "text": "Dans main, 0 indique une réussite ; dans une autre fonction, 0 et 1 ont le sens défini par cette fonction."
         },
         {
           "id": "B",
@@ -1360,7 +1360,7 @@
         },
         {
           "id": "C",
-          "text": "Dans main, 0 indique une réussite ; dans une autre fonction, 0 et 1 ont le sens défini par cette fonction."
+          "text": "Définition nécessaire introuvable lors de l’édition de liens."
         },
         {
           "id": "D",
@@ -1368,7 +1368,7 @@
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "Le résumé de la fiche indique : Définition nécessaire introuvable lors de l’édition de liens.",
       "source_urls": [
@@ -1392,11 +1392,11 @@
       "options": [
         {
           "id": "A",
-          "text": "Ne confonds pas le code de fin de main et les valeurs renvoyées par les autres fonctions : leur signification dépend du contexte. EXIT_SUCCESS et EXIT_FAILURE sont les constantes portables de <stdlib.h>."
+          "text": "La valeur après return doit être compatible avec le type de retour déclaré. return; est possible dans une fonction void ; le code placé après un return exécuté n’est pas atteint."
         },
         {
           "id": "B",
-          "text": "La valeur après return doit être compatible avec le type de retour déclaré. return; est possible dans une fonction void ; le code placé après un return exécuté n’est pas atteint."
+          "text": "Ne confonds pas le code de fin de main et les valeurs renvoyées par les autres fonctions : leur signification dépend du contexte. EXIT_SUCCESS et EXIT_FAILURE sont les constantes portables de <stdlib.h>."
         },
         {
           "id": "C",
@@ -1436,20 +1436,20 @@
         },
         {
           "id": "B",
-          "text": "Logiciel de gestion de versions distribué."
-        },
-        {
-          "id": "C",
           "text": "Git ne peut pas résoudre automatiquement des changements concurrents."
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "Définition nécessaire introuvable lors de l’édition de liens."
+        },
+        {
+          "id": "D",
+          "text": "Logiciel de gestion de versions distribué."
         }
       ],
       "correct_option_ids": [
         "A",
-        "D"
+        "C"
       ],
       "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
       "source_urls": [
@@ -1474,11 +1474,11 @@
       "options": [
         {
           "id": "A",
-          "text": "return"
+          "text": "strtol() — convertir une entrée en entier"
         },
         {
           "id": "B",
-          "text": "gcc -E"
+          "text": "return"
         },
         {
           "id": "C",
@@ -1486,7 +1486,7 @@
         },
         {
           "id": "D",
-          "text": "strtol() — convertir une entrée en entier"
+          "text": "gcc -E"
         }
       ],
       "correct_option_ids": [
@@ -1514,7 +1514,7 @@
       "options": [
         {
           "id": "A",
-          "text": "Termine immédiatement une fonction, en renvoyant une valeur si son type de retour le prévoit."
+          "text": "Compiler un fichier source et nommer l’exécutable."
         },
         {
           "id": "B",
@@ -1526,11 +1526,11 @@
         },
         {
           "id": "D",
-          "text": "Compiler un fichier source et nommer l’exécutable."
+          "text": "Termine immédiatement une fonction, en renvoyant une valeur si son type de retour le prévoit."
         }
       ],
       "correct_option_ids": [
-        "D"
+        "A"
       ],
       "explanation": "Le résumé de la fiche indique : Compiler un fichier source et nommer l’exécutable.",
       "source_urls": [
@@ -1558,19 +1558,19 @@
         },
         {
           "id": "B",
-          "text": "Contrôler simultanément fin == ligne, errno == ERANGE et les caractères restants : une entrée comme 42abc ne doit pas être acceptée silencieusement. strtol renvoie un long, pas automatiquement un int."
+          "text": "gcc -E produit le source prétraité et s'arrête avant la compilation proprement dite."
         },
         {
           "id": "C",
-          "text": "L'option -o choisit le nom de sortie ; elle n'impose pas le type de cette sortie."
+          "text": "Contrôler simultanément fin == ligne, errno == ERANGE et les caractères restants : une entrée comme 42abc ne doit pas être acceptée silencieusement. strtol renvoie un long, pas automatiquement un int."
         },
         {
           "id": "D",
-          "text": "gcc -E produit le source prétraité et s'arrête avant la compilation proprement dite."
+          "text": "L'option -o choisit le nom de sortie ; elle n'impose pas le type de cette sortie."
         }
       ],
       "correct_option_ids": [
-        "C"
+        "D"
       ],
       "explanation": "La fiche indique : L'option -o choisit le nom de sortie ; elle n'impose pas le type de cette sortie.",
       "source_urls": [
@@ -1594,7 +1594,7 @@
       "options": [
         {
           "id": "A",
-          "text": "qsort trie un tableau en appelant le comparateur fourni : int comparer(const void *, const void *) doit renvoyer une valeur négative, nulle ou positive."
+          "text": "Compiler un fichier source et nommer l’exécutable."
         },
         {
           "id": "B",
@@ -1602,7 +1602,7 @@
         },
         {
           "id": "C",
-          "text": "Compiler un fichier source et nommer l’exécutable."
+          "text": "qsort trie un tableau en appelant le comparateur fourni : int comparer(const void *, const void *) doit renvoyer une valeur négative, nulle ou positive."
         },
         {
           "id": "D",
@@ -1610,7 +1610,7 @@
         }
       ],
       "correct_option_ids": [
-        "C",
+        "A",
         "D"
       ],
       "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
@@ -1636,11 +1636,11 @@
       "options": [
         {
           "id": "A",
-          "text": "return"
+          "text": "float et double"
         },
         {
           "id": "B",
-          "text": "float et double"
+          "text": "return"
         },
         {
           "id": "C",
@@ -1680,7 +1680,7 @@
         },
         {
           "id": "B",
-          "text": "float et double représentent des nombres à virgule flottante, souvent avec une précision limitée."
+          "text": "Termine immédiatement une fonction, en renvoyant une valeur si son type de retour le prévoit."
         },
         {
           "id": "C",
@@ -1688,7 +1688,7 @@
         },
         {
           "id": "D",
-          "text": "Termine immédiatement une fonction, en renvoyant une valeur si son type de retour le prévoit."
+          "text": "float et double représentent des nombres à virgule flottante, souvent avec une précision limitée."
         }
       ],
       "correct_option_ids": [
@@ -1720,19 +1720,19 @@
         },
         {
           "id": "B",
-          "text": "Les comparaisons exactes de flottants doivent être envisagées avec prudence."
+          "text": "Avec -std=gnu89, for (int i = ...) est refusé. GCC accepte parfois d’autres extensions, mais -pedantic-errors peut en faire des erreurs : privilégie les déclarations en début de bloc."
         },
         {
           "id": "C",
-          "text": "La valeur après return doit être compatible avec le type de retour déclaré. return; est possible dans une fonction void ; le code placé après un return exécuté n’est pas atteint."
+          "text": "Les comparaisons exactes de flottants doivent être envisagées avec prudence."
         },
         {
           "id": "D",
-          "text": "Avec -std=gnu89, for (int i = ...) est refusé. GCC accepte parfois d’autres extensions, mais -pedantic-errors peut en faire des erreurs : privilégie les déclarations en début de bloc."
+          "text": "La valeur après return doit être compatible avec le type de retour déclaré. return; est possible dans une fonction void ; le code placé après un return exécuté n’est pas atteint."
         }
       ],
       "correct_option_ids": [
-        "D"
+        "B"
       ],
       "explanation": "La fiche indique : Avec -std=gnu89, for (int i = ...) est refusé. GCC accepte parfois d’autres extensions, mais -pedantic-errors peut en faire des erreurs : privilégie les déclarations en début de bloc.",
       "source_urls": [
@@ -1756,7 +1756,7 @@
       "options": [
         {
           "id": "A",
-          "text": "Code retour / premier argument / nombre d’arguments positionnels."
+          "text": "Paramètres et variables du Shell / environnement."
         },
         {
           "id": "B",
@@ -1764,16 +1764,16 @@
         },
         {
           "id": "C",
-          "text": "Avec -std=gnu89, for (int i = ...) est refusé. GCC accepte parfois d’autres extensions, mais -pedantic-errors peut en faire des erreurs : privilégie les déclarations en début de bloc."
+          "text": "Code retour / premier argument / nombre d’arguments positionnels."
         },
         {
           "id": "D",
-          "text": "Paramètres et variables du Shell / environnement."
+          "text": "Avec -std=gnu89, for (int i = ...) est refusé. GCC accepte parfois d’autres extensions, mais -pedantic-errors peut en faire des erreurs : privilégie les déclarations en début de bloc."
         }
       ],
       "correct_option_ids": [
         "B",
-        "C"
+        "D"
       ],
       "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
       "source_urls": [
@@ -1798,23 +1798,23 @@
       "options": [
         {
           "id": "A",
-          "text": "gcc -E"
-        },
-        {
-          "id": "B",
           "text": "float et double"
         },
         {
+          "id": "B",
+          "text": "gcc -E"
+        },
+        {
           "id": "C",
-          "text": "GNU89"
+          "text": "scanf() — lire une saisie au clavier"
         },
         {
           "id": "D",
-          "text": "scanf() — lire une saisie au clavier"
+          "text": "GNU89"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "La définition est extraite du résumé de la fiche correspondante.",
       "source_urls": [
@@ -1842,7 +1842,7 @@
         },
         {
           "id": "B",
-          "text": "scanf lit une entrée formatée (souvent depuis le clavier) et écrit les valeurs lues dans des variables : utiliser & pour une variable numérique et vérifier le nombre de conversions réussies."
+          "text": "float et double représentent des nombres à virgule flottante, souvent avec une précision limitée."
         },
         {
           "id": "C",
@@ -1850,7 +1850,7 @@
         },
         {
           "id": "D",
-          "text": "float et double représentent des nombres à virgule flottante, souvent avec une précision limitée."
+          "text": "scanf lit une entrée formatée (souvent depuis le clavier) et écrit les valeurs lues dans des variables : utiliser & pour une variable numérique et vérifier le nombre de conversions réussies."
         }
       ],
       "correct_option_ids": [
@@ -1886,11 +1886,11 @@
         },
         {
           "id": "C",
-          "text": "scanf(\"%d\", &age) attend l’adresse de age et renvoie 1 seulement si un entier est lu correctement. Vérifier le retour avant d’utiliser la variable. Avec %s, toujours fixer une largeur adaptée à la taille du tableau ; fgets est mieux adapté aux phrases avec espaces. Le format de printf n’a pas exactement les mêmes types attendus : scanf(\"%f\", &f) pour float et scanf(\"%"
+          "text": "Avec -std=gnu89, for (int i = ...) est refusé. GCC accepte parfois d’autres extensions, mais -pedantic-errors peut en faire des erreurs : privilégie les déclarations en début de bloc."
         },
         {
           "id": "D",
-          "text": "Avec -std=gnu89, for (int i = ...) est refusé. GCC accepte parfois d’autres extensions, mais -pedantic-errors peut en faire des erreurs : privilégie les déclarations en début de bloc."
+          "text": "scanf(\"%d\", &age) attend l’adresse de age et renvoie 1 seulement si un entier est lu correctement. Vérifier le retour avant d’utiliser la variable. Avec %s, toujours fixer une largeur adaptée à la taille du tableau ; fgets est mieux adapté aux phrases avec espaces. Le format de printf n’a pas exactement les mêmes types attendus : scanf(\"%f\", &f) pour float et scanf(\"%"
         }
       ],
       "correct_option_ids": [
@@ -1918,7 +1918,7 @@
       "options": [
         {
           "id": "A",
-          "text": "Arrête la chaîne de compilation après le préprocesseur : le résultat est du code source prétraité."
+          "text": "gcc -E produit le source prétraité et s'arrête avant la compilation proprement dite."
         },
         {
           "id": "B",
@@ -1926,16 +1926,16 @@
         },
         {
           "id": "C",
-          "text": "gcc -E produit le source prétraité et s'arrête avant la compilation proprement dite."
+          "text": "strlen attend une chaîne se terminant par '\\0' ; si un tableau de caractères n'en contient pas, la fonction peut lire hors de sa zone."
         },
         {
           "id": "D",
-          "text": "strlen attend une chaîne se terminant par '\\0' ; si un tableau de caractères n'en contient pas, la fonction peut lire hors de sa zone."
+          "text": "Arrête la chaîne de compilation après le préprocesseur : le résultat est du code source prétraité."
         }
       ],
       "correct_option_ids": [
         "A",
-        "C"
+        "D"
       ],
       "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
       "source_urls": [
@@ -1964,7 +1964,7 @@
         },
         {
           "id": "B",
-          "text": "Prototype vs définition"
+          "text": "gcc -S"
         },
         {
           "id": "C",
@@ -1972,11 +1972,11 @@
         },
         {
           "id": "D",
-          "text": "gcc -S"
+          "text": "Prototype vs définition"
         }
       ],
       "correct_option_ids": [
-        "D"
+        "B"
       ],
       "explanation": "La définition est extraite du résumé de la fiche correspondante.",
       "source_urls": [
@@ -2000,23 +2000,23 @@
       "options": [
         {
           "id": "A",
-          "text": "scanf lit une entrée formatée (souvent depuis le clavier) et écrit les valeurs lues dans des variables : utiliser & pour une variable numérique et vérifier le nombre de conversions réussies."
-        },
-        {
-          "id": "B",
           "text": "float et double représentent des nombres à virgule flottante, souvent avec une précision limitée."
         },
         {
-          "id": "C",
+          "id": "B",
           "text": "Compile vers un fichier assembleur .s, sans assembler ni effectuer l’édition de liens."
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "Un prototype annonce une signature ; la définition contient le corps de la fonction."
+        },
+        {
+          "id": "D",
+          "text": "scanf lit une entrée formatée (souvent depuis le clavier) et écrit les valeurs lues dans des variables : utiliser & pour une variable numérique et vérifier le nombre de conversions réussies."
         }
       ],
       "correct_option_ids": [
-        "C"
+        "B"
       ],
       "explanation": "Le résumé de la fiche indique : Compile vers un fichier assembleur .s, sans assembler ni effectuer l’édition de liens.",
       "source_urls": [
@@ -2040,11 +2040,11 @@
       "options": [
         {
           "id": "A",
-          "text": "Les comparaisons exactes de flottants doivent être envisagées avec prudence."
+          "text": "gcc -S produit de l'assembleur (.s), sans fichier objet ni exécutable."
         },
         {
           "id": "B",
-          "text": "gcc -S produit de l'assembleur (.s), sans fichier objet ni exécutable."
+          "text": "scanf(\"%d\", &age) attend l’adresse de age et renvoie 1 seulement si un entier est lu correctement. Vérifier le retour avant d’utiliser la variable. Avec %s, toujours fixer une largeur adaptée à la taille du tableau ; fgets est mieux adapté aux phrases avec espaces. Le format de printf n’a pas exactement les mêmes types attendus : scanf(\"%f\", &f) pour float et scanf(\"%"
         },
         {
           "id": "C",
@@ -2052,11 +2052,11 @@
         },
         {
           "id": "D",
-          "text": "scanf(\"%d\", &age) attend l’adresse de age et renvoie 1 seulement si un entier est lu correctement. Vérifier le retour avant d’utiliser la variable. Avec %s, toujours fixer une largeur adaptée à la taille du tableau ; fgets est mieux adapté aux phrases avec espaces. Le format de printf n’a pas exactement les mêmes types attendus : scanf(\"%f\", &f) pour float et scanf(\"%"
+          "text": "Les comparaisons exactes de flottants doivent être envisagées avec prudence."
         }
       ],
       "correct_option_ids": [
-        "B"
+        "A"
       ],
       "explanation": "La fiche indique : gcc -S produit de l'assembleur (.s), sans fichier objet ni exécutable.",
       "source_urls": [
@@ -2080,11 +2080,11 @@
       "options": [
         {
           "id": "A",
-          "text": "gcc -S produit de l'assembleur (.s), sans fichier objet ni exécutable."
+          "text": "Relier la sortie d’une commande à l’entrée d’une autre."
         },
         {
           "id": "B",
-          "text": "Relier la sortie d’une commande à l’entrée d’une autre."
+          "text": "Compile vers un fichier assembleur .s, sans assembler ni effectuer l’édition de liens."
         },
         {
           "id": "C",
@@ -2092,11 +2092,11 @@
         },
         {
           "id": "D",
-          "text": "Compile vers un fichier assembleur .s, sans assembler ni effectuer l’édition de liens."
+          "text": "gcc -S produit de l'assembleur (.s), sans fichier objet ni exécutable."
         }
       ],
       "correct_option_ids": [
-        "A",
+        "B",
         "D"
       ],
       "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
@@ -2122,23 +2122,23 @@
       "options": [
         {
           "id": "A",
-          "text": "gcc -c"
-        },
-        {
-          "id": "B",
           "text": "undefined reference"
         },
         {
-          "id": "C",
+          "id": "B",
           "text": "Prototype vs définition"
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "scanf() — lire une saisie au clavier"
+        },
+        {
+          "id": "D",
+          "text": "gcc -c"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "La définition est extraite du résumé de la fiche correspondante.",
       "source_urls": [
@@ -2166,19 +2166,19 @@
         },
         {
           "id": "B",
-          "text": "Définition nécessaire introuvable lors de l’édition de liens."
+          "text": "Compile en un fichier objet .o, sans édition de liens."
         },
         {
           "id": "C",
-          "text": "scanf lit une entrée formatée (souvent depuis le clavier) et écrit les valeurs lues dans des variables : utiliser & pour une variable numérique et vérifier le nombre de conversions réussies."
+          "text": "Définition nécessaire introuvable lors de l’édition de liens."
         },
         {
           "id": "D",
-          "text": "Compile en un fichier objet .o, sans édition de liens."
+          "text": "scanf lit une entrée formatée (souvent depuis le clavier) et écrit les valeurs lues dans des variables : utiliser & pour une variable numérique et vérifier le nombre de conversions réussies."
         }
       ],
       "correct_option_ids": [
-        "D"
+        "B"
       ],
       "explanation": "Le résumé de la fiche indique : Compile en un fichier objet .o, sans édition de liens.",
       "source_urls": [
@@ -2206,15 +2206,15 @@
         },
         {
           "id": "B",
-          "text": "scanf(\"%d\", &age) attend l’adresse de age et renvoie 1 seulement si un entier est lu correctement. Vérifier le retour avant d’utiliser la variable. Avec %s, toujours fixer une largeur adaptée à la taille du tableau ; fgets est mieux adapté aux phrases avec espaces. Le format de printf n’a pas exactement les mêmes types attendus : scanf(\"%f\", &f) pour float et scanf(\"%"
+          "text": "« undefined reference » est généralement une erreur de liaison : vérifie les définitions et fichiers liés."
         },
         {
           "id": "C",
-          "text": "Le prototype annonce une fonction ; seule la définition fournit le code exécuté."
+          "text": "scanf(\"%d\", &age) attend l’adresse de age et renvoie 1 seulement si un entier est lu correctement. Vérifier le retour avant d’utiliser la variable. Avec %s, toujours fixer une largeur adaptée à la taille du tableau ; fgets est mieux adapté aux phrases avec espaces. Le format de printf n’a pas exactement les mêmes types attendus : scanf(\"%f\", &f) pour float et scanf(\"%"
         },
         {
           "id": "D",
-          "text": "« undefined reference » est généralement une erreur de liaison : vérifie les définitions et fichiers liés."
+          "text": "Le prototype annonce une fonction ; seule la définition fournit le code exécuté."
         }
       ],
       "correct_option_ids": [
@@ -2242,15 +2242,15 @@
       "options": [
         {
           "id": "A",
-          "text": "Un pointeur vers \"School\" ne rend pas la chaîne modifiable ; char s[] = \"School\" crée un tableau contenant une copie modifiable."
+          "text": "Compile en un fichier objet .o, sans édition de liens."
         },
         {
           "id": "B",
-          "text": "strcpy(dest, src) copie les caractères et '\\0' vers dest, mais n’alloue aucune mémoire : dest doit déjà disposer de suffisamment de place."
+          "text": "Un pointeur vers \"School\" ne rend pas la chaîne modifiable ; char s[] = \"School\" crée un tableau contenant une copie modifiable."
         },
         {
           "id": "C",
-          "text": "Compile en un fichier objet .o, sans édition de liens."
+          "text": "strcpy(dest, src) copie les caractères et '\\0' vers dest, mais n’alloue aucune mémoire : dest doit déjà disposer de suffisamment de place."
         },
         {
           "id": "D",
@@ -2258,7 +2258,7 @@
         }
       ],
       "correct_option_ids": [
-        "C",
+        "A",
         "D"
       ],
       "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
@@ -2284,7 +2284,7 @@
       "options": [
         {
           "id": "A",
-          "text": "Prototype vs définition"
+          "text": "undefined reference"
         },
         {
           "id": "B",
@@ -2292,11 +2292,11 @@
         },
         {
           "id": "C",
-          "text": "Types entiers en C"
+          "text": "Prototype vs définition"
         },
         {
           "id": "D",
-          "text": "undefined reference"
+          "text": "Types entiers en C"
         }
       ],
       "correct_option_ids": [
@@ -2324,11 +2324,11 @@
       "options": [
         {
           "id": "A",
-          "text": "Permet de choisir le nom du fichier de sortie, par exemple gcc main.c -o cisfun."
+          "text": "Définition nécessaire introuvable lors de l’édition de liens."
         },
         {
           "id": "B",
-          "text": "Définition nécessaire introuvable lors de l’édition de liens."
+          "text": "Un prototype annonce une signature ; la définition contient le corps de la fonction."
         },
         {
           "id": "C",
@@ -2336,11 +2336,11 @@
         },
         {
           "id": "D",
-          "text": "Un prototype annonce une signature ; la définition contient le corps de la fonction."
+          "text": "Permet de choisir le nom du fichier de sortie, par exemple gcc main.c -o cisfun."
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "Le résumé de la fiche indique : Permet de choisir le nom du fichier de sortie, par exemple gcc main.c -o cisfun.",
       "source_urls": [
@@ -2364,7 +2364,7 @@
       "options": [
         {
           "id": "A",
-          "text": "Le prototype annonce une fonction ; seule la définition fournit le code exécuté."
+          "text": "Les options -E, -S et -c modifient la nature de la sortie ; -o ne fait que la nommer."
         },
         {
           "id": "B",
@@ -2376,11 +2376,11 @@
         },
         {
           "id": "D",
-          "text": "Les options -E, -S et -c modifient la nature de la sortie ; -o ne fait que la nommer."
+          "text": "Le prototype annonce une fonction ; seule la définition fournit le code exécuté."
         }
       ],
       "correct_option_ids": [
-        "D"
+        "A"
       ],
       "explanation": "La fiche indique : Les options -E, -S et -c modifient la nature de la sortie ; -o ne fait que la nommer.",
       "source_urls": [
@@ -2404,11 +2404,11 @@
       "options": [
         {
           "id": "A",
-          "text": "Les options -E, -S et -c modifient la nature de la sortie ; -o ne fait que la nommer."
+          "text": "Interface graphique / interface en ligne de commande."
         },
         {
           "id": "B",
-          "text": "Interface graphique / interface en ligne de commande."
+          "text": "Les options -E, -S et -c modifient la nature de la sortie ; -o ne fait que la nommer."
         },
         {
           "id": "C",
@@ -2420,7 +2420,7 @@
         }
       ],
       "correct_option_ids": [
-        "A",
+        "B",
         "C"
       ],
       "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
@@ -2446,11 +2446,11 @@
       "options": [
         {
           "id": "A",
-          "text": "Types entiers en C"
+          "text": "undefined reference"
         },
         {
           "id": "B",
-          "text": "undefined reference"
+          "text": "exit() — terminer le programme"
         },
         {
           "id": "C",
@@ -2458,7 +2458,7 @@
         },
         {
           "id": "D",
-          "text": "exit() — terminer le programme"
+          "text": "Types entiers en C"
         }
       ],
       "correct_option_ids": [
@@ -2486,23 +2486,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Définition nécessaire introuvable lors de l’édition de liens."
+          "text": "char, short, int, long et long long représentent des valeurs entières ; leurs tailles exactes dépendent de la plateforme."
         },
         {
           "id": "B",
-          "text": "puts affiche une chaîne en ajoutant un saut de ligne ; printf utilise une chaîne de format pour afficher des valeurs."
-        },
-        {
-          "id": "C",
           "text": "exit(code) termine le programme entier, même depuis une fonction appelée ; à la différence de return, il ne revient pas à l’appelant."
         },
         {
+          "id": "C",
+          "text": "Définition nécessaire introuvable lors de l’édition de liens."
+        },
+        {
           "id": "D",
-          "text": "char, short, int, long et long long représentent des valeurs entières ; leurs tailles exactes dépendent de la plateforme."
+          "text": "puts affiche une chaîne en ajoutant un saut de ligne ; printf utilise une chaîne de format pour afficher des valeurs."
         }
       ],
       "correct_option_ids": [
-        "B"
+        "D"
       ],
       "explanation": "Le résumé de la fiche indique : puts affiche une chaîne en ajoutant un saut de ligne ; printf utilise une chaîne de format pour afficher des valeurs.",
       "source_urls": [
@@ -2530,7 +2530,7 @@
         },
         {
           "id": "B",
-          "text": "Un type ne garantit pas partout le même nombre d’octets."
+          "text": "« undefined reference » est généralement une erreur de liaison : vérifie les définitions et fichiers liés."
         },
         {
           "id": "C",
@@ -2538,7 +2538,7 @@
         },
         {
           "id": "D",
-          "text": "« undefined reference » est généralement une erreur de liaison : vérifie les définitions et fichiers liés."
+          "text": "Un type ne garantit pas partout le même nombre d’octets."
         }
       ],
       "correct_option_ids": [
@@ -2566,7 +2566,7 @@
       "options": [
         {
           "id": "A",
-          "text": "puts affiche une chaîne en ajoutant un saut de ligne ; printf utilise une chaîne de format pour afficher des valeurs."
+          "text": "Suite de caractères stockée notamment dans un tableau de char et terminée par le caractère nul \\0."
         },
         {
           "id": "B",
@@ -2574,16 +2574,16 @@
         },
         {
           "id": "C",
-          "text": "puts ajoute un saut de ligne ; printf n'en ajoute que si le format le demande."
+          "text": "puts affiche une chaîne en ajoutant un saut de ligne ; printf utilise une chaîne de format pour afficher des valeurs."
         },
         {
           "id": "D",
-          "text": "Suite de caractères stockée notamment dans un tableau de char et terminée par le caractère nul \\0."
+          "text": "puts ajoute un saut de ligne ; printf n'en ajoute que si le format le demande."
         }
       ],
       "correct_option_ids": [
-        "A",
-        "C"
+        "C",
+        "D"
       ],
       "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
       "source_urls": [
@@ -2608,23 +2608,23 @@
       "options": [
         {
           "id": "A",
-          "text": "exit() — terminer le programme"
-        },
-        {
-          "id": "B",
           "text": "Integer overflow — dépassement de capacité d'un entier"
         },
         {
+          "id": "B",
+          "text": "Types entiers en C"
+        },
+        {
           "id": "C",
-          "text": "puts / printf"
+          "text": "exit() — terminer le programme"
         },
         {
           "id": "D",
-          "text": "Types entiers en C"
+          "text": "puts / printf"
         }
       ],
       "correct_option_ids": [
-        "D"
+        "B"
       ],
       "explanation": "La définition est extraite du résumé de la fiche correspondante.",
       "source_urls": [
@@ -2648,11 +2648,11 @@
       "options": [
         {
           "id": "A",
-          "text": "char, short, int, long et long long représentent des valeurs entières ; leurs tailles exactes dépendent de la plateforme."
+          "text": "puts affiche une chaîne en ajoutant un saut de ligne ; printf utilise une chaîne de format pour afficher des valeurs."
         },
         {
           "id": "B",
-          "text": "puts affiche une chaîne en ajoutant un saut de ligne ; printf utilise une chaîne de format pour afficher des valeurs."
+          "text": "char, short, int, long et long long représentent des valeurs entières ; leurs tailles exactes dépendent de la plateforme."
         },
         {
           "id": "C",
@@ -2664,7 +2664,7 @@
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "Le résumé de la fiche indique : char, short, int, long et long long représentent des valeurs entières ; leurs tailles exactes dépendent de la plateforme.",
       "source_urls": [
@@ -2692,19 +2692,19 @@
         },
         {
           "id": "B",
-          "text": "Un type ne garantit pas partout le même nombre d’octets."
+          "text": "exit(98) arrête le programme avec le statut demandé, pas uniquement la fonction verifier. En remplaçant verifier(1) par verifier(0), le puts n’est jamais exécuté. Utilise EXIT_FAILURE pour un échec portable, et ne confonds pas exit() avec free()."
         },
         {
           "id": "C",
-          "text": "puts ajoute un saut de ligne ; printf n'en ajoute que si le format le demande."
+          "text": "Un type ne garantit pas partout le même nombre d’octets."
         },
         {
           "id": "D",
-          "text": "exit(98) arrête le programme avec le statut demandé, pas uniquement la fonction verifier. En remplaçant verifier(1) par verifier(0), le puts n’est jamais exécuté. Utilise EXIT_FAILURE pour un échec portable, et ne confonds pas exit() avec free()."
+          "text": "puts ajoute un saut de ligne ; printf n'en ajoute que si le format le demande."
         }
       ],
       "correct_option_ids": [
-        "B"
+        "C"
       ],
       "explanation": "La fiche indique : Un type ne garantit pas partout le même nombre d’octets.",
       "source_urls": [
@@ -2728,19 +2728,19 @@
       "options": [
         {
           "id": "A",
-          "text": "Une struct définit un type composé de membres nommés, éventuellement de types différents."
-        },
-        {
-          "id": "B",
           "text": "Un membre peut être lui-même une struct : p.position.x traverse deux niveaux."
         },
         {
+          "id": "B",
+          "text": "Une struct définit un type composé de membres nommés, éventuellement de types différents."
+        },
+        {
           "id": "C",
-          "text": "Un type ne garantit pas partout le même nombre d’octets."
+          "text": "char, short, int, long et long long représentent des valeurs entières ; leurs tailles exactes dépendent de la plateforme."
         },
         {
           "id": "D",
-          "text": "char, short, int, long et long long représentent des valeurs entières ; leurs tailles exactes dépendent de la plateforme."
+          "text": "Un type ne garantit pas partout le même nombre d’octets."
         }
       ],
       "correct_option_ids": [
@@ -2770,23 +2770,23 @@
       "options": [
         {
           "id": "A",
-          "text": "signed et unsigned"
-        },
-        {
-          "id": "B",
           "text": "Integer overflow — dépassement de capacité d'un entier"
         },
         {
+          "id": "B",
+          "text": "exit() — terminer le programme"
+        },
+        {
           "id": "C",
-          "text": "ASCII"
+          "text": "signed et unsigned"
         },
         {
           "id": "D",
-          "text": "exit() — terminer le programme"
+          "text": "ASCII"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "La définition est extraite du résumé de la fiche correspondante.",
       "source_urls": [
@@ -2810,23 +2810,23 @@
       "options": [
         {
           "id": "A",
-          "text": "exit(code) termine le programme entier, même depuis une fonction appelée ; à la différence de return, il ne revient pas à l’appelant."
+          "text": "signed permet des valeurs négatives et positives ; unsigned ne représente que des valeurs non négatives."
         },
         {
           "id": "B",
-          "text": "Un integer overflow survient si un calcul dépasse l'intervalle représentable ; en C, le débordement signé est indéfini, tandis que l'unsigned se replie modulo sa plage."
-        },
-        {
-          "id": "C",
           "text": "Associe des nombres aux caractères de base ; le caractère '0' vaut 48 en ASCII."
         },
         {
+          "id": "C",
+          "text": "exit(code) termine le programme entier, même depuis une fonction appelée ; à la différence de return, il ne revient pas à l’appelant."
+        },
+        {
           "id": "D",
-          "text": "signed permet des valeurs négatives et positives ; unsigned ne représente que des valeurs non négatives."
+          "text": "Un integer overflow survient si un calcul dépasse l'intervalle représentable ; en C, le débordement signé est indéfini, tandis que l'unsigned se replie modulo sa plage."
         }
       ],
       "correct_option_ids": [
-        "D"
+        "A"
       ],
       "explanation": "Le résumé de la fiche indique : signed permet des valeurs négatives et positives ; unsigned ne représente que des valeurs non négatives.",
       "source_urls": [
@@ -2850,11 +2850,11 @@
       "options": [
         {
           "id": "A",
-          "text": "Ne pas utiliser unsigned uniquement pour « interdire » les valeurs négatives sans réfléchir aux conversions."
+          "text": "exit(98) arrête le programme avec le statut demandé, pas uniquement la fonction verifier. En remplaçant verifier(1) par verifier(0), le puts n’est jamais exécuté. Utilise EXIT_FAILURE pour un échec portable, et ne confonds pas exit() avec free()."
         },
         {
           "id": "B",
-          "text": "exit(98) arrête le programme avec le statut demandé, pas uniquement la fonction verifier. En remplaçant verifier(1) par verifier(0), le puts n’est jamais exécuté. Utilise EXIT_FAILURE pour un échec portable, et ne confonds pas exit() avec free()."
+          "text": "Le caractère '0' possède un code numérique ; ce n'est pas l'entier 0."
         },
         {
           "id": "C",
@@ -2862,11 +2862,11 @@
         },
         {
           "id": "D",
-          "text": "Le caractère '0' possède un code numérique ; ce n'est pas l'entier 0."
+          "text": "Ne pas utiliser unsigned uniquement pour « interdire » les valeurs négatives sans réfléchir aux conversions."
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "La fiche indique : Ne pas utiliser unsigned uniquement pour « interdire » les valeurs négatives sans réfléchir aux conversions.",
       "source_urls": [
@@ -2894,11 +2894,11 @@
         },
         {
           "id": "B",
-          "text": "&n produit l’adresse de la variable n ; p = &n fait pointer p vers n."
+          "text": "Proposition de modifications à examiner avant une fusion éventuelle."
         },
         {
           "id": "C",
-          "text": "Proposition de modifications à examiner avant une fusion éventuelle."
+          "text": "&n produit l’adresse de la variable n ; p = &n fait pointer p vers n."
         },
         {
           "id": "D",
@@ -2936,11 +2936,11 @@
         },
         {
           "id": "B",
-          "text": "float et double"
+          "text": "gcc -c"
         },
         {
           "id": "C",
-          "text": "gcc -c"
+          "text": "float et double"
         },
         {
           "id": "D",
@@ -2948,7 +2948,7 @@
         }
       ],
       "correct_option_ids": [
-        "B"
+        "C"
       ],
       "explanation": "La définition est extraite du résumé de la fiche correspondante.",
       "source_urls": [
@@ -2976,19 +2976,19 @@
         },
         {
           "id": "B",
-          "text": "Compile en un fichier objet .o, sans édition de liens."
+          "text": "Un integer overflow survient si un calcul dépasse l'intervalle représentable ; en C, le débordement signé est indéfini, tandis que l'unsigned se replie modulo sa plage."
         },
         {
           "id": "C",
-          "text": "float et double représentent des nombres à virgule flottante, souvent avec une précision limitée."
+          "text": "Compile en un fichier objet .o, sans édition de liens."
         },
         {
           "id": "D",
-          "text": "Un integer overflow survient si un calcul dépasse l'intervalle représentable ; en C, le débordement signé est indéfini, tandis que l'unsigned se replie modulo sa plage."
+          "text": "float et double représentent des nombres à virgule flottante, souvent avec une précision limitée."
         }
       ],
       "correct_option_ids": [
-        "C"
+        "D"
       ],
       "explanation": "Le résumé de la fiche indique : float et double représentent des nombres à virgule flottante, souvent avec une précision limitée.",
       "source_urls": [
@@ -3016,11 +3016,11 @@
         },
         {
           "id": "B",
-          "text": "gcc -c produit un fichier objet (.o), sans liaison vers l'exécutable final."
+          "text": "Le caractère '0' possède un code numérique ; ce n'est pas l'entier 0."
         },
         {
           "id": "C",
-          "text": "Le caractère '0' possède un code numérique ; ce n'est pas l'entier 0."
+          "text": "gcc -c produit un fichier objet (.o), sans liaison vers l'exécutable final."
         },
         {
           "id": "D",
@@ -3052,24 +3052,24 @@
       "options": [
         {
           "id": "A",
-          "text": "Les comparaisons exactes de flottants doivent être envisagées avec prudence."
+          "text": "Conserve les deux derniers chiffres d’un entier positif."
         },
         {
           "id": "B",
-          "text": "float et double représentent des nombres à virgule flottante, souvent avec une précision limitée."
-        },
-        {
-          "id": "C",
           "text": "Retirer 1, puis utiliser la nouvelle valeur."
         },
         {
+          "id": "C",
+          "text": "Les comparaisons exactes de flottants doivent être envisagées avec prudence."
+        },
+        {
           "id": "D",
-          "text": "Conserve les deux derniers chiffres d’un entier positif."
+          "text": "float et double représentent des nombres à virgule flottante, souvent avec une précision limitée."
         }
       ],
       "correct_option_ids": [
-        "A",
-        "B"
+        "C",
+        "D"
       ],
       "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
       "source_urls": [
@@ -3094,11 +3094,11 @@
       "options": [
         {
           "id": "A",
-          "text": "char et caractère"
+          "text": "return d’un caractère (char)"
         },
         {
           "id": "B",
-          "text": "ASCII"
+          "text": "char et caractère"
         },
         {
           "id": "C",
@@ -3106,11 +3106,11 @@
         },
         {
           "id": "D",
-          "text": "return d’un caractère (char)"
+          "text": "ASCII"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "La définition est extraite du résumé de la fiche correspondante.",
       "source_urls": [
@@ -3138,7 +3138,7 @@
         },
         {
           "id": "B",
-          "text": "char représente un petit entier utilisé notamment pour les caractères ; 'A' est une constante de caractère."
+          "text": "Compile en un fichier objet .o, sans édition de liens."
         },
         {
           "id": "C",
@@ -3146,11 +3146,11 @@
         },
         {
           "id": "D",
-          "text": "Compile en un fichier objet .o, sans édition de liens."
+          "text": "char représente un petit entier utilisé notamment pour les caractères ; 'A' est une constante de caractère."
         }
       ],
       "correct_option_ids": [
-        "B"
+        "D"
       ],
       "explanation": "Le résumé de la fiche indique : char représente un petit entier utilisé notamment pour les caractères ; 'A' est une constante de caractère.",
       "source_urls": [
@@ -3178,19 +3178,19 @@
         },
         {
           "id": "B",
-          "text": "char correspond à un caractère (valeur entière), char * à un pointeur. Ne confonds pas return 'H'; avec return \"H\"; : ce ne sont pas les mêmes types."
-        },
-        {
-          "id": "C",
           "text": "Ne confonds pas le caractère '3' avec l'entier 3."
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "Le caractère '0' possède un code numérique ; ce n'est pas l'entier 0."
+        },
+        {
+          "id": "D",
+          "text": "char correspond à un caractère (valeur entière), char * à un pointeur. Ne confonds pas return 'H'; avec return \"H\"; : ce ne sont pas les mêmes types."
         }
       ],
       "correct_option_ids": [
-        "C"
+        "B"
       ],
       "explanation": "La fiche indique : Ne confonds pas le caractère '3' avec l'entier 3.",
       "source_urls": [
@@ -3214,7 +3214,7 @@
       "options": [
         {
           "id": "A",
-          "text": "Évaluation arithmétique."
+          "text": "Initialisation, test, mise à jour ; forme compacte de boucle."
         },
         {
           "id": "B",
@@ -3222,16 +3222,16 @@
         },
         {
           "id": "C",
-          "text": "char représente un petit entier utilisé notamment pour les caractères ; 'A' est une constante de caractère."
+          "text": "Évaluation arithmétique."
         },
         {
           "id": "D",
-          "text": "Initialisation, test, mise à jour ; forme compacte de boucle."
+          "text": "char représente un petit entier utilisé notamment pour les caractères ; 'A' est une constante de caractère."
         }
       ],
       "correct_option_ids": [
         "B",
-        "C"
+        "D"
       ],
       "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
       "source_urls": [
@@ -3256,11 +3256,11 @@
       "options": [
         {
           "id": "A",
-          "text": "gcc -c"
+          "text": "return d’un caractère (char)"
         },
         {
           "id": "B",
-          "text": "return d’un caractère (char)"
+          "text": "gcc -c"
         },
         {
           "id": "C",
@@ -3296,7 +3296,7 @@
       "options": [
         {
           "id": "A",
-          "text": "Dans main, 0 indique une réussite ; dans une autre fonction, 0 et 1 ont le sens défini par cette fonction."
+          "text": "Passer une chaîne contrôlée par l'utilisateur directement comme format à printf expose à une vulnérabilité ; utiliser un format fixe tel que \"%s\"."
         },
         {
           "id": "B",
@@ -3304,15 +3304,15 @@
         },
         {
           "id": "C",
-          "text": "Une fonction de type char peut renvoyer un caractère, par exemple return 'H';."
+          "text": "Dans main, 0 indique une réussite ; dans une autre fonction, 0 et 1 ont le sens défini par cette fonction."
         },
         {
           "id": "D",
-          "text": "Passer une chaîne contrôlée par l'utilisateur directement comme format à printf expose à une vulnérabilité ; utiliser un format fixe tel que \"%s\"."
+          "text": "Une fonction de type char peut renvoyer un caractère, par exemple return 'H';."
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "Le résumé de la fiche indique : Dans main, 0 indique une réussite ; dans une autre fonction, 0 et 1 ont le sens défini par cette fonction.",
       "source_urls": [
@@ -3336,15 +3336,15 @@
       "options": [
         {
           "id": "A",
-          "text": "gcc -c produit un fichier objet (.o), sans liaison vers l'exécutable final."
+          "text": "Ne confonds pas le code de fin de main et les valeurs renvoyées par les autres fonctions : leur signification dépend du contexte. EXIT_SUCCESS et EXIT_FAILURE sont les constantes portables de <stdlib.h>."
         },
         {
           "id": "B",
-          "text": "Ne jamais employer une donnée non fiable comme chaîne de format de printf, fprintf ou snprintf. Le format fixe \"%s\" affiche le texte sans interpréter ses caractères % comme des instructions."
+          "text": "gcc -c produit un fichier objet (.o), sans liaison vers l'exécutable final."
         },
         {
           "id": "C",
-          "text": "Ne confonds pas le code de fin de main et les valeurs renvoyées par les autres fonctions : leur signification dépend du contexte. EXIT_SUCCESS et EXIT_FAILURE sont les constantes portables de <stdlib.h>."
+          "text": "Ne jamais employer une donnée non fiable comme chaîne de format de printf, fprintf ou snprintf. Le format fixe \"%s\" affiche le texte sans interpréter ses caractères % comme des instructions."
         },
         {
           "id": "D",
@@ -3352,7 +3352,7 @@
         }
       ],
       "correct_option_ids": [
-        "C"
+        "A"
       ],
       "explanation": "La fiche indique : Ne confonds pas le code de fin de main et les valeurs renvoyées par les autres fonctions : leur signification dépend du contexte. EXIT_SUCCESS et EXIT_FAILURE sont les constantes portables de <stdlib.h>.",
       "source_urls": [
@@ -3376,7 +3376,7 @@
       "options": [
         {
           "id": "A",
-          "text": "« Definitely lost: 32 bytes in 1 blocks » signifie qu'un bloc alloué de 32 octets reste non libéré et sans pointeur retrouvé : fuite certaine."
+          "text": "Dans main, 0 indique une réussite ; dans une autre fonction, 0 et 1 ont le sens défini par cette fonction."
         },
         {
           "id": "B",
@@ -3384,15 +3384,15 @@
         },
         {
           "id": "C",
-          "text": "Ne confonds pas le code de fin de main et les valeurs renvoyées par les autres fonctions : leur signification dépend du contexte. EXIT_SUCCESS et EXIT_FAILURE sont les constantes portables de <stdlib.h>."
+          "text": "« Definitely lost: 32 bytes in 1 blocks » signifie qu'un bloc alloué de 32 octets reste non libéré et sans pointeur retrouvé : fuite certaine."
         },
         {
           "id": "D",
-          "text": "Dans main, 0 indique une réussite ; dans une autre fonction, 0 et 1 ont le sens défini par cette fonction."
+          "text": "Ne confonds pas le code de fin de main et les valeurs renvoyées par les autres fonctions : leur signification dépend du contexte. EXIT_SUCCESS et EXIT_FAILURE sont les constantes portables de <stdlib.h>."
         }
       ],
       "correct_option_ids": [
-        "C",
+        "A",
         "D"
       ],
       "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
@@ -3422,19 +3422,19 @@
         },
         {
           "id": "B",
-          "text": "printf / _putchar"
-        },
-        {
-          "id": "C",
           "text": "return d’un caractère (char)"
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "return 0 / return 1"
+        },
+        {
+          "id": "D",
+          "text": "printf / _putchar"
         }
       ],
       "correct_option_ids": [
-        "C"
+        "B"
       ],
       "explanation": "La définition est extraite du résumé de la fiche correspondante.",
       "source_urls": [
@@ -3458,15 +3458,15 @@
       "options": [
         {
           "id": "A",
-          "text": "Dans main, 0 indique une réussite ; dans une autre fonction, 0 et 1 ont le sens défini par cette fonction."
+          "text": "Passer une chaîne contrôlée par l'utilisateur directement comme format à printf expose à une vulnérabilité ; utiliser un format fixe tel que \"%s\"."
         },
         {
           "id": "B",
-          "text": "Affichage formaté / écriture d’un caractère."
+          "text": "Dans main, 0 indique une réussite ; dans une autre fonction, 0 et 1 ont le sens défini par cette fonction."
         },
         {
           "id": "C",
-          "text": "Passer une chaîne contrôlée par l'utilisateur directement comme format à printf expose à une vulnérabilité ; utiliser un format fixe tel que \"%s\"."
+          "text": "Affichage formaté / écriture d’un caractère."
         },
         {
           "id": "D",
@@ -3498,23 +3498,23 @@
       "options": [
         {
           "id": "A",
-          "text": "char correspond à un caractère (valeur entière), char * à un pointeur. Ne confonds pas return 'H'; avec return \"H\"; : ce ne sont pas les mêmes types."
+          "text": "_putchar n'est pas une fonction standard C : elle doit être fournie par le projet ou une bibliothèque."
         },
         {
           "id": "B",
-          "text": "Ne jamais employer une donnée non fiable comme chaîne de format de printf, fprintf ou snprintf. Le format fixe \"%s\" affiche le texte sans interpréter ses caractères % comme des instructions."
-        },
-        {
-          "id": "C",
           "text": "Ne confonds pas le code de fin de main et les valeurs renvoyées par les autres fonctions : leur signification dépend du contexte. EXIT_SUCCESS et EXIT_FAILURE sont les constantes portables de <stdlib.h>."
         },
         {
+          "id": "C",
+          "text": "char correspond à un caractère (valeur entière), char * à un pointeur. Ne confonds pas return 'H'; avec return \"H\"; : ce ne sont pas les mêmes types."
+        },
+        {
           "id": "D",
-          "text": "_putchar n'est pas une fonction standard C : elle doit être fournie par le projet ou une bibliothèque."
+          "text": "Ne jamais employer une donnée non fiable comme chaîne de format de printf, fprintf ou snprintf. Le format fixe \"%s\" affiche le texte sans interpréter ses caractères % comme des instructions."
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "La fiche indique : char correspond à un caractère (valeur entière), char * à un pointeur. Ne confonds pas return 'H'; avec return \"H\"; : ce ne sont pas les mêmes types.",
       "source_urls": [
@@ -3538,24 +3538,24 @@
       "options": [
         {
           "id": "A",
-          "text": "Une fonction de type char peut renvoyer un caractère, par exemple return 'H';."
+          "text": "char correspond à un caractère (valeur entière), char * à un pointeur. Ne confonds pas return 'H'; avec return \"H\"; : ce ne sont pas les mêmes types."
         },
         {
           "id": "B",
-          "text": "Rediriger les erreurs / prendre un fichier comme entrée."
+          "text": "Une fonction de type char peut renvoyer un caractère, par exemple return 'H';."
         },
         {
           "id": "C",
-          "text": "sort ordonne les lignes ; uniq supprime uniquement les lignes répétées consécutives : on utilise souvent sort avant uniq."
+          "text": "Rediriger les erreurs / prendre un fichier comme entrée."
         },
         {
           "id": "D",
-          "text": "char correspond à un caractère (valeur entière), char * à un pointeur. Ne confonds pas return 'H'; avec return \"H\"; : ce ne sont pas les mêmes types."
+          "text": "sort ordonne les lignes ; uniq supprime uniquement les lignes répétées consécutives : on utilise souvent sort avant uniq."
         }
       ],
       "correct_option_ids": [
         "A",
-        "D"
+        "B"
       ],
       "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
       "source_urls": [
@@ -3580,11 +3580,11 @@
       "options": [
         {
           "id": "A",
-          "text": "gcc -E"
+          "text": "return d’un pointeur (int *)"
         },
         {
           "id": "B",
-          "text": "return d’un pointeur (int *)"
+          "text": "printf / _putchar"
         },
         {
           "id": "C",
@@ -3592,11 +3592,11 @@
         },
         {
           "id": "D",
-          "text": "printf / _putchar"
+          "text": "gcc -E"
         }
       ],
       "correct_option_ids": [
-        "B"
+        "A"
       ],
       "explanation": "La définition est extraite du résumé de la fiche correspondante.",
       "source_urls": [
@@ -3620,7 +3620,7 @@
       "options": [
         {
           "id": "A",
-          "text": "Affichage formaté / écriture d’un caractère."
+          "text": "Une fonction de type int * renvoie une adresse ou NULL ; l’objet pointé doit encore exister lors de son utilisation."
         },
         {
           "id": "B",
@@ -3628,7 +3628,7 @@
         },
         {
           "id": "C",
-          "text": "Une fonction de type int * renvoie une adresse ou NULL ; l’objet pointé doit encore exister lors de son utilisation."
+          "text": "Affichage formaté / écriture d’un caractère."
         },
         {
           "id": "D",
@@ -3636,7 +3636,7 @@
         }
       ],
       "correct_option_ids": [
-        "C"
+        "A"
       ],
       "explanation": "Le résumé de la fiche indique : Une fonction de type int * renvoie une adresse ou NULL ; l’objet pointé doit encore exister lors de son utilisation.",
       "source_urls": [
@@ -3660,11 +3660,11 @@
       "options": [
         {
           "id": "A",
-          "text": "_putchar n'est pas une fonction standard C : elle doit être fournie par le projet ou une bibliothèque."
+          "text": "gcc -E produit le source prétraité et s'arrête avant la compilation proprement dite."
         },
         {
           "id": "B",
-          "text": "gcc -E produit le source prétraité et s'arrête avant la compilation proprement dite."
+          "text": "_putchar n'est pas une fonction standard C : elle doit être fournie par le projet ou une bibliothèque."
         },
         {
           "id": "C",
@@ -3700,15 +3700,15 @@
       "options": [
         {
           "id": "A",
-          "text": "Ne retourne jamais l’adresse d’une variable locale automatique. Un pointeur renvoyé doit rester valide lors de son utilisation, ou valoir NULL ; teste NULL avant tout déréférencement."
+          "text": "Un segfault (souvent signalé par « Segmentation fault ») est un arrêt causé par un accès mémoire interdit ; un comportement indéfini en C ne provoque cependant pas toujours ce signal."
         },
         {
           "id": "B",
-          "text": "Une fonction de type int * renvoie une adresse ou NULL ; l’objet pointé doit encore exister lors de son utilisation."
+          "text": "Ne retourne jamais l’adresse d’une variable locale automatique. Un pointeur renvoyé doit rester valide lors de son utilisation, ou valoir NULL ; teste NULL avant tout déréférencement."
         },
         {
           "id": "C",
-          "text": "Un segfault (souvent signalé par « Segmentation fault ») est un arrêt causé par un accès mémoire interdit ; un comportement indéfini en C ne provoque cependant pas toujours ce signal."
+          "text": "Une fonction de type int * renvoie une adresse ou NULL ; l’objet pointé doit encore exister lors de son utilisation."
         },
         {
           "id": "D",
@@ -3716,8 +3716,8 @@
         }
       ],
       "correct_option_ids": [
-        "A",
-        "B"
+        "B",
+        "C"
       ],
       "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
       "source_urls": [
@@ -3742,23 +3742,23 @@
       "options": [
         {
           "id": "A",
-          "text": "exit() — terminer le programme"
+          "text": "float et double"
         },
         {
           "id": "B",
-          "text": "printf / _putchar"
-        },
-        {
-          "id": "C",
           "text": "gcc -E"
         },
         {
+          "id": "C",
+          "text": "printf / _putchar"
+        },
+        {
           "id": "D",
-          "text": "float et double"
+          "text": "exit() — terminer le programme"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "La définition est extraite du résumé de la fiche correspondante.",
       "source_urls": [
@@ -3782,23 +3782,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Affichage formaté / écriture d’un caractère."
-        },
-        {
-          "id": "B",
           "text": "float et double représentent des nombres à virgule flottante, souvent avec une précision limitée."
         },
         {
+          "id": "B",
+          "text": "Affichage formaté / écriture d’un caractère."
+        },
+        {
           "id": "C",
-          "text": "exit(code) termine le programme entier, même depuis une fonction appelée ; à la différence de return, il ne revient pas à l’appelant."
+          "text": "Arrête la chaîne de compilation après le préprocesseur : le résultat est du code source prétraité."
         },
         {
           "id": "D",
-          "text": "Arrête la chaîne de compilation après le préprocesseur : le résultat est du code source prétraité."
+          "text": "exit(code) termine le programme entier, même depuis une fonction appelée ; à la différence de return, il ne revient pas à l’appelant."
         }
       ],
       "correct_option_ids": [
-        "C"
+        "D"
       ],
       "explanation": "Le résumé de la fiche indique : exit(code) termine le programme entier, même depuis une fonction appelée ; à la différence de return, il ne revient pas à l’appelant.",
       "source_urls": [
@@ -3826,15 +3826,15 @@
         },
         {
           "id": "B",
-          "text": "Les comparaisons exactes de flottants doivent être envisagées avec prudence."
-        },
-        {
-          "id": "C",
           "text": "gcc -E produit le source prétraité et s'arrête avant la compilation proprement dite."
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "_putchar n'est pas une fonction standard C : elle doit être fournie par le projet ou une bibliothèque."
+        },
+        {
+          "id": "D",
+          "text": "Les comparaisons exactes de flottants doivent être envisagées avec prudence."
         }
       ],
       "correct_option_ids": [
@@ -3862,7 +3862,7 @@
       "options": [
         {
           "id": "A",
-          "text": "exit(code) termine le programme entier, même depuis une fonction appelée ; à la différence de return, il ne revient pas à l’appelant."
+          "text": "Sous-système Windows pour Linux : environnement Linux utilisable sur Windows."
         },
         {
           "id": "B",
@@ -3870,16 +3870,16 @@
         },
         {
           "id": "C",
-          "text": "Sous-système Windows pour Linux : environnement Linux utilisable sur Windows."
+          "text": "Dossier personnel de l’utilisateur."
         },
         {
           "id": "D",
-          "text": "Dossier personnel de l’utilisateur."
+          "text": "exit(code) termine le programme entier, même depuis une fonction appelée ; à la différence de return, il ne revient pas à l’appelant."
         }
       ],
       "correct_option_ids": [
-        "A",
-        "B"
+        "B",
+        "D"
       ],
       "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
       "source_urls": [
@@ -3904,11 +3904,11 @@
       "options": [
         {
           "id": "A",
-          "text": "gcc -E"
+          "text": "fgets() — lire une ligne avec une limite"
         },
         {
           "id": "B",
-          "text": "fgets() — lire une ligne avec une limite"
+          "text": "gcc -E"
         },
         {
           "id": "C",
@@ -3948,7 +3948,7 @@
         },
         {
           "id": "B",
-          "text": "float et double représentent des nombres à virgule flottante, souvent avec une précision limitée."
+          "text": "fgets lit au plus taille - 1 caractères, ajoute '\\0' et peut conserver le saut de ligne ; toujours vérifier son retour."
         },
         {
           "id": "C",
@@ -3956,7 +3956,7 @@
         },
         {
           "id": "D",
-          "text": "fgets lit au plus taille - 1 caractères, ajoute '\\0' et peut conserver le saut de ligne ; toujours vérifier son retour."
+          "text": "float et double représentent des nombres à virgule flottante, souvent avec une précision limitée."
         }
       ],
       "correct_option_ids": [
@@ -3988,19 +3988,19 @@
         },
         {
           "id": "B",
-          "text": "La taille fournie à fgets correspond à la capacité du tableau, pas à une quantité illimitée de texte. Vérifier NULL et détecter une ligne tronquée si toute l'entrée doit être conservée. Ne pas supposer que le saut de ligne est toujours présent."
-        },
-        {
-          "id": "C",
           "text": "Culture générale : Dennis Ritchie = créateur du C. Unix = travail collectif, notamment avec Ken Thompson. Brian Kernighan est coauteur du célèbre livre K&R, pas le créateur du langage."
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "Les comparaisons exactes de flottants doivent être envisagées avec prudence."
+        },
+        {
+          "id": "D",
+          "text": "La taille fournie à fgets correspond à la capacité du tableau, pas à une quantité illimitée de texte. Vérifier NULL et détecter une ligne tronquée si toute l'entrée doit être conservée. Ne pas supposer que le saut de ligne est toujours présent."
         }
       ],
       "correct_option_ids": [
-        "C"
+        "B"
       ],
       "explanation": "La fiche indique : Culture générale : Dennis Ritchie = créateur du C. Unix = travail collectif, notamment avec Ken Thompson. Brian Kernighan est coauteur du célèbre livre K&R, pas le créateur du langage.",
       "source_urls": [
@@ -4024,24 +4024,24 @@
       "options": [
         {
           "id": "A",
-          "text": "Culture générale : Dennis Ritchie = créateur du C. Unix = travail collectif, notamment avec Ken Thompson. Brian Kernighan est coauteur du célèbre livre K&R, pas le créateur du langage."
-        },
-        {
-          "id": "B",
-          "text": "Pour un tableau a, a[2] désigne le même élément que *(a + 2)."
-        },
-        {
-          "id": "C",
           "text": "int grille[2][3] contient deux lignes de trois éléments ; grille[1][2] désigne la troisième case de la seconde ligne."
         },
         {
-          "id": "D",
+          "id": "B",
+          "text": "Culture générale : Dennis Ritchie = créateur du C. Unix = travail collectif, notamment avec Ken Thompson. Brian Kernighan est coauteur du célèbre livre K&R, pas le créateur du langage."
+        },
+        {
+          "id": "C",
           "text": "Dennis Ritchie a conçu le langage C aux Bell Labs au début des années 1970 ; il a aussi joué un rôle majeur dans le développement d’Unix."
+        },
+        {
+          "id": "D",
+          "text": "Pour un tableau a, a[2] désigne le même élément que *(a + 2)."
         }
       ],
       "correct_option_ids": [
-        "A",
-        "D"
+        "B",
+        "C"
       ],
       "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
       "source_urls": [
@@ -4066,11 +4066,11 @@
       "options": [
         {
           "id": "A",
-          "text": "fgets() — lire une ligne avec une limite"
+          "text": "float et double"
         },
         {
           "id": "B",
-          "text": "void"
+          "text": "fgets() — lire une ligne avec une limite"
         },
         {
           "id": "C",
@@ -4078,7 +4078,7 @@
         },
         {
           "id": "D",
-          "text": "float et double"
+          "text": "void"
         }
       ],
       "correct_option_ids": [
@@ -4106,23 +4106,23 @@
       "options": [
         {
           "id": "A",
-          "text": "fgets lit au plus taille - 1 caractères, ajoute '\\0' et peut conserver le saut de ligne ; toujours vérifier son retour."
-        },
-        {
-          "id": "B",
-          "text": "Indique une absence de valeur de retour ou de paramètres selon le contexte."
-        },
-        {
-          "id": "C",
           "text": "float et double représentent des nombres à virgule flottante, souvent avec une précision limitée."
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "scanf lit une entrée formatée (souvent depuis le clavier) et écrit les valeurs lues dans des variables : utiliser & pour une variable numérique et vérifier le nombre de conversions réussies."
+        },
+        {
+          "id": "C",
+          "text": "fgets lit au plus taille - 1 caractères, ajoute '\\0' et peut conserver le saut de ligne ; toujours vérifier son retour."
+        },
+        {
+          "id": "D",
+          "text": "Indique une absence de valeur de retour ou de paramètres selon le contexte."
         }
       ],
       "correct_option_ids": [
-        "D"
+        "B"
       ],
       "explanation": "Le résumé de la fiche indique : scanf lit une entrée formatée (souvent depuis le clavier) et écrit les valeurs lues dans des variables : utiliser & pour une variable numérique et vérifier le nombre de conversions réussies.",
       "source_urls": [
@@ -4146,7 +4146,7 @@
       "options": [
         {
           "id": "A",
-          "text": "La taille fournie à fgets correspond à la capacité du tableau, pas à une quantité illimitée de texte. Vérifier NULL et détecter une ligne tronquée si toute l'entrée doit être conservée. Ne pas supposer que le saut de ligne est toujours présent."
+          "text": "scanf(\"%d\", &age) attend l’adresse de age et renvoie 1 seulement si un entier est lu correctement. Vérifier le retour avant d’utiliser la variable. Avec %s, toujours fixer une largeur adaptée à la taille du tableau ; fgets est mieux adapté aux phrases avec espaces. Le format de printf n’a pas exactement les mêmes types attendus : scanf(\"%f\", &f) pour float et scanf(\"%"
         },
         {
           "id": "B",
@@ -4154,7 +4154,7 @@
         },
         {
           "id": "C",
-          "text": "scanf(\"%d\", &age) attend l’adresse de age et renvoie 1 seulement si un entier est lu correctement. Vérifier le retour avant d’utiliser la variable. Avec %s, toujours fixer une largeur adaptée à la taille du tableau ; fgets est mieux adapté aux phrases avec espaces. Le format de printf n’a pas exactement les mêmes types attendus : scanf(\"%f\", &f) pour float et scanf(\"%"
+          "text": "La taille fournie à fgets correspond à la capacité du tableau, pas à une quantité illimitée de texte. Vérifier NULL et détecter une ligne tronquée si toute l'entrée doit être conservée. Ne pas supposer que le saut de ligne est toujours présent."
         },
         {
           "id": "D",
@@ -4162,7 +4162,7 @@
         }
       ],
       "correct_option_ids": [
-        "C"
+        "A"
       ],
       "explanation": "La fiche indique : scanf(\"%d\", &age) attend l’adresse de age et renvoie 1 seulement si un entier est lu correctement. Vérifier le retour avant d’utiliser la variable. Avec %s, toujours fixer une largeur adaptée à la taille du tableau ; fgets est mieux adapté aux phrases avec espaces. Le format de printf n’a pas exactement les mêmes types attendus : scanf(\"%f\", &f) pour float et scanf(\"%",
       "source_urls": [
@@ -4186,23 +4186,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Un tableau comme struct point a[2] regroupe plusieurs objets struct, accessibles par a[i].x."
+          "text": "scanf(\"%d\", &age) attend l’adresse de age et renvoie 1 seulement si un entier est lu correctement. Vérifier le retour avant d’utiliser la variable. Avec %s, toujours fixer une largeur adaptée à la taille du tableau ; fgets est mieux adapté aux phrases avec espaces. Le format de printf n’a pas exactement les mêmes types attendus : scanf(\"%f\", &f) pour float et scanf(\"%"
         },
         {
           "id": "B",
-          "text": "typedef struct { int x; int y; } point_t; crée un alias pour une struct sans étiquette."
+          "text": "Un tableau comme struct point a[2] regroupe plusieurs objets struct, accessibles par a[i].x."
         },
         {
           "id": "C",
-          "text": "scanf lit une entrée formatée (souvent depuis le clavier) et écrit les valeurs lues dans des variables : utiliser & pour une variable numérique et vérifier le nombre de conversions réussies."
+          "text": "typedef struct { int x; int y; } point_t; crée un alias pour une struct sans étiquette."
         },
         {
           "id": "D",
-          "text": "scanf(\"%d\", &age) attend l’adresse de age et renvoie 1 seulement si un entier est lu correctement. Vérifier le retour avant d’utiliser la variable. Avec %s, toujours fixer une largeur adaptée à la taille du tableau ; fgets est mieux adapté aux phrases avec espaces. Le format de printf n’a pas exactement les mêmes types attendus : scanf(\"%f\", &f) pour float et scanf(\"%"
+          "text": "scanf lit une entrée formatée (souvent depuis le clavier) et écrit les valeurs lues dans des variables : utiliser & pour une variable numérique et vérifier le nombre de conversions réussies."
         }
       ],
       "correct_option_ids": [
-        "C",
+        "A",
         "D"
       ],
       "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
@@ -4228,11 +4228,11 @@
       "options": [
         {
           "id": "A",
-          "text": "scanf() — lire une saisie au clavier"
+          "text": "void"
         },
         {
           "id": "B",
-          "text": "gcc -o nom source.c"
+          "text": "scanf() — lire une saisie au clavier"
         },
         {
           "id": "C",
@@ -4240,7 +4240,7 @@
         },
         {
           "id": "D",
-          "text": "void"
+          "text": "gcc -o nom source.c"
         }
       ],
       "correct_option_ids": [
@@ -4269,23 +4269,23 @@
       "options": [
         {
           "id": "A",
-          "text": "fgets lit au plus taille - 1 caractères, ajoute '\\0' et peut conserver le saut de ligne ; toujours vérifier son retour."
+          "text": "scanf lit une entrée formatée (souvent depuis le clavier) et écrit les valeurs lues dans des variables : utiliser & pour une variable numérique et vérifier le nombre de conversions réussies."
         },
         {
           "id": "B",
-          "text": "Compiler un fichier source et nommer l’exécutable."
-        },
-        {
-          "id": "C",
           "text": "Indique une absence de valeur de retour ou de paramètres selon le contexte."
         },
         {
+          "id": "C",
+          "text": "Compiler un fichier source et nommer l’exécutable."
+        },
+        {
           "id": "D",
-          "text": "scanf lit une entrée formatée (souvent depuis le clavier) et écrit les valeurs lues dans des variables : utiliser & pour une variable numérique et vérifier le nombre de conversions réussies."
+          "text": "fgets lit au plus taille - 1 caractères, ajoute '\\0' et peut conserver le saut de ligne ; toujours vérifier son retour."
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "Le résumé de la fiche indique : fgets lit au plus taille - 1 caractères, ajoute '\\0' et peut conserver le saut de ligne ; toujours vérifier son retour.",
       "source_urls": [
@@ -4310,23 +4310,23 @@
       "options": [
         {
           "id": "A",
-          "text": "void en retour : aucun résultat ; (void) dans les paramètres : aucun paramètre."
-        },
-        {
-          "id": "B",
-          "text": "L'option -o choisit le nom de sortie ; elle n'impose pas le type de cette sortie."
-        },
-        {
-          "id": "C",
           "text": "scanf(\"%d\", &age) attend l’adresse de age et renvoie 1 seulement si un entier est lu correctement. Vérifier le retour avant d’utiliser la variable. Avec %s, toujours fixer une largeur adaptée à la taille du tableau ; fgets est mieux adapté aux phrases avec espaces. Le format de printf n’a pas exactement les mêmes types attendus : scanf(\"%f\", &f) pour float et scanf(\"%"
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "La taille fournie à fgets correspond à la capacité du tableau, pas à une quantité illimitée de texte. Vérifier NULL et détecter une ligne tronquée si toute l'entrée doit être conservée. Ne pas supposer que le saut de ligne est toujours présent."
+        },
+        {
+          "id": "C",
+          "text": "L'option -o choisit le nom de sortie ; elle n'impose pas le type de cette sortie."
+        },
+        {
+          "id": "D",
+          "text": "void en retour : aucun résultat ; (void) dans les paramètres : aucun paramètre."
         }
       ],
       "correct_option_ids": [
-        "D"
+        "B"
       ],
       "explanation": "La fiche indique : La taille fournie à fgets correspond à la capacité du tableau, pas à une quantité illimitée de texte. Vérifier NULL et détecter une ligne tronquée si toute l'entrée doit être conservée. Ne pas supposer que le saut de ligne est toujours présent.",
       "source_urls": [
@@ -4351,24 +4351,24 @@
       "options": [
         {
           "id": "A",
-          "text": "Le spécificateur %p permet d’afficher une adresse ; l’argument correspondant doit être un void * (conversion explicite recommandée)."
-        },
-        {
-          "id": "B",
           "text": "fgets lit au plus taille - 1 caractères, ajoute '\\0' et peut conserver le saut de ligne ; toujours vérifier son retour."
         },
         {
-          "id": "C",
+          "id": "B",
           "text": "La taille fournie à fgets correspond à la capacité du tableau, pas à une quantité illimitée de texte. Vérifier NULL et détecter une ligne tronquée si toute l'entrée doit être conservée. Ne pas supposer que le saut de ligne est toujours présent."
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "Emplacement où une variable est stockée. On ne choisit généralement pas soi-même son adresse."
+        },
+        {
+          "id": "D",
+          "text": "Le spécificateur %p permet d’afficher une adresse ; l’argument correspondant doit être un void * (conversion explicite recommandée)."
         }
       ],
       "correct_option_ids": [
-        "B",
-        "C"
+        "A",
+        "B"
       ],
       "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
       "source_urls": [
@@ -4394,11 +4394,11 @@
       "options": [
         {
           "id": "A",
-          "text": "strtol() — convertir une entrée en entier"
+          "text": "gcc -o nom source.c"
         },
         {
           "id": "B",
-          "text": "gcc -o nom source.c"
+          "text": "strtol() — convertir une entrée en entier"
         },
         {
           "id": "C",
@@ -4410,7 +4410,7 @@
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "La définition est extraite du résumé de la fiche correspondante.",
       "source_urls": [
@@ -4439,11 +4439,11 @@
         },
         {
           "id": "B",
-          "text": "char, short, int, long et long long représentent des valeurs entières ; leurs tailles exactes dépendent de la plateforme."
+          "text": "strtol convertit une chaîne en long ; vérifier les chiffres lus, les caractères restants et les dépassements avec errno."
         },
         {
           "id": "C",
-          "text": "strtol convertit une chaîne en long ; vérifier les chiffres lus, les caractères restants et les dépassements avec errno."
+          "text": "char, short, int, long et long long représentent des valeurs entières ; leurs tailles exactes dépendent de la plateforme."
         },
         {
           "id": "D",
@@ -4451,7 +4451,7 @@
         }
       ],
       "correct_option_ids": [
-        "C"
+        "B"
       ],
       "explanation": "Le résumé de la fiche indique : strtol convertit une chaîne en long ; vérifier les chiffres lus, les caractères restants et les dépassements avec errno.",
       "source_urls": [
@@ -4484,11 +4484,11 @@
         },
         {
           "id": "C",
-          "text": "Un type ne garantit pas partout le même nombre d’octets."
+          "text": "void en retour : aucun résultat ; (void) dans les paramètres : aucun paramètre."
         },
         {
           "id": "D",
-          "text": "void en retour : aucun résultat ; (void) dans les paramètres : aucun paramètre."
+          "text": "Un type ne garantit pas partout le même nombre d’octets."
         }
       ],
       "correct_option_ids": [
@@ -4517,7 +4517,7 @@
       "options": [
         {
           "id": "A",
-          "text": "strtol convertit une chaîne en long ; vérifier les chiffres lus, les caractères restants et les dépassements avec errno."
+          "text": "Utiliser l’ancienne valeur, puis retirer 1."
         },
         {
           "id": "B",
@@ -4525,7 +4525,7 @@
         },
         {
           "id": "C",
-          "text": "Utiliser l’ancienne valeur, puis retirer 1."
+          "text": "strtol convertit une chaîne en long ; vérifier les chiffres lus, les caractères restants et les dépassements avec errno."
         },
         {
           "id": "D",
@@ -4533,8 +4533,8 @@
         }
       ],
       "correct_option_ids": [
-        "A",
-        "B"
+        "B",
+        "C"
       ],
       "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
       "source_urls": [
@@ -4568,15 +4568,15 @@
         },
         {
           "id": "C",
-          "text": "gcc -o nom source.c"
+          "text": "Chaîne de format — ne pas utiliser une saisie comme format"
         },
         {
           "id": "D",
-          "text": "Chaîne de format — ne pas utiliser une saisie comme format"
+          "text": "gcc -o nom source.c"
         }
       ],
       "correct_option_ids": [
-        "D"
+        "C"
       ],
       "explanation": "La définition est extraite du résumé de la fiche correspondante.",
       "source_urls": [
@@ -4605,19 +4605,19 @@
         },
         {
           "id": "B",
-          "text": "Compiler un fichier source et nommer l’exécutable."
+          "text": "exit(code) termine le programme entier, même depuis une fonction appelée ; à la différence de return, il ne revient pas à l’appelant."
         },
         {
           "id": "C",
-          "text": "Passer une chaîne contrôlée par l'utilisateur directement comme format à printf expose à une vulnérabilité ; utiliser un format fixe tel que \"%s\"."
+          "text": "Compiler un fichier source et nommer l’exécutable."
         },
         {
           "id": "D",
-          "text": "exit(code) termine le programme entier, même depuis une fonction appelée ; à la différence de return, il ne revient pas à l’appelant."
+          "text": "Passer une chaîne contrôlée par l'utilisateur directement comme format à printf expose à une vulnérabilité ; utiliser un format fixe tel que \"%s\"."
         }
       ],
       "correct_option_ids": [
-        "C"
+        "D"
       ],
       "explanation": "Le résumé de la fiche indique : Passer une chaîne contrôlée par l'utilisateur directement comme format à printf expose à une vulnérabilité ; utiliser un format fixe tel que \"%s\".",
       "source_urls": [
@@ -4642,15 +4642,15 @@
       "options": [
         {
           "id": "A",
-          "text": "L'option -o choisit le nom de sortie ; elle n'impose pas le type de cette sortie."
-        },
-        {
-          "id": "B",
           "text": "Ne jamais employer une donnée non fiable comme chaîne de format de printf, fprintf ou snprintf. Le format fixe \"%s\" affiche le texte sans interpréter ses caractères % comme des instructions."
         },
         {
-          "id": "C",
+          "id": "B",
           "text": "exit(98) arrête le programme avec le statut demandé, pas uniquement la fonction verifier. En remplaçant verifier(1) par verifier(0), le puts n’est jamais exécuté. Utilise EXIT_FAILURE pour un échec portable, et ne confonds pas exit() avec free()."
+        },
+        {
+          "id": "C",
+          "text": "L'option -o choisit le nom de sortie ; elle n'impose pas le type de cette sortie."
         },
         {
           "id": "D",
@@ -4658,7 +4658,7 @@
         }
       ],
       "correct_option_ids": [
-        "B"
+        "A"
       ],
       "explanation": "La fiche indique : Ne jamais employer une donnée non fiable comme chaîne de format de printf, fprintf ou snprintf. Le format fixe \"%s\" affiche le texte sans interpréter ses caractères % comme des instructions.",
       "source_urls": [
@@ -4683,11 +4683,11 @@
       "options": [
         {
           "id": "A",
-          "text": "Ne jamais employer une donnée non fiable comme chaîne de format de printf, fprintf ou snprintf. Le format fixe \"%s\" affiche le texte sans interpréter ses caractères % comme des instructions."
+          "text": "Passer une chaîne contrôlée par l'utilisateur directement comme format à printf expose à une vulnérabilité ; utiliser un format fixe tel que \"%s\"."
         },
         {
           "id": "B",
-          "text": "Logiciel de gestion de versions distribué."
+          "text": "Ne jamais employer une donnée non fiable comme chaîne de format de printf, fprintf ou snprintf. Le format fixe \"%s\" affiche le texte sans interpréter ses caractères % comme des instructions."
         },
         {
           "id": "C",
@@ -4695,12 +4695,12 @@
         },
         {
           "id": "D",
-          "text": "Passer une chaîne contrôlée par l'utilisateur directement comme format à printf expose à une vulnérabilité ; utiliser un format fixe tel que \"%s\"."
+          "text": "Logiciel de gestion de versions distribué."
         }
       ],
       "correct_option_ids": [
         "A",
-        "D"
+        "B"
       ],
       "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
       "source_urls": [
@@ -4734,11 +4734,11 @@
         },
         {
           "id": "C",
-          "text": "exit() — terminer le programme"
+          "text": "Types entiers en C"
         },
         {
           "id": "D",
-          "text": "Types entiers en C"
+          "text": "exit() — terminer le programme"
         }
       ],
       "correct_option_ids": [
@@ -4767,15 +4767,15 @@
       "options": [
         {
           "id": "A",
-          "text": "exit(code) termine le programme entier, même depuis une fonction appelée ; à la différence de return, il ne revient pas à l’appelant."
+          "text": "char, short, int, long et long long représentent des valeurs entières ; leurs tailles exactes dépendent de la plateforme."
         },
         {
           "id": "B",
-          "text": "Point d’entrée d’un programme C classique."
+          "text": "exit(code) termine le programme entier, même depuis une fonction appelée ; à la différence de return, il ne revient pas à l’appelant."
         },
         {
           "id": "C",
-          "text": "char, short, int, long et long long représentent des valeurs entières ; leurs tailles exactes dépendent de la plateforme."
+          "text": "Point d’entrée d’un programme C classique."
         },
         {
           "id": "D",
@@ -4808,23 +4808,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Un retour EOF n'est pas le caractère '\\0'. Conserver le résultat de getchar dans un int. Pour distinguer fin de fichier et erreur de lecture, consulter feof et ferror."
+          "text": "Dans main, return 0 (ou EXIT_SUCCESS) signifie succès. EXIT_FAILURE permet d’indiquer un échec de manière portable ; la signification de return 1 n’est pas universelle pour toutes les implémentations."
         },
         {
           "id": "B",
-          "text": "Un type ne garantit pas partout le même nombre d’octets."
-        },
-        {
-          "id": "C",
           "text": "exit(98) arrête le programme avec le statut demandé, pas uniquement la fonction verifier. En remplaçant verifier(1) par verifier(0), le puts n’est jamais exécuté. Utilise EXIT_FAILURE pour un échec portable, et ne confonds pas exit() avec free()."
         },
         {
+          "id": "C",
+          "text": "Un retour EOF n'est pas le caractère '\\0'. Conserver le résultat de getchar dans un int. Pour distinguer fin de fichier et erreur de lecture, consulter feof et ferror."
+        },
+        {
           "id": "D",
-          "text": "Dans main, return 0 (ou EXIT_SUCCESS) signifie succès. EXIT_FAILURE permet d’indiquer un échec de manière portable ; la signification de return 1 n’est pas universelle pour toutes les implémentations."
+          "text": "Un type ne garantit pas partout le même nombre d’octets."
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "La fiche indique : Un retour EOF n'est pas le caractère '\\0'. Conserver le résultat de getchar dans un int. Pour distinguer fin de fichier et erreur de lecture, consulter feof et ferror.",
       "source_urls": [
@@ -4849,15 +4849,15 @@
       "options": [
         {
           "id": "A",
-          "text": "char * est un pointeur vers char ; il peut désigner le début d'un tableau de caractères, mais ne stocke ni sa capacité ni son terminateur."
-        },
-        {
-          "id": "B",
           "text": "qsort trie un tableau en appelant le comparateur fourni : int comparer(const void *, const void *) doit renvoyer une valeur négative, nulle ou positive."
         },
         {
-          "id": "C",
+          "id": "B",
           "text": "EOF est une valeur entière spéciale signalant la fin d'un flux ou une erreur ; getchar retourne un int et scanf peut aussi renvoyer EOF."
+        },
+        {
+          "id": "C",
+          "text": "char * est un pointeur vers char ; il peut désigner le début d'un tableau de caractères, mais ne stocke ni sa capacité ni son terminateur."
         },
         {
           "id": "D",
@@ -4865,7 +4865,7 @@
         }
       ],
       "correct_option_ids": [
-        "C",
+        "B",
         "D"
       ],
       "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
@@ -4892,23 +4892,23 @@
       "options": [
         {
           "id": "A",
-          "text": "exit() — terminer le programme"
+          "text": "main()"
         },
         {
           "id": "B",
-          "text": "Compilation vs édition de liens"
-        },
-        {
-          "id": "C",
           "text": "Integer overflow — dépassement de capacité d'un entier"
         },
         {
+          "id": "C",
+          "text": "exit() — terminer le programme"
+        },
+        {
           "id": "D",
-          "text": "main()"
+          "text": "Compilation vs édition de liens"
         }
       ],
       "correct_option_ids": [
-        "C"
+        "B"
       ],
       "explanation": "La définition est extraite du résumé de la fiche correspondante.",
       "source_urls": [
@@ -4934,15 +4934,15 @@
       "options": [
         {
           "id": "A",
-          "text": "Un integer overflow survient si un calcul dépasse l'intervalle représentable ; en C, le débordement signé est indéfini, tandis que l'unsigned se replie modulo sa plage."
-        },
-        {
-          "id": "B",
           "text": "Point d’entrée d’un programme C classique."
         },
         {
-          "id": "C",
+          "id": "B",
           "text": "Prétraitement et compilation vers le code objet, puis liaison des objets et bibliothèques pour produire l’exécutable."
+        },
+        {
+          "id": "C",
+          "text": "Un integer overflow survient si un calcul dépasse l'intervalle représentable ; en C, le débordement signé est indéfini, tandis que l'unsigned se replie modulo sa plage."
         },
         {
           "id": "D",
@@ -4950,7 +4950,7 @@
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "Le résumé de la fiche indique : Un integer overflow survient si un calcul dépasse l'intervalle représentable ; en C, le débordement signé est indéfini, tandis que l'unsigned se replie modulo sa plage.",
       "source_urls": [
@@ -4976,23 +4976,23 @@
       "options": [
         {
           "id": "A",
-          "text": "exit(98) arrête le programme avec le statut demandé, pas uniquement la fonction verifier. En remplaçant verifier(1) par verifier(0), le puts n’est jamais exécuté. Utilise EXIT_FAILURE pour un échec portable, et ne confonds pas exit() avec free()."
-        },
-        {
-          "id": "B",
-          "text": "Dans main, return 0 (ou EXIT_SUCCESS) signifie succès. EXIT_FAILURE permet d’indiquer un échec de manière portable ; la signification de return 1 n’est pas universelle pour toutes les implémentations."
-        },
-        {
-          "id": "C",
           "text": "La chaîne complète passe par prétraitement, compilation, assemblage puis édition de liens."
         },
         {
-          "id": "D",
+          "id": "B",
+          "text": "exit(98) arrête le programme avec le statut demandé, pas uniquement la fonction verifier. En remplaçant verifier(1) par verifier(0), le puts n’est jamais exécuté. Utilise EXIT_FAILURE pour un échec portable, et ne confonds pas exit() avec free()."
+        },
+        {
+          "id": "C",
           "text": "Un integer overflow n'est pas un buffer overflow. Le premier dépasse une plage NUMÉRIQUE ; il peut conduire au second si une taille d'allocation calculée devient incorrecte. Vérifier les limites avant toute opération risquée."
+        },
+        {
+          "id": "D",
+          "text": "Dans main, return 0 (ou EXIT_SUCCESS) signifie succès. EXIT_FAILURE permet d’indiquer un échec de manière portable ; la signification de return 1 n’est pas universelle pour toutes les implémentations."
         }
       ],
       "correct_option_ids": [
-        "D"
+        "C"
       ],
       "explanation": "La fiche indique : Un integer overflow n'est pas un buffer overflow. Le premier dépasse une plage NUMÉRIQUE ; il peut conduire au second si une taille d'allocation calculée devient incorrecte. Vérifier les limites avant toute opération risquée.",
       "source_urls": [
@@ -5018,19 +5018,19 @@
       "options": [
         {
           "id": "A",
-          "text": "Un integer overflow n'est pas un buffer overflow. Le premier dépasse une plage NUMÉRIQUE ; il peut conduire au second si une taille d'allocation calculée devient incorrecte. Vérifier les limites avant toute opération risquée."
-        },
-        {
-          "id": "B",
-          "text": "Paramètres et variables du Shell / environnement."
-        },
-        {
-          "id": "C",
           "text": "Un integer overflow survient si un calcul dépasse l'intervalle représentable ; en C, le débordement signé est indéfini, tandis que l'unsigned se replie modulo sa plage."
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "-i ignore la casse ; -v inverse la sélection ; -c compte les lignes correspondant au motif."
+        },
+        {
+          "id": "C",
+          "text": "Un integer overflow n'est pas un buffer overflow. Le premier dépasse une plage NUMÉRIQUE ; il peut conduire au second si une taille d'allocation calculée devient incorrecte. Vérifier les limites avant toute opération risquée."
+        },
+        {
+          "id": "D",
+          "text": "Paramètres et variables du Shell / environnement."
         }
       ],
       "correct_option_ids": [

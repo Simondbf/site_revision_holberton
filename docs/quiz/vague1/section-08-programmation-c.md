@@ -1,50 +1,50 @@
-# Banque de revue — Programmation C
+# Première vague — Programmation C
 
-124 questions candidates couvrant 31 notions. **Toutes les réponses sont des propositions à vérifier indépendamment** ; elles sont dérivées des fiches existantes et peuvent contenir des distracteurs ambigus. **Ne rien publier sur le site.**
+**124 questions candidates concernant ce chapitre.** La répartition des réponses a été rééquilibrée pour éviter les biais de position. Ces réponses restent des propositions **non validées sur le fond** ; vérifier chaque distracteur et les sources avant publication.
 
 ## N08_000 — main()
 
 [Fiche de révision](https://revision-hbtn.soleiljaune.be/#cours/programmation-c/1-main)
 
-### V1-N08_000-01 · definition
+### V1-N08_000-01 — definition
 
 **Une seule bonne réponse**
 
 À quelle notion correspond la définition suivante : « Point d’entrée d’un programme C classique. » ?
 
-- **A ❌** Prototype vs définition
+- **A ✅** main()
 - **B ❌** undefined reference
 - **C ❌** Dennis Ritchie — créateur du langage C
-- **D ✅** main()
+- **D ❌** Prototype vs définition
 
-**Réponse candidate :** D · **Explication :** La définition est extraite du résumé de la fiche correspondante.
+**Réponse proposée :** A. La définition est extraite du résumé de la fiche correspondante.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/1-main
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_000-02 · description
+### V1-N08_000-02 — description
 
 **Une seule bonne réponse**
 
 Quelle description caractérise « main() » ?
 
-- **A ✅** Point d’entrée d’un programme C classique.
-- **B ❌** Dennis Ritchie a conçu le langage C aux Bell Labs au début des années 1970 ; il a aussi joué un rôle majeur dans le développement d’Unix.
-- **C ❌** Un prototype annonce une signature ; la définition contient le corps de la fonction.
-- **D ❌** Définition nécessaire introuvable lors de l’édition de liens.
+- **A ❌** Définition nécessaire introuvable lors de l’édition de liens.
+- **B ❌** Un prototype annonce une signature ; la définition contient le corps de la fonction.
+- **C ❌** Dennis Ritchie a conçu le langage C aux Bell Labs au début des années 1970 ; il a aussi joué un rôle majeur dans le développement d’Unix.
+- **D ✅** Point d’entrée d’un programme C classique.
 
-**Réponse candidate :** A · **Explication :** Le résumé de la fiche indique : Point d’entrée d’un programme C classique.
+**Réponse proposée :** D. Le résumé de la fiche indique : Point d’entrée d’un programme C classique.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/1-main
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_000-03 · vigilance
+### V1-N08_000-03 — vigilance
 
 **Une seule bonne réponse**
 
@@ -52,33 +52,33 @@ Quel point à retenir est directement associé à « main() » ?
 
 - **A ❌** « undefined reference » est généralement une erreur de liaison : vérifie les définitions et fichiers liés.
 - **B ✅** Dans main, return 0 (ou EXIT_SUCCESS) signifie succès. EXIT_FAILURE permet d’indiquer un échec de manière portable ; la signification de return 1 n’est pas universelle pour toutes les implémentations.
-- **C ❌** Culture générale : Dennis Ritchie = créateur du C. Unix = travail collectif, notamment avec Ken Thompson. Brian Kernighan est coauteur du célèbre livre K&R, pas le créateur du langage.
-- **D ❌** Le prototype annonce une fonction ; seule la définition fournit le code exécuté.
+- **C ❌** Le prototype annonce une fonction ; seule la définition fournit le code exécuté.
+- **D ❌** Culture générale : Dennis Ritchie = créateur du C. Unix = travail collectif, notamment avec Ken Thompson. Brian Kernighan est coauteur du célèbre livre K&R, pas le créateur du langage.
 
-**Réponse candidate :** B · **Explication :** La fiche indique : Dans main, return 0 (ou EXIT_SUCCESS) signifie succès. EXIT_FAILURE permet d’indiquer un échec de manière portable ; la signification de return 1 n’est pas universelle pour toutes les implémentations.
+**Réponse proposée :** B. La fiche indique : Dans main, return 0 (ou EXIT_SUCCESS) signifie succès. EXIT_FAILURE permet d’indiquer un échec de manière portable ; la signification de return 1 n’est pas universelle pour toutes les implémentations.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/1-main
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_000-04 · synthese
+### V1-N08_000-04 — synthese
 
 **Plusieurs bonnes réponses**
 
 Quelles affirmations concernent directement « main() » ?
 
-- **A ❌** INVALID_WRITE, UNINITIALIZED_VALUE, MEMORY_LEAK_DEFINITE, USE_AFTER_FREE et INDIRECT_LEAK sont des catégories d'erreurs ; elles ne correspondent pas toutes à des messages littéraux de Valgrind.
-- **B ❌** Reste de la division entière.
-- **C ✅** Dans main, return 0 (ou EXIT_SUCCESS) signifie succès. EXIT_FAILURE permet d’indiquer un échec de manière portable ; la signification de return 1 n’est pas universelle pour toutes les implémentations.
-- **D ✅** Point d’entrée d’un programme C classique.
+- **A ✅** Point d’entrée d’un programme C classique.
+- **B ✅** Dans main, return 0 (ou EXIT_SUCCESS) signifie succès. EXIT_FAILURE permet d’indiquer un échec de manière portable ; la signification de return 1 n’est pas universelle pour toutes les implémentations.
+- **C ❌** Reste de la division entière.
+- **D ❌** INVALID_WRITE, UNINITIALIZED_VALUE, MEMORY_LEAK_DEFINITE, USE_AFTER_FREE et INDIRECT_LEAK sont des catégories d'erreurs ; elles ne correspondent pas toutes à des messages littéraux de Valgrind.
 
-**Réponse candidate :** C, D · **Explication :** Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.
+**Réponse proposée :** A, B. Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/1-main
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
@@ -86,79 +86,79 @@ Quelles affirmations concernent directement « main() » ?
 
 [Fiche de révision](https://revision-hbtn.soleiljaune.be/#cours/programmation-c/2-prototype-vs-definition)
 
-### V1-N08_001-01 · definition
+### V1-N08_001-01 — definition
 
 **Une seule bonne réponse**
 
 À quelle notion correspond la définition suivante : « Un prototype annonce une signature ; la définition contient le corps de la fonction. » ?
 
-- **A ✅** Prototype vs définition
-- **B ❌** undefined reference
+- **A ❌** undefined reference
+- **B ✅** Prototype vs définition
 - **C ❌** puts / printf
 - **D ❌** main()
 
-**Réponse candidate :** A · **Explication :** La définition est extraite du résumé de la fiche correspondante.
+**Réponse proposée :** B. La définition est extraite du résumé de la fiche correspondante.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/2-prototype-vs-definition
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_001-02 · description
+### V1-N08_001-02 — description
 
 **Une seule bonne réponse**
 
 Quelle description caractérise « Prototype vs définition » ?
 
-- **A ❌** Point d’entrée d’un programme C classique.
-- **B ❌** Définition nécessaire introuvable lors de l’édition de liens.
-- **C ❌** puts affiche une chaîne en ajoutant un saut de ligne ; printf utilise une chaîne de format pour afficher des valeurs.
-- **D ✅** Un prototype annonce une signature ; la définition contient le corps de la fonction.
+- **A ✅** Un prototype annonce une signature ; la définition contient le corps de la fonction.
+- **B ❌** puts affiche une chaîne en ajoutant un saut de ligne ; printf utilise une chaîne de format pour afficher des valeurs.
+- **C ❌** Définition nécessaire introuvable lors de l’édition de liens.
+- **D ❌** Point d’entrée d’un programme C classique.
 
-**Réponse candidate :** D · **Explication :** Le résumé de la fiche indique : Un prototype annonce une signature ; la définition contient le corps de la fonction.
+**Réponse proposée :** A. Le résumé de la fiche indique : Un prototype annonce une signature ; la définition contient le corps de la fonction.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/2-prototype-vs-definition
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_001-03 · vigilance
+### V1-N08_001-03 — vigilance
 
 **Une seule bonne réponse**
 
 Quel point à retenir est directement associé à « Prototype vs définition » ?
 
-- **A ✅** Le prototype annonce une fonction ; seule la définition fournit le code exécuté.
-- **B ❌** Dans main, return 0 (ou EXIT_SUCCESS) signifie succès. EXIT_FAILURE permet d’indiquer un échec de manière portable ; la signification de return 1 n’est pas universelle pour toutes les implémentations.
-- **C ❌** « undefined reference » est généralement une erreur de liaison : vérifie les définitions et fichiers liés.
-- **D ❌** puts ajoute un saut de ligne ; printf n'en ajoute que si le format le demande.
+- **A ❌** Dans main, return 0 (ou EXIT_SUCCESS) signifie succès. EXIT_FAILURE permet d’indiquer un échec de manière portable ; la signification de return 1 n’est pas universelle pour toutes les implémentations.
+- **B ❌** puts ajoute un saut de ligne ; printf n'en ajoute que si le format le demande.
+- **C ✅** Le prototype annonce une fonction ; seule la définition fournit le code exécuté.
+- **D ❌** « undefined reference » est généralement une erreur de liaison : vérifie les définitions et fichiers liés.
 
-**Réponse candidate :** A · **Explication :** La fiche indique : Le prototype annonce une fonction ; seule la définition fournit le code exécuté.
+**Réponse proposée :** C. La fiche indique : Le prototype annonce une fonction ; seule la définition fournit le code exécuté.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/2-prototype-vs-definition
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_001-04 · synthese
+### V1-N08_001-04 — synthese
 
 **Plusieurs bonnes réponses**
 
 Quelles affirmations concernent directement « Prototype vs définition » ?
 
-- **A ✅** Un prototype annonce une signature ; la définition contient le corps de la fonction.
-- **B ❌** Créer / retirer un raccourci de commande.
+- **A ❌** Créer / retirer un raccourci de commande.
+- **B ✅** Un prototype annonce une signature ; la définition contient le corps de la fonction.
 - **C ❌** sort ordonne les lignes ; uniq supprime uniquement les lignes répétées consécutives : on utilise souvent sort avant uniq.
 - **D ✅** Le prototype annonce une fonction ; seule la définition fournit le code exécuté.
 
-**Réponse candidate :** A, D · **Explication :** Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.
+**Réponse proposée :** B, D. Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/2-prototype-vs-definition
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
@@ -166,79 +166,79 @@ Quelles affirmations concernent directement « Prototype vs définition » ?
 
 [Fiche de révision](https://revision-hbtn.soleiljaune.be/#cours/programmation-c/3-void)
 
-### V1-N08_002-01 · definition
+### V1-N08_002-01 — definition
 
 **Une seule bonne réponse**
 
 À quelle notion correspond la définition suivante : « Indique une absence de valeur de retour ou de paramètres selon le contexte. » ?
 
-- **A ❌** undefined reference
+- **A ❌** return d’un pointeur (int *)
 - **B ✅** void
-- **C ❌** return d’un pointeur (int *)
+- **C ❌** undefined reference
 - **D ❌** puts / printf
 
-**Réponse candidate :** B · **Explication :** La définition est extraite du résumé de la fiche correspondante.
+**Réponse proposée :** B. La définition est extraite du résumé de la fiche correspondante.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/3-void
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_002-02 · description
+### V1-N08_002-02 — description
 
 **Une seule bonne réponse**
 
 Quelle description caractérise « void » ?
 
 - **A ❌** puts affiche une chaîne en ajoutant un saut de ligne ; printf utilise une chaîne de format pour afficher des valeurs.
-- **B ❌** Une fonction de type int * renvoie une adresse ou NULL ; l’objet pointé doit encore exister lors de son utilisation.
-- **C ✅** Indique une absence de valeur de retour ou de paramètres selon le contexte.
-- **D ❌** Définition nécessaire introuvable lors de l’édition de liens.
+- **B ❌** Définition nécessaire introuvable lors de l’édition de liens.
+- **C ❌** Une fonction de type int * renvoie une adresse ou NULL ; l’objet pointé doit encore exister lors de son utilisation.
+- **D ✅** Indique une absence de valeur de retour ou de paramètres selon le contexte.
 
-**Réponse candidate :** C · **Explication :** Le résumé de la fiche indique : Indique une absence de valeur de retour ou de paramètres selon le contexte.
+**Réponse proposée :** D. Le résumé de la fiche indique : Indique une absence de valeur de retour ou de paramètres selon le contexte.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/3-void
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_002-03 · vigilance
+### V1-N08_002-03 — vigilance
 
 **Une seule bonne réponse**
 
 Quel point à retenir est directement associé à « void » ?
 
-- **A ❌** « undefined reference » est généralement une erreur de liaison : vérifie les définitions et fichiers liés.
-- **B ❌** Ne retourne jamais l’adresse d’une variable locale automatique. Un pointeur renvoyé doit rester valide lors de son utilisation, ou valoir NULL ; teste NULL avant tout déréférencement.
-- **C ❌** puts ajoute un saut de ligne ; printf n'en ajoute que si le format le demande.
-- **D ✅** void en retour : aucun résultat ; (void) dans les paramètres : aucun paramètre.
+- **A ❌** puts ajoute un saut de ligne ; printf n'en ajoute que si le format le demande.
+- **B ✅** void en retour : aucun résultat ; (void) dans les paramètres : aucun paramètre.
+- **C ❌** « undefined reference » est généralement une erreur de liaison : vérifie les définitions et fichiers liés.
+- **D ❌** Ne retourne jamais l’adresse d’une variable locale automatique. Un pointeur renvoyé doit rester valide lors de son utilisation, ou valoir NULL ; teste NULL avant tout déréférencement.
 
-**Réponse candidate :** D · **Explication :** La fiche indique : void en retour : aucun résultat ; (void) dans les paramètres : aucun paramètre.
+**Réponse proposée :** B. La fiche indique : void en retour : aucun résultat ; (void) dans les paramètres : aucun paramètre.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/3-void
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_002-04 · synthese
+### V1-N08_002-04 — synthese
 
 **Plusieurs bonnes réponses**
 
 Quelles affirmations concernent directement « void » ?
 
 - **A ✅** void en retour : aucun résultat ; (void) dans les paramètres : aucun paramètre.
-- **B ✅** Indique une absence de valeur de retour ou de paramètres selon le contexte.
+- **B ❌** Un segfault (souvent signalé par « Segmentation fault ») est un arrêt causé par un accès mémoire interdit ; un comportement indéfini en C ne provoque cependant pas toujours ce signal.
 - **C ❌** Memcheck distingue les accès Invalid read/write, les valeurs non initialisées, les libérations invalides et plusieurs catégories de fuites.
-- **D ❌** Un segfault (souvent signalé par « Segmentation fault ») est un arrêt causé par un accès mémoire interdit ; un comportement indéfini en C ne provoque cependant pas toujours ce signal.
+- **D ✅** Indique une absence de valeur de retour ou de paramètres selon le contexte.
 
-**Réponse candidate :** A, B · **Explication :** Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.
+**Réponse proposée :** A, D. Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/3-void
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
@@ -246,79 +246,79 @@ Quelles affirmations concernent directement « void » ?
 
 [Fiche de révision](https://revision-hbtn.soleiljaune.be/#cours/programmation-c/4-return)
 
-### V1-N08_003-01 · definition
+### V1-N08_003-01 — definition
 
 **Une seule bonne réponse**
 
 À quelle notion correspond la définition suivante : « Termine immédiatement une fonction, en renvoyant une valeur si son type de retour le prévoit. » ?
 
-- **A ✅** return
-- **B ❌** puts / printf
+- **A ❌** EOF — détecter la fin d'une entrée
+- **B ✅** return
 - **C ❌** return d’un pointeur (int *)
-- **D ❌** EOF — détecter la fin d'une entrée
+- **D ❌** puts / printf
 
-**Réponse candidate :** A · **Explication :** La définition est extraite du résumé de la fiche correspondante.
+**Réponse proposée :** B. La définition est extraite du résumé de la fiche correspondante.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/4-return
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_003-02 · description
+### V1-N08_003-02 — description
 
 **Une seule bonne réponse**
 
 Quelle description caractérise « return » ?
 
-- **A ❌** EOF est une valeur entière spéciale signalant la fin d'un flux ou une erreur ; getchar retourne un int et scanf peut aussi renvoyer EOF.
-- **B ✅** Termine immédiatement une fonction, en renvoyant une valeur si son type de retour le prévoit.
-- **C ❌** puts affiche une chaîne en ajoutant un saut de ligne ; printf utilise une chaîne de format pour afficher des valeurs.
-- **D ❌** Une fonction de type int * renvoie une adresse ou NULL ; l’objet pointé doit encore exister lors de son utilisation.
+- **A ❌** puts affiche une chaîne en ajoutant un saut de ligne ; printf utilise une chaîne de format pour afficher des valeurs.
+- **B ❌** EOF est une valeur entière spéciale signalant la fin d'un flux ou une erreur ; getchar retourne un int et scanf peut aussi renvoyer EOF.
+- **C ❌** Une fonction de type int * renvoie une adresse ou NULL ; l’objet pointé doit encore exister lors de son utilisation.
+- **D ✅** Termine immédiatement une fonction, en renvoyant une valeur si son type de retour le prévoit.
 
-**Réponse candidate :** B · **Explication :** Le résumé de la fiche indique : Termine immédiatement une fonction, en renvoyant une valeur si son type de retour le prévoit.
+**Réponse proposée :** D. Le résumé de la fiche indique : Termine immédiatement une fonction, en renvoyant une valeur si son type de retour le prévoit.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/4-return
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_003-03 · vigilance
+### V1-N08_003-03 — vigilance
 
 **Une seule bonne réponse**
 
 Quel point à retenir est directement associé à « return » ?
 
-- **A ❌** Ne retourne jamais l’adresse d’une variable locale automatique. Un pointeur renvoyé doit rester valide lors de son utilisation, ou valoir NULL ; teste NULL avant tout déréférencement.
+- **A ❌** puts ajoute un saut de ligne ; printf n'en ajoute que si le format le demande.
 - **B ❌** Un retour EOF n'est pas le caractère '\0'. Conserver le résultat de getchar dans un int. Pour distinguer fin de fichier et erreur de lecture, consulter feof et ferror.
-- **C ✅** La valeur après return doit être compatible avec le type de retour déclaré. return; est possible dans une fonction void ; le code placé après un return exécuté n’est pas atteint.
-- **D ❌** puts ajoute un saut de ligne ; printf n'en ajoute que si le format le demande.
+- **C ❌** Ne retourne jamais l’adresse d’une variable locale automatique. Un pointeur renvoyé doit rester valide lors de son utilisation, ou valoir NULL ; teste NULL avant tout déréférencement.
+- **D ✅** La valeur après return doit être compatible avec le type de retour déclaré. return; est possible dans une fonction void ; le code placé après un return exécuté n’est pas atteint.
 
-**Réponse candidate :** C · **Explication :** La fiche indique : La valeur après return doit être compatible avec le type de retour déclaré. return; est possible dans une fonction void ; le code placé après un return exécuté n’est pas atteint.
+**Réponse proposée :** D. La fiche indique : La valeur après return doit être compatible avec le type de retour déclaré. return; est possible dans une fonction void ; le code placé après un return exécuté n’est pas atteint.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/4-return
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_003-04 · synthese
+### V1-N08_003-04 — synthese
 
 **Plusieurs bonnes réponses**
 
 Quelles affirmations concernent directement « return » ?
 
-- **A ❌** Dossier personnel de l’utilisateur.
-- **B ✅** La valeur après return doit être compatible avec le type de retour déclaré. return; est possible dans une fonction void ; le code placé après un return exécuté n’est pas atteint.
+- **A ❌** Afficher le contenu / type du fichier / rechercher / consulter le manuel.
+- **B ❌** Dossier personnel de l’utilisateur.
 - **C ✅** Termine immédiatement une fonction, en renvoyant une valeur si son type de retour le prévoit.
-- **D ❌** Afficher le contenu / type du fichier / rechercher / consulter le manuel.
+- **D ✅** La valeur après return doit être compatible avec le type de retour déclaré. return; est possible dans une fonction void ; le code placé après un return exécuté n’est pas atteint.
 
-**Réponse candidate :** B, C · **Explication :** Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.
+**Réponse proposée :** C, D. Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/4-return
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
@@ -326,7 +326,7 @@ Quelles affirmations concernent directement « return » ?
 
 [Fiche de révision](https://revision-hbtn.soleiljaune.be/#cours/programmation-c/5-printf-putchar)
 
-### V1-N08_004-01 · definition
+### V1-N08_004-01 — definition
 
 **Une seule bonne réponse**
 
@@ -337,68 +337,68 @@ Quelles affirmations concernent directement « return » ?
 - **C ❌** ASCII
 - **D ✅** printf / _putchar
 
-**Réponse candidate :** D · **Explication :** La définition est extraite du résumé de la fiche correspondante.
+**Réponse proposée :** D. La définition est extraite du résumé de la fiche correspondante.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/5-printf-putchar
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_004-02 · description
+### V1-N08_004-02 — description
 
 **Une seule bonne réponse**
 
 Quelle description caractérise « printf / _putchar » ?
 
-- **A ✅** Affichage formaté / écriture d’un caractère.
+- **A ❌** EOF est une valeur entière spéciale signalant la fin d'un flux ou une erreur ; getchar retourne un int et scanf peut aussi renvoyer EOF.
 - **B ❌** Une fonction de type int * renvoie une adresse ou NULL ; l’objet pointé doit encore exister lors de son utilisation.
-- **C ❌** EOF est une valeur entière spéciale signalant la fin d'un flux ou une erreur ; getchar retourne un int et scanf peut aussi renvoyer EOF.
+- **C ✅** Affichage formaté / écriture d’un caractère.
 - **D ❌** Associe des nombres aux caractères de base ; le caractère '0' vaut 48 en ASCII.
 
-**Réponse candidate :** A · **Explication :** Le résumé de la fiche indique : Affichage formaté / écriture d’un caractère.
+**Réponse proposée :** C. Le résumé de la fiche indique : Affichage formaté / écriture d’un caractère.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/5-printf-putchar
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_004-03 · vigilance
+### V1-N08_004-03 — vigilance
 
 **Une seule bonne réponse**
 
 Quel point à retenir est directement associé à « printf / _putchar » ?
 
-- **A ❌** Ne retourne jamais l’adresse d’une variable locale automatique. Un pointeur renvoyé doit rester valide lors de son utilisation, ou valoir NULL ; teste NULL avant tout déréférencement.
-- **B ❌** Le caractère '0' possède un code numérique ; ce n'est pas l'entier 0.
-- **C ✅** _putchar n'est pas une fonction standard C : elle doit être fournie par le projet ou une bibliothèque.
-- **D ❌** Un retour EOF n'est pas le caractère '\0'. Conserver le résultat de getchar dans un int. Pour distinguer fin de fichier et erreur de lecture, consulter feof et ferror.
+- **A ✅** _putchar n'est pas une fonction standard C : elle doit être fournie par le projet ou une bibliothèque.
+- **B ❌** Un retour EOF n'est pas le caractère '\0'. Conserver le résultat de getchar dans un int. Pour distinguer fin de fichier et erreur de lecture, consulter feof et ferror.
+- **C ❌** Le caractère '0' possède un code numérique ; ce n'est pas l'entier 0.
+- **D ❌** Ne retourne jamais l’adresse d’une variable locale automatique. Un pointeur renvoyé doit rester valide lors de son utilisation, ou valoir NULL ; teste NULL avant tout déréférencement.
 
-**Réponse candidate :** C · **Explication :** La fiche indique : _putchar n'est pas une fonction standard C : elle doit être fournie par le projet ou une bibliothèque.
+**Réponse proposée :** A. La fiche indique : _putchar n'est pas une fonction standard C : elle doit être fournie par le projet ou une bibliothèque.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/5-printf-putchar
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_004-04 · synthese
+### V1-N08_004-04 — synthese
 
 **Plusieurs bonnes réponses**
 
 Quelles affirmations concernent directement « printf / _putchar » ?
 
-- **A ✅** _putchar n'est pas une fonction standard C : elle doit être fournie par le projet ou une bibliothèque.
-- **B ❌** int grille[2][3] contient deux lignes de trois éléments ; grille[1][2] désigne la troisième case de la seconde ligne.
-- **C ❌** Une allocation peut échouer : contrôler le pointeur avant toute lecture ou écriture dans le bloc demandé.
-- **D ✅** Affichage formaté / écriture d’un caractère.
+- **A ❌** Une allocation peut échouer : contrôler le pointeur avant toute lecture ou écriture dans le bloc demandé.
+- **B ✅** _putchar n'est pas une fonction standard C : elle doit être fournie par le projet ou une bibliothèque.
+- **C ✅** Affichage formaté / écriture d’un caractère.
+- **D ❌** int grille[2][3] contient deux lignes de trois éléments ; grille[1][2] désigne la troisième case de la seconde ligne.
 
-**Réponse candidate :** A, D · **Explication :** Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.
+**Réponse proposée :** B, C. Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/5-printf-putchar
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
@@ -406,79 +406,79 @@ Quelles affirmations concernent directement « printf / _putchar » ?
 
 [Fiche de révision](https://revision-hbtn.soleiljaune.be/#cours/programmation-c/6-d-c-6f)
 
-### V1-N08_005-01 · definition
+### V1-N08_005-01 — definition
 
 **Une seule bonne réponse**
 
 À quelle notion correspond la définition suivante : « Entier décimal / caractère / réel avec six décimales. » ?
 
-- **A ❌** ASCII
+- **A ✅** %d / %c / %.6f
 - **B ❌** gcc -c
-- **C ✅** %d / %c / %.6f
+- **C ❌** ASCII
 - **D ❌** EOF — détecter la fin d'une entrée
 
-**Réponse candidate :** C · **Explication :** La définition est extraite du résumé de la fiche correspondante.
+**Réponse proposée :** A. La définition est extraite du résumé de la fiche correspondante.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/6-d-c-6f
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_005-02 · description
+### V1-N08_005-02 — description
 
 **Une seule bonne réponse**
 
 Quelle description caractérise « %d / %c / %.6f » ?
 
 - **A ❌** EOF est une valeur entière spéciale signalant la fin d'un flux ou une erreur ; getchar retourne un int et scanf peut aussi renvoyer EOF.
-- **B ❌** Compile en un fichier objet .o, sans édition de liens.
+- **B ✅** Entier décimal / caractère / réel avec six décimales.
 - **C ❌** Associe des nombres aux caractères de base ; le caractère '0' vaut 48 en ASCII.
-- **D ✅** Entier décimal / caractère / réel avec six décimales.
+- **D ❌** Compile en un fichier objet .o, sans édition de liens.
 
-**Réponse candidate :** D · **Explication :** Le résumé de la fiche indique : Entier décimal / caractère / réel avec six décimales.
+**Réponse proposée :** B. Le résumé de la fiche indique : Entier décimal / caractère / réel avec six décimales.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/6-d-c-6f
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_005-03 · vigilance
+### V1-N08_005-03 — vigilance
 
 **Une seule bonne réponse**
 
 Quel point à retenir est directement associé à « %d / %c / %.6f » ?
 
-- **A ✅** En printf, le spécificateur doit correspondre au type fourni ; %.6f affiche six décimales.
-- **B ❌** Le caractère '0' possède un code numérique ; ce n'est pas l'entier 0.
-- **C ❌** Un retour EOF n'est pas le caractère '\0'. Conserver le résultat de getchar dans un int. Pour distinguer fin de fichier et erreur de lecture, consulter feof et ferror.
-- **D ❌** gcc -c produit un fichier objet (.o), sans liaison vers l'exécutable final.
+- **A ❌** Le caractère '0' possède un code numérique ; ce n'est pas l'entier 0.
+- **B ❌** Un retour EOF n'est pas le caractère '\0'. Conserver le résultat de getchar dans un int. Pour distinguer fin de fichier et erreur de lecture, consulter feof et ferror.
+- **C ❌** gcc -c produit un fichier objet (.o), sans liaison vers l'exécutable final.
+- **D ✅** En printf, le spécificateur doit correspondre au type fourni ; %.6f affiche six décimales.
 
-**Réponse candidate :** A · **Explication :** La fiche indique : En printf, le spécificateur doit correspondre au type fourni ; %.6f affiche six décimales.
+**Réponse proposée :** D. La fiche indique : En printf, le spécificateur doit correspondre au type fourni ; %.6f affiche six décimales.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/6-d-c-6f
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_005-04 · synthese
+### V1-N08_005-04 — synthese
 
 **Plusieurs bonnes réponses**
 
 Quelles affirmations concernent directement « %d / %c / %.6f » ?
 
-- **A ✅** Entier décimal / caractère / réel avec six décimales.
+- **A ❌** Un include guard (#ifndef, #define, #endif) évite qu’un même en-tête soit traité plusieurs fois dans une même unité de traduction.
 - **B ❌** typedef struct { int x; int y; } point_t; crée un alias pour une struct sans étiquette.
-- **C ❌** Un include guard (#ifndef, #define, #endif) évite qu’un même en-tête soit traité plusieurs fois dans une même unité de traduction.
+- **C ✅** Entier décimal / caractère / réel avec six décimales.
 - **D ✅** En printf, le spécificateur doit correspondre au type fourni ; %.6f affiche six décimales.
 
-**Réponse candidate :** A, D · **Explication :** Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.
+**Réponse proposée :** C, D. Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/6-d-c-6f
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
@@ -486,79 +486,79 @@ Quelles affirmations concernent directement « %d / %c / %.6f » ?
 
 [Fiche de révision](https://revision-hbtn.soleiljaune.be/#cours/programmation-c/7-ascii)
 
-### V1-N08_006-01 · definition
+### V1-N08_006-01 — definition
 
 **Une seule bonne réponse**
 
 À quelle notion correspond la définition suivante : « Associe des nombres aux caractères de base ; le caractère '0' vaut 48 en ASCII. » ?
 
 - **A ❌** return 0 / return 1
-- **B ✅** ASCII
-- **C ❌** %d / %c / %.6f
-- **D ❌** gcc -c
+- **B ❌** %d / %c / %.6f
+- **C ❌** gcc -c
+- **D ✅** ASCII
 
-**Réponse candidate :** B · **Explication :** La définition est extraite du résumé de la fiche correspondante.
+**Réponse proposée :** D. La définition est extraite du résumé de la fiche correspondante.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/7-ascii
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_006-02 · description
+### V1-N08_006-02 — description
 
 **Une seule bonne réponse**
 
 Quelle description caractérise « ASCII » ?
 
-- **A ❌** Compile en un fichier objet .o, sans édition de liens.
-- **B ❌** Dans main, 0 indique une réussite ; dans une autre fonction, 0 et 1 ont le sens défini par cette fonction.
-- **C ✅** Associe des nombres aux caractères de base ; le caractère '0' vaut 48 en ASCII.
-- **D ❌** Entier décimal / caractère / réel avec six décimales.
+- **A ✅** Associe des nombres aux caractères de base ; le caractère '0' vaut 48 en ASCII.
+- **B ❌** Compile en un fichier objet .o, sans édition de liens.
+- **C ❌** Entier décimal / caractère / réel avec six décimales.
+- **D ❌** Dans main, 0 indique une réussite ; dans une autre fonction, 0 et 1 ont le sens défini par cette fonction.
 
-**Réponse candidate :** C · **Explication :** Le résumé de la fiche indique : Associe des nombres aux caractères de base ; le caractère '0' vaut 48 en ASCII.
+**Réponse proposée :** A. Le résumé de la fiche indique : Associe des nombres aux caractères de base ; le caractère '0' vaut 48 en ASCII.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/7-ascii
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_006-03 · vigilance
+### V1-N08_006-03 — vigilance
 
 **Une seule bonne réponse**
 
 Quel point à retenir est directement associé à « ASCII » ?
 
-- **A ❌** gcc -c produit un fichier objet (.o), sans liaison vers l'exécutable final.
-- **B ❌** Ne confonds pas le code de fin de main et les valeurs renvoyées par les autres fonctions : leur signification dépend du contexte. EXIT_SUCCESS et EXIT_FAILURE sont les constantes portables de <stdlib.h>.
-- **C ❌** En printf, le spécificateur doit correspondre au type fourni ; %.6f affiche six décimales.
-- **D ✅** Le caractère '0' possède un code numérique ; ce n'est pas l'entier 0.
+- **A ✅** Le caractère '0' possède un code numérique ; ce n'est pas l'entier 0.
+- **B ❌** En printf, le spécificateur doit correspondre au type fourni ; %.6f affiche six décimales.
+- **C ❌** gcc -c produit un fichier objet (.o), sans liaison vers l'exécutable final.
+- **D ❌** Ne confonds pas le code de fin de main et les valeurs renvoyées par les autres fonctions : leur signification dépend du contexte. EXIT_SUCCESS et EXIT_FAILURE sont les constantes portables de <stdlib.h>.
 
-**Réponse candidate :** D · **Explication :** La fiche indique : Le caractère '0' possède un code numérique ; ce n'est pas l'entier 0.
+**Réponse proposée :** A. La fiche indique : Le caractère '0' possède un code numérique ; ce n'est pas l'entier 0.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/7-ascii
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_006-04 · synthese
+### V1-N08_006-04 — synthese
 
 **Plusieurs bonnes réponses**
 
 Quelles affirmations concernent directement « ASCII » ?
 
-- **A ✅** Le caractère '0' possède un code numérique ; ce n'est pas l'entier 0.
-- **B ✅** Associe des nombres aux caractères de base ; le caractère '0' vaut 48 en ASCII.
+- **A ❌** Le spécificateur %p permet d’afficher une adresse ; l’argument correspondant doit être un void * (conversion explicite recommandée).
+- **B ✅** Le caractère '0' possède un code numérique ; ce n'est pas l'entier 0.
 - **C ❌** Un tableau n’est pas une variable pointeur. Son nom identifie le tableau et ne peut pas recevoir une nouvelle adresse par affectation.
-- **D ❌** Le spécificateur %p permet d’afficher une adresse ; l’argument correspondant doit être un void * (conversion explicite recommandée).
+- **D ✅** Associe des nombres aux caractères de base ; le caractère '0' vaut 48 en ASCII.
 
-**Réponse candidate :** A, B · **Explication :** Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.
+**Réponse proposée :** B, D. Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/7-ascii
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
@@ -566,79 +566,79 @@ Quelles affirmations concernent directement « ASCII » ?
 
 [Fiche de révision](https://revision-hbtn.soleiljaune.be/#cours/programmation-c/8-compilation-vs-edition-de-liens)
 
-### V1-N08_007-01 · definition
+### V1-N08_007-01 — definition
 
 **Une seule bonne réponse**
 
 À quelle notion correspond la définition suivante : « Prétraitement et compilation vers le code objet, puis liaison des objets et bibliothèques pour produire l’exécutable. » ?
 
-- **A ✅** Compilation vs édition de liens
+- **A ❌** strtol() — convertir une entrée en entier
 - **B ❌** return 0 / return 1
-- **C ❌** gcc -c
-- **D ❌** strtol() — convertir une entrée en entier
+- **C ✅** Compilation vs édition de liens
+- **D ❌** gcc -c
 
-**Réponse candidate :** A · **Explication :** La définition est extraite du résumé de la fiche correspondante.
+**Réponse proposée :** C. La définition est extraite du résumé de la fiche correspondante.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/8-compilation-vs-edition-de-liens
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_007-02 · description
+### V1-N08_007-02 — description
 
 **Une seule bonne réponse**
 
 Quelle description caractérise « Compilation vs édition de liens » ?
 
-- **A ❌** Compile en un fichier objet .o, sans édition de liens.
-- **B ❌** strtol convertit une chaîne en long ; vérifier les chiffres lus, les caractères restants et les dépassements avec errno.
-- **C ✅** Prétraitement et compilation vers le code objet, puis liaison des objets et bibliothèques pour produire l’exécutable.
+- **A ✅** Prétraitement et compilation vers le code objet, puis liaison des objets et bibliothèques pour produire l’exécutable.
+- **B ❌** Compile en un fichier objet .o, sans édition de liens.
+- **C ❌** strtol convertit une chaîne en long ; vérifier les chiffres lus, les caractères restants et les dépassements avec errno.
 - **D ❌** Dans main, 0 indique une réussite ; dans une autre fonction, 0 et 1 ont le sens défini par cette fonction.
 
-**Réponse candidate :** C · **Explication :** Le résumé de la fiche indique : Prétraitement et compilation vers le code objet, puis liaison des objets et bibliothèques pour produire l’exécutable.
+**Réponse proposée :** A. Le résumé de la fiche indique : Prétraitement et compilation vers le code objet, puis liaison des objets et bibliothèques pour produire l’exécutable.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/8-compilation-vs-edition-de-liens
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_007-03 · vigilance
+### V1-N08_007-03 — vigilance
 
 **Une seule bonne réponse**
 
 Quel point à retenir est directement associé à « Compilation vs édition de liens » ?
 
-- **A ✅** La chaîne complète passe par prétraitement, compilation, assemblage puis édition de liens.
-- **B ❌** Contrôler simultanément fin == ligne, errno == ERANGE et les caractères restants : une entrée comme 42abc ne doit pas être acceptée silencieusement. strtol renvoie un long, pas automatiquement un int.
-- **C ❌** Ne confonds pas le code de fin de main et les valeurs renvoyées par les autres fonctions : leur signification dépend du contexte. EXIT_SUCCESS et EXIT_FAILURE sont les constantes portables de <stdlib.h>.
-- **D ❌** gcc -c produit un fichier objet (.o), sans liaison vers l'exécutable final.
+- **A ❌** gcc -c produit un fichier objet (.o), sans liaison vers l'exécutable final.
+- **B ❌** Ne confonds pas le code de fin de main et les valeurs renvoyées par les autres fonctions : leur signification dépend du contexte. EXIT_SUCCESS et EXIT_FAILURE sont les constantes portables de <stdlib.h>.
+- **C ❌** Contrôler simultanément fin == ligne, errno == ERANGE et les caractères restants : une entrée comme 42abc ne doit pas être acceptée silencieusement. strtol renvoie un long, pas automatiquement un int.
+- **D ✅** La chaîne complète passe par prétraitement, compilation, assemblage puis édition de liens.
 
-**Réponse candidate :** A · **Explication :** La fiche indique : La chaîne complète passe par prétraitement, compilation, assemblage puis édition de liens.
+**Réponse proposée :** D. La fiche indique : La chaîne complète passe par prétraitement, compilation, assemblage puis édition de liens.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/8-compilation-vs-edition-de-liens
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_007-04 · synthese
+### V1-N08_007-04 — synthese
 
 **Plusieurs bonnes réponses**
 
 Quelles affirmations concernent directement « Compilation vs édition de liens » ?
 
 - **A ✅** Prétraitement et compilation vers le code objet, puis liaison des objets et bibliothèques pour produire l’exécutable.
-- **B ✅** La chaîne complète passe par prétraitement, compilation, assemblage puis édition de liens.
-- **C ❌** sizeof donne la taille en octets d’un type ou d’un objet sur la machine utilisée ; ne pas supposer une taille universelle pour int ou un pointeur.
-- **D ❌** « struct chat » nomme un type ; « struct chat felix; » déclare une variable de ce type.
+- **B ❌** sizeof donne la taille en octets d’un type ou d’un objet sur la machine utilisée ; ne pas supposer une taille universelle pour int ou un pointeur.
+- **C ❌** « struct chat » nomme un type ; « struct chat felix; » déclare une variable de ce type.
+- **D ✅** La chaîne complète passe par prétraitement, compilation, assemblage puis édition de liens.
 
-**Réponse candidate :** A, B · **Explication :** Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.
+**Réponse proposée :** A, D. Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/8-compilation-vs-edition-de-liens
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
@@ -646,7 +646,7 @@ Quelles affirmations concernent directement « Compilation vs édition de liens 
 
 [Fiche de révision](https://revision-hbtn.soleiljaune.be/#cours/programmation-c/9-undefined-reference)
 
-### V1-N08_008-01 · definition
+### V1-N08_008-01 — definition
 
 **Une seule bonne réponse**
 
@@ -654,71 +654,71 @@ Quelles affirmations concernent directement « Compilation vs édition de liens 
 
 - **A ❌** return 0 / return 1
 - **B ❌** return
-- **C ❌** strtol() — convertir une entrée en entier
-- **D ✅** undefined reference
+- **C ✅** undefined reference
+- **D ❌** strtol() — convertir une entrée en entier
 
-**Réponse candidate :** D · **Explication :** La définition est extraite du résumé de la fiche correspondante.
+**Réponse proposée :** C. La définition est extraite du résumé de la fiche correspondante.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/9-undefined-reference
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_008-02 · description
+### V1-N08_008-02 — description
 
 **Une seule bonne réponse**
 
 Quelle description caractérise « undefined reference » ?
 
-- **A ✅** Définition nécessaire introuvable lors de l’édition de liens.
+- **A ❌** Dans main, 0 indique une réussite ; dans une autre fonction, 0 et 1 ont le sens défini par cette fonction.
 - **B ❌** strtol convertit une chaîne en long ; vérifier les chiffres lus, les caractères restants et les dépassements avec errno.
-- **C ❌** Dans main, 0 indique une réussite ; dans une autre fonction, 0 et 1 ont le sens défini par cette fonction.
+- **C ✅** Définition nécessaire introuvable lors de l’édition de liens.
 - **D ❌** Termine immédiatement une fonction, en renvoyant une valeur si son type de retour le prévoit.
 
-**Réponse candidate :** A · **Explication :** Le résumé de la fiche indique : Définition nécessaire introuvable lors de l’édition de liens.
+**Réponse proposée :** C. Le résumé de la fiche indique : Définition nécessaire introuvable lors de l’édition de liens.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/9-undefined-reference
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_008-03 · vigilance
+### V1-N08_008-03 — vigilance
 
 **Une seule bonne réponse**
 
 Quel point à retenir est directement associé à « undefined reference » ?
 
-- **A ❌** Ne confonds pas le code de fin de main et les valeurs renvoyées par les autres fonctions : leur signification dépend du contexte. EXIT_SUCCESS et EXIT_FAILURE sont les constantes portables de <stdlib.h>.
-- **B ❌** La valeur après return doit être compatible avec le type de retour déclaré. return; est possible dans une fonction void ; le code placé après un return exécuté n’est pas atteint.
+- **A ❌** La valeur après return doit être compatible avec le type de retour déclaré. return; est possible dans une fonction void ; le code placé après un return exécuté n’est pas atteint.
+- **B ❌** Ne confonds pas le code de fin de main et les valeurs renvoyées par les autres fonctions : leur signification dépend du contexte. EXIT_SUCCESS et EXIT_FAILURE sont les constantes portables de <stdlib.h>.
 - **C ✅** « undefined reference » est généralement une erreur de liaison : vérifie les définitions et fichiers liés.
 - **D ❌** Contrôler simultanément fin == ligne, errno == ERANGE et les caractères restants : une entrée comme 42abc ne doit pas être acceptée silencieusement. strtol renvoie un long, pas automatiquement un int.
 
-**Réponse candidate :** C · **Explication :** La fiche indique : « undefined reference » est généralement une erreur de liaison : vérifie les définitions et fichiers liés.
+**Réponse proposée :** C. La fiche indique : « undefined reference » est généralement une erreur de liaison : vérifie les définitions et fichiers liés.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/9-undefined-reference
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_008-04 · synthese
+### V1-N08_008-04 — synthese
 
 **Plusieurs bonnes réponses**
 
 Quelles affirmations concernent directement « undefined reference » ?
 
 - **A ✅** « undefined reference » est généralement une erreur de liaison : vérifie les définitions et fichiers liés.
-- **B ❌** Logiciel de gestion de versions distribué.
-- **C ❌** Git ne peut pas résoudre automatiquement des changements concurrents.
-- **D ✅** Définition nécessaire introuvable lors de l’édition de liens.
+- **B ❌** Git ne peut pas résoudre automatiquement des changements concurrents.
+- **C ✅** Définition nécessaire introuvable lors de l’édition de liens.
+- **D ❌** Logiciel de gestion de versions distribué.
 
-**Réponse candidate :** A, D · **Explication :** Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.
+**Réponse proposée :** A, C. Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/9-undefined-reference
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
@@ -726,79 +726,79 @@ Quelles affirmations concernent directement « undefined reference » ?
 
 [Fiche de révision](https://revision-hbtn.soleiljaune.be/#cours/programmation-c/10-gcc-o-nom-source-c)
 
-### V1-N08_009-01 · definition
+### V1-N08_009-01 — definition
 
 **Une seule bonne réponse**
 
 À quelle notion correspond la définition suivante : « Compiler un fichier source et nommer l’exécutable. » ?
 
-- **A ❌** return
-- **B ❌** gcc -E
+- **A ❌** strtol() — convertir une entrée en entier
+- **B ❌** return
 - **C ✅** gcc -o nom source.c
-- **D ❌** strtol() — convertir une entrée en entier
+- **D ❌** gcc -E
 
-**Réponse candidate :** C · **Explication :** La définition est extraite du résumé de la fiche correspondante.
+**Réponse proposée :** C. La définition est extraite du résumé de la fiche correspondante.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/10-gcc-o-nom-source-c
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_009-02 · description
+### V1-N08_009-02 — description
 
 **Une seule bonne réponse**
 
 Quelle description caractérise « gcc -o nom source.c » ?
 
-- **A ❌** Termine immédiatement une fonction, en renvoyant une valeur si son type de retour le prévoit.
+- **A ✅** Compiler un fichier source et nommer l’exécutable.
 - **B ❌** Arrête la chaîne de compilation après le préprocesseur : le résultat est du code source prétraité.
 - **C ❌** strtol convertit une chaîne en long ; vérifier les chiffres lus, les caractères restants et les dépassements avec errno.
-- **D ✅** Compiler un fichier source et nommer l’exécutable.
+- **D ❌** Termine immédiatement une fonction, en renvoyant une valeur si son type de retour le prévoit.
 
-**Réponse candidate :** D · **Explication :** Le résumé de la fiche indique : Compiler un fichier source et nommer l’exécutable.
+**Réponse proposée :** A. Le résumé de la fiche indique : Compiler un fichier source et nommer l’exécutable.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/10-gcc-o-nom-source-c
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_009-03 · vigilance
+### V1-N08_009-03 — vigilance
 
 **Une seule bonne réponse**
 
 Quel point à retenir est directement associé à « gcc -o nom source.c » ?
 
 - **A ❌** La valeur après return doit être compatible avec le type de retour déclaré. return; est possible dans une fonction void ; le code placé après un return exécuté n’est pas atteint.
-- **B ❌** Contrôler simultanément fin == ligne, errno == ERANGE et les caractères restants : une entrée comme 42abc ne doit pas être acceptée silencieusement. strtol renvoie un long, pas automatiquement un int.
-- **C ✅** L'option -o choisit le nom de sortie ; elle n'impose pas le type de cette sortie.
-- **D ❌** gcc -E produit le source prétraité et s'arrête avant la compilation proprement dite.
+- **B ❌** gcc -E produit le source prétraité et s'arrête avant la compilation proprement dite.
+- **C ❌** Contrôler simultanément fin == ligne, errno == ERANGE et les caractères restants : une entrée comme 42abc ne doit pas être acceptée silencieusement. strtol renvoie un long, pas automatiquement un int.
+- **D ✅** L'option -o choisit le nom de sortie ; elle n'impose pas le type de cette sortie.
 
-**Réponse candidate :** C · **Explication :** La fiche indique : L'option -o choisit le nom de sortie ; elle n'impose pas le type de cette sortie.
+**Réponse proposée :** D. La fiche indique : L'option -o choisit le nom de sortie ; elle n'impose pas le type de cette sortie.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/10-gcc-o-nom-source-c
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_009-04 · synthese
+### V1-N08_009-04 — synthese
 
 **Plusieurs bonnes réponses**
 
 Quelles affirmations concernent directement « gcc -o nom source.c » ?
 
-- **A ❌** qsort trie un tableau en appelant le comparateur fourni : int comparer(const void *, const void *) doit renvoyer une valeur négative, nulle ou positive.
+- **A ✅** Compiler un fichier source et nommer l’exécutable.
 - **B ❌** Résultat entier : 1.
-- **C ✅** Compiler un fichier source et nommer l’exécutable.
+- **C ❌** qsort trie un tableau en appelant le comparateur fourni : int comparer(const void *, const void *) doit renvoyer une valeur négative, nulle ou positive.
 - **D ✅** L'option -o choisit le nom de sortie ; elle n'impose pas le type de cette sortie.
 
-**Réponse candidate :** C, D · **Explication :** Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.
+**Réponse proposée :** A, D. Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/10-gcc-o-nom-source-c
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
@@ -806,79 +806,79 @@ Quelles affirmations concernent directement « gcc -o nom source.c » ?
 
 [Fiche de révision](https://revision-hbtn.soleiljaune.be/#cours/programmation-c/11-gnu89)
 
-### V1-N08_010-01 · definition
+### V1-N08_010-01 — definition
 
 **Une seule bonne réponse**
 
 À quelle notion correspond la définition suivante : « Dialecte C89 avec extensions GNU. Pour rester compatible C89 strict, déclarer les variables avant les instructions. » ?
 
-- **A ❌** return
-- **B ❌** float et double
+- **A ❌** float et double
+- **B ❌** return
 - **C ✅** GNU89
 - **D ❌** gcc -E
 
-**Réponse candidate :** C · **Explication :** La définition est extraite du résumé de la fiche correspondante.
+**Réponse proposée :** C. La définition est extraite du résumé de la fiche correspondante.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/11-gnu89
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_010-02 · description
+### V1-N08_010-02 — description
 
 **Une seule bonne réponse**
 
 Quelle description caractérise « GNU89 » ?
 
 - **A ✅** Dialecte C89 avec extensions GNU. Pour rester compatible C89 strict, déclarer les variables avant les instructions.
-- **B ❌** float et double représentent des nombres à virgule flottante, souvent avec une précision limitée.
+- **B ❌** Termine immédiatement une fonction, en renvoyant une valeur si son type de retour le prévoit.
 - **C ❌** Arrête la chaîne de compilation après le préprocesseur : le résultat est du code source prétraité.
-- **D ❌** Termine immédiatement une fonction, en renvoyant une valeur si son type de retour le prévoit.
+- **D ❌** float et double représentent des nombres à virgule flottante, souvent avec une précision limitée.
 
-**Réponse candidate :** A · **Explication :** Le résumé de la fiche indique : Dialecte C89 avec extensions GNU. Pour rester compatible C89 strict, déclarer les variables avant les instructions.
+**Réponse proposée :** A. Le résumé de la fiche indique : Dialecte C89 avec extensions GNU. Pour rester compatible C89 strict, déclarer les variables avant les instructions.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/11-gnu89
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_010-03 · vigilance
+### V1-N08_010-03 — vigilance
 
 **Une seule bonne réponse**
 
 Quel point à retenir est directement associé à « GNU89 » ?
 
 - **A ❌** gcc -E produit le source prétraité et s'arrête avant la compilation proprement dite.
-- **B ❌** Les comparaisons exactes de flottants doivent être envisagées avec prudence.
-- **C ❌** La valeur après return doit être compatible avec le type de retour déclaré. return; est possible dans une fonction void ; le code placé après un return exécuté n’est pas atteint.
-- **D ✅** Avec -std=gnu89, for (int i = ...) est refusé. GCC accepte parfois d’autres extensions, mais -pedantic-errors peut en faire des erreurs : privilégie les déclarations en début de bloc.
+- **B ✅** Avec -std=gnu89, for (int i = ...) est refusé. GCC accepte parfois d’autres extensions, mais -pedantic-errors peut en faire des erreurs : privilégie les déclarations en début de bloc.
+- **C ❌** Les comparaisons exactes de flottants doivent être envisagées avec prudence.
+- **D ❌** La valeur après return doit être compatible avec le type de retour déclaré. return; est possible dans une fonction void ; le code placé après un return exécuté n’est pas atteint.
 
-**Réponse candidate :** D · **Explication :** La fiche indique : Avec -std=gnu89, for (int i = ...) est refusé. GCC accepte parfois d’autres extensions, mais -pedantic-errors peut en faire des erreurs : privilégie les déclarations en début de bloc.
+**Réponse proposée :** B. La fiche indique : Avec -std=gnu89, for (int i = ...) est refusé. GCC accepte parfois d’autres extensions, mais -pedantic-errors peut en faire des erreurs : privilégie les déclarations en début de bloc.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/11-gnu89
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_010-04 · synthese
+### V1-N08_010-04 — synthese
 
 **Plusieurs bonnes réponses**
 
 Quelles affirmations concernent directement « GNU89 » ?
 
-- **A ❌** Code retour / premier argument / nombre d’arguments positionnels.
+- **A ❌** Paramètres et variables du Shell / environnement.
 - **B ✅** Dialecte C89 avec extensions GNU. Pour rester compatible C89 strict, déclarer les variables avant les instructions.
-- **C ✅** Avec -std=gnu89, for (int i = ...) est refusé. GCC accepte parfois d’autres extensions, mais -pedantic-errors peut en faire des erreurs : privilégie les déclarations en début de bloc.
-- **D ❌** Paramètres et variables du Shell / environnement.
+- **C ❌** Code retour / premier argument / nombre d’arguments positionnels.
+- **D ✅** Avec -std=gnu89, for (int i = ...) est refusé. GCC accepte parfois d’autres extensions, mais -pedantic-errors peut en faire des erreurs : privilégie les déclarations en début de bloc.
 
-**Réponse candidate :** B, C · **Explication :** Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.
+**Réponse proposée :** B, D. Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/11-gnu89
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
@@ -886,45 +886,45 @@ Quelles affirmations concernent directement « GNU89 » ?
 
 [Fiche de révision](https://revision-hbtn.soleiljaune.be/#cours/programmation-c/12-gcc-e)
 
-### V1-N08_011-01 · definition
+### V1-N08_011-01 — definition
 
 **Une seule bonne réponse**
 
 À quelle notion correspond la définition suivante : « Arrête la chaîne de compilation après le préprocesseur : le résultat est du code source prétraité. » ?
 
-- **A ✅** gcc -E
-- **B ❌** float et double
-- **C ❌** GNU89
-- **D ❌** scanf() — lire une saisie au clavier
+- **A ❌** float et double
+- **B ✅** gcc -E
+- **C ❌** scanf() — lire une saisie au clavier
+- **D ❌** GNU89
 
-**Réponse candidate :** A · **Explication :** La définition est extraite du résumé de la fiche correspondante.
+**Réponse proposée :** B. La définition est extraite du résumé de la fiche correspondante.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/12-gcc-e
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_011-02 · description
+### V1-N08_011-02 — description
 
 **Une seule bonne réponse**
 
 Quelle description caractérise « gcc -E » ?
 
 - **A ❌** Dialecte C89 avec extensions GNU. Pour rester compatible C89 strict, déclarer les variables avant les instructions.
-- **B ❌** scanf lit une entrée formatée (souvent depuis le clavier) et écrit les valeurs lues dans des variables : utiliser & pour une variable numérique et vérifier le nombre de conversions réussies.
+- **B ❌** float et double représentent des nombres à virgule flottante, souvent avec une précision limitée.
 - **C ✅** Arrête la chaîne de compilation après le préprocesseur : le résultat est du code source prétraité.
-- **D ❌** float et double représentent des nombres à virgule flottante, souvent avec une précision limitée.
+- **D ❌** scanf lit une entrée formatée (souvent depuis le clavier) et écrit les valeurs lues dans des variables : utiliser & pour une variable numérique et vérifier le nombre de conversions réussies.
 
-**Réponse candidate :** C · **Explication :** Le résumé de la fiche indique : Arrête la chaîne de compilation après le préprocesseur : le résultat est du code source prétraité.
+**Réponse proposée :** C. Le résumé de la fiche indique : Arrête la chaîne de compilation après le préprocesseur : le résultat est du code source prétraité.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/12-gcc-e
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_011-03 · vigilance
+### V1-N08_011-03 — vigilance
 
 **Une seule bonne réponse**
 
@@ -932,33 +932,33 @@ Quel point à retenir est directement associé à « gcc -E » ?
 
 - **A ✅** gcc -E produit le source prétraité et s'arrête avant la compilation proprement dite.
 - **B ❌** Les comparaisons exactes de flottants doivent être envisagées avec prudence.
-- **C ❌** scanf("%d", &age) attend l’adresse de age et renvoie 1 seulement si un entier est lu correctement. Vérifier le retour avant d’utiliser la variable. Avec %s, toujours fixer une largeur adaptée à la taille du tableau ; fgets est mieux adapté aux phrases avec espaces. Le format de printf n’a pas exactement les mêmes types attendus : scanf("%f", &f) pour float et scanf("%
-- **D ❌** Avec -std=gnu89, for (int i = ...) est refusé. GCC accepte parfois d’autres extensions, mais -pedantic-errors peut en faire des erreurs : privilégie les déclarations en début de bloc.
+- **C ❌** Avec -std=gnu89, for (int i = ...) est refusé. GCC accepte parfois d’autres extensions, mais -pedantic-errors peut en faire des erreurs : privilégie les déclarations en début de bloc.
+- **D ❌** scanf("%d", &age) attend l’adresse de age et renvoie 1 seulement si un entier est lu correctement. Vérifier le retour avant d’utiliser la variable. Avec %s, toujours fixer une largeur adaptée à la taille du tableau ; fgets est mieux adapté aux phrases avec espaces. Le format de printf n’a pas exactement les mêmes types attendus : scanf("%f", &f) pour float et scanf("%
 
-**Réponse candidate :** A · **Explication :** La fiche indique : gcc -E produit le source prétraité et s'arrête avant la compilation proprement dite.
+**Réponse proposée :** A. La fiche indique : gcc -E produit le source prétraité et s'arrête avant la compilation proprement dite.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/12-gcc-e
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_011-04 · synthese
+### V1-N08_011-04 — synthese
 
 **Plusieurs bonnes réponses**
 
 Quelles affirmations concernent directement « gcc -E » ?
 
-- **A ✅** Arrête la chaîne de compilation après le préprocesseur : le résultat est du code source prétraité.
+- **A ✅** gcc -E produit le source prétraité et s'arrête avant la compilation proprement dite.
 - **B ❌** Avant malloc(n * sizeof *p), vérifier que n ne dépasse pas la capacité de size_t divisée par sizeof *p afin d'éviter une allocation trop petite.
-- **C ✅** gcc -E produit le source prétraité et s'arrête avant la compilation proprement dite.
-- **D ❌** strlen attend une chaîne se terminant par '\0' ; si un tableau de caractères n'en contient pas, la fonction peut lire hors de sa zone.
+- **C ❌** strlen attend une chaîne se terminant par '\0' ; si un tableau de caractères n'en contient pas, la fonction peut lire hors de sa zone.
+- **D ✅** Arrête la chaîne de compilation après le préprocesseur : le résultat est du code source prétraité.
 
-**Réponse candidate :** A, C · **Explication :** Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.
+**Réponse proposée :** A, D. Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/12-gcc-e
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
@@ -966,79 +966,79 @@ Quelles affirmations concernent directement « gcc -E » ?
 
 [Fiche de révision](https://revision-hbtn.soleiljaune.be/#cours/programmation-c/13-gcc-s)
 
-### V1-N08_012-01 · definition
+### V1-N08_012-01 — definition
 
 **Une seule bonne réponse**
 
 À quelle notion correspond la définition suivante : « Compile vers un fichier assembleur .s, sans assembler ni effectuer l’édition de liens. » ?
 
 - **A ❌** scanf() — lire une saisie au clavier
-- **B ❌** Prototype vs définition
+- **B ✅** gcc -S
 - **C ❌** float et double
-- **D ✅** gcc -S
+- **D ❌** Prototype vs définition
 
-**Réponse candidate :** D · **Explication :** La définition est extraite du résumé de la fiche correspondante.
+**Réponse proposée :** B. La définition est extraite du résumé de la fiche correspondante.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/13-gcc-s
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_012-02 · description
+### V1-N08_012-02 — description
 
 **Une seule bonne réponse**
 
 Quelle description caractérise « gcc -S » ?
 
-- **A ❌** scanf lit une entrée formatée (souvent depuis le clavier) et écrit les valeurs lues dans des variables : utiliser & pour une variable numérique et vérifier le nombre de conversions réussies.
-- **B ❌** float et double représentent des nombres à virgule flottante, souvent avec une précision limitée.
-- **C ✅** Compile vers un fichier assembleur .s, sans assembler ni effectuer l’édition de liens.
-- **D ❌** Un prototype annonce une signature ; la définition contient le corps de la fonction.
+- **A ❌** float et double représentent des nombres à virgule flottante, souvent avec une précision limitée.
+- **B ✅** Compile vers un fichier assembleur .s, sans assembler ni effectuer l’édition de liens.
+- **C ❌** Un prototype annonce une signature ; la définition contient le corps de la fonction.
+- **D ❌** scanf lit une entrée formatée (souvent depuis le clavier) et écrit les valeurs lues dans des variables : utiliser & pour une variable numérique et vérifier le nombre de conversions réussies.
 
-**Réponse candidate :** C · **Explication :** Le résumé de la fiche indique : Compile vers un fichier assembleur .s, sans assembler ni effectuer l’édition de liens.
+**Réponse proposée :** B. Le résumé de la fiche indique : Compile vers un fichier assembleur .s, sans assembler ni effectuer l’édition de liens.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/13-gcc-s
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_012-03 · vigilance
+### V1-N08_012-03 — vigilance
 
 **Une seule bonne réponse**
 
 Quel point à retenir est directement associé à « gcc -S » ?
 
-- **A ❌** Les comparaisons exactes de flottants doivent être envisagées avec prudence.
-- **B ✅** gcc -S produit de l'assembleur (.s), sans fichier objet ni exécutable.
+- **A ✅** gcc -S produit de l'assembleur (.s), sans fichier objet ni exécutable.
+- **B ❌** scanf("%d", &age) attend l’adresse de age et renvoie 1 seulement si un entier est lu correctement. Vérifier le retour avant d’utiliser la variable. Avec %s, toujours fixer une largeur adaptée à la taille du tableau ; fgets est mieux adapté aux phrases avec espaces. Le format de printf n’a pas exactement les mêmes types attendus : scanf("%f", &f) pour float et scanf("%
 - **C ❌** Le prototype annonce une fonction ; seule la définition fournit le code exécuté.
-- **D ❌** scanf("%d", &age) attend l’adresse de age et renvoie 1 seulement si un entier est lu correctement. Vérifier le retour avant d’utiliser la variable. Avec %s, toujours fixer une largeur adaptée à la taille du tableau ; fgets est mieux adapté aux phrases avec espaces. Le format de printf n’a pas exactement les mêmes types attendus : scanf("%f", &f) pour float et scanf("%
+- **D ❌** Les comparaisons exactes de flottants doivent être envisagées avec prudence.
 
-**Réponse candidate :** B · **Explication :** La fiche indique : gcc -S produit de l'assembleur (.s), sans fichier objet ni exécutable.
+**Réponse proposée :** A. La fiche indique : gcc -S produit de l'assembleur (.s), sans fichier objet ni exécutable.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/13-gcc-s
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_012-04 · synthese
+### V1-N08_012-04 — synthese
 
 **Plusieurs bonnes réponses**
 
 Quelles affirmations concernent directement « gcc -S » ?
 
-- **A ✅** gcc -S produit de l'assembleur (.s), sans fichier objet ni exécutable.
-- **B ❌** Relier la sortie d’une commande à l’entrée d’une autre.
+- **A ❌** Relier la sortie d’une commande à l’entrée d’une autre.
+- **B ✅** Compile vers un fichier assembleur .s, sans assembler ni effectuer l’édition de liens.
 - **C ❌** Copier / déplacer-renommer / supprimer.
-- **D ✅** Compile vers un fichier assembleur .s, sans assembler ni effectuer l’édition de liens.
+- **D ✅** gcc -S produit de l'assembleur (.s), sans fichier objet ni exécutable.
 
-**Réponse candidate :** A, D · **Explication :** Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.
+**Réponse proposée :** B, D. Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/13-gcc-s
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
@@ -1046,79 +1046,79 @@ Quelles affirmations concernent directement « gcc -S » ?
 
 [Fiche de révision](https://revision-hbtn.soleiljaune.be/#cours/programmation-c/14-gcc-c)
 
-### V1-N08_013-01 · definition
+### V1-N08_013-01 — definition
 
 **Une seule bonne réponse**
 
 À quelle notion correspond la définition suivante : « Compile en un fichier objet .o, sans édition de liens. » ?
 
-- **A ✅** gcc -c
-- **B ❌** undefined reference
-- **C ❌** Prototype vs définition
-- **D ❌** scanf() — lire une saisie au clavier
+- **A ❌** undefined reference
+- **B ❌** Prototype vs définition
+- **C ❌** scanf() — lire une saisie au clavier
+- **D ✅** gcc -c
 
-**Réponse candidate :** A · **Explication :** La définition est extraite du résumé de la fiche correspondante.
+**Réponse proposée :** D. La définition est extraite du résumé de la fiche correspondante.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/14-gcc-c
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_013-02 · description
+### V1-N08_013-02 — description
 
 **Une seule bonne réponse**
 
 Quelle description caractérise « gcc -c » ?
 
 - **A ❌** Un prototype annonce une signature ; la définition contient le corps de la fonction.
-- **B ❌** Définition nécessaire introuvable lors de l’édition de liens.
-- **C ❌** scanf lit une entrée formatée (souvent depuis le clavier) et écrit les valeurs lues dans des variables : utiliser & pour une variable numérique et vérifier le nombre de conversions réussies.
-- **D ✅** Compile en un fichier objet .o, sans édition de liens.
+- **B ✅** Compile en un fichier objet .o, sans édition de liens.
+- **C ❌** Définition nécessaire introuvable lors de l’édition de liens.
+- **D ❌** scanf lit une entrée formatée (souvent depuis le clavier) et écrit les valeurs lues dans des variables : utiliser & pour une variable numérique et vérifier le nombre de conversions réussies.
 
-**Réponse candidate :** D · **Explication :** Le résumé de la fiche indique : Compile en un fichier objet .o, sans édition de liens.
+**Réponse proposée :** B. Le résumé de la fiche indique : Compile en un fichier objet .o, sans édition de liens.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/14-gcc-c
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_013-03 · vigilance
+### V1-N08_013-03 — vigilance
 
 **Une seule bonne réponse**
 
 Quel point à retenir est directement associé à « gcc -c » ?
 
 - **A ✅** gcc -c produit un fichier objet (.o), sans liaison vers l'exécutable final.
-- **B ❌** scanf("%d", &age) attend l’adresse de age et renvoie 1 seulement si un entier est lu correctement. Vérifier le retour avant d’utiliser la variable. Avec %s, toujours fixer une largeur adaptée à la taille du tableau ; fgets est mieux adapté aux phrases avec espaces. Le format de printf n’a pas exactement les mêmes types attendus : scanf("%f", &f) pour float et scanf("%
-- **C ❌** Le prototype annonce une fonction ; seule la définition fournit le code exécuté.
-- **D ❌** « undefined reference » est généralement une erreur de liaison : vérifie les définitions et fichiers liés.
+- **B ❌** « undefined reference » est généralement une erreur de liaison : vérifie les définitions et fichiers liés.
+- **C ❌** scanf("%d", &age) attend l’adresse de age et renvoie 1 seulement si un entier est lu correctement. Vérifier le retour avant d’utiliser la variable. Avec %s, toujours fixer une largeur adaptée à la taille du tableau ; fgets est mieux adapté aux phrases avec espaces. Le format de printf n’a pas exactement les mêmes types attendus : scanf("%f", &f) pour float et scanf("%
+- **D ❌** Le prototype annonce une fonction ; seule la définition fournit le code exécuté.
 
-**Réponse candidate :** A · **Explication :** La fiche indique : gcc -c produit un fichier objet (.o), sans liaison vers l'exécutable final.
+**Réponse proposée :** A. La fiche indique : gcc -c produit un fichier objet (.o), sans liaison vers l'exécutable final.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/14-gcc-c
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_013-04 · synthese
+### V1-N08_013-04 — synthese
 
 **Plusieurs bonnes réponses**
 
 Quelles affirmations concernent directement « gcc -c » ?
 
-- **A ❌** Un pointeur vers "School" ne rend pas la chaîne modifiable ; char s[] = "School" crée un tableau contenant une copie modifiable.
-- **B ❌** strcpy(dest, src) copie les caractères et '\0' vers dest, mais n’alloue aucune mémoire : dest doit déjà disposer de suffisamment de place.
-- **C ✅** Compile en un fichier objet .o, sans édition de liens.
+- **A ✅** Compile en un fichier objet .o, sans édition de liens.
+- **B ❌** Un pointeur vers "School" ne rend pas la chaîne modifiable ; char s[] = "School" crée un tableau contenant une copie modifiable.
+- **C ❌** strcpy(dest, src) copie les caractères et '\0' vers dest, mais n’alloue aucune mémoire : dest doit déjà disposer de suffisamment de place.
 - **D ✅** gcc -c produit un fichier objet (.o), sans liaison vers l'exécutable final.
 
-**Réponse candidate :** C, D · **Explication :** Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.
+**Réponse proposée :** A, D. Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/14-gcc-c
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
@@ -1126,79 +1126,79 @@ Quelles affirmations concernent directement « gcc -c » ?
 
 [Fiche de révision](https://revision-hbtn.soleiljaune.be/#cours/programmation-c/15-gcc-o)
 
-### V1-N08_014-01 · definition
+### V1-N08_014-01 — definition
 
 **Une seule bonne réponse**
 
 À quelle notion correspond la définition suivante : « Permet de choisir le nom du fichier de sortie, par exemple gcc main.c -o cisfun. » ?
 
-- **A ❌** Prototype vs définition
+- **A ❌** undefined reference
 - **B ✅** gcc -o
-- **C ❌** Types entiers en C
-- **D ❌** undefined reference
+- **C ❌** Prototype vs définition
+- **D ❌** Types entiers en C
 
-**Réponse candidate :** B · **Explication :** La définition est extraite du résumé de la fiche correspondante.
+**Réponse proposée :** B. La définition est extraite du résumé de la fiche correspondante.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/15-gcc-o
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_014-02 · description
+### V1-N08_014-02 — description
 
 **Une seule bonne réponse**
 
 Quelle description caractérise « gcc -o » ?
 
-- **A ✅** Permet de choisir le nom du fichier de sortie, par exemple gcc main.c -o cisfun.
-- **B ❌** Définition nécessaire introuvable lors de l’édition de liens.
+- **A ❌** Définition nécessaire introuvable lors de l’édition de liens.
+- **B ❌** Un prototype annonce une signature ; la définition contient le corps de la fonction.
 - **C ❌** char, short, int, long et long long représentent des valeurs entières ; leurs tailles exactes dépendent de la plateforme.
-- **D ❌** Un prototype annonce une signature ; la définition contient le corps de la fonction.
+- **D ✅** Permet de choisir le nom du fichier de sortie, par exemple gcc main.c -o cisfun.
 
-**Réponse candidate :** A · **Explication :** Le résumé de la fiche indique : Permet de choisir le nom du fichier de sortie, par exemple gcc main.c -o cisfun.
+**Réponse proposée :** D. Le résumé de la fiche indique : Permet de choisir le nom du fichier de sortie, par exemple gcc main.c -o cisfun.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/15-gcc-o
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_014-03 · vigilance
+### V1-N08_014-03 — vigilance
 
 **Une seule bonne réponse**
 
 Quel point à retenir est directement associé à « gcc -o » ?
 
-- **A ❌** Le prototype annonce une fonction ; seule la définition fournit le code exécuté.
+- **A ✅** Les options -E, -S et -c modifient la nature de la sortie ; -o ne fait que la nommer.
 - **B ❌** « undefined reference » est généralement une erreur de liaison : vérifie les définitions et fichiers liés.
 - **C ❌** Un type ne garantit pas partout le même nombre d’octets.
-- **D ✅** Les options -E, -S et -c modifient la nature de la sortie ; -o ne fait que la nommer.
+- **D ❌** Le prototype annonce une fonction ; seule la définition fournit le code exécuté.
 
-**Réponse candidate :** D · **Explication :** La fiche indique : Les options -E, -S et -c modifient la nature de la sortie ; -o ne fait que la nommer.
+**Réponse proposée :** A. La fiche indique : Les options -E, -S et -c modifient la nature de la sortie ; -o ne fait que la nommer.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/15-gcc-o
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_014-04 · synthese
+### V1-N08_014-04 — synthese
 
 **Plusieurs bonnes réponses**
 
 Quelles affirmations concernent directement « gcc -o » ?
 
-- **A ✅** Les options -E, -S et -c modifient la nature de la sortie ; -o ne fait que la nommer.
-- **B ❌** Interface graphique / interface en ligne de commande.
+- **A ❌** Interface graphique / interface en ligne de commande.
+- **B ✅** Les options -E, -S et -c modifient la nature de la sortie ; -o ne fait que la nommer.
 - **C ✅** Permet de choisir le nom du fichier de sortie, par exemple gcc main.c -o cisfun.
 - **D ❌** Sur une variable struct, on écrit objet.membre ; sur un pointeur vers cette struct, on écrit ptr->membre. Ces deux expressions peuvent désigner exactement le même membre.
 
-**Réponse candidate :** A, C · **Explication :** Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.
+**Réponse proposée :** B, C. Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/15-gcc-o
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
@@ -1206,79 +1206,79 @@ Quelles affirmations concernent directement « gcc -o » ?
 
 [Fiche de révision](https://revision-hbtn.soleiljaune.be/#cours/programmation-c/16-puts-printf)
 
-### V1-N08_015-01 · definition
+### V1-N08_015-01 — definition
 
 **Une seule bonne réponse**
 
 À quelle notion correspond la définition suivante : « puts affiche une chaîne en ajoutant un saut de ligne ; printf utilise une chaîne de format pour afficher des valeurs. » ?
 
-- **A ❌** Types entiers en C
-- **B ❌** undefined reference
+- **A ❌** undefined reference
+- **B ❌** exit() — terminer le programme
 - **C ✅** puts / printf
-- **D ❌** exit() — terminer le programme
+- **D ❌** Types entiers en C
 
-**Réponse candidate :** C · **Explication :** La définition est extraite du résumé de la fiche correspondante.
+**Réponse proposée :** C. La définition est extraite du résumé de la fiche correspondante.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/16-puts-printf
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_015-02 · description
+### V1-N08_015-02 — description
 
 **Une seule bonne réponse**
 
 Quelle description caractérise « puts / printf » ?
 
-- **A ❌** Définition nécessaire introuvable lors de l’édition de liens.
-- **B ✅** puts affiche une chaîne en ajoutant un saut de ligne ; printf utilise une chaîne de format pour afficher des valeurs.
-- **C ❌** exit(code) termine le programme entier, même depuis une fonction appelée ; à la différence de return, il ne revient pas à l’appelant.
-- **D ❌** char, short, int, long et long long représentent des valeurs entières ; leurs tailles exactes dépendent de la plateforme.
+- **A ❌** char, short, int, long et long long représentent des valeurs entières ; leurs tailles exactes dépendent de la plateforme.
+- **B ❌** exit(code) termine le programme entier, même depuis une fonction appelée ; à la différence de return, il ne revient pas à l’appelant.
+- **C ❌** Définition nécessaire introuvable lors de l’édition de liens.
+- **D ✅** puts affiche une chaîne en ajoutant un saut de ligne ; printf utilise une chaîne de format pour afficher des valeurs.
 
-**Réponse candidate :** B · **Explication :** Le résumé de la fiche indique : puts affiche une chaîne en ajoutant un saut de ligne ; printf utilise une chaîne de format pour afficher des valeurs.
+**Réponse proposée :** D. Le résumé de la fiche indique : puts affiche une chaîne en ajoutant un saut de ligne ; printf utilise une chaîne de format pour afficher des valeurs.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/16-puts-printf
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_015-03 · vigilance
+### V1-N08_015-03 — vigilance
 
 **Une seule bonne réponse**
 
 Quel point à retenir est directement associé à « puts / printf » ?
 
 - **A ✅** puts ajoute un saut de ligne ; printf n'en ajoute que si le format le demande.
-- **B ❌** Un type ne garantit pas partout le même nombre d’octets.
+- **B ❌** « undefined reference » est généralement une erreur de liaison : vérifie les définitions et fichiers liés.
 - **C ❌** exit(98) arrête le programme avec le statut demandé, pas uniquement la fonction verifier. En remplaçant verifier(1) par verifier(0), le puts n’est jamais exécuté. Utilise EXIT_FAILURE pour un échec portable, et ne confonds pas exit() avec free().
-- **D ❌** « undefined reference » est généralement une erreur de liaison : vérifie les définitions et fichiers liés.
+- **D ❌** Un type ne garantit pas partout le même nombre d’octets.
 
-**Réponse candidate :** A · **Explication :** La fiche indique : puts ajoute un saut de ligne ; printf n'en ajoute que si le format le demande.
+**Réponse proposée :** A. La fiche indique : puts ajoute un saut de ligne ; printf n'en ajoute que si le format le demande.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/16-puts-printf
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_015-04 · synthese
+### V1-N08_015-04 — synthese
 
 **Plusieurs bonnes réponses**
 
 Quelles affirmations concernent directement « puts / printf » ?
 
-- **A ✅** puts affiche une chaîne en ajoutant un saut de ligne ; printf utilise une chaîne de format pour afficher des valeurs.
+- **A ❌** Suite de caractères stockée notamment dans un tableau de char et terminée par le caractère nul \0.
 - **B ❌** Les indices commencent à 0 : a[0] est le premier élément et a[4] le cinquième dans int a[5].
-- **C ✅** puts ajoute un saut de ligne ; printf n'en ajoute que si le format le demande.
-- **D ❌** Suite de caractères stockée notamment dans un tableau de char et terminée par le caractère nul \0.
+- **C ✅** puts affiche une chaîne en ajoutant un saut de ligne ; printf utilise une chaîne de format pour afficher des valeurs.
+- **D ✅** puts ajoute un saut de ligne ; printf n'en ajoute que si le format le demande.
 
-**Réponse candidate :** A, C · **Explication :** Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.
+**Réponse proposée :** C, D. Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/16-puts-printf
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
@@ -1286,79 +1286,79 @@ Quelles affirmations concernent directement « puts / printf » ?
 
 [Fiche de révision](https://revision-hbtn.soleiljaune.be/#cours/programmation-c/17-types-entiers-en-c)
 
-### V1-N08_016-01 · definition
+### V1-N08_016-01 — definition
 
 **Une seule bonne réponse**
 
 À quelle notion correspond la définition suivante : « char, short, int, long et long long représentent des valeurs entières ; leurs tailles exactes dépendent de la plateforme. » ?
 
-- **A ❌** exit() — terminer le programme
-- **B ❌** Integer overflow — dépassement de capacité d'un entier
-- **C ❌** puts / printf
-- **D ✅** Types entiers en C
+- **A ❌** Integer overflow — dépassement de capacité d'un entier
+- **B ✅** Types entiers en C
+- **C ❌** exit() — terminer le programme
+- **D ❌** puts / printf
 
-**Réponse candidate :** D · **Explication :** La définition est extraite du résumé de la fiche correspondante.
+**Réponse proposée :** B. La définition est extraite du résumé de la fiche correspondante.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/17-types-entiers-en-c
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_016-02 · description
+### V1-N08_016-02 — description
 
 **Une seule bonne réponse**
 
 Quelle description caractérise « Types entiers en C » ?
 
-- **A ✅** char, short, int, long et long long représentent des valeurs entières ; leurs tailles exactes dépendent de la plateforme.
-- **B ❌** puts affiche une chaîne en ajoutant un saut de ligne ; printf utilise une chaîne de format pour afficher des valeurs.
+- **A ❌** puts affiche une chaîne en ajoutant un saut de ligne ; printf utilise une chaîne de format pour afficher des valeurs.
+- **B ✅** char, short, int, long et long long représentent des valeurs entières ; leurs tailles exactes dépendent de la plateforme.
 - **C ❌** exit(code) termine le programme entier, même depuis une fonction appelée ; à la différence de return, il ne revient pas à l’appelant.
 - **D ❌** Un integer overflow survient si un calcul dépasse l'intervalle représentable ; en C, le débordement signé est indéfini, tandis que l'unsigned se replie modulo sa plage.
 
-**Réponse candidate :** A · **Explication :** Le résumé de la fiche indique : char, short, int, long et long long représentent des valeurs entières ; leurs tailles exactes dépendent de la plateforme.
+**Réponse proposée :** B. Le résumé de la fiche indique : char, short, int, long et long long représentent des valeurs entières ; leurs tailles exactes dépendent de la plateforme.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/17-types-entiers-en-c
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_016-03 · vigilance
+### V1-N08_016-03 — vigilance
 
 **Une seule bonne réponse**
 
 Quel point à retenir est directement associé à « Types entiers en C » ?
 
 - **A ❌** Un integer overflow n'est pas un buffer overflow. Le premier dépasse une plage NUMÉRIQUE ; il peut conduire au second si une taille d'allocation calculée devient incorrecte. Vérifier les limites avant toute opération risquée.
-- **B ✅** Un type ne garantit pas partout le même nombre d’octets.
-- **C ❌** puts ajoute un saut de ligne ; printf n'en ajoute que si le format le demande.
-- **D ❌** exit(98) arrête le programme avec le statut demandé, pas uniquement la fonction verifier. En remplaçant verifier(1) par verifier(0), le puts n’est jamais exécuté. Utilise EXIT_FAILURE pour un échec portable, et ne confonds pas exit() avec free().
+- **B ❌** exit(98) arrête le programme avec le statut demandé, pas uniquement la fonction verifier. En remplaçant verifier(1) par verifier(0), le puts n’est jamais exécuté. Utilise EXIT_FAILURE pour un échec portable, et ne confonds pas exit() avec free().
+- **C ✅** Un type ne garantit pas partout le même nombre d’octets.
+- **D ❌** puts ajoute un saut de ligne ; printf n'en ajoute que si le format le demande.
 
-**Réponse candidate :** B · **Explication :** La fiche indique : Un type ne garantit pas partout le même nombre d’octets.
+**Réponse proposée :** C. La fiche indique : Un type ne garantit pas partout le même nombre d’octets.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/17-types-entiers-en-c
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_016-04 · synthese
+### V1-N08_016-04 — synthese
 
 **Plusieurs bonnes réponses**
 
 Quelles affirmations concernent directement « Types entiers en C » ?
 
-- **A ❌** Une struct définit un type composé de membres nommés, éventuellement de types différents.
-- **B ❌** Un membre peut être lui-même une struct : p.position.x traverse deux niveaux.
-- **C ✅** Un type ne garantit pas partout le même nombre d’octets.
-- **D ✅** char, short, int, long et long long représentent des valeurs entières ; leurs tailles exactes dépendent de la plateforme.
+- **A ❌** Un membre peut être lui-même une struct : p.position.x traverse deux niveaux.
+- **B ❌** Une struct définit un type composé de membres nommés, éventuellement de types différents.
+- **C ✅** char, short, int, long et long long représentent des valeurs entières ; leurs tailles exactes dépendent de la plateforme.
+- **D ✅** Un type ne garantit pas partout le même nombre d’octets.
 
-**Réponse candidate :** C, D · **Explication :** Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.
+**Réponse proposée :** C, D. Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/17-types-entiers-en-c
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
@@ -1366,79 +1366,79 @@ Quelles affirmations concernent directement « Types entiers en C » ?
 
 [Fiche de révision](https://revision-hbtn.soleiljaune.be/#cours/programmation-c/18-signed-et-unsigned)
 
-### V1-N08_017-01 · definition
+### V1-N08_017-01 — definition
 
 **Une seule bonne réponse**
 
 À quelle notion correspond la définition suivante : « signed permet des valeurs négatives et positives ; unsigned ne représente que des valeurs non négatives. » ?
 
-- **A ✅** signed et unsigned
-- **B ❌** Integer overflow — dépassement de capacité d'un entier
-- **C ❌** ASCII
-- **D ❌** exit() — terminer le programme
+- **A ❌** Integer overflow — dépassement de capacité d'un entier
+- **B ❌** exit() — terminer le programme
+- **C ✅** signed et unsigned
+- **D ❌** ASCII
 
-**Réponse candidate :** A · **Explication :** La définition est extraite du résumé de la fiche correspondante.
+**Réponse proposée :** C. La définition est extraite du résumé de la fiche correspondante.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/18-signed-et-unsigned
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_017-02 · description
+### V1-N08_017-02 — description
 
 **Une seule bonne réponse**
 
 Quelle description caractérise « signed et unsigned » ?
 
-- **A ❌** exit(code) termine le programme entier, même depuis une fonction appelée ; à la différence de return, il ne revient pas à l’appelant.
-- **B ❌** Un integer overflow survient si un calcul dépasse l'intervalle représentable ; en C, le débordement signé est indéfini, tandis que l'unsigned se replie modulo sa plage.
-- **C ❌** Associe des nombres aux caractères de base ; le caractère '0' vaut 48 en ASCII.
-- **D ✅** signed permet des valeurs négatives et positives ; unsigned ne représente que des valeurs non négatives.
+- **A ✅** signed permet des valeurs négatives et positives ; unsigned ne représente que des valeurs non négatives.
+- **B ❌** Associe des nombres aux caractères de base ; le caractère '0' vaut 48 en ASCII.
+- **C ❌** exit(code) termine le programme entier, même depuis une fonction appelée ; à la différence de return, il ne revient pas à l’appelant.
+- **D ❌** Un integer overflow survient si un calcul dépasse l'intervalle représentable ; en C, le débordement signé est indéfini, tandis que l'unsigned se replie modulo sa plage.
 
-**Réponse candidate :** D · **Explication :** Le résumé de la fiche indique : signed permet des valeurs négatives et positives ; unsigned ne représente que des valeurs non négatives.
+**Réponse proposée :** A. Le résumé de la fiche indique : signed permet des valeurs négatives et positives ; unsigned ne représente que des valeurs non négatives.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/18-signed-et-unsigned
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_017-03 · vigilance
+### V1-N08_017-03 — vigilance
 
 **Une seule bonne réponse**
 
 Quel point à retenir est directement associé à « signed et unsigned » ?
 
-- **A ✅** Ne pas utiliser unsigned uniquement pour « interdire » les valeurs négatives sans réfléchir aux conversions.
-- **B ❌** exit(98) arrête le programme avec le statut demandé, pas uniquement la fonction verifier. En remplaçant verifier(1) par verifier(0), le puts n’est jamais exécuté. Utilise EXIT_FAILURE pour un échec portable, et ne confonds pas exit() avec free().
+- **A ❌** exit(98) arrête le programme avec le statut demandé, pas uniquement la fonction verifier. En remplaçant verifier(1) par verifier(0), le puts n’est jamais exécuté. Utilise EXIT_FAILURE pour un échec portable, et ne confonds pas exit() avec free().
+- **B ❌** Le caractère '0' possède un code numérique ; ce n'est pas l'entier 0.
 - **C ❌** Un integer overflow n'est pas un buffer overflow. Le premier dépasse une plage NUMÉRIQUE ; il peut conduire au second si une taille d'allocation calculée devient incorrecte. Vérifier les limites avant toute opération risquée.
-- **D ❌** Le caractère '0' possède un code numérique ; ce n'est pas l'entier 0.
+- **D ✅** Ne pas utiliser unsigned uniquement pour « interdire » les valeurs négatives sans réfléchir aux conversions.
 
-**Réponse candidate :** A · **Explication :** La fiche indique : Ne pas utiliser unsigned uniquement pour « interdire » les valeurs négatives sans réfléchir aux conversions.
+**Réponse proposée :** D. La fiche indique : Ne pas utiliser unsigned uniquement pour « interdire » les valeurs négatives sans réfléchir aux conversions.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/18-signed-et-unsigned
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_017-04 · synthese
+### V1-N08_017-04 — synthese
 
 **Plusieurs bonnes réponses**
 
 Quelles affirmations concernent directement « signed et unsigned » ?
 
 - **A ✅** signed permet des valeurs négatives et positives ; unsigned ne représente que des valeurs non négatives.
-- **B ❌** &n produit l’adresse de la variable n ; p = &n fait pointer p vers n.
-- **C ❌** Proposition de modifications à examiner avant une fusion éventuelle.
+- **B ❌** Proposition de modifications à examiner avant une fusion éventuelle.
+- **C ❌** &n produit l’adresse de la variable n ; p = &n fait pointer p vers n.
 - **D ✅** Ne pas utiliser unsigned uniquement pour « interdire » les valeurs négatives sans réfléchir aux conversions.
 
-**Réponse candidate :** A, D · **Explication :** Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.
+**Réponse proposée :** A, D. Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/18-signed-et-unsigned
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
@@ -1446,79 +1446,79 @@ Quelles affirmations concernent directement « signed et unsigned » ?
 
 [Fiche de révision](https://revision-hbtn.soleiljaune.be/#cours/programmation-c/19-float-et-double)
 
-### V1-N08_018-01 · definition
+### V1-N08_018-01 — definition
 
 **Une seule bonne réponse**
 
 À quelle notion correspond la définition suivante : « float et double représentent des nombres à virgule flottante, souvent avec une précision limitée. » ?
 
 - **A ❌** Integer overflow — dépassement de capacité d'un entier
-- **B ✅** float et double
-- **C ❌** gcc -c
+- **B ❌** gcc -c
+- **C ✅** float et double
 - **D ❌** ASCII
 
-**Réponse candidate :** B · **Explication :** La définition est extraite du résumé de la fiche correspondante.
+**Réponse proposée :** C. La définition est extraite du résumé de la fiche correspondante.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/19-float-et-double
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_018-02 · description
+### V1-N08_018-02 — description
 
 **Une seule bonne réponse**
 
 Quelle description caractérise « float et double » ?
 
 - **A ❌** Associe des nombres aux caractères de base ; le caractère '0' vaut 48 en ASCII.
-- **B ❌** Compile en un fichier objet .o, sans édition de liens.
-- **C ✅** float et double représentent des nombres à virgule flottante, souvent avec une précision limitée.
-- **D ❌** Un integer overflow survient si un calcul dépasse l'intervalle représentable ; en C, le débordement signé est indéfini, tandis que l'unsigned se replie modulo sa plage.
+- **B ❌** Un integer overflow survient si un calcul dépasse l'intervalle représentable ; en C, le débordement signé est indéfini, tandis que l'unsigned se replie modulo sa plage.
+- **C ❌** Compile en un fichier objet .o, sans édition de liens.
+- **D ✅** float et double représentent des nombres à virgule flottante, souvent avec une précision limitée.
 
-**Réponse candidate :** C · **Explication :** Le résumé de la fiche indique : float et double représentent des nombres à virgule flottante, souvent avec une précision limitée.
+**Réponse proposée :** D. Le résumé de la fiche indique : float et double représentent des nombres à virgule flottante, souvent avec une précision limitée.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/19-float-et-double
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_018-03 · vigilance
+### V1-N08_018-03 — vigilance
 
 **Une seule bonne réponse**
 
 Quel point à retenir est directement associé à « float et double » ?
 
 - **A ❌** Un integer overflow n'est pas un buffer overflow. Le premier dépasse une plage NUMÉRIQUE ; il peut conduire au second si une taille d'allocation calculée devient incorrecte. Vérifier les limites avant toute opération risquée.
-- **B ❌** gcc -c produit un fichier objet (.o), sans liaison vers l'exécutable final.
-- **C ❌** Le caractère '0' possède un code numérique ; ce n'est pas l'entier 0.
+- **B ❌** Le caractère '0' possède un code numérique ; ce n'est pas l'entier 0.
+- **C ❌** gcc -c produit un fichier objet (.o), sans liaison vers l'exécutable final.
 - **D ✅** Les comparaisons exactes de flottants doivent être envisagées avec prudence.
 
-**Réponse candidate :** D · **Explication :** La fiche indique : Les comparaisons exactes de flottants doivent être envisagées avec prudence.
+**Réponse proposée :** D. La fiche indique : Les comparaisons exactes de flottants doivent être envisagées avec prudence.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/19-float-et-double
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_018-04 · synthese
+### V1-N08_018-04 — synthese
 
 **Plusieurs bonnes réponses**
 
 Quelles affirmations concernent directement « float et double » ?
 
-- **A ✅** Les comparaisons exactes de flottants doivent être envisagées avec prudence.
-- **B ✅** float et double représentent des nombres à virgule flottante, souvent avec une précision limitée.
-- **C ❌** Retirer 1, puis utiliser la nouvelle valeur.
-- **D ❌** Conserve les deux derniers chiffres d’un entier positif.
+- **A ❌** Conserve les deux derniers chiffres d’un entier positif.
+- **B ❌** Retirer 1, puis utiliser la nouvelle valeur.
+- **C ✅** Les comparaisons exactes de flottants doivent être envisagées avec prudence.
+- **D ✅** float et double représentent des nombres à virgule flottante, souvent avec une précision limitée.
 
-**Réponse candidate :** A, B · **Explication :** Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.
+**Réponse proposée :** C, D. Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/19-float-et-double
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
@@ -1526,79 +1526,79 @@ Quelles affirmations concernent directement « float et double » ?
 
 [Fiche de révision](https://revision-hbtn.soleiljaune.be/#cours/programmation-c/20-char-et-caractere)
 
-### V1-N08_019-01 · definition
+### V1-N08_019-01 — definition
 
 **Une seule bonne réponse**
 
 À quelle notion correspond la définition suivante : « char représente un petit entier utilisé notamment pour les caractères ; 'A' est une constante de caractère. » ?
 
-- **A ✅** char et caractère
-- **B ❌** ASCII
+- **A ❌** return d’un caractère (char)
+- **B ✅** char et caractère
 - **C ❌** gcc -c
-- **D ❌** return d’un caractère (char)
+- **D ❌** ASCII
 
-**Réponse candidate :** A · **Explication :** La définition est extraite du résumé de la fiche correspondante.
+**Réponse proposée :** B. La définition est extraite du résumé de la fiche correspondante.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/20-char-et-caractere
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_019-02 · description
+### V1-N08_019-02 — description
 
 **Une seule bonne réponse**
 
 Quelle description caractérise « char et caractère » ?
 
 - **A ❌** Une fonction de type char peut renvoyer un caractère, par exemple return 'H';.
-- **B ✅** char représente un petit entier utilisé notamment pour les caractères ; 'A' est une constante de caractère.
+- **B ❌** Compile en un fichier objet .o, sans édition de liens.
 - **C ❌** Associe des nombres aux caractères de base ; le caractère '0' vaut 48 en ASCII.
-- **D ❌** Compile en un fichier objet .o, sans édition de liens.
+- **D ✅** char représente un petit entier utilisé notamment pour les caractères ; 'A' est une constante de caractère.
 
-**Réponse candidate :** B · **Explication :** Le résumé de la fiche indique : char représente un petit entier utilisé notamment pour les caractères ; 'A' est une constante de caractère.
+**Réponse proposée :** D. Le résumé de la fiche indique : char représente un petit entier utilisé notamment pour les caractères ; 'A' est une constante de caractère.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/20-char-et-caractere
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_019-03 · vigilance
+### V1-N08_019-03 — vigilance
 
 **Une seule bonne réponse**
 
 Quel point à retenir est directement associé à « char et caractère » ?
 
 - **A ❌** gcc -c produit un fichier objet (.o), sans liaison vers l'exécutable final.
-- **B ❌** char correspond à un caractère (valeur entière), char * à un pointeur. Ne confonds pas return 'H'; avec return "H"; : ce ne sont pas les mêmes types.
-- **C ✅** Ne confonds pas le caractère '3' avec l'entier 3.
-- **D ❌** Le caractère '0' possède un code numérique ; ce n'est pas l'entier 0.
+- **B ✅** Ne confonds pas le caractère '3' avec l'entier 3.
+- **C ❌** Le caractère '0' possède un code numérique ; ce n'est pas l'entier 0.
+- **D ❌** char correspond à un caractère (valeur entière), char * à un pointeur. Ne confonds pas return 'H'; avec return "H"; : ce ne sont pas les mêmes types.
 
-**Réponse candidate :** C · **Explication :** La fiche indique : Ne confonds pas le caractère '3' avec l'entier 3.
+**Réponse proposée :** B. La fiche indique : Ne confonds pas le caractère '3' avec l'entier 3.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/20-char-et-caractere
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_019-04 · synthese
+### V1-N08_019-04 — synthese
 
 **Plusieurs bonnes réponses**
 
 Quelles affirmations concernent directement « char et caractère » ?
 
-- **A ❌** Évaluation arithmétique.
+- **A ❌** Initialisation, test, mise à jour ; forme compacte de boucle.
 - **B ✅** Ne confonds pas le caractère '3' avec l'entier 3.
-- **C ✅** char représente un petit entier utilisé notamment pour les caractères ; 'A' est une constante de caractère.
-- **D ❌** Initialisation, test, mise à jour ; forme compacte de boucle.
+- **C ❌** Évaluation arithmétique.
+- **D ✅** char représente un petit entier utilisé notamment pour les caractères ; 'A' est une constante de caractère.
 
-**Réponse candidate :** B, C · **Explication :** Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.
+**Réponse proposée :** B, D. Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/20-char-et-caractere
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
@@ -1606,79 +1606,79 @@ Quelles affirmations concernent directement « char et caractère » ?
 
 [Fiche de révision](https://revision-hbtn.soleiljaune.be/#cours/programmation-c/21-return-0-return-1)
 
-### V1-N08_020-01 · definition
+### V1-N08_020-01 — definition
 
 **Une seule bonne réponse**
 
 À quelle notion correspond la définition suivante : « Dans main, 0 indique une réussite ; dans une autre fonction, 0 et 1 ont le sens défini par cette fonction. » ?
 
-- **A ❌** gcc -c
-- **B ❌** return d’un caractère (char)
+- **A ❌** return d’un caractère (char)
+- **B ❌** gcc -c
 - **C ❌** Chaîne de format — ne pas utiliser une saisie comme format
 - **D ✅** return 0 / return 1
 
-**Réponse candidate :** D · **Explication :** La définition est extraite du résumé de la fiche correspondante.
+**Réponse proposée :** D. La définition est extraite du résumé de la fiche correspondante.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/21-return-0-return-1
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_020-02 · description
+### V1-N08_020-02 — description
 
 **Une seule bonne réponse**
 
 Quelle description caractérise « return 0 / return 1 » ?
 
-- **A ✅** Dans main, 0 indique une réussite ; dans une autre fonction, 0 et 1 ont le sens défini par cette fonction.
+- **A ❌** Passer une chaîne contrôlée par l'utilisateur directement comme format à printf expose à une vulnérabilité ; utiliser un format fixe tel que "%s".
 - **B ❌** Compile en un fichier objet .o, sans édition de liens.
-- **C ❌** Une fonction de type char peut renvoyer un caractère, par exemple return 'H';.
-- **D ❌** Passer une chaîne contrôlée par l'utilisateur directement comme format à printf expose à une vulnérabilité ; utiliser un format fixe tel que "%s".
+- **C ✅** Dans main, 0 indique une réussite ; dans une autre fonction, 0 et 1 ont le sens défini par cette fonction.
+- **D ❌** Une fonction de type char peut renvoyer un caractère, par exemple return 'H';.
 
-**Réponse candidate :** A · **Explication :** Le résumé de la fiche indique : Dans main, 0 indique une réussite ; dans une autre fonction, 0 et 1 ont le sens défini par cette fonction.
+**Réponse proposée :** C. Le résumé de la fiche indique : Dans main, 0 indique une réussite ; dans une autre fonction, 0 et 1 ont le sens défini par cette fonction.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/21-return-0-return-1
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_020-03 · vigilance
+### V1-N08_020-03 — vigilance
 
 **Une seule bonne réponse**
 
 Quel point à retenir est directement associé à « return 0 / return 1 » ?
 
-- **A ❌** gcc -c produit un fichier objet (.o), sans liaison vers l'exécutable final.
-- **B ❌** Ne jamais employer une donnée non fiable comme chaîne de format de printf, fprintf ou snprintf. Le format fixe "%s" affiche le texte sans interpréter ses caractères % comme des instructions.
-- **C ✅** Ne confonds pas le code de fin de main et les valeurs renvoyées par les autres fonctions : leur signification dépend du contexte. EXIT_SUCCESS et EXIT_FAILURE sont les constantes portables de <stdlib.h>.
+- **A ✅** Ne confonds pas le code de fin de main et les valeurs renvoyées par les autres fonctions : leur signification dépend du contexte. EXIT_SUCCESS et EXIT_FAILURE sont les constantes portables de <stdlib.h>.
+- **B ❌** gcc -c produit un fichier objet (.o), sans liaison vers l'exécutable final.
+- **C ❌** Ne jamais employer une donnée non fiable comme chaîne de format de printf, fprintf ou snprintf. Le format fixe "%s" affiche le texte sans interpréter ses caractères % comme des instructions.
 - **D ❌** char correspond à un caractère (valeur entière), char * à un pointeur. Ne confonds pas return 'H'; avec return "H"; : ce ne sont pas les mêmes types.
 
-**Réponse candidate :** C · **Explication :** La fiche indique : Ne confonds pas le code de fin de main et les valeurs renvoyées par les autres fonctions : leur signification dépend du contexte. EXIT_SUCCESS et EXIT_FAILURE sont les constantes portables de <stdlib.h>.
+**Réponse proposée :** A. La fiche indique : Ne confonds pas le code de fin de main et les valeurs renvoyées par les autres fonctions : leur signification dépend du contexte. EXIT_SUCCESS et EXIT_FAILURE sont les constantes portables de <stdlib.h>.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/21-return-0-return-1
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_020-04 · synthese
+### V1-N08_020-04 — synthese
 
 **Plusieurs bonnes réponses**
 
 Quelles affirmations concernent directement « return 0 / return 1 » ?
 
-- **A ❌** « Definitely lost: 32 bytes in 1 blocks » signifie qu'un bloc alloué de 32 octets reste non libéré et sans pointeur retrouvé : fuite certaine.
+- **A ✅** Dans main, 0 indique une réussite ; dans une autre fonction, 0 et 1 ont le sens défini par cette fonction.
 - **B ❌** INVALID_WRITE, UNINITIALIZED_VALUE, MEMORY_LEAK_DEFINITE, USE_AFTER_FREE et INDIRECT_LEAK sont des catégories d'erreurs ; elles ne correspondent pas toutes à des messages littéraux de Valgrind.
-- **C ✅** Ne confonds pas le code de fin de main et les valeurs renvoyées par les autres fonctions : leur signification dépend du contexte. EXIT_SUCCESS et EXIT_FAILURE sont les constantes portables de <stdlib.h>.
-- **D ✅** Dans main, 0 indique une réussite ; dans une autre fonction, 0 et 1 ont le sens défini par cette fonction.
+- **C ❌** « Definitely lost: 32 bytes in 1 blocks » signifie qu'un bloc alloué de 32 octets reste non libéré et sans pointeur retrouvé : fuite certaine.
+- **D ✅** Ne confonds pas le code de fin de main et les valeurs renvoyées par les autres fonctions : leur signification dépend du contexte. EXIT_SUCCESS et EXIT_FAILURE sont les constantes portables de <stdlib.h>.
 
-**Réponse candidate :** C, D · **Explication :** Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.
+**Réponse proposée :** A, D. Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/21-return-0-return-1
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
@@ -1686,79 +1686,79 @@ Quelles affirmations concernent directement « return 0 / return 1 » ?
 
 [Fiche de révision](https://revision-hbtn.soleiljaune.be/#cours/programmation-c/22-return-d-un-caractere-char)
 
-### V1-N08_021-01 · definition
+### V1-N08_021-01 — definition
 
 **Une seule bonne réponse**
 
 À quelle notion correspond la définition suivante : « Une fonction de type char peut renvoyer un caractère, par exemple return 'H';. » ?
 
 - **A ❌** Chaîne de format — ne pas utiliser une saisie comme format
-- **B ❌** printf / _putchar
-- **C ✅** return d’un caractère (char)
-- **D ❌** return 0 / return 1
+- **B ✅** return d’un caractère (char)
+- **C ❌** return 0 / return 1
+- **D ❌** printf / _putchar
 
-**Réponse candidate :** C · **Explication :** La définition est extraite du résumé de la fiche correspondante.
+**Réponse proposée :** B. La définition est extraite du résumé de la fiche correspondante.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/22-return-d-un-caractere-char
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_021-02 · description
+### V1-N08_021-02 — description
 
 **Une seule bonne réponse**
 
 Quelle description caractérise « return d’un caractère (char) » ?
 
-- **A ❌** Dans main, 0 indique une réussite ; dans une autre fonction, 0 et 1 ont le sens défini par cette fonction.
-- **B ❌** Affichage formaté / écriture d’un caractère.
-- **C ❌** Passer une chaîne contrôlée par l'utilisateur directement comme format à printf expose à une vulnérabilité ; utiliser un format fixe tel que "%s".
+- **A ❌** Passer une chaîne contrôlée par l'utilisateur directement comme format à printf expose à une vulnérabilité ; utiliser un format fixe tel que "%s".
+- **B ❌** Dans main, 0 indique une réussite ; dans une autre fonction, 0 et 1 ont le sens défini par cette fonction.
+- **C ❌** Affichage formaté / écriture d’un caractère.
 - **D ✅** Une fonction de type char peut renvoyer un caractère, par exemple return 'H';.
 
-**Réponse candidate :** D · **Explication :** Le résumé de la fiche indique : Une fonction de type char peut renvoyer un caractère, par exemple return 'H';.
+**Réponse proposée :** D. Le résumé de la fiche indique : Une fonction de type char peut renvoyer un caractère, par exemple return 'H';.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/22-return-d-un-caractere-char
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_021-03 · vigilance
+### V1-N08_021-03 — vigilance
 
 **Une seule bonne réponse**
 
 Quel point à retenir est directement associé à « return d’un caractère (char) » ?
 
-- **A ✅** char correspond à un caractère (valeur entière), char * à un pointeur. Ne confonds pas return 'H'; avec return "H"; : ce ne sont pas les mêmes types.
-- **B ❌** Ne jamais employer une donnée non fiable comme chaîne de format de printf, fprintf ou snprintf. Le format fixe "%s" affiche le texte sans interpréter ses caractères % comme des instructions.
-- **C ❌** Ne confonds pas le code de fin de main et les valeurs renvoyées par les autres fonctions : leur signification dépend du contexte. EXIT_SUCCESS et EXIT_FAILURE sont les constantes portables de <stdlib.h>.
-- **D ❌** _putchar n'est pas une fonction standard C : elle doit être fournie par le projet ou une bibliothèque.
+- **A ❌** _putchar n'est pas une fonction standard C : elle doit être fournie par le projet ou une bibliothèque.
+- **B ❌** Ne confonds pas le code de fin de main et les valeurs renvoyées par les autres fonctions : leur signification dépend du contexte. EXIT_SUCCESS et EXIT_FAILURE sont les constantes portables de <stdlib.h>.
+- **C ✅** char correspond à un caractère (valeur entière), char * à un pointeur. Ne confonds pas return 'H'; avec return "H"; : ce ne sont pas les mêmes types.
+- **D ❌** Ne jamais employer une donnée non fiable comme chaîne de format de printf, fprintf ou snprintf. Le format fixe "%s" affiche le texte sans interpréter ses caractères % comme des instructions.
 
-**Réponse candidate :** A · **Explication :** La fiche indique : char correspond à un caractère (valeur entière), char * à un pointeur. Ne confonds pas return 'H'; avec return "H"; : ce ne sont pas les mêmes types.
+**Réponse proposée :** C. La fiche indique : char correspond à un caractère (valeur entière), char * à un pointeur. Ne confonds pas return 'H'; avec return "H"; : ce ne sont pas les mêmes types.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/22-return-d-un-caractere-char
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_021-04 · synthese
+### V1-N08_021-04 — synthese
 
 **Plusieurs bonnes réponses**
 
 Quelles affirmations concernent directement « return d’un caractère (char) » ?
 
-- **A ✅** Une fonction de type char peut renvoyer un caractère, par exemple return 'H';.
-- **B ❌** Rediriger les erreurs / prendre un fichier comme entrée.
-- **C ❌** sort ordonne les lignes ; uniq supprime uniquement les lignes répétées consécutives : on utilise souvent sort avant uniq.
-- **D ✅** char correspond à un caractère (valeur entière), char * à un pointeur. Ne confonds pas return 'H'; avec return "H"; : ce ne sont pas les mêmes types.
+- **A ✅** char correspond à un caractère (valeur entière), char * à un pointeur. Ne confonds pas return 'H'; avec return "H"; : ce ne sont pas les mêmes types.
+- **B ✅** Une fonction de type char peut renvoyer un caractère, par exemple return 'H';.
+- **C ❌** Rediriger les erreurs / prendre un fichier comme entrée.
+- **D ❌** sort ordonne les lignes ; uniq supprime uniquement les lignes répétées consécutives : on utilise souvent sort avant uniq.
 
-**Réponse candidate :** A, D · **Explication :** Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.
+**Réponse proposée :** A, B. Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/22-return-d-un-caractere-char
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
@@ -1766,79 +1766,79 @@ Quelles affirmations concernent directement « return d’un caractère (char) �
 
 [Fiche de révision](https://revision-hbtn.soleiljaune.be/#cours/programmation-c/23-return-d-un-pointeur-int)
 
-### V1-N08_022-01 · definition
+### V1-N08_022-01 — definition
 
 **Une seule bonne réponse**
 
 À quelle notion correspond la définition suivante : « Une fonction de type int * renvoie une adresse ou NULL ; l’objet pointé doit encore exister lors de son utilisation. » ?
 
-- **A ❌** gcc -E
-- **B ✅** return d’un pointeur (int *)
+- **A ✅** return d’un pointeur (int *)
+- **B ❌** printf / _putchar
 - **C ❌** Chaîne de format — ne pas utiliser une saisie comme format
-- **D ❌** printf / _putchar
+- **D ❌** gcc -E
 
-**Réponse candidate :** B · **Explication :** La définition est extraite du résumé de la fiche correspondante.
+**Réponse proposée :** A. La définition est extraite du résumé de la fiche correspondante.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/23-return-d-un-pointeur-int
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_022-02 · description
+### V1-N08_022-02 — description
 
 **Une seule bonne réponse**
 
 Quelle description caractérise « return d’un pointeur (int *) » ?
 
-- **A ❌** Affichage formaté / écriture d’un caractère.
+- **A ✅** Une fonction de type int * renvoie une adresse ou NULL ; l’objet pointé doit encore exister lors de son utilisation.
 - **B ❌** Arrête la chaîne de compilation après le préprocesseur : le résultat est du code source prétraité.
-- **C ✅** Une fonction de type int * renvoie une adresse ou NULL ; l’objet pointé doit encore exister lors de son utilisation.
+- **C ❌** Affichage formaté / écriture d’un caractère.
 - **D ❌** Passer une chaîne contrôlée par l'utilisateur directement comme format à printf expose à une vulnérabilité ; utiliser un format fixe tel que "%s".
 
-**Réponse candidate :** C · **Explication :** Le résumé de la fiche indique : Une fonction de type int * renvoie une adresse ou NULL ; l’objet pointé doit encore exister lors de son utilisation.
+**Réponse proposée :** A. Le résumé de la fiche indique : Une fonction de type int * renvoie une adresse ou NULL ; l’objet pointé doit encore exister lors de son utilisation.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/23-return-d-un-pointeur-int
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_022-03 · vigilance
+### V1-N08_022-03 — vigilance
 
 **Une seule bonne réponse**
 
 Quel point à retenir est directement associé à « return d’un pointeur (int *) » ?
 
-- **A ❌** _putchar n'est pas une fonction standard C : elle doit être fournie par le projet ou une bibliothèque.
-- **B ❌** gcc -E produit le source prétraité et s'arrête avant la compilation proprement dite.
+- **A ❌** gcc -E produit le source prétraité et s'arrête avant la compilation proprement dite.
+- **B ❌** _putchar n'est pas une fonction standard C : elle doit être fournie par le projet ou une bibliothèque.
 - **C ❌** Ne jamais employer une donnée non fiable comme chaîne de format de printf, fprintf ou snprintf. Le format fixe "%s" affiche le texte sans interpréter ses caractères % comme des instructions.
 - **D ✅** Ne retourne jamais l’adresse d’une variable locale automatique. Un pointeur renvoyé doit rester valide lors de son utilisation, ou valoir NULL ; teste NULL avant tout déréférencement.
 
-**Réponse candidate :** D · **Explication :** La fiche indique : Ne retourne jamais l’adresse d’une variable locale automatique. Un pointeur renvoyé doit rester valide lors de son utilisation, ou valoir NULL ; teste NULL avant tout déréférencement.
+**Réponse proposée :** D. La fiche indique : Ne retourne jamais l’adresse d’une variable locale automatique. Un pointeur renvoyé doit rester valide lors de son utilisation, ou valoir NULL ; teste NULL avant tout déréférencement.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/23-return-d-un-pointeur-int
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_022-04 · synthese
+### V1-N08_022-04 — synthese
 
 **Plusieurs bonnes réponses**
 
 Quelles affirmations concernent directement « return d’un pointeur (int *) » ?
 
-- **A ✅** Ne retourne jamais l’adresse d’une variable locale automatique. Un pointeur renvoyé doit rester valide lors de son utilisation, ou valoir NULL ; teste NULL avant tout déréférencement.
-- **B ✅** Une fonction de type int * renvoie une adresse ou NULL ; l’objet pointé doit encore exister lors de son utilisation.
-- **C ❌** Un segfault (souvent signalé par « Segmentation fault ») est un arrêt causé par un accès mémoire interdit ; un comportement indéfini en C ne provoque cependant pas toujours ce signal.
+- **A ❌** Un segfault (souvent signalé par « Segmentation fault ») est un arrêt causé par un accès mémoire interdit ; un comportement indéfini en C ne provoque cependant pas toujours ce signal.
+- **B ✅** Ne retourne jamais l’adresse d’une variable locale automatique. Un pointeur renvoyé doit rester valide lors de son utilisation, ou valoir NULL ; teste NULL avant tout déréférencement.
+- **C ✅** Une fonction de type int * renvoie une adresse ou NULL ; l’objet pointé doit encore exister lors de son utilisation.
 - **D ❌** strlen("Best School") vaut 11 ; sizeof("Best School") vaut 12 : une copie de cette chaîne demande 12 octets, car il faut aussi stocker '\0'.
 
-**Réponse candidate :** A, B · **Explication :** Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.
+**Réponse proposée :** B, C. Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/23-return-d-un-pointeur-int
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
@@ -1846,79 +1846,79 @@ Quelles affirmations concernent directement « return d’un pointeur (int *) »
 
 [Fiche de révision](https://revision-hbtn.soleiljaune.be/#cours/programmation-c/24-exit-terminer-le-programme)
 
-### V1-N08_023-01 · definition
+### V1-N08_023-01 — definition
 
 **Une seule bonne réponse**
 
 À quelle notion correspond la définition suivante : « exit(code) termine le programme entier, même depuis une fonction appelée ; à la différence de return, il ne revient pas à l’appelant. » ?
 
-- **A ✅** exit() — terminer le programme
-- **B ❌** printf / _putchar
-- **C ❌** gcc -E
-- **D ❌** float et double
+- **A ❌** float et double
+- **B ❌** gcc -E
+- **C ❌** printf / _putchar
+- **D ✅** exit() — terminer le programme
 
-**Réponse candidate :** A · **Explication :** La définition est extraite du résumé de la fiche correspondante.
+**Réponse proposée :** D. La définition est extraite du résumé de la fiche correspondante.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/24-exit-terminer-le-programme
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_023-02 · description
+### V1-N08_023-02 — description
 
 **Une seule bonne réponse**
 
 Quelle description caractérise « exit() — terminer le programme » ?
 
-- **A ❌** Affichage formaté / écriture d’un caractère.
-- **B ❌** float et double représentent des nombres à virgule flottante, souvent avec une précision limitée.
-- **C ✅** exit(code) termine le programme entier, même depuis une fonction appelée ; à la différence de return, il ne revient pas à l’appelant.
-- **D ❌** Arrête la chaîne de compilation après le préprocesseur : le résultat est du code source prétraité.
+- **A ❌** float et double représentent des nombres à virgule flottante, souvent avec une précision limitée.
+- **B ❌** Affichage formaté / écriture d’un caractère.
+- **C ❌** Arrête la chaîne de compilation après le préprocesseur : le résultat est du code source prétraité.
+- **D ✅** exit(code) termine le programme entier, même depuis une fonction appelée ; à la différence de return, il ne revient pas à l’appelant.
 
-**Réponse candidate :** C · **Explication :** Le résumé de la fiche indique : exit(code) termine le programme entier, même depuis une fonction appelée ; à la différence de return, il ne revient pas à l’appelant.
+**Réponse proposée :** D. Le résumé de la fiche indique : exit(code) termine le programme entier, même depuis une fonction appelée ; à la différence de return, il ne revient pas à l’appelant.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/24-exit-terminer-le-programme
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_023-03 · vigilance
+### V1-N08_023-03 — vigilance
 
 **Une seule bonne réponse**
 
 Quel point à retenir est directement associé à « exit() — terminer le programme » ?
 
 - **A ✅** exit(98) arrête le programme avec le statut demandé, pas uniquement la fonction verifier. En remplaçant verifier(1) par verifier(0), le puts n’est jamais exécuté. Utilise EXIT_FAILURE pour un échec portable, et ne confonds pas exit() avec free().
-- **B ❌** Les comparaisons exactes de flottants doivent être envisagées avec prudence.
-- **C ❌** gcc -E produit le source prétraité et s'arrête avant la compilation proprement dite.
-- **D ❌** _putchar n'est pas une fonction standard C : elle doit être fournie par le projet ou une bibliothèque.
+- **B ❌** gcc -E produit le source prétraité et s'arrête avant la compilation proprement dite.
+- **C ❌** _putchar n'est pas une fonction standard C : elle doit être fournie par le projet ou une bibliothèque.
+- **D ❌** Les comparaisons exactes de flottants doivent être envisagées avec prudence.
 
-**Réponse candidate :** A · **Explication :** La fiche indique : exit(98) arrête le programme avec le statut demandé, pas uniquement la fonction verifier. En remplaçant verifier(1) par verifier(0), le puts n’est jamais exécuté. Utilise EXIT_FAILURE pour un échec portable, et ne confonds pas exit() avec free().
+**Réponse proposée :** A. La fiche indique : exit(98) arrête le programme avec le statut demandé, pas uniquement la fonction verifier. En remplaçant verifier(1) par verifier(0), le puts n’est jamais exécuté. Utilise EXIT_FAILURE pour un échec portable, et ne confonds pas exit() avec free().
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/24-exit-terminer-le-programme
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_023-04 · synthese
+### V1-N08_023-04 — synthese
 
 **Plusieurs bonnes réponses**
 
 Quelles affirmations concernent directement « exit() — terminer le programme » ?
 
-- **A ✅** exit(code) termine le programme entier, même depuis une fonction appelée ; à la différence de return, il ne revient pas à l’appelant.
+- **A ❌** Sous-système Windows pour Linux : environnement Linux utilisable sur Windows.
 - **B ✅** exit(98) arrête le programme avec le statut demandé, pas uniquement la fonction verifier. En remplaçant verifier(1) par verifier(0), le puts n’est jamais exécuté. Utilise EXIT_FAILURE pour un échec portable, et ne confonds pas exit() avec free().
-- **C ❌** Sous-système Windows pour Linux : environnement Linux utilisable sur Windows.
-- **D ❌** Dossier personnel de l’utilisateur.
+- **C ❌** Dossier personnel de l’utilisateur.
+- **D ✅** exit(code) termine le programme entier, même depuis une fonction appelée ; à la différence de return, il ne revient pas à l’appelant.
 
-**Réponse candidate :** A, B · **Explication :** Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.
+**Réponse proposée :** B, D. Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/24-exit-terminer-le-programme
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
@@ -1926,79 +1926,79 @@ Quelles affirmations concernent directement « exit() — terminer le programme 
 
 [Fiche de révision](https://revision-hbtn.soleiljaune.be/#cours/programmation-c/25-dennis-ritchie-createur-du-langage-c)
 
-### V1-N08_024-01 · definition
+### V1-N08_024-01 — definition
 
 **Une seule bonne réponse**
 
 À quelle notion correspond la définition suivante : « Dennis Ritchie a conçu le langage C aux Bell Labs au début des années 1970 ; il a aussi joué un rôle majeur dans le développement d’Unix. » ?
 
-- **A ❌** gcc -E
-- **B ❌** fgets() — lire une ligne avec une limite
+- **A ❌** fgets() — lire une ligne avec une limite
+- **B ❌** gcc -E
 - **C ❌** float et double
 - **D ✅** Dennis Ritchie — créateur du langage C
 
-**Réponse candidate :** D · **Explication :** La définition est extraite du résumé de la fiche correspondante.
+**Réponse proposée :** D. La définition est extraite du résumé de la fiche correspondante.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/25-dennis-ritchie-createur-du-langage-c
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_024-02 · description
+### V1-N08_024-02 — description
 
 **Une seule bonne réponse**
 
 Quelle description caractérise « Dennis Ritchie — créateur du langage C » ?
 
 - **A ✅** Dennis Ritchie a conçu le langage C aux Bell Labs au début des années 1970 ; il a aussi joué un rôle majeur dans le développement d’Unix.
-- **B ❌** float et double représentent des nombres à virgule flottante, souvent avec une précision limitée.
+- **B ❌** fgets lit au plus taille - 1 caractères, ajoute '\0' et peut conserver le saut de ligne ; toujours vérifier son retour.
 - **C ❌** Arrête la chaîne de compilation après le préprocesseur : le résultat est du code source prétraité.
-- **D ❌** fgets lit au plus taille - 1 caractères, ajoute '\0' et peut conserver le saut de ligne ; toujours vérifier son retour.
+- **D ❌** float et double représentent des nombres à virgule flottante, souvent avec une précision limitée.
 
-**Réponse candidate :** A · **Explication :** Le résumé de la fiche indique : Dennis Ritchie a conçu le langage C aux Bell Labs au début des années 1970 ; il a aussi joué un rôle majeur dans le développement d’Unix.
+**Réponse proposée :** A. Le résumé de la fiche indique : Dennis Ritchie a conçu le langage C aux Bell Labs au début des années 1970 ; il a aussi joué un rôle majeur dans le développement d’Unix.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/25-dennis-ritchie-createur-du-langage-c
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_024-03 · vigilance
+### V1-N08_024-03 — vigilance
 
 **Une seule bonne réponse**
 
 Quel point à retenir est directement associé à « Dennis Ritchie — créateur du langage C » ?
 
 - **A ❌** gcc -E produit le source prétraité et s'arrête avant la compilation proprement dite.
-- **B ❌** La taille fournie à fgets correspond à la capacité du tableau, pas à une quantité illimitée de texte. Vérifier NULL et détecter une ligne tronquée si toute l'entrée doit être conservée. Ne pas supposer que le saut de ligne est toujours présent.
-- **C ✅** Culture générale : Dennis Ritchie = créateur du C. Unix = travail collectif, notamment avec Ken Thompson. Brian Kernighan est coauteur du célèbre livre K&R, pas le créateur du langage.
-- **D ❌** Les comparaisons exactes de flottants doivent être envisagées avec prudence.
+- **B ✅** Culture générale : Dennis Ritchie = créateur du C. Unix = travail collectif, notamment avec Ken Thompson. Brian Kernighan est coauteur du célèbre livre K&R, pas le créateur du langage.
+- **C ❌** Les comparaisons exactes de flottants doivent être envisagées avec prudence.
+- **D ❌** La taille fournie à fgets correspond à la capacité du tableau, pas à une quantité illimitée de texte. Vérifier NULL et détecter une ligne tronquée si toute l'entrée doit être conservée. Ne pas supposer que le saut de ligne est toujours présent.
 
-**Réponse candidate :** C · **Explication :** La fiche indique : Culture générale : Dennis Ritchie = créateur du C. Unix = travail collectif, notamment avec Ken Thompson. Brian Kernighan est coauteur du célèbre livre K&R, pas le créateur du langage.
+**Réponse proposée :** B. La fiche indique : Culture générale : Dennis Ritchie = créateur du C. Unix = travail collectif, notamment avec Ken Thompson. Brian Kernighan est coauteur du célèbre livre K&R, pas le créateur du langage.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/25-dennis-ritchie-createur-du-langage-c
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_024-04 · synthese
+### V1-N08_024-04 — synthese
 
 **Plusieurs bonnes réponses**
 
 Quelles affirmations concernent directement « Dennis Ritchie — créateur du langage C » ?
 
-- **A ✅** Culture générale : Dennis Ritchie = créateur du C. Unix = travail collectif, notamment avec Ken Thompson. Brian Kernighan est coauteur du célèbre livre K&R, pas le créateur du langage.
-- **B ❌** Pour un tableau a, a[2] désigne le même élément que *(a + 2).
-- **C ❌** int grille[2][3] contient deux lignes de trois éléments ; grille[1][2] désigne la troisième case de la seconde ligne.
-- **D ✅** Dennis Ritchie a conçu le langage C aux Bell Labs au début des années 1970 ; il a aussi joué un rôle majeur dans le développement d’Unix.
+- **A ❌** int grille[2][3] contient deux lignes de trois éléments ; grille[1][2] désigne la troisième case de la seconde ligne.
+- **B ✅** Culture générale : Dennis Ritchie = créateur du C. Unix = travail collectif, notamment avec Ken Thompson. Brian Kernighan est coauteur du célèbre livre K&R, pas le créateur du langage.
+- **C ✅** Dennis Ritchie a conçu le langage C aux Bell Labs au début des années 1970 ; il a aussi joué un rôle majeur dans le développement d’Unix.
+- **D ❌** Pour un tableau a, a[2] désigne le même élément que *(a + 2).
 
-**Réponse candidate :** A, D · **Explication :** Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.
+**Réponse proposée :** B, C. Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/25-dennis-ritchie-createur-du-langage-c
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
@@ -2006,79 +2006,79 @@ Quelles affirmations concernent directement « Dennis Ritchie — créateur du l
 
 [Fiche de révision](https://revision-hbtn.soleiljaune.be/#cours/programmation-c/26-scanf-lire-une-saisie-au-clavier)
 
-### V1-N08_025-01 · definition
+### V1-N08_025-01 — definition
 
 **Une seule bonne réponse**
 
 À quelle notion correspond la définition suivante : « scanf lit une entrée formatée (souvent depuis le clavier) et écrit les valeurs lues dans des variables : utiliser & pour une variable numérique et vérifier le nombre de conversions réussies. » ?
 
-- **A ❌** fgets() — lire une ligne avec une limite
-- **B ❌** void
+- **A ❌** float et double
+- **B ❌** fgets() — lire une ligne avec une limite
 - **C ✅** scanf() — lire une saisie au clavier
-- **D ❌** float et double
+- **D ❌** void
 
-**Réponse candidate :** C · **Explication :** La définition est extraite du résumé de la fiche correspondante.
+**Réponse proposée :** C. La définition est extraite du résumé de la fiche correspondante.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/26-scanf-lire-une-saisie-au-clavier
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_025-02 · description
+### V1-N08_025-02 — description
 
 **Une seule bonne réponse**
 
 Quelle description caractérise « scanf() — lire une saisie au clavier » ?
 
-- **A ❌** fgets lit au plus taille - 1 caractères, ajoute '\0' et peut conserver le saut de ligne ; toujours vérifier son retour.
-- **B ❌** Indique une absence de valeur de retour ou de paramètres selon le contexte.
-- **C ❌** float et double représentent des nombres à virgule flottante, souvent avec une précision limitée.
-- **D ✅** scanf lit une entrée formatée (souvent depuis le clavier) et écrit les valeurs lues dans des variables : utiliser & pour une variable numérique et vérifier le nombre de conversions réussies.
+- **A ❌** float et double représentent des nombres à virgule flottante, souvent avec une précision limitée.
+- **B ✅** scanf lit une entrée formatée (souvent depuis le clavier) et écrit les valeurs lues dans des variables : utiliser & pour une variable numérique et vérifier le nombre de conversions réussies.
+- **C ❌** fgets lit au plus taille - 1 caractères, ajoute '\0' et peut conserver le saut de ligne ; toujours vérifier son retour.
+- **D ❌** Indique une absence de valeur de retour ou de paramètres selon le contexte.
 
-**Réponse candidate :** D · **Explication :** Le résumé de la fiche indique : scanf lit une entrée formatée (souvent depuis le clavier) et écrit les valeurs lues dans des variables : utiliser & pour une variable numérique et vérifier le nombre de conversions réussies.
+**Réponse proposée :** B. Le résumé de la fiche indique : scanf lit une entrée formatée (souvent depuis le clavier) et écrit les valeurs lues dans des variables : utiliser & pour une variable numérique et vérifier le nombre de conversions réussies.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/26-scanf-lire-une-saisie-au-clavier
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_025-03 · vigilance
+### V1-N08_025-03 — vigilance
 
 **Une seule bonne réponse**
 
 Quel point à retenir est directement associé à « scanf() — lire une saisie au clavier » ?
 
-- **A ❌** La taille fournie à fgets correspond à la capacité du tableau, pas à une quantité illimitée de texte. Vérifier NULL et détecter une ligne tronquée si toute l'entrée doit être conservée. Ne pas supposer que le saut de ligne est toujours présent.
+- **A ✅** scanf("%d", &age) attend l’adresse de age et renvoie 1 seulement si un entier est lu correctement. Vérifier le retour avant d’utiliser la variable. Avec %s, toujours fixer une largeur adaptée à la taille du tableau ; fgets est mieux adapté aux phrases avec espaces. Le format de printf n’a pas exactement les mêmes types attendus : scanf("%f", &f) pour float et scanf("%
 - **B ❌** Les comparaisons exactes de flottants doivent être envisagées avec prudence.
-- **C ✅** scanf("%d", &age) attend l’adresse de age et renvoie 1 seulement si un entier est lu correctement. Vérifier le retour avant d’utiliser la variable. Avec %s, toujours fixer une largeur adaptée à la taille du tableau ; fgets est mieux adapté aux phrases avec espaces. Le format de printf n’a pas exactement les mêmes types attendus : scanf("%f", &f) pour float et scanf("%
+- **C ❌** La taille fournie à fgets correspond à la capacité du tableau, pas à une quantité illimitée de texte. Vérifier NULL et détecter une ligne tronquée si toute l'entrée doit être conservée. Ne pas supposer que le saut de ligne est toujours présent.
 - **D ❌** void en retour : aucun résultat ; (void) dans les paramètres : aucun paramètre.
 
-**Réponse candidate :** C · **Explication :** La fiche indique : scanf("%d", &age) attend l’adresse de age et renvoie 1 seulement si un entier est lu correctement. Vérifier le retour avant d’utiliser la variable. Avec %s, toujours fixer une largeur adaptée à la taille du tableau ; fgets est mieux adapté aux phrases avec espaces. Le format de printf n’a pas exactement les mêmes types attendus : scanf("%f", &f) pour float et scanf("%
+**Réponse proposée :** A. La fiche indique : scanf("%d", &age) attend l’adresse de age et renvoie 1 seulement si un entier est lu correctement. Vérifier le retour avant d’utiliser la variable. Avec %s, toujours fixer une largeur adaptée à la taille du tableau ; fgets est mieux adapté aux phrases avec espaces. Le format de printf n’a pas exactement les mêmes types attendus : scanf("%f", &f) pour float et scanf("%
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/26-scanf-lire-une-saisie-au-clavier
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_025-04 · synthese
+### V1-N08_025-04 — synthese
 
 **Plusieurs bonnes réponses**
 
 Quelles affirmations concernent directement « scanf() — lire une saisie au clavier » ?
 
-- **A ❌** Un tableau comme struct point a[2] regroupe plusieurs objets struct, accessibles par a[i].x.
-- **B ❌** typedef struct { int x; int y; } point_t; crée un alias pour une struct sans étiquette.
-- **C ✅** scanf lit une entrée formatée (souvent depuis le clavier) et écrit les valeurs lues dans des variables : utiliser & pour une variable numérique et vérifier le nombre de conversions réussies.
-- **D ✅** scanf("%d", &age) attend l’adresse de age et renvoie 1 seulement si un entier est lu correctement. Vérifier le retour avant d’utiliser la variable. Avec %s, toujours fixer une largeur adaptée à la taille du tableau ; fgets est mieux adapté aux phrases avec espaces. Le format de printf n’a pas exactement les mêmes types attendus : scanf("%f", &f) pour float et scanf("%
+- **A ✅** scanf("%d", &age) attend l’adresse de age et renvoie 1 seulement si un entier est lu correctement. Vérifier le retour avant d’utiliser la variable. Avec %s, toujours fixer une largeur adaptée à la taille du tableau ; fgets est mieux adapté aux phrases avec espaces. Le format de printf n’a pas exactement les mêmes types attendus : scanf("%f", &f) pour float et scanf("%
+- **B ❌** Un tableau comme struct point a[2] regroupe plusieurs objets struct, accessibles par a[i].x.
+- **C ❌** typedef struct { int x; int y; } point_t; crée un alias pour une struct sans étiquette.
+- **D ✅** scanf lit une entrée formatée (souvent depuis le clavier) et écrit les valeurs lues dans des variables : utiliser & pour une variable numérique et vérifier le nombre de conversions réussies.
 
-**Réponse candidate :** C, D · **Explication :** Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.
+**Réponse proposée :** A, D. Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/26-scanf-lire-une-saisie-au-clavier
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
@@ -2086,79 +2086,79 @@ Quelles affirmations concernent directement « scanf() — lire une saisie au cl
 
 [Fiche de révision](https://revision-hbtn.soleiljaune.be/#cours/programmation-c/27-fgets-lire-une-ligne-avec-une-limite)
 
-### V1-N08_026-01 · definition
+### V1-N08_026-01 — definition
 
 **Une seule bonne réponse**
 
 À quelle notion correspond la définition suivante : « fgets lit au plus taille - 1 caractères, ajoute '\0' et peut conserver le saut de ligne ; toujours vérifier son retour. » ?
 
-- **A ❌** scanf() — lire une saisie au clavier
-- **B ❌** gcc -o nom source.c
+- **A ❌** void
+- **B ❌** scanf() — lire une saisie au clavier
 - **C ✅** fgets() — lire une ligne avec une limite
-- **D ❌** void
+- **D ❌** gcc -o nom source.c
 
-**Réponse candidate :** C · **Explication :** La définition est extraite du résumé de la fiche correspondante.
+**Réponse proposée :** C. La définition est extraite du résumé de la fiche correspondante.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/27-fgets-lire-une-ligne-avec-une-limite · https://man7.org/linux/man-pages/man3/fgets.3.html
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_026-02 · description
+### V1-N08_026-02 — description
 
 **Une seule bonne réponse**
 
 Quelle description caractérise « fgets() — lire une ligne avec une limite » ?
 
-- **A ✅** fgets lit au plus taille - 1 caractères, ajoute '\0' et peut conserver le saut de ligne ; toujours vérifier son retour.
-- **B ❌** Compiler un fichier source et nommer l’exécutable.
-- **C ❌** Indique une absence de valeur de retour ou de paramètres selon le contexte.
-- **D ❌** scanf lit une entrée formatée (souvent depuis le clavier) et écrit les valeurs lues dans des variables : utiliser & pour une variable numérique et vérifier le nombre de conversions réussies.
+- **A ❌** scanf lit une entrée formatée (souvent depuis le clavier) et écrit les valeurs lues dans des variables : utiliser & pour une variable numérique et vérifier le nombre de conversions réussies.
+- **B ❌** Indique une absence de valeur de retour ou de paramètres selon le contexte.
+- **C ❌** Compiler un fichier source et nommer l’exécutable.
+- **D ✅** fgets lit au plus taille - 1 caractères, ajoute '\0' et peut conserver le saut de ligne ; toujours vérifier son retour.
 
-**Réponse candidate :** A · **Explication :** Le résumé de la fiche indique : fgets lit au plus taille - 1 caractères, ajoute '\0' et peut conserver le saut de ligne ; toujours vérifier son retour.
+**Réponse proposée :** D. Le résumé de la fiche indique : fgets lit au plus taille - 1 caractères, ajoute '\0' et peut conserver le saut de ligne ; toujours vérifier son retour.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/27-fgets-lire-une-ligne-avec-une-limite · https://man7.org/linux/man-pages/man3/fgets.3.html
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_026-03 · vigilance
+### V1-N08_026-03 — vigilance
 
 **Une seule bonne réponse**
 
 Quel point à retenir est directement associé à « fgets() — lire une ligne avec une limite » ?
 
-- **A ❌** void en retour : aucun résultat ; (void) dans les paramètres : aucun paramètre.
-- **B ❌** L'option -o choisit le nom de sortie ; elle n'impose pas le type de cette sortie.
-- **C ❌** scanf("%d", &age) attend l’adresse de age et renvoie 1 seulement si un entier est lu correctement. Vérifier le retour avant d’utiliser la variable. Avec %s, toujours fixer une largeur adaptée à la taille du tableau ; fgets est mieux adapté aux phrases avec espaces. Le format de printf n’a pas exactement les mêmes types attendus : scanf("%f", &f) pour float et scanf("%
-- **D ✅** La taille fournie à fgets correspond à la capacité du tableau, pas à une quantité illimitée de texte. Vérifier NULL et détecter une ligne tronquée si toute l'entrée doit être conservée. Ne pas supposer que le saut de ligne est toujours présent.
+- **A ❌** scanf("%d", &age) attend l’adresse de age et renvoie 1 seulement si un entier est lu correctement. Vérifier le retour avant d’utiliser la variable. Avec %s, toujours fixer une largeur adaptée à la taille du tableau ; fgets est mieux adapté aux phrases avec espaces. Le format de printf n’a pas exactement les mêmes types attendus : scanf("%f", &f) pour float et scanf("%
+- **B ✅** La taille fournie à fgets correspond à la capacité du tableau, pas à une quantité illimitée de texte. Vérifier NULL et détecter une ligne tronquée si toute l'entrée doit être conservée. Ne pas supposer que le saut de ligne est toujours présent.
+- **C ❌** L'option -o choisit le nom de sortie ; elle n'impose pas le type de cette sortie.
+- **D ❌** void en retour : aucun résultat ; (void) dans les paramètres : aucun paramètre.
 
-**Réponse candidate :** D · **Explication :** La fiche indique : La taille fournie à fgets correspond à la capacité du tableau, pas à une quantité illimitée de texte. Vérifier NULL et détecter une ligne tronquée si toute l'entrée doit être conservée. Ne pas supposer que le saut de ligne est toujours présent.
+**Réponse proposée :** B. La fiche indique : La taille fournie à fgets correspond à la capacité du tableau, pas à une quantité illimitée de texte. Vérifier NULL et détecter une ligne tronquée si toute l'entrée doit être conservée. Ne pas supposer que le saut de ligne est toujours présent.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/27-fgets-lire-une-ligne-avec-une-limite · https://man7.org/linux/man-pages/man3/fgets.3.html
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_026-04 · synthese
+### V1-N08_026-04 — synthese
 
 **Plusieurs bonnes réponses**
 
 Quelles affirmations concernent directement « fgets() — lire une ligne avec une limite » ?
 
-- **A ❌** Le spécificateur %p permet d’afficher une adresse ; l’argument correspondant doit être un void * (conversion explicite recommandée).
-- **B ✅** fgets lit au plus taille - 1 caractères, ajoute '\0' et peut conserver le saut de ligne ; toujours vérifier son retour.
-- **C ✅** La taille fournie à fgets correspond à la capacité du tableau, pas à une quantité illimitée de texte. Vérifier NULL et détecter une ligne tronquée si toute l'entrée doit être conservée. Ne pas supposer que le saut de ligne est toujours présent.
-- **D ❌** Emplacement où une variable est stockée. On ne choisit généralement pas soi-même son adresse.
+- **A ✅** fgets lit au plus taille - 1 caractères, ajoute '\0' et peut conserver le saut de ligne ; toujours vérifier son retour.
+- **B ✅** La taille fournie à fgets correspond à la capacité du tableau, pas à une quantité illimitée de texte. Vérifier NULL et détecter une ligne tronquée si toute l'entrée doit être conservée. Ne pas supposer que le saut de ligne est toujours présent.
+- **C ❌** Emplacement où une variable est stockée. On ne choisit généralement pas soi-même son adresse.
+- **D ❌** Le spécificateur %p permet d’afficher une adresse ; l’argument correspondant doit être un void * (conversion explicite recommandée).
 
-**Réponse candidate :** B, C · **Explication :** Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.
+**Réponse proposée :** A, B. Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/27-fgets-lire-une-ligne-avec-une-limite · https://man7.org/linux/man-pages/man3/fgets.3.html
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
@@ -2166,45 +2166,45 @@ Quelles affirmations concernent directement « fgets() — lire une ligne avec u
 
 [Fiche de révision](https://revision-hbtn.soleiljaune.be/#cours/programmation-c/28-strtol-convertir-une-entree-en-entier)
 
-### V1-N08_027-01 · definition
+### V1-N08_027-01 — definition
 
 **Une seule bonne réponse**
 
 À quelle notion correspond la définition suivante : « strtol convertit une chaîne en long ; vérifier les chiffres lus, les caractères restants et les dépassements avec errno. » ?
 
-- **A ✅** strtol() — convertir une entrée en entier
-- **B ❌** gcc -o nom source.c
+- **A ❌** gcc -o nom source.c
+- **B ✅** strtol() — convertir une entrée en entier
 - **C ❌** void
 - **D ❌** Types entiers en C
 
-**Réponse candidate :** A · **Explication :** La définition est extraite du résumé de la fiche correspondante.
+**Réponse proposée :** B. La définition est extraite du résumé de la fiche correspondante.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/28-strtol-convertir-une-entree-en-entier · https://man7.org/linux/man-pages/man3/strtol.3.html
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_027-02 · description
+### V1-N08_027-02 — description
 
 **Une seule bonne réponse**
 
 Quelle description caractérise « strtol() — convertir une entrée en entier » ?
 
 - **A ❌** Indique une absence de valeur de retour ou de paramètres selon le contexte.
-- **B ❌** char, short, int, long et long long représentent des valeurs entières ; leurs tailles exactes dépendent de la plateforme.
-- **C ✅** strtol convertit une chaîne en long ; vérifier les chiffres lus, les caractères restants et les dépassements avec errno.
+- **B ✅** strtol convertit une chaîne en long ; vérifier les chiffres lus, les caractères restants et les dépassements avec errno.
+- **C ❌** char, short, int, long et long long représentent des valeurs entières ; leurs tailles exactes dépendent de la plateforme.
 - **D ❌** Compiler un fichier source et nommer l’exécutable.
 
-**Réponse candidate :** C · **Explication :** Le résumé de la fiche indique : strtol convertit une chaîne en long ; vérifier les chiffres lus, les caractères restants et les dépassements avec errno.
+**Réponse proposée :** B. Le résumé de la fiche indique : strtol convertit une chaîne en long ; vérifier les chiffres lus, les caractères restants et les dépassements avec errno.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/28-strtol-convertir-une-entree-en-entier · https://man7.org/linux/man-pages/man3/strtol.3.html
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_027-03 · vigilance
+### V1-N08_027-03 — vigilance
 
 **Une seule bonne réponse**
 
@@ -2212,33 +2212,33 @@ Quel point à retenir est directement associé à « strtol() — convertir une 
 
 - **A ✅** Contrôler simultanément fin == ligne, errno == ERANGE et les caractères restants : une entrée comme 42abc ne doit pas être acceptée silencieusement. strtol renvoie un long, pas automatiquement un int.
 - **B ❌** L'option -o choisit le nom de sortie ; elle n'impose pas le type de cette sortie.
-- **C ❌** Un type ne garantit pas partout le même nombre d’octets.
-- **D ❌** void en retour : aucun résultat ; (void) dans les paramètres : aucun paramètre.
+- **C ❌** void en retour : aucun résultat ; (void) dans les paramètres : aucun paramètre.
+- **D ❌** Un type ne garantit pas partout le même nombre d’octets.
 
-**Réponse candidate :** A · **Explication :** La fiche indique : Contrôler simultanément fin == ligne, errno == ERANGE et les caractères restants : une entrée comme 42abc ne doit pas être acceptée silencieusement. strtol renvoie un long, pas automatiquement un int.
+**Réponse proposée :** A. La fiche indique : Contrôler simultanément fin == ligne, errno == ERANGE et les caractères restants : une entrée comme 42abc ne doit pas être acceptée silencieusement. strtol renvoie un long, pas automatiquement un int.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/28-strtol-convertir-une-entree-en-entier · https://man7.org/linux/man-pages/man3/strtol.3.html
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_027-04 · synthese
+### V1-N08_027-04 — synthese
 
 **Plusieurs bonnes réponses**
 
 Quelles affirmations concernent directement « strtol() — convertir une entrée en entier » ?
 
-- **A ✅** strtol convertit une chaîne en long ; vérifier les chiffres lus, les caractères restants et les dépassements avec errno.
+- **A ❌** Utiliser l’ancienne valeur, puis retirer 1.
 - **B ✅** Contrôler simultanément fin == ligne, errno == ERANGE et les caractères restants : une entrée comme 42abc ne doit pas être acceptée silencieusement. strtol renvoie un long, pas automatiquement un int.
-- **C ❌** Utiliser l’ancienne valeur, puis retirer 1.
+- **C ✅** strtol convertit une chaîne en long ; vérifier les chiffres lus, les caractères restants et les dépassements avec errno.
 - **D ❌** sizeof donne la taille en octets d’un type ou d’un objet sur la machine utilisée ; ne pas supposer une taille universelle pour int ou un pointeur.
 
-**Réponse candidate :** A, B · **Explication :** Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.
+**Réponse proposée :** B, C. Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/28-strtol-convertir-une-entree-en-entier · https://man7.org/linux/man-pages/man3/strtol.3.html
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
@@ -2246,7 +2246,7 @@ Quelles affirmations concernent directement « strtol() — convertir une entré
 
 [Fiche de révision](https://revision-hbtn.soleiljaune.be/#cours/programmation-c/29-chaine-de-format-ne-pas-utiliser-une-saisie-comme-format)
 
-### V1-N08_028-01 · definition
+### V1-N08_028-01 — definition
 
 **Une seule bonne réponse**
 
@@ -2254,71 +2254,71 @@ Quelles affirmations concernent directement « strtol() — convertir une entré
 
 - **A ❌** Types entiers en C
 - **B ❌** exit() — terminer le programme
-- **C ❌** gcc -o nom source.c
-- **D ✅** Chaîne de format — ne pas utiliser une saisie comme format
+- **C ✅** Chaîne de format — ne pas utiliser une saisie comme format
+- **D ❌** gcc -o nom source.c
 
-**Réponse candidate :** D · **Explication :** La définition est extraite du résumé de la fiche correspondante.
+**Réponse proposée :** C. La définition est extraite du résumé de la fiche correspondante.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/29-chaine-de-format-ne-pas-utiliser-une-saisie-comme-format · https://owasp.org/www-community/attacks/Format_string_attack
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_028-02 · description
+### V1-N08_028-02 — description
 
 **Une seule bonne réponse**
 
 Quelle description caractérise « Chaîne de format — ne pas utiliser une saisie comme format » ?
 
 - **A ❌** char, short, int, long et long long représentent des valeurs entières ; leurs tailles exactes dépendent de la plateforme.
-- **B ❌** Compiler un fichier source et nommer l’exécutable.
-- **C ✅** Passer une chaîne contrôlée par l'utilisateur directement comme format à printf expose à une vulnérabilité ; utiliser un format fixe tel que "%s".
-- **D ❌** exit(code) termine le programme entier, même depuis une fonction appelée ; à la différence de return, il ne revient pas à l’appelant.
+- **B ❌** exit(code) termine le programme entier, même depuis une fonction appelée ; à la différence de return, il ne revient pas à l’appelant.
+- **C ❌** Compiler un fichier source et nommer l’exécutable.
+- **D ✅** Passer une chaîne contrôlée par l'utilisateur directement comme format à printf expose à une vulnérabilité ; utiliser un format fixe tel que "%s".
 
-**Réponse candidate :** C · **Explication :** Le résumé de la fiche indique : Passer une chaîne contrôlée par l'utilisateur directement comme format à printf expose à une vulnérabilité ; utiliser un format fixe tel que "%s".
+**Réponse proposée :** D. Le résumé de la fiche indique : Passer une chaîne contrôlée par l'utilisateur directement comme format à printf expose à une vulnérabilité ; utiliser un format fixe tel que "%s".
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/29-chaine-de-format-ne-pas-utiliser-une-saisie-comme-format · https://owasp.org/www-community/attacks/Format_string_attack
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_028-03 · vigilance
+### V1-N08_028-03 — vigilance
 
 **Une seule bonne réponse**
 
 Quel point à retenir est directement associé à « Chaîne de format — ne pas utiliser une saisie comme format » ?
 
-- **A ❌** L'option -o choisit le nom de sortie ; elle n'impose pas le type de cette sortie.
-- **B ✅** Ne jamais employer une donnée non fiable comme chaîne de format de printf, fprintf ou snprintf. Le format fixe "%s" affiche le texte sans interpréter ses caractères % comme des instructions.
-- **C ❌** exit(98) arrête le programme avec le statut demandé, pas uniquement la fonction verifier. En remplaçant verifier(1) par verifier(0), le puts n’est jamais exécuté. Utilise EXIT_FAILURE pour un échec portable, et ne confonds pas exit() avec free().
+- **A ✅** Ne jamais employer une donnée non fiable comme chaîne de format de printf, fprintf ou snprintf. Le format fixe "%s" affiche le texte sans interpréter ses caractères % comme des instructions.
+- **B ❌** exit(98) arrête le programme avec le statut demandé, pas uniquement la fonction verifier. En remplaçant verifier(1) par verifier(0), le puts n’est jamais exécuté. Utilise EXIT_FAILURE pour un échec portable, et ne confonds pas exit() avec free().
+- **C ❌** L'option -o choisit le nom de sortie ; elle n'impose pas le type de cette sortie.
 - **D ❌** Un type ne garantit pas partout le même nombre d’octets.
 
-**Réponse candidate :** B · **Explication :** La fiche indique : Ne jamais employer une donnée non fiable comme chaîne de format de printf, fprintf ou snprintf. Le format fixe "%s" affiche le texte sans interpréter ses caractères % comme des instructions.
+**Réponse proposée :** A. La fiche indique : Ne jamais employer une donnée non fiable comme chaîne de format de printf, fprintf ou snprintf. Le format fixe "%s" affiche le texte sans interpréter ses caractères % comme des instructions.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/29-chaine-de-format-ne-pas-utiliser-une-saisie-comme-format · https://owasp.org/www-community/attacks/Format_string_attack
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_028-04 · synthese
+### V1-N08_028-04 — synthese
 
 **Plusieurs bonnes réponses**
 
 Quelles affirmations concernent directement « Chaîne de format — ne pas utiliser une saisie comme format » ?
 
-- **A ✅** Ne jamais employer une donnée non fiable comme chaîne de format de printf, fprintf ou snprintf. Le format fixe "%s" affiche le texte sans interpréter ses caractères % comme des instructions.
-- **B ❌** Logiciel de gestion de versions distribué.
+- **A ✅** Passer une chaîne contrôlée par l'utilisateur directement comme format à printf expose à une vulnérabilité ; utiliser un format fixe tel que "%s".
+- **B ✅** Ne jamais employer une donnée non fiable comme chaîne de format de printf, fprintf ou snprintf. Le format fixe "%s" affiche le texte sans interpréter ses caractères % comme des instructions.
 - **C ❌** ET logique / OU logique / négation.
-- **D ✅** Passer une chaîne contrôlée par l'utilisateur directement comme format à printf expose à une vulnérabilité ; utiliser un format fixe tel que "%s".
+- **D ❌** Logiciel de gestion de versions distribué.
 
-**Réponse candidate :** A, D · **Explication :** Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.
+**Réponse proposée :** A, B. Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/29-chaine-de-format-ne-pas-utiliser-une-saisie-comme-format · https://owasp.org/www-community/attacks/Format_string_attack
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
@@ -2326,7 +2326,7 @@ Quelles affirmations concernent directement « Chaîne de format — ne pas util
 
 [Fiche de révision](https://revision-hbtn.soleiljaune.be/#cours/programmation-c/30-eof-detecter-la-fin-d-une-entree)
 
-### V1-N08_029-01 · definition
+### V1-N08_029-01 — definition
 
 **Une seule bonne réponse**
 
@@ -2334,71 +2334,71 @@ Quelles affirmations concernent directement « Chaîne de format — ne pas util
 
 - **A ✅** EOF — détecter la fin d'une entrée
 - **B ❌** main()
-- **C ❌** exit() — terminer le programme
-- **D ❌** Types entiers en C
+- **C ❌** Types entiers en C
+- **D ❌** exit() — terminer le programme
 
-**Réponse candidate :** A · **Explication :** La définition est extraite du résumé de la fiche correspondante.
+**Réponse proposée :** A. La définition est extraite du résumé de la fiche correspondante.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/30-eof-detecter-la-fin-d-une-entree · https://man7.org/linux/man-pages/man3/fgets.3.html
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_029-02 · description
+### V1-N08_029-02 — description
 
 **Une seule bonne réponse**
 
 Quelle description caractérise « EOF — détecter la fin d'une entrée » ?
 
-- **A ❌** exit(code) termine le programme entier, même depuis une fonction appelée ; à la différence de return, il ne revient pas à l’appelant.
-- **B ❌** Point d’entrée d’un programme C classique.
-- **C ❌** char, short, int, long et long long représentent des valeurs entières ; leurs tailles exactes dépendent de la plateforme.
+- **A ❌** char, short, int, long et long long représentent des valeurs entières ; leurs tailles exactes dépendent de la plateforme.
+- **B ❌** exit(code) termine le programme entier, même depuis une fonction appelée ; à la différence de return, il ne revient pas à l’appelant.
+- **C ❌** Point d’entrée d’un programme C classique.
 - **D ✅** EOF est une valeur entière spéciale signalant la fin d'un flux ou une erreur ; getchar retourne un int et scanf peut aussi renvoyer EOF.
 
-**Réponse candidate :** D · **Explication :** Le résumé de la fiche indique : EOF est une valeur entière spéciale signalant la fin d'un flux ou une erreur ; getchar retourne un int et scanf peut aussi renvoyer EOF.
+**Réponse proposée :** D. Le résumé de la fiche indique : EOF est une valeur entière spéciale signalant la fin d'un flux ou une erreur ; getchar retourne un int et scanf peut aussi renvoyer EOF.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/30-eof-detecter-la-fin-d-une-entree · https://man7.org/linux/man-pages/man3/fgets.3.html
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_029-03 · vigilance
+### V1-N08_029-03 — vigilance
 
 **Une seule bonne réponse**
 
 Quel point à retenir est directement associé à « EOF — détecter la fin d'une entrée » ?
 
-- **A ✅** Un retour EOF n'est pas le caractère '\0'. Conserver le résultat de getchar dans un int. Pour distinguer fin de fichier et erreur de lecture, consulter feof et ferror.
-- **B ❌** Un type ne garantit pas partout le même nombre d’octets.
-- **C ❌** exit(98) arrête le programme avec le statut demandé, pas uniquement la fonction verifier. En remplaçant verifier(1) par verifier(0), le puts n’est jamais exécuté. Utilise EXIT_FAILURE pour un échec portable, et ne confonds pas exit() avec free().
-- **D ❌** Dans main, return 0 (ou EXIT_SUCCESS) signifie succès. EXIT_FAILURE permet d’indiquer un échec de manière portable ; la signification de return 1 n’est pas universelle pour toutes les implémentations.
+- **A ❌** Dans main, return 0 (ou EXIT_SUCCESS) signifie succès. EXIT_FAILURE permet d’indiquer un échec de manière portable ; la signification de return 1 n’est pas universelle pour toutes les implémentations.
+- **B ❌** exit(98) arrête le programme avec le statut demandé, pas uniquement la fonction verifier. En remplaçant verifier(1) par verifier(0), le puts n’est jamais exécuté. Utilise EXIT_FAILURE pour un échec portable, et ne confonds pas exit() avec free().
+- **C ✅** Un retour EOF n'est pas le caractère '\0'. Conserver le résultat de getchar dans un int. Pour distinguer fin de fichier et erreur de lecture, consulter feof et ferror.
+- **D ❌** Un type ne garantit pas partout le même nombre d’octets.
 
-**Réponse candidate :** A · **Explication :** La fiche indique : Un retour EOF n'est pas le caractère '\0'. Conserver le résultat de getchar dans un int. Pour distinguer fin de fichier et erreur de lecture, consulter feof et ferror.
+**Réponse proposée :** C. La fiche indique : Un retour EOF n'est pas le caractère '\0'. Conserver le résultat de getchar dans un int. Pour distinguer fin de fichier et erreur de lecture, consulter feof et ferror.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/30-eof-detecter-la-fin-d-une-entree · https://man7.org/linux/man-pages/man3/fgets.3.html
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_029-04 · synthese
+### V1-N08_029-04 — synthese
 
 **Plusieurs bonnes réponses**
 
 Quelles affirmations concernent directement « EOF — détecter la fin d'une entrée » ?
 
-- **A ❌** char * est un pointeur vers char ; il peut désigner le début d'un tableau de caractères, mais ne stocke ni sa capacité ni son terminateur.
-- **B ❌** qsort trie un tableau en appelant le comparateur fourni : int comparer(const void *, const void *) doit renvoyer une valeur négative, nulle ou positive.
-- **C ✅** EOF est une valeur entière spéciale signalant la fin d'un flux ou une erreur ; getchar retourne un int et scanf peut aussi renvoyer EOF.
+- **A ❌** qsort trie un tableau en appelant le comparateur fourni : int comparer(const void *, const void *) doit renvoyer une valeur négative, nulle ou positive.
+- **B ✅** EOF est une valeur entière spéciale signalant la fin d'un flux ou une erreur ; getchar retourne un int et scanf peut aussi renvoyer EOF.
+- **C ❌** char * est un pointeur vers char ; il peut désigner le début d'un tableau de caractères, mais ne stocke ni sa capacité ni son terminateur.
 - **D ✅** Un retour EOF n'est pas le caractère '\0'. Conserver le résultat de getchar dans un int. Pour distinguer fin de fichier et erreur de lecture, consulter feof et ferror.
 
-**Réponse candidate :** C, D · **Explication :** Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.
+**Réponse proposée :** B, D. Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/30-eof-detecter-la-fin-d-une-entree · https://man7.org/linux/man-pages/man3/fgets.3.html
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
@@ -2406,79 +2406,79 @@ Quelles affirmations concernent directement « EOF — détecter la fin d'une en
 
 [Fiche de révision](https://revision-hbtn.soleiljaune.be/#cours/programmation-c/31-integer-overflow-depassement-de-capacite-d-un-entier)
 
-### V1-N08_030-01 · definition
+### V1-N08_030-01 — definition
 
 **Une seule bonne réponse**
 
 À quelle notion correspond la définition suivante : « Un integer overflow survient si un calcul dépasse l'intervalle représentable ; en C, le débordement signé est indéfini, tandis que l'unsigned se replie modulo sa plage. » ?
 
-- **A ❌** exit() — terminer le programme
-- **B ❌** Compilation vs édition de liens
-- **C ✅** Integer overflow — dépassement de capacité d'un entier
-- **D ❌** main()
+- **A ❌** main()
+- **B ✅** Integer overflow — dépassement de capacité d'un entier
+- **C ❌** exit() — terminer le programme
+- **D ❌** Compilation vs édition de liens
 
-**Réponse candidate :** C · **Explication :** La définition est extraite du résumé de la fiche correspondante.
+**Réponse proposée :** B. La définition est extraite du résumé de la fiche correspondante.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/31-integer-overflow-depassement-de-capacite-d-un-entier · https://wiki.sei.cmu.edu/confluence/spaces/flyingpdf/pdfpageexport.action?pageId=87152210 · https://man7.org/linux/man-pages/man3/malloc.3.html
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_030-02 · description
+### V1-N08_030-02 — description
 
 **Une seule bonne réponse**
 
 Quelle description caractérise « Integer overflow — dépassement de capacité d'un entier » ?
 
-- **A ✅** Un integer overflow survient si un calcul dépasse l'intervalle représentable ; en C, le débordement signé est indéfini, tandis que l'unsigned se replie modulo sa plage.
-- **B ❌** Point d’entrée d’un programme C classique.
-- **C ❌** Prétraitement et compilation vers le code objet, puis liaison des objets et bibliothèques pour produire l’exécutable.
+- **A ❌** Point d’entrée d’un programme C classique.
+- **B ❌** Prétraitement et compilation vers le code objet, puis liaison des objets et bibliothèques pour produire l’exécutable.
+- **C ✅** Un integer overflow survient si un calcul dépasse l'intervalle représentable ; en C, le débordement signé est indéfini, tandis que l'unsigned se replie modulo sa plage.
 - **D ❌** exit(code) termine le programme entier, même depuis une fonction appelée ; à la différence de return, il ne revient pas à l’appelant.
 
-**Réponse candidate :** A · **Explication :** Le résumé de la fiche indique : Un integer overflow survient si un calcul dépasse l'intervalle représentable ; en C, le débordement signé est indéfini, tandis que l'unsigned se replie modulo sa plage.
+**Réponse proposée :** C. Le résumé de la fiche indique : Un integer overflow survient si un calcul dépasse l'intervalle représentable ; en C, le débordement signé est indéfini, tandis que l'unsigned se replie modulo sa plage.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/31-integer-overflow-depassement-de-capacite-d-un-entier · https://wiki.sei.cmu.edu/confluence/spaces/flyingpdf/pdfpageexport.action?pageId=87152210 · https://man7.org/linux/man-pages/man3/malloc.3.html
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_030-03 · vigilance
+### V1-N08_030-03 — vigilance
 
 **Une seule bonne réponse**
 
 Quel point à retenir est directement associé à « Integer overflow — dépassement de capacité d'un entier » ?
 
-- **A ❌** exit(98) arrête le programme avec le statut demandé, pas uniquement la fonction verifier. En remplaçant verifier(1) par verifier(0), le puts n’est jamais exécuté. Utilise EXIT_FAILURE pour un échec portable, et ne confonds pas exit() avec free().
-- **B ❌** Dans main, return 0 (ou EXIT_SUCCESS) signifie succès. EXIT_FAILURE permet d’indiquer un échec de manière portable ; la signification de return 1 n’est pas universelle pour toutes les implémentations.
-- **C ❌** La chaîne complète passe par prétraitement, compilation, assemblage puis édition de liens.
-- **D ✅** Un integer overflow n'est pas un buffer overflow. Le premier dépasse une plage NUMÉRIQUE ; il peut conduire au second si une taille d'allocation calculée devient incorrecte. Vérifier les limites avant toute opération risquée.
+- **A ❌** La chaîne complète passe par prétraitement, compilation, assemblage puis édition de liens.
+- **B ❌** exit(98) arrête le programme avec le statut demandé, pas uniquement la fonction verifier. En remplaçant verifier(1) par verifier(0), le puts n’est jamais exécuté. Utilise EXIT_FAILURE pour un échec portable, et ne confonds pas exit() avec free().
+- **C ✅** Un integer overflow n'est pas un buffer overflow. Le premier dépasse une plage NUMÉRIQUE ; il peut conduire au second si une taille d'allocation calculée devient incorrecte. Vérifier les limites avant toute opération risquée.
+- **D ❌** Dans main, return 0 (ou EXIT_SUCCESS) signifie succès. EXIT_FAILURE permet d’indiquer un échec de manière portable ; la signification de return 1 n’est pas universelle pour toutes les implémentations.
 
-**Réponse candidate :** D · **Explication :** La fiche indique : Un integer overflow n'est pas un buffer overflow. Le premier dépasse une plage NUMÉRIQUE ; il peut conduire au second si une taille d'allocation calculée devient incorrecte. Vérifier les limites avant toute opération risquée.
+**Réponse proposée :** C. La fiche indique : Un integer overflow n'est pas un buffer overflow. Le premier dépasse une plage NUMÉRIQUE ; il peut conduire au second si une taille d'allocation calculée devient incorrecte. Vérifier les limites avant toute opération risquée.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/31-integer-overflow-depassement-de-capacite-d-un-entier · https://wiki.sei.cmu.edu/confluence/spaces/flyingpdf/pdfpageexport.action?pageId=87152210 · https://man7.org/linux/man-pages/man3/malloc.3.html
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N08_030-04 · synthese
+### V1-N08_030-04 — synthese
 
 **Plusieurs bonnes réponses**
 
 Quelles affirmations concernent directement « Integer overflow — dépassement de capacité d'un entier » ?
 
-- **A ✅** Un integer overflow n'est pas un buffer overflow. Le premier dépasse une plage NUMÉRIQUE ; il peut conduire au second si une taille d'allocation calculée devient incorrecte. Vérifier les limites avant toute opération risquée.
-- **B ❌** Paramètres et variables du Shell / environnement.
-- **C ✅** Un integer overflow survient si un calcul dépasse l'intervalle représentable ; en C, le débordement signé est indéfini, tandis que l'unsigned se replie modulo sa plage.
-- **D ❌** -i ignore la casse ; -v inverse la sélection ; -c compte les lignes correspondant au motif.
+- **A ✅** Un integer overflow survient si un calcul dépasse l'intervalle représentable ; en C, le débordement signé est indéfini, tandis que l'unsigned se replie modulo sa plage.
+- **B ❌** -i ignore la casse ; -v inverse la sélection ; -c compte les lignes correspondant au motif.
+- **C ✅** Un integer overflow n'est pas un buffer overflow. Le premier dépasse une plage NUMÉRIQUE ; il peut conduire au second si une taille d'allocation calculée devient incorrecte. Vérifier les limites avant toute opération risquée.
+- **D ❌** Paramètres et variables du Shell / environnement.
 
-**Réponse candidate :** A, C · **Explication :** Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.
+**Réponse proposée :** A, C. Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/31-integer-overflow-depassement-de-capacite-d-un-entier · https://wiki.sei.cmu.edu/confluence/spaces/flyingpdf/pdfpageexport.action?pageId=87152210 · https://man7.org/linux/man-pages/man3/malloc.3.html
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
