@@ -12,7 +12,7 @@ const pointers=block('pointer-data');
 const counts=sections.map(s=>s.items.length);
 const number=counts.reduce((a,b)=>a+b,0);
 
-assert.equal(number,215,'La liste des 215 notions doit rester complète.');
+assert.ok(number>=228,'Des notions déjà publiées semblent avoir disparu.');
 let notes=0;
 for(const [si,section]of sections.entries()){
   for(const [ii,item]of section.items.entries()){
@@ -24,7 +24,7 @@ for(const [si,section]of sections.entries()){
     notes++;
   }
 }
-assert.equal(notes,215);
+assert.equal(notes,number);
 assert.ok(!html.includes("const note=(p&&p.note)?p.note:(cr.detail"),'Ne pas réutiliser la note générique du chapitre.');
 
 const travail=mkdtempSync(join(tmpdir(),'holberton-pedagogie-'));
@@ -65,6 +65,17 @@ try{
     {name:'segfault — exemple valide',source:pointers['46'].example+'\n',output:'42\n'},
     {name:'exit — retour normal',source:extra['8:23'].example+'\n',output:'Le programme continue\n'},
     {name:'scanf — lecture entier au clavier',source:extra['8:25'].example+'\n',input:'18\n',output:'Age : Age saisi : 18\n'},
+    {name:"fgets limite et fin de ligne",source:extra['8:26'].example+'\n',input:'Ada\n',output:'Salut Ada\n',secure:true},
+    {name:"strtol conversion valide",source:extra['8:27'].example+'\n',input:'42\n',output:'Nombre : 42\n',secure:true},
+    {name:"format fixe printf",source:extra['8:28'].example+'\n',output:'%x %x\n',secure:true},
+    {name:"EOF caractère reçu",source:extra['8:29'].example+'\n',input:'A',output:'A\n',secure:true},
+    {name:"strncpy chaîne terminée",source:pointers['47'].example+'\n',output:'Bonjo\n',secure:true},
+    {name:"calloc éléments initialisés",source:pointers['48'].example+'\n',output:'0 0\n',secure:true},
+    {name:"copie bornée buffer",source:pointers['49'].example+'\n',output:'Ada\n',secure:true},
+    {name:"use after free évité",source:pointers['50'].example+'\n',output:'42\n',secure:true},
+    {name:"double free évité",source:pointers['51'].example+'\n',output:'7\n',secure:true},
+    {name:"multiplication vérifiée malloc",source:pointers['52'].example+'\n',output:'3\n',secure:true},
+    {name:"memmove zones recouvrantes",source:pointers['54'].example+'\n',output:'aabcdef\n',secure:true},
     {name:'struct/typedef 16:0',source:extra['16:0'].example+'\n',output:"2 3\n"},
     {name:'struct/typedef 16:1',source:extra['16:1'].example+'\n',output:"3 7\n"},
     {name:'struct/typedef 16:2',source:extra['16:2'].example+'\n',output:"7 3\n"},
@@ -88,7 +99,7 @@ try{
   ];
   for(const [i,test]of testsC.entries()){
     const exe=join(travail,'exemple-'+i);
-    run('gcc',['-std=gnu89','-pedantic-errors','-x','c','-o',exe,'-'],{input:test.source});
+    run('gcc',['-std=gnu89','-pedantic-errors',...(test.secure?['-Wall','-Wextra','-Werror']:[]),'-x','c','-o',exe,'-'],{input:test.source});
     assert.equal(run(exe,[],{input:test.input||''}),test.output,'Résultat incorrect : '+test.name);
   }
   const c99quiz=extra['16:18'].example.replace('point p = {1, 2};','point p = { .y = 2, .x = 1 };');
@@ -121,6 +132,17 @@ try{
   assert.equal(resultatExit.stdout,'','Aucune instruction après exit(98) ne doit être exécutée.');
   assert.match(extra['8:25'].explanation,/&age/,'scanf doit expliquer l’adresse de variable.');
   assert.match(extra['8:25'].explanation,/nombre de conversions/,'scanf doit expliquer la valeur renvoyée.');
+  for (const key of ['8:26','8:27','8:28','8:29','14:6']) {
+    assert.ok(extra[key]?.sources?.length,'Sources spécifiques manquantes : '+key);
+    assert.ok(extra[key]?.explanation?.includes('\n\n'),'Paragraphes manquants : '+key);
+  }
+  for (let i=47;i<=54;i++) {
+    assert.ok(pointers[String(i)]?.sources?.length,'Sources mémoire manquantes : 9:'+i);
+    assert.ok(pointers[String(i)]?.explanation?.includes('\n\n'),'Paragraphes manquants : 9:'+i);
+  }
+  assert.ok(pointers['53'].example.includes('--track-origins=yes'),'Diagnostic Valgrind détaillé absent');
+  assert.ok(extra['14:6'].explanation.includes('OWASP'),'Distinction attaque/vulnérabilité absente');
+  assert.ok(html.includes('p.sources'),'Affichage des sources par notion non configuré');
   assert.match(extra['8:25'].note,/fgets/,'scanf doit présenter une alternative pour les chaînes.');
   assert.match(extra['8:23'].explanation,/EXIT_FAILURE/,'Exit portable non expliqué.');
   assert.match(extra['8:23'].note,/free\(\)/,'Différence exit et free absente.');
