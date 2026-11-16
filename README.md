@@ -17,6 +17,20 @@ Un support de révision **indépendant**, consultable librement, qui associe des
 
 Le site est statique : les cours sont intégrés à `index.html`. Il n'exige **ni API payante ni serveur d'IA**.
 
+## Quiz adaptatif — pilote
+
+La branche de développement du pilote contient **25 questions réparties sur 5 notions C** : `scanf`, `fgets`, `malloc`, `free`, `realloc`. Cette banque volontairement limitée permet de tester l'expérience avant de l'élargir.
+
+- L'élève choisit uniquement les notions couvertes qu'il souhaite réviser ; **aucun niveau de difficulté à sélectionner**.
+- Le moteur ajuste automatiquement le niveau interne des questions selon les réponses, et revient davantage sur les notions où des erreurs sont détectées.
+- Chaque question propose quatre réponses, une correction et un accès à la fiche correspondante.
+- La session est enregistrée dans `localStorage` **dès son démarrage, après chaque réponse et changement de question**, et reste reprenable sur le même navigateur après fermeture de l'onglet. L'action « Mettre en pause » permet de suspendre explicitement la session.
+- Une session se termine quand toutes les questions des notions sélectionnées ont été utilisées. Le bilan montre les réponses correctes par notion.
+- **Limites** : pas encore de comptes, pas de synchronisation entre appareils ni de banque complète pour les 228 notions. Effacer les données du site ou utiliser la navigation privée peut supprimer la session.
+- Aucun appel de modèle IA n'est nécessaire pendant l'utilisation du quiz. La banque doit être enrichie et faire l'objet d'une **validation éditoriale croisée par plusieurs IA ainsi que de vérifications indépendantes** avant généralisation. Les tests automatiques actuels contrôlent sa structure, les réponses attendues enregistrées et le comportement du moteur ; **ils ne prouvent pas à eux seuls l'exactitude pédagogique des 25 questions**.
+
+Le code du pilote reste dans `index.html` pour être compatible avec le timer systemd actuellement installé, qui ne déploie automatiquement que ce fichier. Lors de l'arrivée des comptes, du backend et de la grande banque de questions, le déploiement sera à migrer vers GitHub Actions avec tests bloquants.
+
 ## Participer
 
 Des corrections, suggestions, exemples plus simples, schémas et nouvelles notions sont les bienvenus !
