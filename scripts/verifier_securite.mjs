@@ -27,7 +27,7 @@ assert.ok(!/\b(?:eval\s*\(|new\s+Function\s*\()/i.test(app),
 assert.ok(!/\b(?:fetch\s*\(|XMLHttpRequest\b|WebSocket\b|EventSource\b|sendBeacon\s*\()/i.test(app),
   'Appel réseau introduit : revoir confidentialité, authentification et sécurité avant fusion.');
 assert.ok(!/\bdocument\.cookie\b/i.test(app),
-  'Usage de cookies introduit : revoir les attributs de session et l'usage serveur.');
+  'Usage de cookies introduit : revoir les attributs de session et l’usage serveur.');
 
 const content=data.find(([,attrs])=>/\bid=["']content-data["']/i.test(attrs));
 assert.ok(content,'Base des cours absente.');
