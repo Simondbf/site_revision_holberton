@@ -8,10 +8,15 @@ assert.equal(files.length,17,'13 thèmes + fichier d\'applications attendus.');
 const expected=new Map([[0,6],[1,4],[2,9],[3,12],[4,14],[5,10],[6,11],[8,31],[9,72],[10,9],[11,6],[14,9],[16,21]]);
 const ids=new Set(),byNotion=new Map(),perTheme=new Map();
 let autoCount=0,applications=0,multiple=0;
+const singlePositions=new Map([['A',0],['B',0],['C',0],['D',0]]);
+
 for(const file of files){
  const parsed=JSON.parse(readFileSync(new URL(file,base),'utf8'));
  assert.ok(Array.isArray(parsed.questions)&&parsed.questions.length,'Banque vide : '+file);
  const isApp=!file.startsWith('section-');
+ const markdownName=file==='questions-scanf-specialisees.json'?
+  '../nouvelles-questions-scanf.md':file.replace(/\.json$/,'.md');
+ const markdown=readFileSync(new URL(markdownName,base),'utf8');
  for(const q of parsed.questions){
   assert.ok(q.id&&q.notion_id&&q.legacy_notion_key&&q.prompt?.length>12,'Question incomplète : '+file);
   assert.ok(!ids.has(q.id),'ID en doublon : '+q.id);ids.add(q.id);
@@ -33,7 +38,19 @@ for(const file of files){
   assert.equal(q.notion_id,ni,'Identifiant de notion incohérent : '+q.id);
   byNotion.set(ni,(byNotion.get(ni)||0)+1);
   perTheme.set(si,(perTheme.get(si)||0)+1);
-  if(q.answer_mode==='multiple')multiple++;
+  // Empêcher qu'une position de réponse soit prévisible à grande échelle.
+  if(q.answer_mode==='single'){
+   const c=q.correct_option_ids[0];singlePositions.set(c,singlePositions.get(c)+1);
+  }else multiple++;
+  // Le Markdown de relecture doit être parfaitement synchronisé avec le JSON.
+  const pos=markdown.indexOf(q.id);
+  assert.ok(pos>=0,'Question absente du Markdown : '+q.id);
+  const end=markdown.indexOf('\n---',pos);
+  const blockMarkdown=markdown.slice(pos,end>pos?end:undefined);
+  for(const opt of q.options){
+   const mark='**'+opt.id+' '+(q.correct_option_ids.includes(opt.id)?'✅':'❌')+'** '+opt.text;
+   assert.ok(blockMarkdown.includes(mark),'Corrigé Markdown/JSON incohérent pour '+q.id+' option '+opt.id);
+  }
   if(isApp)applications++;else autoCount++;
  }
 }
@@ -43,6 +60,11 @@ assert.equal(autoCount,856,'Les questions initiales structurées ont changé san
 assert.ok(applications>=400,'Les questions d\'application sont insuffisantes.');
 assert.ok(multiple>=214,'Les réponses multiples doivent être représentées.');
 assert.ok(ids.size>=1200,'Le lot complet doit comprendre au moins 1200 questions.');
+const totalSingle=[...singlePositions.values()].reduce((a,b)=>a+b,0);
+for(const [letter,count]of singlePositions){
+ assert.ok(count/totalSingle>=0.12&&count/totalSingle<=0.40,
+   'Biais de réponse trop élevé pour '+letter+' : '+count+'/'+totalSingle);
+}
 for(const [si,n] of expected){
  assert.ok((perTheme.get(si)||0)>=n*4,'Thème incomplet : '+si);
 }
