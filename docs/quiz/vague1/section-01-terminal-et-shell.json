@@ -20,7 +20,7 @@
         },
         {
           "id": "B",
-          "text": "Script Shell"
+          "text": "Shell"
         },
         {
           "id": "C",
@@ -28,7 +28,7 @@
         },
         {
           "id": "D",
-          "text": "Shell"
+          "text": "Script Shell"
         }
       ],
       "correct_option_ids": [
@@ -56,11 +56,11 @@
       "options": [
         {
           "id": "A",
-          "text": "Programme qui interprète les commandes et lance les autres programmes."
+          "text": "Shell courant sur Linux."
         },
         {
           "id": "B",
-          "text": "Shell courant sur Linux."
+          "text": "Application permettant de saisir des commandes et d’afficher leurs résultats."
         },
         {
           "id": "C",
@@ -68,11 +68,11 @@
         },
         {
           "id": "D",
-          "text": "Application permettant de saisir des commandes et d’afficher leurs résultats."
+          "text": "Programme qui interprète les commandes et lance les autres programmes."
         }
       ],
       "correct_option_ids": [
-        "D"
+        "B"
       ],
       "explanation": "Le résumé de la fiche indique : Application permettant de saisir des commandes et d’afficher leurs résultats.",
       "source_urls": [
@@ -100,15 +100,15 @@
         },
         {
           "id": "B",
-          "text": "Une variable, un tube ou une redirection sont interprétés par le shell avant le lancement de certains programmes."
-        },
-        {
-          "id": "C",
           "text": "Bash est un shell particulier : une syntaxe Bash n'est pas toujours portable vers un autre shell."
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "Le shebang compte quand on exécute le fichier directement ; avec « bash script.sh », on choisit explicitement Bash."
+        },
+        {
+          "id": "D",
+          "text": "Une variable, un tube ou une redirection sont interprétés par le shell avant le lancement de certains programmes."
         }
       ],
       "correct_option_ids": [
@@ -140,7 +140,7 @@
         },
         {
           "id": "B",
-          "text": "Dossier personnel de l’utilisateur."
+          "text": "Le terminal affiche et transmet les échanges ; le shell interprète les commandes."
         },
         {
           "id": "C",
@@ -148,12 +148,12 @@
         },
         {
           "id": "D",
-          "text": "Le terminal affiche et transmet les échanges ; le shell interprète les commandes."
+          "text": "Dossier personnel de l’utilisateur."
         }
       ],
       "correct_option_ids": [
         "A",
-        "D"
+        "B"
       ],
       "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
       "source_urls": [
@@ -186,11 +186,11 @@
         },
         {
           "id": "C",
-          "text": "Terminal"
+          "text": "Script Shell"
         },
         {
           "id": "D",
-          "text": "Script Shell"
+          "text": "Terminal"
         }
       ],
       "correct_option_ids": [
@@ -218,15 +218,15 @@
       "options": [
         {
           "id": "A",
-          "text": "Programme qui interprète les commandes et lance les autres programmes."
-        },
-        {
-          "id": "B",
           "text": "Fichier texte qui contient une suite de commandes exécutables par un Shell."
         },
         {
-          "id": "C",
+          "id": "B",
           "text": "Application permettant de saisir des commandes et d’afficher leurs résultats."
+        },
+        {
+          "id": "C",
+          "text": "Programme qui interprète les commandes et lance les autres programmes."
         },
         {
           "id": "D",
@@ -234,7 +234,7 @@
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "Le résumé de la fiche indique : Programme qui interprète les commandes et lance les autres programmes.",
       "source_urls": [
@@ -258,15 +258,15 @@
       "options": [
         {
           "id": "A",
-          "text": "Bash est un shell particulier : une syntaxe Bash n'est pas toujours portable vers un autre shell."
+          "text": "Le terminal affiche et transmet les échanges ; le shell interprète les commandes."
         },
         {
           "id": "B",
-          "text": "Le shebang compte quand on exécute le fichier directement ; avec « bash script.sh », on choisit explicitement Bash."
+          "text": "Bash est un shell particulier : une syntaxe Bash n'est pas toujours portable vers un autre shell."
         },
         {
           "id": "C",
-          "text": "Le terminal affiche et transmet les échanges ; le shell interprète les commandes."
+          "text": "Le shebang compte quand on exécute le fichier directement ; avec « bash script.sh », on choisit explicitement Bash."
         },
         {
           "id": "D",
@@ -298,19 +298,19 @@
       "options": [
         {
           "id": "A",
-          "text": "Une variable, un tube ou une redirection sont interprétés par le shell avant le lancement de certains programmes."
-        },
-        {
-          "id": "B",
-          "text": "qsort trie un tableau en appelant le comparateur fourni : int comparer(const void *, const void *) doit renvoyer une valeur négative, nulle ou positive."
-        },
-        {
-          "id": "C",
           "text": "Programme qui interprète les commandes et lance les autres programmes."
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "char * est un pointeur vers char ; il peut désigner le début d'un tableau de caractères, mais ne stocke ni sa capacité ni son terminateur."
+        },
+        {
+          "id": "C",
+          "text": "Une variable, un tube ou une redirection sont interprétés par le shell avant le lancement de certains programmes."
+        },
+        {
+          "id": "D",
+          "text": "qsort trie un tableau en appelant le comparateur fourni : int comparer(const void *, const void *) doit renvoyer une valeur négative, nulle ou positive."
         }
       ],
       "correct_option_ids": [
@@ -340,23 +340,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Terminal"
-        },
-        {
-          "id": "B",
-          "text": "Script Shell"
-        },
-        {
-          "id": "C",
           "text": "Bash"
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "Shell"
+        },
+        {
+          "id": "C",
+          "text": "Script Shell"
+        },
+        {
+          "id": "D",
+          "text": "Terminal"
         }
       ],
       "correct_option_ids": [
-        "C"
+        "A"
       ],
       "explanation": "La définition est extraite du résumé de la fiche correspondante.",
       "source_urls": [
@@ -380,15 +380,15 @@
       "options": [
         {
           "id": "A",
-          "text": "Fichier texte qui contient une suite de commandes exécutables par un Shell."
-        },
-        {
-          "id": "B",
           "text": "Shell courant sur Linux."
         },
         {
-          "id": "C",
+          "id": "B",
           "text": "Programme qui interprète les commandes et lance les autres programmes."
+        },
+        {
+          "id": "C",
+          "text": "Fichier texte qui contient une suite de commandes exécutables par un Shell."
         },
         {
           "id": "D",
@@ -396,7 +396,7 @@
         }
       ],
       "correct_option_ids": [
-        "B"
+        "A"
       ],
       "explanation": "Le résumé de la fiche indique : Shell courant sur Linux.",
       "source_urls": [
@@ -424,19 +424,19 @@
         },
         {
           "id": "B",
-          "text": "Une variable, un tube ou une redirection sont interprétés par le shell avant le lancement de certains programmes."
+          "text": "Le shebang compte quand on exécute le fichier directement ; avec « bash script.sh », on choisit explicitement Bash."
         },
         {
           "id": "C",
-          "text": "Bash est un shell particulier : une syntaxe Bash n'est pas toujours portable vers un autre shell."
+          "text": "Une variable, un tube ou une redirection sont interprétés par le shell avant le lancement de certains programmes."
         },
         {
           "id": "D",
-          "text": "Le shebang compte quand on exécute le fichier directement ; avec « bash script.sh », on choisit explicitement Bash."
+          "text": "Bash est un shell particulier : une syntaxe Bash n'est pas toujours portable vers un autre shell."
         }
       ],
       "correct_option_ids": [
-        "C"
+        "D"
       ],
       "explanation": "La fiche indique : Bash est un shell particulier : une syntaxe Bash n'est pas toujours portable vers un autre shell.",
       "source_urls": [
@@ -460,24 +460,24 @@
       "options": [
         {
           "id": "A",
-          "text": "Shell courant sur Linux."
-        },
-        {
-          "id": "B",
-          "text": "En C, un paramètre reçoit une copie de l’argument. Modifier un paramètre int local ne modifie pas la variable initiale."
-        },
-        {
-          "id": "C",
           "text": "Bash est un shell particulier : une syntaxe Bash n'est pas toujours portable vers un autre shell."
         },
         {
-          "id": "D",
+          "id": "B",
+          "text": "Shell courant sur Linux."
+        },
+        {
+          "id": "C",
           "text": "&a désigne l’adresse du tableau entier. Elle a la même position mémoire que &a[0], mais un type différent."
+        },
+        {
+          "id": "D",
+          "text": "En C, un paramètre reçoit une copie de l’argument. Modifier un paramètre int local ne modifie pas la variable initiale."
         }
       ],
       "correct_option_ids": [
         "A",
-        "C"
+        "B"
       ],
       "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
       "source_urls": [
@@ -502,23 +502,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Terminal"
+          "text": "Script Shell"
         },
         {
           "id": "B",
-          "text": "Shell"
-        },
-        {
-          "id": "C",
           "text": "Bash"
         },
         {
+          "id": "C",
+          "text": "Terminal"
+        },
+        {
           "id": "D",
-          "text": "Script Shell"
+          "text": "Shell"
         }
       ],
       "correct_option_ids": [
-        "D"
+        "A"
       ],
       "explanation": "La définition est extraite du résumé de la fiche correspondante.",
       "source_urls": [
@@ -542,7 +542,7 @@
       "options": [
         {
           "id": "A",
-          "text": "Fichier texte qui contient une suite de commandes exécutables par un Shell."
+          "text": "Shell courant sur Linux."
         },
         {
           "id": "B",
@@ -554,11 +554,11 @@
         },
         {
           "id": "D",
-          "text": "Shell courant sur Linux."
+          "text": "Fichier texte qui contient une suite de commandes exécutables par un Shell."
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "Le résumé de la fiche indique : Fichier texte qui contient une suite de commandes exécutables par un Shell.",
       "source_urls": [
@@ -586,11 +586,11 @@
         },
         {
           "id": "B",
-          "text": "Le shebang compte quand on exécute le fichier directement ; avec « bash script.sh », on choisit explicitement Bash."
+          "text": "Le terminal affiche et transmet les échanges ; le shell interprète les commandes."
         },
         {
           "id": "C",
-          "text": "Le terminal affiche et transmet les échanges ; le shell interprète les commandes."
+          "text": "Le shebang compte quand on exécute le fichier directement ; avec « bash script.sh », on choisit explicitement Bash."
         },
         {
           "id": "D",
@@ -598,7 +598,7 @@
         }
       ],
       "correct_option_ids": [
-        "B"
+        "C"
       ],
       "explanation": "La fiche indique : Le shebang compte quand on exécute le fichier directement ; avec « bash script.sh », on choisit explicitement Bash.",
       "source_urls": [
@@ -630,11 +630,11 @@
         },
         {
           "id": "C",
-          "text": "Le shebang compte quand on exécute le fichier directement ; avec « bash script.sh », on choisit explicitement Bash."
+          "text": "Fichier texte qui contient une suite de commandes exécutables par un Shell."
         },
         {
           "id": "D",
-          "text": "Fichier texte qui contient une suite de commandes exécutables par un Shell."
+          "text": "Le shebang compte quand on exécute le fichier directement ; avec « bash script.sh », on choisit explicitement Bash."
         }
       ],
       "correct_option_ids": [

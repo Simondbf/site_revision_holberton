@@ -16,11 +16,11 @@
       "options": [
         {
           "id": "A",
-          "text": "WSL"
+          "text": "Système d’exploitation"
         },
         {
           "id": "B",
-          "text": "Système d’exploitation"
+          "text": "WSL"
         },
         {
           "id": "C",
@@ -56,11 +56,11 @@
       "options": [
         {
           "id": "A",
-          "text": "Sous-système Windows pour Linux : environnement Linux utilisable sur Windows."
+          "text": "Noyau du système d’exploitation ; interface entre logiciels et ressources matérielles."
         },
         {
           "id": "B",
-          "text": "Noyau du système d’exploitation ; interface entre logiciels et ressources matérielles."
+          "text": "Sous-système Windows pour Linux : environnement Linux utilisable sur Windows."
         },
         {
           "id": "C",
@@ -100,11 +100,11 @@
         },
         {
           "id": "B",
-          "text": "Le matériel est physique ; un logiciel est un ensemble d'instructions. Ils travaillent ensemble."
+          "text": "Le système d'exploitation sert d'intermédiaire : chaque application n'a pas à piloter directement les périphériques."
         },
         {
           "id": "C",
-          "text": "Le système d'exploitation sert d'intermédiaire : chaque application n'a pas à piloter directement les périphériques."
+          "text": "Le matériel est physique ; un logiciel est un ensemble d'instructions. Ils travaillent ensemble."
         },
         {
           "id": "D",
@@ -112,7 +112,7 @@
         }
       ],
       "correct_option_ids": [
-        "B"
+        "C"
       ],
       "explanation": "La fiche indique : Le matériel est physique ; un logiciel est un ensemble d'instructions. Ils travaillent ensemble.",
       "source_urls": [
@@ -136,24 +136,24 @@
       "options": [
         {
           "id": "A",
-          "text": "Le matériel est physique ; un logiciel est un ensemble d'instructions. Ils travaillent ensemble."
-        },
-        {
-          "id": "B",
-          "text": "Si p = &n, alors *p = 402; modifie n, qui prend la valeur 402."
-        },
-        {
-          "id": "C",
           "text": "EOF est une valeur entière spéciale signalant la fin d'un flux ou une erreur ; getchar retourne un int et scanf peut aussi renvoyer EOF."
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "Matériel physique / programmes exécutés par la machine."
+        },
+        {
+          "id": "C",
+          "text": "Le matériel est physique ; un logiciel est un ensemble d'instructions. Ils travaillent ensemble."
+        },
+        {
+          "id": "D",
+          "text": "Si p = &n, alors *p = 402; modifie n, qui prend la valeur 402."
         }
       ],
       "correct_option_ids": [
-        "A",
-        "D"
+        "B",
+        "C"
       ],
       "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
       "source_urls": [
@@ -178,7 +178,7 @@
       "options": [
         {
           "id": "A",
-          "text": "Système d’exploitation"
+          "text": "Hardware / Software"
         },
         {
           "id": "B",
@@ -186,7 +186,7 @@
         },
         {
           "id": "C",
-          "text": "Hardware / Software"
+          "text": "Système d’exploitation"
         },
         {
           "id": "D",
@@ -194,7 +194,7 @@
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "La définition est extraite du résumé de la fiche correspondante.",
       "source_urls": [
@@ -218,23 +218,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Sous-système Windows pour Linux : environnement Linux utilisable sur Windows."
+          "text": "Gère les ressources, les processus, la mémoire, les fichiers et les périphériques."
         },
         {
           "id": "B",
-          "text": "Matériel physique / programmes exécutés par la machine."
-        },
-        {
-          "id": "C",
           "text": "Linux est un noyau et une famille de systèmes ; Ubuntu est une distribution utilisant Linux."
         },
         {
+          "id": "C",
+          "text": "Sous-système Windows pour Linux : environnement Linux utilisable sur Windows."
+        },
+        {
           "id": "D",
-          "text": "Gère les ressources, les processus, la mémoire, les fichiers et les périphériques."
+          "text": "Matériel physique / programmes exécutés par la machine."
         }
       ],
       "correct_option_ids": [
-        "D"
+        "A"
       ],
       "explanation": "Le résumé de la fiche indique : Gère les ressources, les processus, la mémoire, les fichiers et les périphériques.",
       "source_urls": [
@@ -258,15 +258,15 @@
       "options": [
         {
           "id": "A",
-          "text": "Le système d'exploitation sert d'intermédiaire : chaque application n'a pas à piloter directement les périphériques."
-        },
-        {
-          "id": "B",
           "text": "WSL 2 utilise un noyau Linux dans une VM légère. Les chemins Linux ne sont pas ceux de Windows."
         },
         {
-          "id": "C",
+          "id": "B",
           "text": "Le matériel est physique ; un logiciel est un ensemble d'instructions. Ils travaillent ensemble."
+        },
+        {
+          "id": "C",
+          "text": "Le système d'exploitation sert d'intermédiaire : chaque application n'a pas à piloter directement les périphériques."
         },
         {
           "id": "D",
@@ -274,7 +274,7 @@
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "La fiche indique : Le système d'exploitation sert d'intermédiaire : chaque application n'a pas à piloter directement les périphériques.",
       "source_urls": [
@@ -302,11 +302,11 @@
         },
         {
           "id": "B",
-          "text": "Instantané enregistré dans l’historique local."
+          "text": "Un passage dans une boucle."
         },
         {
           "id": "C",
-          "text": "Un passage dans une boucle."
+          "text": "Instantané enregistré dans l’historique local."
         },
         {
           "id": "D",
@@ -340,23 +340,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Hardware / Software"
-        },
-        {
-          "id": "B",
-          "text": "Kernel"
-        },
-        {
-          "id": "C",
           "text": "GUI / CLI"
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "Linux / Ubuntu"
+        },
+        {
+          "id": "C",
+          "text": "Hardware / Software"
+        },
+        {
+          "id": "D",
+          "text": "Kernel"
         }
       ],
       "correct_option_ids": [
-        "B"
+        "D"
       ],
       "explanation": "La définition est extraite du résumé de la fiche correspondante.",
       "source_urls": [
@@ -380,23 +380,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Noyau du système d’exploitation ; interface entre logiciels et ressources matérielles."
+          "text": "Matériel physique / programmes exécutés par la machine."
         },
         {
           "id": "B",
-          "text": "Linux est un noyau et une famille de systèmes ; Ubuntu est une distribution utilisant Linux."
-        },
-        {
-          "id": "C",
           "text": "Interface graphique / interface en ligne de commande."
         },
         {
+          "id": "C",
+          "text": "Linux est un noyau et une famille de systèmes ; Ubuntu est une distribution utilisant Linux."
+        },
+        {
           "id": "D",
-          "text": "Matériel physique / programmes exécutés par la machine."
+          "text": "Noyau du système d’exploitation ; interface entre logiciels et ressources matérielles."
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "Le résumé de la fiche indique : Noyau du système d’exploitation ; interface entre logiciels et ressources matérielles.",
       "source_urls": [
@@ -420,23 +420,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Le matériel est physique ; un logiciel est un ensemble d'instructions. Ils travaillent ensemble."
-        },
-        {
-          "id": "B",
           "text": "Linux est le noyau ; Ubuntu est une distribution qui l'utilise avec d'autres logiciels."
         },
         {
-          "id": "C",
+          "id": "B",
           "text": "GUI et CLI sont deux façons d'interagir avec le système, souvent complémentaires."
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "Le noyau gère les ressources ; un appel système permet à l'application de demander un service."
+        },
+        {
+          "id": "D",
+          "text": "Le matériel est physique ; un logiciel est un ensemble d'instructions. Ils travaillent ensemble."
         }
       ],
       "correct_option_ids": [
-        "D"
+        "C"
       ],
       "explanation": "La fiche indique : Le noyau gère les ressources ; un appel système permet à l'application de demander un service.",
       "source_urls": [
@@ -468,16 +468,16 @@
         },
         {
           "id": "C",
-          "text": "Noyau du système d’exploitation ; interface entre logiciels et ressources matérielles."
+          "text": "Fichier texte qui contient une suite de commandes exécutables par un Shell."
         },
         {
           "id": "D",
-          "text": "Fichier texte qui contient une suite de commandes exécutables par un Shell."
+          "text": "Noyau du système d’exploitation ; interface entre logiciels et ressources matérielles."
         }
       ],
       "correct_option_ids": [
         "A",
-        "C"
+        "D"
       ],
       "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
       "source_urls": [
@@ -506,19 +506,19 @@
         },
         {
           "id": "B",
-          "text": "Kernel"
-        },
-        {
-          "id": "C",
           "text": "Linux / Ubuntu"
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "Système d’exploitation"
+        },
+        {
+          "id": "D",
+          "text": "Kernel"
         }
       ],
       "correct_option_ids": [
-        "C"
+        "B"
       ],
       "explanation": "La définition est extraite du résumé de la fiche correspondante.",
       "source_urls": [
@@ -542,23 +542,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Gère les ressources, les processus, la mémoire, les fichiers et les périphériques."
+          "text": "Interface graphique / interface en ligne de commande."
         },
         {
           "id": "B",
-          "text": "Linux est un noyau et une famille de systèmes ; Ubuntu est une distribution utilisant Linux."
-        },
-        {
-          "id": "C",
           "text": "Noyau du système d’exploitation ; interface entre logiciels et ressources matérielles."
         },
         {
+          "id": "C",
+          "text": "Linux est un noyau et une famille de systèmes ; Ubuntu est une distribution utilisant Linux."
+        },
+        {
           "id": "D",
-          "text": "Interface graphique / interface en ligne de commande."
+          "text": "Gère les ressources, les processus, la mémoire, les fichiers et les périphériques."
         }
       ],
       "correct_option_ids": [
-        "B"
+        "C"
       ],
       "explanation": "Le résumé de la fiche indique : Linux est un noyau et une famille de systèmes ; Ubuntu est une distribution utilisant Linux.",
       "source_urls": [
@@ -582,11 +582,11 @@
       "options": [
         {
           "id": "A",
-          "text": "GUI et CLI sont deux façons d'interagir avec le système, souvent complémentaires."
+          "text": "Le noyau gère les ressources ; un appel système permet à l'application de demander un service."
         },
         {
           "id": "B",
-          "text": "Le système d'exploitation sert d'intermédiaire : chaque application n'a pas à piloter directement les périphériques."
+          "text": "GUI et CLI sont deux façons d'interagir avec le système, souvent complémentaires."
         },
         {
           "id": "C",
@@ -594,7 +594,7 @@
         },
         {
           "id": "D",
-          "text": "Le noyau gère les ressources ; un appel système permet à l'application de demander un service."
+          "text": "Le système d'exploitation sert d'intermédiaire : chaque application n'a pas à piloter directement les périphériques."
         }
       ],
       "correct_option_ids": [
@@ -664,23 +664,23 @@
       "options": [
         {
           "id": "A",
-          "text": "GUI / CLI"
+          "text": "WSL"
         },
         {
           "id": "B",
-          "text": "Système d’exploitation"
+          "text": "GUI / CLI"
         },
         {
           "id": "C",
-          "text": "Linux / Ubuntu"
+          "text": "Système d’exploitation"
         },
         {
           "id": "D",
-          "text": "WSL"
+          "text": "Linux / Ubuntu"
         }
       ],
       "correct_option_ids": [
-        "D"
+        "A"
       ],
       "explanation": "La définition est extraite du résumé de la fiche correspondante.",
       "source_urls": [
@@ -704,23 +704,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Sous-système Windows pour Linux : environnement Linux utilisable sur Windows."
-        },
-        {
-          "id": "B",
-          "text": "Interface graphique / interface en ligne de commande."
-        },
-        {
-          "id": "C",
           "text": "Gère les ressources, les processus, la mémoire, les fichiers et les périphériques."
         },
         {
-          "id": "D",
+          "id": "B",
+          "text": "Sous-système Windows pour Linux : environnement Linux utilisable sur Windows."
+        },
+        {
+          "id": "C",
           "text": "Linux est un noyau et une famille de systèmes ; Ubuntu est une distribution utilisant Linux."
+        },
+        {
+          "id": "D",
+          "text": "Interface graphique / interface en ligne de commande."
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "Le résumé de la fiche indique : Sous-système Windows pour Linux : environnement Linux utilisable sur Windows.",
       "source_urls": [
@@ -744,7 +744,7 @@
       "options": [
         {
           "id": "A",
-          "text": "Linux est le noyau ; Ubuntu est une distribution qui l'utilise avec d'autres logiciels."
+          "text": "GUI et CLI sont deux façons d'interagir avec le système, souvent complémentaires."
         },
         {
           "id": "B",
@@ -752,7 +752,7 @@
         },
         {
           "id": "C",
-          "text": "GUI et CLI sont deux façons d'interagir avec le système, souvent complémentaires."
+          "text": "Linux est le noyau ; Ubuntu est une distribution qui l'utilise avec d'autres logiciels."
         },
         {
           "id": "D",
@@ -784,24 +784,24 @@
       "options": [
         {
           "id": "A",
-          "text": "Une allocation peut échouer : contrôler le pointeur avant toute lecture ou écriture dans le bloc demandé."
-        },
-        {
-          "id": "B",
           "text": "strdup(src) alloue une nouvelle chaîne et la copie ; il faut vérifier NULL puis appeler free sur le résultat."
         },
         {
-          "id": "C",
+          "id": "B",
           "text": "WSL 2 utilise un noyau Linux dans une VM légère. Les chemins Linux ne sont pas ceux de Windows."
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "Sous-système Windows pour Linux : environnement Linux utilisable sur Windows."
+        },
+        {
+          "id": "D",
+          "text": "Une allocation peut échouer : contrôler le pointeur avant toute lecture ou écriture dans le bloc demandé."
         }
       ],
       "correct_option_ids": [
-        "C",
-        "D"
+        "B",
+        "C"
       ],
       "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
       "source_urls": [
@@ -826,23 +826,23 @@
       "options": [
         {
           "id": "A",
-          "text": "GUI / CLI"
-        },
-        {
-          "id": "B",
           "text": "Linux / Ubuntu"
         },
         {
-          "id": "C",
+          "id": "B",
           "text": "Hardware / Software"
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "Système d’exploitation"
+        },
+        {
+          "id": "D",
+          "text": "GUI / CLI"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "La définition est extraite du résumé de la fiche correspondante.",
       "source_urls": [
@@ -866,7 +866,7 @@
       "options": [
         {
           "id": "A",
-          "text": "Gère les ressources, les processus, la mémoire, les fichiers et les périphériques."
+          "text": "Matériel physique / programmes exécutés par la machine."
         },
         {
           "id": "B",
@@ -874,15 +874,15 @@
         },
         {
           "id": "C",
-          "text": "Matériel physique / programmes exécutés par la machine."
+          "text": "Interface graphique / interface en ligne de commande."
         },
         {
           "id": "D",
-          "text": "Interface graphique / interface en ligne de commande."
+          "text": "Gère les ressources, les processus, la mémoire, les fichiers et les périphériques."
         }
       ],
       "correct_option_ids": [
-        "D"
+        "C"
       ],
       "explanation": "Le résumé de la fiche indique : Interface graphique / interface en ligne de commande.",
       "source_urls": [
@@ -910,15 +910,15 @@
         },
         {
           "id": "B",
-          "text": "Linux est le noyau ; Ubuntu est une distribution qui l'utilise avec d'autres logiciels."
-        },
-        {
-          "id": "C",
           "text": "Le système d'exploitation sert d'intermédiaire : chaque application n'a pas à piloter directement les périphériques."
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "Le matériel est physique ; un logiciel est un ensemble d'instructions. Ils travaillent ensemble."
+        },
+        {
+          "id": "D",
+          "text": "Linux est le noyau ; Ubuntu est une distribution qui l'utilise avec d'autres logiciels."
         }
       ],
       "correct_option_ids": [
@@ -950,20 +950,20 @@
         },
         {
           "id": "B",
-          "text": "EOF est une valeur entière spéciale signalant la fin d'un flux ou une erreur ; getchar retourne un int et scanf peut aussi renvoyer EOF."
+          "text": "GUI et CLI sont deux façons d'interagir avec le système, souvent complémentaires."
         },
         {
           "id": "C",
-          "text": "Une fonction de type int * renvoie une adresse ou NULL ; l’objet pointé doit encore exister lors de son utilisation."
+          "text": "EOF est une valeur entière spéciale signalant la fin d'un flux ou une erreur ; getchar retourne un int et scanf peut aussi renvoyer EOF."
         },
         {
           "id": "D",
-          "text": "GUI et CLI sont deux façons d'interagir avec le système, souvent complémentaires."
+          "text": "Une fonction de type int * renvoie une adresse ou NULL ; l’objet pointé doit encore exister lors de son utilisation."
         }
       ],
       "correct_option_ids": [
         "A",
-        "D"
+        "B"
       ],
       "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
       "source_urls": [

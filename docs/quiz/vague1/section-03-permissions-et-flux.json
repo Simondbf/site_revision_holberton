@@ -16,23 +16,23 @@
       "options": [
         {
           "id": "A",
-          "text": "sort / uniq"
-        },
-        {
-          "id": "B",
-          "text": "2> et <"
-        },
-        {
-          "id": "C",
           "text": "r w x"
         },
         {
-          "id": "D",
+          "id": "B",
+          "text": "sort / uniq"
+        },
+        {
+          "id": "C",
           "text": "grep / wc -l / tr"
+        },
+        {
+          "id": "D",
+          "text": "2> et <"
         }
       ],
       "correct_option_ids": [
-        "C"
+        "A"
       ],
       "explanation": "La définition est extraite du résumé de la fiche correspondante.",
       "source_urls": [
@@ -56,23 +56,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Rediriger les erreurs / prendre un fichier comme entrée."
+          "text": "sort ordonne les lignes ; uniq supprime uniquement les lignes répétées consécutives : on utilise souvent sort avant uniq."
         },
         {
           "id": "B",
-          "text": "r = lecture (4), w = écriture (2), x = exécution (1) ; rwx = 7 (4 + 2 + 1)."
-        },
-        {
-          "id": "C",
           "text": "Rechercher / compter les lignes / transformer des caractères."
         },
         {
+          "id": "C",
+          "text": "r = lecture (4), w = écriture (2), x = exécution (1) ; rwx = 7 (4 + 2 + 1)."
+        },
+        {
           "id": "D",
-          "text": "sort ordonne les lignes ; uniq supprime uniquement les lignes répétées consécutives : on utilise souvent sort avant uniq."
+          "text": "Rediriger les erreurs / prendre un fichier comme entrée."
         }
       ],
       "correct_option_ids": [
-        "B"
+        "C"
       ],
       "explanation": "Le résumé de la fiche indique : r = lecture (4), w = écriture (2), x = exécution (1) ; rwx = 7 (4 + 2 + 1).",
       "source_urls": [
@@ -96,23 +96,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Le nombre 754 est en notation octale (base 8) : 7 pour le propriétaire, 5 pour le groupe, 4 pour les autres. Chaque chiffre représente trois bits de permissions ; ce n’est pas un nombre d’octets. Sur un répertoire, l’effet de r, w et x diffère de celui d’un fichier."
+          "text": "« 2> » concerne les erreurs ; « < » fournit une entrée. On peut combiner ces redirections."
         },
         {
           "id": "B",
-          "text": "Pour supprimer les doublons non adjacents, on utilise souvent sort | uniq ; l'ordre initial est alors perdu."
-        },
-        {
-          "id": "C",
           "text": "wc -l compte les caractères de fin de ligne « \\n », pas les morceaux de texte sans saut final."
         },
         {
+          "id": "C",
+          "text": "Pour supprimer les doublons non adjacents, on utilise souvent sort | uniq ; l'ordre initial est alors perdu."
+        },
+        {
           "id": "D",
-          "text": "« 2> » concerne les erreurs ; « < » fournit une entrée. On peut combiner ces redirections."
+          "text": "Le nombre 754 est en notation octale (base 8) : 7 pour le propriétaire, 5 pour le groupe, 4 pour les autres. Chaque chiffre représente trois bits de permissions ; ce n’est pas un nombre d’octets. Sur un répertoire, l’effet de r, w et x diffère de celui d’un fichier."
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "La fiche indique : Le nombre 754 est en notation octale (base 8) : 7 pour le propriétaire, 5 pour le groupe, 4 pour les autres. Chaque chiffre représente trois bits de permissions ; ce n’est pas un nombre d’octets. Sur un répertoire, l’effet de r, w et x diffère de celui d’un fichier.",
       "source_urls": [
@@ -136,23 +136,23 @@
       "options": [
         {
           "id": "A",
-          "text": "r = lecture (4), w = écriture (2), x = exécution (1) ; rwx = 7 (4 + 2 + 1)."
+          "text": "Un prototype annonce une signature ; la définition contient le corps de la fonction."
         },
         {
           "id": "B",
-          "text": "Branche de développement / fusion."
-        },
-        {
-          "id": "C",
           "text": "Le nombre 754 est en notation octale (base 8) : 7 pour le propriétaire, 5 pour le groupe, 4 pour les autres. Chaque chiffre représente trois bits de permissions ; ce n’est pas un nombre d’octets. Sur un répertoire, l’effet de r, w et x diffère de celui d’un fichier."
         },
         {
+          "id": "C",
+          "text": "r = lecture (4), w = écriture (2), x = exécution (1) ; rwx = 7 (4 + 2 + 1)."
+        },
+        {
           "id": "D",
-          "text": "Un prototype annonce une signature ; la définition contient le corps de la fonction."
+          "text": "Branche de développement / fusion."
         }
       ],
       "correct_option_ids": [
-        "A",
+        "B",
         "C"
       ],
       "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
@@ -182,19 +182,19 @@
         },
         {
           "id": "B",
-          "text": "> et >>"
+          "text": "chmod / chown / sudo"
         },
         {
           "id": "C",
-          "text": "sort / uniq"
+          "text": "> et >>"
         },
         {
           "id": "D",
-          "text": "chmod / chown / sudo"
+          "text": "sort / uniq"
         }
       ],
       "correct_option_ids": [
-        "D"
+        "B"
       ],
       "explanation": "La définition est extraite du résumé de la fiche correspondante.",
       "source_urls": [
@@ -218,23 +218,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Changer les permissions / propriétaire / utiliser des privilèges élevés."
+          "text": "Écraser un fichier avec la sortie / ajouter à la fin."
         },
         {
           "id": "B",
-          "text": "sort ordonne les lignes ; uniq supprime uniquement les lignes répétées consécutives : on utilise souvent sort avant uniq."
+          "text": "Changer les permissions / propriétaire / utiliser des privilèges élevés."
         },
         {
           "id": "C",
-          "text": "Rechercher / compter les lignes / transformer des caractères."
+          "text": "sort ordonne les lignes ; uniq supprime uniquement les lignes répétées consécutives : on utilise souvent sort avant uniq."
         },
         {
           "id": "D",
-          "text": "Écraser un fichier avec la sortie / ajouter à la fin."
+          "text": "Rechercher / compter les lignes / transformer des caractères."
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "Le résumé de la fiche indique : Changer les permissions / propriétaire / utiliser des privilèges élevés.",
       "source_urls": [
@@ -258,23 +258,23 @@
       "options": [
         {
           "id": "A",
-          "text": "« > » écrase la sortie existante ; « >> » ajoute à la fin. Les erreurs restent séparées par défaut."
+          "text": "wc -l compte les caractères de fin de ligne « \\n », pas les morceaux de texte sans saut final."
         },
         {
           "id": "B",
-          "text": "Évite de donner des droits plus larges que nécessaire. « 777 » signifie rwx pour tout le monde : rarement adapté. Les chiffres 4, 2 et 1 forment un code octal, pas une mesure en octets."
-        },
-        {
-          "id": "C",
           "text": "Pour supprimer les doublons non adjacents, on utilise souvent sort | uniq ; l'ordre initial est alors perdu."
         },
         {
+          "id": "C",
+          "text": "« > » écrase la sortie existante ; « >> » ajoute à la fin. Les erreurs restent séparées par défaut."
+        },
+        {
           "id": "D",
-          "text": "wc -l compte les caractères de fin de ligne « \\n », pas les morceaux de texte sans saut final."
+          "text": "Évite de donner des droits plus larges que nécessaire. « 777 » signifie rwx pour tout le monde : rarement adapté. Les chiffres 4, 2 et 1 forment un code octal, pas une mesure en octets."
         }
       ],
       "correct_option_ids": [
-        "B"
+        "D"
       ],
       "explanation": "La fiche indique : Évite de donner des droits plus larges que nécessaire. « 777 » signifie rwx pour tout le monde : rarement adapté. Les chiffres 4, 2 et 1 forment un code octal, pas une mesure en octets.",
       "source_urls": [
@@ -348,11 +348,11 @@
         },
         {
           "id": "C",
-          "text": "grep -i / -v / -c"
+          "text": "grep / wc -l / tr"
         },
         {
           "id": "D",
-          "text": "grep / wc -l / tr"
+          "text": "grep -i / -v / -c"
         }
       ],
       "correct_option_ids": [
@@ -384,7 +384,7 @@
         },
         {
           "id": "B",
-          "text": "Écraser un fichier avec la sortie / ajouter à la fin."
+          "text": "Entrée standard (0) / sortie standard (1) / erreurs (2)."
         },
         {
           "id": "C",
@@ -392,11 +392,11 @@
         },
         {
           "id": "D",
-          "text": "Entrée standard (0) / sortie standard (1) / erreurs (2)."
+          "text": "Écraser un fichier avec la sortie / ajouter à la fin."
         }
       ],
       "correct_option_ids": [
-        "D"
+        "B"
       ],
       "explanation": "Le résumé de la fiche indique : Entrée standard (0) / sortie standard (1) / erreurs (2).",
       "source_urls": [
@@ -420,11 +420,11 @@
       "options": [
         {
           "id": "A",
-          "text": "Les numéros 0, 1 et 2 désignent respectivement stdin, stdout et stderr."
+          "text": "wc -l compte les caractères de fin de ligne « \\n », pas les morceaux de texte sans saut final."
         },
         {
           "id": "B",
-          "text": "wc -l compte les caractères de fin de ligne « \\n », pas les morceaux de texte sans saut final."
+          "text": "« grep -c » compte les lignes sélectionnées, pas toutes les occurrences sur ces lignes."
         },
         {
           "id": "C",
@@ -432,11 +432,11 @@
         },
         {
           "id": "D",
-          "text": "« grep -c » compte les lignes sélectionnées, pas toutes les occurrences sur ces lignes."
+          "text": "Les numéros 0, 1 et 2 désignent respectivement stdin, stdout et stderr."
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "La fiche indique : Les numéros 0, 1 et 2 désignent respectivement stdin, stdout et stderr.",
       "source_urls": [
@@ -460,19 +460,19 @@
       "options": [
         {
           "id": "A",
-          "text": "Entrée standard (0) / sortie standard (1) / erreurs (2)."
+          "text": "Les numéros 0, 1 et 2 désignent respectivement stdin, stdout et stderr."
         },
         {
           "id": "B",
-          "text": "Substitution de commande : récupérer sa sortie."
-        },
-        {
-          "id": "C",
           "text": "Variable exportée et transmise aux processus enfants."
         },
         {
+          "id": "C",
+          "text": "Substitution de commande : récupérer sa sortie."
+        },
+        {
           "id": "D",
-          "text": "Les numéros 0, 1 et 2 désignent respectivement stdin, stdout et stderr."
+          "text": "Entrée standard (0) / sortie standard (1) / erreurs (2)."
         }
       ],
       "correct_option_ids": [
@@ -502,15 +502,15 @@
       "options": [
         {
           "id": "A",
-          "text": "stdin / stdout / stderr"
+          "text": "&& / || en Shell"
         },
         {
           "id": "B",
-          "text": "> et >>"
+          "text": "stdin / stdout / stderr"
         },
         {
           "id": "C",
-          "text": "&& / || en Shell"
+          "text": "> et >>"
         },
         {
           "id": "D",
@@ -518,7 +518,7 @@
         }
       ],
       "correct_option_ids": [
-        "B"
+        "C"
       ],
       "explanation": "La définition est extraite du résumé de la fiche correspondante.",
       "source_urls": [
@@ -542,7 +542,7 @@
       "options": [
         {
           "id": "A",
-          "text": "Écraser un fichier avec la sortie / ajouter à la fin."
+          "text": "Exécuter la commande suivante en cas de succès / en cas d’échec."
         },
         {
           "id": "B",
@@ -550,7 +550,7 @@
         },
         {
           "id": "C",
-          "text": "Exécuter la commande suivante en cas de succès / en cas d’échec."
+          "text": "Écraser un fichier avec la sortie / ajouter à la fin."
         },
         {
           "id": "D",
@@ -558,7 +558,7 @@
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "Le résumé de la fiche indique : Écraser un fichier avec la sortie / ajouter à la fin.",
       "source_urls": [
@@ -582,23 +582,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Les numéros 0, 1 et 2 désignent respectivement stdin, stdout et stderr."
+          "text": "« > » écrase la sortie existante ; « >> » ajoute à la fin. Les erreurs restent séparées par défaut."
         },
         {
           "id": "B",
-          "text": "Le code de retour zéro signifie succès. && et || décident selon ce code, pas selon le texte affiché."
+          "text": "Les numéros 0, 1 et 2 désignent respectivement stdin, stdout et stderr."
         },
         {
           "id": "C",
-          "text": "« grep -c » compte les lignes sélectionnées, pas toutes les occurrences sur ces lignes."
+          "text": "Le code de retour zéro signifie succès. && et || décident selon ce code, pas selon le texte affiché."
         },
         {
           "id": "D",
-          "text": "« > » écrase la sortie existante ; « >> » ajoute à la fin. Les erreurs restent séparées par défaut."
+          "text": "« grep -c » compte les lignes sélectionnées, pas toutes les occurrences sur ces lignes."
         }
       ],
       "correct_option_ids": [
-        "D"
+        "A"
       ],
       "explanation": "La fiche indique : « > » écrase la sortie existante ; « >> » ajoute à la fin. Les erreurs restent séparées par défaut.",
       "source_urls": [
@@ -622,24 +622,24 @@
       "options": [
         {
           "id": "A",
-          "text": "« > » écrase la sortie existante ; « >> » ajoute à la fin. Les erreurs restent séparées par défaut."
+          "text": "Fichier texte qui contient une suite de commandes exécutables par un Shell."
         },
         {
           "id": "B",
-          "text": "Écraser un fichier avec la sortie / ajouter à la fin."
-        },
-        {
-          "id": "C",
           "text": "Créer un dossier / créer un fichier vide ou actualiser sa date."
         },
         {
+          "id": "C",
+          "text": "Écraser un fichier avec la sortie / ajouter à la fin."
+        },
+        {
           "id": "D",
-          "text": "Fichier texte qui contient une suite de commandes exécutables par un Shell."
+          "text": "« > » écrase la sortie existante ; « >> » ajoute à la fin. Les erreurs restent séparées par défaut."
         }
       ],
       "correct_option_ids": [
-        "A",
-        "B"
+        "C",
+        "D"
       ],
       "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
       "source_urls": [
@@ -664,11 +664,11 @@
       "options": [
         {
           "id": "A",
-          "text": "2> et <"
+          "text": "chmod / chown / sudo"
         },
         {
           "id": "B",
-          "text": "grep -i / -v / -c"
+          "text": "2> et <"
         },
         {
           "id": "C",
@@ -676,11 +676,11 @@
         },
         {
           "id": "D",
-          "text": "chmod / chown / sudo"
+          "text": "grep -i / -v / -c"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "La définition est extraite du résumé de la fiche correspondante.",
       "source_urls": [
@@ -704,7 +704,7 @@
       "options": [
         {
           "id": "A",
-          "text": "Changer les permissions / propriétaire / utiliser des privilèges élevés."
+          "text": "Exécuter la commande suivante en cas de succès / en cas d’échec."
         },
         {
           "id": "B",
@@ -716,7 +716,7 @@
         },
         {
           "id": "D",
-          "text": "Exécuter la commande suivante en cas de succès / en cas d’échec."
+          "text": "Changer les permissions / propriétaire / utiliser des privilèges élevés."
         }
       ],
       "correct_option_ids": [
@@ -744,11 +744,11 @@
       "options": [
         {
           "id": "A",
-          "text": "Le code de retour zéro signifie succès. && et || décident selon ce code, pas selon le texte affiché."
+          "text": "Évite de donner des droits plus larges que nécessaire. « 777 » signifie rwx pour tout le monde : rarement adapté. Les chiffres 4, 2 et 1 forment un code octal, pas une mesure en octets."
         },
         {
           "id": "B",
-          "text": "Évite de donner des droits plus larges que nécessaire. « 777 » signifie rwx pour tout le monde : rarement adapté. Les chiffres 4, 2 et 1 forment un code octal, pas une mesure en octets."
+          "text": "« grep -c » compte les lignes sélectionnées, pas toutes les occurrences sur ces lignes."
         },
         {
           "id": "C",
@@ -756,7 +756,7 @@
         },
         {
           "id": "D",
-          "text": "« grep -c » compte les lignes sélectionnées, pas toutes les occurrences sur ces lignes."
+          "text": "Le code de retour zéro signifie succès. && et || décident selon ce code, pas selon le texte affiché."
         }
       ],
       "correct_option_ids": [
@@ -784,24 +784,24 @@
       "options": [
         {
           "id": "A",
-          "text": "La convention Betty demande une documentation de la structure et de ses membres : nom, description et annotations @membre."
-        },
-        {
-          "id": "B",
-          "text": "« 2> » concerne les erreurs ; « < » fournit une entrée. On peut combiner ces redirections."
-        },
-        {
-          "id": "C",
           "text": "Rediriger les erreurs / prendre un fichier comme entrée."
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "Linux est un noyau et une famille de systèmes ; Ubuntu est une distribution utilisant Linux."
+        },
+        {
+          "id": "C",
+          "text": "La convention Betty demande une documentation de la structure et de ses membres : nom, description et annotations @membre."
+        },
+        {
+          "id": "D",
+          "text": "« 2> » concerne les erreurs ; « < » fournit une entrée. On peut combiner ces redirections."
         }
       ],
       "correct_option_ids": [
-        "B",
-        "C"
+        "A",
+        "D"
       ],
       "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
       "source_urls": [
@@ -826,11 +826,11 @@
       "options": [
         {
           "id": "A",
-          "text": "&& / || en Shell"
+          "text": "chmod / chown / sudo"
         },
         {
           "id": "B",
-          "text": "chmod / chown / sudo"
+          "text": "|"
         },
         {
           "id": "C",
@@ -838,11 +838,11 @@
         },
         {
           "id": "D",
-          "text": "|"
+          "text": "&& / || en Shell"
         }
       ],
       "correct_option_ids": [
-        "D"
+        "B"
       ],
       "explanation": "La définition est extraite du résumé de la fiche correspondante.",
       "source_urls": [
@@ -866,23 +866,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Relier la sortie d’une commande à l’entrée d’une autre."
+          "text": "Affiche la ligne contenant le motif recherché et les trois lignes suivantes. -B montre les lignes avant et -C les lignes autour."
         },
         {
           "id": "B",
-          "text": "Exécuter la commande suivante en cas de succès / en cas d’échec."
-        },
-        {
-          "id": "C",
           "text": "Changer les permissions / propriétaire / utiliser des privilèges élevés."
         },
         {
+          "id": "C",
+          "text": "Exécuter la commande suivante en cas de succès / en cas d’échec."
+        },
+        {
           "id": "D",
-          "text": "Affiche la ligne contenant le motif recherché et les trois lignes suivantes. -B montre les lignes avant et -C les lignes autour."
+          "text": "Relier la sortie d’une commande à l’entrée d’une autre."
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "Le résumé de la fiche indique : Relier la sortie d’une commande à l’entrée d’une autre.",
       "source_urls": [
@@ -906,23 +906,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Le code de retour zéro signifie succès. && et || décident selon ce code, pas selon le texte affiché."
+          "text": "Évite de donner des droits plus larges que nécessaire. « 777 » signifie rwx pour tout le monde : rarement adapté. Les chiffres 4, 2 et 1 forment un code octal, pas une mesure en octets."
         },
         {
           "id": "B",
-          "text": "« grep -A 3 » ajoute jusqu'à trois lignes APRÈS chaque correspondance."
-        },
-        {
-          "id": "C",
           "text": "Le tube « | » relie stdout de gauche à stdin de droite ; stderr n'y circule pas par défaut."
         },
         {
+          "id": "C",
+          "text": "Le code de retour zéro signifie succès. && et || décident selon ce code, pas selon le texte affiché."
+        },
+        {
           "id": "D",
-          "text": "Évite de donner des droits plus larges que nécessaire. « 777 » signifie rwx pour tout le monde : rarement adapté. Les chiffres 4, 2 et 1 forment un code octal, pas une mesure en octets."
+          "text": "« grep -A 3 » ajoute jusqu'à trois lignes APRÈS chaque correspondance."
         }
       ],
       "correct_option_ids": [
-        "C"
+        "B"
       ],
       "explanation": "La fiche indique : Le tube « | » relie stdout de gauche à stdin de droite ; stderr n'y circule pas par défaut.",
       "source_urls": [
@@ -946,7 +946,7 @@
       "options": [
         {
           "id": "A",
-          "text": "Une struct peut être initialisée membre par membre dans l’ordre déclaré : struct point p = {2, 3};."
+          "text": "Le tube « | » relie stdout de gauche à stdin de droite ; stderr n'y circule pas par défaut."
         },
         {
           "id": "B",
@@ -954,16 +954,16 @@
         },
         {
           "id": "C",
-          "text": "Le tube « | » relie stdout de gauche à stdin de droite ; stderr n'y circule pas par défaut."
+          "text": "Relier la sortie d’une commande à l’entrée d’une autre."
         },
         {
           "id": "D",
-          "text": "Relier la sortie d’une commande à l’entrée d’une autre."
+          "text": "Une struct peut être initialisée membre par membre dans l’ordre déclaré : struct point p = {2, 3};."
         }
       ],
       "correct_option_ids": [
-        "C",
-        "D"
+        "A",
+        "C"
       ],
       "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
       "source_urls": [
@@ -988,23 +988,23 @@
       "options": [
         {
           "id": "A",
-          "text": "grep -A 3"
-        },
-        {
-          "id": "B",
-          "text": "2> et <"
-        },
-        {
-          "id": "C",
           "text": "&& / || en Shell"
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "chmod / chown / sudo"
+        },
+        {
+          "id": "C",
+          "text": "grep -A 3"
+        },
+        {
+          "id": "D",
+          "text": "2> et <"
         }
       ],
       "correct_option_ids": [
-        "C"
+        "A"
       ],
       "explanation": "La définition est extraite du résumé de la fiche correspondante.",
       "source_urls": [
@@ -1028,7 +1028,7 @@
       "options": [
         {
           "id": "A",
-          "text": "Changer les permissions / propriétaire / utiliser des privilèges élevés."
+          "text": "Affiche la ligne contenant le motif recherché et les trois lignes suivantes. -B montre les lignes avant et -C les lignes autour."
         },
         {
           "id": "B",
@@ -1036,15 +1036,15 @@
         },
         {
           "id": "C",
-          "text": "Affiche la ligne contenant le motif recherché et les trois lignes suivantes. -B montre les lignes avant et -C les lignes autour."
+          "text": "Exécuter la commande suivante en cas de succès / en cas d’échec."
         },
         {
           "id": "D",
-          "text": "Exécuter la commande suivante en cas de succès / en cas d’échec."
+          "text": "Changer les permissions / propriétaire / utiliser des privilèges élevés."
         }
       ],
       "correct_option_ids": [
-        "D"
+        "C"
       ],
       "explanation": "Le résumé de la fiche indique : Exécuter la commande suivante en cas de succès / en cas d’échec.",
       "source_urls": [
@@ -1068,23 +1068,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Le code de retour zéro signifie succès. && et || décident selon ce code, pas selon le texte affiché."
-        },
-        {
-          "id": "B",
           "text": "« grep -A 3 » ajoute jusqu'à trois lignes APRÈS chaque correspondance."
         },
         {
+          "id": "B",
+          "text": "« 2> » concerne les erreurs ; « < » fournit une entrée. On peut combiner ces redirections."
+        },
+        {
           "id": "C",
-          "text": "Évite de donner des droits plus larges que nécessaire. « 777 » signifie rwx pour tout le monde : rarement adapté. Les chiffres 4, 2 et 1 forment un code octal, pas une mesure en octets."
+          "text": "Le code de retour zéro signifie succès. && et || décident selon ce code, pas selon le texte affiché."
         },
         {
           "id": "D",
-          "text": "« 2> » concerne les erreurs ; « < » fournit une entrée. On peut combiner ces redirections."
+          "text": "Évite de donner des droits plus larges que nécessaire. « 777 » signifie rwx pour tout le monde : rarement adapté. Les chiffres 4, 2 et 1 forment un code octal, pas une mesure en octets."
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "La fiche indique : Le code de retour zéro signifie succès. && et || décident selon ce code, pas selon le texte affiché.",
       "source_urls": [
@@ -1150,23 +1150,23 @@
       "options": [
         {
           "id": "A",
-          "text": "r w x"
-        },
-        {
-          "id": "B",
           "text": "grep / wc -l / tr"
         },
         {
+          "id": "B",
+          "text": "r w x"
+        },
+        {
           "id": "C",
-          "text": "grep -A 3"
+          "text": "2> et <"
         },
         {
           "id": "D",
-          "text": "2> et <"
+          "text": "grep -A 3"
         }
       ],
       "correct_option_ids": [
-        "B"
+        "A"
       ],
       "explanation": "La définition est extraite du résumé de la fiche correspondante.",
       "source_urls": [
@@ -1190,15 +1190,15 @@
       "options": [
         {
           "id": "A",
-          "text": "Rediriger les erreurs / prendre un fichier comme entrée."
+          "text": "Rechercher / compter les lignes / transformer des caractères."
         },
         {
           "id": "B",
-          "text": "r = lecture (4), w = écriture (2), x = exécution (1) ; rwx = 7 (4 + 2 + 1)."
+          "text": "Rediriger les erreurs / prendre un fichier comme entrée."
         },
         {
           "id": "C",
-          "text": "Rechercher / compter les lignes / transformer des caractères."
+          "text": "r = lecture (4), w = écriture (2), x = exécution (1) ; rwx = 7 (4 + 2 + 1)."
         },
         {
           "id": "D",
@@ -1206,7 +1206,7 @@
         }
       ],
       "correct_option_ids": [
-        "C"
+        "A"
       ],
       "explanation": "Le résumé de la fiche indique : Rechercher / compter les lignes / transformer des caractères.",
       "source_urls": [
@@ -1270,24 +1270,24 @@
       "options": [
         {
           "id": "A",
-          "text": "wc -l compte les caractères de fin de ligne « \\n », pas les morceaux de texte sans saut final."
-        },
-        {
-          "id": "B",
-          "text": "Rechercher / compter les lignes / transformer des caractères."
-        },
-        {
-          "id": "C",
           "text": "Utiliser l’ancienne valeur de i, puis ajouter 1."
         },
         {
-          "id": "D",
+          "id": "B",
+          "text": "wc -l compte les caractères de fin de ligne « \\n », pas les morceaux de texte sans saut final."
+        },
+        {
+          "id": "C",
           "text": "Reste par 2 ; permet de tester la parité."
+        },
+        {
+          "id": "D",
+          "text": "Rechercher / compter les lignes / transformer des caractères."
         }
       ],
       "correct_option_ids": [
-        "A",
-        "B"
+        "B",
+        "D"
       ],
       "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
       "source_urls": [
@@ -1312,23 +1312,23 @@
       "options": [
         {
           "id": "A",
-          "text": "sort / uniq / cut / head / tail / rev"
+          "text": "grep / wc -l / tr"
         },
         {
           "id": "B",
-          "text": "2> et <"
+          "text": "sort / uniq / cut / head / tail / rev"
         },
         {
           "id": "C",
-          "text": "r w x"
+          "text": "2> et <"
         },
         {
           "id": "D",
-          "text": "grep / wc -l / tr"
+          "text": "r w x"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "La définition est extraite du résumé de la fiche correspondante.",
       "source_urls": [
@@ -1392,11 +1392,11 @@
       "options": [
         {
           "id": "A",
-          "text": "uniq traite les doublons consécutifs ; sort peut les regrouper mais modifie l'ordre."
+          "text": "wc -l compte les caractères de fin de ligne « \\n », pas les morceaux de texte sans saut final."
         },
         {
           "id": "B",
-          "text": "wc -l compte les caractères de fin de ligne « \\n », pas les morceaux de texte sans saut final."
+          "text": "« 2> » concerne les erreurs ; « < » fournit une entrée. On peut combiner ces redirections."
         },
         {
           "id": "C",
@@ -1404,11 +1404,11 @@
         },
         {
           "id": "D",
-          "text": "« 2> » concerne les erreurs ; « < » fournit une entrée. On peut combiner ces redirections."
+          "text": "uniq traite les doublons consécutifs ; sort peut les regrouper mais modifie l'ordre."
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "La fiche indique : uniq traite les doublons consécutifs ; sort peut les regrouper mais modifie l'ordre.",
       "source_urls": [
@@ -1432,24 +1432,24 @@
       "options": [
         {
           "id": "A",
-          "text": "Trier / dédupliquer les lignes voisines / extraire / début / fin / inverser les caractères."
-        },
-        {
-          "id": "B",
-          "text": "uniq traite les doublons consécutifs ; sort peut les regrouper mais modifie l'ordre."
-        },
-        {
-          "id": "C",
           "text": "L'ownership désigne la responsabilité de libérer une allocation ; copier ou transmettre un pointeur ne transfère pas automatiquement cette responsabilité."
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "Un callback est une fonction dont l'adresse est passée à une autre fonction ; celle-ci l'appelle au bon moment via le pointeur reçu."
+        },
+        {
+          "id": "C",
+          "text": "Trier / dédupliquer les lignes voisines / extraire / début / fin / inverser les caractères."
+        },
+        {
+          "id": "D",
+          "text": "uniq traite les doublons consécutifs ; sort peut les regrouper mais modifie l'ordre."
         }
       ],
       "correct_option_ids": [
-        "A",
-        "B"
+        "C",
+        "D"
       ],
       "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
       "source_urls": [
@@ -1474,23 +1474,23 @@
       "options": [
         {
           "id": "A",
-          "text": "r w x"
-        },
-        {
-          "id": "B",
-          "text": "> et >>"
-        },
-        {
-          "id": "C",
           "text": "grep / wc -l / tr"
         },
         {
-          "id": "D",
+          "id": "B",
+          "text": "r w x"
+        },
+        {
+          "id": "C",
           "text": "grep -A 3"
+        },
+        {
+          "id": "D",
+          "text": "> et >>"
         }
       ],
       "correct_option_ids": [
-        "D"
+        "C"
       ],
       "explanation": "La définition est extraite du résumé de la fiche correspondante.",
       "source_urls": [
@@ -1514,23 +1514,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Affiche la ligne contenant le motif recherché et les trois lignes suivantes. -B montre les lignes avant et -C les lignes autour."
-        },
-        {
-          "id": "B",
-          "text": "Rechercher / compter les lignes / transformer des caractères."
-        },
-        {
-          "id": "C",
           "text": "r = lecture (4), w = écriture (2), x = exécution (1) ; rwx = 7 (4 + 2 + 1)."
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "Écraser un fichier avec la sortie / ajouter à la fin."
+        },
+        {
+          "id": "C",
+          "text": "Affiche la ligne contenant le motif recherché et les trois lignes suivantes. -B montre les lignes avant et -C les lignes autour."
+        },
+        {
+          "id": "D",
+          "text": "Rechercher / compter les lignes / transformer des caractères."
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "Le résumé de la fiche indique : Affiche la ligne contenant le motif recherché et les trois lignes suivantes. -B montre les lignes avant et -C les lignes autour.",
       "source_urls": [
@@ -1558,7 +1558,7 @@
         },
         {
           "id": "B",
-          "text": "« > » écrase la sortie existante ; « >> » ajoute à la fin. Les erreurs restent séparées par défaut."
+          "text": "wc -l compte les caractères de fin de ligne « \\n », pas les morceaux de texte sans saut final."
         },
         {
           "id": "C",
@@ -1566,7 +1566,7 @@
         },
         {
           "id": "D",
-          "text": "wc -l compte les caractères de fin de ligne « \\n », pas les morceaux de texte sans saut final."
+          "text": "« > » écrase la sortie existante ; « >> » ajoute à la fin. Les erreurs restent séparées par défaut."
         }
       ],
       "correct_option_ids": [
@@ -1594,24 +1594,24 @@
       "options": [
         {
           "id": "A",
-          "text": "« grep -A 3 » ajoute jusqu'à trois lignes APRÈS chaque correspondance."
-        },
-        {
-          "id": "B",
-          "text": "calloc réserve de la mémoire pour plusieurs éléments et met ses octets à zéro ; vérifier NULL et libérer le bloc avec free."
-        },
-        {
-          "id": "C",
           "text": "Si la lecture de la saisie déborde un tableau local, la mémoire peut être corrompue AVANT malloc et strcpy : copier ensuite ne répare pas cette erreur."
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "Affiche la ligne contenant le motif recherché et les trois lignes suivantes. -B montre les lignes avant et -C les lignes autour."
+        },
+        {
+          "id": "C",
+          "text": "« grep -A 3 » ajoute jusqu'à trois lignes APRÈS chaque correspondance."
+        },
+        {
+          "id": "D",
+          "text": "calloc réserve de la mémoire pour plusieurs éléments et met ses octets à zéro ; vérifier NULL et libérer le bloc avec free."
         }
       ],
       "correct_option_ids": [
-        "A",
-        "D"
+        "B",
+        "C"
       ],
       "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
       "source_urls": [
@@ -1636,7 +1636,7 @@
       "options": [
         {
           "id": "A",
-          "text": "> et >>"
+          "text": "grep -i / -v / -c"
         },
         {
           "id": "B",
@@ -1644,15 +1644,15 @@
         },
         {
           "id": "C",
-          "text": "grep -i / -v / -c"
+          "text": "grep / wc -l / tr"
         },
         {
           "id": "D",
-          "text": "grep / wc -l / tr"
+          "text": "> et >>"
         }
       ],
       "correct_option_ids": [
-        "C"
+        "A"
       ],
       "explanation": "La définition est extraite du résumé de la fiche correspondante.",
       "source_urls": [
@@ -1676,11 +1676,11 @@
       "options": [
         {
           "id": "A",
-          "text": "Rechercher / compter les lignes / transformer des caractères."
+          "text": "sort ordonne les lignes ; uniq supprime uniquement les lignes répétées consécutives : on utilise souvent sort avant uniq."
         },
         {
           "id": "B",
-          "text": "sort ordonne les lignes ; uniq supprime uniquement les lignes répétées consécutives : on utilise souvent sort avant uniq."
+          "text": "Rechercher / compter les lignes / transformer des caractères."
         },
         {
           "id": "C",
@@ -1720,7 +1720,7 @@
         },
         {
           "id": "B",
-          "text": "wc -l compte les caractères de fin de ligne « \\n », pas les morceaux de texte sans saut final."
+          "text": "Pour supprimer les doublons non adjacents, on utilise souvent sort | uniq ; l'ordre initial est alors perdu."
         },
         {
           "id": "C",
@@ -1728,7 +1728,7 @@
         },
         {
           "id": "D",
-          "text": "Pour supprimer les doublons non adjacents, on utilise souvent sort | uniq ; l'ordre initial est alors perdu."
+          "text": "wc -l compte les caractères de fin de ligne « \\n », pas les morceaux de texte sans saut final."
         }
       ],
       "correct_option_ids": [
@@ -1756,7 +1756,7 @@
       "options": [
         {
           "id": "A",
-          "text": "Une fuite mémoire (memory leak) survient lorsqu’un bloc alloué n’est pas libéré et devient inaccessible ; les fuites répétées épuisent la mémoire."
+          "text": "« grep -c » compte les lignes sélectionnées, pas toutes les occurrences sur ces lignes."
         },
         {
           "id": "B",
@@ -1768,12 +1768,12 @@
         },
         {
           "id": "D",
-          "text": "« grep -c » compte les lignes sélectionnées, pas toutes les occurrences sur ces lignes."
+          "text": "Une fuite mémoire (memory leak) survient lorsqu’un bloc alloué n’est pas libéré et devient inaccessible ; les fuites répétées épuisent la mémoire."
         }
       ],
       "correct_option_ids": [
-        "C",
-        "D"
+        "A",
+        "C"
       ],
       "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
       "source_urls": [
@@ -1798,23 +1798,23 @@
       "options": [
         {
           "id": "A",
-          "text": "> et >>"
-        },
-        {
-          "id": "B",
           "text": "&& / || en Shell"
         },
         {
+          "id": "B",
+          "text": "grep -i / -v / -c"
+        },
+        {
           "id": "C",
-          "text": "sort / uniq"
+          "text": "> et >>"
         },
         {
           "id": "D",
-          "text": "grep -i / -v / -c"
+          "text": "sort / uniq"
         }
       ],
       "correct_option_ids": [
-        "C"
+        "D"
       ],
       "explanation": "La définition est extraite du résumé de la fiche correspondante.",
       "source_urls": [
@@ -1838,23 +1838,23 @@
       "options": [
         {
           "id": "A",
-          "text": "sort ordonne les lignes ; uniq supprime uniquement les lignes répétées consécutives : on utilise souvent sort avant uniq."
+          "text": "Écraser un fichier avec la sortie / ajouter à la fin."
         },
         {
           "id": "B",
-          "text": "Exécuter la commande suivante en cas de succès / en cas d’échec."
+          "text": "sort ordonne les lignes ; uniq supprime uniquement les lignes répétées consécutives : on utilise souvent sort avant uniq."
         },
         {
           "id": "C",
-          "text": "-i ignore la casse ; -v inverse la sélection ; -c compte les lignes correspondant au motif."
+          "text": "Exécuter la commande suivante en cas de succès / en cas d’échec."
         },
         {
           "id": "D",
-          "text": "Écraser un fichier avec la sortie / ajouter à la fin."
+          "text": "-i ignore la casse ; -v inverse la sélection ; -c compte les lignes correspondant au motif."
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "Le résumé de la fiche indique : sort ordonne les lignes ; uniq supprime uniquement les lignes répétées consécutives : on utilise souvent sort avant uniq.",
       "source_urls": [
@@ -1878,11 +1878,11 @@
       "options": [
         {
           "id": "A",
-          "text": "« grep -c » compte les lignes sélectionnées, pas toutes les occurrences sur ces lignes."
+          "text": "Le code de retour zéro signifie succès. && et || décident selon ce code, pas selon le texte affiché."
         },
         {
           "id": "B",
-          "text": "Le code de retour zéro signifie succès. && et || décident selon ce code, pas selon le texte affiché."
+          "text": "Pour supprimer les doublons non adjacents, on utilise souvent sort | uniq ; l'ordre initial est alors perdu."
         },
         {
           "id": "C",
@@ -1890,11 +1890,11 @@
         },
         {
           "id": "D",
-          "text": "Pour supprimer les doublons non adjacents, on utilise souvent sort | uniq ; l'ordre initial est alors perdu."
+          "text": "« grep -c » compte les lignes sélectionnées, pas toutes les occurrences sur ces lignes."
         }
       ],
       "correct_option_ids": [
-        "D"
+        "B"
       ],
       "explanation": "La fiche indique : Pour supprimer les doublons non adjacents, on utilise souvent sort | uniq ; l'ordre initial est alors perdu.",
       "source_urls": [
@@ -1918,7 +1918,7 @@
       "options": [
         {
           "id": "A",
-          "text": "Inverser une chaîne consiste à échanger le premier et le dernier caractère, puis à progresser vers le centre."
+          "text": "Pour supprimer les doublons non adjacents, on utilise souvent sort | uniq ; l'ordre initial est alors perdu."
         },
         {
           "id": "B",
@@ -1926,7 +1926,7 @@
         },
         {
           "id": "C",
-          "text": "Pour supprimer les doublons non adjacents, on utilise souvent sort | uniq ; l'ordre initial est alors perdu."
+          "text": "Inverser une chaîne consiste à échanger le premier et le dernier caractère, puis à progresser vers le centre."
         },
         {
           "id": "D",
@@ -1934,8 +1934,8 @@
         }
       ],
       "correct_option_ids": [
-        "B",
-        "C"
+        "A",
+        "B"
       ],
       "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
       "source_urls": [

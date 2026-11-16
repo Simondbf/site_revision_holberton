@@ -16,23 +16,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Chemin relatif"
+          "text": "Chemin absolu"
         },
         {
           "id": "B",
-          "text": "Racine /"
-        },
-        {
-          "id": "C",
           "text": ". / .."
         },
         {
+          "id": "C",
+          "text": "Racine /"
+        },
+        {
           "id": "D",
-          "text": "Chemin absolu"
+          "text": "Chemin relatif"
         }
       ],
       "correct_option_ids": [
-        "B"
+        "C"
       ],
       "explanation": "La définition est extraite du résumé de la fiche correspondante.",
       "source_urls": [
@@ -56,7 +56,7 @@
       "options": [
         {
           "id": "A",
-          "text": "Début de l’arborescence Linux."
+          "text": "Dépend du répertoire actuel."
         },
         {
           "id": "B",
@@ -64,15 +64,15 @@
         },
         {
           "id": "C",
-          "text": "Dossier courant / dossier parent."
+          "text": "Début de l’arborescence Linux."
         },
         {
           "id": "D",
-          "text": "Dépend du répertoire actuel."
+          "text": "Dossier courant / dossier parent."
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "Le résumé de la fiche indique : Début de l’arborescence Linux.",
       "source_urls": [
@@ -100,7 +100,7 @@
         },
         {
           "id": "B",
-          "text": "Un chemin commençant par / ne dépend pas de la position courante."
+          "text": "La racine / n'est pas le dossier /root : /root est généralement le dossier personnel de l'administrateur."
         },
         {
           "id": "C",
@@ -108,11 +108,11 @@
         },
         {
           "id": "D",
-          "text": "La racine / n'est pas le dossier /root : /root est généralement le dossier personnel de l'administrateur."
+          "text": "Un chemin commençant par / ne dépend pas de la position courante."
         }
       ],
       "correct_option_ids": [
-        "D"
+        "B"
       ],
       "explanation": "La fiche indique : La racine / n'est pas le dossier /root : /root est généralement le dossier personnel de l'administrateur.",
       "source_urls": [
@@ -136,24 +136,24 @@
       "options": [
         {
           "id": "A",
-          "text": "La racine / n'est pas le dossier /root : /root est généralement le dossier personnel de l'administrateur."
-        },
-        {
-          "id": "B",
           "text": "EOF est une valeur entière spéciale signalant la fin d'un flux ou une erreur ; getchar retourne un int et scanf peut aussi renvoyer EOF."
         },
         {
+          "id": "B",
+          "text": "La racine / n'est pas le dossier /root : /root est généralement le dossier personnel de l'administrateur."
+        },
+        {
           "id": "C",
-          "text": "Début de l’arborescence Linux."
+          "text": "Une fonction de type int * renvoie une adresse ou NULL ; l’objet pointé doit encore exister lors de son utilisation."
         },
         {
           "id": "D",
-          "text": "Une fonction de type int * renvoie une adresse ou NULL ; l’objet pointé doit encore exister lors de son utilisation."
+          "text": "Début de l’arborescence Linux."
         }
       ],
       "correct_option_ids": [
-        "A",
-        "C"
+        "B",
+        "D"
       ],
       "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
       "source_urls": [
@@ -178,15 +178,15 @@
       "options": [
         {
           "id": "A",
-          "text": "cat / file / find / man"
+          "text": "~"
         },
         {
           "id": "B",
-          "text": "Racine /"
+          "text": "cat / file / find / man"
         },
         {
           "id": "C",
-          "text": "~"
+          "text": "Racine /"
         },
         {
           "id": "D",
@@ -194,7 +194,7 @@
         }
       ],
       "correct_option_ids": [
-        "C"
+        "A"
       ],
       "explanation": "La définition est extraite du résumé de la fiche correspondante.",
       "source_urls": [
@@ -218,11 +218,11 @@
       "options": [
         {
           "id": "A",
-          "text": "Début de l’arborescence Linux."
+          "text": "Afficher le contenu / type du fichier / rechercher / consulter le manuel."
         },
         {
           "id": "B",
-          "text": "Dossier personnel de l’utilisateur."
+          "text": "Début de l’arborescence Linux."
         },
         {
           "id": "C",
@@ -230,11 +230,11 @@
         },
         {
           "id": "D",
-          "text": "Afficher le contenu / type du fichier / rechercher / consulter le manuel."
+          "text": "Dossier personnel de l’utilisateur."
         }
       ],
       "correct_option_ids": [
-        "B"
+        "D"
       ],
       "explanation": "Le résumé de la fiche indique : Dossier personnel de l’utilisateur.",
       "source_urls": [
@@ -258,7 +258,7 @@
       "options": [
         {
           "id": "A",
-          "text": "file tente d'identifier le format ; find cherche des chemins ; man explique comment employer une commande."
+          "text": "La racine / n'est pas le dossier /root : /root est généralement le dossier personnel de l'administrateur."
         },
         {
           "id": "B",
@@ -270,7 +270,7 @@
         },
         {
           "id": "D",
-          "text": "La racine / n'est pas le dossier /root : /root est généralement le dossier personnel de l'administrateur."
+          "text": "file tente d'identifier le format ; find cherche des chemins ; man explique comment employer une commande."
         }
       ],
       "correct_option_ids": [
@@ -298,7 +298,7 @@
       "options": [
         {
           "id": "A",
-          "text": "Dossier personnel de l’utilisateur."
+          "text": "Le tilde est développé par le shell dans les contextes prévus : dans des guillemets simples ou doubles, « ~ » reste du texte."
         },
         {
           "id": "B",
@@ -306,16 +306,16 @@
         },
         {
           "id": "C",
-          "text": "Le tilde est développé par le shell dans les contextes prévus : dans des guillemets simples ou doubles, « ~ » reste du texte."
+          "text": "Un prototype annonce une signature ; la définition contient le corps de la fonction."
         },
         {
           "id": "D",
-          "text": "Un prototype annonce une signature ; la définition contient le corps de la fonction."
+          "text": "Dossier personnel de l’utilisateur."
         }
       ],
       "correct_option_ids": [
         "A",
-        "C"
+        "D"
       ],
       "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
       "source_urls": [
@@ -340,23 +340,23 @@
       "options": [
         {
           "id": "A",
-          "text": "pwd / cd / ls"
+          "text": ". / .."
         },
         {
           "id": "B",
-          "text": "Chemin relatif"
+          "text": "pwd / cd / ls"
         },
         {
           "id": "C",
-          "text": "mkdir / touch"
+          "text": "Chemin relatif"
         },
         {
           "id": "D",
-          "text": ". / .."
+          "text": "mkdir / touch"
         }
       ],
       "correct_option_ids": [
-        "D"
+        "A"
       ],
       "explanation": "La définition est extraite du résumé de la fiche correspondante.",
       "source_urls": [
@@ -380,23 +380,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Dossier courant / dossier parent."
-        },
-        {
-          "id": "B",
-          "text": "Créer un dossier / créer un fichier vide ou actualiser sa date."
-        },
-        {
-          "id": "C",
           "text": "Afficher le dossier actuel / changer de dossier / lister les fichiers."
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "Dépend du répertoire actuel."
+        },
+        {
+          "id": "C",
+          "text": "Créer un dossier / créer un fichier vide ou actualiser sa date."
+        },
+        {
+          "id": "D",
+          "text": "Dossier courant / dossier parent."
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "Le résumé de la fiche indique : Dossier courant / dossier parent.",
       "source_urls": [
@@ -420,23 +420,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Avant une commande relative qui échoue, utilise pwd pour vérifier ton point de départ."
+          "text": "pwd te situe, cd te déplace et ls liste le contenu : aucun des trois ne supprime de fichier."
         },
         {
           "id": "B",
-          "text": "« . » vise le répertoire courant ; « .. » son parent. Un nom commençant par un point est généralement masqué par défaut."
+          "text": "Avant une commande relative qui échoue, utilise pwd pour vérifier ton point de départ."
         },
         {
           "id": "C",
-          "text": "touch n'écrit pas de texte dans un fichier ; mkdir -p peut créer plusieurs niveaux de répertoires."
+          "text": "« . » vise le répertoire courant ; « .. » son parent. Un nom commençant par un point est généralement masqué par défaut."
         },
         {
           "id": "D",
-          "text": "pwd te situe, cd te déplace et ls liste le contenu : aucun des trois ne supprime de fichier."
+          "text": "touch n'écrit pas de texte dans un fichier ; mkdir -p peut créer plusieurs niveaux de répertoires."
         }
       ],
       "correct_option_ids": [
-        "B"
+        "C"
       ],
       "explanation": "La fiche indique : « . » vise le répertoire courant ; « .. » son parent. Un nom commençant par un point est généralement masqué par défaut.",
       "source_urls": [
@@ -460,15 +460,15 @@
       "options": [
         {
           "id": "A",
-          "text": "Variable définie dans le Shell en cours, non nécessairement exportée."
+          "text": "« . » vise le répertoire courant ; « .. » son parent. Un nom commençant par un point est généralement masqué par défaut."
         },
         {
           "id": "B",
-          "text": "Liste des dossiers recherchés pour trouver une commande, séparés par :."
+          "text": "Variable définie dans le Shell en cours, non nécessairement exportée."
         },
         {
           "id": "C",
-          "text": "« . » vise le répertoire courant ; « .. » son parent. Un nom commençant par un point est généralement masqué par défaut."
+          "text": "Liste des dossiers recherchés pour trouver une commande, séparés par :."
         },
         {
           "id": "D",
@@ -476,7 +476,7 @@
         }
       ],
       "correct_option_ids": [
-        "C",
+        "A",
         "D"
       ],
       "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
@@ -542,11 +542,11 @@
       "options": [
         {
           "id": "A",
-          "text": "Dossier courant / dossier parent."
+          "text": "Part de /, indépendamment du répertoire actuel."
         },
         {
           "id": "B",
-          "text": "Dossier personnel de l’utilisateur."
+          "text": "Dossier courant / dossier parent."
         },
         {
           "id": "C",
@@ -554,11 +554,11 @@
         },
         {
           "id": "D",
-          "text": "Part de /, indépendamment du répertoire actuel."
+          "text": "Dossier personnel de l’utilisateur."
         }
       ],
       "correct_option_ids": [
-        "D"
+        "A"
       ],
       "explanation": "Le résumé de la fiche indique : Part de /, indépendamment du répertoire actuel.",
       "source_urls": [
@@ -582,23 +582,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Un chemin commençant par / ne dépend pas de la position courante."
+          "text": "La racine / n'est pas le dossier /root : /root est généralement le dossier personnel de l'administrateur."
         },
         {
           "id": "B",
-          "text": "« . » vise le répertoire courant ; « .. » son parent. Un nom commençant par un point est généralement masqué par défaut."
-        },
-        {
-          "id": "C",
           "text": "Le tilde est développé par le shell dans les contextes prévus : dans des guillemets simples ou doubles, « ~ » reste du texte."
         },
         {
+          "id": "C",
+          "text": "« . » vise le répertoire courant ; « .. » son parent. Un nom commençant par un point est généralement masqué par défaut."
+        },
+        {
           "id": "D",
-          "text": "La racine / n'est pas le dossier /root : /root est généralement le dossier personnel de l'administrateur."
+          "text": "Un chemin commençant par / ne dépend pas de la position courante."
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "La fiche indique : Un chemin commençant par / ne dépend pas de la position courante.",
       "source_urls": [
@@ -622,11 +622,11 @@
       "options": [
         {
           "id": "A",
-          "text": "Part de /, indépendamment du répertoire actuel."
+          "text": "Noyau du système d’exploitation ; interface entre logiciels et ressources matérielles."
         },
         {
           "id": "B",
-          "text": "Noyau du système d’exploitation ; interface entre logiciels et ressources matérielles."
+          "text": "Part de /, indépendamment du répertoire actuel."
         },
         {
           "id": "C",
@@ -638,7 +638,7 @@
         }
       ],
       "correct_option_ids": [
-        "A",
+        "B",
         "D"
       ],
       "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
@@ -664,7 +664,7 @@
       "options": [
         {
           "id": "A",
-          "text": "cat / file / find / man"
+          "text": "mkdir / touch"
         },
         {
           "id": "B",
@@ -672,11 +672,11 @@
         },
         {
           "id": "C",
-          "text": "mkdir / touch"
+          "text": "cp / mv / rm"
         },
         {
           "id": "D",
-          "text": "cp / mv / rm"
+          "text": "cat / file / find / man"
         }
       ],
       "correct_option_ids": [
@@ -704,23 +704,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Copier / déplacer-renommer / supprimer."
+          "text": "Afficher le contenu / type du fichier / rechercher / consulter le manuel."
         },
         {
           "id": "B",
-          "text": "Créer un dossier / créer un fichier vide ou actualiser sa date."
-        },
-        {
-          "id": "C",
           "text": "Dépend du répertoire actuel."
         },
         {
+          "id": "C",
+          "text": "Copier / déplacer-renommer / supprimer."
+        },
+        {
           "id": "D",
-          "text": "Afficher le contenu / type du fichier / rechercher / consulter le manuel."
+          "text": "Créer un dossier / créer un fichier vide ou actualiser sa date."
         }
       ],
       "correct_option_ids": [
-        "C"
+        "B"
       ],
       "explanation": "Le résumé de la fiche indique : Dépend du répertoire actuel.",
       "source_urls": [
@@ -744,23 +744,23 @@
       "options": [
         {
           "id": "A",
-          "text": "file tente d'identifier le format ; find cherche des chemins ; man explique comment employer une commande."
-        },
-        {
-          "id": "B",
-          "text": "touch n'écrit pas de texte dans un fichier ; mkdir -p peut créer plusieurs niveaux de répertoires."
-        },
-        {
-          "id": "C",
           "text": "rm supprime généralement sans corbeille. Vérifie le nom et le chemin, surtout avec -r."
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "Avant une commande relative qui échoue, utilise pwd pour vérifier ton point de départ."
+        },
+        {
+          "id": "C",
+          "text": "touch n'écrit pas de texte dans un fichier ; mkdir -p peut créer plusieurs niveaux de répertoires."
+        },
+        {
+          "id": "D",
+          "text": "file tente d'identifier le format ; find cherche des chemins ; man explique comment employer une commande."
         }
       ],
       "correct_option_ids": [
-        "D"
+        "B"
       ],
       "explanation": "La fiche indique : Avant une commande relative qui échoue, utilise pwd pour vérifier ton point de départ.",
       "source_urls": [
@@ -788,20 +788,20 @@
         },
         {
           "id": "B",
-          "text": "Dépend du répertoire actuel."
-        },
-        {
-          "id": "C",
           "text": "Le préprocesseur prépare le texte, le compilateur produit du code, l’assembleur génère des objets, et l’éditeur de liens crée l’exécutable."
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "Retirer 1, puis utiliser la nouvelle valeur."
+        },
+        {
+          "id": "D",
+          "text": "Dépend du répertoire actuel."
         }
       ],
       "correct_option_ids": [
         "A",
-        "B"
+        "D"
       ],
       "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
       "source_urls": [
@@ -826,7 +826,7 @@
       "options": [
         {
           "id": "A",
-          "text": "pwd / cd / ls"
+          "text": ". / .."
         },
         {
           "id": "B",
@@ -834,15 +834,15 @@
         },
         {
           "id": "C",
-          "text": "Chemin absolu"
+          "text": "pwd / cd / ls"
         },
         {
           "id": "D",
-          "text": ". / .."
+          "text": "Chemin absolu"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "La définition est extraite du résumé de la fiche correspondante.",
       "source_urls": [
@@ -866,23 +866,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Dossier courant / dossier parent."
+          "text": "Part de /, indépendamment du répertoire actuel."
         },
         {
           "id": "B",
-          "text": "Afficher le dossier actuel / changer de dossier / lister les fichiers."
-        },
-        {
-          "id": "C",
           "text": "Dépend du répertoire actuel."
         },
         {
+          "id": "C",
+          "text": "Dossier courant / dossier parent."
+        },
+        {
           "id": "D",
-          "text": "Part de /, indépendamment du répertoire actuel."
+          "text": "Afficher le dossier actuel / changer de dossier / lister les fichiers."
         }
       ],
       "correct_option_ids": [
-        "B"
+        "D"
       ],
       "explanation": "Le résumé de la fiche indique : Afficher le dossier actuel / changer de dossier / lister les fichiers.",
       "source_urls": [
@@ -906,23 +906,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Un chemin commençant par / ne dépend pas de la position courante."
+          "text": "Avant une commande relative qui échoue, utilise pwd pour vérifier ton point de départ."
         },
         {
           "id": "B",
-          "text": "« . » vise le répertoire courant ; « .. » son parent. Un nom commençant par un point est généralement masqué par défaut."
+          "text": "Un chemin commençant par / ne dépend pas de la position courante."
         },
         {
           "id": "C",
-          "text": "pwd te situe, cd te déplace et ls liste le contenu : aucun des trois ne supprime de fichier."
+          "text": "« . » vise le répertoire courant ; « .. » son parent. Un nom commençant par un point est généralement masqué par défaut."
         },
         {
           "id": "D",
-          "text": "Avant une commande relative qui échoue, utilise pwd pour vérifier ton point de départ."
+          "text": "pwd te situe, cd te déplace et ls liste le contenu : aucun des trois ne supprime de fichier."
         }
       ],
       "correct_option_ids": [
-        "C"
+        "D"
       ],
       "explanation": "La fiche indique : pwd te situe, cd te déplace et ls liste le contenu : aucun des trois ne supprime de fichier.",
       "source_urls": [
@@ -946,7 +946,7 @@
       "options": [
         {
           "id": "A",
-          "text": "Un tampon peut être de taille fixe, avoir une durée de vie statique ou être alloué dynamiquement : ces propriétés sont différentes."
+          "text": "Afficher le dossier actuel / changer de dossier / lister les fichiers."
         },
         {
           "id": "B",
@@ -954,16 +954,16 @@
         },
         {
           "id": "C",
-          "text": "Afficher le dossier actuel / changer de dossier / lister les fichiers."
+          "text": "Un raw pointer est un pointeur ordinaire tel que int * ou char * : il contient une adresse, sans garantie automatique de validité ni gestion de propriété."
         },
         {
           "id": "D",
-          "text": "Un raw pointer est un pointeur ordinaire tel que int * ou char * : il contient une adresse, sans garantie automatique de validité ni gestion de propriété."
+          "text": "Un tampon peut être de taille fixe, avoir une durée de vie statique ou être alloué dynamiquement : ces propriétés sont différentes."
         }
       ],
       "correct_option_ids": [
-        "B",
-        "C"
+        "A",
+        "B"
       ],
       "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
       "source_urls": [
@@ -988,23 +988,23 @@
       "options": [
         {
           "id": "A",
-          "text": "~"
+          "text": "mkdir / touch"
         },
         {
           "id": "B",
-          "text": "Racine /"
+          "text": "~"
         },
         {
           "id": "C",
-          "text": "cat / file / find / man"
+          "text": "Racine /"
         },
         {
           "id": "D",
-          "text": "mkdir / touch"
+          "text": "cat / file / find / man"
         }
       ],
       "correct_option_ids": [
-        "D"
+        "A"
       ],
       "explanation": "La définition est extraite du résumé de la fiche correspondante.",
       "source_urls": [
@@ -1028,23 +1028,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Créer un dossier / créer un fichier vide ou actualiser sa date."
-        },
-        {
-          "id": "B",
           "text": "Dossier personnel de l’utilisateur."
         },
         {
-          "id": "C",
+          "id": "B",
           "text": "Début de l’arborescence Linux."
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "Afficher le contenu / type du fichier / rechercher / consulter le manuel."
+        },
+        {
+          "id": "D",
+          "text": "Créer un dossier / créer un fichier vide ou actualiser sa date."
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "Le résumé de la fiche indique : Créer un dossier / créer un fichier vide ou actualiser sa date.",
       "source_urls": [
@@ -1072,11 +1072,11 @@
         },
         {
           "id": "B",
-          "text": "file tente d'identifier le format ; find cherche des chemins ; man explique comment employer une commande."
+          "text": "touch n'écrit pas de texte dans un fichier ; mkdir -p peut créer plusieurs niveaux de répertoires."
         },
         {
           "id": "C",
-          "text": "touch n'écrit pas de texte dans un fichier ; mkdir -p peut créer plusieurs niveaux de répertoires."
+          "text": "file tente d'identifier le format ; find cherche des chemins ; man explique comment employer une commande."
         },
         {
           "id": "D",
@@ -1084,7 +1084,7 @@
         }
       ],
       "correct_option_ids": [
-        "C"
+        "B"
       ],
       "explanation": "La fiche indique : touch n'écrit pas de texte dans un fichier ; mkdir -p peut créer plusieurs niveaux de répertoires.",
       "source_urls": [
@@ -1108,24 +1108,24 @@
       "options": [
         {
           "id": "A",
-          "text": "Pour échanger deux cases, on conserve provisoirement l'une des valeurs dans une variable temporaire."
-        },
-        {
-          "id": "B",
           "text": "Une fuite mémoire (memory leak) survient lorsqu’un bloc alloué n’est pas libéré et devient inaccessible ; les fuites répétées épuisent la mémoire."
         },
         {
-          "id": "C",
+          "id": "B",
           "text": "touch n'écrit pas de texte dans un fichier ; mkdir -p peut créer plusieurs niveaux de répertoires."
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "Créer un dossier / créer un fichier vide ou actualiser sa date."
+        },
+        {
+          "id": "D",
+          "text": "Pour échanger deux cases, on conserve provisoirement l'une des valeurs dans une variable temporaire."
         }
       ],
       "correct_option_ids": [
-        "C",
-        "D"
+        "B",
+        "C"
       ],
       "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
       "source_urls": [
@@ -1150,23 +1150,23 @@
       "options": [
         {
           "id": "A",
-          "text": "pwd / cd / ls"
-        },
-        {
-          "id": "B",
-          "text": "Chemin relatif"
-        },
-        {
-          "id": "C",
           "text": "cp / mv / rm"
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "mkdir / touch"
+        },
+        {
+          "id": "C",
+          "text": "Chemin relatif"
+        },
+        {
+          "id": "D",
+          "text": "pwd / cd / ls"
         }
       ],
       "correct_option_ids": [
-        "C"
+        "A"
       ],
       "explanation": "La définition est extraite du résumé de la fiche correspondante.",
       "source_urls": [
@@ -1190,7 +1190,7 @@
       "options": [
         {
           "id": "A",
-          "text": "Créer un dossier / créer un fichier vide ou actualiser sa date."
+          "text": "Copier / déplacer-renommer / supprimer."
         },
         {
           "id": "B",
@@ -1202,11 +1202,11 @@
         },
         {
           "id": "D",
-          "text": "Copier / déplacer-renommer / supprimer."
+          "text": "Créer un dossier / créer un fichier vide ou actualiser sa date."
         }
       ],
       "correct_option_ids": [
-        "D"
+        "A"
       ],
       "explanation": "Le résumé de la fiche indique : Copier / déplacer-renommer / supprimer.",
       "source_urls": [
@@ -1230,23 +1230,23 @@
       "options": [
         {
           "id": "A",
-          "text": "rm supprime généralement sans corbeille. Vérifie le nom et le chemin, surtout avec -r."
-        },
-        {
-          "id": "B",
-          "text": "pwd te situe, cd te déplace et ls liste le contenu : aucun des trois ne supprime de fichier."
-        },
-        {
-          "id": "C",
           "text": "touch n'écrit pas de texte dans un fichier ; mkdir -p peut créer plusieurs niveaux de répertoires."
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "Avant une commande relative qui échoue, utilise pwd pour vérifier ton point de départ."
+        },
+        {
+          "id": "C",
+          "text": "pwd te situe, cd te déplace et ls liste le contenu : aucun des trois ne supprime de fichier."
+        },
+        {
+          "id": "D",
+          "text": "rm supprime généralement sans corbeille. Vérifie le nom et le chemin, surtout avec -r."
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "La fiche indique : rm supprime généralement sans corbeille. Vérifie le nom et le chemin, surtout avec -r.",
       "source_urls": [
@@ -1270,23 +1270,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Copier / déplacer-renommer / supprimer."
-        },
-        {
-          "id": "B",
-          "text": "Variable dont la valeur est une adresse mémoire. Exemple : int *p; déclare un pointeur vers un int."
-        },
-        {
-          "id": "C",
           "text": "int *p pointe vers un int ; char *q pointe vers un char. Le type sert notamment à interpréter les valeurs et à avancer dans un tableau."
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "rm supprime généralement sans corbeille. Vérifie le nom et le chemin, surtout avec -r."
+        },
+        {
+          "id": "C",
+          "text": "Variable dont la valeur est une adresse mémoire. Exemple : int *p; déclare un pointeur vers un int."
+        },
+        {
+          "id": "D",
+          "text": "Copier / déplacer-renommer / supprimer."
         }
       ],
       "correct_option_ids": [
-        "A",
+        "B",
         "D"
       ],
       "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
@@ -1312,11 +1312,11 @@
       "options": [
         {
           "id": "A",
-          "text": "~"
+          "text": ". / .."
         },
         {
           "id": "B",
-          "text": "cat / file / find / man"
+          "text": "~"
         },
         {
           "id": "C",
@@ -1324,11 +1324,11 @@
         },
         {
           "id": "D",
-          "text": ". / .."
+          "text": "cat / file / find / man"
         }
       ],
       "correct_option_ids": [
-        "B"
+        "D"
       ],
       "explanation": "La définition est extraite du résumé de la fiche correspondante.",
       "source_urls": [
@@ -1360,15 +1360,15 @@
         },
         {
           "id": "C",
-          "text": "Afficher le contenu / type du fichier / rechercher / consulter le manuel."
+          "text": "Part de /, indépendamment du répertoire actuel."
         },
         {
           "id": "D",
-          "text": "Part de /, indépendamment du répertoire actuel."
+          "text": "Afficher le contenu / type du fichier / rechercher / consulter le manuel."
         }
       ],
       "correct_option_ids": [
-        "C"
+        "D"
       ],
       "explanation": "Le résumé de la fiche indique : Afficher le contenu / type du fichier / rechercher / consulter le manuel.",
       "source_urls": [
@@ -1396,19 +1396,19 @@
         },
         {
           "id": "B",
-          "text": "Le tilde est développé par le shell dans les contextes prévus : dans des guillemets simples ou doubles, « ~ » reste du texte."
-        },
-        {
-          "id": "C",
           "text": "Un chemin commençant par / ne dépend pas de la position courante."
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "file tente d'identifier le format ; find cherche des chemins ; man explique comment employer une commande."
+        },
+        {
+          "id": "D",
+          "text": "Le tilde est développé par le shell dans les contextes prévus : dans des guillemets simples ou doubles, « ~ » reste du texte."
         }
       ],
       "correct_option_ids": [
-        "D"
+        "C"
       ],
       "explanation": "La fiche indique : file tente d'identifier le format ; find cherche des chemins ; man explique comment employer une commande.",
       "source_urls": [

@@ -1,84 +1,84 @@
-# Banque de revue — Bases informatiques
+# Première vague — Bases informatiques
 
-24 questions candidates couvrant 6 notions. **Toutes les réponses sont des propositions à vérifier indépendamment** ; elles sont dérivées des fiches existantes et peuvent contenir des distracteurs ambigus. **Ne rien publier sur le site.**
+**24 questions candidates concernant ce chapitre.** La répartition des réponses a été rééquilibrée pour éviter les biais de position. Ces réponses restent des propositions **non validées sur le fond** ; vérifier chaque distracteur et les sources avant publication.
 
 ## N00_000 — Hardware / Software
 
 [Fiche de révision](https://revision-hbtn.soleiljaune.be/#cours/bases-informatiques/1-hardware-software)
 
-### V1-N00_000-01 · definition
+### V1-N00_000-01 — definition
 
 **Une seule bonne réponse**
 
 À quelle notion correspond la définition suivante : « Matériel physique / programmes exécutés par la machine. » ?
 
-- **A ❌** WSL
-- **B ❌** Système d’exploitation
+- **A ❌** Système d’exploitation
+- **B ❌** WSL
 - **C ❌** Kernel
 - **D ✅** Hardware / Software
 
-**Réponse candidate :** D · **Explication :** La définition est extraite du résumé de la fiche correspondante.
+**Réponse proposée :** D. La définition est extraite du résumé de la fiche correspondante.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/bases-informatiques/1-hardware-software
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N00_000-02 · description
+### V1-N00_000-02 — description
 
 **Une seule bonne réponse**
 
 Quelle description caractérise « Hardware / Software » ?
 
-- **A ❌** Sous-système Windows pour Linux : environnement Linux utilisable sur Windows.
-- **B ❌** Noyau du système d’exploitation ; interface entre logiciels et ressources matérielles.
+- **A ❌** Noyau du système d’exploitation ; interface entre logiciels et ressources matérielles.
+- **B ❌** Sous-système Windows pour Linux : environnement Linux utilisable sur Windows.
 - **C ✅** Matériel physique / programmes exécutés par la machine.
 - **D ❌** Gère les ressources, les processus, la mémoire, les fichiers et les périphériques.
 
-**Réponse candidate :** C · **Explication :** Le résumé de la fiche indique : Matériel physique / programmes exécutés par la machine.
+**Réponse proposée :** C. Le résumé de la fiche indique : Matériel physique / programmes exécutés par la machine.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/bases-informatiques/1-hardware-software
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N00_000-03 · vigilance
+### V1-N00_000-03 — vigilance
 
 **Une seule bonne réponse**
 
 Quel point à retenir est directement associé à « Hardware / Software » ?
 
 - **A ❌** Le noyau gère les ressources ; un appel système permet à l'application de demander un service.
-- **B ✅** Le matériel est physique ; un logiciel est un ensemble d'instructions. Ils travaillent ensemble.
-- **C ❌** Le système d'exploitation sert d'intermédiaire : chaque application n'a pas à piloter directement les périphériques.
+- **B ❌** Le système d'exploitation sert d'intermédiaire : chaque application n'a pas à piloter directement les périphériques.
+- **C ✅** Le matériel est physique ; un logiciel est un ensemble d'instructions. Ils travaillent ensemble.
 - **D ❌** WSL 2 utilise un noyau Linux dans une VM légère. Les chemins Linux ne sont pas ceux de Windows.
 
-**Réponse candidate :** B · **Explication :** La fiche indique : Le matériel est physique ; un logiciel est un ensemble d'instructions. Ils travaillent ensemble.
+**Réponse proposée :** C. La fiche indique : Le matériel est physique ; un logiciel est un ensemble d'instructions. Ils travaillent ensemble.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/bases-informatiques/1-hardware-software
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N00_000-04 · synthese
+### V1-N00_000-04 — synthese
 
 **Plusieurs bonnes réponses**
 
 Quelles affirmations concernent directement « Hardware / Software » ?
 
-- **A ✅** Le matériel est physique ; un logiciel est un ensemble d'instructions. Ils travaillent ensemble.
-- **B ❌** Si p = &n, alors *p = 402; modifie n, qui prend la valeur 402.
-- **C ❌** EOF est une valeur entière spéciale signalant la fin d'un flux ou une erreur ; getchar retourne un int et scanf peut aussi renvoyer EOF.
-- **D ✅** Matériel physique / programmes exécutés par la machine.
+- **A ❌** EOF est une valeur entière spéciale signalant la fin d'un flux ou une erreur ; getchar retourne un int et scanf peut aussi renvoyer EOF.
+- **B ✅** Matériel physique / programmes exécutés par la machine.
+- **C ✅** Le matériel est physique ; un logiciel est un ensemble d'instructions. Ils travaillent ensemble.
+- **D ❌** Si p = &n, alors *p = 402; modifie n, qui prend la valeur 402.
 
-**Réponse candidate :** A, D · **Explication :** Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.
+**Réponse proposée :** B, C. Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/bases-informatiques/1-hardware-software
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
@@ -86,79 +86,79 @@ Quelles affirmations concernent directement « Hardware / Software » ?
 
 [Fiche de révision](https://revision-hbtn.soleiljaune.be/#cours/bases-informatiques/2-systeme-d-exploitation)
 
-### V1-N00_001-01 · definition
+### V1-N00_001-01 — definition
 
 **Une seule bonne réponse**
 
 À quelle notion correspond la définition suivante : « Gère les ressources, les processus, la mémoire, les fichiers et les périphériques. » ?
 
-- **A ✅** Système d’exploitation
+- **A ❌** Hardware / Software
 - **B ❌** Linux / Ubuntu
-- **C ❌** Hardware / Software
+- **C ✅** Système d’exploitation
 - **D ❌** WSL
 
-**Réponse candidate :** A · **Explication :** La définition est extraite du résumé de la fiche correspondante.
+**Réponse proposée :** C. La définition est extraite du résumé de la fiche correspondante.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/bases-informatiques/2-systeme-d-exploitation
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N00_001-02 · description
+### V1-N00_001-02 — description
 
 **Une seule bonne réponse**
 
 Quelle description caractérise « Système d’exploitation » ?
 
-- **A ❌** Sous-système Windows pour Linux : environnement Linux utilisable sur Windows.
-- **B ❌** Matériel physique / programmes exécutés par la machine.
-- **C ❌** Linux est un noyau et une famille de systèmes ; Ubuntu est une distribution utilisant Linux.
-- **D ✅** Gère les ressources, les processus, la mémoire, les fichiers et les périphériques.
+- **A ✅** Gère les ressources, les processus, la mémoire, les fichiers et les périphériques.
+- **B ❌** Linux est un noyau et une famille de systèmes ; Ubuntu est une distribution utilisant Linux.
+- **C ❌** Sous-système Windows pour Linux : environnement Linux utilisable sur Windows.
+- **D ❌** Matériel physique / programmes exécutés par la machine.
 
-**Réponse candidate :** D · **Explication :** Le résumé de la fiche indique : Gère les ressources, les processus, la mémoire, les fichiers et les périphériques.
+**Réponse proposée :** A. Le résumé de la fiche indique : Gère les ressources, les processus, la mémoire, les fichiers et les périphériques.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/bases-informatiques/2-systeme-d-exploitation
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N00_001-03 · vigilance
+### V1-N00_001-03 — vigilance
 
 **Une seule bonne réponse**
 
 Quel point à retenir est directement associé à « Système d’exploitation » ?
 
-- **A ✅** Le système d'exploitation sert d'intermédiaire : chaque application n'a pas à piloter directement les périphériques.
-- **B ❌** WSL 2 utilise un noyau Linux dans une VM légère. Les chemins Linux ne sont pas ceux de Windows.
-- **C ❌** Le matériel est physique ; un logiciel est un ensemble d'instructions. Ils travaillent ensemble.
+- **A ❌** WSL 2 utilise un noyau Linux dans une VM légère. Les chemins Linux ne sont pas ceux de Windows.
+- **B ❌** Le matériel est physique ; un logiciel est un ensemble d'instructions. Ils travaillent ensemble.
+- **C ✅** Le système d'exploitation sert d'intermédiaire : chaque application n'a pas à piloter directement les périphériques.
 - **D ❌** Linux est le noyau ; Ubuntu est une distribution qui l'utilise avec d'autres logiciels.
 
-**Réponse candidate :** A · **Explication :** La fiche indique : Le système d'exploitation sert d'intermédiaire : chaque application n'a pas à piloter directement les périphériques.
+**Réponse proposée :** C. La fiche indique : Le système d'exploitation sert d'intermédiaire : chaque application n'a pas à piloter directement les périphériques.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/bases-informatiques/2-systeme-d-exploitation
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N00_001-04 · synthese
+### V1-N00_001-04 — synthese
 
 **Plusieurs bonnes réponses**
 
 Quelles affirmations concernent directement « Système d’exploitation » ?
 
 - **A ✅** Gère les ressources, les processus, la mémoire, les fichiers et les périphériques.
-- **B ❌** Instantané enregistré dans l’historique local.
-- **C ❌** Un passage dans une boucle.
+- **B ❌** Un passage dans une boucle.
+- **C ❌** Instantané enregistré dans l’historique local.
 - **D ✅** Le système d'exploitation sert d'intermédiaire : chaque application n'a pas à piloter directement les périphériques.
 
-**Réponse candidate :** A, D · **Explication :** Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.
+**Réponse proposée :** A, D. Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/bases-informatiques/2-systeme-d-exploitation
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
@@ -166,64 +166,64 @@ Quelles affirmations concernent directement « Système d’exploitation » ?
 
 [Fiche de révision](https://revision-hbtn.soleiljaune.be/#cours/bases-informatiques/3-kernel)
 
-### V1-N00_002-01 · definition
+### V1-N00_002-01 — definition
 
 **Une seule bonne réponse**
 
 À quelle notion correspond la définition suivante : « Noyau du système d’exploitation ; interface entre logiciels et ressources matérielles. » ?
 
-- **A ❌** Hardware / Software
-- **B ✅** Kernel
-- **C ❌** GUI / CLI
-- **D ❌** Linux / Ubuntu
+- **A ❌** GUI / CLI
+- **B ❌** Linux / Ubuntu
+- **C ❌** Hardware / Software
+- **D ✅** Kernel
 
-**Réponse candidate :** B · **Explication :** La définition est extraite du résumé de la fiche correspondante.
+**Réponse proposée :** D. La définition est extraite du résumé de la fiche correspondante.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/bases-informatiques/3-kernel
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N00_002-02 · description
+### V1-N00_002-02 — description
 
 **Une seule bonne réponse**
 
 Quelle description caractérise « Kernel » ?
 
-- **A ✅** Noyau du système d’exploitation ; interface entre logiciels et ressources matérielles.
-- **B ❌** Linux est un noyau et une famille de systèmes ; Ubuntu est une distribution utilisant Linux.
-- **C ❌** Interface graphique / interface en ligne de commande.
-- **D ❌** Matériel physique / programmes exécutés par la machine.
+- **A ❌** Matériel physique / programmes exécutés par la machine.
+- **B ❌** Interface graphique / interface en ligne de commande.
+- **C ❌** Linux est un noyau et une famille de systèmes ; Ubuntu est une distribution utilisant Linux.
+- **D ✅** Noyau du système d’exploitation ; interface entre logiciels et ressources matérielles.
 
-**Réponse candidate :** A · **Explication :** Le résumé de la fiche indique : Noyau du système d’exploitation ; interface entre logiciels et ressources matérielles.
+**Réponse proposée :** D. Le résumé de la fiche indique : Noyau du système d’exploitation ; interface entre logiciels et ressources matérielles.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/bases-informatiques/3-kernel
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N00_002-03 · vigilance
+### V1-N00_002-03 — vigilance
 
 **Une seule bonne réponse**
 
 Quel point à retenir est directement associé à « Kernel » ?
 
-- **A ❌** Le matériel est physique ; un logiciel est un ensemble d'instructions. Ils travaillent ensemble.
-- **B ❌** Linux est le noyau ; Ubuntu est une distribution qui l'utilise avec d'autres logiciels.
-- **C ❌** GUI et CLI sont deux façons d'interagir avec le système, souvent complémentaires.
-- **D ✅** Le noyau gère les ressources ; un appel système permet à l'application de demander un service.
+- **A ❌** Linux est le noyau ; Ubuntu est une distribution qui l'utilise avec d'autres logiciels.
+- **B ❌** GUI et CLI sont deux façons d'interagir avec le système, souvent complémentaires.
+- **C ✅** Le noyau gère les ressources ; un appel système permet à l'application de demander un service.
+- **D ❌** Le matériel est physique ; un logiciel est un ensemble d'instructions. Ils travaillent ensemble.
 
-**Réponse candidate :** D · **Explication :** La fiche indique : Le noyau gère les ressources ; un appel système permet à l'application de demander un service.
+**Réponse proposée :** C. La fiche indique : Le noyau gère les ressources ; un appel système permet à l'application de demander un service.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/bases-informatiques/3-kernel
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N00_002-04 · synthese
+### V1-N00_002-04 — synthese
 
 **Plusieurs bonnes réponses**
 
@@ -231,14 +231,14 @@ Quelles affirmations concernent directement « Kernel » ?
 
 - **A ✅** Le noyau gère les ressources ; un appel système permet à l'application de demander un service.
 - **B ❌** Créer un dossier / créer un fichier vide ou actualiser sa date.
-- **C ✅** Noyau du système d’exploitation ; interface entre logiciels et ressources matérielles.
-- **D ❌** Fichier texte qui contient une suite de commandes exécutables par un Shell.
+- **C ❌** Fichier texte qui contient une suite de commandes exécutables par un Shell.
+- **D ✅** Noyau du système d’exploitation ; interface entre logiciels et ressources matérielles.
 
-**Réponse candidate :** A, C · **Explication :** Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.
+**Réponse proposée :** A, D. Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/bases-informatiques/3-kernel
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
@@ -246,64 +246,64 @@ Quelles affirmations concernent directement « Kernel » ?
 
 [Fiche de révision](https://revision-hbtn.soleiljaune.be/#cours/bases-informatiques/4-linux-ubuntu)
 
-### V1-N00_003-01 · definition
+### V1-N00_003-01 — definition
 
 **Une seule bonne réponse**
 
 À quelle notion correspond la définition suivante : « Linux est un noyau et une famille de systèmes ; Ubuntu est une distribution utilisant Linux. » ?
 
 - **A ❌** GUI / CLI
-- **B ❌** Kernel
-- **C ✅** Linux / Ubuntu
-- **D ❌** Système d’exploitation
+- **B ✅** Linux / Ubuntu
+- **C ❌** Système d’exploitation
+- **D ❌** Kernel
 
-**Réponse candidate :** C · **Explication :** La définition est extraite du résumé de la fiche correspondante.
+**Réponse proposée :** B. La définition est extraite du résumé de la fiche correspondante.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/bases-informatiques/4-linux-ubuntu
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N00_003-02 · description
+### V1-N00_003-02 — description
 
 **Une seule bonne réponse**
 
 Quelle description caractérise « Linux / Ubuntu » ?
 
-- **A ❌** Gère les ressources, les processus, la mémoire, les fichiers et les périphériques.
-- **B ✅** Linux est un noyau et une famille de systèmes ; Ubuntu est une distribution utilisant Linux.
-- **C ❌** Noyau du système d’exploitation ; interface entre logiciels et ressources matérielles.
-- **D ❌** Interface graphique / interface en ligne de commande.
+- **A ❌** Interface graphique / interface en ligne de commande.
+- **B ❌** Noyau du système d’exploitation ; interface entre logiciels et ressources matérielles.
+- **C ✅** Linux est un noyau et une famille de systèmes ; Ubuntu est une distribution utilisant Linux.
+- **D ❌** Gère les ressources, les processus, la mémoire, les fichiers et les périphériques.
 
-**Réponse candidate :** B · **Explication :** Le résumé de la fiche indique : Linux est un noyau et une famille de systèmes ; Ubuntu est une distribution utilisant Linux.
+**Réponse proposée :** C. Le résumé de la fiche indique : Linux est un noyau et une famille de systèmes ; Ubuntu est une distribution utilisant Linux.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/bases-informatiques/4-linux-ubuntu
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N00_003-03 · vigilance
+### V1-N00_003-03 — vigilance
 
 **Une seule bonne réponse**
 
 Quel point à retenir est directement associé à « Linux / Ubuntu » ?
 
-- **A ❌** GUI et CLI sont deux façons d'interagir avec le système, souvent complémentaires.
-- **B ❌** Le système d'exploitation sert d'intermédiaire : chaque application n'a pas à piloter directement les périphériques.
+- **A ❌** Le noyau gère les ressources ; un appel système permet à l'application de demander un service.
+- **B ❌** GUI et CLI sont deux façons d'interagir avec le système, souvent complémentaires.
 - **C ✅** Linux est le noyau ; Ubuntu est une distribution qui l'utilise avec d'autres logiciels.
-- **D ❌** Le noyau gère les ressources ; un appel système permet à l'application de demander un service.
+- **D ❌** Le système d'exploitation sert d'intermédiaire : chaque application n'a pas à piloter directement les périphériques.
 
-**Réponse candidate :** C · **Explication :** La fiche indique : Linux est le noyau ; Ubuntu est une distribution qui l'utilise avec d'autres logiciels.
+**Réponse proposée :** C. La fiche indique : Linux est le noyau ; Ubuntu est une distribution qui l'utilise avec d'autres logiciels.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/bases-informatiques/4-linux-ubuntu
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N00_003-04 · synthese
+### V1-N00_003-04 — synthese
 
 **Plusieurs bonnes réponses**
 
@@ -314,11 +314,11 @@ Quelles affirmations concernent directement « Linux / Ubuntu » ?
 - **C ✅** Linux est un noyau et une famille de systèmes ; Ubuntu est une distribution utilisant Linux.
 - **D ❌** Retirer 1, puis utiliser la nouvelle valeur.
 
-**Réponse candidate :** B, C · **Explication :** Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.
+**Réponse proposée :** B, C. Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/bases-informatiques/4-linux-ubuntu
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
@@ -326,79 +326,79 @@ Quelles affirmations concernent directement « Linux / Ubuntu » ?
 
 [Fiche de révision](https://revision-hbtn.soleiljaune.be/#cours/bases-informatiques/5-wsl)
 
-### V1-N00_004-01 · definition
+### V1-N00_004-01 — definition
 
 **Une seule bonne réponse**
 
 À quelle notion correspond la définition suivante : « Sous-système Windows pour Linux : environnement Linux utilisable sur Windows. » ?
 
-- **A ❌** GUI / CLI
-- **B ❌** Système d’exploitation
-- **C ❌** Linux / Ubuntu
-- **D ✅** WSL
+- **A ✅** WSL
+- **B ❌** GUI / CLI
+- **C ❌** Système d’exploitation
+- **D ❌** Linux / Ubuntu
 
-**Réponse candidate :** D · **Explication :** La définition est extraite du résumé de la fiche correspondante.
+**Réponse proposée :** A. La définition est extraite du résumé de la fiche correspondante.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/bases-informatiques/5-wsl
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N00_004-02 · description
+### V1-N00_004-02 — description
 
 **Une seule bonne réponse**
 
 Quelle description caractérise « WSL » ?
 
-- **A ✅** Sous-système Windows pour Linux : environnement Linux utilisable sur Windows.
-- **B ❌** Interface graphique / interface en ligne de commande.
-- **C ❌** Gère les ressources, les processus, la mémoire, les fichiers et les périphériques.
-- **D ❌** Linux est un noyau et une famille de systèmes ; Ubuntu est une distribution utilisant Linux.
+- **A ❌** Gère les ressources, les processus, la mémoire, les fichiers et les périphériques.
+- **B ✅** Sous-système Windows pour Linux : environnement Linux utilisable sur Windows.
+- **C ❌** Linux est un noyau et une famille de systèmes ; Ubuntu est une distribution utilisant Linux.
+- **D ❌** Interface graphique / interface en ligne de commande.
 
-**Réponse candidate :** A · **Explication :** Le résumé de la fiche indique : Sous-système Windows pour Linux : environnement Linux utilisable sur Windows.
+**Réponse proposée :** B. Le résumé de la fiche indique : Sous-système Windows pour Linux : environnement Linux utilisable sur Windows.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/bases-informatiques/5-wsl
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N00_004-03 · vigilance
+### V1-N00_004-03 — vigilance
 
 **Une seule bonne réponse**
 
 Quel point à retenir est directement associé à « WSL » ?
 
-- **A ❌** Linux est le noyau ; Ubuntu est une distribution qui l'utilise avec d'autres logiciels.
+- **A ❌** GUI et CLI sont deux façons d'interagir avec le système, souvent complémentaires.
 - **B ✅** WSL 2 utilise un noyau Linux dans une VM légère. Les chemins Linux ne sont pas ceux de Windows.
-- **C ❌** GUI et CLI sont deux façons d'interagir avec le système, souvent complémentaires.
+- **C ❌** Linux est le noyau ; Ubuntu est une distribution qui l'utilise avec d'autres logiciels.
 - **D ❌** Le système d'exploitation sert d'intermédiaire : chaque application n'a pas à piloter directement les périphériques.
 
-**Réponse candidate :** B · **Explication :** La fiche indique : WSL 2 utilise un noyau Linux dans une VM légère. Les chemins Linux ne sont pas ceux de Windows.
+**Réponse proposée :** B. La fiche indique : WSL 2 utilise un noyau Linux dans une VM légère. Les chemins Linux ne sont pas ceux de Windows.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/bases-informatiques/5-wsl
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N00_004-04 · synthese
+### V1-N00_004-04 — synthese
 
 **Plusieurs bonnes réponses**
 
 Quelles affirmations concernent directement « WSL » ?
 
-- **A ❌** Une allocation peut échouer : contrôler le pointeur avant toute lecture ou écriture dans le bloc demandé.
-- **B ❌** strdup(src) alloue une nouvelle chaîne et la copie ; il faut vérifier NULL puis appeler free sur le résultat.
-- **C ✅** WSL 2 utilise un noyau Linux dans une VM légère. Les chemins Linux ne sont pas ceux de Windows.
-- **D ✅** Sous-système Windows pour Linux : environnement Linux utilisable sur Windows.
+- **A ❌** strdup(src) alloue une nouvelle chaîne et la copie ; il faut vérifier NULL puis appeler free sur le résultat.
+- **B ✅** WSL 2 utilise un noyau Linux dans une VM légère. Les chemins Linux ne sont pas ceux de Windows.
+- **C ✅** Sous-système Windows pour Linux : environnement Linux utilisable sur Windows.
+- **D ❌** Une allocation peut échouer : contrôler le pointeur avant toute lecture ou écriture dans le bloc demandé.
 
-**Réponse candidate :** C, D · **Explication :** Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.
+**Réponse proposée :** B, C. Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/bases-informatiques/5-wsl
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
@@ -406,79 +406,79 @@ Quelles affirmations concernent directement « WSL » ?
 
 [Fiche de révision](https://revision-hbtn.soleiljaune.be/#cours/bases-informatiques/6-gui-cli)
 
-### V1-N00_005-01 · definition
+### V1-N00_005-01 — definition
 
 **Une seule bonne réponse**
 
 À quelle notion correspond la définition suivante : « Interface graphique / interface en ligne de commande. » ?
 
-- **A ✅** GUI / CLI
-- **B ❌** Linux / Ubuntu
-- **C ❌** Hardware / Software
-- **D ❌** Système d’exploitation
+- **A ❌** Linux / Ubuntu
+- **B ❌** Hardware / Software
+- **C ❌** Système d’exploitation
+- **D ✅** GUI / CLI
 
-**Réponse candidate :** A · **Explication :** La définition est extraite du résumé de la fiche correspondante.
+**Réponse proposée :** D. La définition est extraite du résumé de la fiche correspondante.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/bases-informatiques/6-gui-cli
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N00_005-02 · description
+### V1-N00_005-02 — description
 
 **Une seule bonne réponse**
 
 Quelle description caractérise « GUI / CLI » ?
 
-- **A ❌** Gère les ressources, les processus, la mémoire, les fichiers et les périphériques.
+- **A ❌** Matériel physique / programmes exécutés par la machine.
 - **B ❌** Linux est un noyau et une famille de systèmes ; Ubuntu est une distribution utilisant Linux.
-- **C ❌** Matériel physique / programmes exécutés par la machine.
-- **D ✅** Interface graphique / interface en ligne de commande.
+- **C ✅** Interface graphique / interface en ligne de commande.
+- **D ❌** Gère les ressources, les processus, la mémoire, les fichiers et les périphériques.
 
-**Réponse candidate :** D · **Explication :** Le résumé de la fiche indique : Interface graphique / interface en ligne de commande.
+**Réponse proposée :** C. Le résumé de la fiche indique : Interface graphique / interface en ligne de commande.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/bases-informatiques/6-gui-cli
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N00_005-03 · vigilance
+### V1-N00_005-03 — vigilance
 
 **Une seule bonne réponse**
 
 Quel point à retenir est directement associé à « GUI / CLI » ?
 
 - **A ✅** GUI et CLI sont deux façons d'interagir avec le système, souvent complémentaires.
-- **B ❌** Linux est le noyau ; Ubuntu est une distribution qui l'utilise avec d'autres logiciels.
-- **C ❌** Le système d'exploitation sert d'intermédiaire : chaque application n'a pas à piloter directement les périphériques.
-- **D ❌** Le matériel est physique ; un logiciel est un ensemble d'instructions. Ils travaillent ensemble.
+- **B ❌** Le système d'exploitation sert d'intermédiaire : chaque application n'a pas à piloter directement les périphériques.
+- **C ❌** Le matériel est physique ; un logiciel est un ensemble d'instructions. Ils travaillent ensemble.
+- **D ❌** Linux est le noyau ; Ubuntu est une distribution qui l'utilise avec d'autres logiciels.
 
-**Réponse candidate :** A · **Explication :** La fiche indique : GUI et CLI sont deux façons d'interagir avec le système, souvent complémentaires.
+**Réponse proposée :** A. La fiche indique : GUI et CLI sont deux façons d'interagir avec le système, souvent complémentaires.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/bases-informatiques/6-gui-cli
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N00_005-04 · synthese
+### V1-N00_005-04 — synthese
 
 **Plusieurs bonnes réponses**
 
 Quelles affirmations concernent directement « GUI / CLI » ?
 
 - **A ✅** Interface graphique / interface en ligne de commande.
-- **B ❌** EOF est une valeur entière spéciale signalant la fin d'un flux ou une erreur ; getchar retourne un int et scanf peut aussi renvoyer EOF.
-- **C ❌** Une fonction de type int * renvoie une adresse ou NULL ; l’objet pointé doit encore exister lors de son utilisation.
-- **D ✅** GUI et CLI sont deux façons d'interagir avec le système, souvent complémentaires.
+- **B ✅** GUI et CLI sont deux façons d'interagir avec le système, souvent complémentaires.
+- **C ❌** EOF est une valeur entière spéciale signalant la fin d'un flux ou une erreur ; getchar retourne un int et scanf peut aussi renvoyer EOF.
+- **D ❌** Une fonction de type int * renvoie une adresse ou NULL ; l’objet pointé doit encore exister lors de son utilisation.
 
-**Réponse candidate :** A, D · **Explication :** Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.
+**Réponse proposée :** A, B. Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/bases-informatiques/6-gui-cli
 
-**Revue IA :** ☐ Accepter ☐ Corriger ☐ Ambigu ☐ Rejeter
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
