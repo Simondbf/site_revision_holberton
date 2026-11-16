@@ -119,4 +119,31 @@ assert.ok(html.includes('if(si===16)return visualStructureLesson(ii)'),
  'Schémas du chapitre struct non connectés.');
 assert.ok(!html.includes('pas synchronisés par Google Drive'), 'Ancienne mention Google Drive');
 
+// Documentation humaine concise et consignes séparées pour les agents IA.
+const readDoc = name => readFileSync(new URL('../' + name, import.meta.url), 'utf8');
+const agents = readDoc('AGENTS.md');
+const readme = readDoc('README.md');
+const contributing = readDoc('CONTRIBUTING.md');
+assert.ok(agents.includes('extra-lessons') && agents.includes('pointer-data') &&
+ agents.includes('teaching-notes') && agents.includes('quiz') &&
+ agents.includes('holberton-deploy.timer'), 'Le guide IA doit documenter le style, la structure et les évolutions.');
+assert.ok(readDoc('CLAUDE.md').includes('AGENTS.md'), 'Claude doit retrouver les instructions communes.');
+assert.ok(readDoc('.github/copilot-instructions.md').includes('AGENTS.md'),
+ 'Copilot doit retrouver les instructions communes.');
+assert.ok(readme.includes('CONTRIBUTING.md') && contributing.includes('AGENTS.md'),
+ 'Les liens de contribution humaine et IA doivent être accessibles.');
+assert.ok(!readme.includes('holberton-deploy.service') &&
+ !readme.includes('Public ne signifie pas automatiquement libre de droits') &&
+ !readme.includes('Évolution prévue à ne pas oublier'),
+ 'Le README contient des consignes internes destinées aux agents.');
+assert.ok(!contributing.includes('N’ajoute jamais de token') &&
+ !contributing.includes('déclenche le déploiement'),
+ 'Les consignes pour humains doivent être concises et à jour.');
+assert.ok(html.includes('À propos de Holberton Révision') &&
+ html.includes('Informations pratiques') && html.includes('project-details'),
+ 'La nouvelle page À propos ne doit pas disparaître.');
+assert.ok(!html.includes('Les coordonnées légales complètes') &&
+ !html.includes('Les conditions de réutilisation du code sont à définir'),
+ 'Des avertissements inutiles sont réapparus sur la page À propos.');
+
 console.log('Contrôle réussi : ' + data.sections.length + ' thèmes, ' + total + ' notions, JavaScript valide.');
