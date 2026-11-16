@@ -68,3 +68,11 @@ Le workflow Playwright utilise `npm install --no-save --no-package-lock playwrig
 5. **Avant ouverture d'un compte** : revue d'architecture, contrôle d'accès par utilisateur, sauvegarde/restauration, suppression de compte, tests d'intrusion adaptés, suivi de dépendances.
 
 **Conclusion :** les anciens checks rouges ne prouvent pas une mauvaise fusion ; ils correspondent à des versions intermédiaires. Le risque principal démontré est l'absence d'un verrou obligatoire avant fusion / publication et l'écart de contenu de la branche du quiz.
+
+## Décisions complémentaires du 16 novembre 2026
+
+- Prestataire d'envoi d'e-mails transactionnels : **Brevo**, décidé par le propriétaire. Pas de service actuellement connecté à la production et aucun secret dans le dépôt.
+- Informations publiques : « À propos » annonce que la consultation et les quiz resteront utilisables sans compte ; le suivi multi-appareils sera facultatif et n'est pas encore disponible.
+- Ancien quiz : prototype #14 archivé pour confrontation des 25 questions, propositions et sources via [PR #19](https://github.com/Simondbf/site_revision_holberton/pull/19), documentation seulement. Le prototype ne doit pas être fusionné tel quel.
+- **Échecs historiques :** une PR déjà fusionnée ne peut pas être « défusionnée » par correction des anciens journaux ; on corrige les éventuelles régressions actuelles par une **nouvelle PR** et des tests. Les anciennes exécutions rouges restent consultables et ne sont pas en elles-mêmes la preuve qu'une erreur subsiste dans le code actuel.
+- **Protection de `main` :** à activer **après validation de la PR #18** : empêcher une fusion si les checks `verifier` ou `navigateur` échouent, demander une PR, protéger des pushes directs destructifs et, si souhaité, exiger une revue.
