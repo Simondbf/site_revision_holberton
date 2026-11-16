@@ -1,6 +1,9 @@
 name: Tester les illustrations dans un navigateur
 
 on:
+  push:
+    branches:
+      - main
   pull_request:
     paths:
       - 'index.html'
