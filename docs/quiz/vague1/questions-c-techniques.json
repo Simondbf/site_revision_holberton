@@ -1,0 +1,5070 @@
+{
+  "version": "technique-c-v1",
+  "status": "non_verifie",
+  "questions": [
+    {
+      "id": "CDEEP-08-000-01",
+      "notion_id": "N08_000",
+      "legacy_notion_key": "8:0",
+      "theme": "Programmation C",
+      "notion": "main()",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "En C hébergé, quelle forme d'entrée est conventionnellement utilisée comme point de départ du programme ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "int main(void)"
+        },
+        {
+          "id": "B",
+          "text": "void start(void)"
+        },
+        {
+          "id": "C",
+          "text": "int scanf(void)"
+        },
+        {
+          "id": "D",
+          "text": "char printf(void)"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "main est le point d'entrée du programme C hébergé.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/1-main"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-08-001-01",
+      "notion_id": "N08_001",
+      "legacy_notion_key": "8:1",
+      "theme": "Programmation C",
+      "notion": "Prototype vs définition",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "multiple",
+      "prompt": "Quelles propositions distinguent prototype et définition de fonction ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Le prototype annonce les types de paramètres et le retour"
+        },
+        {
+          "id": "B",
+          "text": "La définition apporte le corps de la fonction"
+        },
+        {
+          "id": "C",
+          "text": "Tout prototype doit obligatoirement contenir un corps"
+        },
+        {
+          "id": "D",
+          "text": "Le prototype exécute une fonction lors de la compilation"
+        }
+      ],
+      "correct_option_ids": [
+        "A",
+        "B"
+      ],
+      "explanation": "Le prototype indique la signature ; la définition apporte le code exécuté.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/2-prototype-vs-definition"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-08-002-01",
+      "notion_id": "N08_002",
+      "legacy_notion_key": "8:2",
+      "theme": "Programmation C",
+      "notion": "void",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Que signifie le retour `void` dans une définition de fonction ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "La fonction ne renvoie pas de valeur"
+        },
+        {
+          "id": "B",
+          "text": "Elle ne peut effectuer aucun appel"
+        },
+        {
+          "id": "C",
+          "text": "Elle retourne forcément 0"
+        },
+        {
+          "id": "D",
+          "text": "Elle reçoit forcément un paramètre int"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "void indique l'absence de valeur de retour.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/3-void"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-08-003-01",
+      "notion_id": "N08_003",
+      "legacy_notion_key": "8:3",
+      "theme": "Programmation C",
+      "notion": "return",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Dans une fonction `int calcul(void)`, quelle instruction renvoie l'entier 7 ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "return 7;"
+        },
+        {
+          "id": "B",
+          "text": "exit;"
+        },
+        {
+          "id": "C",
+          "text": "break 7;"
+        },
+        {
+          "id": "D",
+          "text": "void 7;"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "return fournit une valeur compatible avec le type de retour.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/4-return"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-08-004-01",
+      "notion_id": "N08_004",
+      "legacy_notion_key": "8:4",
+      "theme": "Programmation C",
+      "notion": "printf / _putchar",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Quel appel affiche `A` avec la conversion de caractère de printf ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "printf(\"%c\", 'A');"
+        },
+        {
+          "id": "B",
+          "text": "printf(\"%d\", \"A\");"
+        },
+        {
+          "id": "C",
+          "text": "printf(\"%s\", 'A');"
+        },
+        {
+          "id": "D",
+          "text": "printf(\"%p\", 'A');"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "%c affiche un caractère à partir de la valeur entière promue.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/5-printf-putchar"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-08-005-01",
+      "notion_id": "N08_005",
+      "legacy_notion_key": "8:5",
+      "theme": "Programmation C",
+      "notion": "%d / %c / %.6f",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Pour `double d=1.5;`, quelle conversion de printf affiche six chiffres après la virgule (locale C) ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "%.6f"
+        },
+        {
+          "id": "B",
+          "text": "%d"
+        },
+        {
+          "id": "C",
+          "text": "%c"
+        },
+        {
+          "id": "D",
+          "text": "%p"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "%.6f indique six chiffres après le séparateur décimal pour une conversion flottante.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/6-d-c-6f"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-08-006-01",
+      "notion_id": "N08_006",
+      "legacy_notion_key": "8:6",
+      "theme": "Programmation C",
+      "notion": "ASCII",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Quel code ASCII correspond à la lettre majuscule A ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "65"
+        },
+        {
+          "id": "B",
+          "text": "97"
+        },
+        {
+          "id": "C",
+          "text": "48"
+        },
+        {
+          "id": "D",
+          "text": "10"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "Dans ASCII, A vaut 65, a vaut 97 et '0' vaut 48.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/7-ascii"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-08-007-01",
+      "notion_id": "N08_007",
+      "legacy_notion_key": "8:7",
+      "theme": "Programmation C",
+      "notion": "Compilation vs édition de liens",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "À quelle étape rattache-t-on la résolution d'une référence externe à une fonction ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Édition de liens"
+        },
+        {
+          "id": "B",
+          "text": "Prétraitement seul"
+        },
+        {
+          "id": "C",
+          "text": "Lecture au clavier"
+        },
+        {
+          "id": "D",
+          "text": "Montage d'un disque"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "Le linker assemble les objets et résout les références externes.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/8-compilation-vs-edition-de-liens"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-08-008-01",
+      "notion_id": "N08_008",
+      "legacy_notion_key": "8:8",
+      "theme": "Programmation C",
+      "notion": "undefined reference",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Quelle situation peut produire `undefined reference to fonction` au lien ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "La fonction a été déclarée mais sa définition n'est pas fournie au linker"
+        },
+        {
+          "id": "B",
+          "text": "La variable int vaut 0"
+        },
+        {
+          "id": "C",
+          "text": "Une chaîne contient un retour à la ligne"
+        },
+        {
+          "id": "D",
+          "text": "Une boucle for commence à 0"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "Une déclaration ne fournit pas le code de la fonction à l'éditeur de liens.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/9-undefined-reference"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-08-009-01",
+      "notion_id": "N08_009",
+      "legacy_notion_key": "8:9",
+      "theme": "Programmation C",
+      "notion": "gcc -o nom source.c",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Que fait `gcc -o programme main.c` lorsque toutes les étapes réussissent ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Produit un exécutable nommé programme"
+        },
+        {
+          "id": "B",
+          "text": "Affiche uniquement le prétraitement"
+        },
+        {
+          "id": "C",
+          "text": "Produit forcément main.o sans lien"
+        },
+        {
+          "id": "D",
+          "text": "Démarre un dépôt Git"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "-o définit le nom de sortie.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/10-gcc-o-nom-source-c"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-08-010-01",
+      "notion_id": "N08_010",
+      "legacy_notion_key": "8:10",
+      "theme": "Programmation C",
+      "notion": "GNU89",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Quelle instruction n'est pas une déclaration de boucle for portable en GNU89 strict avec -pedantic ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "for (int i=0; i<3; i++)"
+        },
+        {
+          "id": "B",
+          "text": "int i; for (i=0; i<3; i++)"
+        },
+        {
+          "id": "C",
+          "text": "while (1)"
+        },
+        {
+          "id": "D",
+          "text": "do {} while (0);"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "Déclarer une variable dans l'initialisation d'un for est une fonctionnalité introduite en C99.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/11-gnu89"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-08-011-01",
+      "notion_id": "N08_011",
+      "legacy_notion_key": "8:11",
+      "theme": "Programmation C",
+      "notion": "gcc -E",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Que fait `gcc -E source.c` ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Exécute seulement le préprocesseur"
+        },
+        {
+          "id": "B",
+          "text": "Édite uniquement les liens"
+        },
+        {
+          "id": "C",
+          "text": "Exécute source.c"
+        },
+        {
+          "id": "D",
+          "text": "Génère toujours un fichier objet"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "-E arrête après le prétraitement.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/12-gcc-e"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-08-012-01",
+      "notion_id": "N08_012",
+      "legacy_notion_key": "8:12",
+      "theme": "Programmation C",
+      "notion": "gcc -S",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Que fait `gcc -S source.c` ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Produit du code assembleur sans assembler"
+        },
+        {
+          "id": "B",
+          "text": "Lance un binaire nommé S"
+        },
+        {
+          "id": "C",
+          "text": "Génère uniquement le flux stdin"
+        },
+        {
+          "id": "D",
+          "text": "Supprime les avertissements"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "-S s'arrête à la génération assembleur.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/13-gcc-s"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-08-013-01",
+      "notion_id": "N08_013",
+      "legacy_notion_key": "8:13",
+      "theme": "Programmation C",
+      "notion": "gcc -c",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Que fait `gcc -c source.c` ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Compile/assemble en fichier objet sans étape de liaison"
+        },
+        {
+          "id": "B",
+          "text": "Exécute le programme"
+        },
+        {
+          "id": "C",
+          "text": "Télécharge la bibliothèque libc"
+        },
+        {
+          "id": "D",
+          "text": "Produits uniquement des logs Git"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "-c produit un fichier objet sans créer l'exécutable complet.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/14-gcc-c"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-08-014-01",
+      "notion_id": "N08_014",
+      "legacy_notion_key": "8:14",
+      "theme": "Programmation C",
+      "notion": "gcc -o",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Que signifie `-o sortie` dans une commande gcc ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Définit le nom du fichier de sortie"
+        },
+        {
+          "id": "B",
+          "text": "Active la lecture seule"
+        },
+        {
+          "id": "C",
+          "text": "Optimise à un niveau o"
+        },
+        {
+          "id": "D",
+          "text": "Indique le langage Objective-C"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "-o choisit le chemin du fichier généré.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/15-gcc-o"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-08-015-01",
+      "notion_id": "N08_015",
+      "legacy_notion_key": "8:15",
+      "theme": "Programmation C",
+      "notion": "puts / printf",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "multiple",
+      "prompt": "Quels usages de `puts` sont corrects ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Affiche une chaîne suivie d'un retour à la ligne"
+        },
+        {
+          "id": "B",
+          "text": "Ne prend pas de spécificateurs de format comme printf"
+        },
+        {
+          "id": "C",
+          "text": "Formate des nombres avec %d comme printf"
+        },
+        {
+          "id": "D",
+          "text": "Écrit nécessairement sur stderr"
+        }
+      ],
+      "correct_option_ids": [
+        "A",
+        "B"
+      ],
+      "explanation": "puts écrit une chaîne puis une fin de ligne, contrairement aux conversions de printf.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/16-puts-printf"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-08-016-01",
+      "notion_id": "N08_016",
+      "legacy_notion_key": "8:16",
+      "theme": "Programmation C",
+      "notion": "Types entiers en C",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Peut-on supposer que `sizeof(int)` vaut toujours 4 sur toute implémentation C ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Non, sa taille dépend de l'implémentation"
+        },
+        {
+          "id": "B",
+          "text": "Oui, c'est imposé par tous les standards C"
+        },
+        {
+          "id": "C",
+          "text": "Oui, tout int occupe 64 bits"
+        },
+        {
+          "id": "D",
+          "text": "Non, int ne possède jamais de taille"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "Le standard impose des contraintes, mais pas 4 octets universels.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/17-types-entiers-en-c"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-08-017-01",
+      "notion_id": "N08_017",
+      "legacy_notion_key": "8:17",
+      "theme": "Programmation C",
+      "notion": "signed et unsigned",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Quelle propriété de l'arithmétique unsigned est garantie en C ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Le résultat est réduit modulo 2^N selon la largeur du type"
+        },
+        {
+          "id": "B",
+          "text": "Toute opération unsigned provoque un crash en débordement"
+        },
+        {
+          "id": "C",
+          "text": "Le résultat est toujours négatif après débordement"
+        },
+        {
+          "id": "D",
+          "text": "Le résultat est indéfini comme pour le signed overflow"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "L'arithmétique non signée est définie modulo un nombre lié à sa plage.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/18-signed-et-unsigned"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-08-018-01",
+      "notion_id": "N08_018",
+      "legacy_notion_key": "8:18",
+      "theme": "Programmation C",
+      "notion": "float et double",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Dans `printf`, `%f` attend quel type après les promotions d'arguments variadiques ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "double"
+        },
+        {
+          "id": "B",
+          "text": "float *"
+        },
+        {
+          "id": "C",
+          "text": "char *"
+        },
+        {
+          "id": "D",
+          "text": "size_t"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "Un float argument est promu en double pour les appels variadiques.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/19-float-et-double"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-08-019-01",
+      "notion_id": "N08_019",
+      "legacy_notion_key": "8:19",
+      "theme": "Programmation C",
+      "notion": "char et caractère",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "multiple",
+      "prompt": "Quelles déclarations produisent des objets de type char ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "char lettre='A';"
+        },
+        {
+          "id": "B",
+          "text": "char zero='\\0';"
+        },
+        {
+          "id": "C",
+          "text": "int lettre='A';"
+        },
+        {
+          "id": "D",
+          "text": "double lettre='A';"
+        }
+      ],
+      "correct_option_ids": [
+        "A",
+        "B"
+      ],
+      "explanation": "char déclare un caractère, la valeur '\\0' est un caractère nul.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/20-char-et-caractere"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-08-020-01",
+      "notion_id": "N08_020",
+      "legacy_notion_key": "8:20",
+      "theme": "Programmation C",
+      "notion": "return 0 / return 1",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Qu'indique habituellement le retour de main à zéro ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Une fin de programme réussie"
+        },
+        {
+          "id": "B",
+          "text": "Un signal systématique de segfault"
+        },
+        {
+          "id": "C",
+          "text": "Une erreur obligatoire de link"
+        },
+        {
+          "id": "D",
+          "text": "Une fuite de mémoire automatiquement détectée"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "return 0 indique la réussite dans l'environnement hébergé.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/21-return-0-return-1"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-08-021-01",
+      "notion_id": "N08_021",
+      "legacy_notion_key": "8:21",
+      "theme": "Programmation C",
+      "notion": "return d’un caractère (char)",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Une fonction renvoie `char`; un appelant peut-il stocker le résultat dans un int ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Oui, la conversion intégrale existe"
+        },
+        {
+          "id": "B",
+          "text": "Non, char et int sont incompatibles dans tous les contextes"
+        },
+        {
+          "id": "C",
+          "text": "Oui mais seulement via malloc"
+        },
+        {
+          "id": "D",
+          "text": "Non, une fonction char ne retourne jamais"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "Un char peut être converti en int.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/22-return-d-un-caractere-char"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-08-022-01",
+      "notion_id": "N08_022",
+      "legacy_notion_key": "8:22",
+      "theme": "Programmation C",
+      "notion": "return d’un pointeur (int *)",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "multiple",
+      "prompt": "À propos d'un pointeur renvoyé depuis une fonction C, quelles précautions sont justes ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Il ne doit pas pointer vers une variable automatique dont la durée de vie a fini"
+        },
+        {
+          "id": "B",
+          "text": "Son objet cible doit rester valide à l'utilisation"
+        },
+        {
+          "id": "C",
+          "text": "Il est toujours sûr s'il est non NULL"
+        },
+        {
+          "id": "D",
+          "text": "Un return garantit automatiquement la propriété du bloc"
+        }
+      ],
+      "correct_option_ids": [
+        "A",
+        "B"
+      ],
+      "explanation": "Validité et durée de vie de la cible restent essentielles.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/23-return-d-un-pointeur-int"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-08-023-01",
+      "notion_id": "N08_023",
+      "legacy_notion_key": "8:23",
+      "theme": "Programmation C",
+      "notion": "exit() — terminer le programme",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Quelle différence entre return et exit à l'intérieur d'une fonction ordinaire ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "return quitte la fonction courante ; exit termine le processus selon son contrat"
+        },
+        {
+          "id": "B",
+          "text": "return termine toujours le processus entier"
+        },
+        {
+          "id": "C",
+          "text": "exit ne fait rien s'il est appelé dans main"
+        },
+        {
+          "id": "D",
+          "text": "return libère automatiquement tout bloc malloc"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "return concerne la fonction courante, exit concerne la terminaison du programme.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/24-exit-terminer-le-programme"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-08-024-01",
+      "notion_id": "N08_024",
+      "legacy_notion_key": "8:24",
+      "theme": "Programmation C",
+      "notion": "Dennis Ritchie — créateur du langage C",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "À quel langage associe-t-on Dennis Ritchie parmi les propositions ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "C"
+        },
+        {
+          "id": "B",
+          "text": "Rust"
+        },
+        {
+          "id": "C",
+          "text": "Python"
+        },
+        {
+          "id": "D",
+          "text": "Java"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "Dennis Ritchie a conçu le langage C.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/25-dennis-ritchie-createur-du-langage-c"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-08-025-01",
+      "notion_id": "N08_025",
+      "legacy_notion_key": "8:25",
+      "theme": "Programmation C",
+      "notion": "scanf() — lire une saisie au clavier",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Pour `int n;`, quel argument de `scanf(\"%d\", ...)` est correct ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "&n"
+        },
+        {
+          "id": "B",
+          "text": "n"
+        },
+        {
+          "id": "C",
+          "text": "*n"
+        },
+        {
+          "id": "D",
+          "text": "sizeof n"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "scanf exige l'adresse de l'objet int à remplir.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/26-scanf-lire-une-saisie-au-clavier",
+        "https://en.cppreference.com/w/c/io/fscanf"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-08-025-02",
+      "notion_id": "N08_025",
+      "legacy_notion_key": "8:25",
+      "theme": "Programmation C",
+      "notion": "scanf() — lire une saisie au clavier",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Pour une saisie non numérique dès le premier caractère, que renvoie usuellement `scanf(\"%d\", &n)` ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "0"
+        },
+        {
+          "id": "B",
+          "text": "1"
+        },
+        {
+          "id": "C",
+          "text": "-2"
+        },
+        {
+          "id": "D",
+          "text": "Le contenu de n"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "Aucune conversion n'est affectée : échec de correspondance.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/26-scanf-lire-une-saisie-au-clavier",
+        "https://en.cppreference.com/w/c/io/fscanf"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-08-026-01",
+      "notion_id": "N08_026",
+      "legacy_notion_key": "8:26",
+      "theme": "Programmation C",
+      "notion": "fgets() — lire une ligne avec une limite",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "multiple",
+      "prompt": "Quelles affirmations concernant fgets sont correctes ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Elle lit au plus n-1 caractères utiles dans un tampon de n cases"
+        },
+        {
+          "id": "B",
+          "text": "Elle conserve le saut de ligne lorsqu'il est lu"
+        },
+        {
+          "id": "C",
+          "text": "Elle agrandit automatiquement les tableaux trop petits"
+        },
+        {
+          "id": "D",
+          "text": "Elle garantit que toute ligne dépassant la capacité est consommée"
+        }
+      ],
+      "correct_option_ids": [
+        "A",
+        "B"
+      ],
+      "explanation": "fgets peut conserver '\\n' et laisse de la place pour '\\0'.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/27-fgets-lire-une-ligne-avec-une-limite",
+        "https://en.cppreference.com/c/io/fgets"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-08-026-02",
+      "notion_id": "N08_026",
+      "legacy_notion_key": "8:26",
+      "theme": "Programmation C",
+      "notion": "fgets() — lire une ligne avec une limite",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Pourquoi faut-il vérifier le retour de fgets avant d'utiliser le tampon ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "NULL signale un échec ou une fin de fichier avant donnée"
+        },
+        {
+          "id": "B",
+          "text": "Une erreur garantit toujours une chaîne vide"
+        },
+        {
+          "id": "C",
+          "text": "fgets renvoie le nombre de caractères"
+        },
+        {
+          "id": "D",
+          "text": "fgets supprime toutes les erreurs de lecture"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "Le tampon n'est pas nécessairement une ligne réussie si le résultat est NULL.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/27-fgets-lire-une-ligne-avec-une-limite",
+        "https://en.cppreference.com/c/io/fgets"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-08-027-01",
+      "notion_id": "N08_027",
+      "legacy_notion_key": "8:27",
+      "theme": "Programmation C",
+      "notion": "strtol() — convertir une entrée en entier",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Pourquoi utiliser strtol plutôt que atoi lors de la validation d'un entier saisi ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "strtol offre un endptr et une détection d'erreur mieux adaptée"
+        },
+        {
+          "id": "B",
+          "text": "atoi renvoie toujours une structure complète"
+        },
+        {
+          "id": "C",
+          "text": "strtol convertit seulement des chaînes de longueur 1"
+        },
+        {
+          "id": "D",
+          "text": "atoi interdit les caractères numériques"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "strtol permet de vérifier l'endptr et une éventuelle plage hors limites.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/28-strtol-convertir-une-entree-en-entier",
+        "https://en.cppreference.com/w/c/string/byte/strtol"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-08-028-01",
+      "notion_id": "N08_028",
+      "legacy_notion_key": "8:28",
+      "theme": "Programmation C",
+      "notion": "Chaîne de format — ne pas utiliser une saisie comme format",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Pourquoi `printf(chaine_utilisateur)` est-il dangereux ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "La chaîne peut contenir des spécificateurs interprétés comme format"
+        },
+        {
+          "id": "B",
+          "text": "printf ignore toujours les %"
+        },
+        {
+          "id": "C",
+          "text": "printf autorise uniquement les chaînes constantes"
+        },
+        {
+          "id": "D",
+          "text": "La chaîne est toujours préalablement échappée"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "Utiliser un format fixe, par exemple printf(\"%s\", chaine).",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/29-chaine-de-format-ne-pas-utiliser-une-saisie-comme-format"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-08-029-01",
+      "notion_id": "N08_029",
+      "legacy_notion_key": "8:29",
+      "theme": "Programmation C",
+      "notion": "EOF — détecter la fin d'une entrée",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "À quoi sert EOF lors de la lecture par getchar ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Indiquer une fin d'entrée ou une erreur selon l'état du flux"
+        },
+        {
+          "id": "B",
+          "text": "Représenter toujours le caractère '\\0'"
+        },
+        {
+          "id": "C",
+          "text": "Être un octet de nouvelle ligne"
+        },
+        {
+          "id": "D",
+          "text": "Marquer systématiquement la valeur ASCII 255"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "getchar renvoie un int, permettant de distinguer les octets d'EOF.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/30-eof-detecter-la-fin-d-une-entree"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-08-030-01",
+      "notion_id": "N08_030",
+      "legacy_notion_key": "8:30",
+      "theme": "Programmation C",
+      "notion": "Integer overflow — dépassement de capacité d'un entier",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Le débordement d'un int signé lors de `INT_MAX+1` en C standard est-il défini ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Non, il entraîne un comportement indéfini"
+        },
+        {
+          "id": "B",
+          "text": "Oui, il produit toujours INT_MIN"
+        },
+        {
+          "id": "C",
+          "text": "Oui, il produit forcément 0"
+        },
+        {
+          "id": "D",
+          "text": "Oui, il affiche un avertissement puis continue"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "Le signed integer overflow est UB en C standard.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/31-integer-overflow-depassement-de-capacite-d-un-entier",
+        "https://en.cppreference.com/c/language/behavior"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-09-000-01",
+      "notion_id": "N09_000",
+      "legacy_notion_key": "9:0",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "Pointeur (pointer)",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Quel opérateur donne l'adresse d'un objet ordinaire en C ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "&"
+        },
+        {
+          "id": "B",
+          "text": "*"
+        },
+        {
+          "id": "C",
+          "text": "%"
+        },
+        {
+          "id": "D",
+          "text": "||"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "L'opérateur unaire & prend l'adresse.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/1-pointeur-pointer"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-09-002-01",
+      "notion_id": "N09_002",
+      "legacy_notion_key": "9:2",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "& (opérateur d’adresse)",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Avec `int a=7;`, quelle expression a le type int * ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "&a"
+        },
+        {
+          "id": "B",
+          "text": "a"
+        },
+        {
+          "id": "C",
+          "text": "*a"
+        },
+        {
+          "id": "D",
+          "text": "sizeof a"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "&a désigne l'adresse de l'objet a.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/3-operateur-d-adresse"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-09-003-01",
+      "notion_id": "N09_003",
+      "legacy_notion_key": "9:3",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "* dans une déclaration",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Quelle déclaration exprime correctement un pointeur vers int ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "int *p;"
+        },
+        {
+          "id": "B",
+          "text": "int p*;"
+        },
+        {
+          "id": "C",
+          "text": "pointer<int> p;"
+        },
+        {
+          "id": "D",
+          "text": "int &p;"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "L'astérisque appartient à la déclaration du pointeur C.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/4-dans-une-declaration"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-09-004-01",
+      "notion_id": "N09_004",
+      "legacy_notion_key": "9:4",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "* dans une expression",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Avec `int a=7; int *p=&a;`, que vaut `*p` ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "7"
+        },
+        {
+          "id": "B",
+          "text": "L'adresse de a"
+        },
+        {
+          "id": "C",
+          "text": "La taille d'un int"
+        },
+        {
+          "id": "D",
+          "text": "Une chaîne vide"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "*p lit l'objet pointé tant que l'adresse est valide.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/5-dans-une-expression"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-09-005-01",
+      "notion_id": "N09_005",
+      "legacy_notion_key": "9:5",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "Modifier une valeur par un pointeur",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Avec `int n=2; int *p=&n; *p=9;`, que vaut n ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "9"
+        },
+        {
+          "id": "B",
+          "text": "2"
+        },
+        {
+          "id": "C",
+          "text": "L'adresse de p"
+        },
+        {
+          "id": "D",
+          "text": "0"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "Le déréférencement modifie l'objet original n.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/6-modifier-une-valeur-par-un-pointeur"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-09-006-01",
+      "notion_id": "N09_006",
+      "legacy_notion_key": "9:6",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "Valeur de p, *p et &p",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "multiple",
+      "prompt": "Avec `int n=3; int *p=&n;`, quels objets sont différents conceptuellement ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "p est une variable contenant une adresse"
+        },
+        {
+          "id": "B",
+          "text": "*p désigne la valeur de n"
+        },
+        {
+          "id": "C",
+          "text": "&p désigne l'adresse de la variable p"
+        },
+        {
+          "id": "D",
+          "text": "p, *p et &p ont toujours le même type"
+        }
+      ],
+      "correct_option_ids": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "Les trois expressions ne désignent pas la même chose.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/7-valeur-de-p-p-et-p"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-09-007-01",
+      "notion_id": "N09_007",
+      "legacy_notion_key": "9:7",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "Type pointé",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Pourquoi le type pointé d'un int * est-il important ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Il définit le type de l'objet lors du déréférencement"
+        },
+        {
+          "id": "B",
+          "text": "Il force toutes les adresses à valoir zéro"
+        },
+        {
+          "id": "C",
+          "text": "Il autorise la modification arbitraire de n'importe quel objet"
+        },
+        {
+          "id": "D",
+          "text": "Il donne automatiquement la capacité d'une zone allouée"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "Le type guide l'interprétation et la taille d'un accès.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/8-type-pointe"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-09-008-01",
+      "notion_id": "N09_008",
+      "legacy_notion_key": "9:8",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "%p avec printf",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Comment afficher correctement un pointeur vers objet avec printf `%p` ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "printf(\"%p\", (void *)p);"
+        },
+        {
+          "id": "B",
+          "text": "printf(\"%d\", p);"
+        },
+        {
+          "id": "C",
+          "text": "printf(\"%s\", p);"
+        },
+        {
+          "id": "D",
+          "text": "printf(\"%c\", p);"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "%p attend un argument void * dans les règles de printf.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/9-p-avec-printf"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-09-009-01",
+      "notion_id": "N09_009",
+      "legacy_notion_key": "9:9",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "sizeof",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Que mesure sizeof pour un tableau local `int a[4]` dans sa portée ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "La taille de tout le tableau en octets"
+        },
+        {
+          "id": "B",
+          "text": "Toujours 4 octets"
+        },
+        {
+          "id": "C",
+          "text": "La valeur du premier élément"
+        },
+        {
+          "id": "D",
+          "text": "La taille du pointeur implicite"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "sizeof sur le tableau entier donne la taille des quatre objets int.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/10-sizeof"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-09-010-01",
+      "notion_id": "N09_010",
+      "legacy_notion_key": "9:10",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "Tailles des pointeurs",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Est-il portable de considérer que tout pointeur de fonction fait exactement 8 octets ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Non"
+        },
+        {
+          "id": "B",
+          "text": "Oui, même en C89"
+        },
+        {
+          "id": "C",
+          "text": "Oui, seulement avec GNU89"
+        },
+        {
+          "id": "D",
+          "text": "Oui, pour tout système Linux"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "La représentation et taille des pointeurs dépendent de la plateforme.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/11-tailles-des-pointeurs"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-09-011-01",
+      "notion_id": "N09_011",
+      "legacy_notion_key": "9:11",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "Passage d’arguments par valeur",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "En C, modifier un paramètre `int n` change-t-il automatiquement l'argument original ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Non : les arguments sont passés par valeur"
+        },
+        {
+          "id": "B",
+          "text": "Oui : C utilise le passage par référence partout"
+        },
+        {
+          "id": "C",
+          "text": "Oui : seulement si n vaut 0"
+        },
+        {
+          "id": "D",
+          "text": "Oui : la pile est toujours partagée"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "Un paramètre reçoit une copie de la valeur.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/12-passage-d-arguments-par-valeur"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-09-012-01",
+      "notion_id": "N09_012",
+      "legacy_notion_key": "9:12",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "Passer une adresse à une fonction",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Comment une fonction peut-elle modifier un int de l'appelant ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Recevoir son adresse dans int *p et écrire *p"
+        },
+        {
+          "id": "B",
+          "text": "Recevoir une copie int p et écrire p"
+        },
+        {
+          "id": "C",
+          "text": "Recevoir int p et appeler printf"
+        },
+        {
+          "id": "D",
+          "text": "Déclarer p en local et l'affecter"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "Le pointeur donne accès à l'objet original.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/13-passer-une-adresse-a-une-fonction"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-09-013-01",
+      "notion_id": "N09_013",
+      "legacy_notion_key": "9:13",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "Tableau",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Combien d'éléments comporte `int tab[5]` ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "5"
+        },
+        {
+          "id": "B",
+          "text": "4"
+        },
+        {
+          "id": "C",
+          "text": "6"
+        },
+        {
+          "id": "D",
+          "text": "sizeof(int)"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "La déclaration donne cinq éléments indexés 0…4.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/14-tableau"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-09-015-01",
+      "notion_id": "N09_015",
+      "legacy_notion_key": "9:15",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "Tableau ≠ pointeur",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Pourquoi un tableau n'est-il pas un pointeur, même s'il peut se convertir en pointeur ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Il s'agit de types et d'objets distincts"
+        },
+        {
+          "id": "B",
+          "text": "Parce que tous les tableaux sont des fonctions"
+        },
+        {
+          "id": "C",
+          "text": "Parce que sizeof(array) vaut toujours sizeof(pointer)"
+        },
+        {
+          "id": "D",
+          "text": "Parce que les tableaux ne contiennent jamais de valeurs"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "Le tableau est un ensemble d'éléments, le pointeur est un objet pouvant contenir une adresse.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/16-tableau-pointeur"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-09-016-01",
+      "notion_id": "N09_016",
+      "legacy_notion_key": "9:16",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "Conversion tableau → pointeur",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Dans un appel f(tab), que devient normalement un tableau d'int comme expression argument ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Une adresse de son premier élément"
+        },
+        {
+          "id": "B",
+          "text": "Une copie automatique de tous les octets dans un int"
+        },
+        {
+          "id": "C",
+          "text": "Une structure contenant sa longueur"
+        },
+        {
+          "id": "D",
+          "text": "Toujours NULL"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "Le tableau est converti en pointeur vers son premier élément, sauf contextes particuliers.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/17-conversion-tableau-pointeur"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-09-018-01",
+      "notion_id": "N09_018",
+      "legacy_notion_key": "9:18",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "&tableau",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Pour un tableau int tab[5], quelle différence entre &tab et &tab[0] ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Ils ont des types de pointeurs différents"
+        },
+        {
+          "id": "B",
+          "text": "Ils désignent nécessairement des allocations différentes"
+        },
+        {
+          "id": "C",
+          "text": "&tab correspond à un int *"
+        },
+        {
+          "id": "D",
+          "text": "&tab[0] désigne toute une structure"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "&tab est pointeur vers tableau, &tab[0] est pointeur vers élément int.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/19-tableau"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-09-019-01",
+      "notion_id": "N09_019",
+      "legacy_notion_key": "9:19",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "Arithmétique des pointeurs",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Que signifie `p+1` lorsque p est un int * valide au sein d'un tableau ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Avancer d'un élément int"
+        },
+        {
+          "id": "B",
+          "text": "Avancer toujours d'un octet"
+        },
+        {
+          "id": "C",
+          "text": "Exécuter l'instruction C suivante"
+        },
+        {
+          "id": "D",
+          "text": "Déréférencer automatiquement p"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "L'arithmétique des pointeurs dépend de la taille du type pointé.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/20-arithmetique-des-pointeurs"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-09-021-01",
+      "notion_id": "N09_021",
+      "legacy_notion_key": "9:21",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "Chaîne de caractères en C",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Qu'est-ce qu'une chaîne C valide ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Une suite de caractères terminée par '\\0' dans une zone accessible"
+        },
+        {
+          "id": "B",
+          "text": "Un tableau obligatoirement de 100 octets"
+        },
+        {
+          "id": "C",
+          "text": "Une valeur char unique"
+        },
+        {
+          "id": "D",
+          "text": "Un pointeur non initialisé"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "La terminaison nulle délimite la chaîne.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/22-chaine-de-caracteres-en-c"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-09-022-01",
+      "notion_id": "N09_022",
+      "legacy_notion_key": "9:22",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "Caractère nul",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Quel rôle joue '\\0' dans une chaîne C ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Marquer la fin de chaîne"
+        },
+        {
+          "id": "B",
+          "text": "Être un saut de ligne"
+        },
+        {
+          "id": "C",
+          "text": "Signifier EOF dans le fichier source"
+        },
+        {
+          "id": "D",
+          "text": "Indiquer la mémoire allouée"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "Les fonctions sur les chaînes repèrent le caractère nul.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/23-caractere-nul"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-09-023-01",
+      "notion_id": "N09_023",
+      "legacy_notion_key": "9:23",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "%s avec printf",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Que faut-il passer à printf %s ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Une adresse de chaîne valide terminée par nul"
+        },
+        {
+          "id": "B",
+          "text": "Une valeur int quelconque"
+        },
+        {
+          "id": "C",
+          "text": "Un simple caractère sans adresse"
+        },
+        {
+          "id": "D",
+          "text": "Une adresse de tableau sans terminateur"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "%s lit une chaîne terminée par un caractère nul.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/24-s-avec-printf"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-09-030-01",
+      "notion_id": "N09_030",
+      "legacy_notion_key": "9:30",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "malloc — allocation dynamique",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "multiple",
+      "prompt": "Quels comportements sont possibles pour malloc selon la taille et l'environnement ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Renvoyer un pointeur utilisable si elle réussit"
+        },
+        {
+          "id": "B",
+          "text": "Renvoyer NULL si l'allocation échoue"
+        },
+        {
+          "id": "C",
+          "text": "Mettre obligatoirement tous les octets à zéro"
+        },
+        {
+          "id": "D",
+          "text": "Libérer le pointeur automatiquement à la fin du bloc local"
+        }
+      ],
+      "correct_option_ids": [
+        "A",
+        "B"
+      ],
+      "explanation": "malloc peut échouer et n'initialise pas les octets alloués.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/31-malloc-allocation-dynamique"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-09-031-01",
+      "notion_id": "N09_031",
+      "legacy_notion_key": "9:31",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "free — libérer la mémoire",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Que fait `free(NULL)` selon la bibliothèque standard C ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Rien"
+        },
+        {
+          "id": "B",
+          "text": "Libère toute la mémoire du processus"
+        },
+        {
+          "id": "C",
+          "text": "Provoque toujours SIGSEGV"
+        },
+        {
+          "id": "D",
+          "text": "Renvoie -1"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "Un pointeur nul est accepté par free.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/32-free-liberer-la-memoire"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-09-033-01",
+      "notion_id": "N09_033",
+      "legacy_notion_key": "9:33",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "Chaîne littérale et tableau de char",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Avec `char *s=\"abc\";`, peut-on modifier s[0] de façon définie ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Non : modifier un littéral de chaîne est indéfini"
+        },
+        {
+          "id": "B",
+          "text": "Oui : les littéraux sont toujours en mémoire écrivable"
+        },
+        {
+          "id": "C",
+          "text": "Oui : uniquement sous Linux"
+        },
+        {
+          "id": "D",
+          "text": "Oui : char * garantit l'écriture"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "Un littéral de chaîne n'est pas modifiable par le programme.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/34-chaine-litterale-et-tableau-de-char",
+        "https://en.cppreference.com/w/c/language/string_literal"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-09-034-01",
+      "notion_id": "N09_034",
+      "legacy_notion_key": "9:34",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "malloc : vérifier NULL",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Après un malloc potentiellement défaillant, quelle condition empêche de déréférencer NULL ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "if (p != NULL)"
+        },
+        {
+          "id": "B",
+          "text": "if (p == NULL) puis *p=1"
+        },
+        {
+          "id": "C",
+          "text": "while (p == NULL) *p=1"
+        },
+        {
+          "id": "D",
+          "text": "if (sizeof p == 0)"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "Tester la réussite avant tout accès.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/35-malloc-verifier-null"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-09-035-01",
+      "notion_id": "N09_035",
+      "legacy_notion_key": "9:35",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "Fuite mémoire — allocation perdue",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Qu'est-ce qu'une fuite mémoire ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Un bloc alloué qu'on ne libère pas lorsqu'il n'est plus utile"
+        },
+        {
+          "id": "B",
+          "text": "Une simple lecture de mémoire"
+        },
+        {
+          "id": "C",
+          "text": "Une variable int locale"
+        },
+        {
+          "id": "D",
+          "text": "Une sortie standard vide"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "La responsabilité de libération n'est pas honorée.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/36-fuite-memoire-allocation-perdue"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-09-036-01",
+      "notion_id": "N09_036",
+      "legacy_notion_key": "9:36",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "Valgrind — détecter les fuites",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Quel outil peut signaler une fuite par une catégorie definitely lost ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Valgrind Memcheck"
+        },
+        {
+          "id": "B",
+          "text": "git status"
+        },
+        {
+          "id": "C",
+          "text": "grep -A"
+        },
+        {
+          "id": "D",
+          "text": "gcc -E"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "Valgrind Memcheck détecte certaines fuites et accès invalides.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/37-valgrind-detecter-les-fuites"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-09-038-01",
+      "notion_id": "N09_038",
+      "legacy_notion_key": "9:38",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "malloc et sizeof : allouer le bon nombre d’octets",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Pour un int *p et un nombre d'éléments n, quel schéma d'allocation est généralement adéquat si le produit ne déborde pas ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "malloc(n * sizeof *p)"
+        },
+        {
+          "id": "B",
+          "text": "malloc(n) toujours"
+        },
+        {
+          "id": "C",
+          "text": "malloc(sizeof p) toujours"
+        },
+        {
+          "id": "D",
+          "text": "malloc(sizeof n) toujours"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "Le produit doit tenir compte de la taille de l'élément.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/39-malloc-et-sizeof-allouer-le-bon-nombre-d-octets"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-09-039-01",
+      "notion_id": "N09_039",
+      "legacy_notion_key": "9:39",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "strlen, sizeof et terminateur nul",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Avec `char mot[]=\"abc\";`, que valent strlen(mot) et sizeof mot ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "3 et 4"
+        },
+        {
+          "id": "B",
+          "text": "4 et 3"
+        },
+        {
+          "id": "C",
+          "text": "3 et 3"
+        },
+        {
+          "id": "D",
+          "text": "4 et 4"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "strlen exclut le terminateur nul, sizeof mesure tout le tableau.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/40-strlen-sizeof-et-terminateur-nul"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-09-040-01",
+      "notion_id": "N09_040",
+      "legacy_notion_key": "9:40",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "strcpy : copier dans un espace existant",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Quel danger représente strcpy sans capacité suffisante dans la destination ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Une écriture hors limites"
+        },
+        {
+          "id": "B",
+          "text": "Une allocation automatique sûre"
+        },
+        {
+          "id": "C",
+          "text": "Une conversion implicite en int"
+        },
+        {
+          "id": "D",
+          "text": "Une suppression de '\u0000' garantie"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "strcpy ne reçoit pas la taille du tampon de destination.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/41-strcpy-copier-dans-un-espace-existant"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-09-041-01",
+      "notion_id": "N09_041",
+      "legacy_notion_key": "9:41",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "strdup : copie allouée dynamiquement",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Pourquoi faut-il généralement free le résultat réussi de strdup ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "La chaîne dupliquée est allouée dynamiquement"
+        },
+        {
+          "id": "B",
+          "text": "strdup renvoie toujours un objet automatique"
+        },
+        {
+          "id": "C",
+          "text": "Le résultat pointe forcément vers un littéral"
+        },
+        {
+          "id": "D",
+          "text": "Le résultat est une constante du compilateur"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "La copie sur le tas doit être libérée.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/42-strdup-copie-allouee-dynamiquement"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-09-042-01",
+      "notion_id": "N09_042",
+      "legacy_notion_key": "9:42",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "Pile et tas : durée de vie des allocations",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "multiple",
+      "prompt": "Quelle distinction de durée de vie est correcte ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Une variable automatique a souvent la durée de vie du bloc"
+        },
+        {
+          "id": "B",
+          "text": "Une allocation sur le tas doit être libérée explicitement"
+        },
+        {
+          "id": "C",
+          "text": "Une variable automatique dure nécessairement jusqu'à l'arrêt du programme"
+        },
+        {
+          "id": "D",
+          "text": "malloc garantit un objet local temporaire"
+        }
+      ],
+      "correct_option_ids": [
+        "A",
+        "B"
+      ],
+      "explanation": "Les durées de vie des variables automatiques et blocs alloués diffèrent.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/43-pile-et-tas-duree-de-vie-des-allocations"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-09-043-01",
+      "notion_id": "N09_043",
+      "legacy_notion_key": "9:43",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "free : quelles adresses peut-on libérer ?",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Quelle adresse est libérable par free ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Un pointeur issu d'un malloc réussi et non encore libéré"
+        },
+        {
+          "id": "B",
+          "text": "L'adresse d'un int local"
+        },
+        {
+          "id": "C",
+          "text": "L'adresse d'un littéral de chaîne"
+        },
+        {
+          "id": "D",
+          "text": "Une adresse calculée en plein milieu d'un bloc"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "free doit recevoir un pointeur compatible issu de l'allocateur, ou NULL.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/44-free-quelles-adresses-peut-on-liberer"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-09-044-01",
+      "notion_id": "N09_044",
+      "legacy_notion_key": "9:44",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "Pointeur non initialisé : comportement indéfini",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Quel risque avec `int *p; *p=3;` si p n'a pas été initialisé ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Comportement indéfini"
+        },
+        {
+          "id": "B",
+          "text": "Écriture garantie dans un bloc malloc"
+        },
+        {
+          "id": "C",
+          "text": "Allocation automatique d'un int pointé"
+        },
+        {
+          "id": "D",
+          "text": "Valeur 3 stockée dans p"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "Le pointeur indéterminé ne désigne pas une cible valide garantie.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/45-pointeur-non-initialise-comportement-indefini"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-09-045-01",
+      "notion_id": "N09_045",
+      "legacy_notion_key": "9:45",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "realloc — redimensionner une allocation",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Pourquoi utiliser `tmp = realloc(p, taille)` avant de mettre p à jour ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Préserver p si realloc échoue"
+        },
+        {
+          "id": "B",
+          "text": "Éviter tout besoin de free"
+        },
+        {
+          "id": "C",
+          "text": "Initialiser les nouveaux octets à zéro"
+        },
+        {
+          "id": "D",
+          "text": "Rendre p utilisable après succès sans mise à jour"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "Un échec laisse l'ancien bloc intact ; un succès invalide l'ancien pointeur.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/46-realloc-redimensionner-une-allocation",
+        "https://en.cppreference.com/c/memory/realloc"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-09-045-02",
+      "notion_id": "N09_045",
+      "legacy_notion_key": "9:45",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "realloc — redimensionner une allocation",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Après un realloc réussi de taille positive, peut-on continuer à utiliser l'ancienne valeur de p pour accéder au bloc ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Non, même si l'adresse numérique semble identique"
+        },
+        {
+          "id": "B",
+          "text": "Oui, toujours"
+        },
+        {
+          "id": "C",
+          "text": "Oui, uniquement pour écrire"
+        },
+        {
+          "id": "D",
+          "text": "Oui, parce que realloc ne déplace jamais un bloc"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "L'ancien pointeur est invalidé par une réallocation réussie.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/46-realloc-redimensionner-une-allocation",
+        "https://en.cppreference.com/c/memory/realloc"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-09-046-01",
+      "notion_id": "N09_046",
+      "legacy_notion_key": "9:46",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "Segfault — faute de segmentation",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Une erreur de segmentation signifie-t-elle automatiquement qu'un pointeur nul a été déréférencé ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Non, plusieurs accès mémoire invalides peuvent la provoquer"
+        },
+        {
+          "id": "B",
+          "text": "Oui, c'est sa cause unique"
+        },
+        {
+          "id": "C",
+          "text": "Oui, sinon ce n'est pas une segfault"
+        },
+        {
+          "id": "D",
+          "text": "Non, elle ne concerne jamais la mémoire"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "Une segfault peut avoir différentes causes, selon l'environnement.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/47-segfault-faute-de-segmentation"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-09-047-01",
+      "notion_id": "N09_047",
+      "legacy_notion_key": "9:47",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "strncpy() — copie limitée et terminaison",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Pourquoi strncpy ne garantit-elle pas systématiquement le terminateur nul ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Une source de longueur >= n peut remplir les n octets sans '\\0'"
+        },
+        {
+          "id": "B",
+          "text": "Parce qu'elle ajoute toujours deux terminateurs"
+        },
+        {
+          "id": "C",
+          "text": "Parce que toutes les destinations sont des int"
+        },
+        {
+          "id": "D",
+          "text": "Parce qu'elle agrandit le tableau sans borne"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "En cas de troncation, la destination peut manquer de caractère nul.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/48-strncpy-copie-limitee-et-terminaison"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-09-048-01",
+      "notion_id": "N09_048",
+      "legacy_notion_key": "9:48",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "calloc() — allouer et initialiser à zéro",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Quelle propriété de calloc est correcte ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Les octets alloués sont initialisés à zéro"
+        },
+        {
+          "id": "B",
+          "text": "Il réserve toujours un bloc de 1 Go"
+        },
+        {
+          "id": "C",
+          "text": "Il retourne toujours la même adresse"
+        },
+        {
+          "id": "D",
+          "text": "Il empêche tout accès hors limites"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "calloc initialise à zéro les octets de l'espace alloué.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/49-calloc-allouer-et-initialiser-a-zero"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-09-049-01",
+      "notion_id": "N09_049",
+      "legacy_notion_key": "9:49",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "Buffer overflow — dépassement de tampon",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Quel accès dépasse les bornes de `int t[3]` ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "t[3]"
+        },
+        {
+          "id": "B",
+          "text": "t[2]"
+        },
+        {
+          "id": "C",
+          "text": "t[1]"
+        },
+        {
+          "id": "D",
+          "text": "t[0]"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "Les indices valides sont 0, 1 et 2.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/50-buffer-overflow-depassement-de-tampon"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-09-050-01",
+      "notion_id": "N09_050",
+      "legacy_notion_key": "9:50",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "Use-after-free — réutiliser un bloc libéré",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Après `free(p)`, que produit l'accès `*p=4` au bloc libéré ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Un comportement indéfini"
+        },
+        {
+          "id": "B",
+          "text": "Une réallocation implicite"
+        },
+        {
+          "id": "C",
+          "text": "Un zéro automatique"
+        },
+        {
+          "id": "D",
+          "text": "Un appel valide de malloc"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "La durée de vie du bloc est terminée.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/51-use-after-free-reutiliser-un-bloc-libere"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-09-051-01",
+      "notion_id": "N09_051",
+      "legacy_notion_key": "9:51",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "Double free — ne pas libérer deux fois",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Si q est un alias de p et que free(p) a réussi, que risque free(q) ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Double free et comportement indéfini"
+        },
+        {
+          "id": "B",
+          "text": "Réduction du bloc de moitié"
+        },
+        {
+          "id": "C",
+          "text": "Garantie de libération sûre sans erreur"
+        },
+        {
+          "id": "D",
+          "text": "Remise automatique de q à NULL"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "Les deux pointeurs visaient le même bloc déjà libéré.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/52-double-free-ne-pas-liberer-deux-fois"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-09-052-01",
+      "notion_id": "N09_052",
+      "legacy_notion_key": "9:52",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "Débordement du calcul de taille avant malloc",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Avant malloc(n * sizeof *p), quel contrôle empêche le débordement de size_t (taille élément positive) ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "n <= SIZE_MAX / sizeof *p"
+        },
+        {
+          "id": "B",
+          "text": "n <= sizeof *p"
+        },
+        {
+          "id": "C",
+          "text": "n == 0 seulement"
+        },
+        {
+          "id": "D",
+          "text": "sizeof p == sizeof *p"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "La division par la taille élément donne le maximum d'éléments représentable.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/53-debordement-du-calcul-de-taille-avant-malloc"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-09-053-01",
+      "notion_id": "N09_053",
+      "legacy_notion_key": "9:53",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "Valgrind Memcheck — comprendre les alertes",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Que peut signaler Memcheck avec `Invalid write` ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Une écriture à une adresse invalide selon son analyse"
+        },
+        {
+          "id": "B",
+          "text": "Un succès garanti de malloc"
+        },
+        {
+          "id": "C",
+          "text": "Une branche Git non fusionnée"
+        },
+        {
+          "id": "D",
+          "text": "Une variable Bash non exportée"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "Memcheck signale des écritures invalides, dont hors limites et après libération.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/54-valgrind-memcheck-comprendre-les-alertes"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-09-054-01",
+      "notion_id": "N09_054",
+      "legacy_notion_key": "9:54",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "memcpy() ou memmove() — zones qui se recouvrent",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Quel outil standard convient si source et destination de la copie peuvent se recouvrir ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "memmove"
+        },
+        {
+          "id": "B",
+          "text": "memcpy"
+        },
+        {
+          "id": "C",
+          "text": "strcpy sans conditions"
+        },
+        {
+          "id": "D",
+          "text": "calloc"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "memmove gère le recouvrement, contrairement à memcpy.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/55-memcpy-ou-memmove-zones-qui-se-recouvrent"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-09-055-01",
+      "notion_id": "N09_055",
+      "legacy_notion_key": "9:55",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "Dépassement de tampon sur la pile — erreur avant malloc",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Si la saisie déborde déjà un tampon local avant malloc, quel correctif est prioritaire ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Limiter la lecture selon la capacité du tableau"
+        },
+        {
+          "id": "B",
+          "text": "Ajouter davantage de free après strcpy"
+        },
+        {
+          "id": "C",
+          "text": "Changer uniquement le nom du fichier"
+        },
+        {
+          "id": "D",
+          "text": "Ne jamais vérifier les tailles"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "La corruption se produit au moment de la lecture non bornée.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/56-depassement-de-tampon-sur-la-pile-erreur-avant-malloc"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-09-056-01",
+      "notion_id": "N09_056",
+      "legacy_notion_key": "9:56",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "Tampon fixe, statique et dynamique — emplacement et durée de vie",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "multiple",
+      "prompt": "Quelles propriétés sont indépendantes ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Taille fixe ou variable d'un tampon"
+        },
+        {
+          "id": "B",
+          "text": "Durée de vie automatique ou statique"
+        },
+        {
+          "id": "C",
+          "text": "Tout tampon fixe est forcément statique"
+        },
+        {
+          "id": "D",
+          "text": "Tout tampon sur le tas est forcément global"
+        }
+      ],
+      "correct_option_ids": [
+        "A",
+        "B"
+      ],
+      "explanation": "Taille, durée de vie et allocation sont des aspects distincts.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/57-tampon-fixe-statique-et-dynamique-emplacement-et-duree-de-vie"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-09-057-01",
+      "notion_id": "N09_057",
+      "legacy_notion_key": "9:57",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "Stack overflow — épuisement de la pile d'appels",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Quelle cause fréquente peut provoquer un épuisement de la pile ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Récursion sans condition d'arrêt"
+        },
+        {
+          "id": "B",
+          "text": "Un simple printf unique"
+        },
+        {
+          "id": "C",
+          "text": "Un commit Git"
+        },
+        {
+          "id": "D",
+          "text": "Une variable d'environnement vide"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "Les appels répétés peuvent épuiser l'espace de pile.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/58-stack-overflow-epuisement-de-la-pile-d-appels"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-09-058-01",
+      "notion_id": "N09_058",
+      "legacy_notion_key": "9:58",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "Valgrind : « definitely lost » et les octets perdus",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Un rapport `definitely lost: 32 bytes in 1 blocks` indique quoi ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Un bloc de 32 octets perdu directement"
+        },
+        {
+          "id": "B",
+          "text": "32 pointeurs valides"
+        },
+        {
+          "id": "C",
+          "text": "Un temps CPU de 32 ms"
+        },
+        {
+          "id": "D",
+          "text": "Un bloc correctement libéré"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "La fuite certaine concerne un bloc alloué de 32 octets.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/59-valgrind-definitely-lost-et-les-octets-perdus"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-09-059-01",
+      "notion_id": "N09_059",
+      "legacy_notion_key": "9:59",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "strlen sans terminateur nul — lecture hors limites",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Pourquoi strlen sur un tableau sans '\\0' accessible peut-elle poser problème ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Elle poursuit la recherche et peut lire hors limites"
+        },
+        {
+          "id": "B",
+          "text": "Elle renvoie toujours la capacité exacte"
+        },
+        {
+          "id": "C",
+          "text": "Elle complète automatiquement le tableau"
+        },
+        {
+          "id": "D",
+          "text": "Elle appelle malloc"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "strlen ne reçoit pas de longueur maximale et cherche un caractère nul.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/60-strlen-sans-terminateur-nul-lecture-hors-limites"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-09-060-01",
+      "notion_id": "N09_060",
+      "legacy_notion_key": "9:60",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "memcpy() — copier des octets sans chevauchement",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Quel comportement est garanti par memcpy quand les n octets sont valides et ne se recouvrent pas ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "La copie exacte de n octets"
+        },
+        {
+          "id": "B",
+          "text": "L'ajout systématique de '\\0'"
+        },
+        {
+          "id": "C",
+          "text": "La suppression des allocations de destination"
+        },
+        {
+          "id": "D",
+          "text": "Le tri lexicographique"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "memcpy copie des octets sans ajouter de terminaison de chaîne.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/61-memcpy-copier-des-octets-sans-chevauchement"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-09-061-01",
+      "notion_id": "N09_061",
+      "legacy_notion_key": "9:61",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "Ownership — qui est responsable de free() ?",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Copier un pointeur p dans q transfère-t-il automatiquement la responsabilité de free ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Non, il faut définir explicitement le propriétaire"
+        },
+        {
+          "id": "B",
+          "text": "Oui, q devient obligatoirement propriétaire unique"
+        },
+        {
+          "id": "C",
+          "text": "Oui, p devient NULL"
+        },
+        {
+          "id": "D",
+          "text": "Non, mais malloc devient inutile"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "L'ownership est une convention du programme, pas une opération implicite du langage C.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/62-ownership-qui-est-responsable-de-free"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-09-062-01",
+      "notion_id": "N09_062",
+      "legacy_notion_key": "9:62",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "Dangling pointer — pointeur vers un objet qui n'existe plus",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Un pointeur vers un objet local dont la durée de vie s'est terminée est appelé comment ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Dangling pointer"
+        },
+        {
+          "id": "B",
+          "text": "Pointeur garanti NULL"
+        },
+        {
+          "id": "C",
+          "text": "Pointeur vers un objet toujours valide"
+        },
+        {
+          "id": "D",
+          "text": "Pointeur de fonction"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "La cible n'existe plus.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/63-dangling-pointer-pointeur-vers-un-objet-qui-n-existe-plus"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-09-063-01",
+      "notion_id": "N09_063",
+      "legacy_notion_key": "9:63",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "Raw pointer — pointeur brut en C",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Que garantit un raw pointer non NULL en C ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Il contient une valeur de pointeur, pas la validité de sa cible"
+        },
+        {
+          "id": "B",
+          "text": "La cible est forcément accessible"
+        },
+        {
+          "id": "C",
+          "text": "La taille du bloc pointé est connue"
+        },
+        {
+          "id": "D",
+          "text": "La mémoire est libérée automatiquement"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "La non-nullité ne prouve ni validité ni propriété.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/64-raw-pointer-pointeur-brut-en-c"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-09-064-01",
+      "notion_id": "N09_064",
+      "legacy_notion_key": "9:64",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "char * — pointeur vers un caractère ou une chaîne",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Un char * contient-il la taille du tableau pointé ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Non"
+        },
+        {
+          "id": "B",
+          "text": "Oui, automatiquement"
+        },
+        {
+          "id": "C",
+          "text": "Oui, seulement sous Linux"
+        },
+        {
+          "id": "D",
+          "text": "Oui, si l'adresse est paire"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "Le pointeur ne porte pas la longueur du bloc.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/65-char-pointeur-vers-un-caractere-ou-une-chaine"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-09-065-01",
+      "notion_id": "N09_065",
+      "legacy_notion_key": "9:65",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "Diagnostics mémoire — INVALID_WRITE, UNINITIALIZED_VALUE et fuites",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Peut-on déduire avec certitude la vulnérabilité d'un code en lisant seulement l'intitulé de son lab ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Non, il faut examiner le code réel et les diagnostics"
+        },
+        {
+          "id": "B",
+          "text": "Oui, l'intitulé suffit"
+        },
+        {
+          "id": "C",
+          "text": "Oui, les noms du lab sont des messages Valgrind exacts"
+        },
+        {
+          "id": "D",
+          "text": "Oui, sans jamais compiler"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "Ne pas prétendre avoir établi une erreur sans consulter les preuves.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/66-diagnostics-memoire-invalid-write-uninitialized-value-et-fuites"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-14-000-01",
+      "notion_id": "N14_000",
+      "legacy_notion_key": "14:0",
+      "theme": "Qualité et méthode en C",
+      "notion": "Prototype de fonction",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Quel avantage apporte un prototype avant un appel de fonction C ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Vérifier la cohérence des paramètres et du retour"
+        },
+        {
+          "id": "B",
+          "text": "Allouer le tas automatiquement"
+        },
+        {
+          "id": "C",
+          "text": "Exécuter la fonction avant main"
+        },
+        {
+          "id": "D",
+          "text": "Créer une boucle implicite"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "Le prototype décrit la signature.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/qualite-et-methode-en-c/1-prototype-de-fonction"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-14-001-01",
+      "notion_id": "N14_001",
+      "legacy_notion_key": "14:1",
+      "theme": "Qualité et méthode en C",
+      "notion": "Entête de fonction",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Pourquoi documenter les paramètres d'une fonction ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Clarifier ses entrées et son résultat"
+        },
+        {
+          "id": "B",
+          "text": "Changer la valeur de retour automatiquement"
+        },
+        {
+          "id": "C",
+          "text": "Supprimer toute erreur de compilation"
+        },
+        {
+          "id": "D",
+          "text": "Rendre inutile tout test"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "La documentation explicite le contrat.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/qualite-et-methode-en-c/2-entete-de-fonction"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-14-002-01",
+      "notion_id": "N14_002",
+      "legacy_notion_key": "14:2",
+      "theme": "Qualité et méthode en C",
+      "notion": "Tester séparément",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Quel intérêt présente un test isolé d'une fonction ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Localiser plus facilement une régression"
+        },
+        {
+          "id": "B",
+          "text": "Garantir l'absence de toute vulnérabilité"
+        },
+        {
+          "id": "C",
+          "text": "Remplacer entièrement la compilation"
+        },
+        {
+          "id": "D",
+          "text": "Effacer le code obsolète"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "Des tests ciblés isolent les comportements.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/qualite-et-methode-en-c/3-tester-separement"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-14-003-01",
+      "notion_id": "N14_003",
+      "legacy_notion_key": "14:3",
+      "theme": "Qualité et méthode en C",
+      "notion": "Taille des types",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Pourquoi faut-il éviter de supposer que int et long ont une taille unique sur toutes les machines ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Leurs tailles dépendent de l'implémentation"
+        },
+        {
+          "id": "B",
+          "text": "Tout type int occupe 1 octet"
+        },
+        {
+          "id": "C",
+          "text": "Tout type long occupe 8 octets selon le standard"
+        },
+        {
+          "id": "D",
+          "text": "Les tailles n'existent pas"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "Utiliser sizeof et les contraintes du standard.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/qualite-et-methode-en-c/4-taille-des-types"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-14-004-01",
+      "notion_id": "N14_004",
+      "legacy_notion_key": "14:4",
+      "theme": "Qualité et méthode en C",
+      "notion": "Compilation et liaison",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Quelle erreur correspond à la phase de liaison et non à la syntaxe C ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "undefined reference to symbole"
+        },
+        {
+          "id": "B",
+          "text": "Une accolade manquante"
+        },
+        {
+          "id": "C",
+          "text": "Une expression avec un ; supplémentaire"
+        },
+        {
+          "id": "D",
+          "text": "Une variable déclarée dans un for GNU89 strict"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "La liaison résout les symboles externes.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/qualite-et-methode-en-c/5-compilation-et-liaison"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-14-005-01",
+      "notion_id": "N14_005",
+      "legacy_notion_key": "14:5",
+      "theme": "Qualité et méthode en C",
+      "notion": "Commentaires et lisibilité",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Quel commentaire est le plus utile à un lecteur ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Une explication du pourquoi d'un choix non évident"
+        },
+        {
+          "id": "B",
+          "text": "Un commentaire qui répète chaque opérateur évident"
+        },
+        {
+          "id": "C",
+          "text": "Un mot au hasard"
+        },
+        {
+          "id": "D",
+          "text": "Une duplication de tous les messages stdout"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "Un commentaire utile apporte le contexte et les invariants.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/qualite-et-methode-en-c/6-commentaires-et-lisibilite"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-14-007-01",
+      "notion_id": "N14_007",
+      "legacy_notion_key": "14:7",
+      "theme": "Qualité et méthode en C",
+      "notion": "Invariant — condition qui doit rester vraie",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Qu'est-ce qu'un invariant dans un algorithme ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Une propriété qui doit rester vraie aux points définis"
+        },
+        {
+          "id": "B",
+          "text": "Une variable forcément constante dans toute la vie du programme"
+        },
+        {
+          "id": "C",
+          "text": "Une sortie d'erreur de printf"
+        },
+        {
+          "id": "D",
+          "text": "Un pointeur systématiquement NULL"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "L'invariant encadre le raisonnement correct.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/qualite-et-methode-en-c/8-invariant-condition-qui-doit-rester-vraie"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-14-008-01",
+      "notion_id": "N14_008",
+      "legacy_notion_key": "14:8",
+      "theme": "Qualité et méthode en C",
+      "notion": "Base bundle — analyser le code de départ d'un lab",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Comment analyser un base bundle de lab inconnu ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Lire ses fichiers et reproduire les diagnostics"
+        },
+        {
+          "id": "B",
+          "text": "Affirmer une faille sans ouvrir le code"
+        },
+        {
+          "id": "C",
+          "text": "Exécuter free sur tous les pointeurs"
+        },
+        {
+          "id": "D",
+          "text": "Corriger uniquement son titre"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "Le code et les tests sont nécessaires pour confirmer les risques.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/qualite-et-methode-en-c/9-base-bundle-analyser-le-code-de-depart-d-un-lab"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-16-000-01",
+      "notion_id": "N16_000",
+      "legacy_notion_key": "16:0",
+      "theme": "Structures et typedef en C",
+      "notion": "struct : regrouper plusieurs données",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Qu'est-ce qu'une struct en C ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Un type regroupant plusieurs membres"
+        },
+        {
+          "id": "B",
+          "text": "Une boucle exécutée automatiquement"
+        },
+        {
+          "id": "C",
+          "text": "Un objet toujours dynamique"
+        },
+        {
+          "id": "D",
+          "text": "Une commande Git"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "Une structure regroupe des données nommées.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/structures-et-typedef-en-c/1-struct-regrouper-plusieurs-donnees"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-16-001-01",
+      "notion_id": "N16_001",
+      "legacy_notion_key": "16:1",
+      "theme": "Structures et typedef en C",
+      "notion": "struct : type et variable",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Avec `struct point {int x; int y;};`, comment déclarer une variable du type ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "struct point p;"
+        },
+        {
+          "id": "B",
+          "text": "point p; sans typedef"
+        },
+        {
+          "id": "C",
+          "text": "struct p point;"
+        },
+        {
+          "id": "D",
+          "text": "int point;"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "Sans typedef, le nom de type inclut le mot-clé struct.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/structures-et-typedef-en-c/2-struct-type-et-variable"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-16-002-01",
+      "notion_id": "N16_002",
+      "legacy_notion_key": "16:2",
+      "theme": "Structures et typedef en C",
+      "notion": "Accès aux membres avec .",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Pour `struct point p;`, quel opérateur accède au membre x ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "p.x"
+        },
+        {
+          "id": "B",
+          "text": "p->x"
+        },
+        {
+          "id": "C",
+          "text": "*p.x"
+        },
+        {
+          "id": "D",
+          "text": "&p.x comme accès à la valeur"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": ". accède à un membre d'objet structure.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/structures-et-typedef-en-c/3-acces-aux-membres-avec"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-16-003-01",
+      "notion_id": "N16_003",
+      "legacy_notion_key": "16:3",
+      "theme": "Structures et typedef en C",
+      "notion": "Accès par pointeur avec ->",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Pour `struct point *p` valide, comment accéder à x ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "p->x"
+        },
+        {
+          "id": "B",
+          "text": "p.x"
+        },
+        {
+          "id": "C",
+          "text": "(*p)->x"
+        },
+        {
+          "id": "D",
+          "text": "p.x()"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "p->x correspond à (*p).x.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/structures-et-typedef-en-c/4-acces-par-pointeur-avec"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-16-004-01",
+      "notion_id": "N16_004",
+      "legacy_notion_key": "16:4",
+      "theme": "Structures et typedef en C",
+      "notion": "Initialiser une struct avec { }",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Que permet l'initialisation `struct point p={1,2};` ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Initialiser les membres dans leur ordre de déclaration"
+        },
+        {
+          "id": "B",
+          "text": "Appeler implicitement malloc"
+        },
+        {
+          "id": "C",
+          "text": "Créer forcément un tableau de deux structures"
+        },
+        {
+          "id": "D",
+          "text": "Déclarer une fonction retournant int"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "Une liste d'initialisation affecte les membres correspondants.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/structures-et-typedef-en-c/5-initialiser-une-struct-avec"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-16-005-01",
+      "notion_id": "N16_005",
+      "legacy_notion_key": "16:5",
+      "theme": "Structures et typedef en C",
+      "notion": "Initialiseurs désignés .membre (C99)",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Quel mécanisme C99 permet d'écrire `struct point p={.x=1,.y=2};` ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Initialiseurs désignés"
+        },
+        {
+          "id": "B",
+          "text": "Appel de fonction via pointeur"
+        },
+        {
+          "id": "C",
+          "text": "Arithmétique des pointeurs"
+        },
+        {
+          "id": "D",
+          "text": "Union anonyme obligatoire"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "Les initialisateurs désignés sont une fonctionnalité C99.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/structures-et-typedef-en-c/6-initialiseurs-designes-membre-c99"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-16-006-01",
+      "notion_id": "N16_006",
+      "legacy_notion_key": "16:6",
+      "theme": "Structures et typedef en C",
+      "notion": "Tableau de structures",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Avec `struct point p[3];`, combien de structures contient le tableau ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "3"
+        },
+        {
+          "id": "B",
+          "text": "6"
+        },
+        {
+          "id": "C",
+          "text": "1"
+        },
+        {
+          "id": "D",
+          "text": "0"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "Le tableau comporte trois éléments struct.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/structures-et-typedef-en-c/7-tableau-de-structures"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-16-007-01",
+      "notion_id": "N16_007",
+      "legacy_notion_key": "16:7",
+      "theme": "Structures et typedef en C",
+      "notion": "Structure imbriquée",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Comment accéder au champ x d'un membre position lui-même de type struct, dans un objet p ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "p.position.x"
+        },
+        {
+          "id": "B",
+          "text": "p->position->x dans tous les cas"
+        },
+        {
+          "id": "C",
+          "text": "p[x][position]"
+        },
+        {
+          "id": "D",
+          "text": "p.position->x quelle que soit sa déclaration"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "L'opérateur . s'enchaîne sur les objets structures imbriquées.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/structures-et-typedef-en-c/8-structure-imbriquee"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-16-008-01",
+      "notion_id": "N16_008",
+      "legacy_notion_key": "16:8",
+      "theme": "Structures et typedef en C",
+      "notion": "Copier une struct par affectation",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Que signifie `b=a;` pour deux objets du même type struct ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Copie par valeur des membres de a vers b"
+        },
+        {
+          "id": "B",
+          "text": "Simple alias automatique de a"
+        },
+        {
+          "id": "C",
+          "text": "Allocation implicite de b sur le tas"
+        },
+        {
+          "id": "D",
+          "text": "Interdiction absolue du langage C"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "L'affectation de structures copie la valeur.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/structures-et-typedef-en-c/9-copier-une-struct-par-affectation"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-16-009-01",
+      "notion_id": "N16_009",
+      "legacy_notion_key": "16:9",
+      "theme": "Structures et typedef en C",
+      "notion": "Passer une struct par valeur",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Une structure passée comme paramètre ordinaire est-elle copiée ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Oui, passage par valeur"
+        },
+        {
+          "id": "B",
+          "text": "Non, passage par référence automatique"
+        },
+        {
+          "id": "C",
+          "text": "Oui, seulement si elle contient un pointeur"
+        },
+        {
+          "id": "D",
+          "text": "Non, les structures sont incompatibles avec les paramètres"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "Le paramètre reçoit une copie de la structure.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/structures-et-typedef-en-c/10-passer-une-struct-par-valeur"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-16-010-01",
+      "notion_id": "N16_010",
+      "legacy_notion_key": "16:10",
+      "theme": "Structures et typedef en C",
+      "notion": "Modifier une struct via son adresse",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Quel paramètre permet à une fonction de modifier directement l'objet struct de l'appelant ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "struct point *p"
+        },
+        {
+          "id": "B",
+          "text": "struct point p"
+        },
+        {
+          "id": "C",
+          "text": "int p"
+        },
+        {
+          "id": "D",
+          "text": "char p"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "Un pointeur permet l'accès à l'objet initial.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/structures-et-typedef-en-c/11-modifier-une-struct-via-son-adresse"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-16-011-01",
+      "notion_id": "N16_011",
+      "legacy_notion_key": "16:11",
+      "theme": "Structures et typedef en C",
+      "notion": "typedef : donner un alias à un type",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Que fait typedef en C ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Donne un alias à un type existant"
+        },
+        {
+          "id": "B",
+          "text": "Crée un objet alloué"
+        },
+        {
+          "id": "C",
+          "text": "Exécute le code de la struct"
+        },
+        {
+          "id": "D",
+          "text": "Ajoute obligatoirement un membre"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "typedef est un alias de nom de type.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/structures-et-typedef-en-c/12-typedef-donner-un-alias-a-un-type"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-16-012-01",
+      "notion_id": "N16_012",
+      "legacy_notion_key": "16:12",
+      "theme": "Structures et typedef en C",
+      "notion": "typedef struct : nommer une structure",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Quel intérêt a `typedef struct point point_t;` si struct point est défini ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Utiliser point_t comme alias du type struct point"
+        },
+        {
+          "id": "B",
+          "text": "Supprimer tous les membres de la structure"
+        },
+        {
+          "id": "C",
+          "text": "Transformer une structure en chaîne"
+        },
+        {
+          "id": "D",
+          "text": "Allouer un tableau automatiquement"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "L'alias facilite la déclaration.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/structures-et-typedef-en-c/13-typedef-struct-nommer-une-structure"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-16-013-01",
+      "notion_id": "N16_013",
+      "legacy_notion_key": "16:13",
+      "theme": "Structures et typedef en C",
+      "notion": "typedef avec structure anonyme",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Une struct anonyme définie avec typedef peut-elle être utilisée via son alias ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Oui"
+        },
+        {
+          "id": "B",
+          "text": "Non, il faut toujours un tag struct nommé"
+        },
+        {
+          "id": "C",
+          "text": "Oui seulement dans C++"
+        },
+        {
+          "id": "D",
+          "text": "Non, typedef n'accepte aucune structure"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "L'alias nomme le type même sans tag.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/structures-et-typedef-en-c/14-typedef-avec-structure-anonyme"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-16-014-01",
+      "notion_id": "N16_014",
+      "legacy_notion_key": "16:14",
+      "theme": "Structures et typedef en C",
+      "notion": "sizeof(struct) et padding (avancé)",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Pourquoi sizeof(struct) peut-elle dépasser la somme des sizeof des membres ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "À cause du padding d'alignement"
+        },
+        {
+          "id": "B",
+          "text": "Parce que sizeof mesure les valeurs numériques"
+        },
+        {
+          "id": "C",
+          "text": "Parce qu'une struct est toujours de taille 1024"
+        },
+        {
+          "id": "D",
+          "text": "Parce que tous les champs ont une taille nulle"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "Le compilateur peut insérer des octets de padding.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/structures-et-typedef-en-c/15-sizeof-struct-et-padding-avance"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-16-015-01",
+      "notion_id": "N16_015",
+      "legacy_notion_key": "16:15",
+      "theme": "Structures et typedef en C",
+      "notion": "malloc pour une struct",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Quel idiome alloue l'espace d'une structure visée par p, sous réserve de vérifier le résultat ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "p = malloc(sizeof *p);"
+        },
+        {
+          "id": "B",
+          "text": "p = malloc(sizeof p); en toute circonstance"
+        },
+        {
+          "id": "C",
+          "text": "p = sizeof *p;"
+        },
+        {
+          "id": "D",
+          "text": "p = free(sizeof *p);"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "sizeof *p mesure la structure pointée.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/structures-et-typedef-en-c/16-malloc-pour-une-struct"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-16-016-01",
+      "notion_id": "N16_016",
+      "legacy_notion_key": "16:16",
+      "theme": "Structures et typedef en C",
+      "notion": "Structure autoréférentielle (avancé)",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Quel champ permet une liste chaînée autoréférentielle de struct noeud ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "struct noeud *suivant;"
+        },
+        {
+          "id": "B",
+          "text": "struct noeud suivant; comme membre complet"
+        },
+        {
+          "id": "C",
+          "text": "int *suivant exigeant une conversion implicite"
+        },
+        {
+          "id": "D",
+          "text": "char suivant; contenant une adresse"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "Une structure peut contenir un pointeur vers son propre type.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/structures-et-typedef-en-c/17-structure-autoreferentielle-avance"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-16-017-01",
+      "notion_id": "N16_017",
+      "legacy_notion_key": "16:17",
+      "theme": "Structures et typedef en C",
+      "notion": "Documenter une struct pour Betty",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Pourquoi documenter les membres d'une struct dans un en-tête ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Rendre le contrat du type compréhensible"
+        },
+        {
+          "id": "B",
+          "text": "Augmenter automatiquement sa taille"
+        },
+        {
+          "id": "C",
+          "text": "Transformer tous les champs en pointeurs"
+        },
+        {
+          "id": "D",
+          "text": "Remplacer les prototypes"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "La documentation explicite les champs et leur sens.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/structures-et-typedef-en-c/18-documenter-une-struct-pour-betty"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-16-018-01",
+      "notion_id": "N16_018",
+      "legacy_notion_key": "16:18",
+      "theme": "Structures et typedef en C",
+      "notion": "typedef avant la définition d'une struct",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Peut-on déclarer `typedef struct cellule cellule_t;` avant de définir les membres de struct cellule ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Oui, il s'agit alors d'un type incomplet utilisable par pointeur"
+        },
+        {
+          "id": "B",
+          "text": "Non, C exige toujours des membres immédiats"
+        },
+        {
+          "id": "C",
+          "text": "Oui, on peut immédiatement faire sizeof(cellule_t) avant définition"
+        },
+        {
+          "id": "D",
+          "text": "Non, typedef est réservé aux entiers"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "Le type incomplet peut être désigné par pointeur.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/structures-et-typedef-en-c/19-typedef-avant-la-definition-d-une-struct"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-16-019-01",
+      "notion_id": "N16_019",
+      "legacy_notion_key": "16:19",
+      "theme": "Structures et typedef en C",
+      "notion": "Point ou flèche ? Comparer . et ->",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Quelle équivalence est correcte pour p pointeur vers struct ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "p->x == (*p).x"
+        },
+        {
+          "id": "B",
+          "text": "p->x == *p.x pour tous les types"
+        },
+        {
+          "id": "C",
+          "text": "p.x == &p.x"
+        },
+        {
+          "id": "D",
+          "text": "p->x appelle toujours malloc"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "-> signifie déréférencement suivi d'accès au membre.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/structures-et-typedef-en-c/20-point-ou-fleche-comparer-et"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-16-020-01",
+      "notion_id": "N16_020",
+      "legacy_notion_key": "16:20",
+      "theme": "Structures et typedef en C",
+      "notion": "Include guards — protéger les fichiers .h",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Quel est l'objectif d'un include guard #ifndef/#define/#endif dans un fichier .h ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Éviter plusieurs traitements du même contenu dans une unité de traduction"
+        },
+        {
+          "id": "B",
+          "text": "Empêcher toute compilation de la source"
+        },
+        {
+          "id": "C",
+          "text": "Remplacer un compilateur C"
+        },
+        {
+          "id": "D",
+          "text": "Faire un appel réseau"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "La garde limite les inclusions répétées dans une même unité de traduction.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/structures-et-typedef-en-c/21-include-guards-proteger-les-fichiers-h"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-09-066-01",
+      "notion_id": "N09_066",
+      "legacy_notion_key": "9:66",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "Pointeur de fonction — déclarer une signature",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Quelle déclaration représente un pointeur vers une fonction int prenant un int ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "int (*f)(int);"
+        },
+        {
+          "id": "B",
+          "text": "int *f(int);"
+        },
+        {
+          "id": "C",
+          "text": "int f*(int);"
+        },
+        {
+          "id": "D",
+          "text": "int f(int *);"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "La parenthèse (*f) indique le pointeur de fonction.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/67-pointeur-de-fonction-declarer-une-signature"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-09-067-01",
+      "notion_id": "N09_067",
+      "legacy_notion_key": "9:67",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "Appeler un pointeur de fonction — f(x) ou (*f)(x)",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "multiple",
+      "prompt": "Pour un pointeur de fonction valide f, quelles formes d'appel sont équivalentes ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "f(5)"
+        },
+        {
+          "id": "B",
+          "text": "(*f)(5)"
+        },
+        {
+          "id": "C",
+          "text": "&f(5) comme appel toujours équivalent"
+        },
+        {
+          "id": "D",
+          "text": "f++(5) comme arithmétique définie"
+        }
+      ],
+      "correct_option_ids": [
+        "A",
+        "B"
+      ],
+      "explanation": "Les formes f(5) et (*f)(5) appellent la cible.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/68-appeler-un-pointeur-de-fonction-f-x-ou-f-x"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-09-068-01",
+      "notion_id": "N09_068",
+      "legacy_notion_key": "9:68",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "Callback — transmettre une fonction en paramètre",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Qu'est-ce qu'un callback en C ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Une fonction passée à une autre fonction pour être appelée"
+        },
+        {
+          "id": "B",
+          "text": "Une variable locale de type char"
+        },
+        {
+          "id": "C",
+          "text": "Un tableau toujours sur le tas"
+        },
+        {
+          "id": "D",
+          "text": "Un pointeur de données toujours nul"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "Le callback fournit un traitement sélectionnable via un pointeur de fonction.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/69-callback-transmettre-une-fonction-en-parametre"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-09-069-01",
+      "notion_id": "N09_069",
+      "legacy_notion_key": "9:69",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "Tableau de pointeurs de fonctions — choisir une opération",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "multiple",
+      "prompt": "Quelles précautions avec un tableau de pointeurs de fonctions ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Vérifier l'indice avant l'accès"
+        },
+        {
+          "id": "B",
+          "text": "Ne pas appeler un élément NULL"
+        },
+        {
+          "id": "C",
+          "text": "Appeler un indice hors limites pour tester la vitesse"
+        },
+        {
+          "id": "D",
+          "text": "Supposer que toutes les signatures sont interchangeables"
+        }
+      ],
+      "correct_option_ids": [
+        "A",
+        "B"
+      ],
+      "explanation": "L'indice et le pointeur doivent être valides et les signatures compatibles.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/70-tableau-de-pointeurs-de-fonctions-choisir-une-operation"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-09-070-01",
+      "notion_id": "N09_070",
+      "legacy_notion_key": "9:70",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "typedef d'un pointeur de fonction — simplifier les signatures",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Que décrit `typedef int (*operation_fn)(int,int);` ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Un alias pour un type de pointeur de fonction"
+        },
+        {
+          "id": "B",
+          "text": "Une fonction appelée immédiatement"
+        },
+        {
+          "id": "C",
+          "text": "Une chaîne de deux int"
+        },
+        {
+          "id": "D",
+          "text": "Une déclaration de tableau automatique"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "typedef renomme le type de pointeur vers fonction.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/71-typedef-d-un-pointeur-de-fonction-simplifier-les-signatures"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-09-071-01",
+      "notion_id": "N09_071",
+      "legacy_notion_key": "9:71",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "qsort() — comparateur passé par pointeur de fonction",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Pourquoi utiliser `(a>b)-(a<b)` comme comparateur d'int pour qsort ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Éviter le débordement possible de `a-b`"
+        },
+        {
+          "id": "B",
+          "text": "Garantir que qsort est stable"
+        },
+        {
+          "id": "C",
+          "text": "Trier nécessairement en ordre décroissant"
+        },
+        {
+          "id": "D",
+          "text": "Éviter de recevoir des void *"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "Cette expression donne -1/0/1 sans soustraction potentiellement débordante.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/72-qsort-comparateur-passe-par-pointeur-de-fonction"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    }
+  ]
+}
