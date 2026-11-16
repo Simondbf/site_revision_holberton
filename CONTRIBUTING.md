@@ -1,46 +1,24 @@
 # Contribuer à Holberton Révision
 
-Merci de contribuer à rendre les explications plus accessibles aux débutants.
+Une correction, une explication plus claire, un exemple ou une nouvelle notion ? Toutes les améliorations utiles sont les bienvenues.
 
-## Les contributions utiles
+## Proposer un changement
 
-- Corriger une erreur technique, une faute ou une définition ambiguë.
-- Ajouter une **analogie juste**, accompagnée de ses limites.
-- Ajouter un schéma clair avec une légende et un texte alternatif.
-- Améliorer l'explication d'un exemple sans résoudre entièrement un exercice évalué.
-- Ajouter une notion réellement abordée dans les cours.
+- **Une idée ou une erreur à signaler ?** [Ouvre une issue](https://github.com/Simondbf/site_revision_holberton/issues/new).
+- **Tu veux modifier le site ?** Crée un fork ou une branche, effectue tes changements puis ouvre une **pull request** vers `main`.
+- Décris simplement ce que tu as amélioré. Pour les points techniques, un lien vers une documentation de référence est apprécié.
 
-## Comment procéder sur GitHub
+## Ce qui fait une bonne fiche
 
-1. Ouvre une **issue** pour discuter d'une idée importante.
-2. Crée un **fork** du dépôt, puis une branche dédiée.
-3. Modifie les fichiers concernés.
-4. Ouvre une **pull request** vers la branche `main` avec un titre descriptif, idéalement en français.
-5. Explique ce que tu as changé et pourquoi ; ajoute un lien vers une documentation de référence pour les faits techniques.
+Une définition courte, une explication **claire et aérée**, un exemple correct et, si nécessaire, un schéma ou une analogie. Avant d'ajouter une notion, vérifie qu'elle n'est pas déjà expliquée sur le site.
 
-Exemple de titre : `Expliquer le déréférencement avec un schéma mémoire`.
-
-## Règles éditoriales
-
-- Le **résumé** doit rester court et compréhensible sans ouvrir la fiche.
-- L'**explication développée** doit définir les termes avant de les utiliser.
-- Les **exemples** doivent être corrects, illustratifs et, si besoin, décryptés.
-- Les **analogies** servent à comprendre, sans remplacer la définition technique.
-- Ne copie pas les corrigés d'exercices, les textes entiers d'autrui ni les contenus protégés.
-- Cite les sources pertinentes : documentations GNU, Git, Docker, langage C, etc.
-- Évite d'ajouter des dépendances lourdes ou des services externes pour une fonction simple.
-- N'ajoute jamais de token, mot de passe, donnée personnelle ou clé API.
-
-## Tester avant une pull request
-
-Avec Node.js 22 ou plus récent :
+Les vérifications automatiques se lancent lors des pull requests. Pour tester les cours localement :
 
 ```bash
 node scripts/verifier_site.mjs
+node scripts/verifier_contenu.mjs
 ```
 
-Tu peux ouvrir `index.html` localement pour vérifier l'affichage, les fiches, le mode mobile, l'historique du navigateur et les fenêtres de cours.
+**Tu contribues avec une IA ?** Transmets-lui le fichier [AGENTS.md](AGENTS.md) : il contient les conventions de rédaction et les indications techniques pour respecter le style du site.
 
-## Publication
-
-Les contributions ne sont **pas** publiées automatiquement sur le serveur. La personne qui maintient le site relit, fusionne puis déclenche le déploiement.
+Une fois la pull request validée et fusionnée, la mise à jour du site est automatique.
