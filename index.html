@@ -237,6 +237,7 @@ body.dark .lesson-visual figcaption{color:#c5d9e7}
 .quiz-result-row:last-child{border-bottom:0}
 @media(max-width:660px){.quiz-actions{gap:8px}.quiz-btn{flex:1 1 130px}.quiz-choice{padding:14px}.quiz-result-row{font-size:14px}}
 
+.quiz-card code{padding:2px 5px;border-radius:5px;background:var(--surface-alt);font-size:.91em;white-space:break-spaces}
 </style>
 </head>
 <body>
@@ -297,6 +298,7 @@ const courseData=JSON.parse(document.getElementById('course-data').textContent);
 const pointerData=JSON.parse(document.getElementById('pointer-data').textContent);
 const extendedLessons=JSON.parse(document.getElementById('extra-lessons').textContent);
 const teachingNotes=JSON.parse(document.getElementById('teaching-notes').textContent);
+const quizBank=JSON.parse(document.getElementById('quiz-bank').textContent);
 const $=id=>document.getElementById(id);
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const norm=s=>String(s).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLocaleLowerCase('fr');
@@ -316,7 +318,7 @@ let dark=false;try{dark=localStorage.getItem('holberton-dark-v2')==='yes'}catch{
 function theme(){document.body.classList.toggle('dark',dark);$('theme').innerHTML=dark?'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.65 17.65l1.42 1.42M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.65 6.35l1.42-1.42"/></svg>':'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 15.5A9 9 0 0 1 8.5 3.5a9 9 0 1 0 12 12Z"/></svg>';$('theme').setAttribute('aria-label',dark?'Passer au mode clair':'Passer au mode sombre');$('theme').style.display='grid';$('theme').style.placeItems='center';$('theme').querySelector('svg').style.width='21px';$('theme').querySelector('svg').style.height='21px'}
 theme();$('theme').onclick=()=>{dark=!dark;theme();try{localStorage.setItem('holberton-dark-v2',dark?'yes':'no')}catch{}};
 $('countTopics').textContent=sections.length+' thèmes';$('countCards').textContent=all.length+' notions';
-const panels=['browse','detail','course','favorites','about'];
+const panels=['browse','detail','course','favorites','about','quiz'];
 let currentPage='home',topicIndex=-1,currentConcept=-1;
 const sidebarGroups=[['Fondamentaux',[0,1,2,3]],['Shell & ligne de commande',[4]],['Programmation en C',[5,8,9,10,11,14,16]],['Outils de développement',[6,7]],['Méthodes & numérique',[12,13,15]]];
 let openedGroups=new Set([2]),openedTopics=new Set([9]);
@@ -1335,7 +1337,143 @@ function scrollToCourseNotion(si,ii){
    window.scrollTo({top:restore.scrollY,behavior:'instant'});
   }));
  }
- function parseRoute(){
+ 
+const quizKey='holberton-quiz-session-v1';
+const quizIndex=new Map(quizBank.map(q=>[q.id,q]));
+const quizNotions=Array.from(new Set(quizBank.map(q=>q.notion)));
+const quizFmt=t=>esc(t).replace(/\x60([^\x60]+)\x60/g,'<code>$1</code>');
+const quizLabel=n=>{const [si,ii]=n.split(':').map(Number);return sections[si]?.items[ii]?.term||n};
+const quizCorrect=a=>quizIndex.get(a.id)?.answer===a.choice;
+let quizStorageAvailable=true;
+try{localStorage.setItem('quiz-probe','ok');localStorage.removeItem('quiz-probe')}catch{quizStorageAvailable=false}
+function quizLoad(){
+ if(!quizStorageAvailable)return null;
+ try{
+  const s=JSON.parse(localStorage.getItem(quizKey)||'null');
+  if(!s||s.version!==1||!Array.isArray(s.selected)||!s.selected.length||
+   !s.selected.every(n=>quizNotions.includes(n))||new Set(s.selected).size!==s.selected.length||
+   !Array.isArray(s.answered)||!['active','paused','completed'].includes(s.status)||
+   !s.answered.every(a=>quizIndex.has(a.id)&&Number.isInteger(a.choice)&&a.choice>=0&&a.choice<=3&&s.selected.includes(quizIndex.get(a.id).notion))||
+   new Set(s.answered.map(a=>a.id)).size!==s.answered.length||
+   (s.current!==null&&(!quizIndex.has(s.current)||!s.selected.includes(quizIndex.get(s.current).notion))))return null;
+  return s;
+ }catch{return null}
+}
+let quizSession=quizLoad();
+function quizSave(){
+ if(!quizStorageAvailable)return;
+ try{if(quizSession)localStorage.setItem(quizKey,JSON.stringify(quizSession));else localStorage.removeItem(quizKey)}
+ catch{quizStorageAvailable=false}
+}
+function quizPick(s){
+ const seen=new Set(s.answered.map(a=>a.id));
+ const available=quizBank.filter(q=>s.selected.includes(q.notion)&&!seen.has(q.id));
+ if(!available.length)return null;
+ const stats=new Map(s.selected.map(n=>{
+  const own=s.answered.filter(a=>quizIndex.get(a.id).notion===n);
+  return [n,{n:own.length,wrong:own.filter(a=>!quizCorrect(a)).length,last:own[own.length-1]}]
+ }));
+ const topics=s.selected.filter(n=>available.some(q=>q.notion===n));
+ topics.sort((a,b)=>{
+  const x=stats.get(a),y=stats.get(b);
+  const px=x.n===0?-100:x.n-1.35*x.wrong;
+  const py=y.n===0?-100:y.n-1.35*y.wrong;
+  return px-py||s.selected.indexOf(a)-s.selected.indexOf(b)
+ });
+ const topic=topics[0],prev=stats.get(topic).last;
+ const target=prev?Math.max(1,Math.min(3,quizIndex.get(prev.id).level+(quizCorrect(prev)?1:-1))):1;
+ return available.filter(q=>q.notion===topic).sort((a,b)=>
+  Math.abs(a.level-target)-Math.abs(b.level-target)||a.level-b.level||a.id.localeCompare(b.id))[0].id;
+}
+function quizStart(selected){
+ quizSession={version:1,selected,answered:[],current:null,status:'active'};
+ quizSession.current=quizPick(quizSession);quizSave();quizRender();
+}
+function quizRender(){
+ $('quizNotice').textContent=quizStorageAvailable?
+  'Sauvegarde automatique après chaque réponse, sur cet appareil. Tu peux fermer la page et reprendre plus tard.':
+  'La sauvegarde locale est bloquée par ce navigateur : la reprise après fermeture ne peut pas être garantie.';
+ const s=quizSession;
+ if(!s){
+  $('quizBody').innerHTML='<article class="quiz-card"><h3>Choisis les notions à réviser</h3>'+
+   '<p>Version pilote : 25 questions sur cinq notions. Le niveau change automatiquement selon tes réponses, sans réglage.</p>'+
+   '<div class="quiz-select">'+quizNotions.map(n=>'<label><input type="checkbox" data-quiz-notion="'+esc(n)+
+    '" checked><span><strong>'+esc(quizLabel(n))+'</strong><br><small>5 questions</small></span></label>').join('')+'</div>'+
+   '<p class="quiz-muted">Une session peut être interrompue puis reprise sur ce même navigateur. La synchronisation entre appareils arrivera avec les comptes.</p>'+
+   '<div class="quiz-actions"><button type="button" class="quiz-btn primary" data-quiz-action="start">Commencer</button></div></article>';
+  return;
+ }
+ const total=quizBank.filter(q=>s.selected.includes(q.notion)).length;
+ if(s.status==='paused'){
+  $('quizBody').innerHTML='<article class="quiz-card"><h3>Quiz en pause</h3><p>'+s.answered.length+
+   ' réponse(s) enregistrée(s) sur '+total+'. Tu peux reprendre exactement où tu t’es arrêté.</p>'+
+   '<div class="quiz-actions"><button type="button" class="quiz-btn primary" data-quiz-action="resume">Reprendre</button>'+
+   '<button type="button" class="quiz-btn" data-quiz-action="restart">Recommencer</button></div></article>';
+  return;
+ }
+ if(s.status==='completed'){
+  const good=s.answered.filter(quizCorrect).length;
+  $('quizBody').innerHTML='<article class="quiz-card"><h3>Session terminée</h3><p>'+good+' / '+total+
+   ' bonnes réponses.</p>'+s.selected.map(n=>{
+    const own=s.answered.filter(a=>quizIndex.get(a.id).notion===n);
+    return '<div class="quiz-result-row"><span>'+esc(quizLabel(n))+'</span><strong>'+
+     own.filter(quizCorrect).length+' / '+own.length+'</strong></div>';
+   }).join('')+'<div class="quiz-actions"><button type="button" class="quiz-btn primary" data-quiz-action="restart">Nouveau quiz</button>'+
+   '<a href="#fiches" class="quiz-btn">Revoir les fiches</a></div></article>';
+  return;
+ }
+ const q=quizIndex.get(s.current);
+ if(!q){$('quizBody').textContent='Question introuvable. Recommence la session.';return}
+ const answer=s.answered.find(a=>a.id===q.id),n=s.answered.length,good=s.answered.filter(quizCorrect).length;
+ const choices=q.options.map((o,i)=>{
+  const status=answer?(i===q.answer?' correct':i===answer.choice?' incorrect':''):'';
+  return '<button type="button" class="quiz-choice'+status+'" data-quiz-choice="'+i+'" '+
+   (answer?'disabled':'')+'><span class="quiz-letter">'+String.fromCharCode(65+i)+'.</span> '+quizFmt(o)+'</button>';
+ }).join('');
+ const feedback=answer?'<div class="quiz-feedback" role="status"><strong>'+
+  (quizCorrect(answer)?'Bonne réponse !':'À revoir')+'</strong>'+quizFmt(q.explanation)+
+  '<p><a href="'+routeCourse(...q.notion.split(':').map(Number))+'">Relire la fiche</a></p></div>':'';
+ $('quizBody').innerHTML='<article class="quiz-card"><div class="quiz-topline"><span>'+esc(quizLabel(q.notion))+
+  '</span><span>'+n+' / '+total+' réponses · '+good+' justes</span></div>'+
+  '<div class="quiz-track" role="progressbar" aria-label="Progression" aria-valuemin="0" aria-valuemax="'+total+
+  '" aria-valuenow="'+n+'"><div style="width:'+Math.round(100*n/total)+'%"></div></div>'+
+  '<h3>'+quizFmt(q.prompt)+'</h3><div class="quiz-choices">'+choices+'</div>'+feedback+
+  '<div class="quiz-actions">'+(answer?'<button type="button" class="quiz-btn primary" data-quiz-action="next">'+
+   (n===total?'Terminer':'Question suivante')+'</button>':'')+
+  '<button type="button" class="quiz-btn" data-quiz-action="pause">Mettre en pause</button>'+
+  '<button type="button" class="quiz-btn" data-quiz-action="restart">Recommencer</button></div></article>';
+}
+$('quizBody').addEventListener('click',e=>{
+ const btn=e.target.closest('button');
+ if(!btn||!$('quizBody').contains(btn))return;
+ if(btn.hasAttribute('data-quiz-choice')){
+  const s=quizSession,choice=Number(btn.dataset.quizChoice);
+  if(!s||s.status!=='active'||s.answered.some(a=>a.id===s.current)||!Number.isInteger(choice)||choice<0||choice>3)return;
+  s.answered.push({id:s.current,choice});quizSave();quizRender();return;
+ }
+ const action=btn.dataset.quizAction;
+ if(action==='start'){
+  const selected=Array.from($('quizBody').querySelectorAll('[data-quiz-notion]:checked')).map(el=>el.dataset.quizNotion);
+  if(!selected.length){$('quizNotice').textContent='Sélectionne au moins une notion.';return}
+  quizStart(selected);
+ }else if(action==='pause'&&quizSession){quizSession.status='paused';quizSave();quizRender()}
+ else if(action==='resume'&&quizSession){quizSession.status='active';quizSave();quizRender()}
+ else if(action==='next'&&quizSession&&quizSession.answered.some(a=>a.id===quizSession.current)){
+  quizSession.current=quizPick(quizSession);
+  if(!quizSession.current)quizSession.status='completed';
+  quizSave();quizRender();
+ }else if(action==='restart'){
+  if(quizSession&&!window.confirm('Effacer cette session et recommencer ?'))return;
+  quizSession=null;quizSave();quizRender();
+ }
+});
+window.addEventListener('storage',e=>{
+ if(e.key!==quizKey)return;
+ quizSession=quizLoad();
+ if(!$('quiz').classList.contains('hidden'))quizRender();
+});
+
+function parseRoute(){
   const parts=decodeURIComponent(location.hash.replace(/^#/,'' )).split('/');
   const page=parts[0]||'accueil';
   if(page==='categorie'){
@@ -1350,7 +1488,7 @@ function scrollToCourseNotion(si,ii){
    if(ii<0)return {page:'theme',si};
    return page==='apercu'?{page:'cours',si,ii,legacy:true}:{page,si,ii};
   }
-  return {page:['accueil','fiches','favoris','apropos'].includes(page)?page:'accueil'};
+  return {page:['accueil','fiches','favoris','apropos','quiz'].includes(page)?page:'accueil'};
  }
  function renderRoute(){
   const r=parseRoute();
@@ -1392,6 +1530,10 @@ function scrollToCourseNotion(si,ii){
    $('listingSubtitle').textContent='Choisis un thème pour afficher ses fiches et ses explications.';
    search();panel('browse');
    document.title=sidebarGroups[r.gi][0]+' · Holberton Révision';
+  }else if(r.page==='quiz'){
+   courseNavigationSerial++;
+   currentPage='quiz';topicIndex=-1;currentConcept=-1;
+   renderQuiz();panel('quiz');document.title='Quiz adaptatif · Holberton Révision';
   }else if(r.page==='favoris'){
    courseNavigationSerial++;
    currentPage='favorites';topicIndex=-1;currentConcept=-1;
@@ -1418,9 +1560,9 @@ $('search').addEventListener('input',()=>{$('quickSearch').value=$('search').val
 $('quickSearch').addEventListener('input',()=>{const q=$('quickSearch').value; if(location.hash!=='#fiches'){go('#fiches')} $('search').value=q;renderTopics();search()});
 $('back').onclick=()=>go('#fiches');
 $('courseBack').onclick=returnToCards;
-$('start').onclick=()=>go('#fiches');$('goFavorites').onclick=()=>go('#favoris');
+$('start').onclick=()=>go('#fiches');$('goFavorites').onclick=()=>go('#favoris');$('goQuiz').onclick=()=>go('#quiz');
 $('brandHome').onclick=e=>{e.preventDefault();go('#accueil')};
-document.querySelectorAll('[data-page]').forEach(b=>b.onclick=()=>go({home:'#accueil',topics:'#fiches',favorites:'#favoris',about:'#apropos'}[b.dataset.page]));
+document.querySelectorAll('[data-page]').forEach(b=>b.onclick=()=>go({home:'#accueil',topics:'#fiches',favorites:'#favoris',about:'#apropos',quiz:'#quiz'}[b.dataset.page]));
 const updateCourseToolbarOffset=()=>{
  const header=document.querySelector('body > header');
  document.documentElement.style.setProperty('--course-sticky-top',(header?.getBoundingClientRect().height||84)+'px');
