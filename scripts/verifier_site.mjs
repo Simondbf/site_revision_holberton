@@ -156,6 +156,9 @@ assert.ok(!readme.includes('holberton-deploy.service') &&
 assert.ok(!contributing.includes('N’ajoute jamais de token') &&
  !contributing.includes('déclenche le déploiement'),
  'Les consignes pour humains doivent être concises et à jour.');
+assert.ok(html.includes('Les futurs quiz seront eux aussi utilisables sans compte') &&
+ html.includes('un compte facultatif') && html.includes("Cette option n'est pas encore disponible."),
+ 'La page À propos doit expliquer les comptes facultatifs sans annoncer une fonctionnalité non publiée.');
 assert.ok(html.includes('À propos de Holberton Révision') &&
  html.includes('Informations pratiques') && html.includes('project-details'),
  'La nouvelle page À propos ne doit pas disparaître.');
