@@ -123,7 +123,7 @@ for(const [si,ii,term] of [
 }
 assert.ok(pointeurs['53'].explanation.includes('INDIRECT_LEAK'),
  'La classification des fuites indirectes doit être expliquée.');
-assert.ok(pointeurs['51'].explanation.includes('ownership ambiguë'),
+assert.ok(pointeurs['51'].note.includes('ownership ambiguë'),
  'Causes possibles du double free du base bundle absentes.');
 assert.ok(pointeurs['54'].explanation.includes("nombre d'OCTETS"),
  'memcpy doit expliquer la taille copiée.');
