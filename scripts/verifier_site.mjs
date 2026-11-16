@@ -38,7 +38,7 @@ for (const [si, section] of data.sections.entries()) {
     total++;
   }
 }
-assert.ok(total >= 209, 'Des fiches semblent avoir disparu');
+assert.ok(total >= 228, 'Des fiches semblent avoir disparu');
 assert.ok(Object.keys(aide).length > 0, 'Analogies pédagogiques manquantes');
 
 const scripts = [...html.matchAll(/<script(?![^>]*type="application\/json")[^>]*>([\s\S]*?)<\/script>/g)];
@@ -85,6 +85,17 @@ assert.ok(html.includes('case 19:') && html.includes('case 20:'),
  'Schémas point/flèche et include guards manquants');
 assert.ok(html.includes("['Programmation en C',[5,8,9,10,11,14,16]]"),
  'Le nouveau thème doit apparaître dans la navigation C.');
+for(const [si,ii,term] of [
+  [8,26,'fgets()'],[8,27,'strtol()'],[8,28,'Chaîne de format'],[8,29,'EOF'],
+  [9,47,'strncpy()'],[9,48,'calloc()'],[9,49,'Buffer overflow'],
+  [9,50,'Use-after-free'],[9,51,'Double free'],[9,52,'Débordement du calcul'],
+  [9,53,'Valgrind Memcheck'],[9,54,'memcpy()'],[14,6,'Vulnérabilité']
+]){
+  assert.ok(data.sections[si].items[ii]?.term.includes(term),'Notion de sécurité absente : '+si+':'+ii);
+  const p=si===9?pointeurs[String(ii)]:extra[si+':'+ii];
+  assert.ok(p?.sources?.length,'Source spécialisée absente : '+si+':'+ii);
+}
+assert.ok(html.includes('Array.isArray(p.sources)'), 'Sources spécifiques par cours non affichées');
 assert.ok(html.includes('function lessonParagraphs(value)') && html.includes('lessonParagraphs(explain)'), 
  'Mise en page des explications en paragraphes absente');
 assert.ok(extra['8:25']?.explanation?.split(/\n\n/).length >= 4,
