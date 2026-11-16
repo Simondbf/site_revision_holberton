@@ -16,6 +16,35 @@ const courses = bloc('course-data');
 const extra = bloc('extra-lessons');
 const pointeurs = bloc('pointer-data');
 const aide = bloc('teaching-notes');
+const quiz = bloc('quiz-bank');
+assert.equal(quiz.length,25,'Le pilote doit proposer exactement 25 questions.');
+const quizIds = new Set(),quizPerNotion = new Map();
+for(const q of quiz){
+ assert.ok(typeof q.id==='string' && q.id.length && !quizIds.has(q.id),'Identifiant de question en double');
+ quizIds.add(q.id);
+ assert.ok(/^\d+:\d+$/.test(q.notion),'Identifiant de notion invalide : '+q.id);
+ const [si,ii]=q.notion.split(':').map(Number);
+ assert.ok(data.sections[si]?.items[ii],'Notion inexistante : '+q.id);
+ quizPerNotion.set(q.notion,(quizPerNotion.get(q.notion)||0)+1);
+ assert.ok([1,2,3].includes(q.level),'Difficulté interne invalide : '+q.id);
+ assert.ok(q.prompt?.trim() && q.explanation?.trim() && /^https:\/\//.test(q.source),'Énoncé, explication ou source absents : '+q.id);
+ assert.ok(Array.isArray(q.options) && q.options.length===4 && new Set(q.options).size===4,'Choix invalides : '+q.id);
+ assert.ok(q.options.every(x=>typeof x==='string'&&x.trim().length>0),'Choix vides : '+q.id);
+ assert.ok(Number.isInteger(q.answer) && q.answer>=0 && q.answer<4,'Réponse invalide : '+q.id);
+}
+assert.equal(quizPerNotion.size,5,'Le pilote couvre cinq notions de C.');
+assert.ok([...quizPerNotion.values()].every(n=>n===5),'Prévoir cinq questions par notion.');
+const quizExpected = {sc1:1,sc2:1,sc3:2,sc4:0,sc5:3,
+ fg1:1,fg2:2,fg3:0,fg4:3,fg5:2,
+ ma1:0,ma2:1,ma3:2,ma4:3,ma5:0,
+ fr1:2,fr2:1,fr3:3,fr4:2,fr5:0,
+ re1:1,re2:2,re3:3,re4:0,re5:1};
+for(const q of quiz)assert.equal(q.answer,quizExpected[q.id],'Clé de réponse modifiée sans nouvelle revue : '+q.id);
+assert.ok(html.includes('function quizPick(s)'),'Moteur adaptatif absent.');
+assert.ok(html.includes('localStorage.setItem(quizKey'),'Sauvegarde locale du quiz absente.');
+assert.ok(html.includes('quizSession.status=\'paused\''),'Mise en pause absente.');
+assert.ok(html.includes('r.page===\'quiz\''),'Navigation vers le quiz absente.');
+
 
 assert.ok(data.sections.length >= 17, 'Des catégories ont disparu');
 const slugs = new Set();
