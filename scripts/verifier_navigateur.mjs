@@ -221,6 +221,19 @@ try{
  assert.ok(await page.locator('#notion-14-7 .lesson-reading p').count()>=3,
   'La notion d’invariant doit être structurée.');
 
+ // À propos : structure simplifiée, liens de contribution et hiérarchie lisible.
+ await page.goto(origin+'/#apropos');
+ await page.waitForFunction(()=>!document.querySelector('#about')?.classList.contains('hidden'));
+ assert.equal(await page.locator('#about .helpgrid article').count(),2,
+  'La page À propos doit conserver deux présentations synthétiques.');
+ assert.ok(await page.locator('#about .project-details').isVisible(),
+  'Les informations pratiques doivent être visibles.');
+ assert.ok((await page.locator('#about').innerText()).includes('Un site de révision collaboratif'),
+  'La contribution doit rester proposée aux visiteurs.');
+ assert.equal(await page.locator('#about .project-help a').count(),2,
+  'Les deux liens vers GitHub doivent être visibles.');
+ await page.screenshot({path:'apercus/a-propos-simplifie.png'});
+
  // Le comportement mobile existant reste préservé, sans refonte de l'interface.
  const mobile=await browser.newPage({viewport:{width:390,height:844},isMobile:true,hasTouch:true});
  mobile.on('pageerror',e=>errors.push('Mobile : '+e.message));
