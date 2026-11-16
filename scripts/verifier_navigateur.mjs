@@ -202,6 +202,59 @@ try{
   'La nouvelle fiche strncpy doit rester aérée.');
  await page.screenshot({path:'apercus/strncpy-cours-aere.png'});
 
+
+ // Quiz : sélection des notions, progression adaptative et session reprise après fermeture.
+ await page.goto(origin+'/#quiz');
+ await page.waitForFunction(()=>!document.querySelector('#quiz')?.classList.contains('hidden'));
+ assert.equal(await page.locator('#quizBody [data-quiz-notion]').count(),5,'Le pilote doit proposer cinq notions.');
+ await page.locator('#quizBody [data-quiz-notion]').evaluateAll(nodes=>
+   nodes.forEach(node=>{node.checked=node.dataset.quizNotion==='8:25'}));
+ await page.locator('[data-quiz-action="start"]').click();
+ await page.waitForFunction(()=>document.querySelector('#quizBody .quiz-choice'));
+ assert.match(await page.locator('#quizBody h3').innerText(),/Pour enregistrer un entier/,'La première question doit commencer au niveau initial.');
+ let localQuiz=await page.evaluate(()=>JSON.parse(localStorage.getItem('holberton-quiz-session-v1')));
+ assert.deepEqual(localQuiz.selected,['8:25'],'Le choix de notion n’est pas enregistré.');
+ assert.equal(localQuiz.current,'sc1','La première question attendue est sc1.');
+ await page.locator('[data-quiz-choice="1"]').click();
+ assert.ok(await page.locator('.quiz-feedback').isVisible(),'Le retour sur la réponse est absent.');
+ await page.reload();
+ assert.ok(await page.locator('.quiz-feedback').isVisible(),'Le feedback de la question doit survivre à un rechargement.');
+ assert.equal(await page.locator('#quizBody [data-quiz-action="next"]').count(),1,
+  'La question doit rester terminée après rechargement.');
+ await page.locator('[data-quiz-action="pause"]').click();
+ assert.match(await page.locator('#quizBody').innerText(),/Quiz en pause/,'La pause est absente.');
+ await page.goto(origin+'/#fiches');
+ await page.goto(origin+'/#quiz');
+ assert.match(await page.locator('#quizBody').innerText(),/Quiz en pause/,'La session pausée doit rester disponible.');
+ await page.locator('[data-quiz-action="resume"]').click();
+ assert.ok(await page.locator('.quiz-feedback').isVisible(),'La reprise ne doit pas perdre une réponse.');
+ await page.locator('[data-quiz-action="next"]').click();
+ localQuiz=await page.evaluate(()=>JSON.parse(localStorage.getItem('holberton-quiz-session-v1')));
+ assert.equal(localQuiz.current,'sc3','Une bonne réponse doit augmenter la difficulté interne.');
+ await page.locator('[data-quiz-choice="0"]').click();
+ assert.match(await page.locator('.quiz-feedback').innerText(),/À revoir/,'La mauvaise réponse est mal signalée.');
+ await page.locator('[data-quiz-action="next"]').click();
+ localQuiz=await page.evaluate(()=>JSON.parse(localStorage.getItem('holberton-quiz-session-v1')));
+ assert.equal(localQuiz.current,'sc2','Une erreur doit réduire la difficulté interne.');
+ // La session progresse sans perdre les réponses déjà données.
+ while(await page.locator('#quizBody [data-quiz-choice]').count()){
+   await page.locator('[data-quiz-choice="0"]').click();
+   await page.locator('[data-quiz-action="next"]').click();
+ }
+ assert.match(await page.locator('#quizBody h3').innerText(),/Session terminée/,'Le quiz ne se termine pas.');
+ localQuiz=await page.evaluate(()=>JSON.parse(localStorage.getItem('holberton-quiz-session-v1')));
+ assert.equal(localQuiz.answered.length,5,'Les cinq réponses de la notion sont attendues.');
+ assert.equal(localQuiz.status,'completed','La session complète doit être enregistrée.');
+ await page.reload();
+ assert.match(await page.locator('#quizBody h3').innerText(),/Session terminée/,
+  'Les résultats doivent persister après un rechargement.');
+ page.once('dialog',dialog=>dialog.accept());
+ await page.locator('[data-quiz-action="restart"]').click();
+ assert.equal(await page.locator('[data-quiz-notion]').count(),5,'Le redémarrage doit revenir à la sélection.');
+ assert.equal(await page.evaluate(()=>localStorage.getItem('holberton-quiz-session-v1')),null,
+  'Le redémarrage doit supprimer uniquement la session du quiz.');
+ await page.screenshot({path:'apercus/quiz-adaptatif-pilote.png'});
+
  // Le comportement mobile existant reste préservé, sans refonte de l'interface.
  const mobile=await browser.newPage({viewport:{width:390,height:844},isMobile:true,hasTouch:true});
  mobile.on('pageerror',e=>errors.push('Mobile : '+e.message));
