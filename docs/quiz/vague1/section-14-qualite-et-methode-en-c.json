@@ -1,0 +1,1482 @@
+{
+  "version": "review-v1",
+  "status": "non_verifie",
+  "theme_id": 14,
+  "theme": "Qualité et méthode en C",
+  "questions": [
+    {
+      "id": "V1-N14_000-01",
+      "notion_id": "N14_000",
+      "legacy_notion_key": "14:0",
+      "theme": "Qualité et méthode en C",
+      "notion": "Prototype de fonction",
+      "answer_mode": "single",
+      "question_type": "definition",
+      "prompt": "À quelle notion correspond la définition suivante : « Déclare le type de retour et les paramètres d’une fonction avant son utilisation ; la définition fournit son corps. » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Base bundle — analyser le code de départ d'un lab"
+        },
+        {
+          "id": "B",
+          "text": "Prototype de fonction"
+        },
+        {
+          "id": "C",
+          "text": "Vulnérabilité ou attaque ? (OWASP)"
+        },
+        {
+          "id": "D",
+          "text": "Invariant — condition qui doit rester vraie"
+        }
+      ],
+      "correct_option_ids": [
+        "B"
+      ],
+      "explanation": "La définition est extraite du résumé de la fiche correspondante.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/qualite-et-methode-en-c/1-prototype-de-fonction"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N14_000-02",
+      "notion_id": "N14_000",
+      "legacy_notion_key": "14:0",
+      "theme": "Qualité et méthode en C",
+      "notion": "Prototype de fonction",
+      "answer_mode": "single",
+      "question_type": "description",
+      "prompt": "Quelle description caractérise « Prototype de fonction » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Un invariant est une condition que le programme doit préserver à des moments définis ; en sécurité mémoire, il exprime notamment les bornes et la validité des pointeurs."
+        },
+        {
+          "id": "B",
+          "text": "Une vulnérabilité est une faiblesse du programme ; une attaque est une action visant à exploiter cette faiblesse."
+        },
+        {
+          "id": "C",
+          "text": "Déclare le type de retour et les paramètres d’une fonction avant son utilisation ; la définition fournit son corps."
+        },
+        {
+          "id": "D",
+          "text": "Le base bundle est l'ensemble de fichiers de départ fourni pour un exercice ; son audit consiste à vérifier les hypothèses, les entrées et les responsabilités mémoire avant d'émettre un diagnostic."
+        }
+      ],
+      "correct_option_ids": [
+        "C"
+      ],
+      "explanation": "Le résumé de la fiche indique : Déclare le type de retour et les paramètres d’une fonction avant son utilisation ; la définition fournit son corps.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/qualite-et-methode-en-c/1-prototype-de-fonction"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N14_000-03",
+      "notion_id": "N14_000",
+      "legacy_notion_key": "14:0",
+      "theme": "Qualité et méthode en C",
+      "notion": "Prototype de fonction",
+      "answer_mode": "single",
+      "question_type": "vigilance",
+      "prompt": "Quel point à retenir est directement associé à « Prototype de fonction » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Dans une question portant sur le « base bundle », les scénarios de double free doivent être confirmés dans les fichiers fournis. Les causes typiques à rechercher sont des chemins de libération multiples et une ownership ambiguë, pas une supposée vulnérabilité universelle du bundle."
+        },
+        {
+          "id": "B",
+          "text": "Un segfault ne prouve pas à lui seul qu'une attaque a eu lieu ; l'absence de crash n'exclut pas une vulnérabilité. On corrige d'abord la faiblesse du code."
+        },
+        {
+          "id": "C",
+          "text": "Invariant de copie : n < capacité_dest garantit ici que n + 1 octets tiennent dans le tableau. Cela suppose que source est déjà une chaîne valide ; vérifier une longueur ne répare pas des octets écrits hors limites auparavant."
+        },
+        {
+          "id": "D",
+          "text": "Un prototype permet de vérifier un appel, mais ne remplace pas la définition de la fonction."
+        }
+      ],
+      "correct_option_ids": [
+        "D"
+      ],
+      "explanation": "La fiche indique : Un prototype permet de vérifier un appel, mais ne remplace pas la définition de la fonction.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/qualite-et-methode-en-c/1-prototype-de-fonction"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N14_000-04",
+      "notion_id": "N14_000",
+      "legacy_notion_key": "14:0",
+      "theme": "Qualité et méthode en C",
+      "notion": "Prototype de fonction",
+      "answer_mode": "multiple",
+      "question_type": "synthese",
+      "prompt": "Quelles affirmations concernent directement « Prototype de fonction » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Un prototype permet de vérifier un appel, mais ne remplace pas la définition de la fonction."
+        },
+        {
+          "id": "B",
+          "text": "Déclare le type de retour et les paramètres d’une fonction avant son utilisation ; la définition fournit son corps."
+        },
+        {
+          "id": "C",
+          "text": "Une struct définit un type composé de membres nommés, éventuellement de types différents."
+        },
+        {
+          "id": "D",
+          "text": "Reste : 5."
+        }
+      ],
+      "correct_option_ids": [
+        "A",
+        "B"
+      ],
+      "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/qualite-et-methode-en-c/1-prototype-de-fonction"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "cross_topic_distractors",
+        "check_possible_ambiguity"
+      ]
+    },
+    {
+      "id": "V1-N14_001-01",
+      "notion_id": "N14_001",
+      "legacy_notion_key": "14:1",
+      "theme": "Qualité et méthode en C",
+      "notion": "Entête de fonction",
+      "answer_mode": "single",
+      "question_type": "definition",
+      "prompt": "À quelle notion correspond la définition suivante : « Une fonction C doit posséder une signature adaptée : type de retour, nom, liste de paramètres. » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Entête de fonction"
+        },
+        {
+          "id": "B",
+          "text": "Commentaires et lisibilité"
+        },
+        {
+          "id": "C",
+          "text": "Compilation et liaison"
+        },
+        {
+          "id": "D",
+          "text": "Taille des types"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "La définition est extraite du résumé de la fiche correspondante.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/qualite-et-methode-en-c/2-entete-de-fonction"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N14_001-02",
+      "notion_id": "N14_001",
+      "legacy_notion_key": "14:1",
+      "theme": "Qualité et méthode en C",
+      "notion": "Entête de fonction",
+      "answer_mode": "single",
+      "question_type": "description",
+      "prompt": "Quelle description caractérise « Entête de fonction » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "sizeof donne la taille en octets d’un type ou d’un objet sur la machine utilisée ; ne pas supposer une taille universelle pour int ou un pointeur."
+        },
+        {
+          "id": "B",
+          "text": "Une fonction C doit posséder une signature adaptée : type de retour, nom, liste de paramètres."
+        },
+        {
+          "id": "C",
+          "text": "Utiliser des noms compréhensibles, une indentation cohérente et des commentaires utiles plutôt que paraphraser chaque instruction."
+        },
+        {
+          "id": "D",
+          "text": "Le préprocesseur prépare le texte, le compilateur produit du code, l’assembleur génère des objets, et l’éditeur de liens crée l’exécutable."
+        }
+      ],
+      "correct_option_ids": [
+        "B"
+      ],
+      "explanation": "Le résumé de la fiche indique : Une fonction C doit posséder une signature adaptée : type de retour, nom, liste de paramètres.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/qualite-et-methode-en-c/2-entete-de-fonction"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N14_001-03",
+      "notion_id": "N14_001",
+      "legacy_notion_key": "14:1",
+      "theme": "Qualité et méthode en C",
+      "notion": "Entête de fonction",
+      "answer_mode": "single",
+      "question_type": "vigilance",
+      "prompt": "Quel point à retenir est directement associé à « Entête de fonction » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Un fichier objet peut être correct alors que la liaison échoue faute de définition."
+        },
+        {
+          "id": "B",
+          "text": "sizeof(char) vaut toujours 1 en C ; la taille d'un octet en bits et celle des autres types varient selon la plateforme."
+        },
+        {
+          "id": "C",
+          "text": "Pour une fonction non void, une valeur de retour compatible doit être fournie lorsque le contrat l'exige."
+        },
+        {
+          "id": "D",
+          "text": "Commente l'intention ou les contraintes ; évite les commentaires qui répètent le code."
+        }
+      ],
+      "correct_option_ids": [
+        "C"
+      ],
+      "explanation": "La fiche indique : Pour une fonction non void, une valeur de retour compatible doit être fournie lorsque le contrat l'exige.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/qualite-et-methode-en-c/2-entete-de-fonction"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N14_001-04",
+      "notion_id": "N14_001",
+      "legacy_notion_key": "14:1",
+      "theme": "Qualité et méthode en C",
+      "notion": "Entête de fonction",
+      "answer_mode": "multiple",
+      "question_type": "synthese",
+      "prompt": "Quelles affirmations concernent directement « Entête de fonction » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Avant malloc(n * sizeof *p), vérifier que n ne dépasse pas la capacité de size_t divisée par sizeof *p afin d'éviter une allocation trop petite."
+        },
+        {
+          "id": "B",
+          "text": "Pour une fonction non void, une valeur de retour compatible doit être fournie lorsque le contrat l'exige."
+        },
+        {
+          "id": "C",
+          "text": "Une fonction C doit posséder une signature adaptée : type de retour, nom, liste de paramètres."
+        },
+        {
+          "id": "D",
+          "text": "strlen attend une chaîne se terminant par '\\0' ; si un tableau de caractères n'en contient pas, la fonction peut lire hors de sa zone."
+        }
+      ],
+      "correct_option_ids": [
+        "B",
+        "C"
+      ],
+      "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/qualite-et-methode-en-c/2-entete-de-fonction"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "cross_topic_distractors",
+        "check_possible_ambiguity"
+      ]
+    },
+    {
+      "id": "V1-N14_002-01",
+      "notion_id": "N14_002",
+      "legacy_notion_key": "14:2",
+      "theme": "Qualité et méthode en C",
+      "notion": "Tester séparément",
+      "answer_mode": "single",
+      "question_type": "definition",
+      "prompt": "À quelle notion correspond la définition suivante : « Tester de petits cas et lire les avertissements du compilateur aide à comprendre une erreur sans recopier une solution. » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Entête de fonction"
+        },
+        {
+          "id": "B",
+          "text": "Prototype de fonction"
+        },
+        {
+          "id": "C",
+          "text": "Base bundle — analyser le code de départ d'un lab"
+        },
+        {
+          "id": "D",
+          "text": "Tester séparément"
+        }
+      ],
+      "correct_option_ids": [
+        "D"
+      ],
+      "explanation": "La définition est extraite du résumé de la fiche correspondante.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/qualite-et-methode-en-c/3-tester-separement"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N14_002-02",
+      "notion_id": "N14_002",
+      "legacy_notion_key": "14:2",
+      "theme": "Qualité et méthode en C",
+      "notion": "Tester séparément",
+      "answer_mode": "single",
+      "question_type": "description",
+      "prompt": "Quelle description caractérise « Tester séparément » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Tester de petits cas et lire les avertissements du compilateur aide à comprendre une erreur sans recopier une solution."
+        },
+        {
+          "id": "B",
+          "text": "Déclare le type de retour et les paramètres d’une fonction avant son utilisation ; la définition fournit son corps."
+        },
+        {
+          "id": "C",
+          "text": "Une fonction C doit posséder une signature adaptée : type de retour, nom, liste de paramètres."
+        },
+        {
+          "id": "D",
+          "text": "Le base bundle est l'ensemble de fichiers de départ fourni pour un exercice ; son audit consiste à vérifier les hypothèses, les entrées et les responsabilités mémoire avant d'émettre un diagnostic."
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "Le résumé de la fiche indique : Tester de petits cas et lire les avertissements du compilateur aide à comprendre une erreur sans recopier une solution.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/qualite-et-methode-en-c/3-tester-separement"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N14_002-03",
+      "notion_id": "N14_002",
+      "legacy_notion_key": "14:2",
+      "theme": "Qualité et méthode en C",
+      "notion": "Tester séparément",
+      "answer_mode": "single",
+      "question_type": "vigilance",
+      "prompt": "Quel point à retenir est directement associé à « Tester séparément » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Pour une fonction non void, une valeur de retour compatible doit être fournie lorsque le contrat l'exige."
+        },
+        {
+          "id": "B",
+          "text": "Dans une question portant sur le « base bundle », les scénarios de double free doivent être confirmés dans les fichiers fournis. Les causes typiques à rechercher sont des chemins de libération multiples et une ownership ambiguë, pas une supposée vulnérabilité universelle du bundle."
+        },
+        {
+          "id": "C",
+          "text": "Tester zéro, les bornes et les entrées inhabituelles permet de détecter des erreurs cachées."
+        },
+        {
+          "id": "D",
+          "text": "Un prototype permet de vérifier un appel, mais ne remplace pas la définition de la fonction."
+        }
+      ],
+      "correct_option_ids": [
+        "C"
+      ],
+      "explanation": "La fiche indique : Tester zéro, les bornes et les entrées inhabituelles permet de détecter des erreurs cachées.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/qualite-et-methode-en-c/3-tester-separement"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N14_002-04",
+      "notion_id": "N14_002",
+      "legacy_notion_key": "14:2",
+      "theme": "Qualité et méthode en C",
+      "notion": "Tester séparément",
+      "answer_mode": "multiple",
+      "question_type": "synthese",
+      "prompt": "Quelles affirmations concernent directement « Tester séparément » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Tester zéro, les bornes et les entrées inhabituelles permet de détecter des erreurs cachées."
+        },
+        {
+          "id": "B",
+          "text": "Pour comprendre un pointeur, distinguer à chaque ligne : variable, adresse contenue dans le pointeur et valeur à cette adresse."
+        },
+        {
+          "id": "C",
+          "text": "free libère un bloc obtenu par allocation dynamique ; le pointeur ne devient pas automatiquement NULL."
+        },
+        {
+          "id": "D",
+          "text": "Tester de petits cas et lire les avertissements du compilateur aide à comprendre une erreur sans recopier une solution."
+        }
+      ],
+      "correct_option_ids": [
+        "A",
+        "D"
+      ],
+      "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/qualite-et-methode-en-c/3-tester-separement"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "cross_topic_distractors",
+        "check_possible_ambiguity"
+      ]
+    },
+    {
+      "id": "V1-N14_003-01",
+      "notion_id": "N14_003",
+      "legacy_notion_key": "14:3",
+      "theme": "Qualité et méthode en C",
+      "notion": "Taille des types",
+      "answer_mode": "single",
+      "question_type": "definition",
+      "prompt": "À quelle notion correspond la définition suivante : « sizeof donne la taille en octets d’un type ou d’un objet sur la machine utilisée ; ne pas supposer une taille universelle pour int ou un pointeur. » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Vulnérabilité ou attaque ? (OWASP)"
+        },
+        {
+          "id": "B",
+          "text": "Commentaires et lisibilité"
+        },
+        {
+          "id": "C",
+          "text": "Taille des types"
+        },
+        {
+          "id": "D",
+          "text": "Invariant — condition qui doit rester vraie"
+        }
+      ],
+      "correct_option_ids": [
+        "C"
+      ],
+      "explanation": "La définition est extraite du résumé de la fiche correspondante.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/qualite-et-methode-en-c/4-taille-des-types"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N14_003-02",
+      "notion_id": "N14_003",
+      "legacy_notion_key": "14:3",
+      "theme": "Qualité et méthode en C",
+      "notion": "Taille des types",
+      "answer_mode": "single",
+      "question_type": "description",
+      "prompt": "Quelle description caractérise « Taille des types » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Un invariant est une condition que le programme doit préserver à des moments définis ; en sécurité mémoire, il exprime notamment les bornes et la validité des pointeurs."
+        },
+        {
+          "id": "B",
+          "text": "Utiliser des noms compréhensibles, une indentation cohérente et des commentaires utiles plutôt que paraphraser chaque instruction."
+        },
+        {
+          "id": "C",
+          "text": "Une vulnérabilité est une faiblesse du programme ; une attaque est une action visant à exploiter cette faiblesse."
+        },
+        {
+          "id": "D",
+          "text": "sizeof donne la taille en octets d’un type ou d’un objet sur la machine utilisée ; ne pas supposer une taille universelle pour int ou un pointeur."
+        }
+      ],
+      "correct_option_ids": [
+        "D"
+      ],
+      "explanation": "Le résumé de la fiche indique : sizeof donne la taille en octets d’un type ou d’un objet sur la machine utilisée ; ne pas supposer une taille universelle pour int ou un pointeur.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/qualite-et-methode-en-c/4-taille-des-types"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N14_003-03",
+      "notion_id": "N14_003",
+      "legacy_notion_key": "14:3",
+      "theme": "Qualité et méthode en C",
+      "notion": "Taille des types",
+      "answer_mode": "single",
+      "question_type": "vigilance",
+      "prompt": "Quel point à retenir est directement associé à « Taille des types » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "sizeof(char) vaut toujours 1 en C ; la taille d'un octet en bits et celle des autres types varient selon la plateforme."
+        },
+        {
+          "id": "B",
+          "text": "Un segfault ne prouve pas à lui seul qu'une attaque a eu lieu ; l'absence de crash n'exclut pas une vulnérabilité. On corrige d'abord la faiblesse du code."
+        },
+        {
+          "id": "C",
+          "text": "Invariant de copie : n < capacité_dest garantit ici que n + 1 octets tiennent dans le tableau. Cela suppose que source est déjà une chaîne valide ; vérifier une longueur ne répare pas des octets écrits hors limites auparavant."
+        },
+        {
+          "id": "D",
+          "text": "Commente l'intention ou les contraintes ; évite les commentaires qui répètent le code."
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "La fiche indique : sizeof(char) vaut toujours 1 en C ; la taille d'un octet en bits et celle des autres types varient selon la plateforme.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/qualite-et-methode-en-c/4-taille-des-types"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N14_003-04",
+      "notion_id": "N14_003",
+      "legacy_notion_key": "14:3",
+      "theme": "Qualité et méthode en C",
+      "notion": "Taille des types",
+      "answer_mode": "multiple",
+      "question_type": "synthese",
+      "prompt": "Quelles affirmations concernent directement « Taille des types » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "sizeof donne la taille en octets d’un type ou d’un objet sur la machine utilisée ; ne pas supposer une taille universelle pour int ou un pointeur."
+        },
+        {
+          "id": "B",
+          "text": "strtol convertit une chaîne en long ; vérifier les chiffres lus, les caractères restants et les dépassements avec errno."
+        },
+        {
+          "id": "C",
+          "text": "int *p; : p est une variable de type « pointeur vers int ». Le * indique le type de variable déclaré."
+        },
+        {
+          "id": "D",
+          "text": "sizeof(char) vaut toujours 1 en C ; la taille d'un octet en bits et celle des autres types varient selon la plateforme."
+        }
+      ],
+      "correct_option_ids": [
+        "A",
+        "D"
+      ],
+      "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/qualite-et-methode-en-c/4-taille-des-types"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "cross_topic_distractors",
+        "check_possible_ambiguity"
+      ]
+    },
+    {
+      "id": "V1-N14_004-01",
+      "notion_id": "N14_004",
+      "legacy_notion_key": "14:4",
+      "theme": "Qualité et méthode en C",
+      "notion": "Compilation et liaison",
+      "answer_mode": "single",
+      "question_type": "definition",
+      "prompt": "À quelle notion correspond la définition suivante : « Le préprocesseur prépare le texte, le compilateur produit du code, l’assembleur génère des objets, et l’éditeur de liens crée l’exécutable. » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Entête de fonction"
+        },
+        {
+          "id": "B",
+          "text": "Compilation et liaison"
+        },
+        {
+          "id": "C",
+          "text": "Taille des types"
+        },
+        {
+          "id": "D",
+          "text": "Tester séparément"
+        }
+      ],
+      "correct_option_ids": [
+        "B"
+      ],
+      "explanation": "La définition est extraite du résumé de la fiche correspondante.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/qualite-et-methode-en-c/5-compilation-et-liaison"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N14_004-02",
+      "notion_id": "N14_004",
+      "legacy_notion_key": "14:4",
+      "theme": "Qualité et méthode en C",
+      "notion": "Compilation et liaison",
+      "answer_mode": "single",
+      "question_type": "description",
+      "prompt": "Quelle description caractérise « Compilation et liaison » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Tester de petits cas et lire les avertissements du compilateur aide à comprendre une erreur sans recopier une solution."
+        },
+        {
+          "id": "B",
+          "text": "Une fonction C doit posséder une signature adaptée : type de retour, nom, liste de paramètres."
+        },
+        {
+          "id": "C",
+          "text": "Le préprocesseur prépare le texte, le compilateur produit du code, l’assembleur génère des objets, et l’éditeur de liens crée l’exécutable."
+        },
+        {
+          "id": "D",
+          "text": "sizeof donne la taille en octets d’un type ou d’un objet sur la machine utilisée ; ne pas supposer une taille universelle pour int ou un pointeur."
+        }
+      ],
+      "correct_option_ids": [
+        "C"
+      ],
+      "explanation": "Le résumé de la fiche indique : Le préprocesseur prépare le texte, le compilateur produit du code, l’assembleur génère des objets, et l’éditeur de liens crée l’exécutable.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/qualite-et-methode-en-c/5-compilation-et-liaison"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N14_004-03",
+      "notion_id": "N14_004",
+      "legacy_notion_key": "14:4",
+      "theme": "Qualité et méthode en C",
+      "notion": "Compilation et liaison",
+      "answer_mode": "single",
+      "question_type": "vigilance",
+      "prompt": "Quel point à retenir est directement associé à « Compilation et liaison » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Tester zéro, les bornes et les entrées inhabituelles permet de détecter des erreurs cachées."
+        },
+        {
+          "id": "B",
+          "text": "Pour une fonction non void, une valeur de retour compatible doit être fournie lorsque le contrat l'exige."
+        },
+        {
+          "id": "C",
+          "text": "sizeof(char) vaut toujours 1 en C ; la taille d'un octet en bits et celle des autres types varient selon la plateforme."
+        },
+        {
+          "id": "D",
+          "text": "Un fichier objet peut être correct alors que la liaison échoue faute de définition."
+        }
+      ],
+      "correct_option_ids": [
+        "D"
+      ],
+      "explanation": "La fiche indique : Un fichier objet peut être correct alors que la liaison échoue faute de définition.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/qualite-et-methode-en-c/5-compilation-et-liaison"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N14_004-04",
+      "notion_id": "N14_004",
+      "legacy_notion_key": "14:4",
+      "theme": "Qualité et méthode en C",
+      "notion": "Compilation et liaison",
+      "answer_mode": "multiple",
+      "question_type": "synthese",
+      "prompt": "Quelles affirmations concernent directement « Compilation et liaison » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Un fichier objet peut être correct alors que la liaison échoue faute de définition."
+        },
+        {
+          "id": "B",
+          "text": "Le préprocesseur prépare le texte, le compilateur produit du code, l’assembleur génère des objets, et l’éditeur de liens crée l’exécutable."
+        },
+        {
+          "id": "C",
+          "text": "Associe des nombres aux caractères de base ; le caractère '0' vaut 48 en ASCII."
+        },
+        {
+          "id": "D",
+          "text": "Copier un dépôt / historique / changer de branche."
+        }
+      ],
+      "correct_option_ids": [
+        "A",
+        "B"
+      ],
+      "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/qualite-et-methode-en-c/5-compilation-et-liaison"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "cross_topic_distractors",
+        "check_possible_ambiguity"
+      ]
+    },
+    {
+      "id": "V1-N14_005-01",
+      "notion_id": "N14_005",
+      "legacy_notion_key": "14:5",
+      "theme": "Qualité et méthode en C",
+      "notion": "Commentaires et lisibilité",
+      "answer_mode": "single",
+      "question_type": "definition",
+      "prompt": "À quelle notion correspond la définition suivante : « Utiliser des noms compréhensibles, une indentation cohérente et des commentaires utiles plutôt que paraphraser chaque instruction. » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Commentaires et lisibilité"
+        },
+        {
+          "id": "B",
+          "text": "Base bundle — analyser le code de départ d'un lab"
+        },
+        {
+          "id": "C",
+          "text": "Prototype de fonction"
+        },
+        {
+          "id": "D",
+          "text": "Invariant — condition qui doit rester vraie"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "La définition est extraite du résumé de la fiche correspondante.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/qualite-et-methode-en-c/6-commentaires-et-lisibilite"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N14_005-02",
+      "notion_id": "N14_005",
+      "legacy_notion_key": "14:5",
+      "theme": "Qualité et méthode en C",
+      "notion": "Commentaires et lisibilité",
+      "answer_mode": "single",
+      "question_type": "description",
+      "prompt": "Quelle description caractérise « Commentaires et lisibilité » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Déclare le type de retour et les paramètres d’une fonction avant son utilisation ; la définition fournit son corps."
+        },
+        {
+          "id": "B",
+          "text": "Un invariant est une condition que le programme doit préserver à des moments définis ; en sécurité mémoire, il exprime notamment les bornes et la validité des pointeurs."
+        },
+        {
+          "id": "C",
+          "text": "Utiliser des noms compréhensibles, une indentation cohérente et des commentaires utiles plutôt que paraphraser chaque instruction."
+        },
+        {
+          "id": "D",
+          "text": "Le base bundle est l'ensemble de fichiers de départ fourni pour un exercice ; son audit consiste à vérifier les hypothèses, les entrées et les responsabilités mémoire avant d'émettre un diagnostic."
+        }
+      ],
+      "correct_option_ids": [
+        "C"
+      ],
+      "explanation": "Le résumé de la fiche indique : Utiliser des noms compréhensibles, une indentation cohérente et des commentaires utiles plutôt que paraphraser chaque instruction.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/qualite-et-methode-en-c/6-commentaires-et-lisibilite"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N14_005-03",
+      "notion_id": "N14_005",
+      "legacy_notion_key": "14:5",
+      "theme": "Qualité et méthode en C",
+      "notion": "Commentaires et lisibilité",
+      "answer_mode": "single",
+      "question_type": "vigilance",
+      "prompt": "Quel point à retenir est directement associé à « Commentaires et lisibilité » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Commente l'intention ou les contraintes ; évite les commentaires qui répètent le code."
+        },
+        {
+          "id": "B",
+          "text": "Invariant de copie : n < capacité_dest garantit ici que n + 1 octets tiennent dans le tableau. Cela suppose que source est déjà une chaîne valide ; vérifier une longueur ne répare pas des octets écrits hors limites auparavant."
+        },
+        {
+          "id": "C",
+          "text": "Dans une question portant sur le « base bundle », les scénarios de double free doivent être confirmés dans les fichiers fournis. Les causes typiques à rechercher sont des chemins de libération multiples et une ownership ambiguë, pas une supposée vulnérabilité universelle du bundle."
+        },
+        {
+          "id": "D",
+          "text": "Un prototype permet de vérifier un appel, mais ne remplace pas la définition de la fonction."
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "La fiche indique : Commente l'intention ou les contraintes ; évite les commentaires qui répètent le code.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/qualite-et-methode-en-c/6-commentaires-et-lisibilite"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N14_005-04",
+      "notion_id": "N14_005",
+      "legacy_notion_key": "14:5",
+      "theme": "Qualité et méthode en C",
+      "notion": "Commentaires et lisibilité",
+      "answer_mode": "multiple",
+      "question_type": "synthese",
+      "prompt": "Quelles affirmations concernent directement « Commentaires et lisibilité » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Utiliser des noms compréhensibles, une indentation cohérente et des commentaires utiles plutôt que paraphraser chaque instruction."
+        },
+        {
+          "id": "B",
+          "text": "Commente l'intention ou les contraintes ; évite les commentaires qui répètent le code."
+        },
+        {
+          "id": "C",
+          "text": "Créer / retirer un raccourci de commande."
+        },
+        {
+          "id": "D",
+          "text": "tr \":\" \"\\n\" transforme les séparateurs « : » en retours à la ligne. Le nombre de répertoires peut se déduire des séparateurs, en traitant le dernier élément."
+        }
+      ],
+      "correct_option_ids": [
+        "A",
+        "B"
+      ],
+      "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/qualite-et-methode-en-c/6-commentaires-et-lisibilite"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "cross_topic_distractors",
+        "check_possible_ambiguity"
+      ]
+    },
+    {
+      "id": "V1-N14_006-01",
+      "notion_id": "N14_006",
+      "legacy_notion_key": "14:6",
+      "theme": "Qualité et méthode en C",
+      "notion": "Vulnérabilité ou attaque ? (OWASP)",
+      "answer_mode": "single",
+      "question_type": "definition",
+      "prompt": "À quelle notion correspond la définition suivante : « Une vulnérabilité est une faiblesse du programme ; une attaque est une action visant à exploiter cette faiblesse. » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Commentaires et lisibilité"
+        },
+        {
+          "id": "B",
+          "text": "Taille des types"
+        },
+        {
+          "id": "C",
+          "text": "Compilation et liaison"
+        },
+        {
+          "id": "D",
+          "text": "Vulnérabilité ou attaque ? (OWASP)"
+        }
+      ],
+      "correct_option_ids": [
+        "D"
+      ],
+      "explanation": "La définition est extraite du résumé de la fiche correspondante.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/qualite-et-methode-en-c/7-vulnerabilite-ou-attaque-owasp",
+        "https://owasp.org/www-community/attacks/"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N14_006-02",
+      "notion_id": "N14_006",
+      "legacy_notion_key": "14:6",
+      "theme": "Qualité et méthode en C",
+      "notion": "Vulnérabilité ou attaque ? (OWASP)",
+      "answer_mode": "single",
+      "question_type": "description",
+      "prompt": "Quelle description caractérise « Vulnérabilité ou attaque ? (OWASP) » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Une vulnérabilité est une faiblesse du programme ; une attaque est une action visant à exploiter cette faiblesse."
+        },
+        {
+          "id": "B",
+          "text": "Le préprocesseur prépare le texte, le compilateur produit du code, l’assembleur génère des objets, et l’éditeur de liens crée l’exécutable."
+        },
+        {
+          "id": "C",
+          "text": "Utiliser des noms compréhensibles, une indentation cohérente et des commentaires utiles plutôt que paraphraser chaque instruction."
+        },
+        {
+          "id": "D",
+          "text": "sizeof donne la taille en octets d’un type ou d’un objet sur la machine utilisée ; ne pas supposer une taille universelle pour int ou un pointeur."
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "Le résumé de la fiche indique : Une vulnérabilité est une faiblesse du programme ; une attaque est une action visant à exploiter cette faiblesse.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/qualite-et-methode-en-c/7-vulnerabilite-ou-attaque-owasp",
+        "https://owasp.org/www-community/attacks/"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N14_006-03",
+      "notion_id": "N14_006",
+      "legacy_notion_key": "14:6",
+      "theme": "Qualité et méthode en C",
+      "notion": "Vulnérabilité ou attaque ? (OWASP)",
+      "answer_mode": "single",
+      "question_type": "vigilance",
+      "prompt": "Quel point à retenir est directement associé à « Vulnérabilité ou attaque ? (OWASP) » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Commente l'intention ou les contraintes ; évite les commentaires qui répètent le code."
+        },
+        {
+          "id": "B",
+          "text": "sizeof(char) vaut toujours 1 en C ; la taille d'un octet en bits et celle des autres types varient selon la plateforme."
+        },
+        {
+          "id": "C",
+          "text": "Un segfault ne prouve pas à lui seul qu'une attaque a eu lieu ; l'absence de crash n'exclut pas une vulnérabilité. On corrige d'abord la faiblesse du code."
+        },
+        {
+          "id": "D",
+          "text": "Un fichier objet peut être correct alors que la liaison échoue faute de définition."
+        }
+      ],
+      "correct_option_ids": [
+        "C"
+      ],
+      "explanation": "La fiche indique : Un segfault ne prouve pas à lui seul qu'une attaque a eu lieu ; l'absence de crash n'exclut pas une vulnérabilité. On corrige d'abord la faiblesse du code.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/qualite-et-methode-en-c/7-vulnerabilite-ou-attaque-owasp",
+        "https://owasp.org/www-community/attacks/"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N14_006-04",
+      "notion_id": "N14_006",
+      "legacy_notion_key": "14:6",
+      "theme": "Qualité et méthode en C",
+      "notion": "Vulnérabilité ou attaque ? (OWASP)",
+      "answer_mode": "multiple",
+      "question_type": "synthese",
+      "prompt": "Quelles affirmations concernent directement « Vulnérabilité ou attaque ? (OWASP) » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Un segfault ne prouve pas à lui seul qu'une attaque a eu lieu ; l'absence de crash n'exclut pas une vulnérabilité. On corrige d'abord la faiblesse du code."
+        },
+        {
+          "id": "B",
+          "text": "Fichier texte qui contient une suite de commandes exécutables par un Shell."
+        },
+        {
+          "id": "C",
+          "text": "Créer un dossier / créer un fichier vide ou actualiser sa date."
+        },
+        {
+          "id": "D",
+          "text": "Une vulnérabilité est une faiblesse du programme ; une attaque est une action visant à exploiter cette faiblesse."
+        }
+      ],
+      "correct_option_ids": [
+        "A",
+        "D"
+      ],
+      "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/qualite-et-methode-en-c/7-vulnerabilite-ou-attaque-owasp",
+        "https://owasp.org/www-community/attacks/"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "cross_topic_distractors",
+        "check_possible_ambiguity"
+      ]
+    },
+    {
+      "id": "V1-N14_007-01",
+      "notion_id": "N14_007",
+      "legacy_notion_key": "14:7",
+      "theme": "Qualité et méthode en C",
+      "notion": "Invariant — condition qui doit rester vraie",
+      "answer_mode": "single",
+      "question_type": "definition",
+      "prompt": "À quelle notion correspond la définition suivante : « Un invariant est une condition que le programme doit préserver à des moments définis ; en sécurité mémoire, il exprime notamment les bornes et la validité des pointeurs. » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Entête de fonction"
+        },
+        {
+          "id": "B",
+          "text": "Prototype de fonction"
+        },
+        {
+          "id": "C",
+          "text": "Invariant — condition qui doit rester vraie"
+        },
+        {
+          "id": "D",
+          "text": "Tester séparément"
+        }
+      ],
+      "correct_option_ids": [
+        "C"
+      ],
+      "explanation": "La définition est extraite du résumé de la fiche correspondante.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/qualite-et-methode-en-c/8-invariant-condition-qui-doit-rester-vraie",
+        "https://community.owasp.org/vulnerabilities/Buffer_Overflow"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N14_007-02",
+      "notion_id": "N14_007",
+      "legacy_notion_key": "14:7",
+      "theme": "Qualité et méthode en C",
+      "notion": "Invariant — condition qui doit rester vraie",
+      "answer_mode": "single",
+      "question_type": "description",
+      "prompt": "Quelle description caractérise « Invariant — condition qui doit rester vraie » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Une fonction C doit posséder une signature adaptée : type de retour, nom, liste de paramètres."
+        },
+        {
+          "id": "B",
+          "text": "Déclare le type de retour et les paramètres d’une fonction avant son utilisation ; la définition fournit son corps."
+        },
+        {
+          "id": "C",
+          "text": "Tester de petits cas et lire les avertissements du compilateur aide à comprendre une erreur sans recopier une solution."
+        },
+        {
+          "id": "D",
+          "text": "Un invariant est une condition que le programme doit préserver à des moments définis ; en sécurité mémoire, il exprime notamment les bornes et la validité des pointeurs."
+        }
+      ],
+      "correct_option_ids": [
+        "D"
+      ],
+      "explanation": "Le résumé de la fiche indique : Un invariant est une condition que le programme doit préserver à des moments définis ; en sécurité mémoire, il exprime notamment les bornes et la validité des pointeurs.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/qualite-et-methode-en-c/8-invariant-condition-qui-doit-rester-vraie",
+        "https://community.owasp.org/vulnerabilities/Buffer_Overflow"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N14_007-03",
+      "notion_id": "N14_007",
+      "legacy_notion_key": "14:7",
+      "theme": "Qualité et méthode en C",
+      "notion": "Invariant — condition qui doit rester vraie",
+      "answer_mode": "single",
+      "question_type": "vigilance",
+      "prompt": "Quel point à retenir est directement associé à « Invariant — condition qui doit rester vraie » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Pour une fonction non void, une valeur de retour compatible doit être fournie lorsque le contrat l'exige."
+        },
+        {
+          "id": "B",
+          "text": "Tester zéro, les bornes et les entrées inhabituelles permet de détecter des erreurs cachées."
+        },
+        {
+          "id": "C",
+          "text": "Invariant de copie : n < capacité_dest garantit ici que n + 1 octets tiennent dans le tableau. Cela suppose que source est déjà une chaîne valide ; vérifier une longueur ne répare pas des octets écrits hors limites auparavant."
+        },
+        {
+          "id": "D",
+          "text": "Un prototype permet de vérifier un appel, mais ne remplace pas la définition de la fonction."
+        }
+      ],
+      "correct_option_ids": [
+        "C"
+      ],
+      "explanation": "La fiche indique : Invariant de copie : n < capacité_dest garantit ici que n + 1 octets tiennent dans le tableau. Cela suppose que source est déjà une chaîne valide ; vérifier une longueur ne répare pas des octets écrits hors limites auparavant.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/qualite-et-methode-en-c/8-invariant-condition-qui-doit-rester-vraie",
+        "https://community.owasp.org/vulnerabilities/Buffer_Overflow"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N14_007-04",
+      "notion_id": "N14_007",
+      "legacy_notion_key": "14:7",
+      "theme": "Qualité et méthode en C",
+      "notion": "Invariant — condition qui doit rester vraie",
+      "answer_mode": "multiple",
+      "question_type": "synthese",
+      "prompt": "Quelles affirmations concernent directement « Invariant — condition qui doit rester vraie » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Si p est une variable de type struct point (l’objet lui-même), p.x lit ou modifie son membre x. Le point s’emploie sur l’objet, pas directement sur son adresse."
+        },
+        {
+          "id": "B",
+          "text": "Une fonction qui reçoit struct point p obtient une copie : modifier p.x ne change pas l’objet initial."
+        },
+        {
+          "id": "C",
+          "text": "Un invariant est une condition que le programme doit préserver à des moments définis ; en sécurité mémoire, il exprime notamment les bornes et la validité des pointeurs."
+        },
+        {
+          "id": "D",
+          "text": "Invariant de copie : n < capacité_dest garantit ici que n + 1 octets tiennent dans le tableau. Cela suppose que source est déjà une chaîne valide ; vérifier une longueur ne répare pas des octets écrits hors limites auparavant."
+        }
+      ],
+      "correct_option_ids": [
+        "C",
+        "D"
+      ],
+      "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/qualite-et-methode-en-c/8-invariant-condition-qui-doit-rester-vraie",
+        "https://community.owasp.org/vulnerabilities/Buffer_Overflow"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "cross_topic_distractors",
+        "check_possible_ambiguity"
+      ]
+    },
+    {
+      "id": "V1-N14_008-01",
+      "notion_id": "N14_008",
+      "legacy_notion_key": "14:8",
+      "theme": "Qualité et méthode en C",
+      "notion": "Base bundle — analyser le code de départ d'un lab",
+      "answer_mode": "single",
+      "question_type": "definition",
+      "prompt": "À quelle notion correspond la définition suivante : « Le base bundle est l'ensemble de fichiers de départ fourni pour un exercice ; son audit consiste à vérifier les hypothèses, les entrées et les responsabilités mémoire avant d'émettre un diagnostic. » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Invariant — condition qui doit rester vraie"
+        },
+        {
+          "id": "B",
+          "text": "Commentaires et lisibilité"
+        },
+        {
+          "id": "C",
+          "text": "Base bundle — analyser le code de départ d'un lab"
+        },
+        {
+          "id": "D",
+          "text": "Vulnérabilité ou attaque ? (OWASP)"
+        }
+      ],
+      "correct_option_ids": [
+        "C"
+      ],
+      "explanation": "La définition est extraite du résumé de la fiche correspondante.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/qualite-et-methode-en-c/9-base-bundle-analyser-le-code-de-depart-d-un-lab",
+        "https://cmu-sei.github.io/secure-coding-standards/sei-cert-c-coding-standard/recommendations/memory-management-mem/mem01-c/",
+        "https://cmu-sei.github.io/secure-coding-standards/sei-cert-c-coding-standard/rules/memory-management-mem/"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N14_008-02",
+      "notion_id": "N14_008",
+      "legacy_notion_key": "14:8",
+      "theme": "Qualité et méthode en C",
+      "notion": "Base bundle — analyser le code de départ d'un lab",
+      "answer_mode": "single",
+      "question_type": "description",
+      "prompt": "Quelle description caractérise « Base bundle — analyser le code de départ d'un lab » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Le base bundle est l'ensemble de fichiers de départ fourni pour un exercice ; son audit consiste à vérifier les hypothèses, les entrées et les responsabilités mémoire avant d'émettre un diagnostic."
+        },
+        {
+          "id": "B",
+          "text": "Utiliser des noms compréhensibles, une indentation cohérente et des commentaires utiles plutôt que paraphraser chaque instruction."
+        },
+        {
+          "id": "C",
+          "text": "Une vulnérabilité est une faiblesse du programme ; une attaque est une action visant à exploiter cette faiblesse."
+        },
+        {
+          "id": "D",
+          "text": "Un invariant est une condition que le programme doit préserver à des moments définis ; en sécurité mémoire, il exprime notamment les bornes et la validité des pointeurs."
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "Le résumé de la fiche indique : Le base bundle est l'ensemble de fichiers de départ fourni pour un exercice ; son audit consiste à vérifier les hypothèses, les entrées et les responsabilités mémoire avant d'émettre un diagnostic.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/qualite-et-methode-en-c/9-base-bundle-analyser-le-code-de-depart-d-un-lab",
+        "https://cmu-sei.github.io/secure-coding-standards/sei-cert-c-coding-standard/recommendations/memory-management-mem/mem01-c/",
+        "https://cmu-sei.github.io/secure-coding-standards/sei-cert-c-coding-standard/rules/memory-management-mem/"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N14_008-03",
+      "notion_id": "N14_008",
+      "legacy_notion_key": "14:8",
+      "theme": "Qualité et méthode en C",
+      "notion": "Base bundle — analyser le code de départ d'un lab",
+      "answer_mode": "single",
+      "question_type": "vigilance",
+      "prompt": "Quel point à retenir est directement associé à « Base bundle — analyser le code de départ d'un lab » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Un segfault ne prouve pas à lui seul qu'une attaque a eu lieu ; l'absence de crash n'exclut pas une vulnérabilité. On corrige d'abord la faiblesse du code."
+        },
+        {
+          "id": "B",
+          "text": "Commente l'intention ou les contraintes ; évite les commentaires qui répètent le code."
+        },
+        {
+          "id": "C",
+          "text": "Invariant de copie : n < capacité_dest garantit ici que n + 1 octets tiennent dans le tableau. Cela suppose que source est déjà une chaîne valide ; vérifier une longueur ne répare pas des octets écrits hors limites auparavant."
+        },
+        {
+          "id": "D",
+          "text": "Dans une question portant sur le « base bundle », les scénarios de double free doivent être confirmés dans les fichiers fournis. Les causes typiques à rechercher sont des chemins de libération multiples et une ownership ambiguë, pas une supposée vulnérabilité universelle du bundle."
+        }
+      ],
+      "correct_option_ids": [
+        "D"
+      ],
+      "explanation": "La fiche indique : Dans une question portant sur le « base bundle », les scénarios de double free doivent être confirmés dans les fichiers fournis. Les causes typiques à rechercher sont des chemins de libération multiples et une ownership ambiguë, pas une supposée vulnérabilité universelle du bundle.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/qualite-et-methode-en-c/9-base-bundle-analyser-le-code-de-depart-d-un-lab",
+        "https://cmu-sei.github.io/secure-coding-standards/sei-cert-c-coding-standard/recommendations/memory-management-mem/mem01-c/",
+        "https://cmu-sei.github.io/secure-coding-standards/sei-cert-c-coding-standard/rules/memory-management-mem/"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N14_008-04",
+      "notion_id": "N14_008",
+      "legacy_notion_key": "14:8",
+      "theme": "Qualité et méthode en C",
+      "notion": "Base bundle — analyser le code de départ d'un lab",
+      "answer_mode": "multiple",
+      "question_type": "synthese",
+      "prompt": "Quelles affirmations concernent directement « Base bundle — analyser le code de départ d'un lab » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Un callback est une fonction dont l'adresse est passée à une autre fonction ; celle-ci l'appelle au bon moment via le pointeur reçu."
+        },
+        {
+          "id": "B",
+          "text": "Le base bundle est l'ensemble de fichiers de départ fourni pour un exercice ; son audit consiste à vérifier les hypothèses, les entrées et les responsabilités mémoire avant d'émettre un diagnostic."
+        },
+        {
+          "id": "C",
+          "text": "Dans une question portant sur le « base bundle », les scénarios de double free doivent être confirmés dans les fichiers fournis. Les causes typiques à rechercher sont des chemins de libération multiples et une ownership ambiguë, pas une supposée vulnérabilité universelle du bundle."
+        },
+        {
+          "id": "D",
+          "text": "L'ownership désigne la responsabilité de libérer une allocation ; copier ou transmettre un pointeur ne transfère pas automatiquement cette responsabilité."
+        }
+      ],
+      "correct_option_ids": [
+        "B",
+        "C"
+      ],
+      "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/qualite-et-methode-en-c/9-base-bundle-analyser-le-code-de-depart-d-un-lab",
+        "https://cmu-sei.github.io/secure-coding-standards/sei-cert-c-coding-standard/recommendations/memory-management-mem/mem01-c/",
+        "https://cmu-sei.github.io/secure-coding-standards/sei-cert-c-coding-standard/rules/memory-management-mem/"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "cross_topic_distractors",
+        "check_possible_ambiguity"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1466 @@
+{
+  "version": "review-v1",
+  "status": "non_verifie",
+  "theme_id": 10,
+  "theme": "Modulo et arithmétique",
+  "questions": [
+    {
+      "id": "V1-N10_000-01",
+      "notion_id": "N10_000",
+      "legacy_notion_key": "10:0",
+      "theme": "Modulo et arithmétique",
+      "notion": "%",
+      "answer_mode": "single",
+      "question_type": "definition",
+      "prompt": "À quelle notion correspond la définition suivante : « Reste de la division entière. » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "n / 10"
+        },
+        {
+          "id": "B",
+          "text": "%"
+        },
+        {
+          "id": "C",
+          "text": "n % 2"
+        },
+        {
+          "id": "D",
+          "text": "n % 10"
+        }
+      ],
+      "correct_option_ids": [
+        "B"
+      ],
+      "explanation": "La définition est extraite du résumé de la fiche correspondante.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/modulo-et-arithmetique/1-"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N10_000-02",
+      "notion_id": "N10_000",
+      "legacy_notion_key": "10:0",
+      "theme": "Modulo et arithmétique",
+      "notion": "%",
+      "answer_mode": "single",
+      "question_type": "description",
+      "prompt": "Quelle description caractérise « % » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Reste de la division entière."
+        },
+        {
+          "id": "B",
+          "text": "Reste par 10 : dernier chiffre pour un entier positif."
+        },
+        {
+          "id": "C",
+          "text": "Reste par 2 ; permet de tester la parité."
+        },
+        {
+          "id": "D",
+          "text": "Supprime le dernier chiffre d’un entier positif."
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "Le résumé de la fiche indique : Reste de la division entière.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/modulo-et-arithmetique/1-"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N10_000-03",
+      "notion_id": "N10_000",
+      "legacy_notion_key": "10:0",
+      "theme": "Modulo et arithmétique",
+      "notion": "%",
+      "answer_mode": "single",
+      "question_type": "vigilance",
+      "prompt": "Quel point à retenir est directement associé à « % » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Avec un entier positif, n / 10 retire le chiffre des unités sans arrondir."
+        },
+        {
+          "id": "B",
+          "text": "Un entier est pair si n % 2 vaut 0, y compris lorsqu'il est négatif."
+        },
+        {
+          "id": "C",
+          "text": "Pour n négatif, n % 10 peut être négatif : ce n'est pas toujours un chiffre positif."
+        },
+        {
+          "id": "D",
+          "text": "% calcule un reste entier. La division ou le modulo par zéro est invalide en C."
+        }
+      ],
+      "correct_option_ids": [
+        "D"
+      ],
+      "explanation": "La fiche indique : % calcule un reste entier. La division ou le modulo par zéro est invalide en C.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/modulo-et-arithmetique/1-"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N10_000-04",
+      "notion_id": "N10_000",
+      "legacy_notion_key": "10:0",
+      "theme": "Modulo et arithmétique",
+      "notion": "%",
+      "answer_mode": "multiple",
+      "question_type": "synthese",
+      "prompt": "Quelles affirmations concernent directement « % » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "% calcule un reste entier. La division ou le modulo par zéro est invalide en C."
+        },
+        {
+          "id": "B",
+          "text": "signed permet des valeurs négatives et positives ; unsigned ne représente que des valeurs non négatives."
+        },
+        {
+          "id": "C",
+          "text": "Reste de la division entière."
+        },
+        {
+          "id": "D",
+          "text": "Dialecte C89 avec extensions GNU. Pour rester compatible C89 strict, déclarer les variables avant les instructions."
+        }
+      ],
+      "correct_option_ids": [
+        "A",
+        "C"
+      ],
+      "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/modulo-et-arithmetique/1-"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "cross_topic_distractors",
+        "check_possible_ambiguity"
+      ]
+    },
+    {
+      "id": "V1-N10_001-01",
+      "notion_id": "N10_001",
+      "legacy_notion_key": "10:1",
+      "theme": "Modulo et arithmétique",
+      "notion": "/ avec des entiers",
+      "answer_mode": "single",
+      "question_type": "definition",
+      "prompt": "À quelle notion correspond la définition suivante : « Quotient entier tronqué vers zéro. » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "/ avec des entiers"
+        },
+        {
+          "id": "B",
+          "text": "%"
+        },
+        {
+          "id": "C",
+          "text": "89 % 7"
+        },
+        {
+          "id": "D",
+          "text": "12 % 10"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "La définition est extraite du résumé de la fiche correspondante.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/modulo-et-arithmetique/2-avec-des-entiers"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N10_001-02",
+      "notion_id": "N10_001",
+      "legacy_notion_key": "10:1",
+      "theme": "Modulo et arithmétique",
+      "notion": "/ avec des entiers",
+      "answer_mode": "single",
+      "question_type": "description",
+      "prompt": "Quelle description caractérise « / avec des entiers » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Reste : 2."
+        },
+        {
+          "id": "B",
+          "text": "Quotient entier tronqué vers zéro."
+        },
+        {
+          "id": "C",
+          "text": "Reste de la division entière."
+        },
+        {
+          "id": "D",
+          "text": "Reste : 5."
+        }
+      ],
+      "correct_option_ids": [
+        "B"
+      ],
+      "explanation": "Le résumé de la fiche indique : Quotient entier tronqué vers zéro.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/modulo-et-arithmetique/2-avec-des-entiers"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N10_001-03",
+      "notion_id": "N10_001",
+      "legacy_notion_key": "10:1",
+      "theme": "Modulo et arithmétique",
+      "notion": "/ avec des entiers",
+      "answer_mode": "single",
+      "question_type": "vigilance",
+      "prompt": "Quel point à retenir est directement associé à « / avec des entiers » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "89 = 7 × 12 + 5 ; 5 est donc le reste de 89 / 7."
+        },
+        {
+          "id": "B",
+          "text": "12 % 10 vaut 2 : ce sont les unités du nombre 12."
+        },
+        {
+          "id": "C",
+          "text": "En C99 et après, le quotient entier est tronqué vers zéro ; en C90, le cas négatif dépendait de l'implémentation."
+        },
+        {
+          "id": "D",
+          "text": "% calcule un reste entier. La division ou le modulo par zéro est invalide en C."
+        }
+      ],
+      "correct_option_ids": [
+        "C"
+      ],
+      "explanation": "La fiche indique : En C99 et après, le quotient entier est tronqué vers zéro ; en C90, le cas négatif dépendait de l'implémentation.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/modulo-et-arithmetique/2-avec-des-entiers"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N10_001-04",
+      "notion_id": "N10_001",
+      "legacy_notion_key": "10:1",
+      "theme": "Modulo et arithmétique",
+      "notion": "/ avec des entiers",
+      "answer_mode": "multiple",
+      "question_type": "synthese",
+      "prompt": "Quelles affirmations concernent directement « / avec des entiers » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "ET logique / OU logique / négation."
+        },
+        {
+          "id": "B",
+          "text": "En C99 et après, le quotient entier est tronqué vers zéro ; en C90, le cas négatif dépendait de l'implémentation."
+        },
+        {
+          "id": "C",
+          "text": "Quotient entier tronqué vers zéro."
+        },
+        {
+          "id": "D",
+          "text": "Logiciel de gestion de versions distribué."
+        }
+      ],
+      "correct_option_ids": [
+        "B",
+        "C"
+      ],
+      "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/modulo-et-arithmetique/2-avec-des-entiers"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "cross_topic_distractors",
+        "check_possible_ambiguity"
+      ]
+    },
+    {
+      "id": "V1-N10_002-01",
+      "notion_id": "N10_002",
+      "legacy_notion_key": "10:2",
+      "theme": "Modulo et arithmétique",
+      "notion": "n % 2",
+      "answer_mode": "single",
+      "question_type": "definition",
+      "prompt": "À quelle notion correspond la définition suivante : « Reste par 2 ; permet de tester la parité. » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "12 / 10"
+        },
+        {
+          "id": "B",
+          "text": "n % 100"
+        },
+        {
+          "id": "C",
+          "text": "n / 10"
+        },
+        {
+          "id": "D",
+          "text": "n % 2"
+        }
+      ],
+      "correct_option_ids": [
+        "D"
+      ],
+      "explanation": "La définition est extraite du résumé de la fiche correspondante.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/modulo-et-arithmetique/3-n-2"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N10_002-02",
+      "notion_id": "N10_002",
+      "legacy_notion_key": "10:2",
+      "theme": "Modulo et arithmétique",
+      "notion": "n % 2",
+      "answer_mode": "single",
+      "question_type": "description",
+      "prompt": "Quelle description caractérise « n % 2 » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Reste par 2 ; permet de tester la parité."
+        },
+        {
+          "id": "B",
+          "text": "Résultat entier : 1."
+        },
+        {
+          "id": "C",
+          "text": "Conserve les deux derniers chiffres d’un entier positif."
+        },
+        {
+          "id": "D",
+          "text": "Supprime le dernier chiffre d’un entier positif."
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "Le résumé de la fiche indique : Reste par 2 ; permet de tester la parité.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/modulo-et-arithmetique/3-n-2"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N10_002-03",
+      "notion_id": "N10_002",
+      "legacy_notion_key": "10:2",
+      "theme": "Modulo et arithmétique",
+      "notion": "n % 2",
+      "answer_mode": "single",
+      "question_type": "vigilance",
+      "prompt": "Quel point à retenir est directement associé à « n % 2 » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Avec un entier positif, n / 10 retire le chiffre des unités sans arrondir."
+        },
+        {
+          "id": "B",
+          "text": "Un entier est pair si n % 2 vaut 0, y compris lorsqu'il est négatif."
+        },
+        {
+          "id": "C",
+          "text": "12 / 10 vaut 1 (quotient entier), pas 1,2."
+        },
+        {
+          "id": "D",
+          "text": "Pour afficher 7 comme « 07 », utilise un format comme %02d après n % 100."
+        }
+      ],
+      "correct_option_ids": [
+        "B"
+      ],
+      "explanation": "La fiche indique : Un entier est pair si n % 2 vaut 0, y compris lorsqu'il est négatif.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/modulo-et-arithmetique/3-n-2"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N10_002-04",
+      "notion_id": "N10_002",
+      "legacy_notion_key": "10:2",
+      "theme": "Modulo et arithmétique",
+      "notion": "n % 2",
+      "answer_mode": "multiple",
+      "question_type": "synthese",
+      "prompt": "Quelles affirmations concernent directement « n % 2 » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Changer les permissions / propriétaire / utiliser des privilèges élevés."
+        },
+        {
+          "id": "B",
+          "text": "Trier / dédupliquer les lignes voisines / extraire / début / fin / inverser les caractères."
+        },
+        {
+          "id": "C",
+          "text": "Un entier est pair si n % 2 vaut 0, y compris lorsqu'il est négatif."
+        },
+        {
+          "id": "D",
+          "text": "Reste par 2 ; permet de tester la parité."
+        }
+      ],
+      "correct_option_ids": [
+        "C",
+        "D"
+      ],
+      "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/modulo-et-arithmetique/3-n-2"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "cross_topic_distractors",
+        "check_possible_ambiguity"
+      ]
+    },
+    {
+      "id": "V1-N10_003-01",
+      "notion_id": "N10_003",
+      "legacy_notion_key": "10:3",
+      "theme": "Modulo et arithmétique",
+      "notion": "n % 10",
+      "answer_mode": "single",
+      "question_type": "definition",
+      "prompt": "À quelle notion correspond la définition suivante : « Reste par 10 : dernier chiffre pour un entier positif. » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "n % 10"
+        },
+        {
+          "id": "B",
+          "text": "/ avec des entiers"
+        },
+        {
+          "id": "C",
+          "text": "%"
+        },
+        {
+          "id": "D",
+          "text": "n % 2"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "La définition est extraite du résumé de la fiche correspondante.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/modulo-et-arithmetique/4-n-10"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N10_003-02",
+      "notion_id": "N10_003",
+      "legacy_notion_key": "10:3",
+      "theme": "Modulo et arithmétique",
+      "notion": "n % 10",
+      "answer_mode": "single",
+      "question_type": "description",
+      "prompt": "Quelle description caractérise « n % 10 » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Reste par 2 ; permet de tester la parité."
+        },
+        {
+          "id": "B",
+          "text": "Reste de la division entière."
+        },
+        {
+          "id": "C",
+          "text": "Quotient entier tronqué vers zéro."
+        },
+        {
+          "id": "D",
+          "text": "Reste par 10 : dernier chiffre pour un entier positif."
+        }
+      ],
+      "correct_option_ids": [
+        "D"
+      ],
+      "explanation": "Le résumé de la fiche indique : Reste par 10 : dernier chiffre pour un entier positif.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/modulo-et-arithmetique/4-n-10"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N10_003-03",
+      "notion_id": "N10_003",
+      "legacy_notion_key": "10:3",
+      "theme": "Modulo et arithmétique",
+      "notion": "n % 10",
+      "answer_mode": "single",
+      "question_type": "vigilance",
+      "prompt": "Quel point à retenir est directement associé à « n % 10 » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Pour n négatif, n % 10 peut être négatif : ce n'est pas toujours un chiffre positif."
+        },
+        {
+          "id": "B",
+          "text": "En C99 et après, le quotient entier est tronqué vers zéro ; en C90, le cas négatif dépendait de l'implémentation."
+        },
+        {
+          "id": "C",
+          "text": "Un entier est pair si n % 2 vaut 0, y compris lorsqu'il est négatif."
+        },
+        {
+          "id": "D",
+          "text": "% calcule un reste entier. La division ou le modulo par zéro est invalide en C."
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "La fiche indique : Pour n négatif, n % 10 peut être négatif : ce n'est pas toujours un chiffre positif.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/modulo-et-arithmetique/4-n-10"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N10_003-04",
+      "notion_id": "N10_003",
+      "legacy_notion_key": "10:3",
+      "theme": "Modulo et arithmétique",
+      "notion": "n % 10",
+      "answer_mode": "multiple",
+      "question_type": "synthese",
+      "prompt": "Quelles affirmations concernent directement « n % 10 » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Reste par 10 : dernier chiffre pour un entier positif."
+        },
+        {
+          "id": "B",
+          "text": "typedef struct { int x; int y; } point_t; crée un alias pour une struct sans étiquette."
+        },
+        {
+          "id": "C",
+          "text": "Un include guard (#ifndef, #define, #endif) évite qu’un même en-tête soit traité plusieurs fois dans une même unité de traduction."
+        },
+        {
+          "id": "D",
+          "text": "Pour n négatif, n % 10 peut être négatif : ce n'est pas toujours un chiffre positif."
+        }
+      ],
+      "correct_option_ids": [
+        "A",
+        "D"
+      ],
+      "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/modulo-et-arithmetique/4-n-10"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "cross_topic_distractors",
+        "check_possible_ambiguity"
+      ]
+    },
+    {
+      "id": "V1-N10_004-01",
+      "notion_id": "N10_004",
+      "legacy_notion_key": "10:4",
+      "theme": "Modulo et arithmétique",
+      "notion": "n / 10",
+      "answer_mode": "single",
+      "question_type": "definition",
+      "prompt": "À quelle notion correspond la définition suivante : « Supprime le dernier chiffre d’un entier positif. » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "12 / 10"
+        },
+        {
+          "id": "B",
+          "text": "n / 10"
+        },
+        {
+          "id": "C",
+          "text": "89 % 7"
+        },
+        {
+          "id": "D",
+          "text": "12 % 10"
+        }
+      ],
+      "correct_option_ids": [
+        "B"
+      ],
+      "explanation": "La définition est extraite du résumé de la fiche correspondante.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/modulo-et-arithmetique/5-n-10"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N10_004-02",
+      "notion_id": "N10_004",
+      "legacy_notion_key": "10:4",
+      "theme": "Modulo et arithmétique",
+      "notion": "n / 10",
+      "answer_mode": "single",
+      "question_type": "description",
+      "prompt": "Quelle description caractérise « n / 10 » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Reste : 2."
+        },
+        {
+          "id": "B",
+          "text": "Résultat entier : 1."
+        },
+        {
+          "id": "C",
+          "text": "Supprime le dernier chiffre d’un entier positif."
+        },
+        {
+          "id": "D",
+          "text": "Reste : 5."
+        }
+      ],
+      "correct_option_ids": [
+        "C"
+      ],
+      "explanation": "Le résumé de la fiche indique : Supprime le dernier chiffre d’un entier positif.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/modulo-et-arithmetique/5-n-10"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N10_004-03",
+      "notion_id": "N10_004",
+      "legacy_notion_key": "10:4",
+      "theme": "Modulo et arithmétique",
+      "notion": "n / 10",
+      "answer_mode": "single",
+      "question_type": "vigilance",
+      "prompt": "Quel point à retenir est directement associé à « n / 10 » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "89 = 7 × 12 + 5 ; 5 est donc le reste de 89 / 7."
+        },
+        {
+          "id": "B",
+          "text": "12 / 10 vaut 1 (quotient entier), pas 1,2."
+        },
+        {
+          "id": "C",
+          "text": "12 % 10 vaut 2 : ce sont les unités du nombre 12."
+        },
+        {
+          "id": "D",
+          "text": "Avec un entier positif, n / 10 retire le chiffre des unités sans arrondir."
+        }
+      ],
+      "correct_option_ids": [
+        "D"
+      ],
+      "explanation": "La fiche indique : Avec un entier positif, n / 10 retire le chiffre des unités sans arrondir.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/modulo-et-arithmetique/5-n-10"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N10_004-04",
+      "notion_id": "N10_004",
+      "legacy_notion_key": "10:4",
+      "theme": "Modulo et arithmétique",
+      "notion": "n / 10",
+      "answer_mode": "multiple",
+      "question_type": "synthese",
+      "prompt": "Quelles affirmations concernent directement « n / 10 » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Avec un entier positif, n / 10 retire le chiffre des unités sans arrondir."
+        },
+        {
+          "id": "B",
+          "text": "Supprime le dernier chiffre d’un entier positif."
+        },
+        {
+          "id": "C",
+          "text": "Une fonction C doit posséder une signature adaptée : type de retour, nom, liste de paramètres."
+        },
+        {
+          "id": "D",
+          "text": "Utiliser l’ancienne valeur de i, puis ajouter 1."
+        }
+      ],
+      "correct_option_ids": [
+        "A",
+        "B"
+      ],
+      "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/modulo-et-arithmetique/5-n-10"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "cross_topic_distractors",
+        "check_possible_ambiguity"
+      ]
+    },
+    {
+      "id": "V1-N10_005-01",
+      "notion_id": "N10_005",
+      "legacy_notion_key": "10:5",
+      "theme": "Modulo et arithmétique",
+      "notion": "n % 100",
+      "answer_mode": "single",
+      "question_type": "definition",
+      "prompt": "À quelle notion correspond la définition suivante : « Conserve les deux derniers chiffres d’un entier positif. » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "n % 100"
+        },
+        {
+          "id": "B",
+          "text": "n / 10"
+        },
+        {
+          "id": "C",
+          "text": "n % 10"
+        },
+        {
+          "id": "D",
+          "text": "n % 2"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "La définition est extraite du résumé de la fiche correspondante.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/modulo-et-arithmetique/6-n-100"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N10_005-02",
+      "notion_id": "N10_005",
+      "legacy_notion_key": "10:5",
+      "theme": "Modulo et arithmétique",
+      "notion": "n % 100",
+      "answer_mode": "single",
+      "question_type": "description",
+      "prompt": "Quelle description caractérise « n % 100 » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Supprime le dernier chiffre d’un entier positif."
+        },
+        {
+          "id": "B",
+          "text": "Reste par 2 ; permet de tester la parité."
+        },
+        {
+          "id": "C",
+          "text": "Conserve les deux derniers chiffres d’un entier positif."
+        },
+        {
+          "id": "D",
+          "text": "Reste par 10 : dernier chiffre pour un entier positif."
+        }
+      ],
+      "correct_option_ids": [
+        "C"
+      ],
+      "explanation": "Le résumé de la fiche indique : Conserve les deux derniers chiffres d’un entier positif.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/modulo-et-arithmetique/6-n-100"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N10_005-03",
+      "notion_id": "N10_005",
+      "legacy_notion_key": "10:5",
+      "theme": "Modulo et arithmétique",
+      "notion": "n % 100",
+      "answer_mode": "single",
+      "question_type": "vigilance",
+      "prompt": "Quel point à retenir est directement associé à « n % 100 » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Pour afficher 7 comme « 07 », utilise un format comme %02d après n % 100."
+        },
+        {
+          "id": "B",
+          "text": "Un entier est pair si n % 2 vaut 0, y compris lorsqu'il est négatif."
+        },
+        {
+          "id": "C",
+          "text": "Pour n négatif, n % 10 peut être négatif : ce n'est pas toujours un chiffre positif."
+        },
+        {
+          "id": "D",
+          "text": "Avec un entier positif, n / 10 retire le chiffre des unités sans arrondir."
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "La fiche indique : Pour afficher 7 comme « 07 », utilise un format comme %02d après n % 100.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/modulo-et-arithmetique/6-n-100"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N10_005-04",
+      "notion_id": "N10_005",
+      "legacy_notion_key": "10:5",
+      "theme": "Modulo et arithmétique",
+      "notion": "n % 100",
+      "answer_mode": "multiple",
+      "question_type": "synthese",
+      "prompt": "Quelles affirmations concernent directement « n % 100 » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Conserve les deux derniers chiffres d’un entier positif."
+        },
+        {
+          "id": "B",
+          "text": "Pour afficher 7 comme « 07 », utilise un format comme %02d après n % 100."
+        },
+        {
+          "id": "C",
+          "text": "Déclarer int *ptr; sans lui donner d’adresse valide, puis écrire *ptr = 98; provoque un comportement indéfini, pas nécessairement un segfault."
+        },
+        {
+          "id": "D",
+          "text": "Appeler free deux fois avec la même adresse d'un bloc déjà libéré est un comportement indéfini ; free(NULL) est sans effet."
+        }
+      ],
+      "correct_option_ids": [
+        "A",
+        "B"
+      ],
+      "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/modulo-et-arithmetique/6-n-100"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "cross_topic_distractors",
+        "check_possible_ambiguity"
+      ]
+    },
+    {
+      "id": "V1-N10_006-01",
+      "notion_id": "N10_006",
+      "legacy_notion_key": "10:6",
+      "theme": "Modulo et arithmétique",
+      "notion": "12 / 10",
+      "answer_mode": "single",
+      "question_type": "definition",
+      "prompt": "À quelle notion correspond la définition suivante : « Résultat entier : 1. » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "/ avec des entiers"
+        },
+        {
+          "id": "B",
+          "text": "89 % 7"
+        },
+        {
+          "id": "C",
+          "text": "%"
+        },
+        {
+          "id": "D",
+          "text": "12 / 10"
+        }
+      ],
+      "correct_option_ids": [
+        "D"
+      ],
+      "explanation": "La définition est extraite du résumé de la fiche correspondante.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/modulo-et-arithmetique/7-12-10"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N10_006-02",
+      "notion_id": "N10_006",
+      "legacy_notion_key": "10:6",
+      "theme": "Modulo et arithmétique",
+      "notion": "12 / 10",
+      "answer_mode": "single",
+      "question_type": "description",
+      "prompt": "Quelle description caractérise « 12 / 10 » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Résultat entier : 1."
+        },
+        {
+          "id": "B",
+          "text": "Reste de la division entière."
+        },
+        {
+          "id": "C",
+          "text": "Quotient entier tronqué vers zéro."
+        },
+        {
+          "id": "D",
+          "text": "Reste : 5."
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "Le résumé de la fiche indique : Résultat entier : 1.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/modulo-et-arithmetique/7-12-10"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N10_006-03",
+      "notion_id": "N10_006",
+      "legacy_notion_key": "10:6",
+      "theme": "Modulo et arithmétique",
+      "notion": "12 / 10",
+      "answer_mode": "single",
+      "question_type": "vigilance",
+      "prompt": "Quel point à retenir est directement associé à « 12 / 10 » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "En C99 et après, le quotient entier est tronqué vers zéro ; en C90, le cas négatif dépendait de l'implémentation."
+        },
+        {
+          "id": "B",
+          "text": "89 = 7 × 12 + 5 ; 5 est donc le reste de 89 / 7."
+        },
+        {
+          "id": "C",
+          "text": "12 / 10 vaut 1 (quotient entier), pas 1,2."
+        },
+        {
+          "id": "D",
+          "text": "% calcule un reste entier. La division ou le modulo par zéro est invalide en C."
+        }
+      ],
+      "correct_option_ids": [
+        "C"
+      ],
+      "explanation": "La fiche indique : 12 / 10 vaut 1 (quotient entier), pas 1,2.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/modulo-et-arithmetique/7-12-10"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N10_006-04",
+      "notion_id": "N10_006",
+      "legacy_notion_key": "10:6",
+      "theme": "Modulo et arithmétique",
+      "notion": "12 / 10",
+      "answer_mode": "multiple",
+      "question_type": "synthese",
+      "prompt": "Quelles affirmations concernent directement « 12 / 10 » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "12 / 10 vaut 1 (quotient entier), pas 1,2."
+        },
+        {
+          "id": "B",
+          "text": "Dans la plupart des expressions, le nom du tableau est converti en pointeur vers son premier élément. Ainsi a et &a[0] désignent la même adresse."
+        },
+        {
+          "id": "C",
+          "text": "Le format %s affiche les caractères d’une chaîne jusqu’au caractère nul de fin."
+        },
+        {
+          "id": "D",
+          "text": "Résultat entier : 1."
+        }
+      ],
+      "correct_option_ids": [
+        "A",
+        "D"
+      ],
+      "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/modulo-et-arithmetique/7-12-10"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "cross_topic_distractors",
+        "check_possible_ambiguity"
+      ]
+    },
+    {
+      "id": "V1-N10_007-01",
+      "notion_id": "N10_007",
+      "legacy_notion_key": "10:7",
+      "theme": "Modulo et arithmétique",
+      "notion": "12 % 10",
+      "answer_mode": "single",
+      "question_type": "definition",
+      "prompt": "À quelle notion correspond la définition suivante : « Reste : 2. » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "n % 100"
+        },
+        {
+          "id": "B",
+          "text": "n / 10"
+        },
+        {
+          "id": "C",
+          "text": "12 % 10"
+        },
+        {
+          "id": "D",
+          "text": "12 / 10"
+        }
+      ],
+      "correct_option_ids": [
+        "C"
+      ],
+      "explanation": "La définition est extraite du résumé de la fiche correspondante.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/modulo-et-arithmetique/8-12-10"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N10_007-02",
+      "notion_id": "N10_007",
+      "legacy_notion_key": "10:7",
+      "theme": "Modulo et arithmétique",
+      "notion": "12 % 10",
+      "answer_mode": "single",
+      "question_type": "description",
+      "prompt": "Quelle description caractérise « 12 % 10 » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Résultat entier : 1."
+        },
+        {
+          "id": "B",
+          "text": "Supprime le dernier chiffre d’un entier positif."
+        },
+        {
+          "id": "C",
+          "text": "Conserve les deux derniers chiffres d’un entier positif."
+        },
+        {
+          "id": "D",
+          "text": "Reste : 2."
+        }
+      ],
+      "correct_option_ids": [
+        "D"
+      ],
+      "explanation": "Le résumé de la fiche indique : Reste : 2.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/modulo-et-arithmetique/8-12-10"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N10_007-03",
+      "notion_id": "N10_007",
+      "legacy_notion_key": "10:7",
+      "theme": "Modulo et arithmétique",
+      "notion": "12 % 10",
+      "answer_mode": "single",
+      "question_type": "vigilance",
+      "prompt": "Quel point à retenir est directement associé à « 12 % 10 » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Pour afficher 7 comme « 07 », utilise un format comme %02d après n % 100."
+        },
+        {
+          "id": "B",
+          "text": "12 / 10 vaut 1 (quotient entier), pas 1,2."
+        },
+        {
+          "id": "C",
+          "text": "12 % 10 vaut 2 : ce sont les unités du nombre 12."
+        },
+        {
+          "id": "D",
+          "text": "Avec un entier positif, n / 10 retire le chiffre des unités sans arrondir."
+        }
+      ],
+      "correct_option_ids": [
+        "C"
+      ],
+      "explanation": "La fiche indique : 12 % 10 vaut 2 : ce sont les unités du nombre 12.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/modulo-et-arithmetique/8-12-10"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N10_007-04",
+      "notion_id": "N10_007",
+      "legacy_notion_key": "10:7",
+      "theme": "Modulo et arithmétique",
+      "notion": "12 % 10",
+      "answer_mode": "multiple",
+      "question_type": "synthese",
+      "prompt": "Quelles affirmations concernent directement « 12 % 10 » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Reste : 2."
+        },
+        {
+          "id": "B",
+          "text": "char représente un petit entier utilisé notamment pour les caractères ; 'A' est une constante de caractère."
+        },
+        {
+          "id": "C",
+          "text": "fgets lit au plus taille - 1 caractères, ajoute '\\0' et peut conserver le saut de ligne ; toujours vérifier son retour."
+        },
+        {
+          "id": "D",
+          "text": "12 % 10 vaut 2 : ce sont les unités du nombre 12."
+        }
+      ],
+      "correct_option_ids": [
+        "A",
+        "D"
+      ],
+      "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/modulo-et-arithmetique/8-12-10"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "cross_topic_distractors",
+        "check_possible_ambiguity"
+      ]
+    },
+    {
+      "id": "V1-N10_008-01",
+      "notion_id": "N10_008",
+      "legacy_notion_key": "10:8",
+      "theme": "Modulo et arithmétique",
+      "notion": "89 % 7",
+      "answer_mode": "single",
+      "question_type": "definition",
+      "prompt": "À quelle notion correspond la définition suivante : « Reste : 5. » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "n % 10"
+        },
+        {
+          "id": "B",
+          "text": "/ avec des entiers"
+        },
+        {
+          "id": "C",
+          "text": "89 % 7"
+        },
+        {
+          "id": "D",
+          "text": "n % 2"
+        }
+      ],
+      "correct_option_ids": [
+        "C"
+      ],
+      "explanation": "La définition est extraite du résumé de la fiche correspondante.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/modulo-et-arithmetique/9-89-7"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N10_008-02",
+      "notion_id": "N10_008",
+      "legacy_notion_key": "10:8",
+      "theme": "Modulo et arithmétique",
+      "notion": "89 % 7",
+      "answer_mode": "single",
+      "question_type": "description",
+      "prompt": "Quelle description caractérise « 89 % 7 » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Reste : 5."
+        },
+        {
+          "id": "B",
+          "text": "Quotient entier tronqué vers zéro."
+        },
+        {
+          "id": "C",
+          "text": "Reste par 2 ; permet de tester la parité."
+        },
+        {
+          "id": "D",
+          "text": "Reste par 10 : dernier chiffre pour un entier positif."
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "Le résumé de la fiche indique : Reste : 5.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/modulo-et-arithmetique/9-89-7"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N10_008-03",
+      "notion_id": "N10_008",
+      "legacy_notion_key": "10:8",
+      "theme": "Modulo et arithmétique",
+      "notion": "89 % 7",
+      "answer_mode": "single",
+      "question_type": "vigilance",
+      "prompt": "Quel point à retenir est directement associé à « 89 % 7 » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Un entier est pair si n % 2 vaut 0, y compris lorsqu'il est négatif."
+        },
+        {
+          "id": "B",
+          "text": "En C99 et après, le quotient entier est tronqué vers zéro ; en C90, le cas négatif dépendait de l'implémentation."
+        },
+        {
+          "id": "C",
+          "text": "Pour n négatif, n % 10 peut être négatif : ce n'est pas toujours un chiffre positif."
+        },
+        {
+          "id": "D",
+          "text": "89 = 7 × 12 + 5 ; 5 est donc le reste de 89 / 7."
+        }
+      ],
+      "correct_option_ids": [
+        "D"
+      ],
+      "explanation": "La fiche indique : 89 = 7 × 12 + 5 ; 5 est donc le reste de 89 / 7.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/modulo-et-arithmetique/9-89-7"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N10_008-04",
+      "notion_id": "N10_008",
+      "legacy_notion_key": "10:8",
+      "theme": "Modulo et arithmétique",
+      "notion": "89 % 7",
+      "answer_mode": "multiple",
+      "question_type": "synthese",
+      "prompt": "Quelles affirmations concernent directement « 89 % 7 » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Envoyer / récupérer et intégrer / seulement récupérer."
+        },
+        {
+          "id": "B",
+          "text": "Reste : 5."
+        },
+        {
+          "id": "C",
+          "text": "89 = 7 × 12 + 5 ; 5 est donc le reste de 89 / 7."
+        },
+        {
+          "id": "D",
+          "text": "Dépôt du code et de son historique."
+        }
+      ],
+      "correct_option_ids": [
+        "B",
+        "C"
+      ],
+      "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/modulo-et-arithmetique/9-89-7"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "cross_topic_distractors",
+        "check_possible_ambiguity"
+      ]
+    }
+  ]
+}
