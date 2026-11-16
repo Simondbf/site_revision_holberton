@@ -14,7 +14,7 @@
       "options": [
         {
           "id": "A",
-          "text": "int main(void)"
+          "text": "int scanf(void)"
         },
         {
           "id": "B",
@@ -22,15 +22,15 @@
         },
         {
           "id": "C",
-          "text": "int scanf(void)"
+          "text": "char printf(void)"
         },
         {
           "id": "D",
-          "text": "char printf(void)"
+          "text": "int main(void)"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "main est le point d'entrée du programme C hébergé.",
       "source_urls": [
@@ -55,7 +55,7 @@
       "options": [
         {
           "id": "A",
-          "text": "Le prototype annonce les types de paramètres et le retour"
+          "text": "Le prototype exécute une fonction lors de la compilation"
         },
         {
           "id": "B",
@@ -67,12 +67,12 @@
         },
         {
           "id": "D",
-          "text": "Le prototype exécute une fonction lors de la compilation"
+          "text": "Le prototype annonce les types de paramètres et le retour"
         }
       ],
       "correct_option_ids": [
-        "A",
-        "B"
+        "B",
+        "D"
       ],
       "explanation": "Le prototype indique la signature ; la définition apporte le code exécuté.",
       "source_urls": [
@@ -101,15 +101,15 @@
         },
         {
           "id": "B",
-          "text": "Elle ne peut effectuer aucun appel"
+          "text": "Elle reçoit forcément un paramètre int"
         },
         {
           "id": "C",
-          "text": "Elle retourne forcément 0"
+          "text": "Elle ne peut effectuer aucun appel"
         },
         {
           "id": "D",
-          "text": "Elle reçoit forcément un paramètre int"
+          "text": "Elle retourne forcément 0"
         }
       ],
       "correct_option_ids": [
@@ -138,23 +138,23 @@
       "options": [
         {
           "id": "A",
-          "text": "return 7;"
-        },
-        {
-          "id": "B",
           "text": "exit;"
         },
         {
+          "id": "B",
+          "text": "return 7;"
+        },
+        {
           "id": "C",
-          "text": "break 7;"
+          "text": "void 7;"
         },
         {
           "id": "D",
-          "text": "void 7;"
+          "text": "break 7;"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "return fournit une valeur compatible avec le type de retour.",
       "source_urls": [
@@ -179,23 +179,23 @@
       "options": [
         {
           "id": "A",
-          "text": "printf(\"%c\", 'A');"
+          "text": "printf(\"%p\", 'A');"
         },
         {
           "id": "B",
-          "text": "printf(\"%d\", \"A\");"
+          "text": "printf(\"%c\", 'A');"
         },
         {
           "id": "C",
-          "text": "printf(\"%s\", 'A');"
+          "text": "printf(\"%d\", \"A\");"
         },
         {
           "id": "D",
-          "text": "printf(\"%p\", 'A');"
+          "text": "printf(\"%s\", 'A');"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "%c affiche un caractère à partir de la valeur entière promue.",
       "source_urls": [
@@ -220,15 +220,15 @@
       "options": [
         {
           "id": "A",
-          "text": "%.6f"
-        },
-        {
-          "id": "B",
           "text": "%d"
         },
         {
-          "id": "C",
+          "id": "B",
           "text": "%c"
+        },
+        {
+          "id": "C",
+          "text": "%.6f"
         },
         {
           "id": "D",
@@ -236,7 +236,7 @@
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "%.6f indique six chiffres après le séparateur décimal pour une conversion flottante.",
       "source_urls": [
@@ -261,23 +261,23 @@
       "options": [
         {
           "id": "A",
-          "text": "65"
+          "text": "10"
         },
         {
           "id": "B",
-          "text": "97"
-        },
-        {
-          "id": "C",
           "text": "48"
         },
         {
+          "id": "C",
+          "text": "65"
+        },
+        {
           "id": "D",
-          "text": "10"
+          "text": "97"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "Dans ASCII, A vaut 65, a vaut 97 et '0' vaut 48.",
       "source_urls": [
@@ -302,23 +302,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Édition de liens"
-        },
-        {
-          "id": "B",
-          "text": "Prétraitement seul"
-        },
-        {
-          "id": "C",
           "text": "Lecture au clavier"
         },
         {
-          "id": "D",
+          "id": "B",
+          "text": "Édition de liens"
+        },
+        {
+          "id": "C",
           "text": "Montage d'un disque"
+        },
+        {
+          "id": "D",
+          "text": "Prétraitement seul"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "Le linker assemble les objets et résout les références externes.",
       "source_urls": [
@@ -347,15 +347,15 @@
         },
         {
           "id": "B",
-          "text": "La variable int vaut 0"
+          "text": "Une boucle for commence à 0"
         },
         {
           "id": "C",
-          "text": "Une chaîne contient un retour à la ligne"
+          "text": "La variable int vaut 0"
         },
         {
           "id": "D",
-          "text": "Une boucle for commence à 0"
+          "text": "Une chaîne contient un retour à la ligne"
         }
       ],
       "correct_option_ids": [
@@ -384,15 +384,15 @@
       "options": [
         {
           "id": "A",
-          "text": "Produit un exécutable nommé programme"
-        },
-        {
-          "id": "B",
           "text": "Affiche uniquement le prétraitement"
         },
         {
-          "id": "C",
+          "id": "B",
           "text": "Produit forcément main.o sans lien"
+        },
+        {
+          "id": "C",
+          "text": "Produit un exécutable nommé programme"
         },
         {
           "id": "D",
@@ -400,7 +400,7 @@
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "-o définit le nom de sortie.",
       "source_urls": [
@@ -425,15 +425,15 @@
       "options": [
         {
           "id": "A",
-          "text": "for (int i=0; i<3; i++)"
+          "text": "while (1)"
         },
         {
           "id": "B",
-          "text": "int i; for (i=0; i<3; i++)"
+          "text": "for (int i=0; i<3; i++)"
         },
         {
           "id": "C",
-          "text": "while (1)"
+          "text": "int i; for (i=0; i<3; i++)"
         },
         {
           "id": "D",
@@ -441,7 +441,7 @@
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "Déclarer une variable dans l'initialisation d'un for est une fonctionnalité introduite en C99.",
       "source_urls": [
@@ -466,11 +466,11 @@
       "options": [
         {
           "id": "A",
-          "text": "Exécute seulement le préprocesseur"
+          "text": "Génère toujours un fichier objet"
         },
         {
           "id": "B",
-          "text": "Édite uniquement les liens"
+          "text": "Exécute seulement le préprocesseur"
         },
         {
           "id": "C",
@@ -478,11 +478,11 @@
         },
         {
           "id": "D",
-          "text": "Génère toujours un fichier objet"
+          "text": "Édite uniquement les liens"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "-E arrête après le prétraitement.",
       "source_urls": [
@@ -507,23 +507,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Produit du code assembleur sans assembler"
-        },
-        {
-          "id": "B",
           "text": "Lance un binaire nommé S"
         },
         {
+          "id": "B",
+          "text": "Supprime les avertissements"
+        },
+        {
           "id": "C",
-          "text": "Génère uniquement le flux stdin"
+          "text": "Produit du code assembleur sans assembler"
         },
         {
           "id": "D",
-          "text": "Supprime les avertissements"
+          "text": "Génère uniquement le flux stdin"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "-S s'arrête à la génération assembleur.",
       "source_urls": [
@@ -548,23 +548,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Compile/assemble en fichier objet sans étape de liaison"
-        },
-        {
-          "id": "B",
-          "text": "Exécute le programme"
-        },
-        {
-          "id": "C",
           "text": "Télécharge la bibliothèque libc"
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "Produits uniquement des logs Git"
+        },
+        {
+          "id": "C",
+          "text": "Compile/assemble en fichier objet sans étape de liaison"
+        },
+        {
+          "id": "D",
+          "text": "Exécute le programme"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "-c produit un fichier objet sans créer l'exécutable complet.",
       "source_urls": [
@@ -593,15 +593,15 @@
         },
         {
           "id": "B",
-          "text": "Active la lecture seule"
+          "text": "Indique le langage Objective-C"
         },
         {
           "id": "C",
-          "text": "Optimise à un niveau o"
+          "text": "Active la lecture seule"
         },
         {
           "id": "D",
-          "text": "Indique le langage Objective-C"
+          "text": "Optimise à un niveau o"
         }
       ],
       "correct_option_ids": [
@@ -630,24 +630,24 @@
       "options": [
         {
           "id": "A",
-          "text": "Affiche une chaîne suivie d'un retour à la ligne"
-        },
-        {
-          "id": "B",
           "text": "Ne prend pas de spécificateurs de format comme printf"
         },
         {
-          "id": "C",
+          "id": "B",
           "text": "Formate des nombres avec %d comme printf"
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "Écrit nécessairement sur stderr"
+        },
+        {
+          "id": "D",
+          "text": "Affiche une chaîne suivie d'un retour à la ligne"
         }
       ],
       "correct_option_ids": [
         "A",
-        "B"
+        "D"
       ],
       "explanation": "puts écrit une chaîne puis une fin de ligne, contrairement aux conversions de printf.",
       "source_urls": [
@@ -672,23 +672,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Non, sa taille dépend de l'implémentation"
-        },
-        {
-          "id": "B",
-          "text": "Oui, c'est imposé par tous les standards C"
-        },
-        {
-          "id": "C",
           "text": "Oui, tout int occupe 64 bits"
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "Non, int ne possède jamais de taille"
+        },
+        {
+          "id": "C",
+          "text": "Non, sa taille dépend de l'implémentation"
+        },
+        {
+          "id": "D",
+          "text": "Oui, c'est imposé par tous les standards C"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "Le standard impose des contraintes, mais pas 4 octets universels.",
       "source_urls": [
@@ -713,23 +713,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Le résultat est réduit modulo 2^N selon la largeur du type"
-        },
-        {
-          "id": "B",
           "text": "Toute opération unsigned provoque un crash en débordement"
         },
         {
+          "id": "B",
+          "text": "Le résultat est réduit modulo 2^N selon la largeur du type"
+        },
+        {
           "id": "C",
-          "text": "Le résultat est toujours négatif après débordement"
+          "text": "Le résultat est indéfini comme pour le signed overflow"
         },
         {
           "id": "D",
-          "text": "Le résultat est indéfini comme pour le signed overflow"
+          "text": "Le résultat est toujours négatif après débordement"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "L'arithmétique non signée est définie modulo un nombre lié à sa plage.",
       "source_urls": [
@@ -754,23 +754,23 @@
       "options": [
         {
           "id": "A",
-          "text": "double"
-        },
-        {
-          "id": "B",
-          "text": "float *"
-        },
-        {
-          "id": "C",
           "text": "char *"
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "size_t"
+        },
+        {
+          "id": "C",
+          "text": "float *"
+        },
+        {
+          "id": "D",
+          "text": "double"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "Un float argument est promu en double pour les appels variadiques.",
       "source_urls": [
@@ -841,7 +841,7 @@
         },
         {
           "id": "B",
-          "text": "Un signal systématique de segfault"
+          "text": "Une fuite de mémoire automatiquement détectée"
         },
         {
           "id": "C",
@@ -849,7 +849,7 @@
         },
         {
           "id": "D",
-          "text": "Une fuite de mémoire automatiquement détectée"
+          "text": "Un signal systématique de segfault"
         }
       ],
       "correct_option_ids": [
@@ -882,15 +882,15 @@
         },
         {
           "id": "B",
-          "text": "Non, char et int sont incompatibles dans tous les contextes"
+          "text": "Non, une fonction char ne retourne jamais"
         },
         {
           "id": "C",
-          "text": "Oui mais seulement via malloc"
+          "text": "Non, char et int sont incompatibles dans tous les contextes"
         },
         {
           "id": "D",
-          "text": "Non, une fonction char ne retourne jamais"
+          "text": "Oui mais seulement via malloc"
         }
       ],
       "correct_option_ids": [
@@ -919,24 +919,24 @@
       "options": [
         {
           "id": "A",
-          "text": "Il ne doit pas pointer vers une variable automatique dont la durée de vie a fini"
-        },
-        {
-          "id": "B",
-          "text": "Son objet cible doit rester valide à l'utilisation"
-        },
-        {
-          "id": "C",
           "text": "Il est toujours sûr s'il est non NULL"
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "Un return garantit automatiquement la propriété du bloc"
+        },
+        {
+          "id": "C",
+          "text": "Il ne doit pas pointer vers une variable automatique dont la durée de vie a fini"
+        },
+        {
+          "id": "D",
+          "text": "Son objet cible doit rester valide à l'utilisation"
         }
       ],
       "correct_option_ids": [
-        "A",
-        "B"
+        "C",
+        "D"
       ],
       "explanation": "Validité et durée de vie de la cible restent essentielles.",
       "source_urls": [
@@ -1002,23 +1002,23 @@
       "options": [
         {
           "id": "A",
-          "text": "C"
-        },
-        {
-          "id": "B",
-          "text": "Rust"
-        },
-        {
-          "id": "C",
           "text": "Python"
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "Java"
+        },
+        {
+          "id": "C",
+          "text": "C"
+        },
+        {
+          "id": "D",
+          "text": "Rust"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "Dennis Ritchie a conçu le langage C.",
       "source_urls": [
@@ -1043,15 +1043,15 @@
       "options": [
         {
           "id": "A",
-          "text": "&n"
+          "text": "*n"
         },
         {
           "id": "B",
-          "text": "n"
+          "text": "&n"
         },
         {
           "id": "C",
-          "text": "*n"
+          "text": "n"
         },
         {
           "id": "D",
@@ -1059,7 +1059,7 @@
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "scanf exige l'adresse de l'objet int à remplir.",
       "source_urls": [
@@ -1085,23 +1085,23 @@
       "options": [
         {
           "id": "A",
-          "text": "0"
-        },
-        {
-          "id": "B",
           "text": "1"
         },
         {
+          "id": "B",
+          "text": "0"
+        },
+        {
           "id": "C",
-          "text": "-2"
+          "text": "Le contenu de n"
         },
         {
           "id": "D",
-          "text": "Le contenu de n"
+          "text": "-2"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "Aucune conversion n'est affectée : échec de correspondance.",
       "source_urls": [
@@ -1127,24 +1127,24 @@
       "options": [
         {
           "id": "A",
-          "text": "Elle lit au plus n-1 caractères utiles dans un tampon de n cases"
-        },
-        {
-          "id": "B",
-          "text": "Elle conserve le saut de ligne lorsqu'il est lu"
-        },
-        {
-          "id": "C",
           "text": "Elle agrandit automatiquement les tableaux trop petits"
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "Elle garantit que toute ligne dépassant la capacité est consommée"
+        },
+        {
+          "id": "C",
+          "text": "Elle conserve le saut de ligne lorsqu'il est lu"
+        },
+        {
+          "id": "D",
+          "text": "Elle lit au plus n-1 caractères utiles dans un tampon de n cases"
         }
       ],
       "correct_option_ids": [
-        "A",
-        "B"
+        "C",
+        "D"
       ],
       "explanation": "fgets peut conserver '\\n' et laisse de la place pour '\\0'.",
       "source_urls": [
@@ -1170,7 +1170,7 @@
       "options": [
         {
           "id": "A",
-          "text": "NULL signale un échec ou une fin de fichier avant donnée"
+          "text": "fgets renvoie le nombre de caractères"
         },
         {
           "id": "B",
@@ -1178,15 +1178,15 @@
         },
         {
           "id": "C",
-          "text": "fgets renvoie le nombre de caractères"
+          "text": "fgets supprime toutes les erreurs de lecture"
         },
         {
           "id": "D",
-          "text": "fgets supprime toutes les erreurs de lecture"
+          "text": "NULL signale un échec ou une fin de fichier avant donnée"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "Le tampon n'est pas nécessairement une ligne réussie si le résultat est NULL.",
       "source_urls": [
@@ -1212,23 +1212,23 @@
       "options": [
         {
           "id": "A",
-          "text": "strtol offre un endptr et une détection d'erreur mieux adaptée"
-        },
-        {
-          "id": "B",
           "text": "atoi renvoie toujours une structure complète"
         },
         {
+          "id": "B",
+          "text": "atoi interdit les caractères numériques"
+        },
+        {
           "id": "C",
-          "text": "strtol convertit seulement des chaînes de longueur 1"
+          "text": "strtol offre un endptr et une détection d'erreur mieux adaptée"
         },
         {
           "id": "D",
-          "text": "atoi interdit les caractères numériques"
+          "text": "strtol convertit seulement des chaînes de longueur 1"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "strtol permet de vérifier l'endptr et une éventuelle plage hors limites.",
       "source_urls": [
@@ -1254,15 +1254,15 @@
       "options": [
         {
           "id": "A",
-          "text": "La chaîne peut contenir des spécificateurs interprétés comme format"
+          "text": "printf autorise uniquement les chaînes constantes"
         },
         {
           "id": "B",
-          "text": "printf ignore toujours les %"
+          "text": "La chaîne peut contenir des spécificateurs interprétés comme format"
         },
         {
           "id": "C",
-          "text": "printf autorise uniquement les chaînes constantes"
+          "text": "printf ignore toujours les %"
         },
         {
           "id": "D",
@@ -1270,7 +1270,7 @@
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "Utiliser un format fixe, par exemple printf(\"%s\", chaine).",
       "source_urls": [
@@ -1299,15 +1299,15 @@
         },
         {
           "id": "B",
-          "text": "Représenter toujours le caractère '\\0'"
-        },
-        {
-          "id": "C",
           "text": "Être un octet de nouvelle ligne"
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "Marquer systématiquement la valeur ASCII 255"
+        },
+        {
+          "id": "D",
+          "text": "Représenter toujours le caractère '\\0'"
         }
       ],
       "correct_option_ids": [
@@ -1336,11 +1336,11 @@
       "options": [
         {
           "id": "A",
-          "text": "Non, il entraîne un comportement indéfini"
+          "text": "Oui, il produit toujours INT_MIN"
         },
         {
           "id": "B",
-          "text": "Oui, il produit toujours INT_MIN"
+          "text": "Non, il entraîne un comportement indéfini"
         },
         {
           "id": "C",
@@ -1352,7 +1352,7 @@
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "Le signed integer overflow est UB en C standard.",
       "source_urls": [
@@ -1382,7 +1382,7 @@
         },
         {
           "id": "B",
-          "text": "*"
+          "text": "||"
         },
         {
           "id": "C",
@@ -1390,7 +1390,7 @@
         },
         {
           "id": "D",
-          "text": "||"
+          "text": "*"
         }
       ],
       "correct_option_ids": [
@@ -1419,23 +1419,23 @@
       "options": [
         {
           "id": "A",
-          "text": "&a"
-        },
-        {
-          "id": "B",
           "text": "a"
         },
         {
+          "id": "B",
+          "text": "sizeof a"
+        },
+        {
           "id": "C",
-          "text": "*a"
+          "text": "&a"
         },
         {
           "id": "D",
-          "text": "sizeof a"
+          "text": "*a"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "&a désigne l'adresse de l'objet a.",
       "source_urls": [
@@ -1464,15 +1464,15 @@
         },
         {
           "id": "B",
-          "text": "int p*;"
-        },
-        {
-          "id": "C",
           "text": "pointer<int> p;"
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "int &p;"
+        },
+        {
+          "id": "D",
+          "text": "int p*;"
         }
       ],
       "correct_option_ids": [
@@ -1501,23 +1501,23 @@
       "options": [
         {
           "id": "A",
-          "text": "7"
+          "text": "Une chaîne vide"
         },
         {
           "id": "B",
-          "text": "L'adresse de a"
-        },
-        {
-          "id": "C",
           "text": "La taille d'un int"
         },
         {
+          "id": "C",
+          "text": "L'adresse de a"
+        },
+        {
           "id": "D",
-          "text": "Une chaîne vide"
+          "text": "7"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "*p lit l'objet pointé tant que l'adresse est valide.",
       "source_urls": [
@@ -1542,23 +1542,23 @@
       "options": [
         {
           "id": "A",
-          "text": "9"
-        },
-        {
-          "id": "B",
-          "text": "2"
-        },
-        {
-          "id": "C",
           "text": "L'adresse de p"
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "0"
+        },
+        {
+          "id": "C",
+          "text": "9"
+        },
+        {
+          "id": "D",
+          "text": "2"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "Le déréférencement modifie l'objet original n.",
       "source_urls": [
@@ -1583,25 +1583,25 @@
       "options": [
         {
           "id": "A",
-          "text": "p est une variable contenant une adresse"
-        },
-        {
-          "id": "B",
           "text": "*p désigne la valeur de n"
         },
         {
+          "id": "B",
+          "text": "p, *p et &p ont toujours le même type"
+        },
+        {
           "id": "C",
-          "text": "&p désigne l'adresse de la variable p"
+          "text": "p est une variable contenant une adresse"
         },
         {
           "id": "D",
-          "text": "p, *p et &p ont toujours le même type"
+          "text": "&p désigne l'adresse de la variable p"
         }
       ],
       "correct_option_ids": [
         "A",
-        "B",
-        "C"
+        "C",
+        "D"
       ],
       "explanation": "Les trois expressions ne désignent pas la même chose.",
       "source_urls": [
@@ -1626,7 +1626,7 @@
       "options": [
         {
           "id": "A",
-          "text": "Il définit le type de l'objet lors du déréférencement"
+          "text": "Il autorise la modification arbitraire de n'importe quel objet"
         },
         {
           "id": "B",
@@ -1634,7 +1634,7 @@
         },
         {
           "id": "C",
-          "text": "Il autorise la modification arbitraire de n'importe quel objet"
+          "text": "Il définit le type de l'objet lors du déréférencement"
         },
         {
           "id": "D",
@@ -1642,7 +1642,7 @@
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "Le type guide l'interprétation et la taille d'un accès.",
       "source_urls": [
@@ -1667,23 +1667,23 @@
       "options": [
         {
           "id": "A",
-          "text": "printf(\"%p\", (void *)p);"
-        },
-        {
-          "id": "B",
           "text": "printf(\"%d\", p);"
         },
         {
+          "id": "B",
+          "text": "printf(\"%p\", (void *)p);"
+        },
+        {
           "id": "C",
-          "text": "printf(\"%s\", p);"
+          "text": "printf(\"%c\", p);"
         },
         {
           "id": "D",
-          "text": "printf(\"%c\", p);"
+          "text": "printf(\"%s\", p);"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "%p attend un argument void * dans les règles de printf.",
       "source_urls": [
@@ -1712,11 +1712,11 @@
         },
         {
           "id": "B",
-          "text": "Toujours 4 octets"
+          "text": "La valeur du premier élément"
         },
         {
           "id": "C",
-          "text": "La valeur du premier élément"
+          "text": "Toujours 4 octets"
         },
         {
           "id": "D",
@@ -1749,11 +1749,11 @@
       "options": [
         {
           "id": "A",
-          "text": "Non"
+          "text": "Oui, même en C89"
         },
         {
           "id": "B",
-          "text": "Oui, même en C89"
+          "text": "Oui, pour tout système Linux"
         },
         {
           "id": "C",
@@ -1761,11 +1761,11 @@
         },
         {
           "id": "D",
-          "text": "Oui, pour tout système Linux"
+          "text": "Non"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "La représentation et taille des pointeurs dépendent de la plateforme.",
       "source_urls": [
@@ -1790,23 +1790,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Non : les arguments sont passés par valeur"
-        },
-        {
-          "id": "B",
           "text": "Oui : C utilise le passage par référence partout"
         },
         {
-          "id": "C",
+          "id": "B",
           "text": "Oui : seulement si n vaut 0"
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "Oui : la pile est toujours partagée"
+        },
+        {
+          "id": "D",
+          "text": "Non : les arguments sont passés par valeur"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "Un paramètre reçoit une copie de la valeur.",
       "source_urls": [
@@ -1839,11 +1839,11 @@
         },
         {
           "id": "C",
-          "text": "Recevoir int p et appeler printf"
+          "text": "Déclarer p en local et l'affecter"
         },
         {
           "id": "D",
-          "text": "Déclarer p en local et l'affecter"
+          "text": "Recevoir int p et appeler printf"
         }
       ],
       "correct_option_ids": [
@@ -1872,23 +1872,23 @@
       "options": [
         {
           "id": "A",
-          "text": "5"
-        },
-        {
-          "id": "B",
-          "text": "4"
-        },
-        {
-          "id": "C",
           "text": "6"
         },
         {
-          "id": "D",
+          "id": "B",
+          "text": "5"
+        },
+        {
+          "id": "C",
           "text": "sizeof(int)"
+        },
+        {
+          "id": "D",
+          "text": "4"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "La déclaration donne cinq éléments indexés 0…4.",
       "source_urls": [
@@ -1954,15 +1954,15 @@
       "options": [
         {
           "id": "A",
-          "text": "Une adresse de son premier élément"
+          "text": "Une structure contenant sa longueur"
         },
         {
           "id": "B",
-          "text": "Une copie automatique de tous les octets dans un int"
+          "text": "Une adresse de son premier élément"
         },
         {
           "id": "C",
-          "text": "Une structure contenant sa longueur"
+          "text": "Une copie automatique de tous les octets dans un int"
         },
         {
           "id": "D",
@@ -1970,7 +1970,7 @@
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "Le tableau est converti en pointeur vers son premier élément, sauf contextes particuliers.",
       "source_urls": [
@@ -1995,23 +1995,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Ils ont des types de pointeurs différents"
+          "text": "&tab[0] désigne toute une structure"
         },
         {
           "id": "B",
-          "text": "Ils désignent nécessairement des allocations différentes"
+          "text": "Ils ont des types de pointeurs différents"
         },
         {
           "id": "C",
-          "text": "&tab correspond à un int *"
+          "text": "Ils désignent nécessairement des allocations différentes"
         },
         {
           "id": "D",
-          "text": "&tab[0] désigne toute une structure"
+          "text": "&tab correspond à un int *"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "&tab est pointeur vers tableau, &tab[0] est pointeur vers élément int.",
       "source_urls": [
@@ -2036,23 +2036,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Avancer d'un élément int"
-        },
-        {
-          "id": "B",
-          "text": "Avancer toujours d'un octet"
-        },
-        {
-          "id": "C",
           "text": "Exécuter l'instruction C suivante"
         },
         {
-          "id": "D",
+          "id": "B",
+          "text": "Avancer d'un élément int"
+        },
+        {
+          "id": "C",
           "text": "Déréférencer automatiquement p"
+        },
+        {
+          "id": "D",
+          "text": "Avancer toujours d'un octet"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "L'arithmétique des pointeurs dépend de la taille du type pointé.",
       "source_urls": [
@@ -2077,23 +2077,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Une suite de caractères terminée par '\\0' dans une zone accessible"
+          "text": "Un pointeur non initialisé"
         },
         {
           "id": "B",
-          "text": "Un tableau obligatoirement de 100 octets"
-        },
-        {
-          "id": "C",
           "text": "Une valeur char unique"
         },
         {
+          "id": "C",
+          "text": "Une suite de caractères terminée par '\\0' dans une zone accessible"
+        },
+        {
           "id": "D",
-          "text": "Un pointeur non initialisé"
+          "text": "Un tableau obligatoirement de 100 octets"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "La terminaison nulle délimite la chaîne.",
       "source_urls": [
@@ -2118,7 +2118,7 @@
       "options": [
         {
           "id": "A",
-          "text": "Marquer la fin de chaîne"
+          "text": "Indiquer la mémoire allouée"
         },
         {
           "id": "B",
@@ -2130,11 +2130,11 @@
         },
         {
           "id": "D",
-          "text": "Indiquer la mémoire allouée"
+          "text": "Marquer la fin de chaîne"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "Les fonctions sur les chaînes repèrent le caractère nul.",
       "source_urls": [
@@ -2159,11 +2159,11 @@
       "options": [
         {
           "id": "A",
-          "text": "Une adresse de chaîne valide terminée par nul"
+          "text": "Une adresse de tableau sans terminateur"
         },
         {
           "id": "B",
-          "text": "Une valeur int quelconque"
+          "text": "Une adresse de chaîne valide terminée par nul"
         },
         {
           "id": "C",
@@ -2171,11 +2171,11 @@
         },
         {
           "id": "D",
-          "text": "Une adresse de tableau sans terminateur"
+          "text": "Une valeur int quelconque"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "%s lit une chaîne terminée par un caractère nul.",
       "source_urls": [
@@ -2200,24 +2200,24 @@
       "options": [
         {
           "id": "A",
-          "text": "Renvoyer un pointeur utilisable si elle réussit"
-        },
-        {
-          "id": "B",
-          "text": "Renvoyer NULL si l'allocation échoue"
-        },
-        {
-          "id": "C",
           "text": "Mettre obligatoirement tous les octets à zéro"
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "Libérer le pointeur automatiquement à la fin du bloc local"
+        },
+        {
+          "id": "C",
+          "text": "Renvoyer un pointeur utilisable si elle réussit"
+        },
+        {
+          "id": "D",
+          "text": "Renvoyer NULL si l'allocation échoue"
         }
       ],
       "correct_option_ids": [
-        "A",
-        "B"
+        "C",
+        "D"
       ],
       "explanation": "malloc peut échouer et n'initialise pas les octets alloués.",
       "source_urls": [
@@ -2242,23 +2242,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Rien"
-        },
-        {
-          "id": "B",
           "text": "Libère toute la mémoire du processus"
         },
         {
-          "id": "C",
+          "id": "B",
           "text": "Provoque toujours SIGSEGV"
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "Renvoie -1"
+        },
+        {
+          "id": "D",
+          "text": "Rien"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "Un pointeur nul est accepté par free.",
       "source_urls": [
@@ -2325,23 +2325,23 @@
       "options": [
         {
           "id": "A",
-          "text": "if (p != NULL)"
-        },
-        {
-          "id": "B",
           "text": "if (p == NULL) puis *p=1"
         },
         {
-          "id": "C",
+          "id": "B",
           "text": "while (p == NULL) *p=1"
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "if (sizeof p == 0)"
+        },
+        {
+          "id": "D",
+          "text": "if (p != NULL)"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "Tester la réussite avant tout accès.",
       "source_urls": [
@@ -2366,7 +2366,7 @@
       "options": [
         {
           "id": "A",
-          "text": "Un bloc alloué qu'on ne libère pas lorsqu'il n'est plus utile"
+          "text": "Une sortie standard vide"
         },
         {
           "id": "B",
@@ -2374,15 +2374,15 @@
         },
         {
           "id": "C",
-          "text": "Une variable int locale"
+          "text": "Un bloc alloué qu'on ne libère pas lorsqu'il n'est plus utile"
         },
         {
           "id": "D",
-          "text": "Une sortie standard vide"
+          "text": "Une variable int locale"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "La responsabilité de libération n'est pas honorée.",
       "source_urls": [
@@ -2407,7 +2407,7 @@
       "options": [
         {
           "id": "A",
-          "text": "Valgrind Memcheck"
+          "text": "gcc -E"
         },
         {
           "id": "B",
@@ -2415,15 +2415,15 @@
         },
         {
           "id": "C",
-          "text": "grep -A"
+          "text": "Valgrind Memcheck"
         },
         {
           "id": "D",
-          "text": "gcc -E"
+          "text": "grep -A"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "Valgrind Memcheck détecte certaines fuites et accès invalides.",
       "source_urls": [
@@ -2448,23 +2448,23 @@
       "options": [
         {
           "id": "A",
-          "text": "malloc(n * sizeof *p)"
-        },
-        {
-          "id": "B",
           "text": "malloc(n) toujours"
         },
         {
+          "id": "B",
+          "text": "malloc(sizeof n) toujours"
+        },
+        {
           "id": "C",
-          "text": "malloc(sizeof p) toujours"
+          "text": "malloc(n * sizeof *p)"
         },
         {
           "id": "D",
-          "text": "malloc(sizeof n) toujours"
+          "text": "malloc(sizeof p) toujours"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "Le produit doit tenir compte de la taille de l'élément.",
       "source_urls": [
@@ -2489,23 +2489,23 @@
       "options": [
         {
           "id": "A",
-          "text": "3 et 4"
-        },
-        {
-          "id": "B",
-          "text": "4 et 3"
-        },
-        {
-          "id": "C",
           "text": "3 et 3"
         },
         {
-          "id": "D",
+          "id": "B",
+          "text": "3 et 4"
+        },
+        {
+          "id": "C",
           "text": "4 et 4"
+        },
+        {
+          "id": "D",
+          "text": "4 et 3"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "strlen exclut le terminateur nul, sizeof mesure tout le tableau.",
       "source_urls": [
@@ -2530,7 +2530,7 @@
       "options": [
         {
           "id": "A",
-          "text": "Une écriture hors limites"
+          "text": "Une conversion implicite en int"
         },
         {
           "id": "B",
@@ -2538,15 +2538,15 @@
         },
         {
           "id": "C",
-          "text": "Une conversion implicite en int"
+          "text": "Une suppression de '\u0000' garantie"
         },
         {
           "id": "D",
-          "text": "Une suppression de '\u0000' garantie"
+          "text": "Une écriture hors limites"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "strcpy ne reçoit pas la taille du tampon de destination.",
       "source_urls": [
@@ -2571,15 +2571,15 @@
       "options": [
         {
           "id": "A",
-          "text": "La chaîne dupliquée est allouée dynamiquement"
+          "text": "Le résultat pointe forcément vers un littéral"
         },
         {
           "id": "B",
-          "text": "strdup renvoie toujours un objet automatique"
+          "text": "La chaîne dupliquée est allouée dynamiquement"
         },
         {
           "id": "C",
-          "text": "Le résultat pointe forcément vers un littéral"
+          "text": "strdup renvoie toujours un objet automatique"
         },
         {
           "id": "D",
@@ -2587,7 +2587,7 @@
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "La copie sur le tas doit être libérée.",
       "source_urls": [
@@ -2612,24 +2612,24 @@
       "options": [
         {
           "id": "A",
-          "text": "Une variable automatique a souvent la durée de vie du bloc"
-        },
-        {
-          "id": "B",
           "text": "Une allocation sur le tas doit être libérée explicitement"
         },
         {
+          "id": "B",
+          "text": "malloc garantit un objet local temporaire"
+        },
+        {
           "id": "C",
-          "text": "Une variable automatique dure nécessairement jusqu'à l'arrêt du programme"
+          "text": "Une variable automatique a souvent la durée de vie du bloc"
         },
         {
           "id": "D",
-          "text": "malloc garantit un objet local temporaire"
+          "text": "Une variable automatique dure nécessairement jusqu'à l'arrêt du programme"
         }
       ],
       "correct_option_ids": [
         "A",
-        "B"
+        "C"
       ],
       "explanation": "Les durées de vie des variables automatiques et blocs alloués diffèrent.",
       "source_urls": [
@@ -2658,15 +2658,15 @@
         },
         {
           "id": "B",
-          "text": "L'adresse d'un int local"
+          "text": "Une adresse calculée en plein milieu d'un bloc"
         },
         {
           "id": "C",
-          "text": "L'adresse d'un littéral de chaîne"
+          "text": "L'adresse d'un int local"
         },
         {
           "id": "D",
-          "text": "Une adresse calculée en plein milieu d'un bloc"
+          "text": "L'adresse d'un littéral de chaîne"
         }
       ],
       "correct_option_ids": [
@@ -2695,15 +2695,15 @@
       "options": [
         {
           "id": "A",
-          "text": "Comportement indéfini"
+          "text": "Allocation automatique d'un int pointé"
         },
         {
           "id": "B",
-          "text": "Écriture garantie dans un bloc malloc"
+          "text": "Comportement indéfini"
         },
         {
           "id": "C",
-          "text": "Allocation automatique d'un int pointé"
+          "text": "Écriture garantie dans un bloc malloc"
         },
         {
           "id": "D",
@@ -2711,7 +2711,7 @@
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "Le pointeur indéterminé ne désigne pas une cible valide garantie.",
       "source_urls": [
@@ -2736,11 +2736,11 @@
       "options": [
         {
           "id": "A",
-          "text": "Préserver p si realloc échoue"
+          "text": "Éviter tout besoin de free"
         },
         {
           "id": "B",
-          "text": "Éviter tout besoin de free"
+          "text": "Rendre p utilisable après succès sans mise à jour"
         },
         {
           "id": "C",
@@ -2748,11 +2748,11 @@
         },
         {
           "id": "D",
-          "text": "Rendre p utilisable après succès sans mise à jour"
+          "text": "Préserver p si realloc échoue"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "Un échec laisse l'ancien bloc intact ; un succès invalide l'ancien pointeur.",
       "source_urls": [
@@ -2778,23 +2778,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Non, même si l'adresse numérique semble identique"
+          "text": "Oui, parce que realloc ne déplace jamais un bloc"
         },
         {
           "id": "B",
-          "text": "Oui, toujours"
+          "text": "Non, même si l'adresse numérique semble identique"
         },
         {
           "id": "C",
-          "text": "Oui, uniquement pour écrire"
+          "text": "Oui, toujours"
         },
         {
           "id": "D",
-          "text": "Oui, parce que realloc ne déplace jamais un bloc"
+          "text": "Oui, uniquement pour écrire"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "L'ancien pointeur est invalidé par une réallocation réussie.",
       "source_urls": [
@@ -2820,23 +2820,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Non, plusieurs accès mémoire invalides peuvent la provoquer"
+          "text": "Non, elle ne concerne jamais la mémoire"
         },
         {
           "id": "B",
-          "text": "Oui, c'est sa cause unique"
+          "text": "Non, plusieurs accès mémoire invalides peuvent la provoquer"
         },
         {
           "id": "C",
-          "text": "Oui, sinon ce n'est pas une segfault"
+          "text": "Oui, c'est sa cause unique"
         },
         {
           "id": "D",
-          "text": "Non, elle ne concerne jamais la mémoire"
+          "text": "Oui, sinon ce n'est pas une segfault"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "Une segfault peut avoir différentes causes, selon l'environnement.",
       "source_urls": [
@@ -2865,7 +2865,7 @@
         },
         {
           "id": "B",
-          "text": "Parce qu'elle ajoute toujours deux terminateurs"
+          "text": "Parce qu'elle agrandit le tableau sans borne"
         },
         {
           "id": "C",
@@ -2873,7 +2873,7 @@
         },
         {
           "id": "D",
-          "text": "Parce qu'elle agrandit le tableau sans borne"
+          "text": "Parce qu'elle ajoute toujours deux terminateurs"
         }
       ],
       "correct_option_ids": [
@@ -2902,23 +2902,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Les octets alloués sont initialisés à zéro"
+          "text": "Il empêche tout accès hors limites"
         },
         {
           "id": "B",
-          "text": "Il réserve toujours un bloc de 1 Go"
-        },
-        {
-          "id": "C",
           "text": "Il retourne toujours la même adresse"
         },
         {
+          "id": "C",
+          "text": "Les octets alloués sont initialisés à zéro"
+        },
+        {
           "id": "D",
-          "text": "Il empêche tout accès hors limites"
+          "text": "Il réserve toujours un bloc de 1 Go"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "calloc initialise à zéro les octets de l'espace alloué.",
       "source_urls": [
@@ -2943,7 +2943,7 @@
       "options": [
         {
           "id": "A",
-          "text": "t[3]"
+          "text": "t[0]"
         },
         {
           "id": "B",
@@ -2955,11 +2955,11 @@
         },
         {
           "id": "D",
-          "text": "t[0]"
+          "text": "t[3]"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "Les indices valides sont 0, 1 et 2.",
       "source_urls": [
@@ -2984,23 +2984,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Un comportement indéfini"
-        },
-        {
-          "id": "B",
-          "text": "Une réallocation implicite"
-        },
-        {
-          "id": "C",
           "text": "Un zéro automatique"
         },
         {
-          "id": "D",
+          "id": "B",
+          "text": "Un comportement indéfini"
+        },
+        {
+          "id": "C",
           "text": "Un appel valide de malloc"
+        },
+        {
+          "id": "D",
+          "text": "Une réallocation implicite"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "La durée de vie du bloc est terminée.",
       "source_urls": [
@@ -3066,23 +3066,23 @@
       "options": [
         {
           "id": "A",
-          "text": "n <= SIZE_MAX / sizeof *p"
-        },
-        {
-          "id": "B",
-          "text": "n <= sizeof *p"
-        },
-        {
-          "id": "C",
           "text": "n == 0 seulement"
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "sizeof p == sizeof *p"
+        },
+        {
+          "id": "C",
+          "text": "n <= sizeof *p"
+        },
+        {
+          "id": "D",
+          "text": "n <= SIZE_MAX / sizeof *p"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "La division par la taille élément donne le maximum d'éléments représentable.",
       "source_urls": [
@@ -3107,15 +3107,15 @@
       "options": [
         {
           "id": "A",
-          "text": "Une écriture à une adresse invalide selon son analyse"
+          "text": "Une branche Git non fusionnée"
         },
         {
           "id": "B",
-          "text": "Un succès garanti de malloc"
+          "text": "Une écriture à une adresse invalide selon son analyse"
         },
         {
           "id": "C",
-          "text": "Une branche Git non fusionnée"
+          "text": "Un succès garanti de malloc"
         },
         {
           "id": "D",
@@ -3123,7 +3123,7 @@
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "Memcheck signale des écritures invalides, dont hors limites et après libération.",
       "source_urls": [
@@ -3152,15 +3152,15 @@
         },
         {
           "id": "B",
-          "text": "memcpy"
-        },
-        {
-          "id": "C",
           "text": "strcpy sans conditions"
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "calloc"
+        },
+        {
+          "id": "D",
+          "text": "memcpy"
         }
       ],
       "correct_option_ids": [
@@ -3189,23 +3189,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Limiter la lecture selon la capacité du tableau"
+          "text": "Ne jamais vérifier les tailles"
         },
         {
           "id": "B",
-          "text": "Ajouter davantage de free après strcpy"
+          "text": "Limiter la lecture selon la capacité du tableau"
         },
         {
           "id": "C",
-          "text": "Changer uniquement le nom du fichier"
+          "text": "Ajouter davantage de free après strcpy"
         },
         {
           "id": "D",
-          "text": "Ne jamais vérifier les tailles"
+          "text": "Changer uniquement le nom du fichier"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "La corruption se produit au moment de la lecture non bornée.",
       "source_urls": [
@@ -3234,20 +3234,20 @@
         },
         {
           "id": "B",
-          "text": "Durée de vie automatique ou statique"
-        },
-        {
-          "id": "C",
           "text": "Tout tampon fixe est forcément statique"
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "Tout tampon sur le tas est forcément global"
+        },
+        {
+          "id": "D",
+          "text": "Durée de vie automatique ou statique"
         }
       ],
       "correct_option_ids": [
         "A",
-        "B"
+        "D"
       ],
       "explanation": "Taille, durée de vie et allocation sont des aspects distincts.",
       "source_urls": [
@@ -3272,23 +3272,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Récursion sans condition d'arrêt"
-        },
-        {
-          "id": "B",
-          "text": "Un simple printf unique"
-        },
-        {
-          "id": "C",
           "text": "Un commit Git"
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "Une variable d'environnement vide"
+        },
+        {
+          "id": "C",
+          "text": "Un simple printf unique"
+        },
+        {
+          "id": "D",
+          "text": "Récursion sans condition d'arrêt"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "Les appels répétés peuvent épuiser l'espace de pile.",
       "source_urls": [
@@ -3313,23 +3313,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Un bloc de 32 octets perdu directement"
+          "text": "Un bloc correctement libéré"
         },
         {
           "id": "B",
-          "text": "32 pointeurs valides"
+          "text": "Un bloc de 32 octets perdu directement"
         },
         {
           "id": "C",
-          "text": "Un temps CPU de 32 ms"
+          "text": "32 pointeurs valides"
         },
         {
           "id": "D",
-          "text": "Un bloc correctement libéré"
+          "text": "Un temps CPU de 32 ms"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "La fuite certaine concerne un bloc alloué de 32 octets.",
       "source_urls": [
@@ -3354,7 +3354,7 @@
       "options": [
         {
           "id": "A",
-          "text": "Elle poursuit la recherche et peut lire hors limites"
+          "text": "Elle complète automatiquement le tableau"
         },
         {
           "id": "B",
@@ -3362,15 +3362,15 @@
         },
         {
           "id": "C",
-          "text": "Elle complète automatiquement le tableau"
+          "text": "Elle appelle malloc"
         },
         {
           "id": "D",
-          "text": "Elle appelle malloc"
+          "text": "Elle poursuit la recherche et peut lire hors limites"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "strlen ne reçoit pas de longueur maximale et cherche un caractère nul.",
       "source_urls": [
@@ -3399,15 +3399,15 @@
         },
         {
           "id": "B",
-          "text": "L'ajout systématique de '\\0'"
+          "text": "Le tri lexicographique"
         },
         {
           "id": "C",
-          "text": "La suppression des allocations de destination"
+          "text": "L'ajout systématique de '\\0'"
         },
         {
           "id": "D",
-          "text": "Le tri lexicographique"
+          "text": "La suppression des allocations de destination"
         }
       ],
       "correct_option_ids": [
@@ -3436,23 +3436,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Non, il faut définir explicitement le propriétaire"
-        },
-        {
-          "id": "B",
           "text": "Oui, q devient obligatoirement propriétaire unique"
         },
         {
-          "id": "C",
+          "id": "B",
           "text": "Oui, p devient NULL"
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "Non, mais malloc devient inutile"
+        },
+        {
+          "id": "D",
+          "text": "Non, il faut définir explicitement le propriétaire"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "L'ownership est une convention du programme, pas une opération implicite du langage C.",
       "source_urls": [
@@ -3477,23 +3477,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Dangling pointer"
-        },
-        {
-          "id": "B",
-          "text": "Pointeur garanti NULL"
-        },
-        {
-          "id": "C",
           "text": "Pointeur vers un objet toujours valide"
         },
         {
-          "id": "D",
+          "id": "B",
+          "text": "Dangling pointer"
+        },
+        {
+          "id": "C",
           "text": "Pointeur de fonction"
+        },
+        {
+          "id": "D",
+          "text": "Pointeur garanti NULL"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "La cible n'existe plus.",
       "source_urls": [
@@ -3522,15 +3522,15 @@
         },
         {
           "id": "B",
-          "text": "La cible est forcément accessible"
+          "text": "La mémoire est libérée automatiquement"
         },
         {
           "id": "C",
-          "text": "La taille du bloc pointé est connue"
+          "text": "La cible est forcément accessible"
         },
         {
           "id": "D",
-          "text": "La mémoire est libérée automatiquement"
+          "text": "La taille du bloc pointé est connue"
         }
       ],
       "correct_option_ids": [
@@ -3563,11 +3563,11 @@
         },
         {
           "id": "B",
-          "text": "Oui, automatiquement"
+          "text": "Oui, seulement sous Linux"
         },
         {
           "id": "C",
-          "text": "Oui, seulement sous Linux"
+          "text": "Oui, automatiquement"
         },
         {
           "id": "D",
@@ -3600,7 +3600,7 @@
       "options": [
         {
           "id": "A",
-          "text": "Non, il faut examiner le code réel et les diagnostics"
+          "text": "Oui, sans jamais compiler"
         },
         {
           "id": "B",
@@ -3608,15 +3608,15 @@
         },
         {
           "id": "C",
-          "text": "Oui, les noms du lab sont des messages Valgrind exacts"
+          "text": "Non, il faut examiner le code réel et les diagnostics"
         },
         {
           "id": "D",
-          "text": "Oui, sans jamais compiler"
+          "text": "Oui, les noms du lab sont des messages Valgrind exacts"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "Ne pas prétendre avoir établi une erreur sans consulter les preuves.",
       "source_urls": [
@@ -3641,23 +3641,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Vérifier la cohérence des paramètres et du retour"
-        },
-        {
-          "id": "B",
           "text": "Allouer le tas automatiquement"
         },
         {
+          "id": "B",
+          "text": "Créer une boucle implicite"
+        },
+        {
           "id": "C",
-          "text": "Exécuter la fonction avant main"
+          "text": "Vérifier la cohérence des paramètres et du retour"
         },
         {
           "id": "D",
-          "text": "Créer une boucle implicite"
+          "text": "Exécuter la fonction avant main"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "Le prototype décrit la signature.",
       "source_urls": [
@@ -3723,7 +3723,7 @@
       "options": [
         {
           "id": "A",
-          "text": "Localiser plus facilement une régression"
+          "text": "Effacer le code obsolète"
         },
         {
           "id": "B",
@@ -3735,11 +3735,11 @@
         },
         {
           "id": "D",
-          "text": "Effacer le code obsolète"
+          "text": "Localiser plus facilement une régression"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "Des tests ciblés isolent les comportements.",
       "source_urls": [
@@ -3764,23 +3764,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Leurs tailles dépendent de l'implémentation"
-        },
-        {
-          "id": "B",
-          "text": "Tout type int occupe 1 octet"
-        },
-        {
-          "id": "C",
           "text": "Tout type long occupe 8 octets selon le standard"
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "Les tailles n'existent pas"
+        },
+        {
+          "id": "C",
+          "text": "Leurs tailles dépendent de l'implémentation"
+        },
+        {
+          "id": "D",
+          "text": "Tout type int occupe 1 octet"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "Utiliser sizeof et les contraintes du standard.",
       "source_urls": [
@@ -3809,15 +3809,15 @@
         },
         {
           "id": "B",
-          "text": "Une accolade manquante"
+          "text": "Une variable déclarée dans un for GNU89 strict"
         },
         {
           "id": "C",
-          "text": "Une expression avec un ; supplémentaire"
+          "text": "Une accolade manquante"
         },
         {
           "id": "D",
-          "text": "Une variable déclarée dans un for GNU89 strict"
+          "text": "Une expression avec un ; supplémentaire"
         }
       ],
       "correct_option_ids": [
@@ -3846,23 +3846,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Une explication du pourquoi d'un choix non évident"
+          "text": "Une duplication de tous les messages stdout"
         },
         {
           "id": "B",
-          "text": "Un commentaire qui répète chaque opérateur évident"
-        },
-        {
-          "id": "C",
           "text": "Un mot au hasard"
         },
         {
+          "id": "C",
+          "text": "Une explication du pourquoi d'un choix non évident"
+        },
+        {
           "id": "D",
-          "text": "Une duplication de tous les messages stdout"
+          "text": "Un commentaire qui répète chaque opérateur évident"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "Un commentaire utile apporte le contexte et les invariants.",
       "source_urls": [
@@ -3887,7 +3887,7 @@
       "options": [
         {
           "id": "A",
-          "text": "Une propriété qui doit rester vraie aux points définis"
+          "text": "Un pointeur systématiquement NULL"
         },
         {
           "id": "B",
@@ -3899,11 +3899,11 @@
         },
         {
           "id": "D",
-          "text": "Un pointeur systématiquement NULL"
+          "text": "Une propriété qui doit rester vraie aux points définis"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "L'invariant encadre le raisonnement correct.",
       "source_urls": [
@@ -3928,7 +3928,7 @@
       "options": [
         {
           "id": "A",
-          "text": "Lire ses fichiers et reproduire les diagnostics"
+          "text": "Exécuter free sur tous les pointeurs"
         },
         {
           "id": "B",
@@ -3936,7 +3936,7 @@
         },
         {
           "id": "C",
-          "text": "Exécuter free sur tous les pointeurs"
+          "text": "Lire ses fichiers et reproduire les diagnostics"
         },
         {
           "id": "D",
@@ -3944,7 +3944,7 @@
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "Le code et les tests sont nécessaires pour confirmer les risques.",
       "source_urls": [
@@ -3969,23 +3969,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Un type regroupant plusieurs membres"
-        },
-        {
-          "id": "B",
-          "text": "Une boucle exécutée automatiquement"
-        },
-        {
-          "id": "C",
           "text": "Un objet toujours dynamique"
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "Une commande Git"
+        },
+        {
+          "id": "C",
+          "text": "Un type regroupant plusieurs membres"
+        },
+        {
+          "id": "D",
+          "text": "Une boucle exécutée automatiquement"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "Une structure regroupe des données nommées.",
       "source_urls": [
@@ -4010,15 +4010,15 @@
       "options": [
         {
           "id": "A",
-          "text": "struct point p;"
+          "text": "struct p point;"
         },
         {
           "id": "B",
-          "text": "point p; sans typedef"
+          "text": "struct point p;"
         },
         {
           "id": "C",
-          "text": "struct p point;"
+          "text": "point p; sans typedef"
         },
         {
           "id": "D",
@@ -4026,7 +4026,7 @@
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "Sans typedef, le nom de type inclut le mot-clé struct.",
       "source_urls": [
@@ -4051,7 +4051,7 @@
       "options": [
         {
           "id": "A",
-          "text": "p.x"
+          "text": "&p.x comme accès à la valeur"
         },
         {
           "id": "B",
@@ -4063,11 +4063,11 @@
         },
         {
           "id": "D",
-          "text": "&p.x comme accès à la valeur"
+          "text": "p.x"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": ". accède à un membre d'objet structure.",
       "source_urls": [
@@ -4092,23 +4092,23 @@
       "options": [
         {
           "id": "A",
-          "text": "p->x"
+          "text": "p.x()"
         },
         {
           "id": "B",
-          "text": "p.x"
+          "text": "p->x"
         },
         {
           "id": "C",
-          "text": "(*p)->x"
+          "text": "p.x"
         },
         {
           "id": "D",
-          "text": "p.x()"
+          "text": "(*p)->x"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "p->x correspond à (*p).x.",
       "source_urls": [
@@ -4133,23 +4133,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Initialiser les membres dans leur ordre de déclaration"
-        },
-        {
-          "id": "B",
-          "text": "Appeler implicitement malloc"
-        },
-        {
-          "id": "C",
           "text": "Créer forcément un tableau de deux structures"
         },
         {
-          "id": "D",
+          "id": "B",
+          "text": "Initialiser les membres dans leur ordre de déclaration"
+        },
+        {
+          "id": "C",
           "text": "Déclarer une fonction retournant int"
+        },
+        {
+          "id": "D",
+          "text": "Appeler implicitement malloc"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "Une liste d'initialisation affecte les membres correspondants.",
       "source_urls": [
@@ -4174,23 +4174,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Initialiseurs désignés"
-        },
-        {
-          "id": "B",
           "text": "Appel de fonction via pointeur"
         },
         {
+          "id": "B",
+          "text": "Initialiseurs désignés"
+        },
+        {
           "id": "C",
-          "text": "Arithmétique des pointeurs"
+          "text": "Union anonyme obligatoire"
         },
         {
           "id": "D",
-          "text": "Union anonyme obligatoire"
+          "text": "Arithmétique des pointeurs"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "Les initialisateurs désignés sont une fonctionnalité C99.",
       "source_urls": [
@@ -4215,11 +4215,11 @@
       "options": [
         {
           "id": "A",
-          "text": "3"
+          "text": "0"
         },
         {
           "id": "B",
-          "text": "6"
+          "text": "3"
         },
         {
           "id": "C",
@@ -4227,11 +4227,11 @@
         },
         {
           "id": "D",
-          "text": "0"
+          "text": "6"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "Le tableau comporte trois éléments struct.",
       "source_urls": [
@@ -4256,7 +4256,7 @@
       "options": [
         {
           "id": "A",
-          "text": "p.position.x"
+          "text": "p[x][position]"
         },
         {
           "id": "B",
@@ -4264,7 +4264,7 @@
         },
         {
           "id": "C",
-          "text": "p[x][position]"
+          "text": "p.position.x"
         },
         {
           "id": "D",
@@ -4272,7 +4272,7 @@
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "L'opérateur . s'enchaîne sur les objets structures imbriquées.",
       "source_urls": [
@@ -4297,23 +4297,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Copie par valeur des membres de a vers b"
+          "text": "Interdiction absolue du langage C"
         },
         {
           "id": "B",
-          "text": "Simple alias automatique de a"
+          "text": "Copie par valeur des membres de a vers b"
         },
         {
           "id": "C",
-          "text": "Allocation implicite de b sur le tas"
+          "text": "Simple alias automatique de a"
         },
         {
           "id": "D",
-          "text": "Interdiction absolue du langage C"
+          "text": "Allocation implicite de b sur le tas"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "L'affectation de structures copie la valeur.",
       "source_urls": [
@@ -4338,23 +4338,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Oui, passage par valeur"
-        },
-        {
-          "id": "B",
-          "text": "Non, passage par référence automatique"
-        },
-        {
-          "id": "C",
           "text": "Oui, seulement si elle contient un pointeur"
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "Non, les structures sont incompatibles avec les paramètres"
+        },
+        {
+          "id": "C",
+          "text": "Non, passage par référence automatique"
+        },
+        {
+          "id": "D",
+          "text": "Oui, passage par valeur"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "Le paramètre reçoit une copie de la structure.",
       "source_urls": [
@@ -4379,23 +4379,23 @@
       "options": [
         {
           "id": "A",
-          "text": "struct point *p"
-        },
-        {
-          "id": "B",
           "text": "struct point p"
         },
         {
-          "id": "C",
+          "id": "B",
           "text": "int p"
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "char p"
+        },
+        {
+          "id": "D",
+          "text": "struct point *p"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "Un pointeur permet l'accès à l'objet initial.",
       "source_urls": [
@@ -4502,23 +4502,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Oui"
+          "text": "Non, typedef n'accepte aucune structure"
         },
         {
           "id": "B",
-          "text": "Non, il faut toujours un tag struct nommé"
+          "text": "Oui"
         },
         {
           "id": "C",
-          "text": "Oui seulement dans C++"
+          "text": "Non, il faut toujours un tag struct nommé"
         },
         {
           "id": "D",
-          "text": "Non, typedef n'accepte aucune structure"
+          "text": "Oui seulement dans C++"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "L'alias nomme le type même sans tag.",
       "source_urls": [
@@ -4543,23 +4543,23 @@
       "options": [
         {
           "id": "A",
-          "text": "À cause du padding d'alignement"
+          "text": "Parce que tous les champs ont une taille nulle"
         },
         {
           "id": "B",
-          "text": "Parce que sizeof mesure les valeurs numériques"
-        },
-        {
-          "id": "C",
           "text": "Parce qu'une struct est toujours de taille 1024"
         },
         {
+          "id": "C",
+          "text": "À cause du padding d'alignement"
+        },
+        {
           "id": "D",
-          "text": "Parce que tous les champs ont une taille nulle"
+          "text": "Parce que sizeof mesure les valeurs numériques"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "Le compilateur peut insérer des octets de padding.",
       "source_urls": [
@@ -4584,7 +4584,7 @@
       "options": [
         {
           "id": "A",
-          "text": "p = malloc(sizeof *p);"
+          "text": "p = sizeof *p;"
         },
         {
           "id": "B",
@@ -4592,7 +4592,7 @@
         },
         {
           "id": "C",
-          "text": "p = sizeof *p;"
+          "text": "p = malloc(sizeof *p);"
         },
         {
           "id": "D",
@@ -4600,7 +4600,7 @@
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "sizeof *p mesure la structure pointée.",
       "source_urls": [
@@ -4629,15 +4629,15 @@
         },
         {
           "id": "B",
-          "text": "struct noeud suivant; comme membre complet"
+          "text": "char suivant; contenant une adresse"
         },
         {
           "id": "C",
-          "text": "int *suivant exigeant une conversion implicite"
+          "text": "struct noeud suivant; comme membre complet"
         },
         {
           "id": "D",
-          "text": "char suivant; contenant une adresse"
+          "text": "int *suivant exigeant une conversion implicite"
         }
       ],
       "correct_option_ids": [
@@ -4666,23 +4666,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Rendre le contrat du type compréhensible"
-        },
-        {
-          "id": "B",
           "text": "Augmenter automatiquement sa taille"
         },
         {
+          "id": "B",
+          "text": "Remplacer les prototypes"
+        },
+        {
           "id": "C",
-          "text": "Transformer tous les champs en pointeurs"
+          "text": "Rendre le contrat du type compréhensible"
         },
         {
           "id": "D",
-          "text": "Remplacer les prototypes"
+          "text": "Transformer tous les champs en pointeurs"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "La documentation explicite les champs et leur sens.",
       "source_urls": [
@@ -4707,23 +4707,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Oui, il s'agit alors d'un type incomplet utilisable par pointeur"
-        },
-        {
-          "id": "B",
-          "text": "Non, C exige toujours des membres immédiats"
-        },
-        {
-          "id": "C",
           "text": "Oui, on peut immédiatement faire sizeof(cellule_t) avant définition"
         },
         {
-          "id": "D",
+          "id": "B",
+          "text": "Oui, il s'agit alors d'un type incomplet utilisable par pointeur"
+        },
+        {
+          "id": "C",
           "text": "Non, typedef est réservé aux entiers"
+        },
+        {
+          "id": "D",
+          "text": "Non, C exige toujours des membres immédiats"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "Le type incomplet peut être désigné par pointeur.",
       "source_urls": [
@@ -4748,7 +4748,7 @@
       "options": [
         {
           "id": "A",
-          "text": "p->x == (*p).x"
+          "text": "p->x appelle toujours malloc"
         },
         {
           "id": "B",
@@ -4756,15 +4756,15 @@
         },
         {
           "id": "C",
-          "text": "p.x == &p.x"
+          "text": "p->x == (*p).x"
         },
         {
           "id": "D",
-          "text": "p->x appelle toujours malloc"
+          "text": "p.x == &p.x"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "-> signifie déréférencement suivi d'accès au membre.",
       "source_urls": [
@@ -4789,23 +4789,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Éviter plusieurs traitements du même contenu dans une unité de traduction"
+          "text": "Faire un appel réseau"
         },
         {
           "id": "B",
-          "text": "Empêcher toute compilation de la source"
-        },
-        {
-          "id": "C",
           "text": "Remplacer un compilateur C"
         },
         {
+          "id": "C",
+          "text": "Empêcher toute compilation de la source"
+        },
+        {
           "id": "D",
-          "text": "Faire un appel réseau"
+          "text": "Éviter plusieurs traitements du même contenu dans une unité de traduction"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "La garde limite les inclusions répétées dans une même unité de traduction.",
       "source_urls": [
@@ -4838,11 +4838,11 @@
         },
         {
           "id": "C",
-          "text": "int f*(int);"
+          "text": "int f(int *);"
         },
         {
           "id": "D",
-          "text": "int f(int *);"
+          "text": "int f*(int);"
         }
       ],
       "correct_option_ids": [
@@ -4871,11 +4871,11 @@
       "options": [
         {
           "id": "A",
-          "text": "f(5)"
+          "text": "f++(5) comme arithmétique définie"
         },
         {
           "id": "B",
-          "text": "(*f)(5)"
+          "text": "f(5)"
         },
         {
           "id": "C",
@@ -4883,12 +4883,12 @@
         },
         {
           "id": "D",
-          "text": "f++(5) comme arithmétique définie"
+          "text": "(*f)(5)"
         }
       ],
       "correct_option_ids": [
-        "A",
-        "B"
+        "B",
+        "D"
       ],
       "explanation": "Les formes f(5) et (*f)(5) appellent la cible.",
       "source_urls": [
@@ -4913,11 +4913,11 @@
       "options": [
         {
           "id": "A",
-          "text": "Une fonction passée à une autre fonction pour être appelée"
+          "text": "Un pointeur de données toujours nul"
         },
         {
           "id": "B",
-          "text": "Une variable locale de type char"
+          "text": "Une fonction passée à une autre fonction pour être appelée"
         },
         {
           "id": "C",
@@ -4925,11 +4925,11 @@
         },
         {
           "id": "D",
-          "text": "Un pointeur de données toujours nul"
+          "text": "Une variable locale de type char"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "Le callback fournit un traitement sélectionnable via un pointeur de fonction.",
       "source_urls": [
@@ -4954,11 +4954,11 @@
       "options": [
         {
           "id": "A",
-          "text": "Vérifier l'indice avant l'accès"
+          "text": "Ne pas appeler un élément NULL"
         },
         {
           "id": "B",
-          "text": "Ne pas appeler un élément NULL"
+          "text": "Supposer que toutes les signatures sont interchangeables"
         },
         {
           "id": "C",
@@ -4966,12 +4966,12 @@
         },
         {
           "id": "D",
-          "text": "Supposer que toutes les signatures sont interchangeables"
+          "text": "Vérifier l'indice avant l'accès"
         }
       ],
       "correct_option_ids": [
         "A",
-        "B"
+        "D"
       ],
       "explanation": "L'indice et le pointeur doivent être valides et les signatures compatibles.",
       "source_urls": [
@@ -4996,23 +4996,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Un alias pour un type de pointeur de fonction"
+          "text": "Une déclaration de tableau automatique"
         },
         {
           "id": "B",
-          "text": "Une fonction appelée immédiatement"
-        },
-        {
-          "id": "C",
           "text": "Une chaîne de deux int"
         },
         {
+          "id": "C",
+          "text": "Un alias pour un type de pointeur de fonction"
+        },
+        {
           "id": "D",
-          "text": "Une déclaration de tableau automatique"
+          "text": "Une fonction appelée immédiatement"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "typedef renomme le type de pointeur vers fonction.",
       "source_urls": [
@@ -5045,11 +5045,11 @@
         },
         {
           "id": "C",
-          "text": "Trier nécessairement en ordre décroissant"
+          "text": "Éviter de recevoir des void *"
         },
         {
           "id": "D",
-          "text": "Éviter de recevoir des void *"
+          "text": "Trier nécessairement en ordre décroissant"
         }
       ],
       "correct_option_ids": [

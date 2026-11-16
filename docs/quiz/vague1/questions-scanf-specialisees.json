@@ -19,21 +19,21 @@
         },
         {
           "id": "B",
-          "text": "`a` vaut 12."
-        },
-        {
-          "id": "C",
           "text": "`b` reste à 99."
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "La fonction retourne nécessairement EOF."
+        },
+        {
+          "id": "D",
+          "text": "`a` vaut 12."
         }
       ],
       "correct_option_ids": [
         "A",
         "B",
-        "C"
+        "D"
       ],
       "explanation": "Une première affectation réussit. Le second entier ne correspond pas à `x` : échec de correspondance et arrêt, sans écraser `b`.",
       "source_urls": [
@@ -59,25 +59,25 @@
       "options": [
         {
           "id": "A",
-          "text": "Le premier entier est consommé sans être affecté."
-        },
-        {
-          "id": "B",
-          "text": "`n` reçoit 20."
-        },
-        {
-          "id": "C",
           "text": "Le résultat de `scanf` est 1 si la conversion réussit."
         },
         {
-          "id": "D",
+          "id": "B",
+          "text": "Le premier entier est consommé sans être affecté."
+        },
+        {
+          "id": "C",
           "text": "Le résultat est 2 puisque deux nombres figurent dans l'entrée."
+        },
+        {
+          "id": "D",
+          "text": "`n` reçoit 20."
         }
       ],
       "correct_option_ids": [
         "A",
         "B",
-        "C"
+        "D"
       ],
       "explanation": "L'astérisque supprime l'affectation du premier nombre ; elle n'est pas comptée dans le résultat.",
       "source_urls": [
@@ -103,23 +103,23 @@
       "options": [
         {
           "id": "A",
-          "text": "0"
+          "text": "7"
         },
         {
           "id": "B",
-          "text": "1"
-        },
-        {
-          "id": "C",
           "text": "EOF"
         },
         {
+          "id": "C",
+          "text": "0"
+        },
+        {
           "id": "D",
-          "text": "7"
+          "text": "1"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "Le premier caractère ne correspond pas à un nombre entier ; aucune conversion n'est affectée. La valeur initiale de n est conservée.",
       "source_urls": [
@@ -145,7 +145,7 @@
       "options": [
         {
           "id": "A",
-          "text": "La conversion peut stocker trois caractères."
+          "text": "Le tableau doit avoir de la place pour les trois caractères."
         },
         {
           "id": "B",
@@ -153,11 +153,11 @@
         },
         {
           "id": "C",
-          "text": "Le tableau doit avoir de la place pour les trois caractères."
+          "text": "Cette conversion n'ignore pas automatiquement les blancs initiaux."
         },
         {
           "id": "D",
-          "text": "Cette conversion n'ignore pas automatiquement les blancs initiaux."
+          "text": "La conversion peut stocker trois caractères."
         }
       ],
       "correct_option_ids": [
@@ -193,7 +193,7 @@
         },
         {
           "id": "B",
-          "text": "`%d` exige un `double *`."
+          "text": "`%d` lit seulement un chiffre."
         },
         {
           "id": "C",
@@ -201,7 +201,7 @@
         },
         {
           "id": "D",
-          "text": "`%d` lit seulement un chiffre."
+          "text": "`%d` exige un `double *`."
         }
       ],
       "correct_option_ids": [
@@ -231,25 +231,25 @@
       "options": [
         {
           "id": "A",
-          "text": "`n` reçoit 42."
-        },
-        {
-          "id": "B",
           "text": "`c` reçoit le caractère retour à la ligne."
         },
         {
-          "id": "C",
+          "id": "B",
           "text": "Le retour vaut 2 si les deux affectations réussissent."
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "`%c` supprime automatiquement le retour à la ligne."
+        },
+        {
+          "id": "D",
+          "text": "`n` reçoit 42."
         }
       ],
       "correct_option_ids": [
         "A",
         "B",
-        "C"
+        "D"
       ],
       "explanation": "`%d` s'arrête avant le caractère blanc, puis `%c` lit ce caractère, puisqu'il ne saute pas les blancs.",
       "source_urls": [
@@ -279,15 +279,15 @@
         },
         {
           "id": "B",
-          "text": "`scanf(\"%a=%d\", &n)`"
+          "text": "`scanf(\"%d=a\", &n)`"
         },
         {
           "id": "C",
-          "text": "`scanf(\"a%d\", &n)`"
+          "text": "`scanf(\"%a=%d\", &n)`"
         },
         {
           "id": "D",
-          "text": "`scanf(\"%d=a\", &n)`"
+          "text": "`scanf(\"a%d\", &n)`"
         }
       ],
       "correct_option_ids": [
@@ -317,25 +317,25 @@
       "options": [
         {
           "id": "A",
-          "text": "La conversion de `n` utilise au plus deux caractères."
-        },
-        {
-          "id": "B",
-          "text": "`n` peut recevoir 12."
-        },
-        {
-          "id": "C",
           "text": "Le caractère `3` peut rester disponible pour une lecture suivante."
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "La largeur impose une valeur maximale de 2."
+        },
+        {
+          "id": "C",
+          "text": "`n` peut recevoir 12."
+        },
+        {
+          "id": "D",
+          "text": "La conversion de `n` utilise au plus deux caractères."
         }
       ],
       "correct_option_ids": [
         "A",
-        "B",
-        "C"
+        "C",
+        "D"
       ],
       "explanation": "La largeur limite le nombre de caractères examinés dans ce champ, et non la valeur numérique.",
       "source_urls": [
@@ -361,23 +361,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Une fin d'entrée ou une erreur de lecture avant la première conversion."
-        },
-        {
-          "id": "B",
           "text": "Un nombre négatif a été saisi."
         },
         {
+          "id": "B",
+          "text": "Toutes les conversions demandées ont réussi."
+        },
+        {
           "id": "C",
-          "text": "Un entier égal à -1 a été affecté."
+          "text": "Une fin d'entrée ou une erreur de lecture avant la première conversion."
         },
         {
           "id": "D",
-          "text": "Toutes les conversions demandées ont réussi."
+          "text": "Un entier égal à -1 a été affecté."
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "Il faut distinguer EOF (échec de lecture avant conversion) d'un retour zéro (échec de correspondance).",
       "source_urls": [
@@ -407,11 +407,11 @@
         },
         {
           "id": "B",
-          "text": "La conversion `%s` ignore les espaces initiaux."
+          "text": "La conversion s'arrête avant un espace après le mot."
         },
         {
           "id": "C",
-          "text": "La conversion s'arrête avant un espace après le mot."
+          "text": "La conversion `%s` ignore les espaces initiaux."
         },
         {
           "id": "D",
@@ -489,15 +489,15 @@
       "options": [
         {
           "id": "A",
-          "text": "Il écrit le nombre de caractères consommés jusque-là dans un `int *`."
+          "text": "Il n'exige pas de lire un caractère d'entrée supplémentaire."
         },
         {
           "id": "B",
-          "text": "Il ne compte pas comme une conversion affectée dans la valeur de retour."
+          "text": "Il écrit le nombre de caractères consommés jusque-là dans un `int *`."
         },
         {
           "id": "C",
-          "text": "Il n'exige pas de lire un caractère d'entrée supplémentaire."
+          "text": "Il ne compte pas comme une conversion affectée dans la valeur de retour."
         },
         {
           "id": "D",
@@ -537,11 +537,11 @@
         },
         {
           "id": "B",
-          "text": "Exactement la chaîne `abc`."
+          "text": "Une chaîne quelconque de trois caractères maximum."
         },
         {
           "id": "C",
-          "text": "Une chaîne quelconque de trois caractères maximum."
+          "text": "Exactement la chaîne `abc`."
         },
         {
           "id": "D",
@@ -575,7 +575,7 @@
       "options": [
         {
           "id": "A",
-          "text": "Un retour à la ligne peut rester dans le flux après l'entier."
+          "text": "Il faut traiter explicitement le reste de la saisie selon le comportement souhaité."
         },
         {
           "id": "B",
@@ -583,7 +583,7 @@
         },
         {
           "id": "C",
-          "text": "Il faut traiter explicitement le reste de la saisie selon le comportement souhaité."
+          "text": "Un retour à la ligne peut rester dans le flux après l'entier."
         },
         {
           "id": "D",
@@ -619,11 +619,11 @@
       "options": [
         {
           "id": "A",
-          "text": "`&tab[1]`"
+          "text": "`tab[1]`"
         },
         {
           "id": "B",
-          "text": "`tab[1]`"
+          "text": "`&tab[1]`"
         },
         {
           "id": "C",
@@ -635,7 +635,7 @@
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "La conversion `%d` attend un `int *` pointant vers l'élément ciblé.",
       "source_urls": [

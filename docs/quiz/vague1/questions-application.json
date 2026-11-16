@@ -14,23 +14,23 @@
       "options": [
         {
           "id": "A",
-          "text": "1"
-        },
-        {
-          "id": "B",
-          "text": "2"
-        },
-        {
-          "id": "C",
           "text": "0"
         },
         {
-          "id": "D",
+          "id": "B",
+          "text": "1"
+        },
+        {
+          "id": "C",
           "text": "3"
+        },
+        {
+          "id": "D",
+          "text": "2"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "Résultat : 1. La division entière ne conserve pas la partie fractionnaire et le modulo rend le reste.",
       "source_urls": [
@@ -55,23 +55,23 @@
       "options": [
         {
           "id": "A",
-          "text": "11"
-        },
-        {
-          "id": "B",
-          "text": "12"
-        },
-        {
-          "id": "C",
           "text": "10"
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "13"
+        },
+        {
+          "id": "C",
+          "text": "12"
+        },
+        {
+          "id": "D",
+          "text": "11"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "Résultat : 11. La division entière ne conserve pas la partie fractionnaire et le modulo rend le reste.",
       "source_urls": [
@@ -137,11 +137,11 @@
       "options": [
         {
           "id": "A",
-          "text": "3"
+          "text": "4"
         },
         {
           "id": "B",
-          "text": "4"
+          "text": "3"
         },
         {
           "id": "C",
@@ -153,7 +153,7 @@
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "Résultat : 3. La division entière ne conserve pas la partie fractionnaire et le modulo rend le reste.",
       "source_urls": [
@@ -219,23 +219,23 @@
       "options": [
         {
           "id": "A",
-          "text": "23"
-        },
-        {
-          "id": "B",
           "text": "24"
         },
         {
-          "id": "C",
+          "id": "B",
           "text": "22"
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "25"
+        },
+        {
+          "id": "D",
+          "text": "23"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "Résultat : 23. La division entière ne conserve pas la partie fractionnaire et le modulo rend le reste.",
       "source_urls": [
@@ -260,7 +260,7 @@
       "options": [
         {
           "id": "A",
-          "text": "1"
+          "text": "3"
         },
         {
           "id": "B",
@@ -272,11 +272,11 @@
         },
         {
           "id": "D",
-          "text": "3"
+          "text": "1"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "Résultat : 1. La division entière ne conserve pas la partie fractionnaire et le modulo rend le reste.",
       "source_urls": [
@@ -301,7 +301,7 @@
       "options": [
         {
           "id": "A",
-          "text": "12"
+          "text": "11"
         },
         {
           "id": "B",
@@ -309,15 +309,15 @@
         },
         {
           "id": "C",
-          "text": "11"
+          "text": "14"
         },
         {
           "id": "D",
-          "text": "14"
+          "text": "12"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "Résultat : 12. La division entière ne conserve pas la partie fractionnaire et le modulo rend le reste.",
       "source_urls": [
@@ -342,23 +342,23 @@
       "options": [
         {
           "id": "A",
-          "text": "1"
+          "text": "3"
         },
         {
           "id": "B",
-          "text": "2"
-        },
-        {
-          "id": "C",
           "text": "0"
         },
         {
+          "id": "C",
+          "text": "1"
+        },
+        {
           "id": "D",
-          "text": "3"
+          "text": "2"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "Résultat : 1. La division entière ne conserve pas la partie fractionnaire et le modulo rend le reste.",
       "source_urls": [
@@ -391,11 +391,11 @@
         },
         {
           "id": "C",
-          "text": "6"
+          "text": "9"
         },
         {
           "id": "D",
-          "text": "9"
+          "text": "6"
         }
       ],
       "correct_option_ids": [
@@ -432,11 +432,11 @@
         },
         {
           "id": "C",
-          "text": "2"
+          "text": "5"
         },
         {
           "id": "D",
-          "text": "5"
+          "text": "2"
         }
       ],
       "correct_option_ids": [
@@ -465,7 +465,7 @@
       "options": [
         {
           "id": "A",
-          "text": "37"
+          "text": "39"
         },
         {
           "id": "B",
@@ -473,15 +473,15 @@
         },
         {
           "id": "C",
-          "text": "36"
+          "text": "37"
         },
         {
           "id": "D",
-          "text": "39"
+          "text": "36"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "Résultat : 37. La division entière ne conserve pas la partie fractionnaire et le modulo rend le reste.",
       "source_urls": [
@@ -506,23 +506,23 @@
       "options": [
         {
           "id": "A",
-          "text": "2"
-        },
-        {
-          "id": "B",
           "text": "3"
         },
         {
+          "id": "B",
+          "text": "2"
+        },
+        {
           "id": "C",
-          "text": "1"
+          "text": "4"
         },
         {
           "id": "D",
-          "text": "4"
+          "text": "1"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "Résultat : 2. La division entière ne conserve pas la partie fractionnaire et le modulo rend le reste.",
       "source_urls": [
@@ -547,7 +547,7 @@
       "options": [
         {
           "id": "A",
-          "text": "14"
+          "text": "16"
         },
         {
           "id": "B",
@@ -559,11 +559,11 @@
         },
         {
           "id": "D",
-          "text": "16"
+          "text": "14"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "Résultat : 14. La division entière ne conserve pas la partie fractionnaire et le modulo rend le reste.",
       "source_urls": [
@@ -588,23 +588,23 @@
       "options": [
         {
           "id": "A",
-          "text": "0"
+          "text": "2"
         },
         {
           "id": "B",
-          "text": "1"
-        },
-        {
-          "id": "C",
           "text": "-1"
         },
         {
+          "id": "C",
+          "text": "1"
+        },
+        {
           "id": "D",
-          "text": "2"
+          "text": "0"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "Résultat : 0. La division entière ne conserve pas la partie fractionnaire et le modulo rend le reste.",
       "source_urls": [
@@ -629,23 +629,23 @@
       "options": [
         {
           "id": "A",
-          "text": "8"
+          "text": "10"
         },
         {
           "id": "B",
-          "text": "9"
-        },
-        {
-          "id": "C",
           "text": "7"
         },
         {
+          "id": "C",
+          "text": "9"
+        },
+        {
           "id": "D",
-          "text": "10"
+          "text": "8"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "Résultat : 8. La division entière ne conserve pas la partie fractionnaire et le modulo rend le reste.",
       "source_urls": [
@@ -670,23 +670,23 @@
       "options": [
         {
           "id": "A",
-          "text": "5"
-        },
-        {
-          "id": "B",
           "text": "6"
         },
         {
+          "id": "B",
+          "text": "5"
+        },
+        {
           "id": "C",
-          "text": "4"
+          "text": "7"
         },
         {
           "id": "D",
-          "text": "7"
+          "text": "4"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "Résultat : 5. La division entière ne conserve pas la partie fractionnaire et le modulo rend le reste.",
       "source_urls": [
@@ -711,7 +711,7 @@
       "options": [
         {
           "id": "A",
-          "text": "58"
+          "text": "60"
         },
         {
           "id": "B",
@@ -723,11 +723,11 @@
         },
         {
           "id": "D",
-          "text": "60"
+          "text": "58"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "Résultat : 58. La division entière ne conserve pas la partie fractionnaire et le modulo rend le reste.",
       "source_urls": [
@@ -752,7 +752,7 @@
       "options": [
         {
           "id": "A",
-          "text": "4"
+          "text": "3"
         },
         {
           "id": "B",
@@ -760,15 +760,15 @@
         },
         {
           "id": "C",
-          "text": "3"
+          "text": "6"
         },
         {
           "id": "D",
-          "text": "6"
+          "text": "4"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "Résultat : 4. La division entière ne conserve pas la partie fractionnaire et le modulo rend le reste.",
       "source_urls": [
@@ -793,11 +793,11 @@
       "options": [
         {
           "id": "A",
-          "text": "12"
+          "text": "14"
         },
         {
           "id": "B",
-          "text": "13"
+          "text": "12"
         },
         {
           "id": "C",
@@ -805,11 +805,11 @@
         },
         {
           "id": "D",
-          "text": "14"
+          "text": "13"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "Résultat : 12. La division entière ne conserve pas la partie fractionnaire et le modulo rend le reste.",
       "source_urls": [
@@ -834,7 +834,7 @@
       "options": [
         {
           "id": "A",
-          "text": "0"
+          "text": "-1"
         },
         {
           "id": "B",
@@ -842,15 +842,15 @@
         },
         {
           "id": "C",
-          "text": "-1"
+          "text": "2"
         },
         {
           "id": "D",
-          "text": "2"
+          "text": "0"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "Résultat : 0. La division entière ne conserve pas la partie fractionnaire et le modulo rend le reste.",
       "source_urls": [
@@ -879,11 +879,11 @@
         },
         {
           "id": "B",
-          "text": "5"
+          "text": "3"
         },
         {
           "id": "C",
-          "text": "3"
+          "text": "5"
         },
         {
           "id": "D",
@@ -916,23 +916,23 @@
       "options": [
         {
           "id": "A",
-          "text": "6"
+          "text": "8"
         },
         {
           "id": "B",
-          "text": "7"
-        },
-        {
-          "id": "C",
           "text": "5"
         },
         {
+          "id": "C",
+          "text": "6"
+        },
+        {
           "id": "D",
-          "text": "8"
+          "text": "7"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "Résultat : 6. La division entière ne conserve pas la partie fractionnaire et le modulo rend le reste.",
       "source_urls": [
@@ -957,7 +957,7 @@
       "options": [
         {
           "id": "A",
-          "text": "64"
+          "text": "66"
         },
         {
           "id": "B",
@@ -965,15 +965,15 @@
         },
         {
           "id": "C",
-          "text": "63"
+          "text": "64"
         },
         {
           "id": "D",
-          "text": "66"
+          "text": "63"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "Résultat : 64. La division entière ne conserve pas la partie fractionnaire et le modulo rend le reste.",
       "source_urls": [
@@ -998,23 +998,23 @@
       "options": [
         {
           "id": "A",
-          "text": "5"
+          "text": "7"
         },
         {
           "id": "B",
-          "text": "6"
+          "text": "5"
         },
         {
           "id": "C",
-          "text": "4"
+          "text": "6"
         },
         {
           "id": "D",
-          "text": "7"
+          "text": "4"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "Résultat : 5. La division entière ne conserve pas la partie fractionnaire et le modulo rend le reste.",
       "source_urls": [
@@ -1043,11 +1043,11 @@
         },
         {
           "id": "B",
-          "text": "11"
+          "text": "9"
         },
         {
           "id": "C",
-          "text": "9"
+          "text": "11"
         },
         {
           "id": "D",
@@ -1080,23 +1080,23 @@
       "options": [
         {
           "id": "A",
-          "text": "1"
-        },
-        {
-          "id": "B",
           "text": "2"
         },
         {
-          "id": "C",
+          "id": "B",
           "text": "0"
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "3"
+        },
+        {
+          "id": "D",
+          "text": "1"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "Résultat : 1. La division entière ne conserve pas la partie fractionnaire et le modulo rend le reste.",
       "source_urls": [
@@ -1121,15 +1121,15 @@
       "options": [
         {
           "id": "A",
-          "text": "5"
+          "text": "4"
         },
         {
           "id": "B",
-          "text": "6"
+          "text": "5"
         },
         {
           "id": "C",
-          "text": "4"
+          "text": "6"
         },
         {
           "id": "D",
@@ -1137,7 +1137,7 @@
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "Résultat : 5. La division entière ne conserve pas la partie fractionnaire et le modulo rend le reste.",
       "source_urls": [
@@ -1162,11 +1162,11 @@
       "options": [
         {
           "id": "A",
-          "text": "7"
+          "text": "8"
         },
         {
           "id": "B",
-          "text": "8"
+          "text": "7"
         },
         {
           "id": "C",
@@ -1178,7 +1178,7 @@
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "Résultat : 7. La division entière ne conserve pas la partie fractionnaire et le modulo rend le reste.",
       "source_urls": [
@@ -1203,7 +1203,7 @@
       "options": [
         {
           "id": "A",
-          "text": "75"
+          "text": "74"
         },
         {
           "id": "B",
@@ -1211,7 +1211,7 @@
         },
         {
           "id": "C",
-          "text": "74"
+          "text": "75"
         },
         {
           "id": "D",
@@ -1219,7 +1219,7 @@
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "Résultat : 75. La division entière ne conserve pas la partie fractionnaire et le modulo rend le reste.",
       "source_urls": [
@@ -1244,23 +1244,23 @@
       "options": [
         {
           "id": "A",
-          "text": "1"
-        },
-        {
-          "id": "B",
           "text": "2"
         },
         {
-          "id": "C",
+          "id": "B",
           "text": "0"
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "3"
+        },
+        {
+          "id": "D",
+          "text": "1"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "Résultat : 1. La division entière ne conserve pas la partie fractionnaire et le modulo rend le reste.",
       "source_urls": [
@@ -1285,23 +1285,23 @@
       "options": [
         {
           "id": "A",
-          "text": "11"
-        },
-        {
-          "id": "B",
-          "text": "12"
-        },
-        {
-          "id": "C",
           "text": "10"
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "13"
+        },
+        {
+          "id": "C",
+          "text": "11"
+        },
+        {
+          "id": "D",
+          "text": "12"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "Résultat : 11. La division entière ne conserve pas la partie fractionnaire et le modulo rend le reste.",
       "source_urls": [
@@ -1326,23 +1326,23 @@
       "options": [
         {
           "id": "A",
-          "text": "1"
+          "text": "3"
         },
         {
           "id": "B",
-          "text": "2"
-        },
-        {
-          "id": "C",
           "text": "0"
         },
         {
+          "id": "C",
+          "text": "2"
+        },
+        {
           "id": "D",
-          "text": "3"
+          "text": "1"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "Résultat : 1. La division entière ne conserve pas la partie fractionnaire et le modulo rend le reste.",
       "source_urls": [
@@ -1367,15 +1367,15 @@
       "options": [
         {
           "id": "A",
-          "text": "9"
+          "text": "8"
         },
         {
           "id": "B",
-          "text": "10"
+          "text": "9"
         },
         {
           "id": "C",
-          "text": "8"
+          "text": "10"
         },
         {
           "id": "D",
@@ -1383,7 +1383,7 @@
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "Résultat : 9. La division entière ne conserve pas la partie fractionnaire et le modulo rend le reste.",
       "source_urls": [
@@ -1408,23 +1408,23 @@
       "options": [
         {
           "id": "A",
-          "text": "8"
-        },
-        {
-          "id": "B",
-          "text": "9"
-        },
-        {
-          "id": "C",
           "text": "7"
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "10"
+        },
+        {
+          "id": "C",
+          "text": "8"
+        },
+        {
+          "id": "D",
+          "text": "9"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "Résultat : 8. La division entière ne conserve pas la partie fractionnaire et le modulo rend le reste.",
       "source_urls": [
@@ -1453,11 +1453,11 @@
         },
         {
           "id": "B",
-          "text": "90"
+          "text": "88"
         },
         {
           "id": "C",
-          "text": "88"
+          "text": "90"
         },
         {
           "id": "D",
@@ -1498,11 +1498,11 @@
         },
         {
           "id": "C",
-          "text": "3"
+          "text": "6"
         },
         {
           "id": "D",
-          "text": "6"
+          "text": "3"
         }
       ],
       "correct_option_ids": [
@@ -1531,7 +1531,7 @@
       "options": [
         {
           "id": "A",
-          "text": "11"
+          "text": "10"
         },
         {
           "id": "B",
@@ -1539,7 +1539,7 @@
         },
         {
           "id": "C",
-          "text": "10"
+          "text": "11"
         },
         {
           "id": "D",
@@ -1547,7 +1547,7 @@
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "Résultat : 11. La division entière ne conserve pas la partie fractionnaire et le modulo rend le reste.",
       "source_urls": [
@@ -1572,7 +1572,7 @@
       "options": [
         {
           "id": "A",
-          "text": "1"
+          "text": "3"
         },
         {
           "id": "B",
@@ -1584,11 +1584,11 @@
         },
         {
           "id": "D",
-          "text": "3"
+          "text": "1"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "Résultat : 1. La division entière ne conserve pas la partie fractionnaire et le modulo rend le reste.",
       "source_urls": [
@@ -1654,11 +1654,11 @@
       "options": [
         {
           "id": "A",
-          "text": "10"
+          "text": "11"
         },
         {
           "id": "B",
-          "text": "11"
+          "text": "10"
         },
         {
           "id": "C",
@@ -1670,7 +1670,7 @@
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "Résultat : 10. La division entière ne conserve pas la partie fractionnaire et le modulo rend le reste.",
       "source_urls": [
@@ -1736,23 +1736,23 @@
       "options": [
         {
           "id": "A",
-          "text": "1"
+          "text": "3"
         },
         {
           "id": "B",
-          "text": "2"
+          "text": "1"
         },
         {
           "id": "C",
-          "text": "0"
+          "text": "2"
         },
         {
           "id": "D",
-          "text": "3"
+          "text": "0"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "Résultat : 1. La division entière ne conserve pas la partie fractionnaire et le modulo rend le reste.",
       "source_urls": [
@@ -1781,11 +1781,11 @@
         },
         {
           "id": "B",
-          "text": "64"
+          "text": "62"
         },
         {
           "id": "C",
-          "text": "62"
+          "text": "64"
         },
         {
           "id": "D",
@@ -1818,7 +1818,7 @@
       "options": [
         {
           "id": "A",
-          "text": "1"
+          "text": "3"
         },
         {
           "id": "B",
@@ -1826,15 +1826,15 @@
         },
         {
           "id": "C",
-          "text": "0"
+          "text": "1"
         },
         {
           "id": "D",
-          "text": "3"
+          "text": "0"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "Résultat : 1. La division entière ne conserve pas la partie fractionnaire et le modulo rend le reste.",
       "source_urls": [
@@ -1859,11 +1859,11 @@
       "options": [
         {
           "id": "A",
-          "text": "7"
+          "text": "9"
         },
         {
           "id": "B",
-          "text": "8"
+          "text": "7"
         },
         {
           "id": "C",
@@ -1871,11 +1871,11 @@
         },
         {
           "id": "D",
-          "text": "9"
+          "text": "8"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "Résultat : 7. La division entière ne conserve pas la partie fractionnaire et le modulo rend le reste.",
       "source_urls": [
@@ -1904,11 +1904,11 @@
         },
         {
           "id": "B",
-          "text": "13"
+          "text": "11"
         },
         {
           "id": "C",
-          "text": "11"
+          "text": "13"
         },
         {
           "id": "D",
@@ -1982,23 +1982,23 @@
       "options": [
         {
           "id": "A",
-          "text": "1"
-        },
-        {
-          "id": "B",
-          "text": "2"
-        },
-        {
-          "id": "C",
           "text": "0"
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "3"
+        },
+        {
+          "id": "C",
+          "text": "2"
+        },
+        {
+          "id": "D",
+          "text": "1"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "Résultat : 1. La division entière ne conserve pas la partie fractionnaire et le modulo rend le reste.",
       "source_urls": [
@@ -2027,15 +2027,15 @@
         },
         {
           "id": "B",
-          "text": "48"
-        },
-        {
-          "id": "C",
           "text": "46"
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "49"
+        },
+        {
+          "id": "D",
+          "text": "48"
         }
       ],
       "correct_option_ids": [
@@ -2068,15 +2068,15 @@
         },
         {
           "id": "B",
-          "text": "1"
+          "text": "2"
         },
         {
           "id": "C",
-          "text": "-1"
+          "text": "1"
         },
         {
           "id": "D",
-          "text": "2"
+          "text": "-1"
         }
       ],
       "correct_option_ids": [
@@ -2109,7 +2109,7 @@
         },
         {
           "id": "B",
-          "text": "3"
+          "text": "4"
         },
         {
           "id": "C",
@@ -2117,7 +2117,7 @@
         },
         {
           "id": "D",
-          "text": "4"
+          "text": "3"
         }
       ],
       "correct_option_ids": [
@@ -2146,11 +2146,11 @@
       "options": [
         {
           "id": "A",
-          "text": "14"
+          "text": "16"
         },
         {
           "id": "B",
-          "text": "15"
+          "text": "14"
         },
         {
           "id": "C",
@@ -2158,11 +2158,11 @@
         },
         {
           "id": "D",
-          "text": "16"
+          "text": "15"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "Résultat : 14. La division entière ne conserve pas la partie fractionnaire et le modulo rend le reste.",
       "source_urls": [
@@ -2187,15 +2187,15 @@
       "options": [
         {
           "id": "A",
-          "text": "42"
+          "text": "41"
         },
         {
           "id": "B",
-          "text": "43"
+          "text": "42"
         },
         {
           "id": "C",
-          "text": "41"
+          "text": "43"
         },
         {
           "id": "D",
@@ -2203,7 +2203,7 @@
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "Résultat : 42. La division entière ne conserve pas la partie fractionnaire et le modulo rend le reste.",
       "source_urls": [
@@ -2228,7 +2228,7 @@
       "options": [
         {
           "id": "A",
-          "text": "1"
+          "text": "3"
         },
         {
           "id": "B",
@@ -2236,15 +2236,15 @@
         },
         {
           "id": "C",
-          "text": "0"
+          "text": "1"
         },
         {
           "id": "D",
-          "text": "3"
+          "text": "0"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "Résultat : 1. La division entière ne conserve pas la partie fractionnaire et le modulo rend le reste.",
       "source_urls": [
@@ -2269,23 +2269,23 @@
       "options": [
         {
           "id": "A",
-          "text": "1"
-        },
-        {
-          "id": "B",
           "text": "2"
         },
         {
+          "id": "B",
+          "text": "3"
+        },
+        {
           "id": "C",
-          "text": "0"
+          "text": "1"
         },
         {
           "id": "D",
-          "text": "3"
+          "text": "0"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "Résultat : 1. La division entière ne conserve pas la partie fractionnaire et le modulo rend le reste.",
       "source_urls": [
@@ -2314,7 +2314,7 @@
         },
         {
           "id": "B",
-          "text": "6"
+          "text": "7"
         },
         {
           "id": "C",
@@ -2322,7 +2322,7 @@
         },
         {
           "id": "D",
-          "text": "7"
+          "text": "6"
         }
       ],
       "correct_option_ids": [
@@ -2351,15 +2351,15 @@
       "options": [
         {
           "id": "A",
-          "text": "16"
+          "text": "15"
         },
         {
           "id": "B",
-          "text": "17"
+          "text": "16"
         },
         {
           "id": "C",
-          "text": "15"
+          "text": "17"
         },
         {
           "id": "D",
@@ -2367,7 +2367,7 @@
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "Résultat : 16. La division entière ne conserve pas la partie fractionnaire et le modulo rend le reste.",
       "source_urls": [
@@ -2392,23 +2392,23 @@
       "options": [
         {
           "id": "A",
-          "text": "65"
+          "text": "67"
         },
         {
           "id": "B",
-          "text": "66"
-        },
-        {
-          "id": "C",
           "text": "64"
         },
         {
+          "id": "C",
+          "text": "66"
+        },
+        {
           "id": "D",
-          "text": "67"
+          "text": "65"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "Résultat : 65. La division entière ne conserve pas la partie fractionnaire et le modulo rend le reste.",
       "source_urls": [
@@ -2433,23 +2433,23 @@
       "options": [
         {
           "id": "A",
-          "text": "4"
+          "text": "6"
         },
         {
           "id": "B",
-          "text": "5"
-        },
-        {
-          "id": "C",
           "text": "3"
         },
         {
+          "id": "C",
+          "text": "5"
+        },
+        {
           "id": "D",
-          "text": "6"
+          "text": "4"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "Résultat : 4. La division entière ne conserve pas la partie fractionnaire et le modulo rend le reste.",
       "source_urls": [
@@ -2474,7 +2474,7 @@
       "options": [
         {
           "id": "A",
-          "text": "9"
+          "text": "8"
         },
         {
           "id": "B",
@@ -2482,7 +2482,7 @@
         },
         {
           "id": "C",
-          "text": "8"
+          "text": "9"
         },
         {
           "id": "D",
@@ -2490,7 +2490,7 @@
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "Résultat : 9. La division entière ne conserve pas la partie fractionnaire et le modulo rend le reste.",
       "source_urls": [
@@ -2515,11 +2515,11 @@
       "options": [
         {
           "id": "A",
-          "text": "19"
+          "text": "20"
         },
         {
           "id": "B",
-          "text": "20"
+          "text": "19"
         },
         {
           "id": "C",
@@ -2531,7 +2531,7 @@
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "Résultat : 19. La division entière ne conserve pas la partie fractionnaire et le modulo rend le reste.",
       "source_urls": [
@@ -2556,23 +2556,23 @@
       "options": [
         {
           "id": "A",
-          "text": "99"
+          "text": "101"
         },
         {
           "id": "B",
-          "text": "100"
-        },
-        {
-          "id": "C",
           "text": "98"
         },
         {
+          "id": "C",
+          "text": "100"
+        },
+        {
           "id": "D",
-          "text": "101"
+          "text": "99"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "Résultat : 99. La division entière ne conserve pas la partie fractionnaire et le modulo rend le reste.",
       "source_urls": [
@@ -2597,23 +2597,23 @@
       "options": [
         {
           "id": "A",
-          "text": "3"
-        },
-        {
-          "id": "B",
-          "text": "4"
-        },
-        {
-          "id": "C",
           "text": "2"
         },
         {
-          "id": "D",
+          "id": "B",
+          "text": "3"
+        },
+        {
+          "id": "C",
           "text": "5"
+        },
+        {
+          "id": "D",
+          "text": "4"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "Résultat : 3. La division entière ne conserve pas la partie fractionnaire et le modulo rend le reste.",
       "source_urls": [
@@ -2642,15 +2642,15 @@
         },
         {
           "id": "B",
-          "text": "4"
-        },
-        {
-          "id": "C",
           "text": "2"
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "5"
+        },
+        {
+          "id": "D",
+          "text": "4"
         }
       ],
       "correct_option_ids": [
@@ -2679,15 +2679,15 @@
       "options": [
         {
           "id": "A",
-          "text": "21"
-        },
-        {
-          "id": "B",
           "text": "22"
         },
         {
-          "id": "C",
+          "id": "B",
           "text": "20"
+        },
+        {
+          "id": "C",
+          "text": "21"
         },
         {
           "id": "D",
@@ -2695,7 +2695,7 @@
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "Résultat : 21. La division entière ne conserve pas la partie fractionnaire et le modulo rend le reste.",
       "source_urls": [
@@ -2720,7 +2720,7 @@
       "options": [
         {
           "id": "A",
-          "text": "13"
+          "text": "12"
         },
         {
           "id": "B",
@@ -2728,15 +2728,15 @@
         },
         {
           "id": "C",
-          "text": "12"
+          "text": "15"
         },
         {
           "id": "D",
-          "text": "15"
+          "text": "13"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "Résultat : 13. La division entière ne conserve pas la partie fractionnaire et le modulo rend le reste.",
       "source_urls": [
@@ -2761,23 +2761,23 @@
       "options": [
         {
           "id": "A",
-          "text": "0"
+          "text": "2"
         },
         {
           "id": "B",
-          "text": "1"
-        },
-        {
-          "id": "C",
           "text": "-1"
         },
         {
+          "id": "C",
+          "text": "1"
+        },
+        {
           "id": "D",
-          "text": "2"
+          "text": "0"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "Résultat : 0. La division entière ne conserve pas la partie fractionnaire et le modulo rend le reste.",
       "source_urls": [
@@ -2802,23 +2802,23 @@
       "options": [
         {
           "id": "A",
-          "text": "4"
+          "text": "6"
         },
         {
           "id": "B",
-          "text": "5"
-        },
-        {
-          "id": "C",
           "text": "3"
         },
         {
+          "id": "C",
+          "text": "4"
+        },
+        {
           "id": "D",
-          "text": "6"
+          "text": "5"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "Résultat : 4. La division entière ne conserve pas la partie fractionnaire et le modulo rend le reste.",
       "source_urls": [
@@ -2843,23 +2843,23 @@
       "options": [
         {
           "id": "A",
-          "text": "1"
-        },
-        {
-          "id": "B",
-          "text": "2"
-        },
-        {
-          "id": "C",
           "text": "0"
         },
         {
-          "id": "D",
+          "id": "B",
+          "text": "1"
+        },
+        {
+          "id": "C",
           "text": "3"
+        },
+        {
+          "id": "D",
+          "text": "2"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "Résultat : 1. La division entière ne conserve pas la partie fractionnaire et le modulo rend le reste.",
       "source_urls": [
@@ -2888,7 +2888,7 @@
         },
         {
           "id": "B",
-          "text": "2"
+          "text": "3"
         },
         {
           "id": "C",
@@ -2896,7 +2896,7 @@
         },
         {
           "id": "D",
-          "text": "3"
+          "text": "2"
         }
       ],
       "correct_option_ids": [
@@ -2925,23 +2925,23 @@
       "options": [
         {
           "id": "A",
-          "text": "3"
+          "text": "5"
         },
         {
           "id": "B",
-          "text": "4"
-        },
-        {
-          "id": "C",
           "text": "2"
         },
         {
+          "id": "C",
+          "text": "3"
+        },
+        {
           "id": "D",
-          "text": "5"
+          "text": "4"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "Résultat : 3. La division entière ne conserve pas la partie fractionnaire et le modulo rend le reste.",
       "source_urls": [
@@ -2966,15 +2966,15 @@
       "options": [
         {
           "id": "A",
-          "text": "2"
+          "text": "1"
         },
         {
           "id": "B",
-          "text": "3"
+          "text": "2"
         },
         {
           "id": "C",
-          "text": "1"
+          "text": "3"
         },
         {
           "id": "D",
@@ -2982,7 +2982,7 @@
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "Résultat : 2. La division entière ne conserve pas la partie fractionnaire et le modulo rend le reste.",
       "source_urls": [
@@ -3007,23 +3007,23 @@
       "options": [
         {
           "id": "A",
-          "text": "j=2, i=3"
-        },
-        {
-          "id": "B",
-          "text": "j=2, i=2"
-        },
-        {
-          "id": "C",
           "text": "j=3, i=2"
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "Aucun de ces calculs"
+        },
+        {
+          "id": "C",
+          "text": "j=2, i=3"
+        },
+        {
+          "id": "D",
+          "text": "j=2, i=2"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "Post-incrémentation : utilisation de l'ancienne valeur, puis incrémentation.",
       "source_urls": [
@@ -3047,11 +3047,11 @@
       "options": [
         {
           "id": "A",
-          "text": "j=3, i=3"
+          "text": "j=2, i=2"
         },
         {
           "id": "B",
-          "text": "j=2, i=2"
+          "text": "j=3, i=2"
         },
         {
           "id": "C",
@@ -3059,11 +3059,11 @@
         },
         {
           "id": "D",
-          "text": "j=3, i=2"
+          "text": "j=3, i=3"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "Pré-incrémentation : incrémentation, puis utilisation de la nouvelle valeur.",
       "source_urls": [
@@ -3087,7 +3087,7 @@
       "options": [
         {
           "id": "A",
-          "text": "j=2, i=1"
+          "text": "Aucun de ces calculs"
         },
         {
           "id": "B",
@@ -3095,15 +3095,15 @@
         },
         {
           "id": "C",
-          "text": "j=1, i=2"
+          "text": "j=2, i=1"
         },
         {
           "id": "D",
-          "text": "Aucun de ces calculs"
+          "text": "j=1, i=2"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "Post-décrémentation : utilisation de l'ancienne valeur, puis décrémentation.",
       "source_urls": [
@@ -3131,15 +3131,15 @@
         },
         {
           "id": "B",
-          "text": "j=2, i=2"
-        },
-        {
-          "id": "C",
           "text": "Impossible dans cet exemple"
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "j=1, i=2"
+        },
+        {
+          "id": "D",
+          "text": "j=2, i=2"
         }
       ],
       "correct_option_ids": [
@@ -3167,15 +3167,15 @@
       "options": [
         {
           "id": "A",
-          "text": "2"
-        },
-        {
-          "id": "B",
           "text": "3"
         },
         {
-          "id": "C",
+          "id": "B",
           "text": "1"
+        },
+        {
+          "id": "C",
+          "text": "2"
         },
         {
           "id": "D",
@@ -3183,7 +3183,7 @@
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "Les valeurs de i vont de 0 à 1, soit 2 passages.",
       "source_urls": [
@@ -3207,23 +3207,23 @@
       "options": [
         {
           "id": "A",
-          "text": "2"
-        },
-        {
-          "id": "B",
           "text": "1"
         },
         {
+          "id": "B",
+          "text": "0"
+        },
+        {
           "id": "C",
-          "text": "3"
+          "text": "2"
         },
         {
           "id": "D",
-          "text": "0"
+          "text": "3"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "i prend successivement les valeurs 2 à 1, soit 2 passages.",
       "source_urls": [
@@ -3247,7 +3247,7 @@
       "options": [
         {
           "id": "A",
-          "text": "1"
+          "text": "2"
         },
         {
           "id": "B",
@@ -3255,15 +3255,15 @@
         },
         {
           "id": "C",
-          "text": "2"
+          "text": "3"
         },
         {
           "id": "D",
-          "text": "3"
+          "text": "1"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "Le corps d'une boucle do…while s'exécute au moins une fois.",
       "source_urls": [
@@ -3287,7 +3287,7 @@
       "options": [
         {
           "id": "A",
-          "text": "6"
+          "text": "-1"
         },
         {
           "id": "B",
@@ -3295,15 +3295,15 @@
         },
         {
           "id": "C",
-          "text": "2"
+          "text": "6"
         },
         {
           "id": "D",
-          "text": "-1"
+          "text": "2"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "Les 2 tours extérieurs entraînent 3 tours intérieurs chacun.",
       "source_urls": [
@@ -3331,15 +3331,15 @@
         },
         {
           "id": "B",
-          "text": "j=3, i=3"
+          "text": "Aucun de ces calculs"
         },
         {
           "id": "C",
-          "text": "j=4, i=3"
+          "text": "j=3, i=3"
         },
         {
           "id": "D",
-          "text": "Aucun de ces calculs"
+          "text": "j=4, i=3"
         }
       ],
       "correct_option_ids": [
@@ -3367,7 +3367,7 @@
       "options": [
         {
           "id": "A",
-          "text": "j=4, i=4"
+          "text": "j=4, i=3"
         },
         {
           "id": "B",
@@ -3375,15 +3375,15 @@
         },
         {
           "id": "C",
-          "text": "Impossible dans cet exemple"
+          "text": "j=4, i=4"
         },
         {
           "id": "D",
-          "text": "j=4, i=3"
+          "text": "Impossible dans cet exemple"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "Pré-incrémentation : incrémentation, puis utilisation de la nouvelle valeur.",
       "source_urls": [
@@ -3407,23 +3407,23 @@
       "options": [
         {
           "id": "A",
-          "text": "j=3, i=2"
-        },
-        {
-          "id": "B",
           "text": "j=3, i=3"
         },
         {
+          "id": "B",
+          "text": "Aucun de ces calculs"
+        },
+        {
           "id": "C",
-          "text": "j=2, i=3"
+          "text": "j=3, i=2"
         },
         {
           "id": "D",
-          "text": "Aucun de ces calculs"
+          "text": "j=2, i=3"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "Post-décrémentation : utilisation de l'ancienne valeur, puis décrémentation.",
       "source_urls": [
@@ -3447,23 +3447,23 @@
       "options": [
         {
           "id": "A",
-          "text": "j=2, i=2"
-        },
-        {
-          "id": "B",
           "text": "j=3, i=3"
         },
         {
+          "id": "B",
+          "text": "j=2, i=2"
+        },
+        {
           "id": "C",
-          "text": "Impossible dans cet exemple"
+          "text": "j=2, i=3"
         },
         {
           "id": "D",
-          "text": "j=2, i=3"
+          "text": "Impossible dans cet exemple"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "Pré-décrémentation : décrémentation, puis utilisation de la nouvelle valeur.",
       "source_urls": [
@@ -3487,11 +3487,11 @@
       "options": [
         {
           "id": "A",
-          "text": "3"
+          "text": "0"
         },
         {
           "id": "B",
-          "text": "4"
+          "text": "3"
         },
         {
           "id": "C",
@@ -3499,11 +3499,11 @@
         },
         {
           "id": "D",
-          "text": "0"
+          "text": "4"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "Les valeurs de i vont de 0 à 2, soit 3 passages.",
       "source_urls": [
@@ -3527,7 +3527,7 @@
       "options": [
         {
           "id": "A",
-          "text": "3"
+          "text": "4"
         },
         {
           "id": "B",
@@ -3535,7 +3535,7 @@
         },
         {
           "id": "C",
-          "text": "4"
+          "text": "3"
         },
         {
           "id": "D",
@@ -3543,7 +3543,7 @@
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "i prend successivement les valeurs 3 à 1, soit 3 passages.",
       "source_urls": [
@@ -3571,15 +3571,15 @@
         },
         {
           "id": "B",
-          "text": "0"
-        },
-        {
-          "id": "C",
           "text": "3"
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "4"
+        },
+        {
+          "id": "D",
+          "text": "0"
         }
       ],
       "correct_option_ids": [
@@ -3607,23 +3607,23 @@
       "options": [
         {
           "id": "A",
-          "text": "9"
-        },
-        {
-          "id": "B",
           "text": "6"
         },
         {
+          "id": "B",
+          "text": "9"
+        },
+        {
           "id": "C",
-          "text": "3"
+          "text": "-1"
         },
         {
           "id": "D",
-          "text": "-1"
+          "text": "3"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "Les 3 tours extérieurs entraînent 3 tours intérieurs chacun.",
       "source_urls": [
@@ -3647,7 +3647,7 @@
       "options": [
         {
           "id": "A",
-          "text": "j=4, i=5"
+          "text": "j=5, i=4"
         },
         {
           "id": "B",
@@ -3655,15 +3655,15 @@
         },
         {
           "id": "C",
-          "text": "j=5, i=4"
+          "text": "Aucun de ces calculs"
         },
         {
           "id": "D",
-          "text": "Aucun de ces calculs"
+          "text": "j=4, i=5"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "Post-incrémentation : utilisation de l'ancienne valeur, puis incrémentation.",
       "source_urls": [
@@ -3687,23 +3687,23 @@
       "options": [
         {
           "id": "A",
-          "text": "j=5, i=5"
+          "text": "j=5, i=4"
         },
         {
           "id": "B",
-          "text": "j=4, i=4"
-        },
-        {
-          "id": "C",
           "text": "Impossible dans cet exemple"
         },
         {
+          "id": "C",
+          "text": "j=4, i=4"
+        },
+        {
           "id": "D",
-          "text": "j=5, i=4"
+          "text": "j=5, i=5"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "Pré-incrémentation : incrémentation, puis utilisation de la nouvelle valeur.",
       "source_urls": [
@@ -3735,11 +3735,11 @@
         },
         {
           "id": "C",
-          "text": "j=3, i=4"
+          "text": "Aucun de ces calculs"
         },
         {
           "id": "D",
-          "text": "Aucun de ces calculs"
+          "text": "j=3, i=4"
         }
       ],
       "correct_option_ids": [
@@ -3767,11 +3767,11 @@
       "options": [
         {
           "id": "A",
-          "text": "j=3, i=3"
+          "text": "j=4, i=4"
         },
         {
           "id": "B",
-          "text": "j=4, i=4"
+          "text": "j=3, i=4"
         },
         {
           "id": "C",
@@ -3779,11 +3779,11 @@
         },
         {
           "id": "D",
-          "text": "j=3, i=4"
+          "text": "j=3, i=3"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "Pré-décrémentation : décrémentation, puis utilisation de la nouvelle valeur.",
       "source_urls": [
@@ -3807,23 +3807,23 @@
       "options": [
         {
           "id": "A",
-          "text": "4"
+          "text": "0"
         },
         {
           "id": "B",
-          "text": "5"
-        },
-        {
-          "id": "C",
           "text": "3"
         },
         {
+          "id": "C",
+          "text": "5"
+        },
+        {
           "id": "D",
-          "text": "0"
+          "text": "4"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "Les valeurs de i vont de 0 à 3, soit 4 passages.",
       "source_urls": [
@@ -3847,23 +3847,23 @@
       "options": [
         {
           "id": "A",
-          "text": "4"
-        },
-        {
-          "id": "B",
-          "text": "3"
-        },
-        {
-          "id": "C",
           "text": "5"
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "0"
+        },
+        {
+          "id": "C",
+          "text": "4"
+        },
+        {
+          "id": "D",
+          "text": "3"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "i prend successivement les valeurs 4 à 1, soit 4 passages.",
       "source_urls": [
@@ -3887,11 +3887,11 @@
       "options": [
         {
           "id": "A",
-          "text": "1"
+          "text": "0"
         },
         {
           "id": "B",
-          "text": "0"
+          "text": "1"
         },
         {
           "id": "C",
@@ -3903,7 +3903,7 @@
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "Le corps d'une boucle do…while s'exécute au moins une fois.",
       "source_urls": [
@@ -3927,7 +3927,7 @@
       "options": [
         {
           "id": "A",
-          "text": "12"
+          "text": "-1"
         },
         {
           "id": "B",
@@ -3935,15 +3935,15 @@
         },
         {
           "id": "C",
-          "text": "4"
+          "text": "12"
         },
         {
           "id": "D",
-          "text": "-1"
+          "text": "4"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "Les 4 tours extérieurs entraînent 3 tours intérieurs chacun.",
       "source_urls": [
@@ -3967,23 +3967,23 @@
       "options": [
         {
           "id": "A",
-          "text": "j=5, i=6"
-        },
-        {
-          "id": "B",
           "text": "j=5, i=5"
         },
         {
+          "id": "B",
+          "text": "Aucun de ces calculs"
+        },
+        {
           "id": "C",
-          "text": "j=6, i=5"
+          "text": "j=5, i=6"
         },
         {
           "id": "D",
-          "text": "Aucun de ces calculs"
+          "text": "j=6, i=5"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "Post-incrémentation : utilisation de l'ancienne valeur, puis incrémentation.",
       "source_urls": [
@@ -4011,11 +4011,11 @@
         },
         {
           "id": "B",
-          "text": "j=5, i=5"
+          "text": "Impossible dans cet exemple"
         },
         {
           "id": "C",
-          "text": "Impossible dans cet exemple"
+          "text": "j=5, i=5"
         },
         {
           "id": "D",
@@ -4047,23 +4047,23 @@
       "options": [
         {
           "id": "A",
-          "text": "j=5, i=4"
-        },
-        {
-          "id": "B",
           "text": "j=5, i=5"
         },
         {
+          "id": "B",
+          "text": "j=5, i=4"
+        },
+        {
           "id": "C",
-          "text": "j=4, i=5"
+          "text": "Aucun de ces calculs"
         },
         {
           "id": "D",
-          "text": "Aucun de ces calculs"
+          "text": "j=4, i=5"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "Post-décrémentation : utilisation de l'ancienne valeur, puis décrémentation.",
       "source_urls": [
@@ -4087,23 +4087,23 @@
       "options": [
         {
           "id": "A",
-          "text": "j=4, i=4"
-        },
-        {
-          "id": "B",
-          "text": "j=5, i=5"
-        },
-        {
-          "id": "C",
           "text": "Impossible dans cet exemple"
         },
         {
-          "id": "D",
+          "id": "B",
+          "text": "j=4, i=4"
+        },
+        {
+          "id": "C",
           "text": "j=4, i=5"
+        },
+        {
+          "id": "D",
+          "text": "j=5, i=5"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "Pré-décrémentation : décrémentation, puis utilisation de la nouvelle valeur.",
       "source_urls": [
@@ -4127,11 +4127,11 @@
       "options": [
         {
           "id": "A",
-          "text": "5"
+          "text": "6"
         },
         {
           "id": "B",
-          "text": "6"
+          "text": "0"
         },
         {
           "id": "C",
@@ -4139,11 +4139,11 @@
         },
         {
           "id": "D",
-          "text": "0"
+          "text": "5"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "Les valeurs de i vont de 0 à 4, soit 5 passages.",
       "source_urls": [
@@ -4167,23 +4167,23 @@
       "options": [
         {
           "id": "A",
-          "text": "5"
-        },
-        {
-          "id": "B",
           "text": "4"
         },
         {
+          "id": "B",
+          "text": "0"
+        },
+        {
           "id": "C",
-          "text": "6"
+          "text": "5"
         },
         {
           "id": "D",
-          "text": "0"
+          "text": "6"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "i prend successivement les valeurs 5 à 1, soit 5 passages.",
       "source_urls": [
@@ -4211,7 +4211,7 @@
         },
         {
           "id": "B",
-          "text": "0"
+          "text": "6"
         },
         {
           "id": "C",
@@ -4219,7 +4219,7 @@
         },
         {
           "id": "D",
-          "text": "6"
+          "text": "0"
         }
       ],
       "correct_option_ids": [
@@ -4251,15 +4251,15 @@
         },
         {
           "id": "B",
-          "text": "8"
+          "text": "-1"
         },
         {
           "id": "C",
-          "text": "5"
+          "text": "8"
         },
         {
           "id": "D",
-          "text": "-1"
+          "text": "5"
         }
       ],
       "correct_option_ids": [
@@ -4287,23 +4287,23 @@
       "options": [
         {
           "id": "A",
-          "text": "j=6, i=7"
-        },
-        {
-          "id": "B",
-          "text": "j=6, i=6"
-        },
-        {
-          "id": "C",
           "text": "j=7, i=6"
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "Aucun de ces calculs"
+        },
+        {
+          "id": "C",
+          "text": "j=6, i=6"
+        },
+        {
+          "id": "D",
+          "text": "j=6, i=7"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "Post-incrémentation : utilisation de l'ancienne valeur, puis incrémentation.",
       "source_urls": [
@@ -4327,15 +4327,15 @@
       "options": [
         {
           "id": "A",
-          "text": "j=7, i=7"
-        },
-        {
-          "id": "B",
           "text": "j=6, i=6"
         },
         {
-          "id": "C",
+          "id": "B",
           "text": "Impossible dans cet exemple"
+        },
+        {
+          "id": "C",
+          "text": "j=7, i=7"
         },
         {
           "id": "D",
@@ -4343,7 +4343,7 @@
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "Pré-incrémentation : incrémentation, puis utilisation de la nouvelle valeur.",
       "source_urls": [
@@ -4367,23 +4367,23 @@
       "options": [
         {
           "id": "A",
-          "text": "j=6, i=5"
-        },
-        {
-          "id": "B",
           "text": "j=6, i=6"
         },
         {
+          "id": "B",
+          "text": "Aucun de ces calculs"
+        },
+        {
           "id": "C",
-          "text": "j=5, i=6"
+          "text": "j=6, i=5"
         },
         {
           "id": "D",
-          "text": "Aucun de ces calculs"
+          "text": "j=5, i=6"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "Post-décrémentation : utilisation de l'ancienne valeur, puis décrémentation.",
       "source_urls": [
@@ -4407,23 +4407,23 @@
       "options": [
         {
           "id": "A",
-          "text": "j=5, i=5"
-        },
-        {
-          "id": "B",
-          "text": "j=6, i=6"
-        },
-        {
-          "id": "C",
           "text": "Impossible dans cet exemple"
         },
         {
-          "id": "D",
+          "id": "B",
+          "text": "j=5, i=5"
+        },
+        {
+          "id": "C",
           "text": "j=5, i=6"
+        },
+        {
+          "id": "D",
+          "text": "j=6, i=6"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "Pré-décrémentation : décrémentation, puis utilisation de la nouvelle valeur.",
       "source_urls": [
@@ -4447,23 +4447,23 @@
       "options": [
         {
           "id": "A",
-          "text": "6"
-        },
-        {
-          "id": "B",
           "text": "7"
         },
         {
-          "id": "C",
+          "id": "B",
           "text": "5"
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "0"
+        },
+        {
+          "id": "D",
+          "text": "6"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "Les valeurs de i vont de 0 à 5, soit 6 passages.",
       "source_urls": [
@@ -4495,11 +4495,11 @@
         },
         {
           "id": "C",
-          "text": "7"
+          "text": "0"
         },
         {
           "id": "D",
-          "text": "0"
+          "text": "7"
         }
       ],
       "correct_option_ids": [
@@ -4527,15 +4527,15 @@
       "options": [
         {
           "id": "A",
-          "text": "1"
+          "text": "6"
         },
         {
           "id": "B",
-          "text": "0"
+          "text": "1"
         },
         {
           "id": "C",
-          "text": "6"
+          "text": "0"
         },
         {
           "id": "D",
@@ -4543,7 +4543,7 @@
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "Le corps d'une boucle do…while s'exécute au moins une fois.",
       "source_urls": [
@@ -4567,23 +4567,23 @@
       "options": [
         {
           "id": "A",
-          "text": "18"
-        },
-        {
-          "id": "B",
           "text": "9"
         },
         {
+          "id": "B",
+          "text": "-1"
+        },
+        {
           "id": "C",
-          "text": "6"
+          "text": "18"
         },
         {
           "id": "D",
-          "text": "-1"
+          "text": "6"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "Les 6 tours extérieurs entraînent 3 tours intérieurs chacun.",
       "source_urls": [
@@ -4607,7 +4607,7 @@
       "options": [
         {
           "id": "A",
-          "text": "j=7, i=8"
+          "text": "Aucun de ces calculs"
         },
         {
           "id": "B",
@@ -4615,15 +4615,15 @@
         },
         {
           "id": "C",
-          "text": "j=8, i=7"
+          "text": "j=7, i=8"
         },
         {
           "id": "D",
-          "text": "Aucun de ces calculs"
+          "text": "j=8, i=7"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "Post-incrémentation : utilisation de l'ancienne valeur, puis incrémentation.",
       "source_urls": [
@@ -4647,23 +4647,23 @@
       "options": [
         {
           "id": "A",
-          "text": "j=8, i=8"
-        },
-        {
-          "id": "B",
           "text": "j=7, i=7"
         },
         {
+          "id": "B",
+          "text": "j=8, i=8"
+        },
+        {
           "id": "C",
-          "text": "Impossible dans cet exemple"
+          "text": "j=8, i=7"
         },
         {
           "id": "D",
-          "text": "j=8, i=7"
+          "text": "Impossible dans cet exemple"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "Pré-incrémentation : incrémentation, puis utilisation de la nouvelle valeur.",
       "source_urls": [
@@ -4687,11 +4687,11 @@
       "options": [
         {
           "id": "A",
-          "text": "j=7, i=6"
+          "text": "j=7, i=7"
         },
         {
           "id": "B",
-          "text": "j=7, i=7"
+          "text": "j=7, i=6"
         },
         {
           "id": "C",
@@ -4703,7 +4703,7 @@
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "Post-décrémentation : utilisation de l'ancienne valeur, puis décrémentation.",
       "source_urls": [
@@ -4727,11 +4727,11 @@
       "options": [
         {
           "id": "A",
-          "text": "j=6, i=6"
+          "text": "j=6, i=7"
         },
         {
           "id": "B",
-          "text": "j=7, i=7"
+          "text": "j=6, i=6"
         },
         {
           "id": "C",
@@ -4739,11 +4739,11 @@
         },
         {
           "id": "D",
-          "text": "j=6, i=7"
+          "text": "j=7, i=7"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "Pré-décrémentation : décrémentation, puis utilisation de la nouvelle valeur.",
       "source_urls": [
@@ -4767,11 +4767,11 @@
       "options": [
         {
           "id": "A",
-          "text": "7"
+          "text": "8"
         },
         {
           "id": "B",
-          "text": "8"
+          "text": "0"
         },
         {
           "id": "C",
@@ -4779,11 +4779,11 @@
         },
         {
           "id": "D",
-          "text": "0"
+          "text": "7"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "Les valeurs de i vont de 0 à 6, soit 7 passages.",
       "source_urls": [
@@ -4811,15 +4811,15 @@
         },
         {
           "id": "B",
-          "text": "6"
+          "text": "0"
         },
         {
           "id": "C",
-          "text": "8"
+          "text": "6"
         },
         {
           "id": "D",
-          "text": "0"
+          "text": "8"
         }
       ],
       "correct_option_ids": [
@@ -4851,7 +4851,7 @@
         },
         {
           "id": "B",
-          "text": "0"
+          "text": "8"
         },
         {
           "id": "C",
@@ -4859,7 +4859,7 @@
         },
         {
           "id": "D",
-          "text": "8"
+          "text": "0"
         }
       ],
       "correct_option_ids": [
@@ -4887,11 +4887,11 @@
       "options": [
         {
           "id": "A",
-          "text": "21"
+          "text": "10"
         },
         {
           "id": "B",
-          "text": "10"
+          "text": "21"
         },
         {
           "id": "C",
@@ -4903,7 +4903,7 @@
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "Les 7 tours extérieurs entraînent 3 tours intérieurs chacun.",
       "source_urls": [
@@ -4927,23 +4927,23 @@
       "options": [
         {
           "id": "A",
-          "text": "j=8, i=9"
-        },
-        {
-          "id": "B",
-          "text": "j=8, i=8"
-        },
-        {
-          "id": "C",
           "text": "j=9, i=8"
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "Aucun de ces calculs"
+        },
+        {
+          "id": "C",
+          "text": "j=8, i=8"
+        },
+        {
+          "id": "D",
+          "text": "j=8, i=9"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "Post-incrémentation : utilisation de l'ancienne valeur, puis incrémentation.",
       "source_urls": [
@@ -4967,23 +4967,23 @@
       "options": [
         {
           "id": "A",
-          "text": "j=9, i=9"
+          "text": "j=9, i=8"
         },
         {
           "id": "B",
-          "text": "j=8, i=8"
-        },
-        {
-          "id": "C",
           "text": "Impossible dans cet exemple"
         },
         {
+          "id": "C",
+          "text": "j=8, i=8"
+        },
+        {
           "id": "D",
-          "text": "j=9, i=8"
+          "text": "j=9, i=9"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "Pré-incrémentation : incrémentation, puis utilisation de la nouvelle valeur.",
       "source_urls": [
@@ -5007,23 +5007,23 @@
       "options": [
         {
           "id": "A",
-          "text": "j=8, i=7"
-        },
-        {
-          "id": "B",
-          "text": "j=8, i=8"
-        },
-        {
-          "id": "C",
           "text": "j=7, i=8"
         },
         {
-          "id": "D",
+          "id": "B",
+          "text": "j=8, i=7"
+        },
+        {
+          "id": "C",
           "text": "Aucun de ces calculs"
+        },
+        {
+          "id": "D",
+          "text": "j=8, i=8"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "Post-décrémentation : utilisation de l'ancienne valeur, puis décrémentation.",
       "source_urls": [
@@ -5051,15 +5051,15 @@
         },
         {
           "id": "B",
-          "text": "j=8, i=8"
-        },
-        {
-          "id": "C",
           "text": "Impossible dans cet exemple"
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "j=7, i=8"
+        },
+        {
+          "id": "D",
+          "text": "j=8, i=8"
         }
       ],
       "correct_option_ids": [
@@ -5087,7 +5087,7 @@
       "options": [
         {
           "id": "A",
-          "text": "8"
+          "text": "0"
         },
         {
           "id": "B",
@@ -5099,11 +5099,11 @@
         },
         {
           "id": "D",
-          "text": "0"
+          "text": "8"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "Les valeurs de i vont de 0 à 7, soit 8 passages.",
       "source_urls": [
@@ -5127,7 +5127,7 @@
       "options": [
         {
           "id": "A",
-          "text": "8"
+          "text": "0"
         },
         {
           "id": "B",
@@ -5135,15 +5135,15 @@
         },
         {
           "id": "C",
-          "text": "9"
+          "text": "8"
         },
         {
           "id": "D",
-          "text": "0"
+          "text": "9"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "i prend successivement les valeurs 8 à 1, soit 8 passages.",
       "source_urls": [
@@ -5167,15 +5167,15 @@
       "options": [
         {
           "id": "A",
-          "text": "1"
+          "text": "8"
         },
         {
           "id": "B",
-          "text": "0"
+          "text": "1"
         },
         {
           "id": "C",
-          "text": "8"
+          "text": "0"
         },
         {
           "id": "D",
@@ -5183,7 +5183,7 @@
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "Le corps d'une boucle do…while s'exécute au moins une fois.",
       "source_urls": [
@@ -5207,23 +5207,23 @@
       "options": [
         {
           "id": "A",
-          "text": "24"
-        },
-        {
-          "id": "B",
-          "text": "11"
-        },
-        {
-          "id": "C",
           "text": "8"
         },
         {
-          "id": "D",
+          "id": "B",
+          "text": "24"
+        },
+        {
+          "id": "C",
           "text": "-1"
+        },
+        {
+          "id": "D",
+          "text": "11"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "Les 8 tours extérieurs entraînent 3 tours intérieurs chacun.",
       "source_urls": [
@@ -5247,23 +5247,23 @@
       "options": [
         {
           "id": "A",
-          "text": "j=9, i=10"
+          "text": "Aucun de ces calculs"
         },
         {
           "id": "B",
-          "text": "j=9, i=9"
-        },
-        {
-          "id": "C",
           "text": "j=10, i=9"
         },
         {
+          "id": "C",
+          "text": "j=9, i=9"
+        },
+        {
           "id": "D",
-          "text": "Aucun de ces calculs"
+          "text": "j=9, i=10"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "Post-incrémentation : utilisation de l'ancienne valeur, puis incrémentation.",
       "source_urls": [
@@ -5287,7 +5287,7 @@
       "options": [
         {
           "id": "A",
-          "text": "j=10, i=10"
+          "text": "Impossible dans cet exemple"
         },
         {
           "id": "B",
@@ -5295,7 +5295,7 @@
         },
         {
           "id": "C",
-          "text": "Impossible dans cet exemple"
+          "text": "j=10, i=10"
         },
         {
           "id": "D",
@@ -5303,7 +5303,7 @@
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "Pré-incrémentation : incrémentation, puis utilisation de la nouvelle valeur.",
       "source_urls": [
@@ -5327,15 +5327,15 @@
       "options": [
         {
           "id": "A",
-          "text": "j=9, i=8"
-        },
-        {
-          "id": "B",
           "text": "j=9, i=9"
         },
         {
-          "id": "C",
+          "id": "B",
           "text": "j=8, i=9"
+        },
+        {
+          "id": "C",
+          "text": "j=9, i=8"
         },
         {
           "id": "D",
@@ -5343,7 +5343,7 @@
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "Post-décrémentation : utilisation de l'ancienne valeur, puis décrémentation.",
       "source_urls": [
@@ -5367,11 +5367,11 @@
       "options": [
         {
           "id": "A",
-          "text": "j=8, i=8"
+          "text": "j=9, i=9"
         },
         {
           "id": "B",
-          "text": "j=9, i=9"
+          "text": "j=8, i=8"
         },
         {
           "id": "C",
@@ -5383,7 +5383,7 @@
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "Pré-décrémentation : décrémentation, puis utilisation de la nouvelle valeur.",
       "source_urls": [
@@ -5411,15 +5411,15 @@
         },
         {
           "id": "B",
-          "text": "10"
+          "text": "0"
         },
         {
           "id": "C",
-          "text": "8"
+          "text": "10"
         },
         {
           "id": "D",
-          "text": "0"
+          "text": "8"
         }
       ],
       "correct_option_ids": [
@@ -5447,7 +5447,7 @@
       "options": [
         {
           "id": "A",
-          "text": "9"
+          "text": "0"
         },
         {
           "id": "B",
@@ -5459,11 +5459,11 @@
         },
         {
           "id": "D",
-          "text": "0"
+          "text": "9"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "i prend successivement les valeurs 9 à 1, soit 9 passages.",
       "source_urls": [
@@ -5487,15 +5487,15 @@
       "options": [
         {
           "id": "A",
-          "text": "1"
+          "text": "9"
         },
         {
           "id": "B",
-          "text": "0"
+          "text": "1"
         },
         {
           "id": "C",
-          "text": "9"
+          "text": "0"
         },
         {
           "id": "D",
@@ -5503,7 +5503,7 @@
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "Le corps d'une boucle do…while s'exécute au moins une fois.",
       "source_urls": [
@@ -5527,7 +5527,7 @@
       "options": [
         {
           "id": "A",
-          "text": "27"
+          "text": "9"
         },
         {
           "id": "B",
@@ -5535,7 +5535,7 @@
         },
         {
           "id": "C",
-          "text": "9"
+          "text": "27"
         },
         {
           "id": "D",
@@ -5543,7 +5543,7 @@
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "Les 9 tours extérieurs entraînent 3 tours intérieurs chacun.",
       "source_urls": [
@@ -5571,15 +5571,15 @@
         },
         {
           "id": "B",
-          "text": "j=10, i=10"
+          "text": "Aucun de ces calculs"
         },
         {
           "id": "C",
-          "text": "j=11, i=10"
+          "text": "j=10, i=10"
         },
         {
           "id": "D",
-          "text": "Aucun de ces calculs"
+          "text": "j=11, i=10"
         }
       ],
       "correct_option_ids": [
@@ -5611,15 +5611,15 @@
         },
         {
           "id": "B",
-          "text": "j=10, i=10"
+          "text": "j=11, i=10"
         },
         {
           "id": "C",
-          "text": "Impossible dans cet exemple"
+          "text": "j=10, i=10"
         },
         {
           "id": "D",
-          "text": "j=11, i=10"
+          "text": "Impossible dans cet exemple"
         }
       ],
       "correct_option_ids": [
@@ -5651,7 +5651,7 @@
         },
         {
           "id": "B",
-          "text": "j=10, i=10"
+          "text": "Aucun de ces calculs"
         },
         {
           "id": "C",
@@ -5659,7 +5659,7 @@
         },
         {
           "id": "D",
-          "text": "Aucun de ces calculs"
+          "text": "j=10, i=10"
         }
       ],
       "correct_option_ids": [
@@ -5687,7 +5687,7 @@
       "options": [
         {
           "id": "A",
-          "text": "j=9, i=9"
+          "text": "Impossible dans cet exemple"
         },
         {
           "id": "B",
@@ -5695,7 +5695,7 @@
         },
         {
           "id": "C",
-          "text": "Impossible dans cet exemple"
+          "text": "j=9, i=9"
         },
         {
           "id": "D",
@@ -5703,7 +5703,7 @@
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "Pré-décrémentation : décrémentation, puis utilisation de la nouvelle valeur.",
       "source_urls": [
@@ -5727,7 +5727,7 @@
       "options": [
         {
           "id": "A",
-          "text": "10"
+          "text": "0"
         },
         {
           "id": "B",
@@ -5735,15 +5735,15 @@
         },
         {
           "id": "C",
-          "text": "9"
+          "text": "10"
         },
         {
           "id": "D",
-          "text": "0"
+          "text": "9"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "Les valeurs de i vont de 0 à 9, soit 10 passages.",
       "source_urls": [
@@ -5767,11 +5767,11 @@
       "options": [
         {
           "id": "A",
-          "text": "10"
+          "text": "9"
         },
         {
           "id": "B",
-          "text": "9"
+          "text": "0"
         },
         {
           "id": "C",
@@ -5779,11 +5779,11 @@
         },
         {
           "id": "D",
-          "text": "0"
+          "text": "10"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "i prend successivement les valeurs 10 à 1, soit 10 passages.",
       "source_urls": [
@@ -5811,7 +5811,7 @@
         },
         {
           "id": "B",
-          "text": "0"
+          "text": "11"
         },
         {
           "id": "C",
@@ -5819,7 +5819,7 @@
         },
         {
           "id": "D",
-          "text": "11"
+          "text": "0"
         }
       ],
       "correct_option_ids": [
@@ -5851,7 +5851,7 @@
         },
         {
           "id": "B",
-          "text": "13"
+          "text": "-1"
         },
         {
           "id": "C",
@@ -5859,7 +5859,7 @@
         },
         {
           "id": "D",
-          "text": "-1"
+          "text": "13"
         }
       ],
       "correct_option_ids": [
@@ -5887,23 +5887,23 @@
       "options": [
         {
           "id": "A",
-          "text": "2"
-        },
-        {
-          "id": "B",
           "text": "0"
         },
         {
-          "id": "C",
+          "id": "B",
           "text": "Impossible dans cet exemple"
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "101"
+        },
+        {
+          "id": "D",
+          "text": "2"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "Le premier indice est 0.",
       "source_urls": [
@@ -5927,23 +5927,23 @@
       "options": [
         {
           "id": "A",
-          "text": "2"
-        },
-        {
-          "id": "B",
           "text": "0"
         },
         {
-          "id": "C",
+          "id": "B",
           "text": "Impossible dans cet exemple"
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "101"
+        },
+        {
+          "id": "D",
+          "text": "2"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "L'arithmétique des pointeurs avance en éléments, pas en octets.",
       "source_urls": [
@@ -5967,15 +5967,15 @@
       "options": [
         {
           "id": "A",
-          "text": "0 à 0"
-        },
-        {
-          "id": "B",
           "text": "1 à 1"
         },
         {
-          "id": "C",
+          "id": "B",
           "text": "0 à 1"
+        },
+        {
+          "id": "C",
+          "text": "0 à 0"
         },
         {
           "id": "D",
@@ -5983,7 +5983,7 @@
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "En C, la plage est 0 à n-1.",
       "source_urls": [
@@ -6011,11 +6011,11 @@
         },
         {
           "id": "B",
-          "text": "1"
+          "text": "3"
         },
         {
           "id": "C",
-          "text": "3"
+          "text": "1"
         },
         {
           "id": "D",
@@ -6051,7 +6051,7 @@
         },
         {
           "id": "B",
-          "text": "1"
+          "text": "102"
         },
         {
           "id": "C",
@@ -6059,7 +6059,7 @@
         },
         {
           "id": "D",
-          "text": "102"
+          "text": "1"
         }
       ],
       "correct_option_ids": [
@@ -6087,23 +6087,23 @@
       "options": [
         {
           "id": "A",
-          "text": "0 à 1"
-        },
-        {
-          "id": "B",
-          "text": "1 à 2"
-        },
-        {
-          "id": "C",
           "text": "0 à 2"
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "1 à 3"
+        },
+        {
+          "id": "C",
+          "text": "0 à 1"
+        },
+        {
+          "id": "D",
+          "text": "1 à 2"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "En C, la plage est 0 à n-1.",
       "source_urls": [
@@ -6167,23 +6167,23 @@
       "options": [
         {
           "id": "A",
-          "text": "6"
-        },
-        {
-          "id": "B",
-          "text": "2"
-        },
-        {
-          "id": "C",
           "text": "4"
         },
         {
-          "id": "D",
+          "id": "B",
+          "text": "6"
+        },
+        {
+          "id": "C",
           "text": "103"
+        },
+        {
+          "id": "D",
+          "text": "2"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "L'arithmétique des pointeurs avance en éléments, pas en octets.",
       "source_urls": [
@@ -6211,11 +6211,11 @@
         },
         {
           "id": "B",
-          "text": "1 à 3"
+          "text": "0 à 3"
         },
         {
           "id": "C",
-          "text": "0 à 3"
+          "text": "1 à 3"
         },
         {
           "id": "D",
@@ -6247,15 +6247,15 @@
       "options": [
         {
           "id": "A",
-          "text": "8"
+          "text": "5"
         },
         {
           "id": "B",
-          "text": "3"
+          "text": "8"
         },
         {
           "id": "C",
-          "text": "5"
+          "text": "3"
         },
         {
           "id": "D",
@@ -6263,7 +6263,7 @@
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "Le premier indice est 0.",
       "source_urls": [
@@ -6287,23 +6287,23 @@
       "options": [
         {
           "id": "A",
-          "text": "8"
+          "text": "104"
         },
         {
           "id": "B",
-          "text": "3"
-        },
-        {
-          "id": "C",
           "text": "5"
         },
         {
+          "id": "C",
+          "text": "8"
+        },
+        {
           "id": "D",
-          "text": "104"
+          "text": "3"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "L'arithmétique des pointeurs avance en éléments, pas en octets.",
       "source_urls": [
@@ -6331,15 +6331,15 @@
         },
         {
           "id": "B",
-          "text": "1 à 4"
+          "text": "1 à 5"
         },
         {
           "id": "C",
-          "text": "0 à 4"
+          "text": "1 à 4"
         },
         {
           "id": "D",
-          "text": "1 à 5"
+          "text": "0 à 4"
         }
       ],
       "correct_option_ids": [
@@ -6367,15 +6367,15 @@
       "options": [
         {
           "id": "A",
-          "text": "10"
+          "text": "6"
         },
         {
           "id": "B",
-          "text": "4"
+          "text": "10"
         },
         {
           "id": "C",
-          "text": "6"
+          "text": "4"
         },
         {
           "id": "D",
@@ -6383,7 +6383,7 @@
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "Le premier indice est 0.",
       "source_urls": [
@@ -6407,11 +6407,11 @@
       "options": [
         {
           "id": "A",
-          "text": "10"
+          "text": "105"
         },
         {
           "id": "B",
-          "text": "4"
+          "text": "10"
         },
         {
           "id": "C",
@@ -6419,11 +6419,11 @@
         },
         {
           "id": "D",
-          "text": "105"
+          "text": "4"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "L'arithmétique des pointeurs avance en éléments, pas en octets.",
       "source_urls": [
@@ -6447,23 +6447,23 @@
       "options": [
         {
           "id": "A",
-          "text": "0 à 4"
+          "text": "1 à 6"
         },
         {
           "id": "B",
-          "text": "1 à 5"
+          "text": "0 à 4"
         },
         {
           "id": "C",
-          "text": "0 à 5"
+          "text": "1 à 5"
         },
         {
           "id": "D",
-          "text": "1 à 6"
+          "text": "0 à 5"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "En C, la plage est 0 à n-1.",
       "source_urls": [
@@ -6491,11 +6491,11 @@
         },
         {
           "id": "B",
-          "text": "5"
+          "text": "7"
         },
         {
           "id": "C",
-          "text": "7"
+          "text": "5"
         },
         {
           "id": "D",
@@ -6527,11 +6527,11 @@
       "options": [
         {
           "id": "A",
-          "text": "12"
+          "text": "106"
         },
         {
           "id": "B",
-          "text": "5"
+          "text": "12"
         },
         {
           "id": "C",
@@ -6539,11 +6539,11 @@
         },
         {
           "id": "D",
-          "text": "106"
+          "text": "5"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "L'arithmétique des pointeurs avance en éléments, pas en octets.",
       "source_urls": [
@@ -6575,11 +6575,11 @@
         },
         {
           "id": "C",
-          "text": "0 à 6"
+          "text": "1 à 7"
         },
         {
           "id": "D",
-          "text": "1 à 7"
+          "text": "0 à 6"
         }
       ],
       "correct_option_ids": [
@@ -6607,15 +6607,15 @@
       "options": [
         {
           "id": "A",
-          "text": "14"
+          "text": "8"
         },
         {
           "id": "B",
-          "text": "6"
+          "text": "14"
         },
         {
           "id": "C",
-          "text": "8"
+          "text": "6"
         },
         {
           "id": "D",
@@ -6623,7 +6623,7 @@
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "Le premier indice est 0.",
       "source_urls": [
@@ -6647,23 +6647,23 @@
       "options": [
         {
           "id": "A",
-          "text": "14"
-        },
-        {
-          "id": "B",
-          "text": "6"
-        },
-        {
-          "id": "C",
           "text": "8"
         },
         {
-          "id": "D",
+          "id": "B",
+          "text": "14"
+        },
+        {
+          "id": "C",
           "text": "107"
+        },
+        {
+          "id": "D",
+          "text": "6"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "L'arithmétique des pointeurs avance en éléments, pas en octets.",
       "source_urls": [
@@ -6731,7 +6731,7 @@
         },
         {
           "id": "B",
-          "text": "7"
+          "text": "108"
         },
         {
           "id": "C",
@@ -6739,7 +6739,7 @@
         },
         {
           "id": "D",
-          "text": "108"
+          "text": "7"
         }
       ],
       "correct_option_ids": [
@@ -6767,15 +6767,15 @@
       "options": [
         {
           "id": "A",
-          "text": "16"
+          "text": "9"
         },
         {
           "id": "B",
-          "text": "7"
+          "text": "16"
         },
         {
           "id": "C",
-          "text": "9"
+          "text": "7"
         },
         {
           "id": "D",
@@ -6783,7 +6783,7 @@
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "L'arithmétique des pointeurs avance en éléments, pas en octets.",
       "source_urls": [
@@ -6847,11 +6847,11 @@
       "options": [
         {
           "id": "A",
-          "text": "3"
+          "text": "5"
         },
         {
           "id": "B",
-          "text": "4"
+          "text": "3"
         },
         {
           "id": "C",
@@ -6859,11 +6859,11 @@
         },
         {
           "id": "D",
-          "text": "5"
+          "text": "4"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "strlen compte 3 caractères et exclut le terminateur nul.",
       "source_urls": [
@@ -6887,23 +6887,23 @@
       "options": [
         {
           "id": "A",
-          "text": "4"
-        },
-        {
-          "id": "B",
-          "text": "3"
-        },
-        {
-          "id": "C",
           "text": "5"
         },
         {
-          "id": "D",
+          "id": "B",
+          "text": "4"
+        },
+        {
+          "id": "C",
           "text": "2"
+        },
+        {
+          "id": "D",
+          "text": "3"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "Le tableau contient aussi le terminateur nul : 4 octets.",
       "source_urls": [
@@ -6935,11 +6935,11 @@
         },
         {
           "id": "C",
-          "text": "0"
+          "text": "3"
         },
         {
           "id": "D",
-          "text": "3"
+          "text": "0"
         }
       ],
       "correct_option_ids": [
@@ -6967,23 +6967,23 @@
       "options": [
         {
           "id": "A",
-          "text": "2"
+          "text": "0"
         },
         {
           "id": "B",
-          "text": "1"
+          "text": "2"
         },
         {
           "id": "C",
-          "text": "3"
+          "text": "1"
         },
         {
           "id": "D",
-          "text": "0"
+          "text": "3"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "Le tableau contient aussi le terminateur nul : 2 octets.",
       "source_urls": [
@@ -7007,23 +7007,23 @@
       "options": [
         {
           "id": "A",
-          "text": "5"
-        },
-        {
-          "id": "B",
-          "text": "6"
-        },
-        {
-          "id": "C",
           "text": "4"
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "7"
+        },
+        {
+          "id": "C",
+          "text": "6"
+        },
+        {
+          "id": "D",
+          "text": "5"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "strlen compte 5 caractères et exclut le terminateur nul.",
       "source_urls": [
@@ -7047,7 +7047,7 @@
       "options": [
         {
           "id": "A",
-          "text": "6"
+          "text": "4"
         },
         {
           "id": "B",
@@ -7055,15 +7055,15 @@
         },
         {
           "id": "C",
-          "text": "7"
+          "text": "6"
         },
         {
           "id": "D",
-          "text": "4"
+          "text": "7"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "Le tableau contient aussi le terminateur nul : 6 octets.",
       "source_urls": [
@@ -7087,23 +7087,23 @@
       "options": [
         {
           "id": "A",
-          "text": "7"
+          "text": "9"
         },
         {
           "id": "B",
-          "text": "8"
-        },
-        {
-          "id": "C",
           "text": "6"
         },
         {
+          "id": "C",
+          "text": "7"
+        },
+        {
           "id": "D",
-          "text": "9"
+          "text": "8"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "strlen compte 7 caractères et exclut le terminateur nul.",
       "source_urls": [
@@ -7167,23 +7167,23 @@
       "options": [
         {
           "id": "A",
-          "text": "9"
+          "text": "11"
         },
         {
           "id": "B",
-          "text": "10"
-        },
-        {
-          "id": "C",
           "text": "8"
         },
         {
+          "id": "C",
+          "text": "9"
+        },
+        {
           "id": "D",
-          "text": "11"
+          "text": "10"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "strlen compte 9 caractères et exclut le terminateur nul.",
       "source_urls": [
@@ -7211,7 +7211,7 @@
         },
         {
           "id": "B",
-          "text": "9"
+          "text": "8"
         },
         {
           "id": "C",
@@ -7219,7 +7219,7 @@
         },
         {
           "id": "D",
-          "text": "8"
+          "text": "9"
         }
       ],
       "correct_option_ids": [
@@ -7247,23 +7247,23 @@
       "options": [
         {
           "id": "A",
-          "text": "5"
+          "text": "7"
         },
         {
           "id": "B",
-          "text": "6"
-        },
-        {
-          "id": "C",
           "text": "4"
         },
         {
+          "id": "C",
+          "text": "5"
+        },
+        {
           "id": "D",
-          "text": "7"
+          "text": "6"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "strlen compte 5 caractères et exclut le terminateur nul.",
       "source_urls": [
@@ -7327,11 +7327,11 @@
       "options": [
         {
           "id": "A",
-          "text": "4"
+          "text": "6"
         },
         {
           "id": "B",
-          "text": "5"
+          "text": "4"
         },
         {
           "id": "C",
@@ -7339,11 +7339,11 @@
         },
         {
           "id": "D",
-          "text": "6"
+          "text": "5"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "strlen compte 4 caractères et exclut le terminateur nul.",
       "source_urls": [
@@ -7367,23 +7367,23 @@
       "options": [
         {
           "id": "A",
-          "text": "5"
+          "text": "3"
         },
         {
           "id": "B",
-          "text": "4"
-        },
-        {
-          "id": "C",
           "text": "6"
         },
         {
+          "id": "C",
+          "text": "5"
+        },
+        {
           "id": "D",
-          "text": "3"
+          "text": "4"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "Le tableau contient aussi le terminateur nul : 5 octets.",
       "source_urls": [
@@ -7447,23 +7447,23 @@
       "options": [
         {
           "id": "A",
-          "text": "7"
-        },
-        {
-          "id": "B",
-          "text": "6"
-        },
-        {
-          "id": "C",
           "text": "8"
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "5"
+        },
+        {
+          "id": "C",
+          "text": "7"
+        },
+        {
+          "id": "D",
+          "text": "6"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "Le tableau contient aussi le terminateur nul : 7 octets.",
       "source_urls": [
@@ -7487,15 +7487,15 @@
       "options": [
         {
           "id": "A",
-          "text": "rwx------"
-        },
-        {
-          "id": "B",
           "text": "rwxrwxrwx"
         },
         {
-          "id": "C",
+          "id": "B",
           "text": "rw-rw-rw-"
+        },
+        {
+          "id": "C",
+          "text": "rwx------"
         },
         {
           "id": "D",
@@ -7503,7 +7503,7 @@
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "Le premier chiffre autorise rwx au propriétaire ; groupe et autres n'ont aucune permission.",
       "source_urls": [
@@ -7527,23 +7527,23 @@
       "options": [
         {
           "id": "A",
-          "text": "rw-r--r--"
-        },
-        {
-          "id": "B",
           "text": "rwxrwxrwx"
         },
         {
+          "id": "B",
+          "text": "---------"
+        },
+        {
           "id": "C",
-          "text": "rw-rw-rw-"
+          "text": "rw-r--r--"
         },
         {
           "id": "D",
-          "text": "---------"
+          "text": "rw-rw-rw-"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "Le propriétaire a la lecture et l'écriture ; groupe et autres disposent de la lecture seule.",
       "source_urls": [
@@ -7567,7 +7567,7 @@
       "options": [
         {
           "id": "A",
-          "text": "rwxr-xr-x"
+          "text": "---------"
         },
         {
           "id": "B",
@@ -7579,11 +7579,11 @@
         },
         {
           "id": "D",
-          "text": "---------"
+          "text": "rwxr-xr-x"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "Le propriétaire possède tous les droits ; le groupe et les autres peuvent lire et traverser/exécuter.",
       "source_urls": [
@@ -7607,11 +7607,11 @@
       "options": [
         {
           "id": "A",
-          "text": "rw-------"
+          "text": "rwxrwxrwx"
         },
         {
           "id": "B",
-          "text": "rwxrwxrwx"
+          "text": "rw-------"
         },
         {
           "id": "C",
@@ -7623,7 +7623,7 @@
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "Seul le propriétaire peut lire et écrire ; groupe et autres n'ont aucun droit.",
       "source_urls": [
@@ -7647,15 +7647,15 @@
       "options": [
         {
           "id": "A",
-          "text": "r--r--r--"
-        },
-        {
-          "id": "B",
           "text": "rwxrwxrwx"
         },
         {
-          "id": "C",
+          "id": "B",
           "text": "rw-rw-rw-"
+        },
+        {
+          "id": "C",
+          "text": "r--r--r--"
         },
         {
           "id": "D",
@@ -7663,7 +7663,7 @@
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "Les trois catégories peuvent lire mais ne disposent ni d'écriture ni d'exécution.",
       "source_urls": [
@@ -7687,15 +7687,15 @@
       "options": [
         {
           "id": "A",
-          "text": "rw-r-----"
-        },
-        {
-          "id": "B",
           "text": "rwxrwxrwx"
         },
         {
-          "id": "C",
+          "id": "B",
           "text": "rw-rw-rw-"
+        },
+        {
+          "id": "C",
+          "text": "rw-r-----"
         },
         {
           "id": "D",
@@ -7703,7 +7703,7 @@
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "Le propriétaire peut lire/écrire, le groupe seulement lire, les autres n'ont aucun droit.",
       "source_urls": [
@@ -7731,11 +7731,11 @@
         },
         {
           "id": "B",
-          "text": "rwxrwxrwx"
+          "text": "rw-rw-rw-"
         },
         {
           "id": "C",
-          "text": "rw-rw-rw-"
+          "text": "rwxrwxrwx"
         },
         {
           "id": "D",
@@ -7767,23 +7767,23 @@
       "options": [
         {
           "id": "A",
-          "text": "rwxr-x---"
+          "text": "---------"
         },
         {
           "id": "B",
-          "text": "rwxrwxrwx"
-        },
-        {
-          "id": "C",
           "text": "rw-rw-rw-"
         },
         {
+          "id": "C",
+          "text": "rwxr-x---"
+        },
+        {
           "id": "D",
-          "text": "---------"
+          "text": "rwxrwxrwx"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "Le propriétaire peut tout faire, le groupe lire et exécuter, les autres n'ont aucun droit.",
       "source_urls": [
@@ -7807,23 +7807,23 @@
       "options": [
         {
           "id": "A",
-          "text": "1"
-        },
-        {
-          "id": "B",
-          "text": "2"
-        },
-        {
-          "id": "C",
           "text": "0"
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "Aucun de ces calculs"
+        },
+        {
+          "id": "C",
+          "text": "1"
+        },
+        {
+          "id": "D",
+          "text": "2"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "wc -l compte les 1 caractères de fin de ligne.",
       "source_urls": [
@@ -7847,7 +7847,7 @@
       "options": [
         {
           "id": "A",
-          "text": "2"
+          "text": "1"
         },
         {
           "id": "B",
@@ -7855,15 +7855,15 @@
         },
         {
           "id": "C",
-          "text": "1"
+          "text": "0"
         },
         {
           "id": "D",
-          "text": "0"
+          "text": "2"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "wc -l compte les 2 caractères de fin de ligne.",
       "source_urls": [
@@ -7887,23 +7887,23 @@
       "options": [
         {
           "id": "A",
-          "text": "3"
+          "text": "0"
         },
         {
           "id": "B",
-          "text": "4"
-        },
-        {
-          "id": "C",
           "text": "2"
         },
         {
+          "id": "C",
+          "text": "4"
+        },
+        {
           "id": "D",
-          "text": "0"
+          "text": "3"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "wc -l compte les 3 caractères de fin de ligne.",
       "source_urls": [
@@ -7931,11 +7931,11 @@
         },
         {
           "id": "B",
-          "text": "5"
+          "text": "3"
         },
         {
           "id": "C",
-          "text": "3"
+          "text": "5"
         },
         {
           "id": "D",
@@ -7971,7 +7971,7 @@
         },
         {
           "id": "B",
-          "text": "6"
+          "text": "0"
         },
         {
           "id": "C",
@@ -7979,7 +7979,7 @@
         },
         {
           "id": "D",
-          "text": "0"
+          "text": "6"
         }
       ],
       "correct_option_ids": [
@@ -8047,23 +8047,23 @@
       "options": [
         {
           "id": "A",
-          "text": "7"
-        },
-        {
-          "id": "B",
-          "text": "8"
-        },
-        {
-          "id": "C",
           "text": "6"
         },
         {
-          "id": "D",
+          "id": "B",
+          "text": "7"
+        },
+        {
+          "id": "C",
           "text": "0"
+        },
+        {
+          "id": "D",
+          "text": "8"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "wc -l compte les 7 caractères de fin de ligne.",
       "source_urls": [
@@ -8087,23 +8087,23 @@
       "options": [
         {
           "id": "A",
-          "text": "8"
-        },
-        {
-          "id": "B",
-          "text": "9"
-        },
-        {
-          "id": "C",
           "text": "7"
         },
         {
-          "id": "D",
+          "id": "B",
+          "text": "8"
+        },
+        {
+          "id": "C",
           "text": "0"
+        },
+        {
+          "id": "D",
+          "text": "9"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "wc -l compte les 8 caractères de fin de ligne.",
       "source_urls": [
@@ -8131,11 +8131,11 @@
         },
         {
           "id": "B",
-          "text": "10"
+          "text": "8"
         },
         {
           "id": "C",
-          "text": "8"
+          "text": "10"
         },
         {
           "id": "D",
@@ -8167,7 +8167,7 @@
       "options": [
         {
           "id": "A",
-          "text": "10"
+          "text": "9"
         },
         {
           "id": "B",
@@ -8175,7 +8175,7 @@
         },
         {
           "id": "C",
-          "text": "9"
+          "text": "10"
         },
         {
           "id": "D",
@@ -8183,7 +8183,7 @@
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "wc -l compte les 10 caractères de fin de ligne.",
       "source_urls": [
@@ -8207,7 +8207,7 @@
       "options": [
         {
           "id": "A",
-          "text": "11"
+          "text": "10"
         },
         {
           "id": "B",
@@ -8215,7 +8215,7 @@
         },
         {
           "id": "C",
-          "text": "10"
+          "text": "11"
         },
         {
           "id": "D",
@@ -8223,7 +8223,7 @@
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "wc -l compte les 11 caractères de fin de ligne.",
       "source_urls": [
@@ -8251,11 +8251,11 @@
         },
         {
           "id": "B",
-          "text": "13"
+          "text": "11"
         },
         {
           "id": "C",
-          "text": "11"
+          "text": "13"
         },
         {
           "id": "D",
@@ -8287,7 +8287,7 @@
       "options": [
         {
           "id": "A",
-          "text": "/"
+          "text": "."
         },
         {
           "id": "B",
@@ -8295,15 +8295,15 @@
         },
         {
           "id": "C",
-          "text": ".."
+          "text": "/"
         },
         {
           "id": "D",
-          "text": "."
+          "text": ".."
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "/ désigne la racine.",
       "source_urls": [
@@ -8327,7 +8327,7 @@
       "options": [
         {
           "id": "A",
-          "text": "/home/lea"
+          "text": "/home"
         },
         {
           "id": "B",
@@ -8335,15 +8335,15 @@
         },
         {
           "id": "C",
-          "text": "/home"
+          "text": "/tmp"
         },
         {
           "id": "D",
-          "text": "/tmp"
+          "text": "/home/lea"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "~ seul se développe en répertoire personnel.",
       "source_urls": [
@@ -8367,7 +8367,7 @@
       "options": [
         {
           "id": "A",
-          "text": "/home/lea"
+          "text": "/"
         },
         {
           "id": "B",
@@ -8375,7 +8375,7 @@
         },
         {
           "id": "C",
-          "text": "/"
+          "text": "/home/lea"
         },
         {
           "id": "D",
@@ -8383,7 +8383,7 @@
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": ".. représente le parent.",
       "source_urls": [
@@ -8407,15 +8407,15 @@
       "options": [
         {
           "id": "A",
-          "text": "/etc/passwd"
+          "text": "../etc/passwd"
         },
         {
           "id": "B",
-          "text": "./etc/passwd"
+          "text": "/etc/passwd"
         },
         {
           "id": "C",
-          "text": "../etc/passwd"
+          "text": "./etc/passwd"
         },
         {
           "id": "D",
@@ -8423,7 +8423,7 @@
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "Le slash initial indique un chemin absolu.",
       "source_urls": [
@@ -8447,23 +8447,23 @@
       "options": [
         {
           "id": "A",
-          "text": "../notes.txt"
+          "text": "/tmp/notes.txt"
         },
         {
           "id": "B",
-          "text": "/etc/notes.txt"
+          "text": "../notes.txt"
         },
         {
           "id": "C",
-          "text": "/home/notes.txt"
+          "text": "/etc/notes.txt"
         },
         {
           "id": "D",
-          "text": "/tmp/notes.txt"
+          "text": "/home/notes.txt"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "Le chemin se détermine depuis le répertoire courant.",
       "source_urls": [
@@ -8487,11 +8487,11 @@
       "options": [
         {
           "id": "A",
-          "text": "pwd"
+          "text": "mkdir"
         },
         {
           "id": "B",
-          "text": "cd"
+          "text": "pwd"
         },
         {
           "id": "C",
@@ -8499,11 +8499,11 @@
         },
         {
           "id": "D",
-          "text": "mkdir"
+          "text": "cd"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "pwd = print working directory.",
       "source_urls": [
@@ -8531,15 +8531,15 @@
         },
         {
           "id": "B",
-          "text": "touch cours"
-        },
-        {
-          "id": "C",
           "text": "pwd cours"
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "cat cours"
+        },
+        {
+          "id": "D",
+          "text": "touch cours"
         }
       ],
       "correct_option_ids": [
@@ -8607,11 +8607,11 @@
       "options": [
         {
           "id": "A",
-          "text": "man grep"
+          "text": "file grep"
         },
         {
           "id": "B",
-          "text": "file grep"
+          "text": "man grep"
         },
         {
           "id": "C",
@@ -8623,7 +8623,7 @@
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "man ouvre la documentation.",
       "source_urls": [
@@ -8647,11 +8647,11 @@
       "options": [
         {
           "id": "A",
-          "text": "2"
+          "text": "3"
         },
         {
           "id": "B",
-          "text": "0"
+          "text": "2"
         },
         {
           "id": "C",
@@ -8659,11 +8659,11 @@
         },
         {
           "id": "D",
-          "text": "3"
+          "text": "0"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "0 = stdin, 1 = stdout, 2 = stderr.",
       "source_urls": [
@@ -8687,7 +8687,7 @@
       "options": [
         {
           "id": "A",
-          "text": "Ajoute à la fin du fichier"
+          "text": "Supprime le fichier"
         },
         {
           "id": "B",
@@ -8699,11 +8699,11 @@
         },
         {
           "id": "D",
-          "text": "Supprime le fichier"
+          "text": "Ajoute à la fin du fichier"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": ">> ajoute à la fin.",
       "source_urls": [
@@ -8727,7 +8727,7 @@
       "options": [
         {
           "id": "A",
-          "text": "Redirige stderr"
+          "text": "Lance la commande deux fois"
         },
         {
           "id": "B",
@@ -8735,15 +8735,15 @@
         },
         {
           "id": "C",
-          "text": "Redirige stdout"
+          "text": "Redirige stderr"
         },
         {
           "id": "D",
-          "text": "Lance la commande deux fois"
+          "text": "Redirige stdout"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "2 est le descripteur stderr.",
       "source_urls": [
@@ -8767,7 +8767,7 @@
       "options": [
         {
           "id": "A",
-          "text": "Affiche 2"
+          "text": "Affiche 0"
         },
         {
           "id": "B",
@@ -8775,15 +8775,15 @@
         },
         {
           "id": "C",
-          "text": "Affiche 0"
+          "text": "Affiche 3"
         },
         {
           "id": "D",
-          "text": "Affiche 3"
+          "text": "Affiche 2"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "Deux sauts de ligne sont produits.",
       "source_urls": [
@@ -8807,23 +8807,23 @@
       "options": [
         {
           "id": "A",
-          "text": "N'affiche pas oui"
-        },
-        {
-          "id": "B",
-          "text": "Affiche oui"
-        },
-        {
-          "id": "C",
           "text": "Affiche false"
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "Affiche 0"
+        },
+        {
+          "id": "C",
+          "text": "N'affiche pas oui"
+        },
+        {
+          "id": "D",
+          "text": "Affiche oui"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "&& n'exécute le côté droit que si le côté gauche réussit.",
       "source_urls": [
@@ -8847,23 +8847,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Recherche sans tenir compte de la casse"
-        },
-        {
-          "id": "B",
-          "text": "Affiche les lignes inversées"
-        },
-        {
-          "id": "C",
           "text": "Compte les octets"
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "Supprime les erreurs"
+        },
+        {
+          "id": "C",
+          "text": "Recherche sans tenir compte de la casse"
+        },
+        {
+          "id": "D",
+          "text": "Affiche les lignes inversées"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "-i ignore la casse.",
       "source_urls": [
@@ -8891,15 +8891,15 @@
         },
         {
           "id": "B",
-          "text": "nom = valeur"
-        },
-        {
-          "id": "C",
           "text": "$nom=valeur"
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "export =nom valeur"
+        },
+        {
+          "id": "D",
+          "text": "nom = valeur"
         }
       ],
       "correct_option_ids": [
@@ -8935,11 +8935,11 @@
         },
         {
           "id": "C",
-          "text": "alias NOM"
+          "text": "cd NOM"
         },
         {
           "id": "D",
-          "text": "cd NOM"
+          "text": "alias NOM"
         }
       ],
       "correct_option_ids": [
@@ -8971,7 +8971,7 @@
         },
         {
           "id": "B",
-          "text": "Affecte obligatoirement 0"
+          "text": "L'ajoute à PATH"
         },
         {
           "id": "C",
@@ -8979,7 +8979,7 @@
         },
         {
           "id": "D",
-          "text": "L'ajoute à PATH"
+          "text": "Affecte obligatoirement 0"
         }
       ],
       "correct_option_ids": [
@@ -9007,7 +9007,7 @@
       "options": [
         {
           "id": "A",
-          "text": "Exécuter le script dans le Shell courant"
+          "text": "Créer un fichier vide"
         },
         {
           "id": "B",
@@ -9019,11 +9019,11 @@
         },
         {
           "id": "D",
-          "text": "Créer un fichier vide"
+          "text": "Exécuter le script dans le Shell courant"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "source exécute dans l'environnement du Shell courant.",
       "source_urls": [
@@ -9055,11 +9055,11 @@
         },
         {
           "id": "C",
-          "text": "Lister les fichiers ouverts"
+          "text": "Stocker uniquement /home"
         },
         {
           "id": "D",
-          "text": "Stocker uniquement /home"
+          "text": "Lister les fichiers ouverts"
         }
       ],
       "correct_option_ids": [
@@ -9087,15 +9087,15 @@
       "options": [
         {
           "id": "A",
-          "text": "Une substitution par la sortie de pwd"
+          "text": "Une fonction C"
         },
         {
           "id": "B",
-          "text": "Un fichier pwd"
+          "text": "Une substitution par la sortie de pwd"
         },
         {
           "id": "C",
-          "text": "Une fonction C"
+          "text": "Un fichier pwd"
         },
         {
           "id": "D",
@@ -9103,7 +9103,7 @@
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "$(commande) réalise une substitution de commande.",
       "source_urls": [
@@ -9127,23 +9127,23 @@
       "options": [
         {
           "id": "A",
-          "text": "11"
-        },
-        {
-          "id": "B",
           "text": "14"
         },
         {
+          "id": "B",
+          "text": "9"
+        },
+        {
           "id": "C",
-          "text": "7"
+          "text": "11"
         },
         {
           "id": "D",
-          "text": "9"
+          "text": "7"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "La multiplication est prioritaire.",
       "source_urls": [
@@ -9167,23 +9167,23 @@
       "options": [
         {
           "id": "A",
-          "text": "$?"
-        },
-        {
-          "id": "B",
-          "text": "$#"
-        },
-        {
-          "id": "C",
           "text": "$1"
         },
         {
-          "id": "D",
+          "id": "B",
+          "text": "$?"
+        },
+        {
+          "id": "C",
           "text": "$$"
+        },
+        {
+          "id": "D",
+          "text": "$#"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "$? contient le code retour.",
       "source_urls": [
@@ -9207,23 +9207,23 @@
       "options": [
         {
           "id": "A",
-          "text": "git init"
+          "text": "git branch"
         },
         {
           "id": "B",
-          "text": "git clone"
+          "text": "git init"
         },
         {
           "id": "C",
-          "text": "git status"
+          "text": "git clone"
         },
         {
           "id": "D",
-          "text": "git branch"
+          "text": "git status"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "git init crée le dépôt local.",
       "source_urls": [
@@ -9247,23 +9247,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Héberger des dépôts et faciliter les contributions"
-        },
-        {
-          "id": "B",
-          "text": "Compiler tous les C sans config"
-        },
-        {
-          "id": "C",
           "text": "Remplacer Bash"
         },
         {
-          "id": "D",
+          "id": "B",
+          "text": "Héberger des dépôts et faciliter les contributions"
+        },
+        {
+          "id": "C",
           "text": "Effacer l'historique Git"
+        },
+        {
+          "id": "D",
+          "text": "Compiler tous les C sans config"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "GitHub héberge et facilite la collaboration.",
       "source_urls": [
@@ -9287,11 +9287,11 @@
       "options": [
         {
           "id": "A",
-          "text": "Met le contenu actuel du fichier dans l'index"
+          "text": "Publie sur GitHub"
         },
         {
           "id": "B",
-          "text": "Publie sur GitHub"
+          "text": "Met le contenu actuel du fichier dans l'index"
         },
         {
           "id": "C",
@@ -9303,7 +9303,7 @@
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "git add prépare l'index.",
       "source_urls": [
@@ -9327,15 +9327,15 @@
       "options": [
         {
           "id": "A",
-          "text": "Enregistre localement l'état de l'index"
+          "text": "Télécharge toutes les branches"
         },
         {
           "id": "B",
-          "text": "Envoie automatiquement sur GitHub"
+          "text": "Enregistre localement l'état de l'index"
         },
         {
           "id": "C",
-          "text": "Télécharge toutes les branches"
+          "text": "Envoie automatiquement sur GitHub"
         },
         {
           "id": "D",
@@ -9343,7 +9343,7 @@
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "Un commit enregistre un instantané local de l'index.",
       "source_urls": [
@@ -9367,11 +9367,11 @@
       "options": [
         {
           "id": "A",
-          "text": "Crée et sélectionne une branche locale essai"
+          "text": "Supprime essai"
         },
         {
           "id": "B",
-          "text": "Supprime essai"
+          "text": "Publie essai sur GitHub"
         },
         {
           "id": "C",
@@ -9379,11 +9379,11 @@
         },
         {
           "id": "D",
-          "text": "Publie essai sur GitHub"
+          "text": "Crée et sélectionne une branche locale essai"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "-c crée une branche puis s'y place.",
       "source_urls": [
@@ -9407,7 +9407,7 @@
       "options": [
         {
           "id": "A",
-          "text": "Proposer et examiner des changements avant fusion"
+          "text": "Forcer la fusion sans tests"
         },
         {
           "id": "B",
@@ -9419,11 +9419,11 @@
         },
         {
           "id": "D",
-          "text": "Forcer la fusion sans tests"
+          "text": "Proposer et examiner des changements avant fusion"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "La PR porte la discussion et les checks avant fusion.",
       "source_urls": [
@@ -9447,23 +9447,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Résoudre les lignes concurrentes puis valider"
+          "text": "Forcer toujours --hard"
         },
         {
           "id": "B",
-          "text": "Supprimer main"
+          "text": "Résoudre les lignes concurrentes puis valider"
         },
         {
           "id": "C",
-          "text": "Ignorer les fichiers"
+          "text": "Supprimer main"
         },
         {
           "id": "D",
-          "text": "Forcer toujours --hard"
+          "text": "Ignorer les fichiers"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "Le conflit nécessite un choix de contenu.",
       "source_urls": [
@@ -9487,11 +9487,11 @@
       "options": [
         {
           "id": "A",
-          "text": "git status"
+          "text": "git init"
         },
         {
           "id": "B",
-          "text": "git init"
+          "text": "git status"
         },
         {
           "id": "C",
@@ -9503,7 +9503,7 @@
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "git status signale les fichiers suivis, modifiés, indexés, etc.",
       "source_urls": [
@@ -9535,11 +9535,11 @@
         },
         {
           "id": "C",
-          "text": "Efface le dépôt"
+          "text": "Ajoute les fichiers locaux à l'index"
         },
         {
           "id": "D",
-          "text": "Ajoute les fichiers locaux à l'index"
+          "text": "Efface le dépôt"
         }
       ],
       "correct_option_ids": [
@@ -9567,11 +9567,11 @@
       "options": [
         {
           "id": "A",
-          "text": "git log"
+          "text": "git status --short"
         },
         {
           "id": "B",
-          "text": "git add"
+          "text": "git log"
         },
         {
           "id": "C",
@@ -9579,11 +9579,11 @@
         },
         {
           "id": "D",
-          "text": "git status --short"
+          "text": "git add"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "git log parcourt les commits.",
       "source_urls": [

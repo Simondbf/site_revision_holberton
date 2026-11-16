@@ -14,11 +14,11 @@
       "options": [
         {
           "id": "A",
-          "text": "Non : il gère notamment ressources matérielles et processus"
+          "text": "Oui : tout logiciel graphique fait partie du noyau"
         },
         {
           "id": "B",
-          "text": "Oui : tout logiciel graphique fait partie du noyau"
+          "text": "Oui : Git est un module obligatoire du noyau"
         },
         {
           "id": "C",
@@ -26,11 +26,11 @@
         },
         {
           "id": "D",
-          "text": "Oui : Git est un module obligatoire du noyau"
+          "text": "Non : il gère notamment ressources matérielles et processus"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "Le noyau gère les ressources, mais applications et interfaces utilisateur s'exécutent généralement en espace utilisateur.",
       "source_urls": [
@@ -95,23 +95,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Exécuter un environnement Linux sous Windows"
+          "text": "Supprimer les systèmes de fichiers"
         },
         {
           "id": "B",
-          "text": "Remplacer physiquement le processeur"
+          "text": "Exécuter un environnement Linux sous Windows"
         },
         {
           "id": "C",
-          "text": "Transformer Git en compilateur C"
+          "text": "Remplacer physiquement le processeur"
         },
         {
           "id": "D",
-          "text": "Supprimer les systèmes de fichiers"
+          "text": "Transformer Git en compilateur C"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "WSL permet d'utiliser un environnement Linux sous Windows.",
       "source_urls": [
@@ -135,23 +135,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Le terminal fournit l'interface d'entrée/sortie ; le Shell interprète les commandes"
-        },
-        {
-          "id": "B",
           "text": "Le terminal compile automatiquement les commandes"
         },
         {
+          "id": "B",
+          "text": "Ils désignent toujours le même programme"
+        },
+        {
           "id": "C",
-          "text": "Le Shell est nécessairement un périphérique matériel"
+          "text": "Le terminal fournit l'interface d'entrée/sortie ; le Shell interprète les commandes"
         },
         {
           "id": "D",
-          "text": "Ils désignent toujours le même programme"
+          "text": "Le Shell est nécessairement un périphérique matériel"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "Le terminal présente l'interface et le Shell exécute l'interprétation des commandes.",
       "source_urls": [
@@ -175,24 +175,24 @@
       "options": [
         {
           "id": "A",
-          "text": "Il contient des commandes interprétables par un Shell"
+          "text": "Il modifie toujours le noyau"
         },
         {
           "id": "B",
-          "text": "Il peut utiliser variables et conditions"
-        },
-        {
-          "id": "C",
           "text": "Il doit obligatoirement être écrit en C"
         },
         {
+          "id": "C",
+          "text": "Il contient des commandes interprétables par un Shell"
+        },
+        {
           "id": "D",
-          "text": "Il modifie toujours le noyau"
+          "text": "Il peut utiliser variables et conditions"
         }
       ],
       "correct_option_ids": [
-        "A",
-        "B"
+        "C",
+        "D"
       ],
       "explanation": "Un script Bash peut combiner commandes et structures de contrôle.",
       "source_urls": [
@@ -220,7 +220,7 @@
         },
         {
           "id": "B",
-          "text": "/home/lea"
+          "text": ".."
         },
         {
           "id": "C",
@@ -228,7 +228,7 @@
         },
         {
           "id": "D",
-          "text": ".."
+          "text": "/home/lea"
         }
       ],
       "correct_option_ids": [
@@ -260,11 +260,11 @@
         },
         {
           "id": "B",
-          "text": "cd ."
+          "text": "cd /"
         },
         {
           "id": "C",
-          "text": "cd /"
+          "text": "cd ."
         },
         {
           "id": "D",
@@ -300,11 +300,11 @@
         },
         {
           "id": "B",
-          "text": "mv a.txt b.txt"
+          "text": "rm a.txt b.txt"
         },
         {
           "id": "C",
-          "text": "rm a.txt b.txt"
+          "text": "mv a.txt b.txt"
         },
         {
           "id": "D",
@@ -336,11 +336,11 @@
       "options": [
         {
           "id": "A",
-          "text": "r permet d'énumérer les noms d'entrées"
+          "text": "x autorise la traversée du dossier si les autres permissions le permettent"
         },
         {
           "id": "B",
-          "text": "x autorise la traversée du dossier si les autres permissions le permettent"
+          "text": "r permet d'énumérer les noms d'entrées"
         },
         {
           "id": "C",
@@ -381,15 +381,15 @@
         },
         {
           "id": "B",
-          "text": "Il limite le programme à la lecture seule"
+          "text": "Il remplace toujours chmod"
         },
         {
           "id": "C",
-          "text": "Il désactive automatiquement les permissions"
+          "text": "Il limite le programme à la lecture seule"
         },
         {
           "id": "D",
-          "text": "Il remplace toujours chmod"
+          "text": "Il désactive automatiquement les permissions"
         }
       ],
       "correct_option_ids": [
@@ -417,25 +417,25 @@
       "options": [
         {
           "id": "A",
-          "text": "stdin = 0"
-        },
-        {
-          "id": "B",
-          "text": "stdout = 1"
-        },
-        {
-          "id": "C",
           "text": "stderr = 2"
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "stderr = 1 et stdout = 2"
+        },
+        {
+          "id": "C",
+          "text": "stdin = 0"
+        },
+        {
+          "id": "D",
+          "text": "stdout = 1"
         }
       ],
       "correct_option_ids": [
         "A",
-        "B",
-        "C"
+        "C",
+        "D"
       ],
       "explanation": "Les descripteurs standard sont 0, 1 et 2.",
       "source_urls": [
@@ -459,7 +459,7 @@
       "options": [
         {
           "id": "A",
-          "text": "`>` tronque habituellement le fichier, `>>` ajoute à la fin"
+          "text": "`>` ne fonctionne que pour stderr"
         },
         {
           "id": "B",
@@ -467,15 +467,15 @@
         },
         {
           "id": "C",
-          "text": "`>` ne fonctionne que pour stderr"
+          "text": "Ils ont toujours le même effet sur un fichier"
         },
         {
           "id": "D",
-          "text": "Ils ont toujours le même effet sur un fichier"
+          "text": "`>` tronque habituellement le fichier, `>>` ajoute à la fin"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "La distinction est écrasement/troncation contre ajout.",
       "source_urls": [
@@ -499,7 +499,7 @@
       "options": [
         {
           "id": "A",
-          "text": "Le flux stdin de la commande provient du fichier"
+          "text": "Les sorties stdout sont ajoutées au fichier"
         },
         {
           "id": "B",
@@ -507,7 +507,7 @@
         },
         {
           "id": "C",
-          "text": "Les sorties stdout sont ajoutées au fichier"
+          "text": "Le flux stdin de la commande provient du fichier"
         },
         {
           "id": "D",
@@ -515,7 +515,7 @@
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "Le symbole < redirige l'entrée standard.",
       "source_urls": [
@@ -539,15 +539,15 @@
       "options": [
         {
           "id": "A",
-          "text": "b"
-        },
-        {
-          "id": "B",
           "text": "a"
         },
         {
-          "id": "C",
+          "id": "B",
           "text": "a et b"
+        },
+        {
+          "id": "C",
+          "text": "b"
         },
         {
           "id": "D",
@@ -555,7 +555,7 @@
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "Le tube transmet la sortie de printf à grep ; grep conserve la ligne contenant b.",
       "source_urls": [
@@ -579,7 +579,7 @@
       "options": [
         {
           "id": "A",
-          "text": "`commande1 && commande2` ne lance la seconde que si la première réussit"
+          "text": "`&&` teste obligatoirement si la sortie texte est non vide"
         },
         {
           "id": "B",
@@ -591,12 +591,12 @@
         },
         {
           "id": "D",
-          "text": "`&&` teste obligatoirement si la sortie texte est non vide"
+          "text": "`commande1 && commande2` ne lance la seconde que si la première réussit"
         }
       ],
       "correct_option_ids": [
-        "A",
-        "B"
+        "B",
+        "D"
       ],
       "explanation": "Les opérateurs utilisent le code de retour.",
       "source_urls": [
@@ -620,24 +620,24 @@
       "options": [
         {
           "id": "A",
-          "text": "Il compte les caractères de fin de ligne"
-        },
-        {
-          "id": "B",
-          "text": "Un fichier sans caractère `\\n` peut contenir du texte et pourtant donner 0"
-        },
-        {
-          "id": "C",
           "text": "Il donne toujours le nombre de mots"
         },
         {
-          "id": "D",
+          "id": "B",
+          "text": "Il compte les caractères de fin de ligne"
+        },
+        {
+          "id": "C",
           "text": "Il compte les fichiers d'un dossier"
+        },
+        {
+          "id": "D",
+          "text": "Un fichier sans caractère `\\n` peut contenir du texte et pourtant donner 0"
         }
       ],
       "correct_option_ids": [
-        "A",
-        "B"
+        "B",
+        "D"
       ],
       "explanation": "Une dernière ligne sans saut de ligne n'ajoute pas un caractère `\\n`.",
       "source_urls": [
@@ -661,23 +661,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Sélectionne le premier champ"
+          "text": "Classe les lignes par nombre"
         },
         {
           "id": "B",
-          "text": "Remplace tous les deux-points par des espaces"
-        },
-        {
-          "id": "C",
           "text": "Inverse les caractères"
         },
         {
+          "id": "C",
+          "text": "Remplace tous les deux-points par des espaces"
+        },
+        {
           "id": "D",
-          "text": "Classe les lignes par nombre"
+          "text": "Sélectionne le premier champ"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "cut sélectionne un champ avec un délimiteur.",
       "source_urls": [
@@ -701,23 +701,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Afficher les lignes correspondantes et jusqu'à trois lignes suivantes"
-        },
-        {
-          "id": "B",
           "text": "Afficher uniquement les trois lignes précédentes"
         },
         {
+          "id": "B",
+          "text": "Inverser toutes les lignes"
+        },
+        {
           "id": "C",
-          "text": "Limiter le nombre de résultats à trois"
+          "text": "Afficher les lignes correspondantes et jusqu'à trois lignes suivantes"
         },
         {
           "id": "D",
-          "text": "Inverser toutes les lignes"
+          "text": "Limiter le nombre de résultats à trois"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "-A sélectionne le contexte après une correspondance.",
       "source_urls": [
@@ -741,25 +741,25 @@
       "options": [
         {
           "id": "A",
-          "text": "-i ignore la casse"
-        },
-        {
-          "id": "B",
           "text": "-v inverse la sélection des lignes"
         },
         {
+          "id": "B",
+          "text": "-i convertit le fichier en majuscules sur disque"
+        },
+        {
           "id": "C",
-          "text": "-c compte les lignes sélectionnées"
+          "text": "-i ignore la casse"
         },
         {
           "id": "D",
-          "text": "-i convertit le fichier en majuscules sur disque"
+          "text": "-c compte les lignes sélectionnées"
         }
       ],
       "correct_option_ids": [
         "A",
-        "B",
-        "C"
+        "C",
+        "D"
       ],
       "explanation": "Ces options modifient recherche, sélection et comptage.",
       "source_urls": [
@@ -783,23 +783,23 @@
       "options": [
         {
           "id": "A",
-          "text": "uniq regroupe les doublons adjacents, sort peut les rapprocher"
-        },
-        {
-          "id": "B",
           "text": "uniq trie automatiquement toutes les lignes"
         },
         {
-          "id": "C",
+          "id": "B",
           "text": "sort supprime les doublons à lui seul"
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "uniq ne lit pas stdin"
+        },
+        {
+          "id": "D",
+          "text": "uniq regroupe les doublons adjacents, sort peut les rapprocher"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "uniq n'élimine pas les doublons éloignés sans tri préalable.",
       "source_urls": [
@@ -823,23 +823,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Non, la variable doit généralement être exportée pour figurer dans l'environnement transmis"
-        },
-        {
-          "id": "B",
           "text": "Oui, toutes les variables Shell sont automatiquement exportées"
         },
         {
+          "id": "B",
+          "text": "Non, les processus enfants n'ont jamais d'environnement"
+        },
+        {
           "id": "C",
-          "text": "Oui, mais seulement si son nom commence par _"
+          "text": "Non, la variable doit généralement être exportée pour figurer dans l'environnement transmis"
         },
         {
           "id": "D",
-          "text": "Non, les processus enfants n'ont jamais d'environnement"
+          "text": "Oui, mais seulement si son nom commence par _"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "Une variable Shell non exportée reste dans le Shell courant.",
       "source_urls": [
@@ -863,24 +863,24 @@
       "options": [
         {
           "id": "A",
-          "text": "Marque VAR pour transmission aux processus enfants"
-        },
-        {
-          "id": "B",
           "text": "Ne garantit pas la transmission à tous les processus déjà lancés"
         },
         {
-          "id": "C",
+          "id": "B",
           "text": "Convertit automatiquement VAR en constante C"
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "Remplace la valeur par 0"
+        },
+        {
+          "id": "D",
+          "text": "Marque VAR pour transmission aux processus enfants"
         }
       ],
       "correct_option_ids": [
         "A",
-        "B"
+        "D"
       ],
       "explanation": "export agit sur l'environnement des processus lancés ultérieurement.",
       "source_urls": [
@@ -904,23 +904,23 @@
       "options": [
         {
           "id": "A",
-          "text": "printenv"
-        },
-        {
-          "id": "B",
-          "text": "touch"
-        },
-        {
-          "id": "C",
           "text": "chmod"
         },
         {
-          "id": "D",
+          "id": "B",
+          "text": "printenv"
+        },
+        {
+          "id": "C",
           "text": "uname -r"
+        },
+        {
+          "id": "D",
+          "text": "touch"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "printenv affiche l'environnement.",
       "source_urls": [
@@ -944,11 +944,11 @@
       "options": [
         {
           "id": "A",
-          "text": "Un raccourci de substitution de commande défini dans le Shell"
+          "text": "Un nouveau programme compilé en C"
         },
         {
           "id": "B",
-          "text": "Un nouveau programme compilé en C"
+          "text": "Un raccourci de substitution de commande défini dans le Shell"
         },
         {
           "id": "C",
@@ -960,7 +960,7 @@
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "alias définit une substitution textuelle de nom de commande dans le Shell.",
       "source_urls": [
@@ -988,15 +988,15 @@
         },
         {
           "id": "B",
-          "text": "`$nom-fin` garantit toujours un nom sans ambiguïté"
-        },
-        {
-          "id": "C",
           "text": "`$nom fin` supprime tous les espaces"
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "`(nom)-fin`"
+        },
+        {
+          "id": "D",
+          "text": "`$nom-fin` garantit toujours un nom sans ambiguïté"
         }
       ],
       "correct_option_ids": [
@@ -1028,7 +1028,7 @@
         },
         {
           "id": "B",
-          "text": "Le PID du processus parent"
+          "text": "L'adresse mémoire d'une fonction"
         },
         {
           "id": "C",
@@ -1036,7 +1036,7 @@
         },
         {
           "id": "D",
-          "text": "L'adresse mémoire d'une fonction"
+          "text": "Le PID du processus parent"
         }
       ],
       "correct_option_ids": [
@@ -1064,7 +1064,7 @@
       "options": [
         {
           "id": "A",
-          "text": "`$((2+3))`"
+          "text": "`$(echo 2+3)` évalue automatiquement 2+3 comme entier"
         },
         {
           "id": "B",
@@ -1072,7 +1072,7 @@
         },
         {
           "id": "C",
-          "text": "`$(echo 2+3)` évalue automatiquement 2+3 comme entier"
+          "text": "`$((2+3))`"
         },
         {
           "id": "D",
@@ -1080,8 +1080,8 @@
         }
       ],
       "correct_option_ids": [
-        "A",
-        "B"
+        "B",
+        "C"
       ],
       "explanation": "$((...)) est l'expansion arithmétique.",
       "source_urls": [
@@ -1105,15 +1105,15 @@
       "options": [
         {
           "id": "A",
-          "text": "Au nombre de paramètres positionnels"
+          "text": "Au chemin du Shell"
         },
         {
           "id": "B",
-          "text": "Au code retour précédent"
+          "text": "Au nombre de paramètres positionnels"
         },
         {
           "id": "C",
-          "text": "Au chemin du Shell"
+          "text": "Au code retour précédent"
         },
         {
           "id": "D",
@@ -1121,7 +1121,7 @@
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "$# donne le nombre d'arguments positionnels.",
       "source_urls": [
@@ -1145,7 +1145,7 @@
       "options": [
         {
           "id": "A",
-          "text": ":"
+          "text": "|"
         },
         {
           "id": "B",
@@ -1157,11 +1157,11 @@
         },
         {
           "id": "D",
-          "text": "|"
+          "text": ":"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "PATH utilise généralement les deux-points comme séparateur.",
       "source_urls": [
@@ -1225,11 +1225,11 @@
       "options": [
         {
           "id": "A",
-          "text": "= affecte, == compare l'égalité"
+          "text": "== ne fonctionne que pour les chaînes"
         },
         {
           "id": "B",
-          "text": "= compare et == affecte"
+          "text": "= affecte, == compare l'égalité"
         },
         {
           "id": "C",
@@ -1237,11 +1237,11 @@
         },
         {
           "id": "D",
-          "text": "== ne fonctionne que pour les chaînes"
+          "text": "= compare et == affecte"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "Ne pas confondre affectation et comparaison.",
       "source_urls": [
@@ -1265,7 +1265,7 @@
       "options": [
         {
           "id": "A",
-          "text": "1"
+          "text": "2"
         },
         {
           "id": "B",
@@ -1273,15 +1273,15 @@
         },
         {
           "id": "C",
-          "text": "2"
+          "text": "Comportement indéfini"
         },
         {
           "id": "D",
-          "text": "Comportement indéfini"
+          "text": "1"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "L'opérateur logique || donne 1 si au moins un opérande est non nul.",
       "source_urls": [
@@ -1305,23 +1305,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Vraie"
-        },
-        {
-          "id": "B",
-          "text": "Toujours fausse"
-        },
-        {
-          "id": "C",
           "text": "Erreur de compilation"
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "Une valeur NULL"
+        },
+        {
+          "id": "C",
+          "text": "Toujours fausse"
+        },
+        {
+          "id": "D",
+          "text": "Vraie"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "En C, zéro est faux et non-zéro est vrai.",
       "source_urls": [
@@ -1349,15 +1349,15 @@
         },
         {
           "id": "B",
-          "text": "Fausse car x est négatif"
+          "text": "Vraie seulement si x vaut 1"
         },
         {
           "id": "C",
-          "text": "Toujours indéfinie"
+          "text": "Fausse car x est négatif"
         },
         {
           "id": "D",
-          "text": "Vraie seulement si x vaut 1"
+          "text": "Toujours indéfinie"
         }
       ],
       "correct_option_ids": [
@@ -1385,15 +1385,15 @@
       "options": [
         {
           "id": "A",
-          "text": "Les métadonnées Git avec historique et références"
-        },
-        {
-          "id": "B",
           "text": "Une obligation de posséder un compte GitHub"
         },
         {
-          "id": "C",
+          "id": "B",
           "text": "L'absence de fichiers texte"
+        },
+        {
+          "id": "C",
+          "text": "Les métadonnées Git avec historique et références"
         },
         {
           "id": "D",
@@ -1401,7 +1401,7 @@
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "Les données .git enregistrent l'historique et les références.",
       "source_urls": [
@@ -1425,25 +1425,25 @@
       "options": [
         {
           "id": "A",
-          "text": "git add prépare l'index"
-        },
-        {
-          "id": "B",
           "text": "git commit crée un commit local"
         },
         {
-          "id": "C",
+          "id": "B",
           "text": "git push publie sur un distant"
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "git add publie obligatoirement sur GitHub"
+        },
+        {
+          "id": "D",
+          "text": "git add prépare l'index"
         }
       ],
       "correct_option_ids": [
         "A",
         "B",
-        "C"
+        "D"
       ],
       "explanation": "Index, historique local et distant sont distincts.",
       "source_urls": [
@@ -1467,23 +1467,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Non, ils restent accessibles via l'historique de la branche cible"
-        },
-        {
-          "id": "B",
           "text": "Oui, tous les changements disparaissent"
         },
         {
+          "id": "B",
+          "text": "Oui, le dépôt entier devient vide"
+        },
+        {
           "id": "C",
-          "text": "Oui, GitHub efface automatiquement la PR"
+          "text": "Non, ils restent accessibles via l'historique de la branche cible"
         },
         {
           "id": "D",
-          "text": "Oui, le dépôt entier devient vide"
+          "text": "Oui, GitHub efface automatiquement la PR"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "Les commits intégrés au graphe restent référencés par la branche cible.",
       "source_urls": [
@@ -1507,7 +1507,7 @@
       "options": [
         {
           "id": "A",
-          "text": "Les anciennes exécutions restent rouges, mais le dernier état peut avoir corrigé le défaut"
+          "text": "Le code final est forcément vulnérable"
         },
         {
           "id": "B",
@@ -1515,15 +1515,15 @@
         },
         {
           "id": "C",
-          "text": "Le code final est forcément vulnérable"
+          "text": "Il faut supprimer l'historique Git"
         },
         {
           "id": "D",
-          "text": "Il faut supprimer l'historique Git"
+          "text": "Les anciennes exécutions restent rouges, mais le dernier état peut avoir corrigé le défaut"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "On évalue les checks du commit final, pas seulement une ancienne révision.",
       "source_urls": [
@@ -1547,23 +1547,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Les choix retenus dans le fichier final"
-        },
-        {
-          "id": "B",
-          "text": "Uniquement le nom de la branche"
-        },
-        {
-          "id": "C",
           "text": "Le nombre de caractères dans le README"
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "Aucune vérification, Git choisit toujours seul"
+        },
+        {
+          "id": "C",
+          "text": "Les choix retenus dans le fichier final"
+        },
+        {
+          "id": "D",
+          "text": "Uniquement le nom de la branche"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "La résolution de conflit nécessite une revue du résultat.",
       "source_urls": [
@@ -1627,11 +1627,11 @@
       "options": [
         {
           "id": "A",
-          "text": "Crée une copie locale d'un dépôt distant"
+          "text": "Efface le dépôt distant"
         },
         {
           "id": "B",
-          "text": "Efface le dépôt distant"
+          "text": "Change uniquement le nom de la branche courante"
         },
         {
           "id": "C",
@@ -1639,11 +1639,11 @@
         },
         {
           "id": "D",
-          "text": "Change uniquement le nom de la branche courante"
+          "text": "Crée une copie locale d'un dépôt distant"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "clone crée un dépôt local à partir du distant.",
       "source_urls": [
