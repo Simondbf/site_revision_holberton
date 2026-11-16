@@ -189,6 +189,19 @@ try{
   'Le texte de scanf a disparu pendant le découpage.');
  await page.screenshot({path:'apercus/scanf-cours-aere.png'});
 
+ // Contrôle de navigation, de lisibilité et de sources sur les nouvelles notions C.
+ await page.goto(origin+'/'+route('Programmation C','fgets() — lire une ligne avec une limite'));
+ await page.waitForFunction(()=>document.querySelector('#notion-8-26')?.classList.contains('lesson-selected'));
+ assert.ok(await page.locator('#notion-8-26 .lesson-reading p').count()>=3,
+  'La nouvelle fiche fgets doit rester aérée.');
+ assert.ok((await page.locator('#notion-8-26 .lesson-sources a').allTextContents())
+  .some(label=>label.includes('fgets')),'Source man fgets absente.');
+ await page.goto(origin+'/'+route('Pointeurs et tableaux C','strncpy() — copie limitée et terminaison'));
+ await page.waitForFunction(()=>document.querySelector('#notion-9-47')?.classList.contains('lesson-selected'));
+ assert.ok(await page.locator('#notion-9-47 .lesson-reading p').count()>=3,
+  'La nouvelle fiche strncpy doit rester aérée.');
+ await page.screenshot({path:'apercus/strncpy-cours-aere.png'});
+
  // Le comportement mobile existant reste préservé, sans refonte de l'interface.
  const mobile=await browser.newPage({viewport:{width:390,height:844},isMobile:true,hasTouch:true});
  mobile.on('pageerror',e=>errors.push('Mobile : '+e.message));
