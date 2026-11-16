@@ -147,7 +147,7 @@ try{
   assert.match(extra['8:25'].explanation,/nombre de conversions/,'scanf doit expliquer la valeur renvoyée.');
   for(const key of ['14:8']){
     assert.ok(extra[key]?.sources?.length,'Source base bundle absente');
-    assert.match(extra[key].explanation,/sans consulter les fichiers/,'Prudence concernant le vrai code du lab absente.');
+    assert.match(extra[key].explanation,/sans consulter les fichiers/i,'Prudence concernant le vrai code du lab absente.');
   }
   for(let i=60;i<=65;i++){
     assert.ok(pointers[String(i)]?.sources?.length,'Source manquante sur 9:'+i);
