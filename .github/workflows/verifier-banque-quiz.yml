@@ -1,0 +1,24 @@
+name: Vérifier la banque de quiz (hors production)
+
+on:
+  pull_request:
+    paths:
+      - 'docs/quiz/**'
+      - 'scripts/verifier_banque_quiz.mjs'
+      - '.github/workflows/verifier-banque-quiz.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  banque_quiz:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Récupérer le dépôt
+        uses: actions/checkout@v4
+      - name: Configurer Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Vérifier les fichiers de questions et corrigés
+        run: node scripts/verifier_banque_quiz.mjs
