@@ -564,7 +564,7 @@ Avec `int x=5; if(x>3) ... else ...`, quelle branche est prise ?
 - **C ❌** Les deux branches
 - **D ❌** Aucune
 
-**Réponse candidate :** A. 5>3 est vrai.
+**Réponse candidate :** A. La condition compare les deux entiers : 5 est supérieur à 3, donc la branche if est sélectionnée.
 
 **Fiche :** https://revision-hbtn.soleiljaune.be/#cours/conditions-et-boucles-c/1-if-else-if-else
 

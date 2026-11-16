@@ -7505,7 +7505,7 @@
       "correct_option_ids": [
         "A"
       ],
-      "explanation": "rwx / --- / ---",
+      "explanation": "Le premier chiffre autorise rwx au propriétaire ; groupe et autres n'ont aucune permission.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/permissions-et-flux/1-r-w-x"
       ],
@@ -7545,7 +7545,7 @@
       "correct_option_ids": [
         "A"
       ],
-      "explanation": "rw- / r-- / r--",
+      "explanation": "Le propriétaire a la lecture et l'écriture ; groupe et autres disposent de la lecture seule.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/permissions-et-flux/1-r-w-x"
       ],
@@ -7585,7 +7585,7 @@
       "correct_option_ids": [
         "A"
       ],
-      "explanation": "rwx / r-x / r-x",
+      "explanation": "Le propriétaire possède tous les droits ; le groupe et les autres peuvent lire et traverser/exécuter.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/permissions-et-flux/1-r-w-x"
       ],
@@ -7625,7 +7625,7 @@
       "correct_option_ids": [
         "A"
       ],
-      "explanation": "rw- / --- / ---",
+      "explanation": "Seul le propriétaire peut lire et écrire ; groupe et autres n'ont aucun droit.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/permissions-et-flux/1-r-w-x"
       ],
@@ -7665,7 +7665,7 @@
       "correct_option_ids": [
         "A"
       ],
-      "explanation": "r-- / r-- / r--",
+      "explanation": "Les trois catégories peuvent lire mais ne disposent ni d'écriture ni d'exécution.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/permissions-et-flux/1-r-w-x"
       ],
@@ -7705,7 +7705,7 @@
       "correct_option_ids": [
         "A"
       ],
-      "explanation": "rw- / r-- / ---",
+      "explanation": "Le propriétaire peut lire/écrire, le groupe seulement lire, les autres n'ont aucun droit.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/permissions-et-flux/1-r-w-x"
       ],
@@ -7745,7 +7745,7 @@
       "correct_option_ids": [
         "A"
       ],
-      "explanation": "rwx / r-x / --x",
+      "explanation": "Le propriétaire peut tout faire, le groupe lire et exécuter, les autres seulement exécuter/traverser.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/permissions-et-flux/1-r-w-x"
       ],
@@ -7785,7 +7785,7 @@
       "correct_option_ids": [
         "A"
       ],
-      "explanation": "rwx / r-x / ---",
+      "explanation": "Le propriétaire peut tout faire, le groupe lire et exécuter, les autres n'ont aucun droit.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/permissions-et-flux/1-r-w-x"
       ],

@@ -3538,7 +3538,7 @@ Avec `char mot[]="Ubuntu";`, que vaut `sizeof mot` ?
 - **C ❌** rw-rw-rw-
 - **D ❌** ---------
 
-**Correction :** A · rwx / --- / ---
+**Correction :** A · Le premier chiffre autorise rwx au propriétaire ; groupe et autres n'ont aucune permission.
 
 **Lien vers la fiche :** https://revision-hbtn.soleiljaune.be/#cours/permissions-et-flux/1-r-w-x
 
@@ -3557,7 +3557,7 @@ Avec `char mot[]="Ubuntu";`, que vaut `sizeof mot` ?
 - **C ❌** rw-rw-rw-
 - **D ❌** ---------
 
-**Correction :** A · rw- / r-- / r--
+**Correction :** A · Le propriétaire a la lecture et l'écriture ; groupe et autres disposent de la lecture seule.
 
 **Lien vers la fiche :** https://revision-hbtn.soleiljaune.be/#cours/permissions-et-flux/1-r-w-x
 
@@ -3576,7 +3576,7 @@ Avec `char mot[]="Ubuntu";`, que vaut `sizeof mot` ?
 - **C ❌** rw-rw-rw-
 - **D ❌** ---------
 
-**Correction :** A · rwx / r-x / r-x
+**Correction :** A · Le propriétaire possède tous les droits ; le groupe et les autres peuvent lire et traverser/exécuter.
 
 **Lien vers la fiche :** https://revision-hbtn.soleiljaune.be/#cours/permissions-et-flux/1-r-w-x
 
@@ -3595,7 +3595,7 @@ Avec `char mot[]="Ubuntu";`, que vaut `sizeof mot` ?
 - **C ❌** rw-rw-rw-
 - **D ❌** ---------
 
-**Correction :** A · rw- / --- / ---
+**Correction :** A · Seul le propriétaire peut lire et écrire ; groupe et autres n'ont aucun droit.
 
 **Lien vers la fiche :** https://revision-hbtn.soleiljaune.be/#cours/permissions-et-flux/1-r-w-x
 
@@ -3614,7 +3614,7 @@ Avec `char mot[]="Ubuntu";`, que vaut `sizeof mot` ?
 - **C ❌** rw-rw-rw-
 - **D ❌** ---------
 
-**Correction :** A · r-- / r-- / r--
+**Correction :** A · Les trois catégories peuvent lire mais ne disposent ni d'écriture ni d'exécution.
 
 **Lien vers la fiche :** https://revision-hbtn.soleiljaune.be/#cours/permissions-et-flux/1-r-w-x
 
@@ -3633,7 +3633,7 @@ Avec `char mot[]="Ubuntu";`, que vaut `sizeof mot` ?
 - **C ❌** rw-rw-rw-
 - **D ❌** ---------
 
-**Correction :** A · rw- / r-- / ---
+**Correction :** A · Le propriétaire peut lire/écrire, le groupe seulement lire, les autres n'ont aucun droit.
 
 **Lien vers la fiche :** https://revision-hbtn.soleiljaune.be/#cours/permissions-et-flux/1-r-w-x
 
@@ -3652,7 +3652,7 @@ Avec `char mot[]="Ubuntu";`, que vaut `sizeof mot` ?
 - **C ❌** rw-rw-rw-
 - **D ❌** ---------
 
-**Correction :** A · rwx / r-x / --x
+**Correction :** A · Le propriétaire peut tout faire, le groupe lire et exécuter, les autres seulement exécuter/traverser.
 
 **Lien vers la fiche :** https://revision-hbtn.soleiljaune.be/#cours/permissions-et-flux/1-r-w-x
 
@@ -3671,7 +3671,7 @@ Avec `char mot[]="Ubuntu";`, que vaut `sizeof mot` ?
 - **C ❌** rw-rw-rw-
 - **D ❌** ---------
 
-**Correction :** A · rwx / r-x / ---
+**Correction :** A · Le propriétaire peut tout faire, le groupe lire et exécuter, les autres n'ont aucun droit.
 
 **Lien vers la fiche :** https://revision-hbtn.soleiljaune.be/#cours/permissions-et-flux/1-r-w-x
 
