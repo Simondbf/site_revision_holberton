@@ -12,7 +12,7 @@ const pointers=block('pointer-data');
 const counts=sections.map(s=>s.items.length);
 const number=counts.reduce((a,b)=>a+b,0);
 
-assert.ok(number>=228,'Des notions déjà publiées semblent avoir disparu.');
+assert.ok(number>=235,'Des notions déjà publiées semblent avoir disparu.');
 let notes=0;
 for(const [si,section]of sections.entries()){
   for(const [ii,item]of section.items.entries()){
@@ -76,6 +76,13 @@ try{
     {name:"double free évité",source:pointers['51'].example+'\n',output:'7\n',secure:true},
     {name:"multiplication vérifiée malloc",source:pointers['52'].example+'\n',output:'3\n',secure:true},
     {name:"memmove zones recouvrantes",source:pointers['54'].example+'\n',output:'aabcdef\n',secure:true},
+    {name:"pile, debordement avant malloc",source:pointers['55'].example+'\n',input:"Ada\\n",output:"Nom : Ada\\n",secure:true},
+    {name:"tampons fixes statiques et dynamiques",source:pointers['56'].example+'\n',output:"Ada Ada Ada\\n",secure:true},
+    {name:"recursion bornee sans epuisement de pile",source:pointers['57'].example+'\n',output:"3\\n",secure:true},
+    {name:"Valgrind bloc libere",source:pointers['58'].example+'\n',output:"A\\n",secure:true},
+    {name:"strlen sans terminateur",source:pointers['59'].example+'\n',output:"Pas de terminateur\\n",secure:true},
+    {name:"overflow entier evite",source:extra['8:30'].example+'\n',output:"Depassement evite\\n",secure:true},
+    {name:"invariant de capacite",source:extra['14:7'].example+'\n',output:"Ada\\n",secure:true},
     {name:'struct/typedef 16:0',source:extra['16:0'].example+'\n',output:"2 3\n"},
     {name:'struct/typedef 16:1',source:extra['16:1'].example+'\n',output:"3 7\n"},
     {name:'struct/typedef 16:2',source:extra['16:2'].example+'\n',output:"7 3\n"},
@@ -132,6 +139,19 @@ try{
   assert.equal(resultatExit.stdout,'','Aucune instruction après exit(98) ne doit être exécutée.');
   assert.match(extra['8:25'].explanation,/&age/,'scanf doit expliquer l’adresse de variable.');
   assert.match(extra['8:25'].explanation,/nombre de conversions/,'scanf doit expliquer la valeur renvoyée.');
+  for (const key of ['8:30','14:7']) {
+    assert.ok(extra[key]?.sources?.length,'Référence nouvelle manquante : '+key);
+    assert.ok(extra[key]?.explanation?.includes('\n\n'),'Paragraphes manquants : '+key);
+  }
+  for (let i=55;i<=59;i++) {
+    assert.ok(pointers[String(i)]?.sources?.length,'Référence nouvelle manquante : 9:'+i);
+    assert.ok(pointers[String(i)]?.explanation?.includes('\n\n'),'Paragraphes manquants : 9:'+i);
+  }
+  assert.match(pointers['55'].explanation,/AVANT la lecture|PENDANT la lecture/,'Temporalité de la corruption non enseignée');
+  assert.match(pointers['58'].explanation,/32 bytes in 1 blocks/,'Sens numérique de definitely lost manquant');
+  assert.match(pointers['57'].note,/Stack overflow et stack buffer overflow/,'Différence stack overflow vs stack buffer overflow absente');
+  assert.match(extra['8:30'].explanation,/INDÉFINI/,'Débordement int signé mal expliqué');
+  assert.match(extra['14:7'].explanation,/strlen\(source\) \+ 1/,'Invariant de capacité manquant');
   for (const key of ['8:26','8:27','8:28','8:29','14:6']) {
     assert.ok(extra[key]?.sources?.length,'Sources spécifiques manquantes : '+key);
     assert.ok(extra[key]?.explanation?.includes('\n\n'),'Paragraphes manquants : '+key);
