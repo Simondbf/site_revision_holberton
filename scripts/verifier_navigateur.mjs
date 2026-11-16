@@ -215,6 +215,11 @@ try{
  let localQuiz=await page.evaluate(()=>JSON.parse(localStorage.getItem('holberton-quiz-session-v1')));
  assert.deepEqual(localQuiz.selected,['8:25'],'Le choix de notion n’est pas enregistré.');
  assert.equal(localQuiz.current,'sc1','La première question attendue est sc1.');
+ await page.reload();
+ assert.ok(await page.locator('[data-quiz-choice="1"]').isEnabled(),
+  'Une question encore sans réponse doit rester disponible après rechargement.');
+ assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('holberton-quiz-session-v1')).current),'sc1',
+  'La question en cours doit être enregistrée même avant la première réponse.');
  await page.locator('[data-quiz-choice="1"]').click();
  assert.ok(await page.locator('.quiz-feedback').isVisible(),'Le retour sur la réponse est absent.');
  await page.reload();
@@ -231,6 +236,13 @@ try{
  await page.locator('[data-quiz-action="next"]').click();
  localQuiz=await page.evaluate(()=>JSON.parse(localStorage.getItem('holberton-quiz-session-v1')));
  assert.equal(localQuiz.current,'sc3','Une bonne réponse doit augmenter la difficulté interne.');
+ await page.locator('[data-quiz-action="pause"]').click();
+ await page.reload();
+ assert.match(await page.locator('#quizBody').innerText(),/Quiz en pause/,
+  'Une question sans réponse doit rester en pause après fermeture.');
+ await page.locator('[data-quiz-action="resume"]').click();
+ assert.equal(await page.locator('#quizBody [data-quiz-choice]').count(),4,
+  'La question en pause doit être restaurée avec ses quatre choix.');
  await page.locator('[data-quiz-choice="0"]').click();
  assert.match(await page.locator('.quiz-feedback').innerText(),/À revoir/,'La mauvaise réponse est mal signalée.');
  await page.locator('[data-quiz-action="next"]').click();
