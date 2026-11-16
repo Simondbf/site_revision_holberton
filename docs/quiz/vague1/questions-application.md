@@ -44,7 +44,7 @@ En C, pour des entiers positifs, quelle est la valeur de `23 / 2` ?
 
 **Une seule bonne réponse**
 
-En C, pour des entiers positifs, quelle est la valeur de `23 % 2` ?
+En C, pour des entiers positifs, quelle est la valeur de `25 % 2` ?
 
 - **A ✅** 1
 - **B ❌** 2
@@ -842,7 +842,7 @@ En C, pour des entiers positifs, quelle est la valeur de `127 / 2` ?
 
 **Une seule bonne réponse**
 
-En C, pour des entiers positifs, quelle est la valeur de `127 % 2` ?
+En C, pour des entiers positifs, quelle est la valeur de `129 % 2` ?
 
 - **A ❌** 3
 - **B ❌** 2

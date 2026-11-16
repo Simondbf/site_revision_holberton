@@ -92,7 +92,7 @@
       "notion": "n % 2",
       "question_type": "calcul",
       "answer_mode": "single",
-      "prompt": "En C, pour des entiers positifs, quelle est la valeur de `23 % 2` ?",
+      "prompt": "En C, pour des entiers positifs, quelle est la valeur de `25 % 2` ?",
       "options": [
         {
           "id": "A",
@@ -1814,7 +1814,7 @@
       "notion": "n % 2",
       "question_type": "calcul",
       "answer_mode": "single",
-      "prompt": "En C, pour des entiers positifs, quelle est la valeur de `127 % 2` ?",
+      "prompt": "En C, pour des entiers positifs, quelle est la valeur de `129 % 2` ?",
       "options": [
         {
           "id": "A",
