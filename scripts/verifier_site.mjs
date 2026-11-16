@@ -156,10 +156,10 @@ assert.ok(!readme.includes('holberton-deploy.service') &&
 assert.ok(!contributing.includes('N’ajoute jamais de token') &&
  !contributing.includes('déclenche le déploiement'),
  'Les consignes pour humains doivent être concises et à jour.');
-assert.ok(html.includes("aucune inscription ni connexion n'est nécessaire") &&
- html.includes('Accessible sans compte') &&
+assert.ok(html.includes('Réviser à son rythme') &&
+ html.includes('conserve tes favoris dans ce navigateur') &&
  !html.includes('Les futurs quiz seront eux aussi utilisables sans compte'),
- 'À propos doit décrire uniquement l’accès libre actuel, sans annonce de fonctionnalités futures.');
+ 'À propos doit présenter les fonctionnalités actuelles sans promesses futures.');
 assert.ok(html.includes('À propos de Holberton Révision') &&
  html.includes('Informations pratiques') && html.includes('project-details'),
  'La nouvelle page À propos ne doit pas disparaître.');
