@@ -17,6 +17,24 @@ Une action discrète « Créer un compte / Se connecter » sera facultative. L'a
 - Importation du suivi invité **seulement après information et validation explicite**, avec traitement clair des éventuels conflits ; ne jamais écraser sans avertissement un historique plus récent.
 - Export et suppression du suivi ; possibilité de supprimer le compte avec une politique de rétention et sauvegardes expliquée.
 
+## Modes de réponse et retours pédagogiques
+
+- Chaque question indique **« Une seule bonne réponse »** ou **« Plusieurs bonnes réponses »**. Dans le second cas, **ne jamais indiquer le nombre exact** de réponses correctes avant la soumission.
+- En mode unique, sélectionner une seule réponse (radio). En mode multiple, permettre plusieurs choix (cases à cocher), avec une action « Valider » explicite. Ne pas révéler le corrigé avant la validation.
+- Modèle versionné : identifiants stables pour les notions, questions et choix ; `answer_mode: single|multiple`, liste des `correct_option_ids`, justification, commentaire optionnel sur chaque distracteur, difficulté **interne**, sources et statut de validation indépendante.
+- Notation : combinaison exacte par défaut en mode multiple ; ne jamais attribuer le maximum en cochant toutes les cases. Les erreurs d'omission et les réponses incorrectement cochées alimentent les statistiques pédagogiques.
+- Après correction, proposer **une explication et un lien direct vers la fiche de la notion**. Ne pas afficher un autre cours par approximation ; prévoir une route stable si le plan du site change.
+- Les questions et mauvaises réponses doivent être relues indépendamment par plusieurs IA et comparées à la documentation ; des réponses plausibles mais ambiguës doivent être corrigées ou rejetées.
+
+## Bilan et suivi des résultats
+
+- En fin de quiz : score, pourcentage, répartition par notion, réussites et erreurs, notions à retravailler par priorité, explications des erreurs et liens directs vers les fiches.
+- Le diagnostic s'appuie sur plusieurs tentatives, le niveau des questions et les types d'erreurs ; **une seule réponse fausse ne suffit pas** à qualifier une notion de « non maîtrisée ».
+- Recommandations de nouvelles sessions ciblant les notions faibles, avec répétition espacée envisageable. Sélection manuelle de notions possibles en plus de l'adaptation automatique ; **pas de choix manuel de la difficulté**.
+- Invité : sauvegarde locale et export volontaire, sans inscription ni blocage si le service de comptes est indisponible.
+- Compte facultatif : espace **« Ma progression »** avec résultats détaillés par session, statistiques par notion, historique daté, suivi de reprise, progression dans le temps, fiches conseillées et synchronisation entre appareils. Export et suppression possibles ; isolation des données de chaque utilisateur vérifiée côté serveur.
+- Prévoir des données métier minimales et versionnées, évitant de conserver inutilement les saisies libres.
+
 ## Banque de quiz
 
 - **Vise en moyenne 50 à 100 questions différentes par notion**, et davantage pour les notions riches (pointeurs, mémoire, allocations). Une notion courte ou culturelle peut en avoir nettement moins : **ce n'est pas un quota imposé**.
@@ -24,13 +42,19 @@ Une action discrète « Créer un compte / Se connecter » sera facultative. L'a
 - Distinguer clairement la notion visée, la réponse, les distracteurs, la difficulté interne, l'explication et les sources.
 - Validation croisée par **plusieurs modèles indépendants et relecture technique/éditoriale** avant publication de la banque. Une IA pendant chaque session n'est pas nécessaire.
 - Prévoir des identifiants de notion et de question **stables**, indépendants des positions `sections[si].items[ii]`, afin de préserver l'historique lorsque les chapitres changent.
-- Le pilote #14 (25 questions sur cinq notions) **n'est ni la version finale, ni prêt à fusionner en l'état** : sa base de contenu contient 228 notions contre 242 sur `main` au 16 novembre 2026.
+- Le pilote historique [#14](https://github.com/Simondbf/site_revision_holberton/pull/14) (25 questions sur cinq notions) **n'est pas la version finale**. Son fichier contenait 228 notions contre 242 sur `main` au 16 novembre 2026. Il est archivé pour relecture et ne doit pas être fusionné ; les **25 questions et toutes les propositions** sont disponibles en [PR #19](https://github.com/Simondbf/site_revision_holberton/pull/19) (Markdown + JSON, uniquement sur GitHub).
 
-## E-mail : distinguer recevoir et envoyer
+## E-mails transactionnels : Brevo — choix validé
 
-Une boîte de réception pour le propriétaire du site n'est **pas la même chose** qu'un service d'**envoi transactionnel** pour confirmer une adresse ou permettre la récupération d'un compte. Le choix du fournisseur, de l'offre gratuite et de la méthode de connexion reste **ouvert**. Vérifier quota, limites, confidentialité, disponibilité et configuration DNS (SPF/DKIM/DMARC si envoi sur un domaine propre), délivrabilité, conformité et gestion des secrets. Aucun identifiant SMTP ou clé API ne doit être stocké dans le HTML, GitHub ou les logs.
+**Prestataire retenu : [Brevo](https://www.brevo.com/fr/).** Cette décision est définitive pour la **phase de conception** des e-mails transactionnels du futur système de comptes ; l'intégration technique n'est **pas encore mise en œuvre**.
 
-Évaluer d'abord la simplicité et la robustesse de l'authentification (passkeys, ou e-mail vérifié avec procédure sûre) ; ne pas choisir un système de mot de passe maison pour accélérer le projet.
+- Usage envisagé : vérification d'adresse lors de l'inscription facultative, connexion/récupération selon la méthode d'authentification finalement retenue, alertes de sécurité pertinentes. Ne pas envoyer de publicité par défaut.
+- Intégration **uniquement depuis le backend** via l'[API transactionnelle Brevo](https://developers.brevo.com/docs/send-a-transactional-email) ou, si justifié, son [relais SMTP](https://help.brevo.com/hc/en-us/articles/7924908994450-Send-transactional-emails-using-Brevo-SMTP). Choisir l'API ou SMTP lors de l'implémentation ; ne jamais mettre de clé dans le HTML, les scripts publics, les logs ou GitHub.
+- Configurer un domaine et expéditeur vérifiés, authentification DNS (DKIM/DMARC, SPF approprié), quotas, limites de débit et journalisation minimale ; vérifier la délivrabilité réelle et le traitement des erreurs.
+- Jetons d'inscription / récupération à durée courte, usage unique, hachés si stockés, contrôle d'abus, réponse générique contre l'énumération des adresses ; aucun compte activé avant vérification lorsque le parcours exige un e-mail.
+- Un **service d'envoi** Brevo ne remplace pas automatiquement une **boîte de réception** destinée au propriétaire du site : distinguer les besoins.
+- En cas d'indisponibilité de Brevo, les nouveaux parcours nécessitant un e-mail peuvent être différés, mais **le site et les quiz invités restent intégralement utilisables**.
+- Prévoir la conformité RGPD et informer des traitements et sous-traitants réellement utilisés avant activation des comptes. Ne pas promettre de confidentialité ou de conformité sans revue.
 
 ## Critères de sécurité avant mise en ligne des comptes
 
@@ -46,9 +70,9 @@ Références : [OWASP Authentication](https://cheatsheetseries.owasp.org/cheatsh
 ## Ordre de livraison sans casser l'existant
 
 1. Valider audit / CI et fiabiliser la fusion avant publication.
-2. Porter le quiz pilote sur un `main` à jour, le faire relire, le tester en mode invité.
+2. Réexaminer la banque source du prototype #14 avec les retours inter-IA de la PR #19, puis développer un nouveau quiz compatible avec la branche actuelle en mode invité (sans réutiliser un `index.html` obsolète).
 3. Développer le suivi local invité, avec schéma de données versionné et export possible.
-4. Choisir l'authentification et le fournisseur d'e-mails, puis créer un backend minimal et les tests d'isolation.
+4. Choisir la méthode d'authentification, intégrer **Brevo** côté serveur et créer un backend minimal avec tests d'isolation.
 5. Proposer la connexion facultative et la synchronisation, après vérification sécurité, suppression/export, sauvegardes et exploitation.
 
 **Règle de validation :** aucune PR ne passe automatiquement en production. Le propriétaire garde la décision finale de fusion.
