@@ -1,0 +1,1628 @@
+{
+  "version": "review-v1",
+  "status": "non_verifie",
+  "theme_id": 5,
+  "theme": "Conditions et boucles C",
+  "questions": [
+    {
+      "id": "V1-N05_000-01",
+      "notion_id": "N05_000",
+      "legacy_notion_key": "5:0",
+      "theme": "Conditions et boucles C",
+      "notion": "if / else if / else",
+      "answer_mode": "single",
+      "question_type": "definition",
+      "prompt": "À quelle notion correspond la définition suivante : « Choisir une branche selon des conditions. » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "if / else if / else"
+        },
+        {
+          "id": "B",
+          "text": "== / !="
+        },
+        {
+          "id": "C",
+          "text": "0 et booléens C"
+        },
+        {
+          "id": "D",
+          "text": "&& / || / !"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "La définition est extraite du résumé de la fiche correspondante.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/conditions-et-boucles-c/1-if-else-if-else"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N05_000-02",
+      "notion_id": "N05_000",
+      "legacy_notion_key": "5:0",
+      "theme": "Conditions et boucles C",
+      "notion": "if / else if / else",
+      "answer_mode": "single",
+      "question_type": "description",
+      "prompt": "Quelle description caractérise « if / else if / else » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "ET logique / OU logique / négation."
+        },
+        {
+          "id": "B",
+          "text": "Égalité / différence. Attention à ne pas confondre = et ==."
+        },
+        {
+          "id": "C",
+          "text": "0 est faux ; toute valeur différente de 0 est vraie dans une condition."
+        },
+        {
+          "id": "D",
+          "text": "Choisir une branche selon des conditions."
+        }
+      ],
+      "correct_option_ids": [
+        "D"
+      ],
+      "explanation": "Le résumé de la fiche indique : Choisir une branche selon des conditions.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/conditions-et-boucles-c/1-if-else-if-else"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N05_000-03",
+      "notion_id": "N05_000",
+      "legacy_notion_key": "5:0",
+      "theme": "Conditions et boucles C",
+      "notion": "if / else if / else",
+      "answer_mode": "single",
+      "question_type": "vigilance",
+      "prompt": "Quel point à retenir est directement associé à « if / else if / else » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Dans une chaîne if / else if / else, seule la première branche dont la condition réussit est exécutée."
+        },
+        {
+          "id": "B",
+          "text": "&& et || sont à évaluation courte : la deuxième expression n'est pas toujours évaluée."
+        },
+        {
+          "id": "C",
+          "text": "« = » affecte une valeur ; « == » teste l'égalité. Les confondre peut créer une erreur difficile à voir."
+        },
+        {
+          "id": "D",
+          "text": "Une valeur négative est vraie dans une condition C : seule la valeur 0 est fausse."
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "La fiche indique : Dans une chaîne if / else if / else, seule la première branche dont la condition réussit est exécutée.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/conditions-et-boucles-c/1-if-else-if-else"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N05_000-04",
+      "notion_id": "N05_000",
+      "legacy_notion_key": "5:0",
+      "theme": "Conditions et boucles C",
+      "notion": "if / else if / else",
+      "answer_mode": "multiple",
+      "question_type": "synthese",
+      "prompt": "Quelles affirmations concernent directement « if / else if / else » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Choisir une branche selon des conditions."
+        },
+        {
+          "id": "B",
+          "text": "Les blocs renvoyés par malloc relèvent de l’allocation dynamique (habituellement sur le tas) ; les variables locales ordinaires ont une durée de vie automatique."
+        },
+        {
+          "id": "C",
+          "text": "Une fuite mémoire (memory leak) survient lorsqu’un bloc alloué n’est pas libéré et devient inaccessible ; les fuites répétées épuisent la mémoire."
+        },
+        {
+          "id": "D",
+          "text": "Dans une chaîne if / else if / else, seule la première branche dont la condition réussit est exécutée."
+        }
+      ],
+      "correct_option_ids": [
+        "A",
+        "D"
+      ],
+      "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/conditions-et-boucles-c/1-if-else-if-else"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "cross_topic_distractors",
+        "check_possible_ambiguity"
+      ]
+    },
+    {
+      "id": "V1-N05_001-01",
+      "notion_id": "N05_001",
+      "legacy_notion_key": "5:1",
+      "theme": "Conditions et boucles C",
+      "notion": "== / !=",
+      "answer_mode": "single",
+      "question_type": "definition",
+      "prompt": "À quelle notion correspond la définition suivante : « Égalité / différence. Attention à ne pas confondre = et ==. » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "if / else if / else"
+        },
+        {
+          "id": "B",
+          "text": "== / !="
+        },
+        {
+          "id": "C",
+          "text": "do…while"
+        },
+        {
+          "id": "D",
+          "text": "0 et booléens C"
+        }
+      ],
+      "correct_option_ids": [
+        "B"
+      ],
+      "explanation": "La définition est extraite du résumé de la fiche correspondante.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/conditions-et-boucles-c/2-"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N05_001-02",
+      "notion_id": "N05_001",
+      "legacy_notion_key": "5:1",
+      "theme": "Conditions et boucles C",
+      "notion": "== / !=",
+      "answer_mode": "single",
+      "question_type": "description",
+      "prompt": "Quelle description caractérise « == / != » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Égalité / différence. Attention à ne pas confondre = et ==."
+        },
+        {
+          "id": "B",
+          "text": "0 est faux ; toute valeur différente de 0 est vraie dans une condition."
+        },
+        {
+          "id": "C",
+          "text": "Teste après exécution : le corps tourne au moins une fois."
+        },
+        {
+          "id": "D",
+          "text": "Choisir une branche selon des conditions."
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "Le résumé de la fiche indique : Égalité / différence. Attention à ne pas confondre = et ==.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/conditions-et-boucles-c/2-"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N05_001-03",
+      "notion_id": "N05_001",
+      "legacy_notion_key": "5:1",
+      "theme": "Conditions et boucles C",
+      "notion": "== / !=",
+      "answer_mode": "single",
+      "question_type": "vigilance",
+      "prompt": "Quel point à retenir est directement associé à « == / != » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Dans une chaîne if / else if / else, seule la première branche dont la condition réussit est exécutée."
+        },
+        {
+          "id": "B",
+          "text": "Une valeur négative est vraie dans une condition C : seule la valeur 0 est fausse."
+        },
+        {
+          "id": "C",
+          "text": "do...while exécute toujours son corps au moins une fois avant le test."
+        },
+        {
+          "id": "D",
+          "text": "« = » affecte une valeur ; « == » teste l'égalité. Les confondre peut créer une erreur difficile à voir."
+        }
+      ],
+      "correct_option_ids": [
+        "D"
+      ],
+      "explanation": "La fiche indique : « = » affecte une valeur ; « == » teste l'égalité. Les confondre peut créer une erreur difficile à voir.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/conditions-et-boucles-c/2-"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N05_001-04",
+      "notion_id": "N05_001",
+      "legacy_notion_key": "5:1",
+      "theme": "Conditions et boucles C",
+      "notion": "== / !=",
+      "answer_mode": "multiple",
+      "question_type": "synthese",
+      "prompt": "Quelles affirmations concernent directement « == / != » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "« = » affecte une valeur ; « == » teste l'égalité. Les confondre peut créer une erreur difficile à voir."
+        },
+        {
+          "id": "B",
+          "text": "Ajouter 1 à un pointeur vers int avance de sizeof(int) octets, donc d’un élément int."
+        },
+        {
+          "id": "C",
+          "text": "Égalité / différence. Attention à ne pas confondre = et ==."
+        },
+        {
+          "id": "D",
+          "text": "Une fonction recevant int *p peut modifier la variable de l’appelant grâce à *p ; le pointeur lui-même reste passé par valeur."
+        }
+      ],
+      "correct_option_ids": [
+        "A",
+        "C"
+      ],
+      "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/conditions-et-boucles-c/2-"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "cross_topic_distractors",
+        "check_possible_ambiguity"
+      ]
+    },
+    {
+      "id": "V1-N05_002-01",
+      "notion_id": "N05_002",
+      "legacy_notion_key": "5:2",
+      "theme": "Conditions et boucles C",
+      "notion": "< > <= >=",
+      "answer_mode": "single",
+      "question_type": "definition",
+      "prompt": "À quelle notion correspond la définition suivante : « Comparaisons. » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "do…while"
+        },
+        {
+          "id": "B",
+          "text": "0 et booléens C"
+        },
+        {
+          "id": "C",
+          "text": "< > <= >="
+        },
+        {
+          "id": "D",
+          "text": "for"
+        }
+      ],
+      "correct_option_ids": [
+        "C"
+      ],
+      "explanation": "La définition est extraite du résumé de la fiche correspondante.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/conditions-et-boucles-c/3-"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N05_002-02",
+      "notion_id": "N05_002",
+      "legacy_notion_key": "5:2",
+      "theme": "Conditions et boucles C",
+      "notion": "< > <= >=",
+      "answer_mode": "single",
+      "question_type": "description",
+      "prompt": "Quelle description caractérise « < > <= >= » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Initialisation, test, mise à jour ; forme compacte de boucle."
+        },
+        {
+          "id": "B",
+          "text": "Comparaisons."
+        },
+        {
+          "id": "C",
+          "text": "0 est faux ; toute valeur différente de 0 est vraie dans une condition."
+        },
+        {
+          "id": "D",
+          "text": "Teste après exécution : le corps tourne au moins une fois."
+        }
+      ],
+      "correct_option_ids": [
+        "B"
+      ],
+      "explanation": "Le résumé de la fiche indique : Comparaisons.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/conditions-et-boucles-c/3-"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N05_002-03",
+      "notion_id": "N05_002",
+      "legacy_notion_key": "5:2",
+      "theme": "Conditions et boucles C",
+      "notion": "< > <= >=",
+      "answer_mode": "single",
+      "question_type": "vigilance",
+      "prompt": "Quel point à retenir est directement associé à « < > <= >= » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "do...while exécute toujours son corps au moins une fois avant le test."
+        },
+        {
+          "id": "B",
+          "text": "En GNU89, déclare l'indice avant le for ; la déclaration « for (int i = ...) » est de style C99 ou plus récent."
+        },
+        {
+          "id": "C",
+          "text": "Les conversions entre types signés et non signés peuvent rendre certaines comparaisons surprenantes."
+        },
+        {
+          "id": "D",
+          "text": "Une valeur négative est vraie dans une condition C : seule la valeur 0 est fausse."
+        }
+      ],
+      "correct_option_ids": [
+        "C"
+      ],
+      "explanation": "La fiche indique : Les conversions entre types signés et non signés peuvent rendre certaines comparaisons surprenantes.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/conditions-et-boucles-c/3-"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N05_002-04",
+      "notion_id": "N05_002",
+      "legacy_notion_key": "5:2",
+      "theme": "Conditions et boucles C",
+      "notion": "< > <= >=",
+      "answer_mode": "multiple",
+      "question_type": "synthese",
+      "prompt": "Quelles affirmations concernent directement « < > <= >= » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Dans main, 0 indique une réussite ; dans une autre fonction, 0 et 1 ont le sens défini par cette fonction."
+        },
+        {
+          "id": "B",
+          "text": "Les conversions entre types signés et non signés peuvent rendre certaines comparaisons surprenantes."
+        },
+        {
+          "id": "C",
+          "text": "Comparaisons."
+        },
+        {
+          "id": "D",
+          "text": "strtol convertit une chaîne en long ; vérifier les chiffres lus, les caractères restants et les dépassements avec errno."
+        }
+      ],
+      "correct_option_ids": [
+        "B",
+        "C"
+      ],
+      "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/conditions-et-boucles-c/3-"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "cross_topic_distractors",
+        "check_possible_ambiguity"
+      ]
+    },
+    {
+      "id": "V1-N05_003-01",
+      "notion_id": "N05_003",
+      "legacy_notion_key": "5:3",
+      "theme": "Conditions et boucles C",
+      "notion": "&& / || / !",
+      "answer_mode": "single",
+      "question_type": "definition",
+      "prompt": "À quelle notion correspond la définition suivante : « ET logique / OU logique / négation. » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "do…while"
+        },
+        {
+          "id": "B",
+          "text": "for"
+        },
+        {
+          "id": "C",
+          "text": "== / !="
+        },
+        {
+          "id": "D",
+          "text": "&& / || / !"
+        }
+      ],
+      "correct_option_ids": [
+        "D"
+      ],
+      "explanation": "La définition est extraite du résumé de la fiche correspondante.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/conditions-et-boucles-c/4-"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N05_003-02",
+      "notion_id": "N05_003",
+      "legacy_notion_key": "5:3",
+      "theme": "Conditions et boucles C",
+      "notion": "&& / || / !",
+      "answer_mode": "single",
+      "question_type": "description",
+      "prompt": "Quelle description caractérise « && / || / ! » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "ET logique / OU logique / négation."
+        },
+        {
+          "id": "B",
+          "text": "Teste après exécution : le corps tourne au moins une fois."
+        },
+        {
+          "id": "C",
+          "text": "Initialisation, test, mise à jour ; forme compacte de boucle."
+        },
+        {
+          "id": "D",
+          "text": "Égalité / différence. Attention à ne pas confondre = et ==."
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "Le résumé de la fiche indique : ET logique / OU logique / négation.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/conditions-et-boucles-c/4-"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N05_003-03",
+      "notion_id": "N05_003",
+      "legacy_notion_key": "5:3",
+      "theme": "Conditions et boucles C",
+      "notion": "&& / || / !",
+      "answer_mode": "single",
+      "question_type": "vigilance",
+      "prompt": "Quel point à retenir est directement associé à « && / || / ! » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "« = » affecte une valeur ; « == » teste l'égalité. Les confondre peut créer une erreur difficile à voir."
+        },
+        {
+          "id": "B",
+          "text": "&& et || sont à évaluation courte : la deuxième expression n'est pas toujours évaluée."
+        },
+        {
+          "id": "C",
+          "text": "do...while exécute toujours son corps au moins une fois avant le test."
+        },
+        {
+          "id": "D",
+          "text": "En GNU89, déclare l'indice avant le for ; la déclaration « for (int i = ...) » est de style C99 ou plus récent."
+        }
+      ],
+      "correct_option_ids": [
+        "B"
+      ],
+      "explanation": "La fiche indique : && et || sont à évaluation courte : la deuxième expression n'est pas toujours évaluée.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/conditions-et-boucles-c/4-"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N05_003-04",
+      "notion_id": "N05_003",
+      "legacy_notion_key": "5:3",
+      "theme": "Conditions et boucles C",
+      "notion": "&& / || / !",
+      "answer_mode": "multiple",
+      "question_type": "synthese",
+      "prompt": "Quelles affirmations concernent directement « && / || / ! » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "État / préparation / enregistrement."
+        },
+        {
+          "id": "B",
+          "text": "Affichage formaté / écriture d’un caractère."
+        },
+        {
+          "id": "C",
+          "text": "&& et || sont à évaluation courte : la deuxième expression n'est pas toujours évaluée."
+        },
+        {
+          "id": "D",
+          "text": "ET logique / OU logique / négation."
+        }
+      ],
+      "correct_option_ids": [
+        "C",
+        "D"
+      ],
+      "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/conditions-et-boucles-c/4-"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "cross_topic_distractors",
+        "check_possible_ambiguity"
+      ]
+    },
+    {
+      "id": "V1-N05_004-01",
+      "notion_id": "N05_004",
+      "legacy_notion_key": "5:4",
+      "theme": "Conditions et boucles C",
+      "notion": "for",
+      "answer_mode": "single",
+      "question_type": "definition",
+      "prompt": "À quelle notion correspond la définition suivante : « Initialisation, test, mise à jour ; forme compacte de boucle. » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "for"
+        },
+        {
+          "id": "B",
+          "text": "== / !="
+        },
+        {
+          "id": "C",
+          "text": "Boucles imbriquées"
+        },
+        {
+          "id": "D",
+          "text": "&& / || / !"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "La définition est extraite du résumé de la fiche correspondante.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/conditions-et-boucles-c/5-for"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N05_004-02",
+      "notion_id": "N05_004",
+      "legacy_notion_key": "5:4",
+      "theme": "Conditions et boucles C",
+      "notion": "for",
+      "answer_mode": "single",
+      "question_type": "description",
+      "prompt": "Quelle description caractérise « for » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "ET logique / OU logique / négation."
+        },
+        {
+          "id": "B",
+          "text": "Une boucle placée dans une autre ; le coût dépend des bornes et du travail effectué."
+        },
+        {
+          "id": "C",
+          "text": "Égalité / différence. Attention à ne pas confondre = et ==."
+        },
+        {
+          "id": "D",
+          "text": "Initialisation, test, mise à jour ; forme compacte de boucle."
+        }
+      ],
+      "correct_option_ids": [
+        "D"
+      ],
+      "explanation": "Le résumé de la fiche indique : Initialisation, test, mise à jour ; forme compacte de boucle.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/conditions-et-boucles-c/5-for"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N05_004-03",
+      "notion_id": "N05_004",
+      "legacy_notion_key": "5:4",
+      "theme": "Conditions et boucles C",
+      "notion": "for",
+      "answer_mode": "single",
+      "question_type": "vigilance",
+      "prompt": "Quel point à retenir est directement associé à « for » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "En GNU89, déclare l'indice avant le for ; la déclaration « for (int i = ...) » est de style C99 ou plus récent."
+        },
+        {
+          "id": "B",
+          "text": "« = » affecte une valeur ; « == » teste l'égalité. Les confondre peut créer une erreur difficile à voir."
+        },
+        {
+          "id": "C",
+          "text": "&& et || sont à évaluation courte : la deuxième expression n'est pas toujours évaluée."
+        },
+        {
+          "id": "D",
+          "text": "Deux boucles imbriquées de n itérations chacune peuvent effectuer n × n passages, selon leurs bornes."
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "La fiche indique : En GNU89, déclare l'indice avant le for ; la déclaration « for (int i = ...) » est de style C99 ou plus récent.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/conditions-et-boucles-c/5-for"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N05_004-04",
+      "notion_id": "N05_004",
+      "legacy_notion_key": "5:4",
+      "theme": "Conditions et boucles C",
+      "notion": "for",
+      "answer_mode": "multiple",
+      "question_type": "synthese",
+      "prompt": "Quelles affirmations concernent directement « for » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Initialisation, test, mise à jour ; forme compacte de boucle."
+        },
+        {
+          "id": "B",
+          "text": "sort ordonne les lignes ; uniq supprime uniquement les lignes répétées consécutives : on utilise souvent sort avant uniq."
+        },
+        {
+          "id": "C",
+          "text": "Créer / retirer un raccourci de commande."
+        },
+        {
+          "id": "D",
+          "text": "En GNU89, déclare l'indice avant le for ; la déclaration « for (int i = ...) » est de style C99 ou plus récent."
+        }
+      ],
+      "correct_option_ids": [
+        "A",
+        "D"
+      ],
+      "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/conditions-et-boucles-c/5-for"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "cross_topic_distractors",
+        "check_possible_ambiguity"
+      ]
+    },
+    {
+      "id": "V1-N05_005-01",
+      "notion_id": "N05_005",
+      "legacy_notion_key": "5:5",
+      "theme": "Conditions et boucles C",
+      "notion": "while",
+      "answer_mode": "single",
+      "question_type": "definition",
+      "prompt": "À quelle notion correspond la définition suivante : « Teste sa condition avant chaque itération. » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Itération"
+        },
+        {
+          "id": "B",
+          "text": "while"
+        },
+        {
+          "id": "C",
+          "text": "== / !="
+        },
+        {
+          "id": "D",
+          "text": "Boucles imbriquées"
+        }
+      ],
+      "correct_option_ids": [
+        "B"
+      ],
+      "explanation": "La définition est extraite du résumé de la fiche correspondante.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/conditions-et-boucles-c/6-while"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N05_005-02",
+      "notion_id": "N05_005",
+      "legacy_notion_key": "5:5",
+      "theme": "Conditions et boucles C",
+      "notion": "while",
+      "answer_mode": "single",
+      "question_type": "description",
+      "prompt": "Quelle description caractérise « while » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Une boucle placée dans une autre ; le coût dépend des bornes et du travail effectué."
+        },
+        {
+          "id": "B",
+          "text": "Un passage dans une boucle."
+        },
+        {
+          "id": "C",
+          "text": "Teste sa condition avant chaque itération."
+        },
+        {
+          "id": "D",
+          "text": "Égalité / différence. Attention à ne pas confondre = et ==."
+        }
+      ],
+      "correct_option_ids": [
+        "C"
+      ],
+      "explanation": "Le résumé de la fiche indique : Teste sa condition avant chaque itération.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/conditions-et-boucles-c/6-while"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N05_005-03",
+      "notion_id": "N05_005",
+      "legacy_notion_key": "5:5",
+      "theme": "Conditions et boucles C",
+      "notion": "while",
+      "answer_mode": "single",
+      "question_type": "vigilance",
+      "prompt": "Quel point à retenir est directement associé à « while » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "« = » affecte une valeur ; « == » teste l'égalité. Les confondre peut créer une erreur difficile à voir."
+        },
+        {
+          "id": "B",
+          "text": "Une itération est un passage dans le corps ; la valeur de l'indice ne donne pas toujours le nombre de passages."
+        },
+        {
+          "id": "C",
+          "text": "Deux boucles imbriquées de n itérations chacune peuvent effectuer n × n passages, selon leurs bornes."
+        },
+        {
+          "id": "D",
+          "text": "Si la condition est fausse d'emblée, while n'exécute aucune itération."
+        }
+      ],
+      "correct_option_ids": [
+        "D"
+      ],
+      "explanation": "La fiche indique : Si la condition est fausse d'emblée, while n'exécute aucune itération.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/conditions-et-boucles-c/6-while"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N05_005-04",
+      "notion_id": "N05_005",
+      "legacy_notion_key": "5:5",
+      "theme": "Conditions et boucles C",
+      "notion": "while",
+      "answer_mode": "multiple",
+      "question_type": "synthese",
+      "prompt": "Quelles affirmations concernent directement « while » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Si la condition est fausse d'emblée, while n'exécute aucune itération."
+        },
+        {
+          "id": "B",
+          "text": "Teste sa condition avant chaque itération."
+        },
+        {
+          "id": "C",
+          "text": "Dépend du répertoire actuel."
+        },
+        {
+          "id": "D",
+          "text": "Programme qui interprète les commandes et lance les autres programmes."
+        }
+      ],
+      "correct_option_ids": [
+        "A",
+        "B"
+      ],
+      "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/conditions-et-boucles-c/6-while"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "cross_topic_distractors",
+        "check_possible_ambiguity"
+      ]
+    },
+    {
+      "id": "V1-N05_006-01",
+      "notion_id": "N05_006",
+      "legacy_notion_key": "5:6",
+      "theme": "Conditions et boucles C",
+      "notion": "do…while",
+      "answer_mode": "single",
+      "question_type": "definition",
+      "prompt": "À quelle notion correspond la définition suivante : « Teste après exécution : le corps tourne au moins une fois. » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "do…while"
+        },
+        {
+          "id": "B",
+          "text": "Boucles imbriquées"
+        },
+        {
+          "id": "C",
+          "text": "Itération"
+        },
+        {
+          "id": "D",
+          "text": "for"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "La définition est extraite du résumé de la fiche correspondante.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/conditions-et-boucles-c/7-do-while"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N05_006-02",
+      "notion_id": "N05_006",
+      "legacy_notion_key": "5:6",
+      "theme": "Conditions et boucles C",
+      "notion": "do…while",
+      "answer_mode": "single",
+      "question_type": "description",
+      "prompt": "Quelle description caractérise « do…while » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Initialisation, test, mise à jour ; forme compacte de boucle."
+        },
+        {
+          "id": "B",
+          "text": "Teste après exécution : le corps tourne au moins une fois."
+        },
+        {
+          "id": "C",
+          "text": "Une boucle placée dans une autre ; le coût dépend des bornes et du travail effectué."
+        },
+        {
+          "id": "D",
+          "text": "Un passage dans une boucle."
+        }
+      ],
+      "correct_option_ids": [
+        "B"
+      ],
+      "explanation": "Le résumé de la fiche indique : Teste après exécution : le corps tourne au moins une fois.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/conditions-et-boucles-c/7-do-while"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N05_006-03",
+      "notion_id": "N05_006",
+      "legacy_notion_key": "5:6",
+      "theme": "Conditions et boucles C",
+      "notion": "do…while",
+      "answer_mode": "single",
+      "question_type": "vigilance",
+      "prompt": "Quel point à retenir est directement associé à « do…while » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "do...while exécute toujours son corps au moins une fois avant le test."
+        },
+        {
+          "id": "B",
+          "text": "En GNU89, déclare l'indice avant le for ; la déclaration « for (int i = ...) » est de style C99 ou plus récent."
+        },
+        {
+          "id": "C",
+          "text": "Une itération est un passage dans le corps ; la valeur de l'indice ne donne pas toujours le nombre de passages."
+        },
+        {
+          "id": "D",
+          "text": "Deux boucles imbriquées de n itérations chacune peuvent effectuer n × n passages, selon leurs bornes."
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "La fiche indique : do...while exécute toujours son corps au moins une fois avant le test.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/conditions-et-boucles-c/7-do-while"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N05_006-04",
+      "notion_id": "N05_006",
+      "legacy_notion_key": "5:6",
+      "theme": "Conditions et boucles C",
+      "notion": "do…while",
+      "answer_mode": "multiple",
+      "question_type": "synthese",
+      "prompt": "Quelles affirmations concernent directement « do…while » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Depuis C99, { .age = 7, .id = 3 } permet de choisir les membres par leur nom."
+        },
+        {
+          "id": "B",
+          "text": "do...while exécute toujours son corps au moins une fois avant le test."
+        },
+        {
+          "id": "C",
+          "text": "Teste après exécution : le corps tourne au moins une fois."
+        },
+        {
+          "id": "D",
+          "text": "typedef struct animal { int age; } animal_t; rend le type utilisable sous le nom animal_t."
+        }
+      ],
+      "correct_option_ids": [
+        "B",
+        "C"
+      ],
+      "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/conditions-et-boucles-c/7-do-while"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "cross_topic_distractors",
+        "check_possible_ambiguity"
+      ]
+    },
+    {
+      "id": "V1-N05_007-01",
+      "notion_id": "N05_007",
+      "legacy_notion_key": "5:7",
+      "theme": "Conditions et boucles C",
+      "notion": "Itération",
+      "answer_mode": "single",
+      "question_type": "definition",
+      "prompt": "À quelle notion correspond la définition suivante : « Un passage dans une boucle. » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "do…while"
+        },
+        {
+          "id": "B",
+          "text": "< > <= >="
+        },
+        {
+          "id": "C",
+          "text": "for"
+        },
+        {
+          "id": "D",
+          "text": "Itération"
+        }
+      ],
+      "correct_option_ids": [
+        "D"
+      ],
+      "explanation": "La définition est extraite du résumé de la fiche correspondante.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/conditions-et-boucles-c/8-iteration"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N05_007-02",
+      "notion_id": "N05_007",
+      "legacy_notion_key": "5:7",
+      "theme": "Conditions et boucles C",
+      "notion": "Itération",
+      "answer_mode": "single",
+      "question_type": "description",
+      "prompt": "Quelle description caractérise « Itération » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Un passage dans une boucle."
+        },
+        {
+          "id": "B",
+          "text": "Initialisation, test, mise à jour ; forme compacte de boucle."
+        },
+        {
+          "id": "C",
+          "text": "Teste après exécution : le corps tourne au moins une fois."
+        },
+        {
+          "id": "D",
+          "text": "Comparaisons."
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "Le résumé de la fiche indique : Un passage dans une boucle.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/conditions-et-boucles-c/8-iteration"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N05_007-03",
+      "notion_id": "N05_007",
+      "legacy_notion_key": "5:7",
+      "theme": "Conditions et boucles C",
+      "notion": "Itération",
+      "answer_mode": "single",
+      "question_type": "vigilance",
+      "prompt": "Quel point à retenir est directement associé à « Itération » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "do...while exécute toujours son corps au moins une fois avant le test."
+        },
+        {
+          "id": "B",
+          "text": "Les conversions entre types signés et non signés peuvent rendre certaines comparaisons surprenantes."
+        },
+        {
+          "id": "C",
+          "text": "Une itération est un passage dans le corps ; la valeur de l'indice ne donne pas toujours le nombre de passages."
+        },
+        {
+          "id": "D",
+          "text": "En GNU89, déclare l'indice avant le for ; la déclaration « for (int i = ...) » est de style C99 ou plus récent."
+        }
+      ],
+      "correct_option_ids": [
+        "C"
+      ],
+      "explanation": "La fiche indique : Une itération est un passage dans le corps ; la valeur de l'indice ne donne pas toujours le nombre de passages.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/conditions-et-boucles-c/8-iteration"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N05_007-04",
+      "notion_id": "N05_007",
+      "legacy_notion_key": "5:7",
+      "theme": "Conditions et boucles C",
+      "notion": "Itération",
+      "answer_mode": "multiple",
+      "question_type": "synthese",
+      "prompt": "Quelles affirmations concernent directement « Itération » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Une itération est un passage dans le corps ; la valeur de l'indice ne donne pas toujours le nombre de passages."
+        },
+        {
+          "id": "B",
+          "text": "Résultat entier : 1."
+        },
+        {
+          "id": "C",
+          "text": "Affiche 876543210 si on affiche i dans le corps."
+        },
+        {
+          "id": "D",
+          "text": "Un passage dans une boucle."
+        }
+      ],
+      "correct_option_ids": [
+        "A",
+        "D"
+      ],
+      "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/conditions-et-boucles-c/8-iteration"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "cross_topic_distractors",
+        "check_possible_ambiguity"
+      ]
+    },
+    {
+      "id": "V1-N05_008-01",
+      "notion_id": "N05_008",
+      "legacy_notion_key": "5:8",
+      "theme": "Conditions et boucles C",
+      "notion": "0 et booléens C",
+      "answer_mode": "single",
+      "question_type": "definition",
+      "prompt": "À quelle notion correspond la définition suivante : « 0 est faux ; toute valeur différente de 0 est vraie dans une condition. » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "< > <= >="
+        },
+        {
+          "id": "B",
+          "text": "if / else if / else"
+        },
+        {
+          "id": "C",
+          "text": "0 et booléens C"
+        },
+        {
+          "id": "D",
+          "text": "for"
+        }
+      ],
+      "correct_option_ids": [
+        "C"
+      ],
+      "explanation": "La définition est extraite du résumé de la fiche correspondante.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/conditions-et-boucles-c/9-0-et-booleens-c"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N05_008-02",
+      "notion_id": "N05_008",
+      "legacy_notion_key": "5:8",
+      "theme": "Conditions et boucles C",
+      "notion": "0 et booléens C",
+      "answer_mode": "single",
+      "question_type": "description",
+      "prompt": "Quelle description caractérise « 0 et booléens C » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Initialisation, test, mise à jour ; forme compacte de boucle."
+        },
+        {
+          "id": "B",
+          "text": "Choisir une branche selon des conditions."
+        },
+        {
+          "id": "C",
+          "text": "Comparaisons."
+        },
+        {
+          "id": "D",
+          "text": "0 est faux ; toute valeur différente de 0 est vraie dans une condition."
+        }
+      ],
+      "correct_option_ids": [
+        "D"
+      ],
+      "explanation": "Le résumé de la fiche indique : 0 est faux ; toute valeur différente de 0 est vraie dans une condition.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/conditions-et-boucles-c/9-0-et-booleens-c"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N05_008-03",
+      "notion_id": "N05_008",
+      "legacy_notion_key": "5:8",
+      "theme": "Conditions et boucles C",
+      "notion": "0 et booléens C",
+      "answer_mode": "single",
+      "question_type": "vigilance",
+      "prompt": "Quel point à retenir est directement associé à « 0 et booléens C » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Les conversions entre types signés et non signés peuvent rendre certaines comparaisons surprenantes."
+        },
+        {
+          "id": "B",
+          "text": "En GNU89, déclare l'indice avant le for ; la déclaration « for (int i = ...) » est de style C99 ou plus récent."
+        },
+        {
+          "id": "C",
+          "text": "Une valeur négative est vraie dans une condition C : seule la valeur 0 est fausse."
+        },
+        {
+          "id": "D",
+          "text": "Dans une chaîne if / else if / else, seule la première branche dont la condition réussit est exécutée."
+        }
+      ],
+      "correct_option_ids": [
+        "C"
+      ],
+      "explanation": "La fiche indique : Une valeur négative est vraie dans une condition C : seule la valeur 0 est fausse.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/conditions-et-boucles-c/9-0-et-booleens-c"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N05_008-04",
+      "notion_id": "N05_008",
+      "legacy_notion_key": "5:8",
+      "theme": "Conditions et boucles C",
+      "notion": "0 et booléens C",
+      "answer_mode": "multiple",
+      "question_type": "synthese",
+      "prompt": "Quelles affirmations concernent directement « 0 et booléens C » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "0 est faux ; toute valeur différente de 0 est vraie dans une condition."
+        },
+        {
+          "id": "B",
+          "text": "Si la lecture de la saisie déborde un tableau local, la mémoire peut être corrompue AVANT malloc et strcpy : copier ensuite ne répare pas cette erreur."
+        },
+        {
+          "id": "C",
+          "text": "Un dangling pointer désigne un pointeur dont l'objet pointé n'est plus valide, notamment après free ou à la fin de vie d'une variable locale."
+        },
+        {
+          "id": "D",
+          "text": "Une valeur négative est vraie dans une condition C : seule la valeur 0 est fausse."
+        }
+      ],
+      "correct_option_ids": [
+        "A",
+        "D"
+      ],
+      "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/conditions-et-boucles-c/9-0-et-booleens-c"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "cross_topic_distractors",
+        "check_possible_ambiguity"
+      ]
+    },
+    {
+      "id": "V1-N05_009-01",
+      "notion_id": "N05_009",
+      "legacy_notion_key": "5:9",
+      "theme": "Conditions et boucles C",
+      "notion": "Boucles imbriquées",
+      "answer_mode": "single",
+      "question_type": "definition",
+      "prompt": "À quelle notion correspond la définition suivante : « Une boucle placée dans une autre ; le coût dépend des bornes et du travail effectué. » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Itération"
+        },
+        {
+          "id": "B",
+          "text": "Boucles imbriquées"
+        },
+        {
+          "id": "C",
+          "text": "< > <= >="
+        },
+        {
+          "id": "D",
+          "text": "if / else if / else"
+        }
+      ],
+      "correct_option_ids": [
+        "B"
+      ],
+      "explanation": "La définition est extraite du résumé de la fiche correspondante.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/conditions-et-boucles-c/10-boucles-imbriquees"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N05_009-02",
+      "notion_id": "N05_009",
+      "legacy_notion_key": "5:9",
+      "theme": "Conditions et boucles C",
+      "notion": "Boucles imbriquées",
+      "answer_mode": "single",
+      "question_type": "description",
+      "prompt": "Quelle description caractérise « Boucles imbriquées » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Une boucle placée dans une autre ; le coût dépend des bornes et du travail effectué."
+        },
+        {
+          "id": "B",
+          "text": "Un passage dans une boucle."
+        },
+        {
+          "id": "C",
+          "text": "Choisir une branche selon des conditions."
+        },
+        {
+          "id": "D",
+          "text": "Comparaisons."
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "Le résumé de la fiche indique : Une boucle placée dans une autre ; le coût dépend des bornes et du travail effectué.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/conditions-et-boucles-c/10-boucles-imbriquees"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N05_009-03",
+      "notion_id": "N05_009",
+      "legacy_notion_key": "5:9",
+      "theme": "Conditions et boucles C",
+      "notion": "Boucles imbriquées",
+      "answer_mode": "single",
+      "question_type": "vigilance",
+      "prompt": "Quel point à retenir est directement associé à « Boucles imbriquées » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Dans une chaîne if / else if / else, seule la première branche dont la condition réussit est exécutée."
+        },
+        {
+          "id": "B",
+          "text": "Une itération est un passage dans le corps ; la valeur de l'indice ne donne pas toujours le nombre de passages."
+        },
+        {
+          "id": "C",
+          "text": "Les conversions entre types signés et non signés peuvent rendre certaines comparaisons surprenantes."
+        },
+        {
+          "id": "D",
+          "text": "Deux boucles imbriquées de n itérations chacune peuvent effectuer n × n passages, selon leurs bornes."
+        }
+      ],
+      "correct_option_ids": [
+        "D"
+      ],
+      "explanation": "La fiche indique : Deux boucles imbriquées de n itérations chacune peuvent effectuer n × n passages, selon leurs bornes.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/conditions-et-boucles-c/10-boucles-imbriquees"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N05_009-04",
+      "notion_id": "N05_009",
+      "legacy_notion_key": "5:9",
+      "theme": "Conditions et boucles C",
+      "notion": "Boucles imbriquées",
+      "answer_mode": "multiple",
+      "question_type": "synthese",
+      "prompt": "Quelles affirmations concernent directement « Boucles imbriquées » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "strlen(\"Best School\") vaut 11 ; sizeof(\"Best School\") vaut 12 : une copie de cette chaîne demande 12 octets, car il faut aussi stocker '\\0'."
+        },
+        {
+          "id": "B",
+          "text": "Une boucle placée dans une autre ; le coût dépend des bornes et du travail effectué."
+        },
+        {
+          "id": "C",
+          "text": "Deux boucles imbriquées de n itérations chacune peuvent effectuer n × n passages, selon leurs bornes."
+        },
+        {
+          "id": "D",
+          "text": "Les variables locales et les tableaux locaux ordinaires ont une durée de vie liée à l’exécution de leur bloc ; on ne les libère pas avec free."
+        }
+      ],
+      "correct_option_ids": [
+        "B",
+        "C"
+      ],
+      "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/conditions-et-boucles-c/10-boucles-imbriquees"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "cross_topic_distractors",
+        "check_possible_ambiguity"
+      ]
+    }
+  ]
+}
