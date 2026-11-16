@@ -42,7 +42,7 @@ Une action discrète « Créer un compte / Se connecter » sera facultative. L'a
 - Distinguer clairement la notion visée, la réponse, les distracteurs, la difficulté interne, l'explication et les sources.
 - Validation croisée par **plusieurs modèles indépendants et relecture technique/éditoriale** avant publication de la banque. Une IA pendant chaque session n'est pas nécessaire.
 - Prévoir des identifiants de notion et de question **stables**, indépendants des positions `sections[si].items[ii]`, afin de préserver l'historique lorsque les chapitres changent.
-- Le pilote historique [#14](https://github.com/Simondbf/site_revision_holberton/pull/14) (25 questions sur cinq notions) **n'est pas la version finale**. Son fichier contenait 228 notions contre 242 sur `main` au 16 novembre 2026. Il est archivé pour relecture et ne doit pas être fusionné ; les **25 questions et toutes les propositions** sont disponibles en [PR #19](https://github.com/Simondbf/site_revision_holberton/pull/19) (Markdown + JSON, uniquement sur GitHub).
+- Le prototype historique [#14](https://github.com/Simondbf/site_revision_holberton/pull/14) est **abandonné et fermé sans fusion**, à la demande du propriétaire. Son contenu (25 anciennes questions) ne constitue pas une base de travail et **ne doit pas être réutilisé**. La [PR #19](https://github.com/Simondbf/site_revision_holberton/pull/19) est réservée à la conception et à la validation d'une **nouvelle banque indépendante de questions**, hébergée sur GitHub sans publication sur le site.
 
 ## E-mails transactionnels : Brevo — choix validé
 
@@ -70,7 +70,7 @@ Références : [OWASP Authentication](https://cheatsheetseries.owasp.org/cheatsh
 ## Ordre de livraison sans casser l'existant
 
 1. Valider audit / CI et fiabiliser la fusion avant publication.
-2. Réexaminer la banque source du prototype #14 avec les retours inter-IA de la PR #19, puis développer un nouveau quiz compatible avec la branche actuelle en mode invité (sans réutiliser un `index.html` obsolète).
+2. Concevoir et faire relire une nouvelle banque de questions via la PR #19, puis développer un quiz indépendant compatible avec la branche actuelle, accessible sans compte.
 3. Développer le suivi local invité, avec schéma de données versionné et export possible.
 4. Choisir la méthode d'authentification, intégrer **Brevo** côté serveur et créer un backend minimal avec tests d'isolation.
 5. Proposer la connexion facultative et la synchronisation, après vérification sécurité, suppression/export, sauvegardes et exploitation.
