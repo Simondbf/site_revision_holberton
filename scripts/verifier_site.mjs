@@ -38,7 +38,7 @@ for (const [si, section] of data.sections.entries()) {
     total++;
   }
 }
-assert.ok(total >= 228, 'Des fiches semblent avoir disparu');
+assert.ok(total >= 235, 'Des fiches semblent avoir disparu');
 assert.ok(Object.keys(aide).length > 0, 'Analogies pédagogiques manquantes');
 
 const scripts = [...html.matchAll(/<script(?![^>]*type="application\/json")[^>]*>([\s\S]*?)<\/script>/g)];
@@ -95,6 +95,21 @@ for(const [si,ii,term] of [
   const p=si===9?pointeurs[String(ii)]:extra[si+':'+ii];
   assert.ok(p?.sources?.length,'Source spécialisée absente : '+si+':'+ii);
 }
+for(const [si,ii,term] of [
+ [8,30,'Integer overflow'],[9,55,'Dépassement de tampon sur la pile'],
+ [9,56,'Tampon fixe, statique et dynamique'],[9,57,'Stack overflow'],
+ [9,58,'Valgrind : « definitely lost »'],[9,59,'strlen sans terminateur nul'],
+ [14,7,'Invariant']
+]){
+ assert.ok(data.sections[si].items[ii]?.term.includes(term),'Fiche de sécurité absente : '+si+':'+ii);
+ const p=si===9?pointeurs[String(ii)]:extra[si+':'+ii];
+ assert.ok(p?.explanation?.split('\n\n').length>=3,'Paragraphes insuffisants : '+si+':'+ii);
+ assert.ok(p?.example?.trim()&&p?.note?.trim()&&p?.sources?.length,
+  'Exemple, conclusion ou référence manquants : '+si+':'+ii);
+}
+assert.ok(pointeurs['42'].explanation.includes('static char'),'Pile/tas/statique pas suffisamment distingués');
+assert.ok(pointeurs['39'].explanation.includes('terminateur'),'strlen sans terminaison non expliqué');
+assert.ok(pointeurs['53'].explanation.includes('32 bytes in 1 blocks'),'Rapport Valgrind non explicité');
 assert.ok(html.includes('Array.isArray(p.sources)'), 'Sources spécifiques par cours non affichées');
 assert.ok(html.includes('function lessonParagraphs(value)') && html.includes('lessonParagraphs(explain)'), 
  'Mise en page des explications en paragraphes absente');
