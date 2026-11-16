@@ -1,0 +1,656 @@
+{
+  "version": "review-v1",
+  "status": "non_verifie",
+  "theme_id": 1,
+  "theme": "Terminal et Shell",
+  "questions": [
+    {
+      "id": "V1-N01_000-01",
+      "notion_id": "N01_000",
+      "legacy_notion_key": "1:0",
+      "theme": "Terminal et Shell",
+      "notion": "Terminal",
+      "answer_mode": "single",
+      "question_type": "definition",
+      "prompt": "À quelle notion correspond la définition suivante : « Application permettant de saisir des commandes et d’afficher leurs résultats. » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Terminal"
+        },
+        {
+          "id": "B",
+          "text": "Script Shell"
+        },
+        {
+          "id": "C",
+          "text": "Bash"
+        },
+        {
+          "id": "D",
+          "text": "Shell"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "La définition est extraite du résumé de la fiche correspondante.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/terminal-et-shell/1-terminal"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N01_000-02",
+      "notion_id": "N01_000",
+      "legacy_notion_key": "1:0",
+      "theme": "Terminal et Shell",
+      "notion": "Terminal",
+      "answer_mode": "single",
+      "question_type": "description",
+      "prompt": "Quelle description caractérise « Terminal » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Programme qui interprète les commandes et lance les autres programmes."
+        },
+        {
+          "id": "B",
+          "text": "Shell courant sur Linux."
+        },
+        {
+          "id": "C",
+          "text": "Fichier texte qui contient une suite de commandes exécutables par un Shell."
+        },
+        {
+          "id": "D",
+          "text": "Application permettant de saisir des commandes et d’afficher leurs résultats."
+        }
+      ],
+      "correct_option_ids": [
+        "D"
+      ],
+      "explanation": "Le résumé de la fiche indique : Application permettant de saisir des commandes et d’afficher leurs résultats.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/terminal-et-shell/1-terminal"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N01_000-03",
+      "notion_id": "N01_000",
+      "legacy_notion_key": "1:0",
+      "theme": "Terminal et Shell",
+      "notion": "Terminal",
+      "answer_mode": "single",
+      "question_type": "vigilance",
+      "prompt": "Quel point à retenir est directement associé à « Terminal » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Le terminal affiche et transmet les échanges ; le shell interprète les commandes."
+        },
+        {
+          "id": "B",
+          "text": "Une variable, un tube ou une redirection sont interprétés par le shell avant le lancement de certains programmes."
+        },
+        {
+          "id": "C",
+          "text": "Bash est un shell particulier : une syntaxe Bash n'est pas toujours portable vers un autre shell."
+        },
+        {
+          "id": "D",
+          "text": "Le shebang compte quand on exécute le fichier directement ; avec « bash script.sh », on choisit explicitement Bash."
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "La fiche indique : Le terminal affiche et transmet les échanges ; le shell interprète les commandes.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/terminal-et-shell/1-terminal"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N01_000-04",
+      "notion_id": "N01_000",
+      "legacy_notion_key": "1:0",
+      "theme": "Terminal et Shell",
+      "notion": "Terminal",
+      "answer_mode": "multiple",
+      "question_type": "synthese",
+      "prompt": "Quelles affirmations concernent directement « Terminal » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Application permettant de saisir des commandes et d’afficher leurs résultats."
+        },
+        {
+          "id": "B",
+          "text": "Dossier personnel de l’utilisateur."
+        },
+        {
+          "id": "C",
+          "text": "Matériel physique / programmes exécutés par la machine."
+        },
+        {
+          "id": "D",
+          "text": "Le terminal affiche et transmet les échanges ; le shell interprète les commandes."
+        }
+      ],
+      "correct_option_ids": [
+        "A",
+        "D"
+      ],
+      "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/terminal-et-shell/1-terminal"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "cross_topic_distractors",
+        "check_possible_ambiguity"
+      ]
+    },
+    {
+      "id": "V1-N01_001-01",
+      "notion_id": "N01_001",
+      "legacy_notion_key": "1:1",
+      "theme": "Terminal et Shell",
+      "notion": "Shell",
+      "answer_mode": "single",
+      "question_type": "definition",
+      "prompt": "À quelle notion correspond la définition suivante : « Programme qui interprète les commandes et lance les autres programmes. » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Bash"
+        },
+        {
+          "id": "B",
+          "text": "Shell"
+        },
+        {
+          "id": "C",
+          "text": "Terminal"
+        },
+        {
+          "id": "D",
+          "text": "Script Shell"
+        }
+      ],
+      "correct_option_ids": [
+        "B"
+      ],
+      "explanation": "La définition est extraite du résumé de la fiche correspondante.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/terminal-et-shell/2-shell"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N01_001-02",
+      "notion_id": "N01_001",
+      "legacy_notion_key": "1:1",
+      "theme": "Terminal et Shell",
+      "notion": "Shell",
+      "answer_mode": "single",
+      "question_type": "description",
+      "prompt": "Quelle description caractérise « Shell » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Programme qui interprète les commandes et lance les autres programmes."
+        },
+        {
+          "id": "B",
+          "text": "Fichier texte qui contient une suite de commandes exécutables par un Shell."
+        },
+        {
+          "id": "C",
+          "text": "Application permettant de saisir des commandes et d’afficher leurs résultats."
+        },
+        {
+          "id": "D",
+          "text": "Shell courant sur Linux."
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "Le résumé de la fiche indique : Programme qui interprète les commandes et lance les autres programmes.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/terminal-et-shell/2-shell"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N01_001-03",
+      "notion_id": "N01_001",
+      "legacy_notion_key": "1:1",
+      "theme": "Terminal et Shell",
+      "notion": "Shell",
+      "answer_mode": "single",
+      "question_type": "vigilance",
+      "prompt": "Quel point à retenir est directement associé à « Shell » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Bash est un shell particulier : une syntaxe Bash n'est pas toujours portable vers un autre shell."
+        },
+        {
+          "id": "B",
+          "text": "Le shebang compte quand on exécute le fichier directement ; avec « bash script.sh », on choisit explicitement Bash."
+        },
+        {
+          "id": "C",
+          "text": "Le terminal affiche et transmet les échanges ; le shell interprète les commandes."
+        },
+        {
+          "id": "D",
+          "text": "Une variable, un tube ou une redirection sont interprétés par le shell avant le lancement de certains programmes."
+        }
+      ],
+      "correct_option_ids": [
+        "D"
+      ],
+      "explanation": "La fiche indique : Une variable, un tube ou une redirection sont interprétés par le shell avant le lancement de certains programmes.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/terminal-et-shell/2-shell"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N01_001-04",
+      "notion_id": "N01_001",
+      "legacy_notion_key": "1:1",
+      "theme": "Terminal et Shell",
+      "notion": "Shell",
+      "answer_mode": "multiple",
+      "question_type": "synthese",
+      "prompt": "Quelles affirmations concernent directement « Shell » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Une variable, un tube ou une redirection sont interprétés par le shell avant le lancement de certains programmes."
+        },
+        {
+          "id": "B",
+          "text": "qsort trie un tableau en appelant le comparateur fourni : int comparer(const void *, const void *) doit renvoyer une valeur négative, nulle ou positive."
+        },
+        {
+          "id": "C",
+          "text": "Programme qui interprète les commandes et lance les autres programmes."
+        },
+        {
+          "id": "D",
+          "text": "char * est un pointeur vers char ; il peut désigner le début d'un tableau de caractères, mais ne stocke ni sa capacité ni son terminateur."
+        }
+      ],
+      "correct_option_ids": [
+        "A",
+        "C"
+      ],
+      "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/terminal-et-shell/2-shell"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "cross_topic_distractors",
+        "check_possible_ambiguity"
+      ]
+    },
+    {
+      "id": "V1-N01_002-01",
+      "notion_id": "N01_002",
+      "legacy_notion_key": "1:2",
+      "theme": "Terminal et Shell",
+      "notion": "Bash",
+      "answer_mode": "single",
+      "question_type": "definition",
+      "prompt": "À quelle notion correspond la définition suivante : « Shell courant sur Linux. » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Terminal"
+        },
+        {
+          "id": "B",
+          "text": "Script Shell"
+        },
+        {
+          "id": "C",
+          "text": "Bash"
+        },
+        {
+          "id": "D",
+          "text": "Shell"
+        }
+      ],
+      "correct_option_ids": [
+        "C"
+      ],
+      "explanation": "La définition est extraite du résumé de la fiche correspondante.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/terminal-et-shell/3-bash"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N01_002-02",
+      "notion_id": "N01_002",
+      "legacy_notion_key": "1:2",
+      "theme": "Terminal et Shell",
+      "notion": "Bash",
+      "answer_mode": "single",
+      "question_type": "description",
+      "prompt": "Quelle description caractérise « Bash » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Fichier texte qui contient une suite de commandes exécutables par un Shell."
+        },
+        {
+          "id": "B",
+          "text": "Shell courant sur Linux."
+        },
+        {
+          "id": "C",
+          "text": "Programme qui interprète les commandes et lance les autres programmes."
+        },
+        {
+          "id": "D",
+          "text": "Application permettant de saisir des commandes et d’afficher leurs résultats."
+        }
+      ],
+      "correct_option_ids": [
+        "B"
+      ],
+      "explanation": "Le résumé de la fiche indique : Shell courant sur Linux.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/terminal-et-shell/3-bash"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N01_002-03",
+      "notion_id": "N01_002",
+      "legacy_notion_key": "1:2",
+      "theme": "Terminal et Shell",
+      "notion": "Bash",
+      "answer_mode": "single",
+      "question_type": "vigilance",
+      "prompt": "Quel point à retenir est directement associé à « Bash » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Le terminal affiche et transmet les échanges ; le shell interprète les commandes."
+        },
+        {
+          "id": "B",
+          "text": "Une variable, un tube ou une redirection sont interprétés par le shell avant le lancement de certains programmes."
+        },
+        {
+          "id": "C",
+          "text": "Bash est un shell particulier : une syntaxe Bash n'est pas toujours portable vers un autre shell."
+        },
+        {
+          "id": "D",
+          "text": "Le shebang compte quand on exécute le fichier directement ; avec « bash script.sh », on choisit explicitement Bash."
+        }
+      ],
+      "correct_option_ids": [
+        "C"
+      ],
+      "explanation": "La fiche indique : Bash est un shell particulier : une syntaxe Bash n'est pas toujours portable vers un autre shell.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/terminal-et-shell/3-bash"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N01_002-04",
+      "notion_id": "N01_002",
+      "legacy_notion_key": "1:2",
+      "theme": "Terminal et Shell",
+      "notion": "Bash",
+      "answer_mode": "multiple",
+      "question_type": "synthese",
+      "prompt": "Quelles affirmations concernent directement « Bash » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Shell courant sur Linux."
+        },
+        {
+          "id": "B",
+          "text": "En C, un paramètre reçoit une copie de l’argument. Modifier un paramètre int local ne modifie pas la variable initiale."
+        },
+        {
+          "id": "C",
+          "text": "Bash est un shell particulier : une syntaxe Bash n'est pas toujours portable vers un autre shell."
+        },
+        {
+          "id": "D",
+          "text": "&a désigne l’adresse du tableau entier. Elle a la même position mémoire que &a[0], mais un type différent."
+        }
+      ],
+      "correct_option_ids": [
+        "A",
+        "C"
+      ],
+      "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/terminal-et-shell/3-bash"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "cross_topic_distractors",
+        "check_possible_ambiguity"
+      ]
+    },
+    {
+      "id": "V1-N01_003-01",
+      "notion_id": "N01_003",
+      "legacy_notion_key": "1:3",
+      "theme": "Terminal et Shell",
+      "notion": "Script Shell",
+      "answer_mode": "single",
+      "question_type": "definition",
+      "prompt": "À quelle notion correspond la définition suivante : « Fichier texte qui contient une suite de commandes exécutables par un Shell. » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Terminal"
+        },
+        {
+          "id": "B",
+          "text": "Shell"
+        },
+        {
+          "id": "C",
+          "text": "Bash"
+        },
+        {
+          "id": "D",
+          "text": "Script Shell"
+        }
+      ],
+      "correct_option_ids": [
+        "D"
+      ],
+      "explanation": "La définition est extraite du résumé de la fiche correspondante.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/terminal-et-shell/4-script-shell"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N01_003-02",
+      "notion_id": "N01_003",
+      "legacy_notion_key": "1:3",
+      "theme": "Terminal et Shell",
+      "notion": "Script Shell",
+      "answer_mode": "single",
+      "question_type": "description",
+      "prompt": "Quelle description caractérise « Script Shell » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Fichier texte qui contient une suite de commandes exécutables par un Shell."
+        },
+        {
+          "id": "B",
+          "text": "Application permettant de saisir des commandes et d’afficher leurs résultats."
+        },
+        {
+          "id": "C",
+          "text": "Programme qui interprète les commandes et lance les autres programmes."
+        },
+        {
+          "id": "D",
+          "text": "Shell courant sur Linux."
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "Le résumé de la fiche indique : Fichier texte qui contient une suite de commandes exécutables par un Shell.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/terminal-et-shell/4-script-shell"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N01_003-03",
+      "notion_id": "N01_003",
+      "legacy_notion_key": "1:3",
+      "theme": "Terminal et Shell",
+      "notion": "Script Shell",
+      "answer_mode": "single",
+      "question_type": "vigilance",
+      "prompt": "Quel point à retenir est directement associé à « Script Shell » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Bash est un shell particulier : une syntaxe Bash n'est pas toujours portable vers un autre shell."
+        },
+        {
+          "id": "B",
+          "text": "Le shebang compte quand on exécute le fichier directement ; avec « bash script.sh », on choisit explicitement Bash."
+        },
+        {
+          "id": "C",
+          "text": "Le terminal affiche et transmet les échanges ; le shell interprète les commandes."
+        },
+        {
+          "id": "D",
+          "text": "Une variable, un tube ou une redirection sont interprétés par le shell avant le lancement de certains programmes."
+        }
+      ],
+      "correct_option_ids": [
+        "B"
+      ],
+      "explanation": "La fiche indique : Le shebang compte quand on exécute le fichier directement ; avec « bash script.sh », on choisit explicitement Bash.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/terminal-et-shell/4-script-shell"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N01_003-04",
+      "notion_id": "N01_003",
+      "legacy_notion_key": "1:3",
+      "theme": "Terminal et Shell",
+      "notion": "Script Shell",
+      "answer_mode": "multiple",
+      "question_type": "synthese",
+      "prompt": "Quelles affirmations concernent directement « Script Shell » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Logiciel de gestion de versions distribué."
+        },
+        {
+          "id": "B",
+          "text": "Git ne peut pas résoudre automatiquement des changements concurrents."
+        },
+        {
+          "id": "C",
+          "text": "Le shebang compte quand on exécute le fichier directement ; avec « bash script.sh », on choisit explicitement Bash."
+        },
+        {
+          "id": "D",
+          "text": "Fichier texte qui contient une suite de commandes exécutables par un Shell."
+        }
+      ],
+      "correct_option_ids": [
+        "C",
+        "D"
+      ],
+      "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/terminal-et-shell/4-script-shell"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "cross_topic_distractors",
+        "check_possible_ambiguity"
+      ]
+    }
+  ]
+}
