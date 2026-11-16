@@ -3,8 +3,8 @@ import {readdirSync,readFileSync} from 'node:fs';
 import {join} from 'node:path';
 
 const base=new URL('../docs/quiz/vague1/',import.meta.url);
-const files=readdirSync(base).filter(f=>/^(?:section-\d{2}-.*|questions-application)\.json$/.test(f)).sort();
-assert.equal(files.length,14,'13 thèmes + fichier d\'applications attendus.');
+const files=readdirSync(base).filter(f=>/^(?:section-\d{2}-.*|questions-application|raisonnement-domaines|questions-c-techniques|questions-scanf-specialisees)\.json$/.test(f)).sort();
+assert.equal(files.length,17,'13 thèmes + fichier d\'applications attendus.');
 const expected=new Map([[0,6],[1,4],[2,9],[3,12],[4,14],[5,10],[6,11],[8,31],[9,72],[10,9],[11,6],[14,9],[16,21]]);
 const ids=new Set(),byNotion=new Map(),perTheme=new Map();
 let autoCount=0,applications=0,multiple=0;
@@ -40,7 +40,7 @@ for(const file of files){
 assert.equal([...expected.values()].reduce((a,b)=>a+b,0),214);
 assert.equal(byNotion.size,214,'Certaines notions de la première vague ne disposent d\'aucune question.');
 assert.equal(autoCount,856,'Les questions initiales structurées ont changé sans révision des tests.');
-assert.ok(applications>=200,'Les questions d\'application sont insuffisantes.');
+assert.ok(applications>=400,'Les questions d\'application sont insuffisantes.');
 assert.ok(multiple>=214,'Les réponses multiples doivent être représentées.');
 assert.ok(ids.size>=1200,'Le lot complet doit comprendre au moins 1200 questions.');
 for(const [si,n] of expected){
