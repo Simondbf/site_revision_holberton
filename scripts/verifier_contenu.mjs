@@ -12,7 +12,7 @@ const pointers=block('pointer-data');
 const counts=sections.map(s=>s.items.length);
 const number=counts.reduce((a,b)=>a+b,0);
 
-assert.ok(number>=235,'Des notions déjà publiées semblent avoir disparu.');
+assert.ok(number>=242,'Des notions déjà publiées semblent avoir disparu.');
 let notes=0;
 for(const [si,section]of sections.entries()){
   for(const [ii,item]of section.items.entries()){
@@ -83,6 +83,12 @@ try{
     {name:"strlen sans terminateur",source:pointers['59'].example+'\n',output:"Pas de terminateur\n",secure:true},
     {name:"overflow entier evite",source:extra['8:30'].example+'\n',output:"Depassement evite\n",secure:true},
     {name:"invariant de capacite",source:extra['14:7'].example+'\n',output:"Ada\n",secure:true},
+    {name:"memcpy copie avec terminateur",source:pointers['60'].example+'\n',output:"Ada\n",secure:true},
+    {name:"ownership free unique",source:pointers['61'].example+'\n',output:"42\n",secure:true},
+    {name:"dangling pointer evite",source:pointers['62'].example+'\n',output:"7\n",secure:true},
+    {name:"raw pointer local valide",source:pointers['63'].example+'\n',output:"12\n",secure:true},
+    {name:"char pointer chaine modifiable",source:pointers['64'].example+'\n',output:"Eda C\n",secure:true},
+    {name:"base bundle alias double free evite",source:extra['14:8'].example+'\n',output:"5\n",secure:true},
     {name:'struct/typedef 16:0',source:extra['16:0'].example+'\n',output:"2 3\n"},
     {name:'struct/typedef 16:1',source:extra['16:1'].example+'\n',output:"3 7\n"},
     {name:'struct/typedef 16:2',source:extra['16:2'].example+'\n',output:"7 3\n"},
@@ -139,6 +145,17 @@ try{
   assert.equal(resultatExit.stdout,'','Aucune instruction après exit(98) ne doit être exécutée.');
   assert.match(extra['8:25'].explanation,/&age/,'scanf doit expliquer l’adresse de variable.');
   assert.match(extra['8:25'].explanation,/nombre de conversions/,'scanf doit expliquer la valeur renvoyée.');
+  for(const key of ['14:8']){
+    assert.ok(extra[key]?.sources?.length,'Source base bundle absente');
+    assert.match(extra[key].explanation,/sans consulter les fichiers/i,'Prudence concernant le vrai code du lab absente.');
+  }
+  for(let i=60;i<=65;i++){
+    assert.ok(pointers[String(i)]?.sources?.length,'Source manquante sur 9:'+i);
+    assert.ok(pointers[String(i)]?.explanation?.includes('\n\n'),'Paragraphes manquants : 9:'+i);
+  }
+  assert.match(pointers['61'].explanation,/transfère pas automatiquement/,'Ownership automatique faussement suggérée');
+  assert.match(pointers['62'].explanation,/autres pointeurs/,'Effet limité de NULL sur les alias non expliqué');
+  assert.match(pointers['65'].explanation,/indirectly lost/,'Fuite indirecte mal caractérisée');
   for (const key of ['8:30','14:7']) {
     assert.ok(extra[key]?.sources?.length,'Référence nouvelle manquante : '+key);
     assert.ok(extra[key]?.explanation?.includes('\n\n'),'Paragraphes manquants : '+key);

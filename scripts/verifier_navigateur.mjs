@@ -221,6 +221,27 @@ try{
  assert.ok(await page.locator('#notion-14-7 .lesson-reading p').count()>=3,
   'La notion d’invariant doit être structurée.');
 
+ // Nouveaux cours : pointeurs bruts, ownership et diagnostics, accessibles en lien direct.
+ await page.goto(origin+'/'+route('Pointeurs et tableaux C','memcpy() — copier des octets sans chevauchement'));
+ await page.waitForFunction(()=>document.querySelector('#notion-9-60')?.classList.contains('lesson-selected'));
+ assert.ok(await page.locator('#notion-9-60 .lesson-reading p').count()>=3,
+  'Le cours memcpy doit être aéré.');
+ assert.match(await page.locator('#notion-9-60').innerText(),/octets/i,
+  'Le cours memcpy n’a pas été chargé.');
+ await page.goto(origin+'/'+route('Pointeurs et tableaux C','Ownership — qui est responsable de free() ?'));
+ await page.waitForFunction(()=>document.querySelector('#notion-9-61')?.classList.contains('lesson-selected'));
+ assert.match(await page.locator('#notion-9-61').innerText(),/free/,
+  'Le principe d’ownership doit être expliqué.');
+ await page.goto(origin+'/'+route('Pointeurs et tableaux C','Diagnostics mémoire — INVALID_WRITE, UNINITIALIZED_VALUE et fuites'));
+ await page.waitForFunction(()=>document.querySelector('#notion-9-65')?.classList.contains('lesson-selected'));
+ assert.match(await page.locator('#notion-9-65').innerText(),/INDIRECT_LEAK/,
+  'Les catégories du lab doivent figurer dans la fiche.');
+ await page.screenshot({path:'apercus/cours-erreurs-memoire.png'});
+ await page.goto(origin+'/'+route('Qualité et méthode en C',"Base bundle — analyser le code de départ d'un lab"));
+ await page.waitForFunction(()=>document.querySelector('#notion-14-8')?.classList.contains('lesson-selected'));
+ assert.match(await page.locator('#notion-14-8').innerText(),/double free/,
+  'Le risque de libération en double doit être expliqué.');
+
  // À propos : structure simplifiée, liens de contribution et hiérarchie lisible.
  await page.goto(origin+'/#apropos');
  await page.waitForFunction(()=>!document.querySelector('#about')?.classList.contains('hidden'));

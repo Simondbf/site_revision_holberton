@@ -38,7 +38,7 @@ for (const [si, section] of data.sections.entries()) {
     total++;
   }
 }
-assert.ok(total >= 235, 'Des fiches semblent avoir disparu');
+assert.ok(total >= 242, 'Des fiches semblent avoir disparu');
 assert.ok(Object.keys(aide).length > 0, 'Analogies pédagogiques manquantes');
 
 const scripts = [...html.matchAll(/<script(?![^>]*type="application\/json")[^>]*>([\s\S]*?)<\/script>/g)];
@@ -110,6 +110,23 @@ for(const [si,ii,term] of [
 assert.ok(pointeurs['42'].explanation.includes('static char'),'Pile/tas/statique pas suffisamment distingués');
 assert.ok(pointeurs['39'].explanation.includes('terminateur'),'strlen sans terminaison non expliqué');
 assert.ok(pointeurs['53'].explanation.includes('32 bytes in 1 blocks'),'Rapport Valgrind non explicité');
+for(const [si,ii,term] of [
+ [9,60,'memcpy()'],[9,61,'Ownership'],[9,62,'Dangling pointer'],
+ [9,63,'Raw pointer'],[9,64,'char *'],[9,65,'Diagnostics mémoire'],
+ [14,8,'Base bundle']
+]){
+ assert.ok(data.sections[si]?.items[ii]?.term.includes(term),'Notion manquante : '+si+':'+ii);
+ const p=si===9?pointeurs[String(ii)]:extra[si+':'+ii];
+ assert.ok(p?.explanation?.split('\n\n').length>=3,'Découpage en paragraphes absent : '+si+':'+ii);
+ assert.ok(p?.example?.trim()&&p?.note?.trim()&&p?.sources?.length,
+  'Exemple, note ou référence absente : '+si+':'+ii);
+}
+assert.ok(pointeurs['53'].explanation.includes('INDIRECT_LEAK'),
+ 'La classification des fuites indirectes doit être expliquée.');
+assert.ok(pointeurs['51'].note.includes('ownership ambiguë'),
+ 'Causes possibles du double free du base bundle absentes.');
+assert.ok(pointeurs['54'].explanation.includes("nombre d'OCTETS"),
+ 'memcpy doit expliquer la taille copiée.');
 assert.ok(html.includes('Array.isArray(p.sources)'), 'Sources spécifiques par cours non affichées');
 assert.ok(html.includes('function lessonParagraphs(value)') && html.includes('lessonParagraphs(explain)'), 
  'Mise en page des explications en paragraphes absente');
