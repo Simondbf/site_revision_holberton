@@ -16,23 +16,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Pull request"
+          "text": "Staging"
         },
         {
           "id": "B",
-          "text": "Git"
+          "text": "Pull request"
         },
         {
           "id": "C",
-          "text": "git clone / log / switch"
+          "text": "Git"
         },
         {
           "id": "D",
-          "text": "Staging"
+          "text": "git clone / log / switch"
         }
       ],
       "correct_option_ids": [
-        "B"
+        "C"
       ],
       "explanation": "La définition est extraite du résumé de la fiche correspondante.",
       "source_urls": [
@@ -56,15 +56,15 @@
       "options": [
         {
           "id": "A",
-          "text": "Logiciel de gestion de versions distribué."
-        },
-        {
-          "id": "B",
           "text": "Zone de préparation des modifications avant commit."
         },
         {
-          "id": "C",
+          "id": "B",
           "text": "Copier un dépôt / historique / changer de branche."
+        },
+        {
+          "id": "C",
+          "text": "Logiciel de gestion de versions distribué."
         },
         {
           "id": "D",
@@ -72,7 +72,7 @@
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "Le résumé de la fiche indique : Logiciel de gestion de versions distribué.",
       "source_urls": [
@@ -100,11 +100,11 @@
         },
         {
           "id": "B",
-          "text": "Après git add, une nouvelle modification du même fichier n'est pas automatiquement préparée."
+          "text": "git clone ne change pas automatiquement de dossier dans ton terminal ; utilise cd ensuite."
         },
         {
           "id": "C",
-          "text": "git clone ne change pas automatiquement de dossier dans ton terminal ; utilise cd ensuite."
+          "text": "Après git add, une nouvelle modification du même fichier n'est pas automatiquement préparée."
         },
         {
           "id": "D",
@@ -136,23 +136,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Git gère l'historique local même sans connexion à GitHub."
+          "text": "Choisir une branche selon des conditions."
         },
         {
           "id": "B",
-          "text": "Un passage dans une boucle."
-        },
-        {
-          "id": "C",
           "text": "Logiciel de gestion de versions distribué."
         },
         {
+          "id": "C",
+          "text": "Git gère l'historique local même sans connexion à GitHub."
+        },
+        {
           "id": "D",
-          "text": "Choisir une branche selon des conditions."
+          "text": "Un passage dans une boucle."
         }
       ],
       "correct_option_ids": [
-        "A",
+        "B",
         "C"
       ],
       "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
@@ -182,11 +182,11 @@
         },
         {
           "id": "B",
-          "text": "Staging"
+          "text": "GitHub"
         },
         {
           "id": "C",
-          "text": "GitHub"
+          "text": "Staging"
         },
         {
           "id": "D",
@@ -194,7 +194,7 @@
         }
       ],
       "correct_option_ids": [
-        "C"
+        "B"
       ],
       "explanation": "La définition est extraite du résumé de la fiche correspondante.",
       "source_urls": [
@@ -218,7 +218,7 @@
       "options": [
         {
           "id": "A",
-          "text": "Git ne peut pas résoudre automatiquement des changements concurrents."
+          "text": "Zone de préparation des modifications avant commit."
         },
         {
           "id": "B",
@@ -226,7 +226,7 @@
         },
         {
           "id": "C",
-          "text": "Zone de préparation des modifications avant commit."
+          "text": "Git ne peut pas résoudre automatiquement des changements concurrents."
         },
         {
           "id": "D",
@@ -258,7 +258,7 @@
       "options": [
         {
           "id": "A",
-          "text": "git clone ne change pas automatiquement de dossier dans ton terminal ; utilise cd ensuite."
+          "text": "Git est l'outil de versionnement ; GitHub est une plateforme d'hébergement et de collaboration."
         },
         {
           "id": "B",
@@ -266,7 +266,7 @@
         },
         {
           "id": "C",
-          "text": "Git est l'outil de versionnement ; GitHub est une plateforme d'hébergement et de collaboration."
+          "text": "git clone ne change pas automatiquement de dossier dans ton terminal ; utilise cd ensuite."
         },
         {
           "id": "D",
@@ -274,7 +274,7 @@
         }
       ],
       "correct_option_ids": [
-        "C"
+        "A"
       ],
       "explanation": "La fiche indique : Git est l'outil de versionnement ; GitHub est une plateforme d'hébergement et de collaboration.",
       "source_urls": [
@@ -298,7 +298,7 @@
       "options": [
         {
           "id": "A",
-          "text": "Trier / dédupliquer les lignes voisines / extraire / début / fin / inverser les caractères."
+          "text": "Service d’hébergement et de collaboration pour des dépôts Git."
         },
         {
           "id": "B",
@@ -306,16 +306,16 @@
         },
         {
           "id": "C",
-          "text": "Service d’hébergement et de collaboration pour des dépôts Git."
+          "text": "Variable exportée et transmise aux processus enfants."
         },
         {
           "id": "D",
-          "text": "Variable exportée et transmise aux processus enfants."
+          "text": "Trier / dédupliquer les lignes voisines / extraire / début / fin / inverser les caractères."
         }
       ],
       "correct_option_ids": [
-        "B",
-        "C"
+        "A",
+        "B"
       ],
       "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
       "source_urls": [
@@ -340,11 +340,11 @@
       "options": [
         {
           "id": "A",
-          "text": "git clone / log / switch"
+          "text": "Repository"
         },
         {
           "id": "B",
-          "text": "Conflit de fusion"
+          "text": "git clone / log / switch"
         },
         {
           "id": "C",
@@ -352,11 +352,11 @@
         },
         {
           "id": "D",
-          "text": "Repository"
+          "text": "Conflit de fusion"
         }
       ],
       "correct_option_ids": [
-        "D"
+        "A"
       ],
       "explanation": "La définition est extraite du résumé de la fiche correspondante.",
       "source_urls": [
@@ -380,15 +380,15 @@
       "options": [
         {
           "id": "A",
-          "text": "Dépôt du code et de son historique."
+          "text": "Git ne peut pas résoudre automatiquement des changements concurrents."
         },
         {
           "id": "B",
-          "text": "Copier un dépôt / historique / changer de branche."
+          "text": "Dépôt du code et de son historique."
         },
         {
           "id": "C",
-          "text": "Git ne peut pas résoudre automatiquement des changements concurrents."
+          "text": "Copier un dépôt / historique / changer de branche."
         },
         {
           "id": "D",
@@ -396,7 +396,7 @@
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "Le résumé de la fiche indique : Dépôt du code et de son historique.",
       "source_urls": [
@@ -420,7 +420,7 @@
       "options": [
         {
           "id": "A",
-          "text": "Un commit est local tant qu'il n'a pas été transmis à un dépôt distant."
+          "text": "Une résolution de conflit doit être relue et testée avant le commit de fusion."
         },
         {
           "id": "B",
@@ -428,11 +428,11 @@
         },
         {
           "id": "C",
-          "text": "git clone ne change pas automatiquement de dossier dans ton terminal ; utilise cd ensuite."
+          "text": "Un commit est local tant qu'il n'a pas été transmis à un dépôt distant."
         },
         {
           "id": "D",
-          "text": "Une résolution de conflit doit être relue et testée avant le commit de fusion."
+          "text": "git clone ne change pas automatiquement de dossier dans ton terminal ; utilise cd ensuite."
         }
       ],
       "correct_option_ids": [
@@ -464,7 +464,7 @@
         },
         {
           "id": "B",
-          "text": "Créer un dossier / créer un fichier vide ou actualiser sa date."
+          "text": "Dépôt du code et de son historique."
         },
         {
           "id": "C",
@@ -472,12 +472,12 @@
         },
         {
           "id": "D",
-          "text": "Dépôt du code et de son historique."
+          "text": "Créer un dossier / créer un fichier vide ou actualiser sa date."
         }
       ],
       "correct_option_ids": [
-        "C",
-        "D"
+        "B",
+        "C"
       ],
       "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
       "source_urls": [
@@ -542,23 +542,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Git ne peut pas résoudre automatiquement des changements concurrents."
-        },
-        {
-          "id": "B",
-          "text": "Instantané enregistré dans l’historique local."
-        },
-        {
-          "id": "C",
           "text": "Logiciel de gestion de versions distribué."
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "Zone de préparation des modifications avant commit."
+        },
+        {
+          "id": "C",
+          "text": "Git ne peut pas résoudre automatiquement des changements concurrents."
+        },
+        {
+          "id": "D",
+          "text": "Instantané enregistré dans l’historique local."
         }
       ],
       "correct_option_ids": [
-        "D"
+        "B"
       ],
       "explanation": "Le résumé de la fiche indique : Zone de préparation des modifications avant commit.",
       "source_urls": [
@@ -582,23 +582,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Après git add, une nouvelle modification du même fichier n'est pas automatiquement préparée."
-        },
-        {
-          "id": "B",
           "text": "Un commit est local tant qu'il n'a pas été transmis à un dépôt distant."
         },
         {
+          "id": "B",
+          "text": "Après git add, une nouvelle modification du même fichier n'est pas automatiquement préparée."
+        },
+        {
           "id": "C",
-          "text": "Une résolution de conflit doit être relue et testée avant le commit de fusion."
+          "text": "Git gère l'historique local même sans connexion à GitHub."
         },
         {
           "id": "D",
-          "text": "Git gère l'historique local même sans connexion à GitHub."
+          "text": "Une résolution de conflit doit être relue et testée avant le commit de fusion."
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "La fiche indique : Après git add, une nouvelle modification du même fichier n'est pas automatiquement préparée.",
       "source_urls": [
@@ -626,20 +626,20 @@
         },
         {
           "id": "B",
-          "text": "Sur une variable struct, on écrit objet.membre ; sur un pointeur vers cette struct, on écrit ptr->membre. Ces deux expressions peuvent désigner exactement le même membre."
-        },
-        {
-          "id": "C",
           "text": "typedef struct animal { int age; } animal_t; rend le type utilisable sous le nom animal_t."
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "Après git add, une nouvelle modification du même fichier n'est pas automatiquement préparée."
+        },
+        {
+          "id": "D",
+          "text": "Sur une variable struct, on écrit objet.membre ; sur un pointeur vers cette struct, on écrit ptr->membre. Ces deux expressions peuvent désigner exactement le même membre."
         }
       ],
       "correct_option_ids": [
         "A",
-        "D"
+        "C"
       ],
       "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
       "source_urls": [
@@ -664,7 +664,7 @@
       "options": [
         {
           "id": "A",
-          "text": "git status / add / commit"
+          "text": "Staging"
         },
         {
           "id": "B",
@@ -672,7 +672,7 @@
         },
         {
           "id": "C",
-          "text": "Staging"
+          "text": "git status / add / commit"
         },
         {
           "id": "D",
@@ -704,11 +704,11 @@
       "options": [
         {
           "id": "A",
-          "text": "Logiciel de gestion de versions distribué."
+          "text": "État / préparation / enregistrement."
         },
         {
           "id": "B",
-          "text": "État / préparation / enregistrement."
+          "text": "Zone de préparation des modifications avant commit."
         },
         {
           "id": "C",
@@ -716,7 +716,7 @@
         },
         {
           "id": "D",
-          "text": "Zone de préparation des modifications avant commit."
+          "text": "Logiciel de gestion de versions distribué."
         }
       ],
       "correct_option_ids": [
@@ -752,15 +752,15 @@
         },
         {
           "id": "C",
-          "text": "Git gère l'historique local même sans connexion à GitHub."
+          "text": "Un commit est local tant qu'il n'a pas été transmis à un dépôt distant."
         },
         {
           "id": "D",
-          "text": "Un commit est local tant qu'il n'a pas été transmis à un dépôt distant."
+          "text": "Git gère l'historique local même sans connexion à GitHub."
         }
       ],
       "correct_option_ids": [
-        "D"
+        "C"
       ],
       "explanation": "La fiche indique : Un commit est local tant qu'il n'a pas été transmis à un dépôt distant.",
       "source_urls": [
@@ -784,24 +784,24 @@
       "options": [
         {
           "id": "A",
-          "text": "Un commit est local tant qu'il n'a pas été transmis à un dépôt distant."
+          "text": "sizeof donne la taille en octets d’un type ou d’un objet sur la machine utilisée ; ne pas supposer une taille universelle pour int ou un pointeur."
         },
         {
           "id": "B",
-          "text": "Instantané enregistré dans l’historique local."
-        },
-        {
-          "id": "C",
           "text": "« struct chat » nomme un type ; « struct chat felix; » déclare une variable de ce type."
         },
         {
+          "id": "C",
+          "text": "Instantané enregistré dans l’historique local."
+        },
+        {
           "id": "D",
-          "text": "sizeof donne la taille en octets d’un type ou d’un objet sur la machine utilisée ; ne pas supposer une taille universelle pour int ou un pointeur."
+          "text": "Un commit est local tant qu'il n'a pas été transmis à un dépôt distant."
         }
       ],
       "correct_option_ids": [
-        "A",
-        "B"
+        "C",
+        "D"
       ],
       "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
       "source_urls": [
@@ -826,7 +826,7 @@
       "options": [
         {
           "id": "A",
-          "text": "Branch / merge"
+          "text": "Commit"
         },
         {
           "id": "B",
@@ -834,15 +834,15 @@
         },
         {
           "id": "C",
-          "text": "git status / add / commit"
+          "text": "Branch / merge"
         },
         {
           "id": "D",
-          "text": "Commit"
+          "text": "git status / add / commit"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "La définition est extraite du résumé de la fiche correspondante.",
       "source_urls": [
@@ -866,23 +866,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Instantané enregistré dans l’historique local."
-        },
-        {
-          "id": "B",
-          "text": "Branche de développement / fusion."
-        },
-        {
-          "id": "C",
           "text": "Logiciel de gestion de versions distribué."
         },
         {
-          "id": "D",
+          "id": "B",
+          "text": "Instantané enregistré dans l’historique local."
+        },
+        {
+          "id": "C",
           "text": "État / préparation / enregistrement."
+        },
+        {
+          "id": "D",
+          "text": "Branche de développement / fusion."
         }
       ],
       "correct_option_ids": [
-        "B"
+        "D"
       ],
       "explanation": "Le résumé de la fiche indique : Branche de développement / fusion.",
       "source_urls": [
@@ -946,7 +946,7 @@
       "options": [
         {
           "id": "A",
-          "text": "Reste de la division entière."
+          "text": "Reste : 2."
         },
         {
           "id": "B",
@@ -958,7 +958,7 @@
         },
         {
           "id": "D",
-          "text": "Reste : 2."
+          "text": "Reste de la division entière."
         }
       ],
       "correct_option_ids": [
@@ -988,23 +988,23 @@
       "options": [
         {
           "id": "A",
-          "text": "git status / add / commit"
+          "text": "Pull request"
         },
         {
           "id": "B",
-          "text": "Commit"
-        },
-        {
-          "id": "C",
           "text": "GitHub"
         },
         {
+          "id": "C",
+          "text": "Commit"
+        },
+        {
           "id": "D",
-          "text": "Pull request"
+          "text": "git status / add / commit"
         }
       ],
       "correct_option_ids": [
-        "D"
+        "A"
       ],
       "explanation": "La définition est extraite du résumé de la fiche correspondante.",
       "source_urls": [
@@ -1028,7 +1028,7 @@
       "options": [
         {
           "id": "A",
-          "text": "Proposition de modifications à examiner avant une fusion éventuelle."
+          "text": "État / préparation / enregistrement."
         },
         {
           "id": "B",
@@ -1036,15 +1036,15 @@
         },
         {
           "id": "C",
-          "text": "État / préparation / enregistrement."
+          "text": "Service d’hébergement et de collaboration pour des dépôts Git."
         },
         {
           "id": "D",
-          "text": "Service d’hébergement et de collaboration pour des dépôts Git."
+          "text": "Proposition de modifications à examiner avant une fusion éventuelle."
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "Le résumé de la fiche indique : Proposition de modifications à examiner avant une fusion éventuelle.",
       "source_urls": [
@@ -1068,11 +1068,11 @@
       "options": [
         {
           "id": "A",
-          "text": "Vérifie git status et le contenu préparé avant chaque commit."
+          "text": "Git est l'outil de versionnement ; GitHub est une plateforme d'hébergement et de collaboration."
         },
         {
           "id": "B",
-          "text": "Git est l'outil de versionnement ; GitHub est une plateforme d'hébergement et de collaboration."
+          "text": "Vérifie git status et le contenu préparé avant chaque commit."
         },
         {
           "id": "C",
@@ -1108,24 +1108,24 @@
       "options": [
         {
           "id": "A",
-          "text": "Ouvrir une pull request ne fusionne ni ne déploie automatiquement les modifications."
-        },
-        {
-          "id": "B",
-          "text": "memcpy copie des octets seulement si source et destination ne se recouvrent pas ; memmove convient lorsque les zones peuvent se chevaucher."
-        },
-        {
-          "id": "C",
           "text": "L'ownership désigne la responsabilité de libérer une allocation ; copier ou transmettre un pointeur ne transfère pas automatiquement cette responsabilité."
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "Proposition de modifications à examiner avant une fusion éventuelle."
+        },
+        {
+          "id": "C",
+          "text": "Ouvrir une pull request ne fusionne ni ne déploie automatiquement les modifications."
+        },
+        {
+          "id": "D",
+          "text": "memcpy copie des octets seulement si source et destination ne se recouvrent pas ; memmove convient lorsque les zones peuvent se chevaucher."
         }
       ],
       "correct_option_ids": [
-        "A",
-        "D"
+        "B",
+        "C"
       ],
       "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
       "source_urls": [
@@ -1150,11 +1150,11 @@
       "options": [
         {
           "id": "A",
-          "text": "GitHub"
+          "text": "git push / pull / fetch"
         },
         {
           "id": "B",
-          "text": "git push / pull / fetch"
+          "text": "Commit"
         },
         {
           "id": "C",
@@ -1162,7 +1162,7 @@
         },
         {
           "id": "D",
-          "text": "Commit"
+          "text": "GitHub"
         }
       ],
       "correct_option_ids": [
@@ -1190,23 +1190,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Instantané enregistré dans l’historique local."
-        },
-        {
-          "id": "B",
-          "text": "Envoyer / récupérer et intégrer / seulement récupérer."
-        },
-        {
-          "id": "C",
           "text": "Service d’hébergement et de collaboration pour des dépôts Git."
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "Git ne peut pas résoudre automatiquement des changements concurrents."
+        },
+        {
+          "id": "C",
+          "text": "Envoyer / récupérer et intégrer / seulement récupérer."
+        },
+        {
+          "id": "D",
+          "text": "Instantané enregistré dans l’historique local."
         }
       ],
       "correct_option_ids": [
-        "D"
+        "B"
       ],
       "explanation": "Le résumé de la fiche indique : Git ne peut pas résoudre automatiquement des changements concurrents.",
       "source_urls": [
@@ -1230,23 +1230,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Une résolution de conflit doit être relue et testée avant le commit de fusion."
+          "text": "git fetch récupère sans fusionner automatiquement ; git pull intègre ensuite selon la configuration."
         },
         {
           "id": "B",
-          "text": "Git est l'outil de versionnement ; GitHub est une plateforme d'hébergement et de collaboration."
+          "text": "Une résolution de conflit doit être relue et testée avant le commit de fusion."
         },
         {
           "id": "C",
-          "text": "Un commit est local tant qu'il n'a pas été transmis à un dépôt distant."
+          "text": "Git est l'outil de versionnement ; GitHub est une plateforme d'hébergement et de collaboration."
         },
         {
           "id": "D",
-          "text": "git fetch récupère sans fusionner automatiquement ; git pull intègre ensuite selon la configuration."
+          "text": "Un commit est local tant qu'il n'a pas été transmis à un dépôt distant."
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "La fiche indique : Une résolution de conflit doit être relue et testée avant le commit de fusion.",
       "source_urls": [
@@ -1270,7 +1270,7 @@
       "options": [
         {
           "id": "A",
-          "text": "Git ne peut pas résoudre automatiquement des changements concurrents."
+          "text": "free accepte NULL ou un pointeur valide obtenu par une allocation dynamique compatible ; ni un littéral ni un tableau local ne se libèrent avec free."
         },
         {
           "id": "B",
@@ -1278,7 +1278,7 @@
         },
         {
           "id": "C",
-          "text": "free accepte NULL ou un pointeur valide obtenu par une allocation dynamique compatible ; ni un littéral ni un tableau local ne se libèrent avec free."
+          "text": "Git ne peut pas résoudre automatiquement des changements concurrents."
         },
         {
           "id": "D",
@@ -1286,7 +1286,7 @@
         }
       ],
       "correct_option_ids": [
-        "A",
+        "C",
         "D"
       ],
       "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
@@ -1312,7 +1312,7 @@
       "options": [
         {
           "id": "A",
-          "text": "Branch / merge"
+          "text": "git push / pull / fetch"
         },
         {
           "id": "B",
@@ -1320,11 +1320,11 @@
         },
         {
           "id": "C",
-          "text": "GitHub"
+          "text": "Branch / merge"
         },
         {
           "id": "D",
-          "text": "git push / pull / fetch"
+          "text": "GitHub"
         }
       ],
       "correct_option_ids": [
@@ -1356,7 +1356,7 @@
         },
         {
           "id": "B",
-          "text": "Branche de développement / fusion."
+          "text": "Service d’hébergement et de collaboration pour des dépôts Git."
         },
         {
           "id": "C",
@@ -1364,7 +1364,7 @@
         },
         {
           "id": "D",
-          "text": "Service d’hébergement et de collaboration pour des dépôts Git."
+          "text": "Branche de développement / fusion."
         }
       ],
       "correct_option_ids": [
@@ -1392,23 +1392,23 @@
       "options": [
         {
           "id": "A",
-          "text": "git fetch récupère sans fusionner automatiquement ; git pull intègre ensuite selon la configuration."
-        },
-        {
-          "id": "B",
-          "text": "Une branche isole des commits ; une fusion peut exiger une résolution de conflits."
-        },
-        {
-          "id": "C",
           "text": "Git est l'outil de versionnement ; GitHub est une plateforme d'hébergement et de collaboration."
         },
         {
-          "id": "D",
+          "id": "B",
+          "text": "git fetch récupère sans fusionner automatiquement ; git pull intègre ensuite selon la configuration."
+        },
+        {
+          "id": "C",
           "text": "Vérifie git status et le contenu préparé avant chaque commit."
+        },
+        {
+          "id": "D",
+          "text": "Une branche isole des commits ; une fusion peut exiger une résolution de conflits."
         }
       ],
       "correct_option_ids": [
-        "D"
+        "C"
       ],
       "explanation": "La fiche indique : Vérifie git status et le contenu préparé avant chaque commit.",
       "source_urls": [
@@ -1432,7 +1432,7 @@
       "options": [
         {
           "id": "A",
-          "text": "Un tableau peut recevoir des valeurs dès sa création : int nombres[3] = {10, 20, 30};"
+          "text": "&a désigne l’adresse du tableau entier. Elle a la même position mémoire que &a[0], mais un type différent."
         },
         {
           "id": "B",
@@ -1440,16 +1440,16 @@
         },
         {
           "id": "C",
-          "text": "Vérifie git status et le contenu préparé avant chaque commit."
+          "text": "Un tableau peut recevoir des valeurs dès sa création : int nombres[3] = {10, 20, 30};"
         },
         {
           "id": "D",
-          "text": "&a désigne l’adresse du tableau entier. Elle a la même position mémoire que &a[0], mais un type différent."
+          "text": "Vérifie git status et le contenu préparé avant chaque commit."
         }
       ],
       "correct_option_ids": [
         "B",
-        "C"
+        "D"
       ],
       "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
       "source_urls": [
@@ -1474,11 +1474,11 @@
       "options": [
         {
           "id": "A",
-          "text": "git push / pull / fetch"
+          "text": "Branch / merge"
         },
         {
           "id": "B",
-          "text": "Branch / merge"
+          "text": "Repository"
         },
         {
           "id": "C",
@@ -1486,11 +1486,11 @@
         },
         {
           "id": "D",
-          "text": "Repository"
+          "text": "git push / pull / fetch"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "La définition est extraite du résumé de la fiche correspondante.",
       "source_urls": [
@@ -1514,7 +1514,7 @@
       "options": [
         {
           "id": "A",
-          "text": "État / préparation / enregistrement."
+          "text": "Envoyer / récupérer et intégrer / seulement récupérer."
         },
         {
           "id": "B",
@@ -1522,15 +1522,15 @@
         },
         {
           "id": "C",
-          "text": "Envoyer / récupérer et intégrer / seulement récupérer."
+          "text": "Branche de développement / fusion."
         },
         {
           "id": "D",
-          "text": "Branche de développement / fusion."
+          "text": "État / préparation / enregistrement."
         }
       ],
       "correct_option_ids": [
-        "C"
+        "A"
       ],
       "explanation": "Le résumé de la fiche indique : Envoyer / récupérer et intégrer / seulement récupérer.",
       "source_urls": [
@@ -1562,11 +1562,11 @@
         },
         {
           "id": "C",
-          "text": "Une branche isole des commits ; une fusion peut exiger une résolution de conflits."
+          "text": "Vérifie git status et le contenu préparé avant chaque commit."
         },
         {
           "id": "D",
-          "text": "Vérifie git status et le contenu préparé avant chaque commit."
+          "text": "Une branche isole des commits ; une fusion peut exiger une résolution de conflits."
         }
       ],
       "correct_option_ids": [
@@ -1598,11 +1598,11 @@
         },
         {
           "id": "B",
-          "text": "git fetch récupère sans fusionner automatiquement ; git pull intègre ensuite selon la configuration."
+          "text": "Variable dont la valeur est une adresse mémoire. Exemple : int *p; déclare un pointeur vers un int."
         },
         {
           "id": "C",
-          "text": "Variable dont la valeur est une adresse mémoire. Exemple : int *p; déclare un pointeur vers un int."
+          "text": "git fetch récupère sans fusionner automatiquement ; git pull intègre ensuite selon la configuration."
         },
         {
           "id": "D",
@@ -1611,7 +1611,7 @@
       ],
       "correct_option_ids": [
         "A",
-        "B"
+        "C"
       ],
       "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
       "source_urls": [
@@ -1640,11 +1640,11 @@
         },
         {
           "id": "B",
-          "text": "git push / pull / fetch"
+          "text": "Repository"
         },
         {
           "id": "C",
-          "text": "Repository"
+          "text": "git push / pull / fetch"
         },
         {
           "id": "D",
@@ -1680,15 +1680,15 @@
         },
         {
           "id": "B",
-          "text": "Dépôt du code et de son historique."
-        },
-        {
-          "id": "C",
           "text": "Branche de développement / fusion."
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "Envoyer / récupérer et intégrer / seulement récupérer."
+        },
+        {
+          "id": "D",
+          "text": "Dépôt du code et de son historique."
         }
       ],
       "correct_option_ids": [
@@ -1716,23 +1716,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Une branche isole des commits ; une fusion peut exiger une résolution de conflits."
-        },
-        {
-          "id": "B",
           "text": "git clone ne change pas automatiquement de dossier dans ton terminal ; utilise cd ensuite."
         },
         {
-          "id": "C",
+          "id": "B",
           "text": "git fetch récupère sans fusionner automatiquement ; git pull intègre ensuite selon la configuration."
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "Le dossier .git contient l'historique et les métadonnées du dépôt : évite de le modifier manuellement."
+        },
+        {
+          "id": "D",
+          "text": "Une branche isole des commits ; une fusion peut exiger une résolution de conflits."
         }
       ],
       "correct_option_ids": [
-        "B"
+        "A"
       ],
       "explanation": "La fiche indique : git clone ne change pas automatiquement de dossier dans ton terminal ; utilise cd ensuite.",
       "source_urls": [
@@ -1756,15 +1756,15 @@
       "options": [
         {
           "id": "A",
-          "text": "git clone ne change pas automatiquement de dossier dans ton terminal ; utilise cd ensuite."
-        },
-        {
-          "id": "B",
           "text": "Compile en un fichier objet .o, sans édition de liens."
         },
         {
-          "id": "C",
+          "id": "B",
           "text": "Dans main, 0 indique une réussite ; dans une autre fonction, 0 et 1 ont le sens défini par cette fonction."
+        },
+        {
+          "id": "C",
+          "text": "git clone ne change pas automatiquement de dossier dans ton terminal ; utilise cd ensuite."
         },
         {
           "id": "D",
@@ -1772,7 +1772,7 @@
         }
       ],
       "correct_option_ids": [
-        "A",
+        "C",
         "D"
       ],
       "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",

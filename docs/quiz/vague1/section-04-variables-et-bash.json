@@ -16,7 +16,7 @@
       "options": [
         {
           "id": "A",
-          "text": "$(commande)"
+          "text": "Affectation"
         },
         {
           "id": "B",
@@ -24,15 +24,15 @@
         },
         {
           "id": "C",
-          "text": "Variable d’environnement"
+          "text": "$(commande)"
         },
         {
           "id": "D",
-          "text": "Affectation"
+          "text": "Variable d’environnement"
         }
       ],
       "correct_option_ids": [
-        "D"
+        "A"
       ],
       "explanation": "La définition est extraite du résumé de la fiche correspondante.",
       "source_urls": [
@@ -56,7 +56,7 @@
       "options": [
         {
           "id": "A",
-          "text": "Substitution de commande : récupérer sa sortie."
+          "text": "BEST=School : pas d’espaces autour du =."
         },
         {
           "id": "B",
@@ -64,15 +64,15 @@
         },
         {
           "id": "C",
-          "text": "BEST=School : pas d’espaces autour du =."
+          "text": "Exporter une variable / supprimer une variable ou fonction."
         },
         {
           "id": "D",
-          "text": "Exporter une variable / supprimer une variable ou fonction."
+          "text": "Substitution de commande : récupérer sa sortie."
         }
       ],
       "correct_option_ids": [
-        "C"
+        "A"
       ],
       "explanation": "Le résumé de la fiche indique : BEST=School : pas d’espaces autour du =.",
       "source_urls": [
@@ -100,19 +100,19 @@
         },
         {
           "id": "B",
-          "text": "Une affectation Bash n'admet pas d'espaces autour de = dans cette forme."
+          "text": "$(commande) récupère stdout en supprimant les sauts de ligne finaux, mais pas forcément ceux du milieu."
         },
         {
           "id": "C",
-          "text": "export influence l'environnement des futurs processus enfants, jamais celui d'un processus parent déjà lancé."
+          "text": "Une affectation Bash n'admet pas d'espaces autour de = dans cette forme."
         },
         {
           "id": "D",
-          "text": "$(commande) récupère stdout en supprimant les sauts de ligne finaux, mais pas forcément ceux du milieu."
+          "text": "export influence l'environnement des futurs processus enfants, jamais celui d'un processus parent déjà lancé."
         }
       ],
       "correct_option_ids": [
-        "B"
+        "C"
       ],
       "explanation": "La fiche indique : Une affectation Bash n'admet pas d'espaces autour de = dans cette forme.",
       "source_urls": [
@@ -136,11 +136,11 @@
       "options": [
         {
           "id": "A",
-          "text": "Une allocation peut échouer : contrôler le pointeur avant toute lecture ou écriture dans le bloc demandé."
+          "text": "strdup(src) alloue une nouvelle chaîne et la copie ; il faut vérifier NULL puis appeler free sur le résultat."
         },
         {
           "id": "B",
-          "text": "strdup(src) alloue une nouvelle chaîne et la copie ; il faut vérifier NULL puis appeler free sur le résultat."
+          "text": "BEST=School : pas d’espaces autour du =."
         },
         {
           "id": "C",
@@ -148,12 +148,12 @@
         },
         {
           "id": "D",
-          "text": "BEST=School : pas d’espaces autour du =."
+          "text": "Une allocation peut échouer : contrôler le pointeur avant toute lecture ou écriture dans le bloc demandé."
         }
       ],
       "correct_option_ids": [
-        "C",
-        "D"
+        "B",
+        "C"
       ],
       "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
       "source_urls": [
@@ -182,15 +182,15 @@
         },
         {
           "id": "B",
-          "text": "alias / unalias"
+          "text": "$? / $1 / $#"
         },
         {
           "id": "C",
-          "text": "Découper PATH"
+          "text": "alias / unalias"
         },
         {
           "id": "D",
-          "text": "$? / $1 / $#"
+          "text": "Découper PATH"
         }
       ],
       "correct_option_ids": [
@@ -218,7 +218,7 @@
       "options": [
         {
           "id": "A",
-          "text": "Code retour / premier argument / nombre d’arguments positionnels."
+          "text": "tr \":\" \"\\n\" transforme les séparateurs « : » en retours à la ligne. Le nombre de répertoires peut se déduire des séparateurs, en traitant le dernier élément."
         },
         {
           "id": "B",
@@ -226,15 +226,15 @@
         },
         {
           "id": "C",
-          "text": "tr \":\" \"\\n\" transforme les séparateurs « : » en retours à la ligne. Le nombre de répertoires peut se déduire des séparateurs, en traitant le dernier élément."
+          "text": "Variable définie dans le Shell en cours, non nécessairement exportée."
         },
         {
           "id": "D",
-          "text": "Variable définie dans le Shell en cours, non nécessairement exportée."
+          "text": "Code retour / premier argument / nombre d’arguments positionnels."
         }
       ],
       "correct_option_ids": [
-        "D"
+        "C"
       ],
       "explanation": "Le résumé de la fiche indique : Variable définie dans le Shell en cours, non nécessairement exportée.",
       "source_urls": [
@@ -258,7 +258,7 @@
       "options": [
         {
           "id": "A",
-          "text": "Une variable du shell non exportée n'est pas transmise automatiquement aux programmes enfants."
+          "text": "Un alias est surtout pratique en shell interactif ; ce n'est pas un remplacement universel pour une fonction."
         },
         {
           "id": "B",
@@ -266,7 +266,7 @@
         },
         {
           "id": "C",
-          "text": "Un alias est surtout pratique en shell interactif ; ce n'est pas un remplacement universel pour une fonction."
+          "text": "Une variable du shell non exportée n'est pas transmise automatiquement aux programmes enfants."
         },
         {
           "id": "D",
@@ -274,7 +274,7 @@
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "La fiche indique : Une variable du shell non exportée n'est pas transmise automatiquement aux programmes enfants.",
       "source_urls": [
@@ -298,24 +298,24 @@
       "options": [
         {
           "id": "A",
-          "text": "Variable définie dans le Shell en cours, non nécessairement exportée."
-        },
-        {
-          "id": "B",
-          "text": "Pour réserver 10 int, utilise malloc(10 * sizeof(int)) ou malloc(10 * sizeof *p) : le calcul dépend du type, pas de l’architecture 64 bits."
-        },
-        {
-          "id": "C",
           "text": "free libère un bloc obtenu par allocation dynamique ; le pointeur ne devient pas automatiquement NULL."
         },
         {
-          "id": "D",
+          "id": "B",
+          "text": "Variable définie dans le Shell en cours, non nécessairement exportée."
+        },
+        {
+          "id": "C",
           "text": "Une variable du shell non exportée n'est pas transmise automatiquement aux programmes enfants."
+        },
+        {
+          "id": "D",
+          "text": "Pour réserver 10 int, utilise malloc(10 * sizeof(int)) ou malloc(10 * sizeof *p) : le calcul dépend du type, pas de l’architecture 64 bits."
         }
       ],
       "correct_option_ids": [
-        "A",
-        "D"
+        "B",
+        "C"
       ],
       "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
       "source_urls": [
@@ -340,15 +340,15 @@
       "options": [
         {
           "id": "A",
-          "text": "PATH"
+          "text": "$VAR / ${VAR}"
         },
         {
           "id": "B",
-          "text": "Variable locale"
+          "text": "PATH"
         },
         {
           "id": "C",
-          "text": "$VAR / ${VAR}"
+          "text": "Variable locale"
         },
         {
           "id": "D",
@@ -356,7 +356,7 @@
         }
       ],
       "correct_option_ids": [
-        "B"
+        "C"
       ],
       "explanation": "La définition est extraite du résumé de la fiche correspondante.",
       "source_urls": [
@@ -380,23 +380,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Dans une fonction Bash, local limite la portée d’une variable. Une variable du shell non exportée est une autre notion."
-        },
-        {
-          "id": "B",
-          "text": "Variable définie dans le Shell en cours, non nécessairement exportée."
-        },
-        {
-          "id": "C",
           "text": "Lire la valeur / délimiter explicitement le nom."
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "Liste des dossiers recherchés pour trouver une commande, séparés par :."
+        },
+        {
+          "id": "C",
+          "text": "Variable définie dans le Shell en cours, non nécessairement exportée."
+        },
+        {
+          "id": "D",
+          "text": "Dans une fonction Bash, local limite la portée d’une variable. Une variable du shell non exportée est une autre notion."
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "Le résumé de la fiche indique : Dans une fonction Bash, local limite la portée d’une variable. Une variable du shell non exportée est une autre notion.",
       "source_urls": [
@@ -420,23 +420,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Les dossiers de PATH sont parcourus dans l'ordre. Ajouter un dossier ne crée aucun exécutable."
-        },
-        {
-          "id": "B",
-          "text": "${VAR} évite d'inclure par erreur le suffixe dans le nom ; les guillemets protègent le résultat."
-        },
-        {
-          "id": "C",
           "text": "Une variable du shell non exportée n'est pas transmise automatiquement aux programmes enfants."
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "Pour l’exercice Holberton BEST=School, une variable du shell non exportée suffit. La commande local est différente et s’utilise uniquement dans une fonction Bash."
+        },
+        {
+          "id": "C",
+          "text": "Les dossiers de PATH sont parcourus dans l'ordre. Ajouter un dossier ne crée aucun exécutable."
+        },
+        {
+          "id": "D",
+          "text": "${VAR} évite d'inclure par erreur le suffixe dans le nom ; les guillemets protègent le résultat."
         }
       ],
       "correct_option_ids": [
-        "D"
+        "B"
       ],
       "explanation": "La fiche indique : Pour l’exercice Holberton BEST=School, une variable du shell non exportée suffit. La commande local est différente et s’utilise uniquement dans une fonction Bash.",
       "source_urls": [
@@ -464,11 +464,11 @@
         },
         {
           "id": "B",
-          "text": "Une fuite mémoire (memory leak) survient lorsqu’un bloc alloué n’est pas libéré et devient inaccessible ; les fuites répétées épuisent la mémoire."
+          "text": "Dans une fonction Bash, local limite la portée d’une variable. Une variable du shell non exportée est une autre notion."
         },
         {
           "id": "C",
-          "text": "Dans une fonction Bash, local limite la portée d’une variable. Une variable du shell non exportée est une autre notion."
+          "text": "Une fuite mémoire (memory leak) survient lorsqu’un bloc alloué n’est pas libéré et devient inaccessible ; les fuites répétées épuisent la mémoire."
         },
         {
           "id": "D",
@@ -477,7 +477,7 @@
       ],
       "correct_option_ids": [
         "A",
-        "C"
+        "B"
       ],
       "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
       "source_urls": [
@@ -502,23 +502,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Variable d’environnement"
-        },
-        {
-          "id": "B",
           "text": "export / unset"
         },
         {
+          "id": "B",
+          "text": "set / printenv"
+        },
+        {
           "id": "C",
-          "text": "$((...))"
+          "text": "Variable d’environnement"
         },
         {
           "id": "D",
-          "text": "set / printenv"
+          "text": "$((...))"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "C"
       ],
       "explanation": "La définition est extraite du résumé de la fiche correspondante.",
       "source_urls": [
@@ -542,7 +542,7 @@
       "options": [
         {
           "id": "A",
-          "text": "Paramètres et variables du Shell / environnement."
+          "text": "Exporter une variable / supprimer une variable ou fonction."
         },
         {
           "id": "B",
@@ -550,11 +550,11 @@
         },
         {
           "id": "C",
-          "text": "Exporter une variable / supprimer une variable ou fonction."
+          "text": "Évaluation arithmétique."
         },
         {
           "id": "D",
-          "text": "Évaluation arithmétique."
+          "text": "Paramètres et variables du Shell / environnement."
         }
       ],
       "correct_option_ids": [
@@ -582,15 +582,15 @@
       "options": [
         {
           "id": "A",
-          "text": "$((...)) calcule avec des entiers ; elle ne fournit pas directement une arithmétique décimale."
-        },
-        {
-          "id": "B",
           "text": "printenv examine l'environnement ; set affiche aussi la configuration du shell et d'autres éléments."
         },
         {
-          "id": "C",
+          "id": "B",
           "text": "export influence l'environnement des futurs processus enfants, jamais celui d'un processus parent déjà lancé."
+        },
+        {
+          "id": "C",
+          "text": "$((...)) calcule avec des entiers ; elle ne fournit pas directement une arithmétique décimale."
         },
         {
           "id": "D",
@@ -598,7 +598,7 @@
         }
       ],
       "correct_option_ids": [
-        "C"
+        "B"
       ],
       "explanation": "La fiche indique : export influence l'environnement des futurs processus enfants, jamais celui d'un processus parent déjà lancé.",
       "source_urls": [
@@ -622,24 +622,24 @@
       "options": [
         {
           "id": "A",
-          "text": "Un tableau peut recevoir des valeurs dès sa création : int nombres[3] = {10, 20, 30};"
-        },
-        {
-          "id": "B",
           "text": "export influence l'environnement des futurs processus enfants, jamais celui d'un processus parent déjà lancé."
         },
         {
+          "id": "B",
+          "text": "Un tableau peut recevoir des valeurs dès sa création : int nombres[3] = {10, 20, 30};"
+        },
+        {
           "id": "C",
-          "text": "Variable exportée et transmise aux processus enfants."
+          "text": "Les variables locales et les tableaux locaux ordinaires ont une durée de vie liée à l’exécution de leur bloc ; on ne les libère pas avec free."
         },
         {
           "id": "D",
-          "text": "Les variables locales et les tableaux locaux ordinaires ont une durée de vie liée à l’exécution de leur bloc ; on ne les libère pas avec free."
+          "text": "Variable exportée et transmise aux processus enfants."
         }
       ],
       "correct_option_ids": [
-        "B",
-        "C"
+        "A",
+        "D"
       ],
       "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
       "source_urls": [
@@ -664,23 +664,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Découper PATH"
-        },
-        {
-          "id": "B",
           "text": "source / ."
         },
         {
+          "id": "B",
+          "text": "Découper PATH"
+        },
+        {
           "id": "C",
-          "text": "Affectation"
+          "text": "export / unset"
         },
         {
           "id": "D",
-          "text": "export / unset"
+          "text": "Affectation"
         }
       ],
       "correct_option_ids": [
-        "D"
+        "C"
       ],
       "explanation": "La définition est extraite du résumé de la fiche correspondante.",
       "source_urls": [
@@ -704,11 +704,11 @@
       "options": [
         {
           "id": "A",
-          "text": "Exporter une variable / supprimer une variable ou fonction."
+          "text": "BEST=School : pas d’espaces autour du =."
         },
         {
           "id": "B",
-          "text": "tr \":\" \"\\n\" transforme les séparateurs « : » en retours à la ligne. Le nombre de répertoires peut se déduire des séparateurs, en traitant le dernier élément."
+          "text": "Exporter une variable / supprimer une variable ou fonction."
         },
         {
           "id": "C",
@@ -716,11 +716,11 @@
         },
         {
           "id": "D",
-          "text": "BEST=School : pas d’espaces autour du =."
+          "text": "tr \":\" \"\\n\" transforme les séparateurs « : » en retours à la ligne. Le nombre de répertoires peut se déduire des séparateurs, en traitant le dernier élément."
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "Le résumé de la fiche indique : Exporter une variable / supprimer une variable ou fonction.",
       "source_urls": [
@@ -744,23 +744,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Une affectation Bash n'admet pas d'espaces autour de = dans cette forme."
+          "text": "source exécute dans le shell courant : ne charge que des fichiers dont tu comprends et acceptes le contenu."
         },
         {
           "id": "B",
-          "text": "export rend visible ; unset supprime. Supprimer une variable ne retire pas rétroactivement la valeur des processus déjà lancés."
-        },
-        {
-          "id": "C",
           "text": "Une entrée vide de PATH peut désigner le répertoire courant : ce comportement peut présenter un risque de sécurité."
         },
         {
+          "id": "C",
+          "text": "export rend visible ; unset supprime. Supprimer une variable ne retire pas rétroactivement la valeur des processus déjà lancés."
+        },
+        {
           "id": "D",
-          "text": "source exécute dans le shell courant : ne charge que des fichiers dont tu comprends et acceptes le contenu."
+          "text": "Une affectation Bash n'admet pas d'espaces autour de = dans cette forme."
         }
       ],
       "correct_option_ids": [
-        "B"
+        "C"
       ],
       "explanation": "La fiche indique : export rend visible ; unset supprime. Supprimer une variable ne retire pas rétroactivement la valeur des processus déjà lancés.",
       "source_urls": [
@@ -784,24 +784,24 @@
       "options": [
         {
           "id": "A",
-          "text": "\\0 a pour valeur numérique 0 et marque la fin d’une chaîne C, par exemple dans char a[10] = \"Holberton\";."
-        },
-        {
-          "id": "B",
-          "text": "Inverser une chaîne consiste à échanger le premier et le dernier caractère, puis à progresser vers le centre."
-        },
-        {
-          "id": "C",
           "text": "export rend visible ; unset supprime. Supprimer une variable ne retire pas rétroactivement la valeur des processus déjà lancés."
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "Exporter une variable / supprimer une variable ou fonction."
+        },
+        {
+          "id": "C",
+          "text": "Inverser une chaîne consiste à échanger le premier et le dernier caractère, puis à progresser vers le centre."
+        },
+        {
+          "id": "D",
+          "text": "\\0 a pour valeur numérique 0 et marque la fin d’une chaîne C, par exemple dans char a[10] = \"Holberton\";."
         }
       ],
       "correct_option_ids": [
-        "C",
-        "D"
+        "A",
+        "B"
       ],
       "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
       "source_urls": [
@@ -830,7 +830,7 @@
         },
         {
           "id": "B",
-          "text": "Variable locale"
+          "text": "$VAR / ${VAR}"
         },
         {
           "id": "C",
@@ -838,7 +838,7 @@
         },
         {
           "id": "D",
-          "text": "$VAR / ${VAR}"
+          "text": "Variable locale"
         }
       ],
       "correct_option_ids": [
@@ -866,23 +866,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Lire la valeur / délimiter explicitement le nom."
-        },
-        {
-          "id": "B",
           "text": "Substitution de commande : récupérer sa sortie."
         },
         {
-          "id": "C",
+          "id": "B",
           "text": "Dans une fonction Bash, local limite la portée d’une variable. Une variable du shell non exportée est une autre notion."
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "Paramètres et variables du Shell / environnement."
+        },
+        {
+          "id": "D",
+          "text": "Lire la valeur / délimiter explicitement le nom."
         }
       ],
       "correct_option_ids": [
-        "D"
+        "C"
       ],
       "explanation": "Le résumé de la fiche indique : Paramètres et variables du Shell / environnement.",
       "source_urls": [
@@ -906,7 +906,7 @@
       "options": [
         {
           "id": "A",
-          "text": "printenv examine l'environnement ; set affiche aussi la configuration du shell et d'autres éléments."
+          "text": "$(commande) récupère stdout en supprimant les sauts de ligne finaux, mais pas forcément ceux du milieu."
         },
         {
           "id": "B",
@@ -918,11 +918,11 @@
         },
         {
           "id": "D",
-          "text": "$(commande) récupère stdout en supprimant les sauts de ligne finaux, mais pas forcément ceux du milieu."
+          "text": "printenv examine l'environnement ; set affiche aussi la configuration du shell et d'autres éléments."
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "La fiche indique : printenv examine l'environnement ; set affiche aussi la configuration du shell et d'autres éléments.",
       "source_urls": [
@@ -950,11 +950,11 @@
         },
         {
           "id": "B",
-          "text": "Ajouter 1 à un pointeur vers int avance de sizeof(int) octets, donc d’un élément int."
+          "text": "Une boucle peut visiter chaque élément d'un tableau en utilisant un indice qui va de 0 à la taille moins 1."
         },
         {
           "id": "C",
-          "text": "Une boucle peut visiter chaque élément d'un tableau en utilisant un indice qui va de 0 à la taille moins 1."
+          "text": "Ajouter 1 à un pointeur vers int avance de sizeof(int) octets, donc d’un élément int."
         },
         {
           "id": "D",
@@ -988,7 +988,7 @@
       "options": [
         {
           "id": "A",
-          "text": "set / printenv"
+          "text": "export / unset"
         },
         {
           "id": "B",
@@ -996,11 +996,11 @@
         },
         {
           "id": "C",
-          "text": "export / unset"
+          "text": "$? / $1 / $#"
         },
         {
           "id": "D",
-          "text": "$? / $1 / $#"
+          "text": "set / printenv"
         }
       ],
       "correct_option_ids": [
@@ -1032,19 +1032,19 @@
         },
         {
           "id": "B",
-          "text": "Paramètres et variables du Shell / environnement."
+          "text": "Exporter une variable / supprimer une variable ou fonction."
         },
         {
           "id": "C",
-          "text": "Créer / retirer un raccourci de commande."
+          "text": "Paramètres et variables du Shell / environnement."
         },
         {
           "id": "D",
-          "text": "Exporter une variable / supprimer une variable ou fonction."
+          "text": "Créer / retirer un raccourci de commande."
         }
       ],
       "correct_option_ids": [
-        "C"
+        "D"
       ],
       "explanation": "Le résumé de la fiche indique : Créer / retirer un raccourci de commande.",
       "source_urls": [
@@ -1068,7 +1068,7 @@
       "options": [
         {
           "id": "A",
-          "text": "export rend visible ; unset supprime. Supprimer une variable ne retire pas rétroactivement la valeur des processus déjà lancés."
+          "text": "Lis $? immédiatement après la commande concernée : la commande suivante peut le remplacer."
         },
         {
           "id": "B",
@@ -1076,15 +1076,15 @@
         },
         {
           "id": "C",
-          "text": "Lis $? immédiatement après la commande concernée : la commande suivante peut le remplacer."
+          "text": "Un alias est surtout pratique en shell interactif ; ce n'est pas un remplacement universel pour une fonction."
         },
         {
           "id": "D",
-          "text": "Un alias est surtout pratique en shell interactif ; ce n'est pas un remplacement universel pour une fonction."
+          "text": "export rend visible ; unset supprime. Supprimer une variable ne retire pas rétroactivement la valeur des processus déjà lancés."
         }
       ],
       "correct_option_ids": [
-        "D"
+        "C"
       ],
       "explanation": "La fiche indique : Un alias est surtout pratique en shell interactif ; ce n'est pas un remplacement universel pour une fonction.",
       "source_urls": [
@@ -1108,24 +1108,24 @@
       "options": [
         {
           "id": "A",
-          "text": "Un alias est surtout pratique en shell interactif ; ce n'est pas un remplacement universel pour une fonction."
+          "text": "Dans la plupart des expressions, le nom du tableau est converti en pointeur vers son premier élément. Ainsi a et &a[0] désignent la même adresse."
         },
         {
           "id": "B",
-          "text": "Créer / retirer un raccourci de commande."
+          "text": "Un alias est surtout pratique en shell interactif ; ce n'est pas un remplacement universel pour une fonction."
         },
         {
           "id": "C",
-          "text": "Le format %s affiche les caractères d’une chaîne jusqu’au caractère nul de fin."
+          "text": "Créer / retirer un raccourci de commande."
         },
         {
           "id": "D",
-          "text": "Dans la plupart des expressions, le nom du tableau est converti en pointeur vers son premier élément. Ainsi a et &a[0] désignent la même adresse."
+          "text": "Le format %s affiche les caractères d’une chaîne jusqu’au caractère nul de fin."
         }
       ],
       "correct_option_ids": [
-        "A",
-        "B"
+        "B",
+        "C"
       ],
       "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
       "source_urls": [
@@ -1150,15 +1150,15 @@
       "options": [
         {
           "id": "A",
-          "text": "source / ."
+          "text": "PATH"
         },
         {
           "id": "B",
-          "text": "Affectation"
+          "text": "source / ."
         },
         {
           "id": "C",
-          "text": "PATH"
+          "text": "Affectation"
         },
         {
           "id": "D",
@@ -1166,7 +1166,7 @@
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
       "explanation": "La définition est extraite du résumé de la fiche correspondante.",
       "source_urls": [
@@ -1190,15 +1190,15 @@
       "options": [
         {
           "id": "A",
-          "text": "BEST=School : pas d’espaces autour du =."
+          "text": "Exécuter un script dans le Shell courant."
         },
         {
           "id": "B",
-          "text": "Variable définie dans le Shell en cours, non nécessairement exportée."
+          "text": "BEST=School : pas d’espaces autour du =."
         },
         {
           "id": "C",
-          "text": "Exécuter un script dans le Shell courant."
+          "text": "Variable définie dans le Shell en cours, non nécessairement exportée."
         },
         {
           "id": "D",
@@ -1206,7 +1206,7 @@
         }
       ],
       "correct_option_ids": [
-        "C"
+        "A"
       ],
       "explanation": "Le résumé de la fiche indique : Exécuter un script dans le Shell courant.",
       "source_urls": [
@@ -1230,23 +1230,23 @@
       "options": [
         {
           "id": "A",
-          "text": "source exécute dans le shell courant : ne charge que des fichiers dont tu comprends et acceptes le contenu."
+          "text": "Une affectation Bash n'admet pas d'espaces autour de = dans cette forme."
         },
         {
           "id": "B",
-          "text": "Une variable du shell non exportée n'est pas transmise automatiquement aux programmes enfants."
-        },
-        {
-          "id": "C",
           "text": "Les dossiers de PATH sont parcourus dans l'ordre. Ajouter un dossier ne crée aucun exécutable."
         },
         {
+          "id": "C",
+          "text": "Une variable du shell non exportée n'est pas transmise automatiquement aux programmes enfants."
+        },
+        {
           "id": "D",
-          "text": "Une affectation Bash n'admet pas d'espaces autour de = dans cette forme."
+          "text": "source exécute dans le shell courant : ne charge que des fichiers dont tu comprends et acceptes le contenu."
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "La fiche indique : source exécute dans le shell courant : ne charge que des fichiers dont tu comprends et acceptes le contenu.",
       "source_urls": [
@@ -1270,24 +1270,24 @@
       "options": [
         {
           "id": "A",
-          "text": "Exécuter un script dans le Shell courant."
-        },
-        {
-          "id": "B",
           "text": "source exécute dans le shell courant : ne charge que des fichiers dont tu comprends et acceptes le contenu."
         },
         {
+          "id": "B",
+          "text": "Pour un tableau a, a[2] désigne le même élément que *(a + 2)."
+        },
+        {
           "id": "C",
-          "text": "Zone contiguë de mémoire contenant plusieurs éléments de même type : int a[5]; réserve 5 entiers."
+          "text": "Exécuter un script dans le Shell courant."
         },
         {
           "id": "D",
-          "text": "Pour un tableau a, a[2] désigne le même élément que *(a + 2)."
+          "text": "Zone contiguë de mémoire contenant plusieurs éléments de même type : int a[5]; réserve 5 entiers."
         }
       ],
       "correct_option_ids": [
         "A",
-        "B"
+        "C"
       ],
       "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
       "source_urls": [
@@ -1316,11 +1316,11 @@
         },
         {
           "id": "B",
-          "text": "$((...))"
+          "text": "Variable d’environnement"
         },
         {
           "id": "C",
-          "text": "Variable d’environnement"
+          "text": "$((...))"
         },
         {
           "id": "D",
@@ -1352,7 +1352,7 @@
       "options": [
         {
           "id": "A",
-          "text": "Liste des dossiers recherchés pour trouver une commande, séparés par :."
+          "text": "Évaluation arithmétique."
         },
         {
           "id": "B",
@@ -1364,11 +1364,11 @@
         },
         {
           "id": "D",
-          "text": "Évaluation arithmétique."
+          "text": "Liste des dossiers recherchés pour trouver une commande, séparés par :."
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "Le résumé de la fiche indique : Liste des dossiers recherchés pour trouver une commande, séparés par :.",
       "source_urls": [
@@ -1396,19 +1396,19 @@
         },
         {
           "id": "B",
-          "text": "$((...)) calcule avec des entiers ; elle ne fournit pas directement une arithmétique décimale."
-        },
-        {
-          "id": "C",
           "text": "Les dossiers de PATH sont parcourus dans l'ordre. Ajouter un dossier ne crée aucun exécutable."
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "export influence l'environnement des futurs processus enfants, jamais celui d'un processus parent déjà lancé."
+        },
+        {
+          "id": "D",
+          "text": "$((...)) calcule avec des entiers ; elle ne fournit pas directement une arithmétique décimale."
         }
       ],
       "correct_option_ids": [
-        "C"
+        "B"
       ],
       "explanation": "La fiche indique : Les dossiers de PATH sont parcourus dans l'ordre. Ajouter un dossier ne crée aucun exécutable.",
       "source_urls": [
@@ -1432,7 +1432,7 @@
       "options": [
         {
           "id": "A",
-          "text": "Les dossiers de PATH sont parcourus dans l'ordre. Ajouter un dossier ne crée aucun exécutable."
+          "text": "sizeof(a) donne la taille de tout le tableau (nombre d’éléments × taille d’un élément), pas celle d’un pointeur."
         },
         {
           "id": "B",
@@ -1440,15 +1440,15 @@
         },
         {
           "id": "C",
-          "text": "sizeof(a) donne la taille de tout le tableau (nombre d’éléments × taille d’un élément), pas celle d’un pointeur."
+          "text": "Liste des dossiers recherchés pour trouver une commande, séparés par :."
         },
         {
           "id": "D",
-          "text": "Liste des dossiers recherchés pour trouver une commande, séparés par :."
+          "text": "Les dossiers de PATH sont parcourus dans l'ordre. Ajouter un dossier ne crée aucun exécutable."
         }
       ],
       "correct_option_ids": [
-        "A",
+        "C",
         "D"
       ],
       "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
@@ -1474,15 +1474,15 @@
       "options": [
         {
           "id": "A",
-          "text": "Découper PATH"
+          "text": "$VAR / ${VAR}"
         },
         {
           "id": "B",
-          "text": "alias / unalias"
+          "text": "Découper PATH"
         },
         {
           "id": "C",
-          "text": "$VAR / ${VAR}"
+          "text": "alias / unalias"
         },
         {
           "id": "D",
@@ -1490,7 +1490,7 @@
         }
       ],
       "correct_option_ids": [
-        "C"
+        "A"
       ],
       "explanation": "La définition est extraite du résumé de la fiche correspondante.",
       "source_urls": [
@@ -1514,15 +1514,15 @@
       "options": [
         {
           "id": "A",
-          "text": "Paramètres et variables du Shell / environnement."
-        },
-        {
-          "id": "B",
           "text": "Créer / retirer un raccourci de commande."
         },
         {
-          "id": "C",
+          "id": "B",
           "text": "tr \":\" \"\\n\" transforme les séparateurs « : » en retours à la ligne. Le nombre de répertoires peut se déduire des séparateurs, en traitant le dernier élément."
+        },
+        {
+          "id": "C",
+          "text": "Paramètres et variables du Shell / environnement."
         },
         {
           "id": "D",
@@ -1554,23 +1554,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Une entrée vide de PATH peut désigner le répertoire courant : ce comportement peut présenter un risque de sécurité."
+          "text": "Un alias est surtout pratique en shell interactif ; ce n'est pas un remplacement universel pour une fonction."
         },
         {
           "id": "B",
-          "text": "printenv examine l'environnement ; set affiche aussi la configuration du shell et d'autres éléments."
-        },
-        {
-          "id": "C",
           "text": "${VAR} évite d'inclure par erreur le suffixe dans le nom ; les guillemets protègent le résultat."
         },
         {
+          "id": "C",
+          "text": "Une entrée vide de PATH peut désigner le répertoire courant : ce comportement peut présenter un risque de sécurité."
+        },
+        {
           "id": "D",
-          "text": "Un alias est surtout pratique en shell interactif ; ce n'est pas un remplacement universel pour une fonction."
+          "text": "printenv examine l'environnement ; set affiche aussi la configuration du shell et d'autres éléments."
         }
       ],
       "correct_option_ids": [
-        "C"
+        "B"
       ],
       "explanation": "La fiche indique : ${VAR} évite d'inclure par erreur le suffixe dans le nom ; les guillemets protègent le résultat.",
       "source_urls": [
@@ -1594,24 +1594,24 @@
       "options": [
         {
           "id": "A",
-          "text": "Lire la valeur / délimiter explicitement le nom."
+          "text": "${VAR} évite d'inclure par erreur le suffixe dans le nom ; les guillemets protègent le résultat."
         },
         {
           "id": "B",
-          "text": "int *p pointe vers un int ; char *q pointe vers un char. Le type sert notamment à interpréter les valeurs et à avancer dans un tableau."
+          "text": "Lire la valeur / délimiter explicitement le nom."
         },
         {
           "id": "C",
-          "text": "Les indices commencent à 0 : a[0] est le premier élément et a[4] le cinquième dans int a[5]."
+          "text": "int *p pointe vers un int ; char *q pointe vers un char. Le type sert notamment à interpréter les valeurs et à avancer dans un tableau."
         },
         {
           "id": "D",
-          "text": "${VAR} évite d'inclure par erreur le suffixe dans le nom ; les guillemets protègent le résultat."
+          "text": "Les indices commencent à 0 : a[0] est le premier élément et a[4] le cinquième dans int a[5]."
         }
       ],
       "correct_option_ids": [
         "A",
-        "D"
+        "B"
       ],
       "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
       "source_urls": [
@@ -1636,23 +1636,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Variable Shell"
-        },
-        {
-          "id": "B",
-          "text": "Variable locale"
-        },
-        {
-          "id": "C",
           "text": "$(commande)"
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "PATH"
+        },
+        {
+          "id": "C",
+          "text": "Variable locale"
+        },
+        {
+          "id": "D",
+          "text": "Variable Shell"
         }
       ],
       "correct_option_ids": [
-        "C"
+        "A"
       ],
       "explanation": "La définition est extraite du résumé de la fiche correspondante.",
       "source_urls": [
@@ -1676,23 +1676,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Substitution de commande : récupérer sa sortie."
-        },
-        {
-          "id": "B",
           "text": "Dans une fonction Bash, local limite la portée d’une variable. Une variable du shell non exportée est une autre notion."
         },
         {
-          "id": "C",
+          "id": "B",
           "text": "Liste des dossiers recherchés pour trouver une commande, séparés par :."
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "Variable définie dans le Shell en cours, non nécessairement exportée."
+        },
+        {
+          "id": "D",
+          "text": "Substitution de commande : récupérer sa sortie."
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "Le résumé de la fiche indique : Substitution de commande : récupérer sa sortie.",
       "source_urls": [
@@ -1716,7 +1716,7 @@
       "options": [
         {
           "id": "A",
-          "text": "Les dossiers de PATH sont parcourus dans l'ordre. Ajouter un dossier ne crée aucun exécutable."
+          "text": "$(commande) récupère stdout en supprimant les sauts de ligne finaux, mais pas forcément ceux du milieu."
         },
         {
           "id": "B",
@@ -1724,15 +1724,15 @@
         },
         {
           "id": "C",
-          "text": "Une variable du shell non exportée n'est pas transmise automatiquement aux programmes enfants."
+          "text": "Les dossiers de PATH sont parcourus dans l'ordre. Ajouter un dossier ne crée aucun exécutable."
         },
         {
           "id": "D",
-          "text": "$(commande) récupère stdout en supprimant les sauts de ligne finaux, mais pas forcément ceux du milieu."
+          "text": "Une variable du shell non exportée n'est pas transmise automatiquement aux programmes enfants."
         }
       ],
       "correct_option_ids": [
-        "D"
+        "A"
       ],
       "explanation": "La fiche indique : $(commande) récupère stdout en supprimant les sauts de ligne finaux, mais pas forcément ceux du milieu.",
       "source_urls": [
@@ -1760,7 +1760,7 @@
         },
         {
           "id": "B",
-          "text": "Substitution de commande : récupérer sa sortie."
+          "text": "*p accède à l’objet situé à l’adresse contenue dans p : c’est le déréférencement."
         },
         {
           "id": "C",
@@ -1768,12 +1768,12 @@
         },
         {
           "id": "D",
-          "text": "*p accède à l’objet situé à l’adresse contenue dans p : c’est le déréférencement."
+          "text": "Substitution de commande : récupérer sa sortie."
         }
       ],
       "correct_option_ids": [
-        "B",
-        "C"
+        "C",
+        "D"
       ],
       "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
       "source_urls": [
@@ -1806,11 +1806,11 @@
         },
         {
           "id": "C",
-          "text": "$(commande)"
+          "text": "$? / $1 / $#"
         },
         {
           "id": "D",
-          "text": "$? / $1 / $#"
+          "text": "$(commande)"
         }
       ],
       "correct_option_ids": [
@@ -1838,23 +1838,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Substitution de commande : récupérer sa sortie."
+          "text": "Exporter une variable / supprimer une variable ou fonction."
         },
         {
           "id": "B",
-          "text": "Code retour / premier argument / nombre d’arguments positionnels."
-        },
-        {
-          "id": "C",
           "text": "Évaluation arithmétique."
         },
         {
+          "id": "C",
+          "text": "Substitution de commande : récupérer sa sortie."
+        },
+        {
           "id": "D",
-          "text": "Exporter une variable / supprimer une variable ou fonction."
+          "text": "Code retour / premier argument / nombre d’arguments positionnels."
         }
       ],
       "correct_option_ids": [
-        "C"
+        "B"
       ],
       "explanation": "Le résumé de la fiche indique : Évaluation arithmétique.",
       "source_urls": [
@@ -1878,23 +1878,23 @@
       "options": [
         {
           "id": "A",
-          "text": "$((...)) calcule avec des entiers ; elle ne fournit pas directement une arithmétique décimale."
-        },
-        {
-          "id": "B",
-          "text": "Lis $? immédiatement après la commande concernée : la commande suivante peut le remplacer."
-        },
-        {
-          "id": "C",
           "text": "export rend visible ; unset supprime. Supprimer une variable ne retire pas rétroactivement la valeur des processus déjà lancés."
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "$(commande) récupère stdout en supprimant les sauts de ligne finaux, mais pas forcément ceux du milieu."
+        },
+        {
+          "id": "C",
+          "text": "Lis $? immédiatement après la commande concernée : la commande suivante peut le remplacer."
+        },
+        {
+          "id": "D",
+          "text": "$((...)) calcule avec des entiers ; elle ne fournit pas directement une arithmétique décimale."
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "La fiche indique : $((...)) calcule avec des entiers ; elle ne fournit pas directement une arithmétique décimale.",
       "source_urls": [
@@ -1918,11 +1918,11 @@
       "options": [
         {
           "id": "A",
-          "text": "Évaluation arithmétique."
+          "text": "Le spécificateur %p permet d’afficher une adresse ; l’argument correspondant doit être un void * (conversion explicite recommandée)."
         },
         {
           "id": "B",
-          "text": "$((...)) calcule avec des entiers ; elle ne fournit pas directement une arithmétique décimale."
+          "text": "Évaluation arithmétique."
         },
         {
           "id": "C",
@@ -1930,12 +1930,12 @@
         },
         {
           "id": "D",
-          "text": "Le spécificateur %p permet d’afficher une adresse ; l’argument correspondant doit être un void * (conversion explicite recommandée)."
+          "text": "$((...)) calcule avec des entiers ; elle ne fournit pas directement une arithmétique décimale."
         }
       ],
       "correct_option_ids": [
-        "A",
-        "B"
+        "B",
+        "D"
       ],
       "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
       "source_urls": [
@@ -1964,19 +1964,19 @@
         },
         {
           "id": "B",
-          "text": "source / ."
-        },
-        {
-          "id": "C",
           "text": "Affectation"
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "$? / $1 / $#"
+        },
+        {
+          "id": "D",
+          "text": "source / ."
         }
       ],
       "correct_option_ids": [
-        "D"
+        "C"
       ],
       "explanation": "La définition est extraite du résumé de la fiche correspondante.",
       "source_urls": [
@@ -2004,19 +2004,19 @@
         },
         {
           "id": "B",
-          "text": "Créer / retirer un raccourci de commande."
-        },
-        {
-          "id": "C",
           "text": "Code retour / premier argument / nombre d’arguments positionnels."
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "Exécuter un script dans le Shell courant."
+        },
+        {
+          "id": "D",
+          "text": "Créer / retirer un raccourci de commande."
         }
       ],
       "correct_option_ids": [
-        "C"
+        "B"
       ],
       "explanation": "Le résumé de la fiche indique : Code retour / premier argument / nombre d’arguments positionnels.",
       "source_urls": [
@@ -2040,23 +2040,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Un alias est surtout pratique en shell interactif ; ce n'est pas un remplacement universel pour une fonction."
-        },
-        {
-          "id": "B",
-          "text": "Lis $? immédiatement après la commande concernée : la commande suivante peut le remplacer."
-        },
-        {
-          "id": "C",
           "text": "source exécute dans le shell courant : ne charge que des fichiers dont tu comprends et acceptes le contenu."
         },
         {
-          "id": "D",
+          "id": "B",
+          "text": "Un alias est surtout pratique en shell interactif ; ce n'est pas un remplacement universel pour une fonction."
+        },
+        {
+          "id": "C",
           "text": "Une affectation Bash n'admet pas d'espaces autour de = dans cette forme."
+        },
+        {
+          "id": "D",
+          "text": "Lis $? immédiatement après la commande concernée : la commande suivante peut le remplacer."
         }
       ],
       "correct_option_ids": [
-        "B"
+        "D"
       ],
       "explanation": "La fiche indique : Lis $? immédiatement après la commande concernée : la commande suivante peut le remplacer.",
       "source_urls": [
@@ -2080,23 +2080,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Lis $? immédiatement après la commande concernée : la commande suivante peut le remplacer."
-        },
-        {
-          "id": "B",
           "text": "Si p = &n, alors *p = 402; modifie n, qui prend la valeur 402."
         },
         {
-          "id": "C",
+          "id": "B",
           "text": "EOF est une valeur entière spéciale signalant la fin d'un flux ou une erreur ; getchar retourne un int et scanf peut aussi renvoyer EOF."
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "Code retour / premier argument / nombre d’arguments positionnels."
+        },
+        {
+          "id": "D",
+          "text": "Lis $? immédiatement après la commande concernée : la commande suivante peut le remplacer."
         }
       ],
       "correct_option_ids": [
-        "A",
+        "C",
         "D"
       ],
       "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
@@ -2122,23 +2122,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Découper PATH"
+          "text": "Variable locale"
         },
         {
           "id": "B",
-          "text": "Variable d’environnement"
-        },
-        {
-          "id": "C",
           "text": "$VAR / ${VAR}"
         },
         {
+          "id": "C",
+          "text": "Variable d’environnement"
+        },
+        {
           "id": "D",
-          "text": "Variable locale"
+          "text": "Découper PATH"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
       "explanation": "La définition est extraite du résumé de la fiche correspondante.",
       "source_urls": [
@@ -2162,23 +2162,23 @@
       "options": [
         {
           "id": "A",
-          "text": "Lire la valeur / délimiter explicitement le nom."
-        },
-        {
-          "id": "B",
           "text": "Variable exportée et transmise aux processus enfants."
         },
         {
-          "id": "C",
+          "id": "B",
           "text": "Dans une fonction Bash, local limite la portée d’une variable. Une variable du shell non exportée est une autre notion."
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "tr \":\" \"\\n\" transforme les séparateurs « : » en retours à la ligne. Le nombre de répertoires peut se déduire des séparateurs, en traitant le dernier élément."
+        },
+        {
+          "id": "D",
+          "text": "Lire la valeur / délimiter explicitement le nom."
         }
       ],
       "correct_option_ids": [
-        "D"
+        "C"
       ],
       "explanation": "Le résumé de la fiche indique : tr \":\" \"\\n\" transforme les séparateurs « : » en retours à la ligne. Le nombre de répertoires peut se déduire des séparateurs, en traitant le dernier élément.",
       "source_urls": [
@@ -2202,11 +2202,11 @@
       "options": [
         {
           "id": "A",
-          "text": "${VAR} évite d'inclure par erreur le suffixe dans le nom ; les guillemets protègent le résultat."
+          "text": "Pour l’exercice Holberton BEST=School, une variable du shell non exportée suffit. La commande local est différente et s’utilise uniquement dans une fonction Bash."
         },
         {
           "id": "B",
-          "text": "Pour l’exercice Holberton BEST=School, une variable du shell non exportée suffit. La commande local est différente et s’utilise uniquement dans une fonction Bash."
+          "text": "export influence l'environnement des futurs processus enfants, jamais celui d'un processus parent déjà lancé."
         },
         {
           "id": "C",
@@ -2214,7 +2214,7 @@
         },
         {
           "id": "D",
-          "text": "export influence l'environnement des futurs processus enfants, jamais celui d'un processus parent déjà lancé."
+          "text": "${VAR} évite d'inclure par erreur le suffixe dans le nom ; les guillemets protègent le résultat."
         }
       ],
       "correct_option_ids": [
@@ -2242,24 +2242,24 @@
       "options": [
         {
           "id": "A",
-          "text": "fgets lit au plus taille - 1 caractères, ajoute '\\0' et peut conserver le saut de ligne ; toujours vérifier son retour."
+          "text": "Une entrée vide de PATH peut désigner le répertoire courant : ce comportement peut présenter un risque de sécurité."
         },
         {
           "id": "B",
-          "text": "&n produit l’adresse de la variable n ; p = &n fait pointer p vers n."
-        },
-        {
-          "id": "C",
           "text": "tr \":\" \"\\n\" transforme les séparateurs « : » en retours à la ligne. Le nombre de répertoires peut se déduire des séparateurs, en traitant le dernier élément."
         },
         {
+          "id": "C",
+          "text": "&n produit l’adresse de la variable n ; p = &n fait pointer p vers n."
+        },
+        {
           "id": "D",
-          "text": "Une entrée vide de PATH peut désigner le répertoire courant : ce comportement peut présenter un risque de sécurité."
+          "text": "fgets lit au plus taille - 1 caractères, ajoute '\\0' et peut conserver le saut de ligne ; toujours vérifier son retour."
         }
       ],
       "correct_option_ids": [
-        "C",
-        "D"
+        "A",
+        "B"
       ],
       "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
       "source_urls": [
