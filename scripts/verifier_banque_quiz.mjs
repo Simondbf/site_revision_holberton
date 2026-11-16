@@ -11,7 +11,7 @@ let autoCount=0,applications=0,multiple=0;
 for(const file of files){
  const parsed=JSON.parse(readFileSync(new URL(file,base),'utf8'));
  assert.ok(Array.isArray(parsed.questions)&&parsed.questions.length,'Banque vide : '+file);
- const isApp=file==='questions-application.json';
+ const isApp=!file.startsWith('section-');
  for(const q of parsed.questions){
   assert.ok(q.id&&q.notion_id&&q.legacy_notion_key&&q.prompt?.length>12,'Question incomplète : '+file);
   assert.ok(!ids.has(q.id),'ID en doublon : '+q.id);ids.add(q.id);
@@ -42,6 +42,7 @@ assert.equal(byNotion.size,214,'Certaines notions de la première vague ne dispo
 assert.equal(autoCount,856,'Les questions initiales structurées ont changé sans révision des tests.');
 assert.ok(applications>=200,'Les questions d\'application sont insuffisantes.');
 assert.ok(multiple>=214,'Les réponses multiples doivent être représentées.');
+assert.ok(ids.size>=1200,'Le lot complet doit comprendre au moins 1200 questions.');
 for(const [si,n] of expected){
  assert.ok((perTheme.get(si)||0)>=n*4,'Thème incomplet : '+si);
 }
