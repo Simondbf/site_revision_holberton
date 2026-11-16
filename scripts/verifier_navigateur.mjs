@@ -226,7 +226,7 @@ try{
  await page.waitForFunction(()=>document.querySelector('#notion-9-60')?.classList.contains('lesson-selected'));
  assert.ok(await page.locator('#notion-9-60 .lesson-reading p').count()>=3,
   'Le cours memcpy doit être aéré.');
- assert.match(await page.locator('#notion-9-60').innerText(),/mémoire/i,
+ assert.match(await page.locator('#notion-9-60').innerText(),/octets/i,
   'Le cours memcpy n’a pas été chargé.');
  await page.goto(origin+'/'+route('Pointeurs et tableaux C','Ownership — qui est responsable de free() ?'));
  await page.waitForFunction(()=>document.querySelector('#notion-9-61')?.classList.contains('lesson-selected'));
