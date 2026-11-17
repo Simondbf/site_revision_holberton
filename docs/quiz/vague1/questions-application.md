@@ -1659,16 +1659,16 @@ Avec `int i=3; while (i>0) {printf("X"); i--;}`, combien de X ?
 
 **Une seule bonne réponse**
 
-Avec `int i=3; do {printf("X"); i++;} while(i<3);`, combien de X ?
+Dans le code C suivant, combien de caractères X sont affichés ? `int i = 0; do { printf("X"); i++; } while (i < 3);`
 
-- **A ✅** 1
-- **B ❌** 3
+- **A ✅** 3
+- **B ❌** 2
 - **C ❌** 4
-- **D ❌** 0
+- **D ❌** 5
 
-**Corrigé candidat :** A. Le corps d'une boucle do…while s'exécute au moins une fois.
+**Corrigé candidat :** A. Le corps s’exécute pour i = 0, 1 et 2. Après le troisième affichage, i vaut 3 : le test placé à la fin est faux.
 
-**Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/conditions-et-boucles-c/7-do-while
+**Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/conditions-et-boucles-c/7-do-while · https://en.cppreference.com/w/c/language/do
 
 **Contrôle IA :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
 
@@ -1811,16 +1811,16 @@ Avec `int i=4; while (i>0) {printf("X"); i--;}`, combien de X ?
 
 **Une seule bonne réponse**
 
-Avec `int i=4; do {printf("X"); i++;} while(i<4);`, combien de X ?
+Dans le code C suivant, combien de caractères X sont affichés ? `int i = 5; do { printf("X"); i--; } while (i > 3);`
 
-- **A ❌** 0
-- **B ✅** 1
-- **C ❌** 4
-- **D ❌** 5
+- **A ❌** 1
+- **B ✅** 2
+- **C ❌** 3
+- **D ❌** 4
 
-**Corrigé candidat :** B. Le corps d'une boucle do…while s'exécute au moins une fois.
+**Corrigé candidat :** B. Le compteur décroît après chaque affichage : il passe de 5 à 4, puis de 4 à 3. Le test final 3 > 3 est faux.
 
-**Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/conditions-et-boucles-c/7-do-while
+**Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/conditions-et-boucles-c/7-do-while · https://en.cppreference.com/w/c/language/do
 
 **Contrôle IA :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
 
@@ -1963,16 +1963,16 @@ Avec `int i=5; while (i>0) {printf("X"); i--;}`, combien de X ?
 
 **Une seule bonne réponse**
 
-Avec `int i=5; do {printf("X"); i++;} while(i<5);`, combien de X ?
+Dans le code C suivant, combien de caractères X sont affichés ? `int i = 0; do { i++; if (i == 2) break; printf("X"); } while (i < 4);`
 
 - **A ✅** 1
-- **B ❌** 6
-- **C ❌** 5
-- **D ❌** 0
+- **B ❌** 0
+- **C ❌** 2
+- **D ❌** 3
 
-**Corrigé candidat :** A. Le corps d'une boucle do…while s'exécute au moins une fois.
+**Corrigé candidat :** A. Au premier passage, i devient 1 et X est affiché. Au deuxième, i devient 2 et break quitte immédiatement la boucle avant printf.
 
-**Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/conditions-et-boucles-c/7-do-while
+**Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/conditions-et-boucles-c/7-do-while · https://en.cppreference.com/w/c/language/do
 
 **Contrôle IA :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
 
@@ -2115,16 +2115,16 @@ Avec `int i=6; while (i>0) {printf("X"); i--;}`, combien de X ?
 
 **Une seule bonne réponse**
 
-Avec `int i=6; do {printf("X"); i++;} while(i<6);`, combien de X ?
+Dans le code C suivant, combien de caractères X sont affichés ? `int i = 0; do { i++; if (i == 2) continue; printf("X"); } while (i < 4);`
 
-- **A ❌** 6
-- **B ✅** 1
-- **C ❌** 0
-- **D ❌** 7
+- **A ❌** 2
+- **B ✅** 3
+- **C ❌** 4
+- **D ❌** 5
 
-**Corrigé candidat :** B. Le corps d'une boucle do…while s'exécute au moins une fois.
+**Corrigé candidat :** B. X est affiché pour i = 1, 3 et 4. Pour i = 2, continue saute printf mais n’interrompt pas la boucle : le test de fin est quand même exécuté.
 
-**Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/conditions-et-boucles-c/7-do-while
+**Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/conditions-et-boucles-c/7-do-while · https://en.cppreference.com/w/c/language/do
 
 **Contrôle IA :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
 
@@ -2267,16 +2267,16 @@ Avec `int i=7; while (i>0) {printf("X"); i--;}`, combien de X ?
 
 **Une seule bonne réponse**
 
-Avec `int i=7; do {printf("X"); i++;} while(i<7);`, combien de X ?
+Dans le code C suivant, combien de caractères X sont affichés ? `int i = 1; do { printf("X"); i *= 2; } while (i < 5);`
 
-- **A ✅** 1
-- **B ❌** 8
-- **C ❌** 7
-- **D ❌** 0
+- **A ✅** 3
+- **B ❌** 2
+- **C ❌** 4
+- **D ❌** 5
 
-**Corrigé candidat :** A. Le corps d'une boucle do…while s'exécute au moins une fois.
+**Corrigé candidat :** A. Avant chaque test, le corps affiche X puis double i : i vaut successivement 2, 4 puis 8. Le troisième test est faux.
 
-**Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/conditions-et-boucles-c/7-do-while
+**Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/conditions-et-boucles-c/7-do-while · https://en.cppreference.com/w/c/language/do
 
 **Contrôle IA :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
 
@@ -2419,16 +2419,16 @@ Avec `int i=8; while (i>0) {printf("X"); i--;}`, combien de X ?
 
 **Une seule bonne réponse**
 
-Avec `int i=8; do {printf("X"); i++;} while(i<8);`, combien de X ?
+Dans le code C suivant, combien de caractères X sont affichés ? `int i = 1; do { printf("X"); i += 2; } while (i < 9);`
 
-- **A ❌** 8
-- **B ✅** 1
-- **C ❌** 0
-- **D ❌** 9
+- **A ❌** 3
+- **B ✅** 4
+- **C ❌** 5
+- **D ❌** 6
 
-**Corrigé candidat :** B. Le corps d'une boucle do…while s'exécute au moins une fois.
+**Corrigé candidat :** B. Les quatre affichages correspondent aux valeurs de départ i = 1, 3, 5 et 7. Après le quatrième, i vaut 9 et le test est faux.
 
-**Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/conditions-et-boucles-c/7-do-while
+**Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/conditions-et-boucles-c/7-do-while · https://en.cppreference.com/w/c/language/do
 
 **Contrôle IA :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
 
@@ -2571,16 +2571,16 @@ Avec `int i=9; while (i>0) {printf("X"); i--;}`, combien de X ?
 
 **Une seule bonne réponse**
 
-Avec `int i=9; do {printf("X"); i++;} while(i<9);`, combien de X ?
+Dans le code C suivant, combien de caractères X sont affichés ? `int i = 0; do { if (i) printf("X"); i++; } while (i < 3);`
 
-- **A ❌** 9
-- **B ✅** 1
-- **C ❌** 0
-- **D ❌** 10
+- **A ❌** 1
+- **B ✅** 2
+- **C ❌** 3
+- **D ❌** 4
 
-**Corrigé candidat :** B. Le corps d'une boucle do…while s'exécute au moins une fois.
+**Corrigé candidat :** B. Le corps est exécuté trois fois, mais i vaut 0 au premier passage : if(i) est alors faux. Seuls les passages où i vaut 1 et 2 affichent X.
 
-**Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/conditions-et-boucles-c/7-do-while
+**Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/conditions-et-boucles-c/7-do-while · https://en.cppreference.com/w/c/language/do
 
 **Contrôle IA :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
 
@@ -2723,16 +2723,16 @@ Avec `int i=10; while (i>0) {printf("X"); i--;}`, combien de X ?
 
 **Une seule bonne réponse**
 
-Avec `int i=10; do {printf("X"); i++;} while(i<10);`, combien de X ?
+Dans le code C suivant, combien de caractères X sont affichés ? `int i = 0; do { printf("X"); i++; } while (i++ < 2);`
 
-- **A ✅** 1
-- **B ❌** 11
-- **C ❌** 10
-- **D ❌** 0
+- **A ✅** 2
+- **B ❌** 1
+- **C ❌** 3
+- **D ❌** 4
 
-**Corrigé candidat :** A. Le corps d'une boucle do…while s'exécute au moins une fois.
+**Corrigé candidat :** A. Après le premier X, i passe à 1 : le test i++ < 2 compare 1 puis incrémente i à 2. Après le deuxième X, i vaut 3 : le test compare 3 à 2 et s’arrête.
 
-**Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/conditions-et-boucles-c/7-do-while
+**Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/conditions-et-boucles-c/7-do-while · https://en.cppreference.com/w/c/language/do
 
 **Contrôle IA :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
 
