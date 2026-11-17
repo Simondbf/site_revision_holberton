@@ -4,6 +4,12 @@
 
 > **ÉTAT : BROUILLON NON VALIDÉ.** Les réponses et les « mauvaises » propositions doivent être contestées et documentées avant toute intégration au site. Cette branche sert à la revue technique **uniquement sur GitHub**. Aucune donnée du quiz n'est chargée dans `index.html` publié.
 
+## Relecture indépendante demandée
+
+**[Protocole de relecture multi-IA et grille de correction par question](RELECTURE_MULTI_IA.md)** : répartition des domaines entre Claude, Gemini, DeepSeek et Mistral, méthode anti-biais, vérification de chaque proposition A–D, contrôle GNU89, interdiction de publication sans validation.
+
+Les fichiers restent des **candidats** : le total et les tests automatiques ne garantissent ni des réponses exactes, ni des distracteurs incontestablement faux, ni 50–100 questions par notion. Les modèles relecteurs doivent produire des résultats référencés **question par question**, et non un avis global « tout est bon ».
+
 ## Périmètre de la première vague
 
 **Inclus :** fondamentaux, terminal, Linux, Shell/Bash, permissions, conditions C, programmation C, arithmétique, tableaux, pointeurs, structures, qualité C et **Git/GitHub uniquement** dans les outils de développement.
