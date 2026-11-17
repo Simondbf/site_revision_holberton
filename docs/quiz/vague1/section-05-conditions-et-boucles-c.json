@@ -983,37 +983,38 @@
       "theme": "Conditions et boucles C",
       "notion": "do…while",
       "answer_mode": "single",
-      "question_type": "definition",
-      "prompt": "À quelle notion correspond la définition suivante : « Teste après exécution : le corps tourne au moins une fois. » ?",
+      "question_type": "application",
+      "prompt": "Avec `int i = 5;`, quelle structure affiche \"X\" malgré une condition `i < 3` fausse dès le départ ?",
       "options": [
         {
           "id": "A",
-          "text": "do…while"
+          "text": "do { printf(\"X\"); } while (i < 3);"
         },
         {
           "id": "B",
-          "text": "Itération"
+          "text": "while (i < 3) { printf(\"X\"); }"
         },
         {
           "id": "C",
-          "text": "Boucles imbriquées"
+          "text": "for (; i < 3; i++) { printf(\"X\"); }"
         },
         {
           "id": "D",
-          "text": "for"
+          "text": "if (i < 3) { printf(\"X\"); }"
         }
       ],
       "correct_option_ids": [
         "A"
       ],
-      "explanation": "La définition est extraite du résumé de la fiche correspondante.",
+      "explanation": "La condition d’un do…while est contrôlée après le corps : X apparaît une fois. Avec while, for ou if, la condition initialement fausse empêche l’affichage.",
       "source_urls": [
-        "https://revision-hbtn.soleiljaune.be/#cours/conditions-et-boucles-c/7-do-while"
+        "https://revision-hbtn.soleiljaune.be/#cours/conditions-et-boucles-c/7-do-while",
+        "https://en.cppreference.com/w/c/language/do"
       ],
       "review_status": "a_verifier",
       "review_flags": [
-        "generated_from_course",
-        "check_every_distractor"
+        "refonte_pedagogique",
+        "relecture_independante_requise"
       ]
     },
     {
@@ -1023,37 +1024,38 @@
       "theme": "Conditions et boucles C",
       "notion": "do…while",
       "answer_mode": "single",
-      "question_type": "description",
-      "prompt": "Quelle description caractérise « do…while » ?",
+      "question_type": "comparaison",
+      "prompt": "Avec `int i = 5;`, on compare `while (i < 4) { printf(\"W\"); }` et `do { printf(\"D\"); } while (i < 4);`. Quelle affirmation est exacte ?",
       "options": [
         {
           "id": "A",
-          "text": "Teste après exécution : le corps tourne au moins une fois."
+          "text": "La boucle while n’affiche rien et la boucle do…while affiche D une fois."
         },
         {
           "id": "B",
-          "text": "Initialisation, test, mise à jour ; forme compacte de boucle."
+          "text": "Les deux boucles n’affichent rien car 5 < 4 est faux."
         },
         {
           "id": "C",
-          "text": "Un passage dans une boucle."
+          "text": "La boucle while affiche W une fois et la boucle do…while n’affiche rien."
         },
         {
           "id": "D",
-          "text": "Une boucle placée dans une autre ; le coût dépend des bornes et du travail effectué."
+          "text": "Les deux boucles affichent chacune un caractère une fois."
         }
       ],
       "correct_option_ids": [
         "A"
       ],
-      "explanation": "Le résumé de la fiche indique : Teste après exécution : le corps tourne au moins une fois.",
+      "explanation": "while teste la condition avant son premier passage : aucun W. do…while exécute d’abord son corps : un D, puis le test faux arrête la boucle.",
       "source_urls": [
-        "https://revision-hbtn.soleiljaune.be/#cours/conditions-et-boucles-c/7-do-while"
+        "https://revision-hbtn.soleiljaune.be/#cours/conditions-et-boucles-c/7-do-while",
+        "https://en.cppreference.com/w/c/language/do"
       ],
       "review_status": "a_verifier",
       "review_flags": [
-        "generated_from_course",
-        "check_every_distractor"
+        "refonte_pedagogique",
+        "relecture_independante_requise"
       ]
     },
     {
@@ -1063,37 +1065,38 @@
       "theme": "Conditions et boucles C",
       "notion": "do…while",
       "answer_mode": "single",
-      "question_type": "vigilance",
-      "prompt": "Quel point à retenir est directement associé à « do…while » ?",
+      "question_type": "diagnostic",
+      "prompt": "Dans `int i = 0; do { printf(\"X\"); } while (i < 2);`, sans intervention extérieure, que se passe-t-il ?",
       "options": [
         {
           "id": "A",
-          "text": "Deux boucles imbriquées de n itérations chacune peuvent effectuer n × n passages, selon leurs bornes."
+          "text": "La boucle s’arrête après deux affichages car 2 est sa borne."
         },
         {
           "id": "B",
-          "text": "En GNU89, déclare l'indice avant le for ; la déclaration « for (int i = ...) » est de style C99 ou plus récent."
+          "text": "Le corps ne s’exécute pas car i vaut 0."
         },
         {
           "id": "C",
-          "text": "do...while exécute toujours son corps au moins une fois avant le test."
+          "text": "La boucle continue indéfiniment : i reste à 0 et la condition reste vraie."
         },
         {
           "id": "D",
-          "text": "Une itération est un passage dans le corps ; la valeur de l'indice ne donne pas toujours le nombre de passages."
+          "text": "La boucle s’arrête automatiquement dès qu’une condition a été évaluée."
         }
       ],
       "correct_option_ids": [
         "C"
       ],
-      "explanation": "La fiche indique : do...while exécute toujours son corps au moins une fois avant le test.",
+      "explanation": "Le corps ne modifie jamais i. La condition i < 2 reste vraie après chaque passage : la boucle ne possède ici aucune sortie normale. Ne pas exécuter cet exemple tel quel.",
       "source_urls": [
-        "https://revision-hbtn.soleiljaune.be/#cours/conditions-et-boucles-c/7-do-while"
+        "https://revision-hbtn.soleiljaune.be/#cours/conditions-et-boucles-c/7-do-while",
+        "https://en.cppreference.com/w/c/language/do"
       ],
       "review_status": "a_verifier",
       "review_flags": [
-        "generated_from_course",
-        "check_every_distractor"
+        "refonte_pedagogique",
+        "relecture_independante_requise"
       ]
     },
     {
@@ -1103,39 +1106,39 @@
       "theme": "Conditions et boucles C",
       "notion": "do…while",
       "answer_mode": "multiple",
-      "question_type": "synthese",
-      "prompt": "Quelles affirmations concernent directement « do…while » ?",
+      "question_type": "raisonnement",
+      "prompt": "Dans une boucle `do…while` en C, quelles affirmations sont correctes ?",
       "options": [
         {
           "id": "A",
-          "text": "Depuis C99, { .age = 7, .id = 3 } permet de choisir les membres par leur nom."
+          "text": "La condition est évaluée avant la toute première exécution du corps."
         },
         {
           "id": "B",
-          "text": "Teste après exécution : le corps tourne au moins une fois."
+          "text": "La condition est évaluée après l’exécution normale du corps."
         },
         {
           "id": "C",
-          "text": "do...while exécute toujours son corps au moins une fois avant le test."
+          "text": "`break` permet de quitter immédiatement la boucle sans retester sa condition."
         },
         {
           "id": "D",
-          "text": "typedef struct animal { int age; } animal_t; rend le type utilisable sous le nom animal_t."
+          "text": "`continue` quitte définitivement la boucle, exactement comme `break`."
         }
       ],
       "correct_option_ids": [
         "B",
         "C"
       ],
-      "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
+      "explanation": "Le test du do…while se trouve en fin de boucle. break la quitte immédiatement ; continue saute le reste du corps et rejoint le test final, sans forcément quitter la boucle.",
       "source_urls": [
-        "https://revision-hbtn.soleiljaune.be/#cours/conditions-et-boucles-c/7-do-while"
+        "https://revision-hbtn.soleiljaune.be/#cours/conditions-et-boucles-c/7-do-while",
+        "https://en.cppreference.com/w/c/language/do"
       ],
       "review_status": "a_verifier",
       "review_flags": [
-        "generated_from_course",
-        "cross_topic_distractors",
-        "check_possible_ambiguity"
+        "refonte_pedagogique",
+        "relecture_independante_requise"
       ]
     },
     {
