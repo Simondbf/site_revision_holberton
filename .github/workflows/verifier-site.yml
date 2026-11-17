@@ -27,3 +27,4 @@ jobs:
           node scripts/verifier_visuels.mjs
           node scripts/verifier_contenu.mjs
           node scripts/verifier_securite.mjs
+          node scripts/verifier_pointeurs_fonctions.mjs
