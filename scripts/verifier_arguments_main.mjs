@@ -19,7 +19,7 @@ const cases=[
  [72,'main(int argc, char *argv[]) — recevoir des arguments',['bonjour','deux mots'],'argc=3\npremier=bonjour\n'],
  [73,'argc — compter les arguments de la ligne de commande',['rouge','bleu'],'2 argument(s) utilisateur\n'],
  [74,'argv — tableau de chaînes et indices',['Ada','deux mots'],'Ada\ndeux mots\n'],
- [75,'argv[i][j] — caractère d’un argument et double indirection',['code'],'c o\n'],
+ [75,'argv[i][j] — caractère d\'un argument et double indirection',['code'],'c o\n'],
  [76,'argv[argc] == NULL — borne de fin et parcours sûr',['Ada','C'],'Ada\nC\nfin=NULL\n']
 ];
 const temp=mkdtempSync(join(tmpdir(),'holberton-argc-argv-'));
