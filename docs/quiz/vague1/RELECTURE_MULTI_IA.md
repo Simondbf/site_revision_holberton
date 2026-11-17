@@ -1,6 +1,6 @@
 # Relecture contradictoire — PR #19 : pointeurs, tableaux et structures
 
-**494 questions candidates, 93 notions / 2 thèmes. Toutes portent `review_status: a_verifier`.** La CI garantit uniquement l'intégrité des données, jamais la justesse pédagogique.
+**519 questions candidates, 98 notions / 2 thèmes. Toutes portent `review_status: a_verifier`.** La CI garantit uniquement l'intégrité des données, jamais la justesse pédagogique.
 
 ## Relecture indépendante
 
@@ -13,6 +13,6 @@
 
 ## Suivi
 
-Les 779 autres questions ont été conservées en [PR #21](https://github.com/Simondbf/site_revision_holberton/pull/21) **avant leur retrait de ce lot**. La PR #22 apportera les nouvelles fiches `argc`/`argv` ; la banque #19 recevra des questions adaptées, sans réutiliser de corrigés de lab évalués.
+Les 779 autres questions ont été conservées en [PR #21](https://github.com/Simondbf/site_revision_holberton/pull/21) **avant leur retrait de ce lot**. La PR #22 contient cinq nouvelles fiches `argc`/`argv` en brouillon, référencées par **25 nouvelles questions** dans cette banque (#19). Les liens seront vérifiés après publication de #22. Ces 25 questions restent elles aussi `a_verifier` et ne reprennent aucun corrigé d'exercice évalué.
 
 Aucune fusion ou publication automatique. **Validation finale exclusivement par le propriétaire.**
