@@ -933,7 +933,7 @@ Quel point à retenir est directement associé à « gcc -E » ?
 - **A ✅** gcc -E produit le source prétraité et s'arrête avant la compilation proprement dite.
 - **B ❌** Les comparaisons exactes de flottants doivent être envisagées avec prudence.
 - **C ❌** Avec -std=gnu89, for (int i = ...) est refusé. GCC accepte parfois d’autres extensions, mais -pedantic-errors peut en faire des erreurs : privilégie les déclarations en début de bloc.
-- **D ❌** scanf("%d", &age) attend l’adresse de age et renvoie 1 seulement si un entier est lu correctement. Vérifier le retour avant d’utiliser la variable. Avec %s, toujours fixer une largeur adaptée à la taille du tableau ; fgets est mieux adapté aux phrases avec espaces. Le format de printf n’a pas exactement les mêmes types attendus : scanf("%f", &f) pour float et scanf("%
+- **D ❌** scanf("%d", &age) attend l’adresse de age et renvoie 1 seulement si un entier est lu correctement. Vérifier le retour avant d’utiliser la variable. Avec %s, toujours fixer une largeur adaptée à la taille du tableau ; fgets est mieux adapté aux phrases avec espaces. Les conversions de scanf et printf n’exigent pas toujours les mêmes types : scanf("%f", &f) attend un float * et scanf("%lf", &d) un double *.
 
 **Réponse proposée :** A. La fiche indique : gcc -E produit le source prétraité et s'arrête avant la compilation proprement dite.
 
@@ -1011,7 +1011,7 @@ Quelle description caractérise « gcc -S » ?
 Quel point à retenir est directement associé à « gcc -S » ?
 
 - **A ✅** gcc -S produit de l'assembleur (.s), sans fichier objet ni exécutable.
-- **B ❌** scanf("%d", &age) attend l’adresse de age et renvoie 1 seulement si un entier est lu correctement. Vérifier le retour avant d’utiliser la variable. Avec %s, toujours fixer une largeur adaptée à la taille du tableau ; fgets est mieux adapté aux phrases avec espaces. Le format de printf n’a pas exactement les mêmes types attendus : scanf("%f", &f) pour float et scanf("%
+- **B ❌** scanf("%d", &age) attend l’adresse de age et renvoie 1 seulement si un entier est lu correctement. Vérifier le retour avant d’utiliser la variable. Avec %s, toujours fixer une largeur adaptée à la taille du tableau ; fgets est mieux adapté aux phrases avec espaces. Les conversions de scanf et printf n’exigent pas toujours les mêmes types : scanf("%f", &f) attend un float * et scanf("%lf", &d) un double *.
 - **C ❌** Le prototype annonce une fonction ; seule la définition fournit le code exécuté.
 - **D ❌** Les comparaisons exactes de flottants doivent être envisagées avec prudence.
 
@@ -1092,7 +1092,7 @@ Quel point à retenir est directement associé à « gcc -c » ?
 
 - **A ✅** gcc -c produit un fichier objet (.o), sans liaison vers l'exécutable final.
 - **B ❌** « undefined reference » est généralement une erreur de liaison : vérifie les définitions et fichiers liés.
-- **C ❌** scanf("%d", &age) attend l’adresse de age et renvoie 1 seulement si un entier est lu correctement. Vérifier le retour avant d’utiliser la variable. Avec %s, toujours fixer une largeur adaptée à la taille du tableau ; fgets est mieux adapté aux phrases avec espaces. Le format de printf n’a pas exactement les mêmes types attendus : scanf("%f", &f) pour float et scanf("%
+- **C ❌** scanf("%d", &age) attend l’adresse de age et renvoie 1 seulement si un entier est lu correctement. Vérifier le retour avant d’utiliser la variable. Avec %s, toujours fixer une largeur adaptée à la taille du tableau ; fgets est mieux adapté aux phrases avec espaces. Les conversions de scanf et printf n’exigent pas toujours les mêmes types : scanf("%f", &f) attend un float * et scanf("%lf", &d) un double *.
 - **D ❌** Le prototype annonce une fonction ; seule la définition fournit le code exécuté.
 
 **Réponse proposée :** A. La fiche indique : gcc -c produit un fichier objet (.o), sans liaison vers l'exécutable final.
@@ -2050,12 +2050,12 @@ Quelle description caractérise « scanf() — lire une saisie au clavier » ?
 
 Quel point à retenir est directement associé à « scanf() — lire une saisie au clavier » ?
 
-- **A ✅** scanf("%d", &age) attend l’adresse de age et renvoie 1 seulement si un entier est lu correctement. Vérifier le retour avant d’utiliser la variable. Avec %s, toujours fixer une largeur adaptée à la taille du tableau ; fgets est mieux adapté aux phrases avec espaces. Le format de printf n’a pas exactement les mêmes types attendus : scanf("%f", &f) pour float et scanf("%
+- **A ✅** scanf("%d", &age) attend l’adresse de age et renvoie 1 seulement si un entier est lu correctement. Vérifier le retour avant d’utiliser la variable. Avec %s, toujours fixer une largeur adaptée à la taille du tableau ; fgets est mieux adapté aux phrases avec espaces. Les conversions de scanf et printf n’exigent pas toujours les mêmes types : scanf("%f", &f) attend un float * et scanf("%lf", &d) un double *.
 - **B ❌** Les comparaisons exactes de flottants doivent être envisagées avec prudence.
 - **C ❌** La taille fournie à fgets correspond à la capacité du tableau, pas à une quantité illimitée de texte. Vérifier NULL et détecter une ligne tronquée si toute l'entrée doit être conservée. Ne pas supposer que le saut de ligne est toujours présent.
 - **D ❌** void en retour : aucun résultat ; (void) dans les paramètres : aucun paramètre.
 
-**Réponse proposée :** A. La fiche indique : scanf("%d", &age) attend l’adresse de age et renvoie 1 seulement si un entier est lu correctement. Vérifier le retour avant d’utiliser la variable. Avec %s, toujours fixer une largeur adaptée à la taille du tableau ; fgets est mieux adapté aux phrases avec espaces. Le format de printf n’a pas exactement les mêmes types attendus : scanf("%f", &f) pour float et scanf("%
+**Réponse proposée :** A. La fiche indique : scanf("%d", &age) attend l’adresse de age et renvoie 1 seulement si un entier est lu correctement. Vérifier le retour avant d’utiliser la variable. Avec %s, toujours fixer une largeur adaptée à la taille du tableau ; fgets est mieux adapté aux phrases avec espaces. Les conversions de scanf et printf n’exigent pas toujours les mêmes types : scanf("%f", &f) attend un float * et scanf("%lf", &d) un double *.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/programmation-c/26-scanf-lire-une-saisie-au-clavier
 
@@ -2069,7 +2069,7 @@ Quel point à retenir est directement associé à « scanf() — lire une saisie
 
 Quelles affirmations concernent directement « scanf() — lire une saisie au clavier » ?
 
-- **A ✅** scanf("%d", &age) attend l’adresse de age et renvoie 1 seulement si un entier est lu correctement. Vérifier le retour avant d’utiliser la variable. Avec %s, toujours fixer une largeur adaptée à la taille du tableau ; fgets est mieux adapté aux phrases avec espaces. Le format de printf n’a pas exactement les mêmes types attendus : scanf("%f", &f) pour float et scanf("%
+- **A ✅** scanf("%d", &age) attend l’adresse de age et renvoie 1 seulement si un entier est lu correctement. Vérifier le retour avant d’utiliser la variable. Avec %s, toujours fixer une largeur adaptée à la taille du tableau ; fgets est mieux adapté aux phrases avec espaces. Les conversions de scanf et printf n’exigent pas toujours les mêmes types : scanf("%f", &f) attend un float * et scanf("%lf", &d) un double *.
 - **B ❌** Un tableau comme struct point a[2] regroupe plusieurs objets struct, accessibles par a[i].x.
 - **C ❌** typedef struct { int x; int y; } point_t; crée un alias pour une struct sans étiquette.
 - **D ✅** scanf lit une entrée formatée (souvent depuis le clavier) et écrit les valeurs lues dans des variables : utiliser & pour une variable numérique et vérifier le nombre de conversions réussies.
@@ -2130,7 +2130,7 @@ Quelle description caractérise « fgets() — lire une ligne avec une limite »
 
 Quel point à retenir est directement associé à « fgets() — lire une ligne avec une limite » ?
 
-- **A ❌** scanf("%d", &age) attend l’adresse de age et renvoie 1 seulement si un entier est lu correctement. Vérifier le retour avant d’utiliser la variable. Avec %s, toujours fixer une largeur adaptée à la taille du tableau ; fgets est mieux adapté aux phrases avec espaces. Le format de printf n’a pas exactement les mêmes types attendus : scanf("%f", &f) pour float et scanf("%
+- **A ❌** scanf("%d", &age) attend l’adresse de age et renvoie 1 seulement si un entier est lu correctement. Vérifier le retour avant d’utiliser la variable. Avec %s, toujours fixer une largeur adaptée à la taille du tableau ; fgets est mieux adapté aux phrases avec espaces. Les conversions de scanf et printf n’exigent pas toujours les mêmes types : scanf("%f", &f) attend un float * et scanf("%lf", &d) un double *.
 - **B ✅** La taille fournie à fgets correspond à la capacité du tableau, pas à une quantité illimitée de texte. Vérifier NULL et détecter une ligne tronquée si toute l'entrée doit être conservée. Ne pas supposer que le saut de ligne est toujours présent.
 - **C ❌** L'option -o choisit le nom de sortie ; elle n'impose pas le type de cette sortie.
 - **D ❌** void en retour : aucun résultat ; (void) dans les paramètres : aucun paramètre.

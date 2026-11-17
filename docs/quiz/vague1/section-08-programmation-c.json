@@ -1890,7 +1890,7 @@
         },
         {
           "id": "D",
-          "text": "scanf(\"%d\", &age) attend l’adresse de age et renvoie 1 seulement si un entier est lu correctement. Vérifier le retour avant d’utiliser la variable. Avec %s, toujours fixer une largeur adaptée à la taille du tableau ; fgets est mieux adapté aux phrases avec espaces. Le format de printf n’a pas exactement les mêmes types attendus : scanf(\"%f\", &f) pour float et scanf(\"%"
+          "text": "scanf(\"%d\", &age) attend l’adresse de age et renvoie 1 seulement si un entier est lu correctement. Vérifier le retour avant d’utiliser la variable. Avec %s, toujours fixer une largeur adaptée à la taille du tableau ; fgets est mieux adapté aux phrases avec espaces. Les conversions de scanf et printf n’exigent pas toujours les mêmes types : scanf(\"%f\", &f) attend un float * et scanf(\"%lf\", &d) un double *."
         }
       ],
       "correct_option_ids": [
@@ -2044,7 +2044,7 @@
         },
         {
           "id": "B",
-          "text": "scanf(\"%d\", &age) attend l’adresse de age et renvoie 1 seulement si un entier est lu correctement. Vérifier le retour avant d’utiliser la variable. Avec %s, toujours fixer une largeur adaptée à la taille du tableau ; fgets est mieux adapté aux phrases avec espaces. Le format de printf n’a pas exactement les mêmes types attendus : scanf(\"%f\", &f) pour float et scanf(\"%"
+          "text": "scanf(\"%d\", &age) attend l’adresse de age et renvoie 1 seulement si un entier est lu correctement. Vérifier le retour avant d’utiliser la variable. Avec %s, toujours fixer une largeur adaptée à la taille du tableau ; fgets est mieux adapté aux phrases avec espaces. Les conversions de scanf et printf n’exigent pas toujours les mêmes types : scanf(\"%f\", &f) attend un float * et scanf(\"%lf\", &d) un double *."
         },
         {
           "id": "C",
@@ -2210,7 +2210,7 @@
         },
         {
           "id": "C",
-          "text": "scanf(\"%d\", &age) attend l’adresse de age et renvoie 1 seulement si un entier est lu correctement. Vérifier le retour avant d’utiliser la variable. Avec %s, toujours fixer une largeur adaptée à la taille du tableau ; fgets est mieux adapté aux phrases avec espaces. Le format de printf n’a pas exactement les mêmes types attendus : scanf(\"%f\", &f) pour float et scanf(\"%"
+          "text": "scanf(\"%d\", &age) attend l’adresse de age et renvoie 1 seulement si un entier est lu correctement. Vérifier le retour avant d’utiliser la variable. Avec %s, toujours fixer une largeur adaptée à la taille du tableau ; fgets est mieux adapté aux phrases avec espaces. Les conversions de scanf et printf n’exigent pas toujours les mêmes types : scanf(\"%f\", &f) attend un float * et scanf(\"%lf\", &d) un double *."
         },
         {
           "id": "D",
@@ -4146,7 +4146,7 @@
       "options": [
         {
           "id": "A",
-          "text": "scanf(\"%d\", &age) attend l’adresse de age et renvoie 1 seulement si un entier est lu correctement. Vérifier le retour avant d’utiliser la variable. Avec %s, toujours fixer une largeur adaptée à la taille du tableau ; fgets est mieux adapté aux phrases avec espaces. Le format de printf n’a pas exactement les mêmes types attendus : scanf(\"%f\", &f) pour float et scanf(\"%"
+          "text": "scanf(\"%d\", &age) attend l’adresse de age et renvoie 1 seulement si un entier est lu correctement. Vérifier le retour avant d’utiliser la variable. Avec %s, toujours fixer une largeur adaptée à la taille du tableau ; fgets est mieux adapté aux phrases avec espaces. Les conversions de scanf et printf n’exigent pas toujours les mêmes types : scanf(\"%f\", &f) attend un float * et scanf(\"%lf\", &d) un double *."
         },
         {
           "id": "B",
@@ -4164,7 +4164,7 @@
       "correct_option_ids": [
         "A"
       ],
-      "explanation": "La fiche indique : scanf(\"%d\", &age) attend l’adresse de age et renvoie 1 seulement si un entier est lu correctement. Vérifier le retour avant d’utiliser la variable. Avec %s, toujours fixer une largeur adaptée à la taille du tableau ; fgets est mieux adapté aux phrases avec espaces. Le format de printf n’a pas exactement les mêmes types attendus : scanf(\"%f\", &f) pour float et scanf(\"%",
+      "explanation": "La fiche indique : scanf(\"%d\", &age) attend l’adresse de age et renvoie 1 seulement si un entier est lu correctement. Vérifier le retour avant d’utiliser la variable. Avec %s, toujours fixer une largeur adaptée à la taille du tableau ; fgets est mieux adapté aux phrases avec espaces. Les conversions de scanf et printf n’exigent pas toujours les mêmes types : scanf(\"%f\", &f) attend un float * et scanf(\"%lf\", &d) un double *.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/26-scanf-lire-une-saisie-au-clavier"
       ],
@@ -4186,7 +4186,7 @@
       "options": [
         {
           "id": "A",
-          "text": "scanf(\"%d\", &age) attend l’adresse de age et renvoie 1 seulement si un entier est lu correctement. Vérifier le retour avant d’utiliser la variable. Avec %s, toujours fixer une largeur adaptée à la taille du tableau ; fgets est mieux adapté aux phrases avec espaces. Le format de printf n’a pas exactement les mêmes types attendus : scanf(\"%f\", &f) pour float et scanf(\"%"
+          "text": "scanf(\"%d\", &age) attend l’adresse de age et renvoie 1 seulement si un entier est lu correctement. Vérifier le retour avant d’utiliser la variable. Avec %s, toujours fixer une largeur adaptée à la taille du tableau ; fgets est mieux adapté aux phrases avec espaces. Les conversions de scanf et printf n’exigent pas toujours les mêmes types : scanf(\"%f\", &f) attend un float * et scanf(\"%lf\", &d) un double *."
         },
         {
           "id": "B",
@@ -4310,7 +4310,7 @@
       "options": [
         {
           "id": "A",
-          "text": "scanf(\"%d\", &age) attend l’adresse de age et renvoie 1 seulement si un entier est lu correctement. Vérifier le retour avant d’utiliser la variable. Avec %s, toujours fixer une largeur adaptée à la taille du tableau ; fgets est mieux adapté aux phrases avec espaces. Le format de printf n’a pas exactement les mêmes types attendus : scanf(\"%f\", &f) pour float et scanf(\"%"
+          "text": "scanf(\"%d\", &age) attend l’adresse de age et renvoie 1 seulement si un entier est lu correctement. Vérifier le retour avant d’utiliser la variable. Avec %s, toujours fixer une largeur adaptée à la taille du tableau ; fgets est mieux adapté aux phrases avec espaces. Les conversions de scanf et printf n’exigent pas toujours les mêmes types : scanf(\"%f\", &f) attend un float * et scanf(\"%lf\", &d) un double *."
         },
         {
           "id": "B",
