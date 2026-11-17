@@ -11887,6 +11887,1086 @@
         "cross_topic_distractors",
         "check_possible_ambiguity"
       ]
+    },
+    {
+      "id": "V1-N09_072-01",
+      "notion_id": "N09_072",
+      "legacy_notion_key": "9:72",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "main(int argc, char *argv[]) — recevoir des arguments",
+      "answer_mode": "single",
+      "question_type": "signature",
+      "prompt": "Quelle définition de `main` permet de recevoir des arguments transmis au lancement d'un programme C hébergé ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "`int main(int argc, char *argv[])`"
+        },
+        {
+          "id": "B",
+          "text": "`int main(char *argv)`"
+        },
+        {
+          "id": "C",
+          "text": "`void main(int argc)`"
+        },
+        {
+          "id": "D",
+          "text": "`int main(int *argc, char *argv[])`"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "Le programme reçoit un entier argc et une suite de pointeurs vers des chaînes via argv. Les autres propositions ne sont pas les formes standards attendues de main.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/73-main-int-argc-char-argv-recevoir-des-arguments",
+        "https://publications.gbdirect.com/c_book/chapter10/arguments_to_main.html",
+        "https://en.cppreference.com/w/c/language/main_function"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "nouveau_projet_argc_argv",
+        "relecture_independante_requise",
+        "fiche_pr22_non_publiee"
+      ]
+    },
+    {
+      "id": "V1-N09_072-02",
+      "notion_id": "N09_072",
+      "legacy_notion_key": "9:72",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "main(int argc, char *argv[]) — recevoir des arguments",
+      "answer_mode": "single",
+      "question_type": "comptage",
+      "prompt": "Sous Linux, pour la commande `./outil bonjour \"deux mots\"`, quelle valeur de argc reçoit normalement main ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "1"
+        },
+        {
+          "id": "B",
+          "text": "2"
+        },
+        {
+          "id": "C",
+          "text": "3"
+        },
+        {
+          "id": "D",
+          "text": "4"
+        }
+      ],
+      "correct_option_ids": [
+        "C"
+      ],
+      "explanation": "L'invocation compte comme argv[0], bonjour comme argv[1] et deux mots comme argv[2] : trois éléments.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/73-main-int-argc-char-argv-recevoir-des-arguments",
+        "https://publications.gbdirect.com/c_book/chapter10/arguments_to_main.html",
+        "https://en.cppreference.com/w/c/language/main_function"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "nouveau_projet_argc_argv",
+        "relecture_independante_requise",
+        "fiche_pr22_non_publiee"
+      ]
+    },
+    {
+      "id": "V1-N09_072-03",
+      "notion_id": "N09_072",
+      "legacy_notion_key": "9:72",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "main(int argc, char *argv[]) — recevoir des arguments",
+      "answer_mode": "multiple",
+      "question_type": "raisonnement",
+      "prompt": "Quelles affirmations à propos des arguments de `main` sont correctes ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Les arguments sont lus exclusivement par scanf."
+        },
+        {
+          "id": "B",
+          "text": "Les arguments sont transmis lors du lancement du programme."
+        },
+        {
+          "id": "C",
+          "text": "Le C force chaque argument à être un entier."
+        },
+        {
+          "id": "D",
+          "text": "Un shell peut grouper deux mots entre guillemets en un seul argument."
+        }
+      ],
+      "correct_option_ids": [
+        "B",
+        "D"
+      ],
+      "explanation": "Les arguments sont disponibles avant toute lecture sur l'entrée standard ; le shell peut regrouper les mots. En C, argv fournit des chaînes, pas directement des entiers.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/73-main-int-argc-char-argv-recevoir-des-arguments",
+        "https://publications.gbdirect.com/c_book/chapter10/arguments_to_main.html",
+        "https://en.cppreference.com/w/c/language/main_function"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "nouveau_projet_argc_argv",
+        "relecture_independante_requise",
+        "fiche_pr22_non_publiee"
+      ]
+    },
+    {
+      "id": "V1-N09_072-04",
+      "notion_id": "N09_072",
+      "legacy_notion_key": "9:72",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "main(int argc, char *argv[]) — recevoir des arguments",
+      "answer_mode": "single",
+      "question_type": "bornes",
+      "prompt": "Avec `int main(int argc, char *argv[])`, quelle vérification permet de lire `argv[1]` comme une chaîne sans accéder à une sentinelle ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "`argc >= 1`"
+        },
+        {
+          "id": "B",
+          "text": "`argc == 1`"
+        },
+        {
+          "id": "C",
+          "text": "`argc > 1`"
+        },
+        {
+          "id": "D",
+          "text": "`argc < 1`"
+        }
+      ],
+      "correct_option_ids": [
+        "C"
+      ],
+      "explanation": "argv[1] est le premier argument utilisateur uniquement lorsqu'il existe au moins deux éléments : argc > 1.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/73-main-int-argc-char-argv-recevoir-des-arguments",
+        "https://publications.gbdirect.com/c_book/chapter10/arguments_to_main.html",
+        "https://en.cppreference.com/w/c/language/main_function"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "nouveau_projet_argc_argv",
+        "relecture_independante_requise",
+        "fiche_pr22_non_publiee"
+      ]
+    },
+    {
+      "id": "V1-N09_072-05",
+      "notion_id": "N09_072",
+      "legacy_notion_key": "9:72",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "main(int argc, char *argv[]) — recevoir des arguments",
+      "answer_mode": "single",
+      "question_type": "equivalence",
+      "prompt": "Quel paramètre de `main` est équivalent à `char *argv[]` après ajustement du type tableau en paramètre ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "`char argv`"
+        },
+        {
+          "id": "B",
+          "text": "`char **argv`"
+        },
+        {
+          "id": "C",
+          "text": "`int *argv`"
+        },
+        {
+          "id": "D",
+          "text": "`char (*argv)[10]`"
+        }
+      ],
+      "correct_option_ids": [
+        "B"
+      ],
+      "explanation": "Dans un paramètre, un tableau de pointeurs vers char est ajusté en pointeur vers pointeur de char : char **argv.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/73-main-int-argc-char-argv-recevoir-des-arguments",
+        "https://publications.gbdirect.com/c_book/chapter10/arguments_to_main.html",
+        "https://en.cppreference.com/w/c/language/main_function"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "nouveau_projet_argc_argv",
+        "relecture_independante_requise",
+        "fiche_pr22_non_publiee"
+      ]
+    },
+    {
+      "id": "V1-N09_073-01",
+      "notion_id": "N09_073",
+      "legacy_notion_key": "9:73",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "argc — compter les arguments de la ligne de commande",
+      "answer_mode": "single",
+      "question_type": "comptage",
+      "prompt": "Sous Linux, le programme `./outil` reçoit les trois paramètres `un`, `deux`, `trois`. Quelle est normalement la valeur de argc ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "3"
+        },
+        {
+          "id": "B",
+          "text": "2"
+        },
+        {
+          "id": "C",
+          "text": "0"
+        },
+        {
+          "id": "D",
+          "text": "4"
+        }
+      ],
+      "correct_option_ids": [
+        "D"
+      ],
+      "explanation": "L'élément argv[0] (l'invocation) s'ajoute aux trois arguments utilisateur : argc vaut 4.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/74-argc-compter-les-arguments-de-la-ligne-de-commande",
+        "https://publications.gbdirect.com/c_book/chapter10/arguments_to_main.html",
+        "https://en.cppreference.com/w/c/language/main_function"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "nouveau_projet_argc_argv",
+        "relecture_independante_requise",
+        "fiche_pr22_non_publiee"
+      ]
+    },
+    {
+      "id": "V1-N09_073-02",
+      "notion_id": "N09_073",
+      "legacy_notion_key": "9:73",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "argc — compter les arguments de la ligne de commande",
+      "answer_mode": "single",
+      "question_type": "cas-limite",
+      "prompt": "Lorsqu'on lance normalement `./outil` sans argument supplémentaire sous Linux, que vaut argc ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "0"
+        },
+        {
+          "id": "B",
+          "text": "1"
+        },
+        {
+          "id": "C",
+          "text": "2"
+        },
+        {
+          "id": "D",
+          "text": "Cela dépend de strlen(argv[0])."
+        }
+      ],
+      "correct_option_ids": [
+        "B"
+      ],
+      "explanation": "Dans cette invocation habituelle, argc vaut 1 parce que argv[0] contient le nom ou chemin d'invocation.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/74-argc-compter-les-arguments-de-la-ligne-de-commande",
+        "https://publications.gbdirect.com/c_book/chapter10/arguments_to_main.html",
+        "https://en.cppreference.com/w/c/language/main_function"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "nouveau_projet_argc_argv",
+        "relecture_independante_requise",
+        "fiche_pr22_non_publiee"
+      ]
+    },
+    {
+      "id": "V1-N09_073-03",
+      "notion_id": "N09_073",
+      "legacy_notion_key": "9:73",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "argc — compter les arguments de la ligne de commande",
+      "answer_mode": "single",
+      "question_type": "interpretation",
+      "prompt": "Dans une invocation normale où argc vaut 3, combien d'arguments utilisateur ont été fournis ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "2"
+        },
+        {
+          "id": "B",
+          "text": "3"
+        },
+        {
+          "id": "C",
+          "text": "4"
+        },
+        {
+          "id": "D",
+          "text": "0"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "argv[0] correspond à l'invocation. Les deux autres éléments, argv[1] et argv[2], sont les arguments utilisateur.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/74-argc-compter-les-arguments-de-la-ligne-de-commande",
+        "https://publications.gbdirect.com/c_book/chapter10/arguments_to_main.html",
+        "https://en.cppreference.com/w/c/language/main_function"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "nouveau_projet_argc_argv",
+        "relecture_independante_requise",
+        "fiche_pr22_non_publiee"
+      ]
+    },
+    {
+      "id": "V1-N09_073-04",
+      "notion_id": "N09_073",
+      "legacy_notion_key": "9:73",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "argc — compter les arguments de la ligne de commande",
+      "answer_mode": "multiple",
+      "question_type": "raisonnement",
+      "prompt": "Lesquelles de ces affirmations sur argc sont correctes en C ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "argc est un pointeur vers le premier argument."
+        },
+        {
+          "id": "B",
+          "text": "argc est un entier non négatif."
+        },
+        {
+          "id": "C",
+          "text": "argc indique le nombre de caractères de argv[1]."
+        },
+        {
+          "id": "D",
+          "text": "Dans un lancement classique, argc compte également argv[0]."
+        }
+      ],
+      "correct_option_ids": [
+        "B",
+        "D"
+      ],
+      "explanation": "argc est un int comptant les éléments avant la sentinelle ; il ne mesure pas la longueur d'une chaîne. Le nom d'invocation est normalement compté sous Linux.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/74-argc-compter-les-arguments-de-la-ligne-de-commande",
+        "https://publications.gbdirect.com/c_book/chapter10/arguments_to_main.html",
+        "https://en.cppreference.com/w/c/language/main_function"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "nouveau_projet_argc_argv",
+        "relecture_independante_requise",
+        "fiche_pr22_non_publiee"
+      ]
+    },
+    {
+      "id": "V1-N09_073-05",
+      "notion_id": "N09_073",
+      "legacy_notion_key": "9:73",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "argc — compter les arguments de la ligne de commande",
+      "answer_mode": "single",
+      "question_type": "distinction",
+      "prompt": "Quelle expression mesure la longueur de la chaîne `argv[1]`, une fois l'existence et la validité de cet argument assurées ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "`argc - 1`"
+        },
+        {
+          "id": "B",
+          "text": "`sizeof argv`"
+        },
+        {
+          "id": "C",
+          "text": "`strlen(argv[1])`"
+        },
+        {
+          "id": "D",
+          "text": "`argv[argc]`"
+        }
+      ],
+      "correct_option_ids": [
+        "C"
+      ],
+      "explanation": "strlen calcule le nombre de caractères avant le terminateur nul de cette chaîne ; argc compte les arguments et sizeof argv mesure le pointeur dans main.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/74-argc-compter-les-arguments-de-la-ligne-de-commande",
+        "https://publications.gbdirect.com/c_book/chapter10/arguments_to_main.html",
+        "https://en.cppreference.com/w/c/language/main_function"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "nouveau_projet_argc_argv",
+        "relecture_independante_requise",
+        "fiche_pr22_non_publiee"
+      ]
+    },
+    {
+      "id": "V1-N09_074-01",
+      "notion_id": "N09_074",
+      "legacy_notion_key": "9:74",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "argv — tableau de chaînes et indices",
+      "answer_mode": "single",
+      "question_type": "indice",
+      "prompt": "Dans une invocation normale `./outil rouge`, que désigne habituellement argv[0] ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "La chaîne rouge"
+        },
+        {
+          "id": "B",
+          "text": "Le nom ou chemin d'invocation du programme"
+        },
+        {
+          "id": "C",
+          "text": "Un pointeur NULL"
+        },
+        {
+          "id": "D",
+          "text": "Le nombre total d'arguments"
+        }
+      ],
+      "correct_option_ids": [
+        "B"
+      ],
+      "explanation": "argv[0] représente habituellement le nom ou chemin utilisé pour lancer le programme ; rouge se trouve à argv[1].",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/75-argv-tableau-de-chaines-et-indices",
+        "https://publications.gbdirect.com/c_book/chapter10/arguments_to_main.html",
+        "https://en.cppreference.com/w/c/language/main_function"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "nouveau_projet_argc_argv",
+        "relecture_independante_requise",
+        "fiche_pr22_non_publiee"
+      ]
+    },
+    {
+      "id": "V1-N09_074-02",
+      "notion_id": "N09_074",
+      "legacy_notion_key": "9:74",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "argv — tableau de chaînes et indices",
+      "answer_mode": "single",
+      "question_type": "guillemets",
+      "prompt": "Dans la commande shell `./outil \"deux mots\"`, combien d'arguments utilisateur sont normalement transmis ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "0"
+        },
+        {
+          "id": "B",
+          "text": "2"
+        },
+        {
+          "id": "C",
+          "text": "3"
+        },
+        {
+          "id": "D",
+          "text": "1"
+        }
+      ],
+      "correct_option_ids": [
+        "D"
+      ],
+      "explanation": "Les guillemets de la ligne de commande permettent au shell de transmettre deux mots comme une seule chaîne argument.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/75-argv-tableau-de-chaines-et-indices",
+        "https://publications.gbdirect.com/c_book/chapter10/arguments_to_main.html",
+        "https://en.cppreference.com/w/c/language/main_function"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "nouveau_projet_argc_argv",
+        "relecture_independante_requise",
+        "fiche_pr22_non_publiee"
+      ]
+    },
+    {
+      "id": "V1-N09_074-03",
+      "notion_id": "N09_074",
+      "legacy_notion_key": "9:74",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "argv — tableau de chaînes et indices",
+      "answer_mode": "single",
+      "question_type": "index",
+      "prompt": "Lorsqu'une invocation normale fournit `argc == 3`, quel élément contient le deuxième argument utilisateur ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "`argv[2]`"
+        },
+        {
+          "id": "B",
+          "text": "`argv[1]`"
+        },
+        {
+          "id": "C",
+          "text": "`argv[3]`"
+        },
+        {
+          "id": "D",
+          "text": "`argv[0]`"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "argv[0] est l'invocation, argv[1] le premier argument utilisateur et argv[2] le deuxième.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/75-argv-tableau-de-chaines-et-indices",
+        "https://publications.gbdirect.com/c_book/chapter10/arguments_to_main.html",
+        "https://en.cppreference.com/w/c/language/main_function"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "nouveau_projet_argc_argv",
+        "relecture_independante_requise",
+        "fiche_pr22_non_publiee"
+      ]
+    },
+    {
+      "id": "V1-N09_074-04",
+      "notion_id": "N09_074",
+      "legacy_notion_key": "9:74",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "argv — tableau de chaînes et indices",
+      "answer_mode": "multiple",
+      "question_type": "raisonnement",
+      "prompt": "Quelles affirmations sur les éléments de argv sont exactes ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Pour un indice i valide inférieur à argc, argv[i] pointe vers une chaîne terminée par '\\0'."
+        },
+        {
+          "id": "B",
+          "text": "argv[i] est toujours un int."
+        },
+        {
+          "id": "C",
+          "text": "argv[argc] vaut NULL et ne représente aucune chaîne à afficher."
+        },
+        {
+          "id": "D",
+          "text": "Chaque argument occupe obligatoirement un tableau de même longueur."
+        }
+      ],
+      "correct_option_ids": [
+        "A",
+        "C"
+      ],
+      "explanation": "Les éléments 0 à argc-1 sont des pointeurs de chaînes ; le pointeur de fin argv[argc] est NULL. Les textes peuvent avoir des longueurs différentes.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/75-argv-tableau-de-chaines-et-indices",
+        "https://publications.gbdirect.com/c_book/chapter10/arguments_to_main.html",
+        "https://en.cppreference.com/w/c/language/main_function"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "nouveau_projet_argc_argv",
+        "relecture_independante_requise",
+        "fiche_pr22_non_publiee"
+      ]
+    },
+    {
+      "id": "V1-N09_074-05",
+      "notion_id": "N09_074",
+      "legacy_notion_key": "9:74",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "argv — tableau de chaînes et indices",
+      "answer_mode": "single",
+      "question_type": "securite",
+      "prompt": "Avant d'utiliser argv[2] comme chaîne, quel test d'existence faut-il effectuer ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "`argc > 1`"
+        },
+        {
+          "id": "B",
+          "text": "`argc == 2`"
+        },
+        {
+          "id": "C",
+          "text": "`argc >= 0`"
+        },
+        {
+          "id": "D",
+          "text": "`argc > 2`"
+        }
+      ],
+      "correct_option_ids": [
+        "D"
+      ],
+      "explanation": "argv[2] est un argument valable seulement s'il existe au moins trois éléments avant la sentinelle, donc argc > 2.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/75-argv-tableau-de-chaines-et-indices",
+        "https://publications.gbdirect.com/c_book/chapter10/arguments_to_main.html",
+        "https://en.cppreference.com/w/c/language/main_function"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "nouveau_projet_argc_argv",
+        "relecture_independante_requise",
+        "fiche_pr22_non_publiee"
+      ]
+    },
+    {
+      "id": "V1-N09_075-01",
+      "notion_id": "N09_075",
+      "legacy_notion_key": "9:75",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "argv[i][j] — caractère d'un argument et double indirection",
+      "answer_mode": "single",
+      "question_type": "declaration",
+      "prompt": "Dans un paramètre de fonction C, à quel type est ajusté `char *argv[]` ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "`char *`"
+        },
+        {
+          "id": "B",
+          "text": "`char **`"
+        },
+        {
+          "id": "C",
+          "text": "`char`"
+        },
+        {
+          "id": "D",
+          "text": "`char (*)[2]`"
+        }
+      ],
+      "correct_option_ids": [
+        "B"
+      ],
+      "explanation": "Un paramètre déclaré comme tableau de pointeurs vers char est ajusté en pointeur vers pointeur de char.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/76-argv-i-j-caractere-d-un-argument-et-double-indirection",
+        "https://publications.gbdirect.com/c_book/chapter10/arguments_to_main.html",
+        "https://en.cppreference.com/w/c/language/main_function"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "nouveau_projet_argc_argv",
+        "relecture_independante_requise",
+        "fiche_pr22_non_publiee"
+      ]
+    },
+    {
+      "id": "V1-N09_075-02",
+      "notion_id": "N09_075",
+      "legacy_notion_key": "9:75",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "argv[i][j] — caractère d'un argument et double indirection",
+      "answer_mode": "single",
+      "question_type": "caractere",
+      "prompt": "Si argv[1] désigne la chaîne `code`, quelle est la valeur de argv[1][0] ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "`'c'`"
+        },
+        {
+          "id": "B",
+          "text": "`'o'`"
+        },
+        {
+          "id": "C",
+          "text": "`'\\0'`"
+        },
+        {
+          "id": "D",
+          "text": "`'d'`"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "L'indice 0 sélectionne le premier caractère de la chaîne code, donc c.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/76-argv-i-j-caractere-d-un-argument-et-double-indirection",
+        "https://publications.gbdirect.com/c_book/chapter10/arguments_to_main.html",
+        "https://en.cppreference.com/w/c/language/main_function"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "nouveau_projet_argc_argv",
+        "relecture_independante_requise",
+        "fiche_pr22_non_publiee"
+      ]
+    },
+    {
+      "id": "V1-N09_075-03",
+      "notion_id": "N09_075",
+      "legacy_notion_key": "9:75",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "argv[i][j] — caractère d'un argument et double indirection",
+      "answer_mode": "single",
+      "question_type": "arithmetique",
+      "prompt": "Pour `argv[1]` égal à `code`, que désigne `*(*(argv + 1) + 1)` ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Le pointeur argv[0]"
+        },
+        {
+          "id": "B",
+          "text": "Le caractère c"
+        },
+        {
+          "id": "C",
+          "text": "Le terminateur nul après code"
+        },
+        {
+          "id": "D",
+          "text": "Le caractère o"
+        }
+      ],
+      "correct_option_ids": [
+        "D"
+      ],
+      "explanation": "argv+1 atteint le pointeur de la première chaîne utilisateur, puis +1 atteint son deuxième caractère, o.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/76-argv-i-j-caractere-d-un-argument-et-double-indirection",
+        "https://publications.gbdirect.com/c_book/chapter10/arguments_to_main.html",
+        "https://en.cppreference.com/w/c/language/main_function"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "nouveau_projet_argc_argv",
+        "relecture_independante_requise",
+        "fiche_pr22_non_publiee"
+      ]
+    },
+    {
+      "id": "V1-N09_075-04",
+      "notion_id": "N09_075",
+      "legacy_notion_key": "9:75",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "argv[i][j] — caractère d'un argument et double indirection",
+      "answer_mode": "single",
+      "question_type": "bornes",
+      "prompt": "Quel test empêche de lire argv[1][1] lorsque le premier argument utilisateur est absent ou ne contient qu'un caractère ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "`argc > 0`"
+        },
+        {
+          "id": "B",
+          "text": "`argv[1][1] != NULL`"
+        },
+        {
+          "id": "C",
+          "text": "`argc > 1 && argv[1][0] != '\\0' && argv[1][1] != '\\0'`"
+        },
+        {
+          "id": "D",
+          "text": "`argc == 1 || argv[1][1] != '\\0'`"
+        }
+      ],
+      "correct_option_ids": [
+        "C"
+      ],
+      "explanation": "L'évaluation courte garantit d'abord que argv[1] existe ; on contrôle ensuite le premier puis le deuxième caractère.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/76-argv-i-j-caractere-d-un-argument-et-double-indirection",
+        "https://publications.gbdirect.com/c_book/chapter10/arguments_to_main.html",
+        "https://en.cppreference.com/w/c/language/main_function"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "nouveau_projet_argc_argv",
+        "relecture_independante_requise",
+        "fiche_pr22_non_publiee"
+      ]
+    },
+    {
+      "id": "V1-N09_075-05",
+      "notion_id": "N09_075",
+      "legacy_notion_key": "9:75",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "argv[i][j] — caractère d'un argument et double indirection",
+      "answer_mode": "multiple",
+      "question_type": "raisonnement",
+      "prompt": "Quelles affirmations sur `argv[i][j]` sont correctes ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "i choisit une chaîne argument et j un caractère à l'intérieur."
+        },
+        {
+          "id": "B",
+          "text": "i sélectionne un octet de argc."
+        },
+        {
+          "id": "C",
+          "text": "L'accès nécessite un indice d'argument valide et un indice de caractère compatible avec la chaîne."
+        },
+        {
+          "id": "D",
+          "text": "Toutes les chaînes argv[i] ont forcément la même longueur."
+        }
+      ],
+      "correct_option_ids": [
+        "A",
+        "C"
+      ],
+      "explanation": "argv est un ensemble de pointeurs vers des chaînes, pas une matrice de lignes de longueur fixe.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/76-argv-i-j-caractere-d-un-argument-et-double-indirection",
+        "https://publications.gbdirect.com/c_book/chapter10/arguments_to_main.html",
+        "https://en.cppreference.com/w/c/language/main_function"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "nouveau_projet_argc_argv",
+        "relecture_independante_requise",
+        "fiche_pr22_non_publiee"
+      ]
+    },
+    {
+      "id": "V1-N09_076-01",
+      "notion_id": "N09_076",
+      "legacy_notion_key": "9:76",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "argv[argc] == NULL — borne de fin et parcours sûr",
+      "answer_mode": "single",
+      "question_type": "sentinelle",
+      "prompt": "En C hébergé, quelle valeur possède l'élément argv[argc] ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Le caractère '0'"
+        },
+        {
+          "id": "B",
+          "text": "La chaîne vide"
+        },
+        {
+          "id": "C",
+          "text": "Le pointeur NULL"
+        },
+        {
+          "id": "D",
+          "text": "L'adresse de argc"
+        }
+      ],
+      "correct_option_ids": [
+        "C"
+      ],
+      "explanation": "La norme garantit qu'après les argc arguments se trouve un pointeur NULL, qui sert de sentinelle.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/77-argv-argc-null-borne-de-fin-et-parcours-sur",
+        "https://publications.gbdirect.com/c_book/chapter10/arguments_to_main.html",
+        "https://en.cppreference.com/w/c/language/main_function"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "nouveau_projet_argc_argv",
+        "relecture_independante_requise",
+        "fiche_pr22_non_publiee"
+      ]
+    },
+    {
+      "id": "V1-N09_076-02",
+      "notion_id": "N09_076",
+      "legacy_notion_key": "9:76",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "argv[argc] == NULL — borne de fin et parcours sûr",
+      "answer_mode": "single",
+      "question_type": "parcours",
+      "prompt": "Lorsqu'argc vaut 3, combien de fois s'exécute normalement la boucle `for (i = 1; i < argc; i++)` ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "3"
+        },
+        {
+          "id": "B",
+          "text": "2"
+        },
+        {
+          "id": "C",
+          "text": "1"
+        },
+        {
+          "id": "D",
+          "text": "4"
+        }
+      ],
+      "correct_option_ids": [
+        "B"
+      ],
+      "explanation": "La boucle parcourt i=1 puis i=2 ; elle n'accède ni à argv[0] ni à la sentinelle argv[3].",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/77-argv-argc-null-borne-de-fin-et-parcours-sur",
+        "https://publications.gbdirect.com/c_book/chapter10/arguments_to_main.html",
+        "https://en.cppreference.com/w/c/language/main_function"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "nouveau_projet_argc_argv",
+        "relecture_independante_requise",
+        "fiche_pr22_non_publiee"
+      ]
+    },
+    {
+      "id": "V1-N09_076-03",
+      "notion_id": "N09_076",
+      "legacy_notion_key": "9:76",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "argv[argc] == NULL — borne de fin et parcours sûr",
+      "answer_mode": "single",
+      "question_type": "dernier",
+      "prompt": "Si argc vaut 4, à quel indice se trouve le dernier élément chaîne valide de argv ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "4"
+        },
+        {
+          "id": "B",
+          "text": "0"
+        },
+        {
+          "id": "C",
+          "text": "5"
+        },
+        {
+          "id": "D",
+          "text": "3"
+        }
+      ],
+      "correct_option_ids": [
+        "D"
+      ],
+      "explanation": "Les chaînes valides occupent les indices 0 à argc-1, soit ici 0 à 3. argv[4] est NULL.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/77-argv-argc-null-borne-de-fin-et-parcours-sur",
+        "https://publications.gbdirect.com/c_book/chapter10/arguments_to_main.html",
+        "https://en.cppreference.com/w/c/language/main_function"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "nouveau_projet_argc_argv",
+        "relecture_independante_requise",
+        "fiche_pr22_non_publiee"
+      ]
+    },
+    {
+      "id": "V1-N09_076-04",
+      "notion_id": "N09_076",
+      "legacy_notion_key": "9:76",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "argv[argc] == NULL — borne de fin et parcours sûr",
+      "answer_mode": "single",
+      "question_type": "erreur",
+      "prompt": "Quelle opération doit être évitée pour le pointeur de fin argv[argc] ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "`puts(argv[argc]);`"
+        },
+        {
+          "id": "B",
+          "text": "`argv[argc] == NULL`"
+        },
+        {
+          "id": "C",
+          "text": "`argv[argc] != NULL`"
+        },
+        {
+          "id": "D",
+          "text": "`argc >= 0`"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "argv[argc] est NULL : l'utiliser comme argument chaîne de puts demanderait une chaîne valide et n'est pas permis.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/77-argv-argc-null-borne-de-fin-et-parcours-sur",
+        "https://publications.gbdirect.com/c_book/chapter10/arguments_to_main.html",
+        "https://en.cppreference.com/w/c/language/main_function"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "nouveau_projet_argc_argv",
+        "relecture_independante_requise",
+        "fiche_pr22_non_publiee"
+      ]
+    },
+    {
+      "id": "V1-N09_076-05",
+      "notion_id": "N09_076",
+      "legacy_notion_key": "9:76",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "argv[argc] == NULL — borne de fin et parcours sûr",
+      "answer_mode": "multiple",
+      "question_type": "distinction",
+      "prompt": "Quelles affirmations distinguent correctement le terminateur de chaîne et la sentinelle de argv ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Le dernier caractère de chaque argument est le pointeur NULL."
+        },
+        {
+          "id": "B",
+          "text": "Chaque chaîne argv[i] valable est terminée par le caractère nul '\\0'."
+        },
+        {
+          "id": "C",
+          "text": "argv[argc] contient nécessairement la chaîne littérale \"NULL\"."
+        },
+        {
+          "id": "D",
+          "text": "argv[argc] est un pointeur nul qui marque la fin de la liste des arguments."
+        }
+      ],
+      "correct_option_ids": [
+        "B",
+        "D"
+      ],
+      "explanation": "Le caractère '\\0' termine le contenu d'une chaîne C, alors que le pointeur NULL termine la suite de pointeurs de argv.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/77-argv-argc-null-borne-de-fin-et-parcours-sur",
+        "https://publications.gbdirect.com/c_book/chapter10/arguments_to_main.html",
+        "https://en.cppreference.com/w/c/language/main_function"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "nouveau_projet_argc_argv",
+        "relecture_independante_requise",
+        "fiche_pr22_non_publiee"
+      ]
     }
   ]
 }

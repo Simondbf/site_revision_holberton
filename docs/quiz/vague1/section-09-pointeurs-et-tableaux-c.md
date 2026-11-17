@@ -5762,3 +5762,498 @@ Quelles affirmations concernent directement « qsort() — comparateur passé pa
 
 ---
 
+## N09_072 — main(int argc, char *argv[]) — recevoir des arguments
+
+[Fiche de révision](https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/73-main-int-argc-char-argv-recevoir-des-arguments)
+
+### V1-N09_072-01 — signature
+
+**Une seule bonne réponse**
+
+Quelle définition de `main` permet de recevoir des arguments transmis au lancement d'un programme C hébergé ?
+
+- **A ✅** `int main(int argc, char *argv[])`
+- **B ❌** `int main(char *argv)`
+- **C ❌** `void main(int argc)`
+- **D ❌** `int main(int *argc, char *argv[])`
+
+**Réponse proposée :** A. Le programme reçoit un entier argc et une suite de pointeurs vers des chaînes via argv. Les autres propositions ne sont pas les formes standards attendues de main.
+
+**Sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/73-main-int-argc-char-argv-recevoir-des-arguments · https://publications.gbdirect.com/c_book/chapter10/arguments_to_main.html · https://en.cppreference.com/w/c/language/main_function
+
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
+
+---
+
+### V1-N09_072-02 — comptage
+
+**Une seule bonne réponse**
+
+Sous Linux, pour la commande `./outil bonjour "deux mots"`, quelle valeur de argc reçoit normalement main ?
+
+- **A ❌** 1
+- **B ❌** 2
+- **C ✅** 3
+- **D ❌** 4
+
+**Réponse proposée :** C. L'invocation compte comme argv[0], bonjour comme argv[1] et deux mots comme argv[2] : trois éléments.
+
+**Sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/73-main-int-argc-char-argv-recevoir-des-arguments · https://publications.gbdirect.com/c_book/chapter10/arguments_to_main.html · https://en.cppreference.com/w/c/language/main_function
+
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
+
+---
+
+### V1-N09_072-03 — raisonnement
+
+**Plusieurs bonnes réponses**
+
+Quelles affirmations à propos des arguments de `main` sont correctes ?
+
+- **A ❌** Les arguments sont lus exclusivement par scanf.
+- **B ✅** Les arguments sont transmis lors du lancement du programme.
+- **C ❌** Le C force chaque argument à être un entier.
+- **D ✅** Un shell peut grouper deux mots entre guillemets en un seul argument.
+
+**Réponse proposée :** B, D. Les arguments sont disponibles avant toute lecture sur l'entrée standard ; le shell peut regrouper les mots. En C, argv fournit des chaînes, pas directement des entiers.
+
+**Sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/73-main-int-argc-char-argv-recevoir-des-arguments · https://publications.gbdirect.com/c_book/chapter10/arguments_to_main.html · https://en.cppreference.com/w/c/language/main_function
+
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
+
+---
+
+### V1-N09_072-04 — bornes
+
+**Une seule bonne réponse**
+
+Avec `int main(int argc, char *argv[])`, quelle vérification permet de lire `argv[1]` comme une chaîne sans accéder à une sentinelle ?
+
+- **A ❌** `argc >= 1`
+- **B ❌** `argc == 1`
+- **C ✅** `argc > 1`
+- **D ❌** `argc < 1`
+
+**Réponse proposée :** C. argv[1] est le premier argument utilisateur uniquement lorsqu'il existe au moins deux éléments : argc > 1.
+
+**Sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/73-main-int-argc-char-argv-recevoir-des-arguments · https://publications.gbdirect.com/c_book/chapter10/arguments_to_main.html · https://en.cppreference.com/w/c/language/main_function
+
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
+
+---
+
+### V1-N09_072-05 — equivalence
+
+**Une seule bonne réponse**
+
+Quel paramètre de `main` est équivalent à `char *argv[]` après ajustement du type tableau en paramètre ?
+
+- **A ❌** `char argv`
+- **B ✅** `char **argv`
+- **C ❌** `int *argv`
+- **D ❌** `char (*argv)[10]`
+
+**Réponse proposée :** B. Dans un paramètre, un tableau de pointeurs vers char est ajusté en pointeur vers pointeur de char : char **argv.
+
+**Sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/73-main-int-argc-char-argv-recevoir-des-arguments · https://publications.gbdirect.com/c_book/chapter10/arguments_to_main.html · https://en.cppreference.com/w/c/language/main_function
+
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
+
+---
+
+## N09_073 — argc — compter les arguments de la ligne de commande
+
+[Fiche de révision](https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/74-argc-compter-les-arguments-de-la-ligne-de-commande)
+
+### V1-N09_073-01 — comptage
+
+**Une seule bonne réponse**
+
+Sous Linux, le programme `./outil` reçoit les trois paramètres `un`, `deux`, `trois`. Quelle est normalement la valeur de argc ?
+
+- **A ❌** 3
+- **B ❌** 2
+- **C ❌** 0
+- **D ✅** 4
+
+**Réponse proposée :** D. L'élément argv[0] (l'invocation) s'ajoute aux trois arguments utilisateur : argc vaut 4.
+
+**Sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/74-argc-compter-les-arguments-de-la-ligne-de-commande · https://publications.gbdirect.com/c_book/chapter10/arguments_to_main.html · https://en.cppreference.com/w/c/language/main_function
+
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
+
+---
+
+### V1-N09_073-02 — cas-limite
+
+**Une seule bonne réponse**
+
+Lorsqu'on lance normalement `./outil` sans argument supplémentaire sous Linux, que vaut argc ?
+
+- **A ❌** 0
+- **B ✅** 1
+- **C ❌** 2
+- **D ❌** Cela dépend de strlen(argv[0]).
+
+**Réponse proposée :** B. Dans cette invocation habituelle, argc vaut 1 parce que argv[0] contient le nom ou chemin d'invocation.
+
+**Sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/74-argc-compter-les-arguments-de-la-ligne-de-commande · https://publications.gbdirect.com/c_book/chapter10/arguments_to_main.html · https://en.cppreference.com/w/c/language/main_function
+
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
+
+---
+
+### V1-N09_073-03 — interpretation
+
+**Une seule bonne réponse**
+
+Dans une invocation normale où argc vaut 3, combien d'arguments utilisateur ont été fournis ?
+
+- **A ✅** 2
+- **B ❌** 3
+- **C ❌** 4
+- **D ❌** 0
+
+**Réponse proposée :** A. argv[0] correspond à l'invocation. Les deux autres éléments, argv[1] et argv[2], sont les arguments utilisateur.
+
+**Sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/74-argc-compter-les-arguments-de-la-ligne-de-commande · https://publications.gbdirect.com/c_book/chapter10/arguments_to_main.html · https://en.cppreference.com/w/c/language/main_function
+
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
+
+---
+
+### V1-N09_073-04 — raisonnement
+
+**Plusieurs bonnes réponses**
+
+Lesquelles de ces affirmations sur argc sont correctes en C ?
+
+- **A ❌** argc est un pointeur vers le premier argument.
+- **B ✅** argc est un entier non négatif.
+- **C ❌** argc indique le nombre de caractères de argv[1].
+- **D ✅** Dans un lancement classique, argc compte également argv[0].
+
+**Réponse proposée :** B, D. argc est un int comptant les éléments avant la sentinelle ; il ne mesure pas la longueur d'une chaîne. Le nom d'invocation est normalement compté sous Linux.
+
+**Sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/74-argc-compter-les-arguments-de-la-ligne-de-commande · https://publications.gbdirect.com/c_book/chapter10/arguments_to_main.html · https://en.cppreference.com/w/c/language/main_function
+
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
+
+---
+
+### V1-N09_073-05 — distinction
+
+**Une seule bonne réponse**
+
+Quelle expression mesure la longueur de la chaîne `argv[1]`, une fois l'existence et la validité de cet argument assurées ?
+
+- **A ❌** `argc - 1`
+- **B ❌** `sizeof argv`
+- **C ✅** `strlen(argv[1])`
+- **D ❌** `argv[argc]`
+
+**Réponse proposée :** C. strlen calcule le nombre de caractères avant le terminateur nul de cette chaîne ; argc compte les arguments et sizeof argv mesure le pointeur dans main.
+
+**Sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/74-argc-compter-les-arguments-de-la-ligne-de-commande · https://publications.gbdirect.com/c_book/chapter10/arguments_to_main.html · https://en.cppreference.com/w/c/language/main_function
+
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
+
+---
+
+## N09_074 — argv — tableau de chaînes et indices
+
+[Fiche de révision](https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/75-argv-tableau-de-chaines-et-indices)
+
+### V1-N09_074-01 — indice
+
+**Une seule bonne réponse**
+
+Dans une invocation normale `./outil rouge`, que désigne habituellement argv[0] ?
+
+- **A ❌** La chaîne rouge
+- **B ✅** Le nom ou chemin d'invocation du programme
+- **C ❌** Un pointeur NULL
+- **D ❌** Le nombre total d'arguments
+
+**Réponse proposée :** B. argv[0] représente habituellement le nom ou chemin utilisé pour lancer le programme ; rouge se trouve à argv[1].
+
+**Sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/75-argv-tableau-de-chaines-et-indices · https://publications.gbdirect.com/c_book/chapter10/arguments_to_main.html · https://en.cppreference.com/w/c/language/main_function
+
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
+
+---
+
+### V1-N09_074-02 — guillemets
+
+**Une seule bonne réponse**
+
+Dans la commande shell `./outil "deux mots"`, combien d'arguments utilisateur sont normalement transmis ?
+
+- **A ❌** 0
+- **B ❌** 2
+- **C ❌** 3
+- **D ✅** 1
+
+**Réponse proposée :** D. Les guillemets de la ligne de commande permettent au shell de transmettre deux mots comme une seule chaîne argument.
+
+**Sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/75-argv-tableau-de-chaines-et-indices · https://publications.gbdirect.com/c_book/chapter10/arguments_to_main.html · https://en.cppreference.com/w/c/language/main_function
+
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
+
+---
+
+### V1-N09_074-03 — index
+
+**Une seule bonne réponse**
+
+Lorsqu'une invocation normale fournit `argc == 3`, quel élément contient le deuxième argument utilisateur ?
+
+- **A ✅** `argv[2]`
+- **B ❌** `argv[1]`
+- **C ❌** `argv[3]`
+- **D ❌** `argv[0]`
+
+**Réponse proposée :** A. argv[0] est l'invocation, argv[1] le premier argument utilisateur et argv[2] le deuxième.
+
+**Sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/75-argv-tableau-de-chaines-et-indices · https://publications.gbdirect.com/c_book/chapter10/arguments_to_main.html · https://en.cppreference.com/w/c/language/main_function
+
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
+
+---
+
+### V1-N09_074-04 — raisonnement
+
+**Plusieurs bonnes réponses**
+
+Quelles affirmations sur les éléments de argv sont exactes ?
+
+- **A ✅** Pour un indice i valide inférieur à argc, argv[i] pointe vers une chaîne terminée par '\0'.
+- **B ❌** argv[i] est toujours un int.
+- **C ✅** argv[argc] vaut NULL et ne représente aucune chaîne à afficher.
+- **D ❌** Chaque argument occupe obligatoirement un tableau de même longueur.
+
+**Réponse proposée :** A, C. Les éléments 0 à argc-1 sont des pointeurs de chaînes ; le pointeur de fin argv[argc] est NULL. Les textes peuvent avoir des longueurs différentes.
+
+**Sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/75-argv-tableau-de-chaines-et-indices · https://publications.gbdirect.com/c_book/chapter10/arguments_to_main.html · https://en.cppreference.com/w/c/language/main_function
+
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
+
+---
+
+### V1-N09_074-05 — securite
+
+**Une seule bonne réponse**
+
+Avant d'utiliser argv[2] comme chaîne, quel test d'existence faut-il effectuer ?
+
+- **A ❌** `argc > 1`
+- **B ❌** `argc == 2`
+- **C ❌** `argc >= 0`
+- **D ✅** `argc > 2`
+
+**Réponse proposée :** D. argv[2] est un argument valable seulement s'il existe au moins trois éléments avant la sentinelle, donc argc > 2.
+
+**Sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/75-argv-tableau-de-chaines-et-indices · https://publications.gbdirect.com/c_book/chapter10/arguments_to_main.html · https://en.cppreference.com/w/c/language/main_function
+
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
+
+---
+
+## N09_075 — argv[i][j] — caractère d'un argument et double indirection
+
+[Fiche de révision](https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/76-argv-i-j-caractere-d-un-argument-et-double-indirection)
+
+### V1-N09_075-01 — declaration
+
+**Une seule bonne réponse**
+
+Dans un paramètre de fonction C, à quel type est ajusté `char *argv[]` ?
+
+- **A ❌** `char *`
+- **B ✅** `char **`
+- **C ❌** `char`
+- **D ❌** `char (*)[2]`
+
+**Réponse proposée :** B. Un paramètre déclaré comme tableau de pointeurs vers char est ajusté en pointeur vers pointeur de char.
+
+**Sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/76-argv-i-j-caractere-d-un-argument-et-double-indirection · https://publications.gbdirect.com/c_book/chapter10/arguments_to_main.html · https://en.cppreference.com/w/c/language/main_function
+
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
+
+---
+
+### V1-N09_075-02 — caractere
+
+**Une seule bonne réponse**
+
+Si argv[1] désigne la chaîne `code`, quelle est la valeur de argv[1][0] ?
+
+- **A ✅** `'c'`
+- **B ❌** `'o'`
+- **C ❌** `'\0'`
+- **D ❌** `'d'`
+
+**Réponse proposée :** A. L'indice 0 sélectionne le premier caractère de la chaîne code, donc c.
+
+**Sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/76-argv-i-j-caractere-d-un-argument-et-double-indirection · https://publications.gbdirect.com/c_book/chapter10/arguments_to_main.html · https://en.cppreference.com/w/c/language/main_function
+
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
+
+---
+
+### V1-N09_075-03 — arithmetique
+
+**Une seule bonne réponse**
+
+Pour `argv[1]` égal à `code`, que désigne `*(*(argv + 1) + 1)` ?
+
+- **A ❌** Le pointeur argv[0]
+- **B ❌** Le caractère c
+- **C ❌** Le terminateur nul après code
+- **D ✅** Le caractère o
+
+**Réponse proposée :** D. argv+1 atteint le pointeur de la première chaîne utilisateur, puis +1 atteint son deuxième caractère, o.
+
+**Sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/76-argv-i-j-caractere-d-un-argument-et-double-indirection · https://publications.gbdirect.com/c_book/chapter10/arguments_to_main.html · https://en.cppreference.com/w/c/language/main_function
+
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
+
+---
+
+### V1-N09_075-04 — bornes
+
+**Une seule bonne réponse**
+
+Quel test empêche de lire argv[1][1] lorsque le premier argument utilisateur est absent ou ne contient qu'un caractère ?
+
+- **A ❌** `argc > 0`
+- **B ❌** `argv[1][1] != NULL`
+- **C ✅** `argc > 1 && argv[1][0] != '\0' && argv[1][1] != '\0'`
+- **D ❌** `argc == 1 || argv[1][1] != '\0'`
+
+**Réponse proposée :** C. L'évaluation courte garantit d'abord que argv[1] existe ; on contrôle ensuite le premier puis le deuxième caractère.
+
+**Sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/76-argv-i-j-caractere-d-un-argument-et-double-indirection · https://publications.gbdirect.com/c_book/chapter10/arguments_to_main.html · https://en.cppreference.com/w/c/language/main_function
+
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
+
+---
+
+### V1-N09_075-05 — raisonnement
+
+**Plusieurs bonnes réponses**
+
+Quelles affirmations sur `argv[i][j]` sont correctes ?
+
+- **A ✅** i choisit une chaîne argument et j un caractère à l'intérieur.
+- **B ❌** i sélectionne un octet de argc.
+- **C ✅** L'accès nécessite un indice d'argument valide et un indice de caractère compatible avec la chaîne.
+- **D ❌** Toutes les chaînes argv[i] ont forcément la même longueur.
+
+**Réponse proposée :** A, C. argv est un ensemble de pointeurs vers des chaînes, pas une matrice de lignes de longueur fixe.
+
+**Sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/76-argv-i-j-caractere-d-un-argument-et-double-indirection · https://publications.gbdirect.com/c_book/chapter10/arguments_to_main.html · https://en.cppreference.com/w/c/language/main_function
+
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
+
+---
+
+## N09_076 — argv[argc] == NULL — borne de fin et parcours sûr
+
+[Fiche de révision](https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/77-argv-argc-null-borne-de-fin-et-parcours-sur)
+
+### V1-N09_076-01 — sentinelle
+
+**Une seule bonne réponse**
+
+En C hébergé, quelle valeur possède l'élément argv[argc] ?
+
+- **A ❌** Le caractère '0'
+- **B ❌** La chaîne vide
+- **C ✅** Le pointeur NULL
+- **D ❌** L'adresse de argc
+
+**Réponse proposée :** C. La norme garantit qu'après les argc arguments se trouve un pointeur NULL, qui sert de sentinelle.
+
+**Sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/77-argv-argc-null-borne-de-fin-et-parcours-sur · https://publications.gbdirect.com/c_book/chapter10/arguments_to_main.html · https://en.cppreference.com/w/c/language/main_function
+
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
+
+---
+
+### V1-N09_076-02 — parcours
+
+**Une seule bonne réponse**
+
+Lorsqu'argc vaut 3, combien de fois s'exécute normalement la boucle `for (i = 1; i < argc; i++)` ?
+
+- **A ❌** 3
+- **B ✅** 2
+- **C ❌** 1
+- **D ❌** 4
+
+**Réponse proposée :** B. La boucle parcourt i=1 puis i=2 ; elle n'accède ni à argv[0] ni à la sentinelle argv[3].
+
+**Sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/77-argv-argc-null-borne-de-fin-et-parcours-sur · https://publications.gbdirect.com/c_book/chapter10/arguments_to_main.html · https://en.cppreference.com/w/c/language/main_function
+
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
+
+---
+
+### V1-N09_076-03 — dernier
+
+**Une seule bonne réponse**
+
+Si argc vaut 4, à quel indice se trouve le dernier élément chaîne valide de argv ?
+
+- **A ❌** 4
+- **B ❌** 0
+- **C ❌** 5
+- **D ✅** 3
+
+**Réponse proposée :** D. Les chaînes valides occupent les indices 0 à argc-1, soit ici 0 à 3. argv[4] est NULL.
+
+**Sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/77-argv-argc-null-borne-de-fin-et-parcours-sur · https://publications.gbdirect.com/c_book/chapter10/arguments_to_main.html · https://en.cppreference.com/w/c/language/main_function
+
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
+
+---
+
+### V1-N09_076-04 — erreur
+
+**Une seule bonne réponse**
+
+Quelle opération doit être évitée pour le pointeur de fin argv[argc] ?
+
+- **A ✅** `puts(argv[argc]);`
+- **B ❌** `argv[argc] == NULL`
+- **C ❌** `argv[argc] != NULL`
+- **D ❌** `argc >= 0`
+
+**Réponse proposée :** A. argv[argc] est NULL : l'utiliser comme argument chaîne de puts demanderait une chaîne valide et n'est pas permis.
+
+**Sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/77-argv-argc-null-borne-de-fin-et-parcours-sur · https://publications.gbdirect.com/c_book/chapter10/arguments_to_main.html · https://en.cppreference.com/w/c/language/main_function
+
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
+
+---
+
+### V1-N09_076-05 — distinction
+
+**Plusieurs bonnes réponses**
+
+Quelles affirmations distinguent correctement le terminateur de chaîne et la sentinelle de argv ?
+
+- **A ❌** Le dernier caractère de chaque argument est le pointeur NULL.
+- **B ✅** Chaque chaîne argv[i] valable est terminée par le caractère nul '\0'.
+- **C ❌** argv[argc] contient nécessairement la chaîne littérale "NULL".
+- **D ✅** argv[argc] est un pointeur nul qui marque la fin de la liste des arguments.
+
+**Réponse proposée :** B, D. Le caractère '\0' termine le contenu d'une chaîne C, alors que le pointeur NULL termine la suite de pointeurs de argv.
+
+**Sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/77-argv-argc-null-borne-de-fin-et-parcours-sur · https://publications.gbdirect.com/c_book/chapter10/arguments_to_main.html · https://en.cppreference.com/w/c/language/main_function
+
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
+
+---
+

@@ -6,7 +6,7 @@ assert.deepEqual(files,[
   'questions-application.json','questions-c-techniques.json',
   'section-09-pointeurs-et-tableaux-c.json','section-16-structures-et-typedef-en-c.json'
 ],'PR #19 doit contenir uniquement les deux thèmes et les deux collections associées');
-const expected=new Map([[9,72],[16,21]]);
+const expected=new Map([[9,77],[16,21]]);
 const ids=new Set(),notions=new Set();
 let structured=0,extra=0,multiple=0;
 const single=new Map([['A',0],['B',0],['C',0],['D',0]]);
@@ -45,10 +45,10 @@ for(const file of files){
   if(file.startsWith('section-'))structured++;else extra++;
  }
 }
-assert.equal(structured,372,'Questions structurées manquantes');
+assert.equal(structured,397,'Questions structurées manquantes');
 assert.equal(extra,122,'Questions transversales manquantes');
-assert.equal(ids.size,494,'Questions totales manquantes');
-assert.equal(notions.size,93,'Notions manquantes');
+assert.equal(ids.size,519,'Questions totales manquantes');
+assert.equal(notions.size,98,'Notions manquantes');
 assert.ok(multiple>0,'Aucune question à réponses multiples');
-console.log('PR #19 : 494 questions pour 93 notions, JSON et Markdown cohérents.');
+console.log('PR #19 : 519 questions pour 98 notions, JSON et Markdown cohérents.');
 console.log('Toutes les questions restent à vérifier pédagogiquement.');
