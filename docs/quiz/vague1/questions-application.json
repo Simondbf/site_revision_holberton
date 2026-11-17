@@ -5963,7 +5963,7 @@
       "notion": "Parcourir un tableau",
       "question_type": "indices",
       "answer_mode": "single",
-      "prompt": "Un tableau déclaré avec 1 éléments valides a quelle plage d'indices ?",
+      "prompt": "Un tableau C déclaré avec un seul élément possède quels indices valides ?",
       "options": [
         {
           "id": "A",

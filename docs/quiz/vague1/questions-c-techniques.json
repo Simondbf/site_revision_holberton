@@ -3924,7 +3924,7 @@
       "notion": "Base bundle — analyser le code de départ d'un lab",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Comment analyser un base bundle de lab inconnu ?",
+      "prompt": "Comment analyser les fichiers de départ fournis pour un exercice C inconnu ?",
       "options": [
         {
           "id": "A",

@@ -34,7 +34,7 @@ Quelle description caractérise « Prototype de fonction » ?
 - **A ❌** Un invariant est une condition que le programme doit préserver à des moments définis ; en sécurité mémoire, il exprime notamment les bornes et la validité des pointeurs.
 - **B ❌** Une vulnérabilité est une faiblesse du programme ; une attaque est une action visant à exploiter cette faiblesse.
 - **C ✅** Déclare le type de retour et les paramètres d’une fonction avant son utilisation ; la définition fournit son corps.
-- **D ❌** Le base bundle est l'ensemble de fichiers de départ fourni pour un exercice ; son audit consiste à vérifier les hypothèses, les entrées et les responsabilités mémoire avant d'émettre un diagnostic.
+- **D ❌** Le code de départ regroupe les fichiers fournis pour un exercice ; son audit consiste à vérifier les hypothèses, les entrées et les responsabilités mémoire avant d'émettre un diagnostic.
 
 **Réponse candidate :** C · **Explication :** Le résumé de la fiche indique : Déclare le type de retour et les paramètres d’une fonction avant son utilisation ; la définition fournit son corps.
 
@@ -50,7 +50,7 @@ Quelle description caractérise « Prototype de fonction » ?
 
 Quel point à retenir est directement associé à « Prototype de fonction » ?
 
-- **A ❌** Dans une question portant sur le « base bundle », les scénarios de double free doivent être confirmés dans les fichiers fournis. Les causes typiques à rechercher sont des chemins de libération multiples et une ownership ambiguë, pas une supposée vulnérabilité universelle du bundle.
+- **A ❌** Pour un projet C dont les fichiers de départ sont fournis, les scénarios de double free doivent être confirmés dans les fichiers fournis. Les causes typiques à rechercher sont des chemins de libération multiples et une ownership ambiguë, pas une supposée vulnérabilité universelle du bundle.
 - **B ❌** Un segfault ne prouve pas à lui seul qu'une attaque a eu lieu ; l'absence de crash n'exclut pas une vulnérabilité. On corrige d'abord la faiblesse du code.
 - **C ❌** Invariant de copie : n < capacité_dest garantit ici que n + 1 octets tiennent dans le tableau. Cela suppose que source est déjà une chaîne valide ; vérifier une longueur ne répare pas des octets écrits hors limites auparavant.
 - **D ✅** Un prototype permet de vérifier un appel, mais ne remplace pas la définition de la fonction.
@@ -194,7 +194,7 @@ Quelle description caractérise « Tester séparément » ?
 - **A ✅** Tester de petits cas et lire les avertissements du compilateur aide à comprendre une erreur sans recopier une solution.
 - **B ❌** Déclare le type de retour et les paramètres d’une fonction avant son utilisation ; la définition fournit son corps.
 - **C ❌** Une fonction C doit posséder une signature adaptée : type de retour, nom, liste de paramètres.
-- **D ❌** Le base bundle est l'ensemble de fichiers de départ fourni pour un exercice ; son audit consiste à vérifier les hypothèses, les entrées et les responsabilités mémoire avant d'émettre un diagnostic.
+- **D ❌** Le code de départ regroupe les fichiers fournis pour un exercice ; son audit consiste à vérifier les hypothèses, les entrées et les responsabilités mémoire avant d'émettre un diagnostic.
 
 **Réponse candidate :** A · **Explication :** Le résumé de la fiche indique : Tester de petits cas et lire les avertissements du compilateur aide à comprendre une erreur sans recopier une solution.
 
@@ -211,7 +211,7 @@ Quelle description caractérise « Tester séparément » ?
 Quel point à retenir est directement associé à « Tester séparément » ?
 
 - **A ❌** Pour une fonction non void, une valeur de retour compatible doit être fournie lorsque le contrat l'exige.
-- **B ❌** Dans une question portant sur le « base bundle », les scénarios de double free doivent être confirmés dans les fichiers fournis. Les causes typiques à rechercher sont des chemins de libération multiples et une ownership ambiguë, pas une supposée vulnérabilité universelle du bundle.
+- **B ❌** Pour un projet C dont les fichiers de départ sont fournis, les scénarios de double free doivent être confirmés dans les fichiers fournis. Les causes typiques à rechercher sont des chemins de libération multiples et une ownership ambiguë, pas une supposée vulnérabilité universelle du bundle.
 - **C ✅** Tester zéro, les bornes et les entrées inhabituelles permet de détecter des erreurs cachées.
 - **D ❌** Un prototype permet de vérifier un appel, mais ne remplace pas la définition de la fonction.
 
@@ -434,7 +434,7 @@ Quelle description caractérise « Commentaires et lisibilité » ?
 - **A ❌** Déclare le type de retour et les paramètres d’une fonction avant son utilisation ; la définition fournit son corps.
 - **B ❌** Un invariant est une condition que le programme doit préserver à des moments définis ; en sécurité mémoire, il exprime notamment les bornes et la validité des pointeurs.
 - **C ✅** Utiliser des noms compréhensibles, une indentation cohérente et des commentaires utiles plutôt que paraphraser chaque instruction.
-- **D ❌** Le base bundle est l'ensemble de fichiers de départ fourni pour un exercice ; son audit consiste à vérifier les hypothèses, les entrées et les responsabilités mémoire avant d'émettre un diagnostic.
+- **D ❌** Le code de départ regroupe les fichiers fournis pour un exercice ; son audit consiste à vérifier les hypothèses, les entrées et les responsabilités mémoire avant d'émettre un diagnostic.
 
 **Réponse candidate :** C · **Explication :** Le résumé de la fiche indique : Utiliser des noms compréhensibles, une indentation cohérente et des commentaires utiles plutôt que paraphraser chaque instruction.
 
@@ -452,7 +452,7 @@ Quel point à retenir est directement associé à « Commentaires et lisibilité
 
 - **A ✅** Commente l'intention ou les contraintes ; évite les commentaires qui répètent le code.
 - **B ❌** Invariant de copie : n < capacité_dest garantit ici que n + 1 octets tiennent dans le tableau. Cela suppose que source est déjà une chaîne valide ; vérifier une longueur ne répare pas des octets écrits hors limites auparavant.
-- **C ❌** Dans une question portant sur le « base bundle », les scénarios de double free doivent être confirmés dans les fichiers fournis. Les causes typiques à rechercher sont des chemins de libération multiples et une ownership ambiguë, pas une supposée vulnérabilité universelle du bundle.
+- **C ❌** Pour un projet C dont les fichiers de départ sont fournis, les scénarios de double free doivent être confirmés dans les fichiers fournis. Les causes typiques à rechercher sont des chemins de libération multiples et une ownership ambiguë, pas une supposée vulnérabilité universelle du bundle.
 - **D ❌** Un prototype permet de vérifier un appel, mais ne remplace pas la définition de la fonction.
 
 **Réponse candidate :** A · **Explication :** La fiche indique : Commente l'intention ou les contraintes ; évite les commentaires qui répètent le code.
@@ -650,7 +650,7 @@ Quelles affirmations concernent directement « Invariant — condition qui doit 
 
 **Une seule bonne réponse**
 
-À quelle notion correspond la définition suivante : « Le base bundle est l'ensemble de fichiers de départ fourni pour un exercice ; son audit consiste à vérifier les hypothèses, les entrées et les responsabilités mémoire avant d'émettre un diagnostic. » ?
+À quelle notion correspond la définition suivante : « Le code de départ regroupe les fichiers fournis pour un exercice ; son audit consiste à vérifier les hypothèses, les entrées et les responsabilités mémoire avant d'émettre un diagnostic. » ?
 
 - **A ❌** Invariant — condition qui doit rester vraie
 - **B ❌** Commentaires et lisibilité
@@ -671,12 +671,12 @@ Quelles affirmations concernent directement « Invariant — condition qui doit 
 
 Quelle description caractérise « Base bundle — analyser le code de départ d'un lab » ?
 
-- **A ✅** Le base bundle est l'ensemble de fichiers de départ fourni pour un exercice ; son audit consiste à vérifier les hypothèses, les entrées et les responsabilités mémoire avant d'émettre un diagnostic.
+- **A ✅** Le code de départ regroupe les fichiers fournis pour un exercice ; son audit consiste à vérifier les hypothèses, les entrées et les responsabilités mémoire avant d'émettre un diagnostic.
 - **B ❌** Utiliser des noms compréhensibles, une indentation cohérente et des commentaires utiles plutôt que paraphraser chaque instruction.
 - **C ❌** Une vulnérabilité est une faiblesse du programme ; une attaque est une action visant à exploiter cette faiblesse.
 - **D ❌** Un invariant est une condition que le programme doit préserver à des moments définis ; en sécurité mémoire, il exprime notamment les bornes et la validité des pointeurs.
 
-**Réponse candidate :** A · **Explication :** Le résumé de la fiche indique : Le base bundle est l'ensemble de fichiers de départ fourni pour un exercice ; son audit consiste à vérifier les hypothèses, les entrées et les responsabilités mémoire avant d'émettre un diagnostic.
+**Réponse candidate :** A · **Explication :** Le résumé de la fiche indique : Le code de départ regroupe les fichiers fournis pour un exercice ; son audit consiste à vérifier les hypothèses, les entrées et les responsabilités mémoire avant d'émettre un diagnostic.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/qualite-et-methode-en-c/9-base-bundle-analyser-le-code-de-depart-d-un-lab · https://cmu-sei.github.io/secure-coding-standards/sei-cert-c-coding-standard/recommendations/memory-management-mem/mem01-c/ · https://cmu-sei.github.io/secure-coding-standards/sei-cert-c-coding-standard/rules/memory-management-mem/
 
@@ -693,9 +693,9 @@ Quel point à retenir est directement associé à « Base bundle — analyser le
 - **A ❌** Un segfault ne prouve pas à lui seul qu'une attaque a eu lieu ; l'absence de crash n'exclut pas une vulnérabilité. On corrige d'abord la faiblesse du code.
 - **B ❌** Commente l'intention ou les contraintes ; évite les commentaires qui répètent le code.
 - **C ❌** Invariant de copie : n < capacité_dest garantit ici que n + 1 octets tiennent dans le tableau. Cela suppose que source est déjà une chaîne valide ; vérifier une longueur ne répare pas des octets écrits hors limites auparavant.
-- **D ✅** Dans une question portant sur le « base bundle », les scénarios de double free doivent être confirmés dans les fichiers fournis. Les causes typiques à rechercher sont des chemins de libération multiples et une ownership ambiguë, pas une supposée vulnérabilité universelle du bundle.
+- **D ✅** Pour un projet C dont les fichiers de départ sont fournis, les scénarios de double free doivent être confirmés dans les fichiers fournis. Les causes typiques à rechercher sont des chemins de libération multiples et une ownership ambiguë, pas une supposée vulnérabilité universelle du bundle.
 
-**Réponse candidate :** D · **Explication :** La fiche indique : Dans une question portant sur le « base bundle », les scénarios de double free doivent être confirmés dans les fichiers fournis. Les causes typiques à rechercher sont des chemins de libération multiples et une ownership ambiguë, pas une supposée vulnérabilité universelle du bundle.
+**Réponse candidate :** D · **Explication :** La fiche indique : Pour un projet C dont les fichiers de départ sont fournis, les scénarios de double free doivent être confirmés dans les fichiers fournis. Les causes typiques à rechercher sont des chemins de libération multiples et une ownership ambiguë, pas une supposée vulnérabilité universelle du bundle.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/qualite-et-methode-en-c/9-base-bundle-analyser-le-code-de-depart-d-un-lab · https://cmu-sei.github.io/secure-coding-standards/sei-cert-c-coding-standard/recommendations/memory-management-mem/mem01-c/ · https://cmu-sei.github.io/secure-coding-standards/sei-cert-c-coding-standard/rules/memory-management-mem/
 
@@ -710,8 +710,8 @@ Quel point à retenir est directement associé à « Base bundle — analyser le
 Quelles affirmations concernent directement « Base bundle — analyser le code de départ d'un lab » ?
 
 - **A ❌** Un callback est une fonction dont l'adresse est passée à une autre fonction ; celle-ci l'appelle au bon moment via le pointeur reçu.
-- **B ✅** Le base bundle est l'ensemble de fichiers de départ fourni pour un exercice ; son audit consiste à vérifier les hypothèses, les entrées et les responsabilités mémoire avant d'émettre un diagnostic.
-- **C ✅** Dans une question portant sur le « base bundle », les scénarios de double free doivent être confirmés dans les fichiers fournis. Les causes typiques à rechercher sont des chemins de libération multiples et une ownership ambiguë, pas une supposée vulnérabilité universelle du bundle.
+- **B ✅** Le code de départ regroupe les fichiers fournis pour un exercice ; son audit consiste à vérifier les hypothèses, les entrées et les responsabilités mémoire avant d'émettre un diagnostic.
+- **C ✅** Pour un projet C dont les fichiers de départ sont fournis, les scénarios de double free doivent être confirmés dans les fichiers fournis. Les causes typiques à rechercher sont des chemins de libération multiples et une ownership ambiguë, pas une supposée vulnérabilité universelle du bundle.
 - **D ❌** L'ownership désigne la responsabilité de libérer une allocation ; copier ou transmettre un pointeur ne transfère pas automatiquement cette responsabilité.
 
 **Réponse candidate :** B, C · **Explication :** Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.

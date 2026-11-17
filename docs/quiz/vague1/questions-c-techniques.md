@@ -1811,7 +1811,7 @@ Qu'est-ce qu'un invariant dans un algorithme ?
 
 **Une seule bonne réponse**
 
-Comment analyser un base bundle de lab inconnu ?
+Comment analyser les fichiers de départ fournis pour un exercice C inconnu ?
 
 - **A ❌** Exécuter free sur tous les pointeurs
 - **B ❌** Affirmer une faille sans ouvrir le code

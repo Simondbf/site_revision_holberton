@@ -2799,7 +2799,7 @@ Avec `int t[8]={2,4,6,8,10,12,14,16}; int *p=t;`, que vaut `*(p+0)` ?
 
 **Une seule bonne réponse**
 
-Un tableau déclaré avec 1 éléments valides a quelle plage d'indices ?
+Un tableau C déclaré avec un seul élément possède quels indices valides ?
 
 - **A ❌** 1 à 1
 - **B ❌** 0 à 1

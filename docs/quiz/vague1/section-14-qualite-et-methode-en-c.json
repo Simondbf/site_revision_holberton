@@ -68,7 +68,7 @@
         },
         {
           "id": "D",
-          "text": "Le base bundle est l'ensemble de fichiers de départ fourni pour un exercice ; son audit consiste à vérifier les hypothèses, les entrées et les responsabilités mémoire avant d'émettre un diagnostic."
+          "text": "Le code de départ regroupe les fichiers fournis pour un exercice ; son audit consiste à vérifier les hypothèses, les entrées et les responsabilités mémoire avant d'émettre un diagnostic."
         }
       ],
       "correct_option_ids": [
@@ -96,7 +96,7 @@
       "options": [
         {
           "id": "A",
-          "text": "Dans une question portant sur le « base bundle », les scénarios de double free doivent être confirmés dans les fichiers fournis. Les causes typiques à rechercher sont des chemins de libération multiples et une ownership ambiguë, pas une supposée vulnérabilité universelle du bundle."
+          "text": "Pour un projet C dont les fichiers de départ sont fournis, les scénarios de double free doivent être confirmés dans les fichiers fournis. Les causes typiques à rechercher sont des chemins de libération multiples et une ownership ambiguë, pas une supposée vulnérabilité universelle du bundle."
         },
         {
           "id": "B",
@@ -392,7 +392,7 @@
         },
         {
           "id": "D",
-          "text": "Le base bundle est l'ensemble de fichiers de départ fourni pour un exercice ; son audit consiste à vérifier les hypothèses, les entrées et les responsabilités mémoire avant d'émettre un diagnostic."
+          "text": "Le code de départ regroupe les fichiers fournis pour un exercice ; son audit consiste à vérifier les hypothèses, les entrées et les responsabilités mémoire avant d'émettre un diagnostic."
         }
       ],
       "correct_option_ids": [
@@ -424,7 +424,7 @@
         },
         {
           "id": "B",
-          "text": "Dans une question portant sur le « base bundle », les scénarios de double free doivent être confirmés dans les fichiers fournis. Les causes typiques à rechercher sont des chemins de libération multiples et une ownership ambiguë, pas une supposée vulnérabilité universelle du bundle."
+          "text": "Pour un projet C dont les fichiers de départ sont fournis, les scénarios de double free doivent être confirmés dans les fichiers fournis. Les causes typiques à rechercher sont des chemins de libération multiples et une ownership ambiguë, pas une supposée vulnérabilité universelle du bundle."
         },
         {
           "id": "C",
@@ -878,7 +878,7 @@
         },
         {
           "id": "D",
-          "text": "Le base bundle est l'ensemble de fichiers de départ fourni pour un exercice ; son audit consiste à vérifier les hypothèses, les entrées et les responsabilités mémoire avant d'émettre un diagnostic."
+          "text": "Le code de départ regroupe les fichiers fournis pour un exercice ; son audit consiste à vérifier les hypothèses, les entrées et les responsabilités mémoire avant d'émettre un diagnostic."
         }
       ],
       "correct_option_ids": [
@@ -914,7 +914,7 @@
         },
         {
           "id": "C",
-          "text": "Dans une question portant sur le « base bundle », les scénarios de double free doivent être confirmés dans les fichiers fournis. Les causes typiques à rechercher sont des chemins de libération multiples et une ownership ambiguë, pas une supposée vulnérabilité universelle du bundle."
+          "text": "Pour un projet C dont les fichiers de départ sont fournis, les scénarios de double free doivent être confirmés dans les fichiers fournis. Les causes typiques à rechercher sont des chemins de libération multiples et une ownership ambiguë, pas une supposée vulnérabilité universelle du bundle."
         },
         {
           "id": "D",
@@ -1316,7 +1316,7 @@
       "notion": "Base bundle — analyser le code de départ d'un lab",
       "answer_mode": "single",
       "question_type": "definition",
-      "prompt": "À quelle notion correspond la définition suivante : « Le base bundle est l'ensemble de fichiers de départ fourni pour un exercice ; son audit consiste à vérifier les hypothèses, les entrées et les responsabilités mémoire avant d'émettre un diagnostic. » ?",
+      "prompt": "À quelle notion correspond la définition suivante : « Le code de départ regroupe les fichiers fournis pour un exercice ; son audit consiste à vérifier les hypothèses, les entrées et les responsabilités mémoire avant d'émettre un diagnostic. » ?",
       "options": [
         {
           "id": "A",
@@ -1362,7 +1362,7 @@
       "options": [
         {
           "id": "A",
-          "text": "Le base bundle est l'ensemble de fichiers de départ fourni pour un exercice ; son audit consiste à vérifier les hypothèses, les entrées et les responsabilités mémoire avant d'émettre un diagnostic."
+          "text": "Le code de départ regroupe les fichiers fournis pour un exercice ; son audit consiste à vérifier les hypothèses, les entrées et les responsabilités mémoire avant d'émettre un diagnostic."
         },
         {
           "id": "B",
@@ -1380,7 +1380,7 @@
       "correct_option_ids": [
         "A"
       ],
-      "explanation": "Le résumé de la fiche indique : Le base bundle est l'ensemble de fichiers de départ fourni pour un exercice ; son audit consiste à vérifier les hypothèses, les entrées et les responsabilités mémoire avant d'émettre un diagnostic.",
+      "explanation": "Le résumé de la fiche indique : Le code de départ regroupe les fichiers fournis pour un exercice ; son audit consiste à vérifier les hypothèses, les entrées et les responsabilités mémoire avant d'émettre un diagnostic.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/qualite-et-methode-en-c/9-base-bundle-analyser-le-code-de-depart-d-un-lab",
         "https://cmu-sei.github.io/secure-coding-standards/sei-cert-c-coding-standard/recommendations/memory-management-mem/mem01-c/",
@@ -1416,13 +1416,13 @@
         },
         {
           "id": "D",
-          "text": "Dans une question portant sur le « base bundle », les scénarios de double free doivent être confirmés dans les fichiers fournis. Les causes typiques à rechercher sont des chemins de libération multiples et une ownership ambiguë, pas une supposée vulnérabilité universelle du bundle."
+          "text": "Pour un projet C dont les fichiers de départ sont fournis, les scénarios de double free doivent être confirmés dans les fichiers fournis. Les causes typiques à rechercher sont des chemins de libération multiples et une ownership ambiguë, pas une supposée vulnérabilité universelle du bundle."
         }
       ],
       "correct_option_ids": [
         "D"
       ],
-      "explanation": "La fiche indique : Dans une question portant sur le « base bundle », les scénarios de double free doivent être confirmés dans les fichiers fournis. Les causes typiques à rechercher sont des chemins de libération multiples et une ownership ambiguë, pas une supposée vulnérabilité universelle du bundle.",
+      "explanation": "La fiche indique : Pour un projet C dont les fichiers de départ sont fournis, les scénarios de double free doivent être confirmés dans les fichiers fournis. Les causes typiques à rechercher sont des chemins de libération multiples et une ownership ambiguë, pas une supposée vulnérabilité universelle du bundle.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/qualite-et-methode-en-c/9-base-bundle-analyser-le-code-de-depart-d-un-lab",
         "https://cmu-sei.github.io/secure-coding-standards/sei-cert-c-coding-standard/recommendations/memory-management-mem/mem01-c/",
@@ -1450,11 +1450,11 @@
         },
         {
           "id": "B",
-          "text": "Le base bundle est l'ensemble de fichiers de départ fourni pour un exercice ; son audit consiste à vérifier les hypothèses, les entrées et les responsabilités mémoire avant d'émettre un diagnostic."
+          "text": "Le code de départ regroupe les fichiers fournis pour un exercice ; son audit consiste à vérifier les hypothèses, les entrées et les responsabilités mémoire avant d'émettre un diagnostic."
         },
         {
           "id": "C",
-          "text": "Dans une question portant sur le « base bundle », les scénarios de double free doivent être confirmés dans les fichiers fournis. Les causes typiques à rechercher sont des chemins de libération multiples et une ownership ambiguë, pas une supposée vulnérabilité universelle du bundle."
+          "text": "Pour un projet C dont les fichiers de départ sont fournis, les scénarios de double free doivent être confirmés dans les fichiers fournis. Les causes typiques à rechercher sont des chemins de libération multiples et une ownership ambiguë, pas une supposée vulnérabilité universelle du bundle."
         },
         {
           "id": "D",
