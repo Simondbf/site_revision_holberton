@@ -53,6 +53,10 @@ for(const file of files){
   assert.ok(pos>=0,'Question absente du Markdown : '+q.id);
   const end=markdown.indexOf('\n---',pos);
   const blockMarkdown=markdown.slice(pos,end>pos?end:undefined);
+  assert.ok(blockMarkdown.includes(q.prompt),'Énoncé JSON/Markdown divergent pour '+q.id);
+  assert.ok(blockMarkdown.includes(q.explanation),'Explication JSON/Markdown divergente pour '+q.id);
+  assert.ok(blockMarkdown.includes(q.answer_mode==='single'?'**Une seule bonne réponse**':'**Plusieurs bonnes réponses**'),
+    'Mode de réponse JSON/Markdown divergent pour '+q.id);
   for(const opt of q.options){
    const mark='**'+opt.id+' '+(q.correct_option_ids.includes(opt.id)?'✅':'❌')+'** '+opt.text;
    assert.ok(blockMarkdown.includes(mark),'Corrigé Markdown/JSON incohérent pour '+q.id+' option '+opt.id);
