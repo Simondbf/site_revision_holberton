@@ -486,77 +486,77 @@ Quelles affirmations concernent directement « while » ?
 
 [Fiche de révision](https://revision-hbtn.soleiljaune.be/#cours/conditions-et-boucles-c/7-do-while)
 
-### V1-N05_006-01 — definition
+### V1-N05_006-01 — application
 
 **Une seule bonne réponse**
 
-À quelle notion correspond la définition suivante : « Teste après exécution : le corps tourne au moins une fois. » ?
+Avec `int i = 5;`, quelle structure affiche "X" malgré une condition `i < 3` fausse dès le départ ?
 
-- **A ✅** do…while
-- **B ❌** Itération
-- **C ❌** Boucles imbriquées
-- **D ❌** for
+- **A ✅** do { printf("X"); } while (i < 3);
+- **B ❌** while (i < 3) { printf("X"); }
+- **C ❌** for (; i < 3; i++) { printf("X"); }
+- **D ❌** if (i < 3) { printf("X"); }
 
-**Réponse proposée :** A. La définition est extraite du résumé de la fiche correspondante.
+**Réponse proposée :** A. La condition d’un do…while est contrôlée après le corps : X apparaît une fois. Avec while, for ou if, la condition initialement fausse empêche l’affichage.
 
-**Sources :** https://revision-hbtn.soleiljaune.be/#cours/conditions-et-boucles-c/7-do-while
+**Sources :** https://revision-hbtn.soleiljaune.be/#cours/conditions-et-boucles-c/7-do-while · https://en.cppreference.com/w/c/language/do
 
 **Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N05_006-02 — description
+### V1-N05_006-02 — comparaison
 
 **Une seule bonne réponse**
 
-Quelle description caractérise « do…while » ?
+Avec `int i = 5;`, on compare `while (i < 4) { printf("W"); }` et `do { printf("D"); } while (i < 4);`. Quelle affirmation est exacte ?
 
-- **A ✅** Teste après exécution : le corps tourne au moins une fois.
-- **B ❌** Initialisation, test, mise à jour ; forme compacte de boucle.
-- **C ❌** Un passage dans une boucle.
-- **D ❌** Une boucle placée dans une autre ; le coût dépend des bornes et du travail effectué.
+- **A ✅** La boucle while n’affiche rien et la boucle do…while affiche D une fois.
+- **B ❌** Les deux boucles n’affichent rien car 5 < 4 est faux.
+- **C ❌** La boucle while affiche W une fois et la boucle do…while n’affiche rien.
+- **D ❌** Les deux boucles affichent chacune un caractère une fois.
 
-**Réponse proposée :** A. Le résumé de la fiche indique : Teste après exécution : le corps tourne au moins une fois.
+**Réponse proposée :** A. while teste la condition avant son premier passage : aucun W. do…while exécute d’abord son corps : un D, puis le test faux arrête la boucle.
 
-**Sources :** https://revision-hbtn.soleiljaune.be/#cours/conditions-et-boucles-c/7-do-while
+**Sources :** https://revision-hbtn.soleiljaune.be/#cours/conditions-et-boucles-c/7-do-while · https://en.cppreference.com/w/c/language/do
 
 **Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N05_006-03 — vigilance
+### V1-N05_006-03 — diagnostic
 
 **Une seule bonne réponse**
 
-Quel point à retenir est directement associé à « do…while » ?
+Dans `int i = 0; do { printf("X"); } while (i < 2);`, sans intervention extérieure, que se passe-t-il ?
 
-- **A ❌** Deux boucles imbriquées de n itérations chacune peuvent effectuer n × n passages, selon leurs bornes.
-- **B ❌** En GNU89, déclare l'indice avant le for ; la déclaration « for (int i = ...) » est de style C99 ou plus récent.
-- **C ✅** do...while exécute toujours son corps au moins une fois avant le test.
-- **D ❌** Une itération est un passage dans le corps ; la valeur de l'indice ne donne pas toujours le nombre de passages.
+- **A ❌** La boucle s’arrête après deux affichages car 2 est sa borne.
+- **B ❌** Le corps ne s’exécute pas car i vaut 0.
+- **C ✅** La boucle continue indéfiniment : i reste à 0 et la condition reste vraie.
+- **D ❌** La boucle s’arrête automatiquement dès qu’une condition a été évaluée.
 
-**Réponse proposée :** C. La fiche indique : do...while exécute toujours son corps au moins une fois avant le test.
+**Réponse proposée :** C. Le corps ne modifie jamais i. La condition i < 2 reste vraie après chaque passage : la boucle ne possède ici aucune sortie normale. Ne pas exécuter cet exemple tel quel.
 
-**Sources :** https://revision-hbtn.soleiljaune.be/#cours/conditions-et-boucles-c/7-do-while
+**Sources :** https://revision-hbtn.soleiljaune.be/#cours/conditions-et-boucles-c/7-do-while · https://en.cppreference.com/w/c/language/do
 
 **Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
 ---
 
-### V1-N05_006-04 — synthese
+### V1-N05_006-04 — raisonnement
 
 **Plusieurs bonnes réponses**
 
-Quelles affirmations concernent directement « do…while » ?
+Dans une boucle `do…while` en C, quelles affirmations sont correctes ?
 
-- **A ❌** Depuis C99, { .age = 7, .id = 3 } permet de choisir les membres par leur nom.
-- **B ✅** Teste après exécution : le corps tourne au moins une fois.
-- **C ✅** do...while exécute toujours son corps au moins une fois avant le test.
-- **D ❌** typedef struct animal { int age; } animal_t; rend le type utilisable sous le nom animal_t.
+- **A ❌** La condition est évaluée avant la toute première exécution du corps.
+- **B ✅** La condition est évaluée après l’exécution normale du corps.
+- **C ✅** `break` permet de quitter immédiatement la boucle sans retester sa condition.
+- **D ❌** `continue` quitte définitivement la boucle, exactement comme `break`.
 
-**Réponse proposée :** B, C. Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.
+**Réponse proposée :** B, C. Le test du do…while se trouve en fin de boucle. break la quitte immédiatement ; continue saute le reste du corps et rejoint le test final, sans forcément quitter la boucle.
 
-**Sources :** https://revision-hbtn.soleiljaune.be/#cours/conditions-et-boucles-c/7-do-while
+**Sources :** https://revision-hbtn.soleiljaune.be/#cours/conditions-et-boucles-c/7-do-while · https://en.cppreference.com/w/c/language/do
 
 **Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
 
