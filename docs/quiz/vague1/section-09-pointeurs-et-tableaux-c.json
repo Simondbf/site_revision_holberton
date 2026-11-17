@@ -914,7 +914,7 @@
         },
         {
           "id": "C",
-          "text": "a[5] ne désigne pas un élément de ce tableau."
+          "text": "Pour `int a[5]`, seuls les indices 0 à 4 désignent des éléments : lire ou modifier `a[5]` serait hors limites."
         },
         {
           "id": "D",
@@ -1890,7 +1890,7 @@
         },
         {
           "id": "D",
-          "text": "Le type de &a est un pointeur vers tableau de 5 int."
+          "text": "Pour `int a[5]`, le type de `&a` est `int (*)[5]`, un pointeur vers le tableau entier de cinq int."
         }
       ],
       "correct_option_ids": [
@@ -2368,7 +2368,7 @@
         },
         {
           "id": "B",
-          "text": "a[5] ne désigne pas un élément de ce tableau."
+          "text": "Pour `int a[5]`, seuls les indices 0 à 4 désignent des éléments : lire ou modifier `a[5]` serait hors limites."
         },
         {
           "id": "C",
@@ -2382,7 +2382,7 @@
       "correct_option_ids": [
         "B"
       ],
-      "explanation": "La fiche indique : a[5] ne désigne pas un élément de ce tableau.",
+      "explanation": "La fiche indique : Pour `int a[5]`, seuls les indices 0 à 4 désignent des éléments : lire ou modifier `a[5]` serait hors limites.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/15-indices-de-tableau"
       ],
@@ -2408,7 +2408,7 @@
         },
         {
           "id": "B",
-          "text": "a[5] ne désigne pas un élément de ce tableau."
+          "text": "Pour `int a[5]`, seuls les indices 0 à 4 désignent des éléments : lire ou modifier `a[5]` serait hors limites."
         },
         {
           "id": "C",
@@ -2688,7 +2688,7 @@
       "options": [
         {
           "id": "A",
-          "text": "Le troisième argument limite la copie, mais ne réserve pas automatiquement une place pour '\\0'. Ici « Bonjour » devient « Bonjo » : pas de débordement, mais une troncature. Pour une copie complète, vérifier la capacité avant de copier."
+          "text": "`strncpy(dest, src, n)` copie au plus `n` octets, sans garantir un terminateur `\\0` si la source occupe au moins `n` octets. Vérifier la capacité de la destination et assurer la terminaison si une chaîne C est attendue."
         },
         {
           "id": "B",
@@ -3016,11 +3016,11 @@
         },
         {
           "id": "B",
-          "text": "Le type de &a est un pointeur vers tableau de 5 int."
+          "text": "Pour `int a[5]`, le type de `&a` est `int (*)[5]`, un pointeur vers le tableau entier de cinq int."
         },
         {
           "id": "C",
-          "text": "La première erreur affichée peut provoquer les suivantes. Consulter la pile des appels, les lignes indiquées par -g et le contexte des allocations/libérations. Un « 0 errors » sur un test n'est pas une preuve générale d'absence de bugs. Exemple : « definitely lost: 32 bytes in 1 blocks » = 1 bloc de 32 octets définitivement perdu. Ces labels en majuscules sont des cat"
+          "text": "La première erreur affichée peut provoquer les suivantes. Consulter la pile des appels, les lignes indiquées par -g et le contexte des allocations/libérations. Un « 0 errors » sur un test n'est pas une preuve générale d'absence de bugs. Exemple : « definitely lost: 32 bytes in 1 blocks » = 1 bloc de 32 octets définitivement perdu. Ces libellés en majuscules sont des catégories descriptives, pas nécessairement des messages littéraux de Memcheck."
         },
         {
           "id": "D",
@@ -3030,7 +3030,7 @@
       "correct_option_ids": [
         "B"
       ],
-      "explanation": "La fiche indique : Le type de &a est un pointeur vers tableau de 5 int.",
+      "explanation": "La fiche indique : Pour `int a[5]`, le type de `&a` est `int (*)[5]`, un pointeur vers le tableau entier de cinq int.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/19-tableau"
       ],
@@ -3052,7 +3052,7 @@
       "options": [
         {
           "id": "A",
-          "text": "Le type de &a est un pointeur vers tableau de 5 int."
+          "text": "Pour `int a[5]`, le type de `&a` est `int (*)[5]`, un pointeur vers le tableau entier de cinq int."
         },
         {
           "id": "B",
@@ -3506,7 +3506,7 @@
         },
         {
           "id": "C",
-          "text": "Dans la question du lab, la bonne raison est que « corruption may have already occurred during input reading ». Corriger la copie après coup n'annule pas un débordement déjà produit. Vérifie la longueur lors de la LECTURE, et refuse les lignes incomplètes si nécessaire."
+          "text": "Si une saisie déborde un tampon pendant sa lecture, la mémoire peut être corrompue avant toute copie ultérieure. Vérifier la capacité du tampon pendant la lecture et rejeter une ligne tronquée si l'entrée complète est nécessaire."
         },
         {
           "id": "D",
@@ -4794,7 +4794,7 @@
       "options": [
         {
           "id": "A",
-          "text": "a[5] ne désigne pas un élément de ce tableau."
+          "text": "Pour `int a[5]`, seuls les indices 0 à 4 désignent des éléments : lire ou modifier `a[5]` serait hors limites."
         },
         {
           "id": "B",
@@ -5766,7 +5766,7 @@
       "options": [
         {
           "id": "A",
-          "text": "Le type de &a est un pointeur vers tableau de 5 int."
+          "text": "Pour `int a[5]`, le type de `&a` est `int (*)[5]`, un pointeur vers le tableau entier de cinq int."
         },
         {
           "id": "B",
@@ -6920,7 +6920,7 @@
         },
         {
           "id": "C",
-          "text": "Le troisième argument limite la copie, mais ne réserve pas automatiquement une place pour '\\0'. Ici « Bonjour » devient « Bonjo » : pas de débordement, mais une troncature. Pour une copie complète, vérifier la capacité avant de copier."
+          "text": "`strncpy(dest, src, n)` copie au plus `n` octets, sans garantir un terminateur `\\0` si la source occupe au moins `n` octets. Vérifier la capacité de la destination et assurer la terminaison si une chaîne C est attendue."
         },
         {
           "id": "D",
@@ -7126,7 +7126,7 @@
         },
         {
           "id": "C",
-          "text": "Le base bundle est l'ensemble de fichiers de départ fourni pour un exercice ; son audit consiste à vérifier les hypothèses, les entrées et les responsabilités mémoire avant d'émettre un diagnostic."
+          "text": "Le code de départ regroupe les fichiers fournis pour un exercice ; son audit consiste à vérifier les hypothèses, les entrées et les responsabilités mémoire avant d'émettre un diagnostic."
         },
         {
           "id": "D",
@@ -7248,7 +7248,7 @@
         },
         {
           "id": "C",
-          "text": "La première erreur affichée peut provoquer les suivantes. Consulter la pile des appels, les lignes indiquées par -g et le contexte des allocations/libérations. Un « 0 errors » sur un test n'est pas une preuve générale d'absence de bugs. Exemple : « definitely lost: 32 bytes in 1 blocks » = 1 bloc de 32 octets définitivement perdu. Ces labels en majuscules sont des cat"
+          "text": "La première erreur affichée peut provoquer les suivantes. Consulter la pile des appels, les lignes indiquées par -g et le contexte des allocations/libérations. Un « 0 errors » sur un test n'est pas une preuve générale d'absence de bugs. Exemple : « definitely lost: 32 bytes in 1 blocks » = 1 bloc de 32 octets définitivement perdu. Ces libellés en majuscules sont des catégories descriptives, pas nécessairement des messages littéraux de Memcheck."
         },
         {
           "id": "D",
@@ -7732,11 +7732,11 @@
         },
         {
           "id": "B",
-          "text": "Le troisième argument limite la copie, mais ne réserve pas automatiquement une place pour '\\0'. Ici « Bonjour » devient « Bonjo » : pas de débordement, mais une troncature. Pour une copie complète, vérifier la capacité avant de copier."
+          "text": "`strncpy(dest, src, n)` copie au plus `n` octets, sans garantir un terminateur `\\0` si la source occupe au moins `n` octets. Vérifier la capacité de la destination et assurer la terminaison si une chaîne C est attendue."
         },
         {
           "id": "C",
-          "text": "Dans la question du lab, la bonne raison est que « corruption may have already occurred during input reading ». Corriger la copie après coup n'annule pas un débordement déjà produit. Vérifie la longueur lors de la LECTURE, et refuse les lignes incomplètes si nécessaire."
+          "text": "Si une saisie déborde un tampon pendant sa lecture, la mémoire peut être corrompue avant toute copie ultérieure. Vérifier la capacité du tampon pendant la lecture et rejeter une ligne tronquée si l'entrée complète est nécessaire."
         },
         {
           "id": "D",
@@ -7746,7 +7746,7 @@
       "correct_option_ids": [
         "B"
       ],
-      "explanation": "La fiche indique : Le troisième argument limite la copie, mais ne réserve pas automatiquement une place pour '\\0'. Ici « Bonjour » devient « Bonjo » : pas de débordement, mais une troncature. Pour une copie complète, vérifier la capacité avant de copier.",
+      "explanation": "La fiche indique : `strncpy(dest, src, n)` copie au plus `n` octets, sans garantir un terminateur `\\0` si la source occupe au moins `n` octets. Vérifier la capacité de la destination et assurer la terminaison si une chaîne C est attendue.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/48-strncpy-copie-limitee-et-terminaison",
         "https://man7.org/linux/man-pages/man3/strncpy.3.html"
@@ -7777,7 +7777,7 @@
         },
         {
           "id": "C",
-          "text": "Le troisième argument limite la copie, mais ne réserve pas automatiquement une place pour '\\0'. Ici « Bonjour » devient « Bonjo » : pas de débordement, mais une troncature. Pour une copie complète, vérifier la capacité avant de copier."
+          "text": "`strncpy(dest, src, n)` copie au plus `n` octets, sans garantir un terminateur `\\0` si la source occupe au moins `n` octets. Vérifier la capacité de la destination et assurer la terminaison si une chaîne C est attendue."
         },
         {
           "id": "D",
@@ -8740,7 +8740,7 @@
         },
         {
           "id": "C",
-          "text": "La première erreur affichée peut provoquer les suivantes. Consulter la pile des appels, les lignes indiquées par -g et le contexte des allocations/libérations. Un « 0 errors » sur un test n'est pas une preuve générale d'absence de bugs. Exemple : « definitely lost: 32 bytes in 1 blocks » = 1 bloc de 32 octets définitivement perdu. Ces labels en majuscules sont des cat"
+          "text": "La première erreur affichée peut provoquer les suivantes. Consulter la pile des appels, les lignes indiquées par -g et le contexte des allocations/libérations. Un « 0 errors » sur un test n'est pas une preuve générale d'absence de bugs. Exemple : « definitely lost: 32 bytes in 1 blocks » = 1 bloc de 32 octets définitivement perdu. Ces libellés en majuscules sont des catégories descriptives, pas nécessairement des messages littéraux de Memcheck."
         },
         {
           "id": "D",
@@ -8750,7 +8750,7 @@
       "correct_option_ids": [
         "C"
       ],
-      "explanation": "La fiche indique : La première erreur affichée peut provoquer les suivantes. Consulter la pile des appels, les lignes indiquées par -g et le contexte des allocations/libérations. Un « 0 errors » sur un test n'est pas une preuve générale d'absence de bugs. Exemple : « definitely lost: 32 bytes in 1 blocks » = 1 bloc de 32 octets définitivement perdu. Ces labels en majuscules sont des cat",
+      "explanation": "La fiche indique : La première erreur affichée peut provoquer les suivantes. Consulter la pile des appels, les lignes indiquées par -g et le contexte des allocations/libérations. Un « 0 errors » sur un test n'est pas une preuve générale d'absence de bugs. Exemple : « definitely lost: 32 bytes in 1 blocks » = 1 bloc de 32 octets définitivement perdu. Ces libellés en majuscules sont des catégories descriptives, pas nécessairement des messages littéraux de Memcheck.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/54-valgrind-memcheck-comprendre-les-alertes",
         "https://valgrind.org/docs/manual/mc-manual.html"
@@ -8785,7 +8785,7 @@
         },
         {
           "id": "D",
-          "text": "La première erreur affichée peut provoquer les suivantes. Consulter la pile des appels, les lignes indiquées par -g et le contexte des allocations/libérations. Un « 0 errors » sur un test n'est pas une preuve générale d'absence de bugs. Exemple : « definitely lost: 32 bytes in 1 blocks » = 1 bloc de 32 octets définitivement perdu. Ces labels en majuscules sont des cat"
+          "text": "La première erreur affichée peut provoquer les suivantes. Consulter la pile des appels, les lignes indiquées par -g et le contexte des allocations/libérations. Un « 0 errors » sur un test n'est pas une preuve générale d'absence de bugs. Exemple : « definitely lost: 32 bytes in 1 blocks » = 1 bloc de 32 octets définitivement perdu. Ces libellés en majuscules sont des catégories descriptives, pas nécessairement des messages littéraux de Memcheck."
         }
       ],
       "correct_option_ids": [
@@ -8910,7 +8910,7 @@
         },
         {
           "id": "D",
-          "text": "Le type de &a est un pointeur vers tableau de 5 int."
+          "text": "Pour `int a[5]`, le type de `&a` est `int (*)[5]`, un pointeur vers le tableau entier de cinq int."
         }
       ],
       "correct_option_ids": [
@@ -9066,7 +9066,7 @@
       "options": [
         {
           "id": "A",
-          "text": "Dans la question du lab, la bonne raison est que « corruption may have already occurred during input reading ». Corriger la copie après coup n'annule pas un débordement déjà produit. Vérifie la longueur lors de la LECTURE, et refuse les lignes incomplètes si nécessaire."
+          "text": "Si une saisie déborde un tampon pendant sa lecture, la mémoire peut être corrompue avant toute copie ultérieure. Vérifier la capacité du tampon pendant la lecture et rejeter une ligne tronquée si l'entrée complète est nécessaire."
         },
         {
           "id": "B",
@@ -9074,7 +9074,7 @@
         },
         {
           "id": "C",
-          "text": "a[5] ne désigne pas un élément de ce tableau."
+          "text": "Pour `int a[5]`, seuls les indices 0 à 4 désignent des éléments : lire ou modifier `a[5]` serait hors limites."
         },
         {
           "id": "D",
@@ -9084,7 +9084,7 @@
       "correct_option_ids": [
         "A"
       ],
-      "explanation": "La fiche indique : Dans la question du lab, la bonne raison est que « corruption may have already occurred during input reading ». Corriger la copie après coup n'annule pas un débordement déjà produit. Vérifie la longueur lors de la LECTURE, et refuse les lignes incomplètes si nécessaire.",
+      "explanation": "La fiche indique : Si une saisie déborde un tampon pendant sa lecture, la mémoire peut être corrompue avant toute copie ultérieure. Vérifier la capacité du tampon pendant la lecture et rejeter une ligne tronquée si l'entrée complète est nécessaire.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/56-depassement-de-tampon-sur-la-pile-erreur-avant-malloc",
         "https://community.owasp.org/vulnerabilities/Buffer_Overflow",
@@ -9112,7 +9112,7 @@
         },
         {
           "id": "B",
-          "text": "Dans la question du lab, la bonne raison est que « corruption may have already occurred during input reading ». Corriger la copie après coup n'annule pas un débordement déjà produit. Vérifie la longueur lors de la LECTURE, et refuse les lignes incomplètes si nécessaire."
+          "text": "Si une saisie déborde un tampon pendant sa lecture, la mémoire peut être corrompue avant toute copie ultérieure. Vérifier la capacité du tampon pendant la lecture et rejeter une ligne tronquée si l'entrée complète est nécessaire."
         },
         {
           "id": "C",
@@ -10932,7 +10932,7 @@
         },
         {
           "id": "D",
-          "text": "Le troisième argument limite la copie, mais ne réserve pas automatiquement une place pour '\\0'. Ici « Bonjour » devient « Bonjo » : pas de débordement, mais une troncature. Pour une copie complète, vérifier la capacité avant de copier."
+          "text": "`strncpy(dest, src, n)` copie au plus `n` octets, sans garantir un terminateur `\\0` si la source occupe au moins `n` octets. Vérifier la capacité de la destination et assurer la terminaison si une chaîne C est attendue."
         }
       ],
       "correct_option_ids": [
@@ -11276,7 +11276,7 @@
       "options": [
         {
           "id": "A",
-          "text": "La première erreur affichée peut provoquer les suivantes. Consulter la pile des appels, les lignes indiquées par -g et le contexte des allocations/libérations. Un « 0 errors » sur un test n'est pas une preuve générale d'absence de bugs. Exemple : « definitely lost: 32 bytes in 1 blocks » = 1 bloc de 32 octets définitivement perdu. Ces labels en majuscules sont des cat"
+          "text": "La première erreur affichée peut provoquer les suivantes. Consulter la pile des appels, les lignes indiquées par -g et le contexte des allocations/libérations. Un « 0 errors » sur un test n'est pas une preuve générale d'absence de bugs. Exemple : « definitely lost: 32 bytes in 1 blocks » = 1 bloc de 32 octets définitivement perdu. Ces libellés en majuscules sont des catégories descriptives, pas nécessairement des messages littéraux de Memcheck."
         },
         {
           "id": "B",
@@ -11814,7 +11814,7 @@
         },
         {
           "id": "B",
-          "text": "Dans la question du lab, la bonne raison est que « corruption may have already occurred during input reading ». Corriger la copie après coup n'annule pas un débordement déjà produit. Vérifie la longueur lors de la LECTURE, et refuse les lignes incomplètes si nécessaire."
+          "text": "Si une saisie déborde un tampon pendant sa lecture, la mémoire peut être corrompue avant toute copie ultérieure. Vérifier la capacité du tampon pendant la lecture et rejeter une ligne tronquée si l'entrée complète est nécessaire."
         },
         {
           "id": "C",

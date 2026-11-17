@@ -452,7 +452,7 @@ Quel point à retenir est directement associé à « Modifier une valeur par un 
 
 - **A ❌** Le comparateur de qsort reçoit des pointeurs vers des éléments, pas les éléments eux-mêmes. Éviter return a-b si a et b sont des int susceptibles de déborder.
 - **B ✅** p = &autreVariable changerait, à l’inverse, l’objet pointé.
-- **C ❌** a[5] ne désigne pas un élément de ce tableau.
+- **C ❌** Pour `int a[5]`, seuls les indices 0 à 4 désignent des éléments : lire ou modifier `a[5]` serait hors limites.
 - **D ❌** L’arithmétique des pointeurs doit rester dans les limites du même tableau, ou juste après.
 
 **Réponse proposée :** B. La fiche indique : p = &autreVariable changerait, à l’inverse, l’objet pointé.
@@ -933,7 +933,7 @@ Quel point à retenir est directement associé à « Passage d’arguments par v
 - **A ❌** Ne pas retourner l’adresse d’un tableau local pour l’utiliser après le retour de la fonction. Ne jamais appeler free sur une variable ou un tableau automatique.
 - **B ✅** Pour modifier une variable de l’appelant, on peut transmettre son adresse.
 - **C ❌** Un tableau existant ne se réaffecte pas avec l'opérateur = comme une variable scalaire.
-- **D ❌** Le type de &a est un pointeur vers tableau de 5 int.
+- **D ❌** Pour `int a[5]`, le type de `&a` est `int (*)[5]`, un pointeur vers le tableau entier de cinq int.
 
 **Réponse proposée :** B. La fiche indique : Pour modifier une variable de l’appelant, on peut transmettre son adresse.
 
@@ -1171,11 +1171,11 @@ Quelle description caractérise « Indices de tableau » ?
 Quel point à retenir est directement associé à « Indices de tableau » ?
 
 - **A ❌** strcpy copie vers une zone existante ; strdup crée une nouvelle zone allouée. Sous GNU89, strdup est une fonction POSIX, pas une fonction du C89 standard.
-- **B ✅** a[5] ne désigne pas un élément de ce tableau.
+- **B ✅** Pour `int a[5]`, seuls les indices 0 à 4 désignent des éléments : lire ou modifier `a[5]` serait hors limites.
 - **C ❌** Le nombre de colonnes fait partie du type utilisé pour manipuler ce tableau.
 - **D ❌** Toujours contrôler p == NULL avant de déréférencer p. N’utilise pas de boucle d’allocations géantes pour tester artificiellement un échec.
 
-**Réponse proposée :** B. La fiche indique : a[5] ne désigne pas un élément de ce tableau.
+**Réponse proposée :** B. La fiche indique : Pour `int a[5]`, seuls les indices 0 à 4 désignent des éléments : lire ou modifier `a[5]` serait hors limites.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/15-indices-de-tableau
 
@@ -1190,7 +1190,7 @@ Quel point à retenir est directement associé à « Indices de tableau » ?
 Quelles affirmations concernent directement « Indices de tableau » ?
 
 - **A ✅** Les indices commencent à 0 : a[0] est le premier élément et a[4] le cinquième dans int a[5].
-- **B ✅** a[5] ne désigne pas un élément de ce tableau.
+- **B ✅** Pour `int a[5]`, seuls les indices 0 à 4 désignent des éléments : lire ou modifier `a[5]` serait hors limites.
 - **C ❌** Rechercher / compter les lignes / transformer des caractères.
 - **D ❌** Dans une fonction Bash, local limite la portée d’une variable. Une variable du shell non exportée est une autre notion.
 
@@ -1330,7 +1330,7 @@ Quelle description caractérise « Conversion tableau → pointeur » ?
 
 Quel point à retenir est directement associé à « Conversion tableau → pointeur » ?
 
-- **A ❌** Le troisième argument limite la copie, mais ne réserve pas automatiquement une place pour '\0'. Ici « Bonjour » devient « Bonjo » : pas de débordement, mais une troncature. Pour une copie complète, vérifier la capacité avant de copier.
+- **A ❌** `strncpy(dest, src, n)` copie au plus `n` octets, sans garantir un terminateur `\0` si la source occupe au moins `n` octets. Vérifier la capacité de la destination et assurer la terminaison si une chaîne C est attendue.
 - **B ❌** strcpy ne réalise jamais malloc à ta place. Il faut prévoir strlen(src) + 1 cases char, y compris '\0', et éviter les zones qui se chevauchent.
 - **C ✅** Cette conversion ne se produit pas dans certains contextes, notamment sizeof(a) et &a.
 - **D ❌** Ne pas écrire dans une chaîne littérale. const char *p protège contre cette modification ; char s[] crée un tableau modifiable distinct.
@@ -1491,11 +1491,11 @@ Quelle description caractérise « &tableau » ?
 Quel point à retenir est directement associé à « &tableau » ?
 
 - **A ❌** Un segfault est un symptôme d’accès invalide détecté pendant l’exécution, pas une garantie systématique du C. Les outils de diagnostic aident, mais un test qui réussit ne prouve pas l’absence de comportement indéfini.
-- **B ✅** Le type de &a est un pointeur vers tableau de 5 int.
-- **C ❌** La première erreur affichée peut provoquer les suivantes. Consulter la pile des appels, les lignes indiquées par -g et le contexte des allocations/libérations. Un « 0 errors » sur un test n'est pas une preuve générale d'absence de bugs. Exemple : « definitely lost: 32 bytes in 1 blocks » = 1 bloc de 32 octets définitivement perdu. Ces labels en majuscules sont des cat
+- **B ✅** Pour `int a[5]`, le type de `&a` est `int (*)[5]`, un pointeur vers le tableau entier de cinq int.
+- **C ❌** La première erreur affichée peut provoquer les suivantes. Consulter la pile des appels, les lignes indiquées par -g et le contexte des allocations/libérations. Un « 0 errors » sur un test n'est pas une preuve générale d'absence de bugs. Exemple : « definitely lost: 32 bytes in 1 blocks » = 1 bloc de 32 octets définitivement perdu. Ces libellés en majuscules sont des catégories descriptives, pas nécessairement des messages littéraux de Memcheck.
 - **D ❌** Pour le littéral : sizeof("Best School") = 12, strlen("Best School") = 11. Pour un pointeur char *p, sizeof(p) ne mesure jamais la longueur de la chaîne. malloc(sizeof("Best School") + 1) réserve 13 octets : c’est suffisant, sans être nécessaire. strlen n'est sûr que pour une chaîne correctement terminée : il n'empêche pas un débordement lors de la saisie.
 
-**Réponse proposée :** B. La fiche indique : Le type de &a est un pointeur vers tableau de 5 int.
+**Réponse proposée :** B. La fiche indique : Pour `int a[5]`, le type de `&a` est `int (*)[5]`, un pointeur vers le tableau entier de cinq int.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/19-tableau
 
@@ -1509,7 +1509,7 @@ Quel point à retenir est directement associé à « &tableau » ?
 
 Quelles affirmations concernent directement « &tableau » ?
 
-- **A ✅** Le type de &a est un pointeur vers tableau de 5 int.
+- **A ✅** Pour `int a[5]`, le type de `&a` est `int (*)[5]`, un pointeur vers le tableau entier de cinq int.
 - **B ❌** Choisir une branche selon des conditions.
 - **C ❌** Exécuter un script dans le Shell courant.
 - **D ✅** &a désigne l’adresse du tableau entier. Elle a la même position mémoire que &a[0], mais un type différent.
@@ -1732,7 +1732,7 @@ Quel point à retenir est directement associé à « Chaîne de caractères en C
 
 - **A ❌** VRAI : un pointeur vers un bloc libéré ne permet plus d'accéder à ce bloc, immédiatement après free. FAUX : p = NULL protège automatiquement les autres pointeurs qui désignent l'ancien bloc. Un pointeur n'est pas forcément valide jusqu'à la fin du programme.
 - **B ❌** calloc remet les octets du bloc à zéro, mais n'empêche ni un accès hors limites ni l'utilisation du bloc après free. Le résultat peut être NULL si l'allocation échoue.
-- **C ❌** Dans la question du lab, la bonne raison est que « corruption may have already occurred during input reading ». Corriger la copie après coup n'annule pas un débordement déjà produit. Vérifie la longueur lors de la LECTURE, et refuse les lignes incomplètes si nécessaire.
+- **C ❌** Si une saisie déborde un tampon pendant sa lecture, la mémoire peut être corrompue avant toute copie ultérieure. Vérifier la capacité du tampon pendant la lecture et rejeter une ligne tronquée si l'entrée complète est nécessaire.
 - **D ✅** Toutes les suites de char ne sont pas nécessairement des chaînes valides.
 
 **Réponse proposée :** D. La fiche indique : Toutes les suites de char ne sont pas nécessairement des chaînes valides.
@@ -2370,7 +2370,7 @@ Quelle description caractérise « Principe d'inversion d'une chaîne » ?
 
 Quel point à retenir est directement associé à « Principe d'inversion d'une chaîne » ?
 
-- **A ❌** a[5] ne désigne pas un élément de ce tableau.
+- **A ❌** Pour `int a[5]`, seuls les indices 0 à 4 désignent des éléments : lire ou modifier `a[5]` serait hors limites.
 - **B ❌** L’arithmétique des pointeurs doit rester dans les limites du même tableau, ou juste après.
 - **C ✅** Cette fiche décrit une méthode de raisonnement, sans résoudre intégralement un exercice.
 - **D ❌** Toujours initialiser un pointeur avant de le déréférencer.
@@ -2850,7 +2850,7 @@ Quelle description caractérise « Fuite mémoire — allocation perdue » ?
 
 Quel point à retenir est directement associé à « Fuite mémoire — allocation perdue » ?
 
-- **A ❌** Le type de &a est un pointeur vers tableau de 5 int.
+- **A ❌** Pour `int a[5]`, le type de `&a` est `int (*)[5]`, un pointeur vers le tableau entier de cinq int.
 - **B ✅** Memory leak = fuite mémoire. Avec Valgrind, « definitely lost » indique un bloc inaccessible, « still reachable » un bloc encore pointé à la sortie. Le système récupère généralement la mémoire à la fin du processus, mais cela ne corrige pas une fuite pendant son fonctionnement.
 - **C ❌** Ne pas retourner l’adresse d’un tableau local pour l’utiliser après le retour de la fonction. Ne jamais appeler free sur une variable ou un tableau automatique.
 - **D ❌** Un tableau existant ne se réaffecte pas avec l'opérateur = comme une variable scalaire.
@@ -3412,7 +3412,7 @@ Quel point à retenir est directement associé à « Pile et tas : durée de vie
 
 - **A ❌** memcpy sur des plages qui se chevauchent a un comportement indéfini ; memmove est prévue pour ce cas. Vérifier la capacité de destination et compter les octets copiés, y compris '\0' pour une chaîne.
 - **B ✅** Pile/stack : objets automatiques et appels, dans les implémentations usuelles. Tas/heap : blocs obtenus via malloc/calloc/realloc, libérés explicitement. Durée de vie statique : objets static. Ne jamais faire free(&local) ou free sur un tableau static.
-- **C ❌** Le troisième argument limite la copie, mais ne réserve pas automatiquement une place pour '\0'. Ici « Bonjour » devient « Bonjo » : pas de débordement, mais une troncature. Pour une copie complète, vérifier la capacité avant de copier.
+- **C ❌** `strncpy(dest, src, n)` copie au plus `n` octets, sans garantir un terminateur `\0` si la source occupe au moins `n` octets. Vérifier la capacité de la destination et assurer la terminaison si une chaîne C est attendue.
 - **D ❌** Pour le littéral : sizeof("Best School") = 12, strlen("Best School") = 11. Pour un pointeur char *p, sizeof(p) ne mesure jamais la longueur de la chaîne. malloc(sizeof("Best School") + 1) réserve 13 octets : c’est suffisant, sans être nécessaire. strlen n'est sûr que pour une chaîne correctement terminée : il n'empêche pas un débordement lors de la saisie.
 
 **Réponse proposée :** B. La fiche indique : Pile/stack : objets automatiques et appels, dans les implémentations usuelles. Tas/heap : blocs obtenus via malloc/calloc/realloc, libérés explicitement. Durée de vie statique : objets static. Ne jamais faire free(&local) ou free sur un tableau static.
@@ -3511,7 +3511,7 @@ Quelles affirmations concernent directement « free : quelles adresses peut-on l
 
 - **A ✅** free accepte NULL ou un pointeur valide obtenu par une allocation dynamique compatible ; ni un littéral ni un tableau local ne se libèrent avec free.
 - **B ❌** Une fonction C doit posséder une signature adaptée : type de retour, nom, liste de paramètres.
-- **C ❌** Le base bundle est l'ensemble de fichiers de départ fourni pour un exercice ; son audit consiste à vérifier les hypothèses, les entrées et les responsabilités mémoire avant d'émettre un diagnostic.
+- **C ❌** Le code de départ regroupe les fichiers fournis pour un exercice ; son audit consiste à vérifier les hypothèses, les entrées et les responsabilités mémoire avant d'émettre un diagnostic.
 - **D ✅** Ne libère jamais un littéral, l’adresse d’un objet automatique ou le même bloc deux fois. free(NULL) est autorisé, mais ne rend pas valide un ancien pointeur libéré.
 
 **Réponse proposée :** A, D. Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.
@@ -3572,7 +3572,7 @@ Quel point à retenir est directement associé à « Pointeur non initialisé : 
 
 - **A ✅** Un segfault est une conséquence fréquente, jamais une garantie du langage. Un programme qui compile peut contenir un comportement indéfini à l’exécution.
 - **B ❌** memcpy ne garantit ni le terminateur '\0', ni la capacité, ni l'absence de chevauchement : le développeur doit vérifier ces conditions avant l'appel. Pour déplacer des octets avec recouvrement, utiliser memmove.
-- **C ❌** La première erreur affichée peut provoquer les suivantes. Consulter la pile des appels, les lignes indiquées par -g et le contexte des allocations/libérations. Un « 0 errors » sur un test n'est pas une preuve générale d'absence de bugs. Exemple : « definitely lost: 32 bytes in 1 blocks » = 1 bloc de 32 octets définitivement perdu. Ces labels en majuscules sont des cat
+- **C ❌** La première erreur affichée peut provoquer les suivantes. Consulter la pile des appels, les lignes indiquées par -g et le contexte des allocations/libérations. Un « 0 errors » sur un test n'est pas une preuve générale d'absence de bugs. Exemple : « definitely lost: 32 bytes in 1 blocks » = 1 bloc de 32 octets définitivement perdu. Ces libellés en majuscules sont des catégories descriptives, pas nécessairement des messages littéraux de Memcheck.
 - **D ❌** Un segfault est un symptôme d’accès invalide détecté pendant l’exécution, pas une garantie systématique du C. Les outils de diagnostic aident, mais un test qui réussit ne prouve pas l’absence de comportement indéfini.
 
 **Réponse proposée :** A. La fiche indique : Un segfault est une conséquence fréquente, jamais une garantie du langage. Un programme qui compile peut contenir un comportement indéfini à l’exécution.
@@ -3811,11 +3811,11 @@ Quelle description caractérise « strncpy() — copie limitée et terminaison �
 Quel point à retenir est directement associé à « strncpy() — copie limitée et terminaison » ?
 
 - **A ❌** VRAI : un pointeur vers un bloc libéré ne permet plus d'accéder à ce bloc, immédiatement après free. FAUX : p = NULL protège automatiquement les autres pointeurs qui désignent l'ancien bloc. Un pointeur n'est pas forcément valide jusqu'à la fin du programme.
-- **B ✅** Le troisième argument limite la copie, mais ne réserve pas automatiquement une place pour '\0'. Ici « Bonjour » devient « Bonjo » : pas de débordement, mais une troncature. Pour une copie complète, vérifier la capacité avant de copier.
-- **C ❌** Dans la question du lab, la bonne raison est que « corruption may have already occurred during input reading ». Corriger la copie après coup n'annule pas un débordement déjà produit. Vérifie la longueur lors de la LECTURE, et refuse les lignes incomplètes si nécessaire.
+- **B ✅** `strncpy(dest, src, n)` copie au plus `n` octets, sans garantir un terminateur `\0` si la source occupe au moins `n` octets. Vérifier la capacité de la destination et assurer la terminaison si une chaîne C est attendue.
+- **C ❌** Si une saisie déborde un tampon pendant sa lecture, la mémoire peut être corrompue avant toute copie ultérieure. Vérifier la capacité du tampon pendant la lecture et rejeter une ligne tronquée si l'entrée complète est nécessaire.
 - **D ❌** operations[index] est un pointeur de fonction, pas le résultat d'une fonction. Toujours valider l'indice et la non-nullité avant l'appel.
 
-**Réponse proposée :** B. La fiche indique : Le troisième argument limite la copie, mais ne réserve pas automatiquement une place pour '\0'. Ici « Bonjour » devient « Bonjo » : pas de débordement, mais une troncature. Pour une copie complète, vérifier la capacité avant de copier.
+**Réponse proposée :** B. La fiche indique : `strncpy(dest, src, n)` copie au plus `n` octets, sans garantir un terminateur `\0` si la source occupe au moins `n` octets. Vérifier la capacité de la destination et assurer la terminaison si une chaîne C est attendue.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/48-strncpy-copie-limitee-et-terminaison · https://man7.org/linux/man-pages/man3/strncpy.3.html
 
@@ -3831,7 +3831,7 @@ Quelles affirmations concernent directement « strncpy() — copie limitée et t
 
 - **A ✅** strncpy copie au plus n caractères et peut ne pas ajouter '\0' si la source est trop longue ; la limite ne garantit pas une chaîne C valide.
 - **B ❌** Une struct peut être initialisée membre par membre dans l’ordre déclaré : struct point p = {2, 3};.
-- **C ✅** Le troisième argument limite la copie, mais ne réserve pas automatiquement une place pour '\0'. Ici « Bonjour » devient « Bonjo » : pas de débordement, mais une troncature. Pour une copie complète, vérifier la capacité avant de copier.
+- **C ✅** `strncpy(dest, src, n)` copie au plus `n` octets, sans garantir un terminateur `\0` si la source occupe au moins `n` octets. Vérifier la capacité de la destination et assurer la terminaison si une chaîne C est attendue.
 - **D ❌** typedef unsigned int identifiant; permet d’écrire identifiant à la place de unsigned int.
 
 **Réponse proposée :** A, C. Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.
@@ -4292,10 +4292,10 @@ Quel point à retenir est directement associé à « Valgrind Memcheck — compr
 
 - **A ❌** sizeof(a) et sizeof(p) ne mesurent pas la même chose.
 - **B ❌** L’adresse affichée peut changer d’une exécution à l’autre.
-- **C ✅** La première erreur affichée peut provoquer les suivantes. Consulter la pile des appels, les lignes indiquées par -g et le contexte des allocations/libérations. Un « 0 errors » sur un test n'est pas une preuve générale d'absence de bugs. Exemple : « definitely lost: 32 bytes in 1 blocks » = 1 bloc de 32 octets définitivement perdu. Ces labels en majuscules sont des cat
+- **C ✅** La première erreur affichée peut provoquer les suivantes. Consulter la pile des appels, les lignes indiquées par -g et le contexte des allocations/libérations. Un « 0 errors » sur un test n'est pas une preuve générale d'absence de bugs. Exemple : « definitely lost: 32 bytes in 1 blocks » = 1 bloc de 32 octets définitivement perdu. Ces libellés en majuscules sont des catégories descriptives, pas nécessairement des messages littéraux de Memcheck.
 - **D ❌** Le format exact de l’adresse affichée dépend de l’implémentation.
 
-**Réponse proposée :** C. La fiche indique : La première erreur affichée peut provoquer les suivantes. Consulter la pile des appels, les lignes indiquées par -g et le contexte des allocations/libérations. Un « 0 errors » sur un test n'est pas une preuve générale d'absence de bugs. Exemple : « definitely lost: 32 bytes in 1 blocks » = 1 bloc de 32 octets définitivement perdu. Ces labels en majuscules sont des cat
+**Réponse proposée :** C. La fiche indique : La première erreur affichée peut provoquer les suivantes. Consulter la pile des appels, les lignes indiquées par -g et le contexte des allocations/libérations. Un « 0 errors » sur un test n'est pas une preuve générale d'absence de bugs. Exemple : « definitely lost: 32 bytes in 1 blocks » = 1 bloc de 32 octets définitivement perdu. Ces libellés en majuscules sont des catégories descriptives, pas nécessairement des messages littéraux de Memcheck.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/54-valgrind-memcheck-comprendre-les-alertes · https://valgrind.org/docs/manual/mc-manual.html
 
@@ -4312,7 +4312,7 @@ Quelles affirmations concernent directement « Valgrind Memcheck — comprendre 
 - **A ❌** Gère les ressources, les processus, la mémoire, les fichiers et les périphériques.
 - **B ❌** Shell courant sur Linux.
 - **C ✅** Memcheck distingue les accès Invalid read/write, les valeurs non initialisées, les libérations invalides et plusieurs catégories de fuites.
-- **D ✅** La première erreur affichée peut provoquer les suivantes. Consulter la pile des appels, les lignes indiquées par -g et le contexte des allocations/libérations. Un « 0 errors » sur un test n'est pas une preuve générale d'absence de bugs. Exemple : « definitely lost: 32 bytes in 1 blocks » = 1 bloc de 32 octets définitivement perdu. Ces labels en majuscules sont des cat
+- **D ✅** La première erreur affichée peut provoquer les suivantes. Consulter la pile des appels, les lignes indiquées par -g et le contexte des allocations/libérations. Un « 0 errors » sur un test n'est pas une preuve générale d'absence de bugs. Exemple : « definitely lost: 32 bytes in 1 blocks » = 1 bloc de 32 octets définitivement perdu. Ces libellés en majuscules sont des catégories descriptives, pas nécessairement des messages littéraux de Memcheck.
 
 **Réponse proposée :** C, D. Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.
 
@@ -4373,7 +4373,7 @@ Quel point à retenir est directement associé à « memcpy() ou memmove() — z
 - **A ❌** Pour modifier une variable de l’appelant, on peut transmettre son adresse.
 - **B ✅** memcpy sur des plages qui se chevauchent a un comportement indéfini ; memmove est prévue pour ce cas. Vérifier la capacité de destination et compter les octets copiés, y compris '\0' pour une chaîne.
 - **C ❌** Déréférencer un pointeur non initialisé ou invalide entraîne un comportement indéfini.
-- **D ❌** Le type de &a est un pointeur vers tableau de 5 int.
+- **D ❌** Pour `int a[5]`, le type de `&a` est `int (*)[5]`, un pointeur vers le tableau entier de cinq int.
 
 **Réponse proposée :** B. La fiche indique : memcpy sur des plages qui se chevauchent a un comportement indéfini ; memmove est prévue pour ce cas. Vérifier la capacité de destination et compter les octets copiés, y compris '\0' pour une chaîne.
 
@@ -4450,12 +4450,12 @@ Quelle description caractérise « Dépassement de tampon sur la pile — erreur
 
 Quel point à retenir est directement associé à « Dépassement de tampon sur la pile — erreur avant malloc » ?
 
-- **A ✅** Dans la question du lab, la bonne raison est que « corruption may have already occurred during input reading ». Corriger la copie après coup n'annule pas un débordement déjà produit. Vérifie la longueur lors de la LECTURE, et refuse les lignes incomplètes si nécessaire.
+- **A ✅** Si une saisie déborde un tampon pendant sa lecture, la mémoire peut être corrompue avant toute copie ultérieure. Vérifier la capacité du tampon pendant la lecture et rejeter une ligne tronquée si l'entrée complète est nécessaire.
 - **B ❌** L’arithmétique des pointeurs doit rester dans les limites du même tableau, ou juste après.
-- **C ❌** a[5] ne désigne pas un élément de ce tableau.
+- **C ❌** Pour `int a[5]`, seuls les indices 0 à 4 désignent des éléments : lire ou modifier `a[5]` serait hors limites.
 - **D ❌** Toutes les suites de char ne sont pas nécessairement des chaînes valides.
 
-**Réponse proposée :** A. La fiche indique : Dans la question du lab, la bonne raison est que « corruption may have already occurred during input reading ». Corriger la copie après coup n'annule pas un débordement déjà produit. Vérifie la longueur lors de la LECTURE, et refuse les lignes incomplètes si nécessaire.
+**Réponse proposée :** A. La fiche indique : Si une saisie déborde un tampon pendant sa lecture, la mémoire peut être corrompue avant toute copie ultérieure. Vérifier la capacité du tampon pendant la lecture et rejeter une ligne tronquée si l'entrée complète est nécessaire.
 
 **Sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/56-depassement-de-tampon-sur-la-pile-erreur-avant-malloc · https://community.owasp.org/vulnerabilities/Buffer_Overflow · https://man7.org/linux/man-pages/man3/fgets.3.html
 
@@ -4470,7 +4470,7 @@ Quel point à retenir est directement associé à « Dépassement de tampon sur 
 Quelles affirmations concernent directement « Dépassement de tampon sur la pile — erreur avant malloc » ?
 
 - **A ❌** Dépend du répertoire actuel.
-- **B ✅** Dans la question du lab, la bonne raison est que « corruption may have already occurred during input reading ». Corriger la copie après coup n'annule pas un débordement déjà produit. Vérifie la longueur lors de la LECTURE, et refuse les lignes incomplètes si nécessaire.
+- **B ✅** Si une saisie déborde un tampon pendant sa lecture, la mémoire peut être corrompue avant toute copie ultérieure. Vérifier la capacité du tampon pendant la lecture et rejeter une ligne tronquée si l'entrée complète est nécessaire.
 - **C ❌** Programme qui interprète les commandes et lance les autres programmes.
 - **D ✅** Si la lecture de la saisie déborde un tableau local, la mémoire peut être corrompue AVANT malloc et strcpy : copier ensuite ne répare pas cette erreur.
 
@@ -5333,7 +5333,7 @@ Quel point à retenir est directement associé à « Pointeur de fonction — d�
 - **A ❌** strcpy ne réalise jamais malloc à ta place. Il faut prévoir strlen(src) + 1 cases char, y compris '\0', et éviter les zones qui se chevauchent.
 - **B ✅** Bien lire les parenthèses : int (*f)(int) est un pointeur de fonction ; int *f(int) est une fonction renvoyant int *. Ne pas confondre avec int *.
 - **C ❌** memcpy sur des plages qui se chevauchent a un comportement indéfini ; memmove est prévue pour ce cas. Vérifier la capacité de destination et compter les octets copiés, y compris '\0' pour une chaîne.
-- **D ❌** Le troisième argument limite la copie, mais ne réserve pas automatiquement une place pour '\0'. Ici « Bonjour » devient « Bonjo » : pas de débordement, mais une troncature. Pour une copie complète, vérifier la capacité avant de copier.
+- **D ❌** `strncpy(dest, src, n)` copie au plus `n` octets, sans garantir un terminateur `\0` si la source occupe au moins `n` octets. Vérifier la capacité de la destination et assurer la terminaison si une chaîne C est attendue.
 
 **Réponse proposée :** B. La fiche indique : Bien lire les parenthèses : int (*f)(int) est un pointeur de fonction ; int *f(int) est une fonction renvoyant int *. Ne pas confondre avec int *.
 
@@ -5490,7 +5490,7 @@ Quelle description caractérise « Callback — transmettre une fonction en para
 
 Quel point à retenir est directement associé à « Callback — transmettre une fonction en paramètre » ?
 
-- **A ❌** La première erreur affichée peut provoquer les suivantes. Consulter la pile des appels, les lignes indiquées par -g et le contexte des allocations/libérations. Un « 0 errors » sur un test n'est pas une preuve générale d'absence de bugs. Exemple : « definitely lost: 32 bytes in 1 blocks » = 1 bloc de 32 octets définitivement perdu. Ces labels en majuscules sont des cat
+- **A ❌** La première erreur affichée peut provoquer les suivantes. Consulter la pile des appels, les lignes indiquées par -g et le contexte des allocations/libérations. Un « 0 errors » sur un test n'est pas une preuve générale d'absence de bugs. Exemple : « definitely lost: 32 bytes in 1 blocks » = 1 bloc de 32 octets définitivement perdu. Ces libellés en majuscules sont des catégories descriptives, pas nécessairement des messages littéraux de Memcheck.
 - **B ✅** Un callback n'est pas forcément asynchrone : appliquer appelle ici directement afficher_double. La signature du paramètre doit correspondre à celle de la fonction.
 - **C ❌** memcpy ne garantit ni le terminateur '\0', ni la capacité, ni l'absence de chevauchement : le développeur doit vérifier ces conditions avant l'appel. Pour déplacer des octets avec recouvrement, utiliser memmove.
 - **D ❌** Un segfault est un symptôme d’accès invalide détecté pendant l’exécution, pas une garantie systématique du C. Les outils de diagnostic aident, mais un test qui réussit ne prouve pas l’absence de comportement indéfini.
@@ -5731,7 +5731,7 @@ Quelle description caractérise « qsort() — comparateur passé par pointeur d
 Quel point à retenir est directement associé à « qsort() — comparateur passé par pointeur de fonction » ?
 
 - **A ❌** operations[index] est un pointeur de fonction, pas le résultat d'une fonction. Toujours valider l'indice et la non-nullité avant l'appel.
-- **B ❌** Dans la question du lab, la bonne raison est que « corruption may have already occurred during input reading ». Corriger la copie après coup n'annule pas un débordement déjà produit. Vérifie la longueur lors de la LECTURE, et refuse les lignes incomplètes si nécessaire.
+- **B ❌** Si une saisie déborde un tampon pendant sa lecture, la mémoire peut être corrompue avant toute copie ultérieure. Vérifier la capacité du tampon pendant la lecture et rejeter une ligne tronquée si l'entrée complète est nécessaire.
 - **C ❌** VRAI : un pointeur vers un bloc libéré ne permet plus d'accéder à ce bloc, immédiatement après free. FAUX : p = NULL protège automatiquement les autres pointeurs qui désignent l'ancien bloc. Un pointeur n'est pas forcément valide jusqu'à la fin du programme.
 - **D ✅** Le comparateur de qsort reçoit des pointeurs vers des éléments, pas les éléments eux-mêmes. Éviter return a-b si a et b sont des int susceptibles de déborder.
 
