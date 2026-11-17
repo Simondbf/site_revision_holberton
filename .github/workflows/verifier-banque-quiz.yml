@@ -22,3 +22,14 @@ jobs:
           node-version: '22'
       - name: Vérifier les fichiers de questions et corrigés
         run: node scripts/verifier_banque_quiz.mjs
+
+      - name: Préparer les fichiers pour les relecteurs externes
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: banque-quiz-pr19-relecture
+          path: |
+            docs/quiz/vague1/**
+            docs/quiz/nouvelles-questions-scanf.md
+          if-no-files-found: error
+          retention-days: 30
