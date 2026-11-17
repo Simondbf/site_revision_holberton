@@ -11,7 +11,9 @@ Un site de révision indépendant, créé pour retrouver facilement les notions 
 - **Exemples et schémas** : visualiser le fonctionnement des commandes et du code.
 - **Favoris** : conserver ses fiches préférées sur l'appareil utilisé.
 
-Les cours sont accessibles sans compte. Le site fonctionne aussi hors ligne après téléchargement de `index.html`.
+**Aucun compte n’est nécessaire** pour consulter les cours et utiliser les fonctionnalités actuelles. Le site fonctionne aussi hors ligne après téléchargement de `index.html`.
+
+Les spécifications techniques et les évolutions envisagées sont suivies séparément dans [le cahier des charges](docs/COMPTES_OPTIONNELS_ET_QUIZ.md).
 
 ## Participer
 
