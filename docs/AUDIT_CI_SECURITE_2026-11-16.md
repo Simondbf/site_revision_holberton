@@ -2,14 +2,14 @@
 
 ## Périmètre et niveau de preuve
 
-Contrôle des **13 pull requests fusionnées**, de la PR **#14 en brouillon**, de l'historique des **118 exécutions GitHub Actions** accessibles, des workflows, des scripts de tests et de la branche `main` de `Simondbf/site_revision_holberton`. L'audit s'appuie sur GitHub et le code du dépôt : **pas d'accès au VPS, à son journal de déploiement, à sa configuration Nginx ou à une campagne de tests d'intrusion**. Les résultats de CI ne prouvent ni la disponibilité de la production ni l'absence de vulnérabilités.
+Contrôle des **13 pull requests fusionnées**, de la PR **#14 alors en brouillon (fermée sans fusion depuis)**, de l'historique des **118 exécutions GitHub Actions** accessibles, des workflows, des scripts de tests et de la branche `main` de `Simondbf/site_revision_holberton`. L'audit s'appuie sur GitHub et le code du dépôt : **pas d'accès au VPS, à son journal de déploiement, à sa configuration Nginx ou à une campagne de tests d'intrusion**. Les résultats de CI ne prouvent ni la disponibilité de la production ni l'absence de vulnérabilités.
 
 ## Résultat de l'historique GitHub
 
 - 118 exécutions GitHub Actions examinées : **92 réussites, 26 échecs historiques**. Ces échecs concernent des versions intermédiaires ; les **dernières exécutions disponibles sur la tête de chacune des PR fusionnées sont réussies**.
 - Le dernier contrôle sur `main` avant cet audit est **réussi** : [exécution 43921171444](https://github.com/Simondbf/site_revision_holberton/actions/runs/43921171444), commit `dd588ab7` du 16 novembre 2026.
 - Toutes les PR fusionnées suivantes ont un dernier contrôle vert sur leur branche, et un contrôle `verifier` vert sur `main` après fusion : **#3, #4, #5, #7, #8, #9, #10, #11, #12, #13, #15, #16, #17**. #3 n'avait qu'un workflow disponible avant fusion.
-- **#14 n'est pas fusionnée** : prototype de quiz 25 questions, tests de sa dernière révision réussis, mais branche en retard et conflit de fusion potentiel. Le fichier `index.html` de #14 contient **228 notions**, alors que `main` en contient **242** ; **ne pas fusionner ni remplacer le fichier de `main` tel quel**.
+- **#14 est fermée sans fusion** : prototype de quiz 25 questions abandonné, tests de sa dernière révision réussis, mais branche en retard et conflit de fusion potentiel. Le fichier `index.html` de #14 contient **228 notions**, alors que `main` en contient **242** ; **ne pas fusionner ni remplacer le fichier de `main` tel quel**.
 - Supprimer une branche après une fusion ne supprime pas les changements déjà intégrés à `main` ; la PR, les commits et les anciennes exécutions restent consultables.
 
 ### Exemples d'échecs historiques (cause établie dans les logs)
@@ -36,9 +36,9 @@ Lors de l'inspection, la branche `main` est **non protégée** et aucun ruleset 
 
 `AGENTS.md` décrit un `holberton-deploy.timer` sur le VPS qui contrôle les changements environ toutes les 5 minutes puis met à jour le fichier HTML, **sans interroger les statuts GitHub Actions**. Le workflow navigateur actuel ne s'exécute que sur les PR modifiant certains fichiers, pas sur le push `main`. Cette PR ajoute un contrôle navigateur après chaque push `main`, mais **ne verrouille pas le déploiement du VPS** : avant mise en ligne d'un backend/compte, préparer un pipeline de publication conditionné à la CI, avec rollback et sauvegardes. Vérifier les journaux du timer côté serveur avant d'affirmer qu'une version est publiée.
 
-### P1 — Prototype de quiz à réintégrer sans régression
+### Historique — ancien prototype de quiz abandonné
 
-La PR #14 est un **pilote isolé** avec sauvegarde locale, niveau automatique et 25 questions sur cinq notions. Son `index.html` est obsolète (228 notions contre 242 sur `main`). Rebaser/porter le quiz sur `main` puis vérifier l'absence de régression de cours, de navigation et d'illustrations. Maintenir le statut brouillon jusqu'à une revue pédagogique indépendante des questions, des tests sur le code consolidé et une revue de sécurité.
+La PR #14 était un **pilote isolé** avec sauvegarde locale, niveau automatique et 25 questions sur cinq notions. Son `index.html` est obsolète (228 notions contre 242 sur `main`). **Décision ultérieure du propriétaire : fermer #14 sans fusion et abandonner les 25 questions**. Il ne faut ni reprendre ni rebaser ce prototype. Tout futur moteur de quiz devra être conçu sur la version actuelle du site, avec absence de régression des cours, de la navigation et des illustrations, revue indépendante des nouvelles questions et tests de sécurité avant publication.
 
 ### P2 — Tests liés à des effectifs figés
 
@@ -64,7 +64,7 @@ Le workflow Playwright utilise `npm install --no-save --no-package-lock playwrig
 1. Exécuter les nouveaux checks de la PR et les inspecter sur son dernier commit.
 2. Protéger `main` dans les réglages du dépôt ; les changements de ce document ne peuvent pas le faire automatiquement.
 3. Vérifier HTTPS, headers, déploiement effectif, sauvegardes, logs, droits et restauration sur le VPS.
-4. Quand le quiz #14 sera porté : rejouer intégralement le scénario invité, mobile, pause/reprise, déconnexion réseau, rechargement, anti-régression des 242 notions et revue humaine/IA de justesse des réponses.
+4. Lorsqu'un **nouveau moteur de quiz** sera proposé (sans reprendre le prototype #14) : rejouer intégralement le scénario invité, mobile, pause/reprise, déconnexion réseau, rechargement, anti-régression de toutes les notions en production et revue humaine/IA de justesse des réponses.
 5. **Avant ouverture d'un compte** : revue d'architecture, contrôle d'accès par utilisateur, sauvegarde/restauration, suppression de compte, tests d'intrusion adaptés, suivi de dépendances.
 
 **Conclusion :** les anciens checks rouges ne prouvent pas une mauvaise fusion ; ils correspondent à des versions intermédiaires. Le risque principal démontré est l'absence d'un verrou obligatoire avant fusion / publication et l'écart de contenu de la branche du quiz.
