@@ -30,6 +30,5 @@ jobs:
           name: banque-quiz-pr19-relecture
           path: |
             docs/quiz/vague1/**
-            docs/quiz/nouvelles-questions-scanf.md
           if-no-files-found: error
           retention-days: 30
