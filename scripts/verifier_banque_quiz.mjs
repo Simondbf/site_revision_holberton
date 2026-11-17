@@ -24,6 +24,12 @@ for(const file of files){
   assert.equal(q.options?.length,4,'Quatre propositions attendues : '+q.id);
   assert.deepEqual(q.options.map(x=>x.id),['A','B','C','D'],'Identifiants d\'options invalides : '+q.id);
   assert.equal(new Set(q.options.map(x=>x.text)).size,4,'Options dupliquées : '+q.id);
+  for(const opt of q.options){
+   assert.ok(!/(?:\bdes cat|scanf\("%)$/.test(opt.text.trim()),
+     'Proposition visiblement tronquée : '+q.id+' ('+opt.id+')');
+   assert.ok(!opt.text.includes('Dans la question du lab'),
+     'Dépendance à un exercice non fourni : '+q.id+' ('+opt.id+')');
+  }
   const answers=q.correct_option_ids;
   assert.ok(Array.isArray(answers)&&new Set(answers).size===answers.length,'Corrigé invalidé : '+q.id);
   assert.ok(q.answer_mode==='single'?answers.length===1:answers.length>=2,'Mode et réponses incompatibles : '+q.id);
