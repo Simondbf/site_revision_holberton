@@ -1,0 +1,2276 @@
+{
+  "version": "review-v1",
+  "status": "non_verifie",
+  "theme_id": 4,
+  "theme": "Variables et Bash",
+  "questions": [
+    {
+      "id": "V1-N04_000-01",
+      "notion_id": "N04_000",
+      "legacy_notion_key": "4:0",
+      "theme": "Variables et Bash",
+      "notion": "Affectation",
+      "answer_mode": "single",
+      "question_type": "definition",
+      "prompt": "À quelle notion correspond la définition suivante : « BEST=School : pas d’espaces autour du =. » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Affectation"
+        },
+        {
+          "id": "B",
+          "text": "export / unset"
+        },
+        {
+          "id": "C",
+          "text": "$(commande)"
+        },
+        {
+          "id": "D",
+          "text": "Variable d’environnement"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "La définition est extraite du résumé de la fiche correspondante.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/variables-et-bash/1-affectation"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N04_000-02",
+      "notion_id": "N04_000",
+      "legacy_notion_key": "4:0",
+      "theme": "Variables et Bash",
+      "notion": "Affectation",
+      "answer_mode": "single",
+      "question_type": "description",
+      "prompt": "Quelle description caractérise « Affectation » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "BEST=School : pas d’espaces autour du =."
+        },
+        {
+          "id": "B",
+          "text": "Variable exportée et transmise aux processus enfants."
+        },
+        {
+          "id": "C",
+          "text": "Exporter une variable / supprimer une variable ou fonction."
+        },
+        {
+          "id": "D",
+          "text": "Substitution de commande : récupérer sa sortie."
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "Le résumé de la fiche indique : BEST=School : pas d’espaces autour du =.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/variables-et-bash/1-affectation"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N04_000-03",
+      "notion_id": "N04_000",
+      "legacy_notion_key": "4:0",
+      "theme": "Variables et Bash",
+      "notion": "Affectation",
+      "answer_mode": "single",
+      "question_type": "vigilance",
+      "prompt": "Quel point à retenir est directement associé à « Affectation » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "export rend visible ; unset supprime. Supprimer une variable ne retire pas rétroactivement la valeur des processus déjà lancés."
+        },
+        {
+          "id": "B",
+          "text": "$(commande) récupère stdout en supprimant les sauts de ligne finaux, mais pas forcément ceux du milieu."
+        },
+        {
+          "id": "C",
+          "text": "Une affectation Bash n'admet pas d'espaces autour de = dans cette forme."
+        },
+        {
+          "id": "D",
+          "text": "export influence l'environnement des futurs processus enfants, jamais celui d'un processus parent déjà lancé."
+        }
+      ],
+      "correct_option_ids": [
+        "C"
+      ],
+      "explanation": "La fiche indique : Une affectation Bash n'admet pas d'espaces autour de = dans cette forme.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/variables-et-bash/1-affectation"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N04_000-04",
+      "notion_id": "N04_000",
+      "legacy_notion_key": "4:0",
+      "theme": "Variables et Bash",
+      "notion": "Affectation",
+      "answer_mode": "multiple",
+      "question_type": "synthese",
+      "prompt": "Quelles affirmations concernent directement « Affectation » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "strdup(src) alloue une nouvelle chaîne et la copie ; il faut vérifier NULL puis appeler free sur le résultat."
+        },
+        {
+          "id": "B",
+          "text": "BEST=School : pas d’espaces autour du =."
+        },
+        {
+          "id": "C",
+          "text": "Une affectation Bash n'admet pas d'espaces autour de = dans cette forme."
+        },
+        {
+          "id": "D",
+          "text": "Une allocation peut échouer : contrôler le pointeur avant toute lecture ou écriture dans le bloc demandé."
+        }
+      ],
+      "correct_option_ids": [
+        "B",
+        "C"
+      ],
+      "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/variables-et-bash/1-affectation"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "cross_topic_distractors",
+        "check_possible_ambiguity"
+      ]
+    },
+    {
+      "id": "V1-N04_001-01",
+      "notion_id": "N04_001",
+      "legacy_notion_key": "4:1",
+      "theme": "Variables et Bash",
+      "notion": "Variable Shell",
+      "answer_mode": "single",
+      "question_type": "definition",
+      "prompt": "À quelle notion correspond la définition suivante : « Variable définie dans le Shell en cours, non nécessairement exportée. » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Variable Shell"
+        },
+        {
+          "id": "B",
+          "text": "$? / $1 / $#"
+        },
+        {
+          "id": "C",
+          "text": "alias / unalias"
+        },
+        {
+          "id": "D",
+          "text": "Découper PATH"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "La définition est extraite du résumé de la fiche correspondante.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/variables-et-bash/2-variable-shell"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N04_001-02",
+      "notion_id": "N04_001",
+      "legacy_notion_key": "4:1",
+      "theme": "Variables et Bash",
+      "notion": "Variable Shell",
+      "answer_mode": "single",
+      "question_type": "description",
+      "prompt": "Quelle description caractérise « Variable Shell » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "tr \":\" \"\\n\" transforme les séparateurs « : » en retours à la ligne. Le nombre de répertoires peut se déduire des séparateurs, en traitant le dernier élément."
+        },
+        {
+          "id": "B",
+          "text": "Créer / retirer un raccourci de commande."
+        },
+        {
+          "id": "C",
+          "text": "Variable définie dans le Shell en cours, non nécessairement exportée."
+        },
+        {
+          "id": "D",
+          "text": "Code retour / premier argument / nombre d’arguments positionnels."
+        }
+      ],
+      "correct_option_ids": [
+        "C"
+      ],
+      "explanation": "Le résumé de la fiche indique : Variable définie dans le Shell en cours, non nécessairement exportée.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/variables-et-bash/2-variable-shell"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N04_001-03",
+      "notion_id": "N04_001",
+      "legacy_notion_key": "4:1",
+      "theme": "Variables et Bash",
+      "notion": "Variable Shell",
+      "answer_mode": "single",
+      "question_type": "vigilance",
+      "prompt": "Quel point à retenir est directement associé à « Variable Shell » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Un alias est surtout pratique en shell interactif ; ce n'est pas un remplacement universel pour une fonction."
+        },
+        {
+          "id": "B",
+          "text": "Lis $? immédiatement après la commande concernée : la commande suivante peut le remplacer."
+        },
+        {
+          "id": "C",
+          "text": "Une variable du shell non exportée n'est pas transmise automatiquement aux programmes enfants."
+        },
+        {
+          "id": "D",
+          "text": "Une entrée vide de PATH peut désigner le répertoire courant : ce comportement peut présenter un risque de sécurité."
+        }
+      ],
+      "correct_option_ids": [
+        "C"
+      ],
+      "explanation": "La fiche indique : Une variable du shell non exportée n'est pas transmise automatiquement aux programmes enfants.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/variables-et-bash/2-variable-shell"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N04_001-04",
+      "notion_id": "N04_001",
+      "legacy_notion_key": "4:1",
+      "theme": "Variables et Bash",
+      "notion": "Variable Shell",
+      "answer_mode": "multiple",
+      "question_type": "synthese",
+      "prompt": "Quelles affirmations concernent directement « Variable Shell » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "free libère un bloc obtenu par allocation dynamique ; le pointeur ne devient pas automatiquement NULL."
+        },
+        {
+          "id": "B",
+          "text": "Variable définie dans le Shell en cours, non nécessairement exportée."
+        },
+        {
+          "id": "C",
+          "text": "Une variable du shell non exportée n'est pas transmise automatiquement aux programmes enfants."
+        },
+        {
+          "id": "D",
+          "text": "Pour réserver 10 int, utilise malloc(10 * sizeof(int)) ou malloc(10 * sizeof *p) : le calcul dépend du type, pas de l’architecture 64 bits."
+        }
+      ],
+      "correct_option_ids": [
+        "B",
+        "C"
+      ],
+      "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/variables-et-bash/2-variable-shell"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "cross_topic_distractors",
+        "check_possible_ambiguity"
+      ]
+    },
+    {
+      "id": "V1-N04_002-01",
+      "notion_id": "N04_002",
+      "legacy_notion_key": "4:2",
+      "theme": "Variables et Bash",
+      "notion": "Variable locale",
+      "answer_mode": "single",
+      "question_type": "definition",
+      "prompt": "À quelle notion correspond la définition suivante : « Dans une fonction Bash, local limite la portée d’une variable. Une variable du shell non exportée est une autre notion. » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "$VAR / ${VAR}"
+        },
+        {
+          "id": "B",
+          "text": "PATH"
+        },
+        {
+          "id": "C",
+          "text": "Variable locale"
+        },
+        {
+          "id": "D",
+          "text": "Variable Shell"
+        }
+      ],
+      "correct_option_ids": [
+        "C"
+      ],
+      "explanation": "La définition est extraite du résumé de la fiche correspondante.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/variables-et-bash/3-variable-locale"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N04_002-02",
+      "notion_id": "N04_002",
+      "legacy_notion_key": "4:2",
+      "theme": "Variables et Bash",
+      "notion": "Variable locale",
+      "answer_mode": "single",
+      "question_type": "description",
+      "prompt": "Quelle description caractérise « Variable locale » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Lire la valeur / délimiter explicitement le nom."
+        },
+        {
+          "id": "B",
+          "text": "Liste des dossiers recherchés pour trouver une commande, séparés par :."
+        },
+        {
+          "id": "C",
+          "text": "Variable définie dans le Shell en cours, non nécessairement exportée."
+        },
+        {
+          "id": "D",
+          "text": "Dans une fonction Bash, local limite la portée d’une variable. Une variable du shell non exportée est une autre notion."
+        }
+      ],
+      "correct_option_ids": [
+        "D"
+      ],
+      "explanation": "Le résumé de la fiche indique : Dans une fonction Bash, local limite la portée d’une variable. Une variable du shell non exportée est une autre notion.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/variables-et-bash/3-variable-locale"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N04_002-03",
+      "notion_id": "N04_002",
+      "legacy_notion_key": "4:2",
+      "theme": "Variables et Bash",
+      "notion": "Variable locale",
+      "answer_mode": "single",
+      "question_type": "vigilance",
+      "prompt": "Quel point à retenir est directement associé à « Variable locale » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Une variable du shell non exportée n'est pas transmise automatiquement aux programmes enfants."
+        },
+        {
+          "id": "B",
+          "text": "Pour l’exercice Holberton BEST=School, une variable du shell non exportée suffit. La commande local est différente et s’utilise uniquement dans une fonction Bash."
+        },
+        {
+          "id": "C",
+          "text": "Les dossiers de PATH sont parcourus dans l'ordre. Ajouter un dossier ne crée aucun exécutable."
+        },
+        {
+          "id": "D",
+          "text": "${VAR} évite d'inclure par erreur le suffixe dans le nom ; les guillemets protègent le résultat."
+        }
+      ],
+      "correct_option_ids": [
+        "B"
+      ],
+      "explanation": "La fiche indique : Pour l’exercice Holberton BEST=School, une variable du shell non exportée suffit. La commande local est différente et s’utilise uniquement dans une fonction Bash.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/variables-et-bash/3-variable-locale"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N04_002-04",
+      "notion_id": "N04_002",
+      "legacy_notion_key": "4:2",
+      "theme": "Variables et Bash",
+      "notion": "Variable locale",
+      "answer_mode": "multiple",
+      "question_type": "synthese",
+      "prompt": "Quelles affirmations concernent directement « Variable locale » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Pour l’exercice Holberton BEST=School, une variable du shell non exportée suffit. La commande local est différente et s’utilise uniquement dans une fonction Bash."
+        },
+        {
+          "id": "B",
+          "text": "Dans une fonction Bash, local limite la portée d’une variable. Une variable du shell non exportée est une autre notion."
+        },
+        {
+          "id": "C",
+          "text": "Une fuite mémoire (memory leak) survient lorsqu’un bloc alloué n’est pas libéré et devient inaccessible ; les fuites répétées épuisent la mémoire."
+        },
+        {
+          "id": "D",
+          "text": "Pour échanger deux cases, on conserve provisoirement l'une des valeurs dans une variable temporaire."
+        }
+      ],
+      "correct_option_ids": [
+        "A",
+        "B"
+      ],
+      "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/variables-et-bash/3-variable-locale"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "cross_topic_distractors",
+        "check_possible_ambiguity"
+      ]
+    },
+    {
+      "id": "V1-N04_003-01",
+      "notion_id": "N04_003",
+      "legacy_notion_key": "4:3",
+      "theme": "Variables et Bash",
+      "notion": "Variable d’environnement",
+      "answer_mode": "single",
+      "question_type": "definition",
+      "prompt": "À quelle notion correspond la définition suivante : « Variable exportée et transmise aux processus enfants. » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "export / unset"
+        },
+        {
+          "id": "B",
+          "text": "set / printenv"
+        },
+        {
+          "id": "C",
+          "text": "Variable d’environnement"
+        },
+        {
+          "id": "D",
+          "text": "$((...))"
+        }
+      ],
+      "correct_option_ids": [
+        "C"
+      ],
+      "explanation": "La définition est extraite du résumé de la fiche correspondante.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/variables-et-bash/4-variable-d-environnement"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N04_003-02",
+      "notion_id": "N04_003",
+      "legacy_notion_key": "4:3",
+      "theme": "Variables et Bash",
+      "notion": "Variable d’environnement",
+      "answer_mode": "single",
+      "question_type": "description",
+      "prompt": "Quelle description caractérise « Variable d’environnement » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Exporter une variable / supprimer une variable ou fonction."
+        },
+        {
+          "id": "B",
+          "text": "Variable exportée et transmise aux processus enfants."
+        },
+        {
+          "id": "C",
+          "text": "Évaluation arithmétique."
+        },
+        {
+          "id": "D",
+          "text": "Paramètres et variables du Shell / environnement."
+        }
+      ],
+      "correct_option_ids": [
+        "B"
+      ],
+      "explanation": "Le résumé de la fiche indique : Variable exportée et transmise aux processus enfants.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/variables-et-bash/4-variable-d-environnement"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N04_003-03",
+      "notion_id": "N04_003",
+      "legacy_notion_key": "4:3",
+      "theme": "Variables et Bash",
+      "notion": "Variable d’environnement",
+      "answer_mode": "single",
+      "question_type": "vigilance",
+      "prompt": "Quel point à retenir est directement associé à « Variable d’environnement » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "printenv examine l'environnement ; set affiche aussi la configuration du shell et d'autres éléments."
+        },
+        {
+          "id": "B",
+          "text": "export influence l'environnement des futurs processus enfants, jamais celui d'un processus parent déjà lancé."
+        },
+        {
+          "id": "C",
+          "text": "$((...)) calcule avec des entiers ; elle ne fournit pas directement une arithmétique décimale."
+        },
+        {
+          "id": "D",
+          "text": "export rend visible ; unset supprime. Supprimer une variable ne retire pas rétroactivement la valeur des processus déjà lancés."
+        }
+      ],
+      "correct_option_ids": [
+        "B"
+      ],
+      "explanation": "La fiche indique : export influence l'environnement des futurs processus enfants, jamais celui d'un processus parent déjà lancé.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/variables-et-bash/4-variable-d-environnement"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N04_003-04",
+      "notion_id": "N04_003",
+      "legacy_notion_key": "4:3",
+      "theme": "Variables et Bash",
+      "notion": "Variable d’environnement",
+      "answer_mode": "multiple",
+      "question_type": "synthese",
+      "prompt": "Quelles affirmations concernent directement « Variable d’environnement » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "export influence l'environnement des futurs processus enfants, jamais celui d'un processus parent déjà lancé."
+        },
+        {
+          "id": "B",
+          "text": "Un tableau peut recevoir des valeurs dès sa création : int nombres[3] = {10, 20, 30};"
+        },
+        {
+          "id": "C",
+          "text": "Les variables locales et les tableaux locaux ordinaires ont une durée de vie liée à l’exécution de leur bloc ; on ne les libère pas avec free."
+        },
+        {
+          "id": "D",
+          "text": "Variable exportée et transmise aux processus enfants."
+        }
+      ],
+      "correct_option_ids": [
+        "A",
+        "D"
+      ],
+      "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/variables-et-bash/4-variable-d-environnement"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "cross_topic_distractors",
+        "check_possible_ambiguity"
+      ]
+    },
+    {
+      "id": "V1-N04_004-01",
+      "notion_id": "N04_004",
+      "legacy_notion_key": "4:4",
+      "theme": "Variables et Bash",
+      "notion": "export / unset",
+      "answer_mode": "single",
+      "question_type": "definition",
+      "prompt": "À quelle notion correspond la définition suivante : « Exporter une variable / supprimer une variable ou fonction. » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "source / ."
+        },
+        {
+          "id": "B",
+          "text": "Découper PATH"
+        },
+        {
+          "id": "C",
+          "text": "export / unset"
+        },
+        {
+          "id": "D",
+          "text": "Affectation"
+        }
+      ],
+      "correct_option_ids": [
+        "C"
+      ],
+      "explanation": "La définition est extraite du résumé de la fiche correspondante.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/variables-et-bash/5-export-unset"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N04_004-02",
+      "notion_id": "N04_004",
+      "legacy_notion_key": "4:4",
+      "theme": "Variables et Bash",
+      "notion": "export / unset",
+      "answer_mode": "single",
+      "question_type": "description",
+      "prompt": "Quelle description caractérise « export / unset » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "BEST=School : pas d’espaces autour du =."
+        },
+        {
+          "id": "B",
+          "text": "Exporter une variable / supprimer une variable ou fonction."
+        },
+        {
+          "id": "C",
+          "text": "Exécuter un script dans le Shell courant."
+        },
+        {
+          "id": "D",
+          "text": "tr \":\" \"\\n\" transforme les séparateurs « : » en retours à la ligne. Le nombre de répertoires peut se déduire des séparateurs, en traitant le dernier élément."
+        }
+      ],
+      "correct_option_ids": [
+        "B"
+      ],
+      "explanation": "Le résumé de la fiche indique : Exporter une variable / supprimer une variable ou fonction.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/variables-et-bash/5-export-unset"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N04_004-03",
+      "notion_id": "N04_004",
+      "legacy_notion_key": "4:4",
+      "theme": "Variables et Bash",
+      "notion": "export / unset",
+      "answer_mode": "single",
+      "question_type": "vigilance",
+      "prompt": "Quel point à retenir est directement associé à « export / unset » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "source exécute dans le shell courant : ne charge que des fichiers dont tu comprends et acceptes le contenu."
+        },
+        {
+          "id": "B",
+          "text": "Une entrée vide de PATH peut désigner le répertoire courant : ce comportement peut présenter un risque de sécurité."
+        },
+        {
+          "id": "C",
+          "text": "export rend visible ; unset supprime. Supprimer une variable ne retire pas rétroactivement la valeur des processus déjà lancés."
+        },
+        {
+          "id": "D",
+          "text": "Une affectation Bash n'admet pas d'espaces autour de = dans cette forme."
+        }
+      ],
+      "correct_option_ids": [
+        "C"
+      ],
+      "explanation": "La fiche indique : export rend visible ; unset supprime. Supprimer une variable ne retire pas rétroactivement la valeur des processus déjà lancés.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/variables-et-bash/5-export-unset"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N04_004-04",
+      "notion_id": "N04_004",
+      "legacy_notion_key": "4:4",
+      "theme": "Variables et Bash",
+      "notion": "export / unset",
+      "answer_mode": "multiple",
+      "question_type": "synthese",
+      "prompt": "Quelles affirmations concernent directement « export / unset » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "export rend visible ; unset supprime. Supprimer une variable ne retire pas rétroactivement la valeur des processus déjà lancés."
+        },
+        {
+          "id": "B",
+          "text": "Exporter une variable / supprimer une variable ou fonction."
+        },
+        {
+          "id": "C",
+          "text": "Inverser une chaîne consiste à échanger le premier et le dernier caractère, puis à progresser vers le centre."
+        },
+        {
+          "id": "D",
+          "text": "\\0 a pour valeur numérique 0 et marque la fin d’une chaîne C, par exemple dans char a[10] = \"Holberton\";."
+        }
+      ],
+      "correct_option_ids": [
+        "A",
+        "B"
+      ],
+      "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/variables-et-bash/5-export-unset"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "cross_topic_distractors",
+        "check_possible_ambiguity"
+      ]
+    },
+    {
+      "id": "V1-N04_005-01",
+      "notion_id": "N04_005",
+      "legacy_notion_key": "4:5",
+      "theme": "Variables et Bash",
+      "notion": "set / printenv",
+      "answer_mode": "single",
+      "question_type": "definition",
+      "prompt": "À quelle notion correspond la définition suivante : « Paramètres et variables du Shell / environnement. » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "set / printenv"
+        },
+        {
+          "id": "B",
+          "text": "$VAR / ${VAR}"
+        },
+        {
+          "id": "C",
+          "text": "$(commande)"
+        },
+        {
+          "id": "D",
+          "text": "Variable locale"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "La définition est extraite du résumé de la fiche correspondante.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/variables-et-bash/6-set-printenv"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N04_005-02",
+      "notion_id": "N04_005",
+      "legacy_notion_key": "4:5",
+      "theme": "Variables et Bash",
+      "notion": "set / printenv",
+      "answer_mode": "single",
+      "question_type": "description",
+      "prompt": "Quelle description caractérise « set / printenv » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Substitution de commande : récupérer sa sortie."
+        },
+        {
+          "id": "B",
+          "text": "Dans une fonction Bash, local limite la portée d’une variable. Une variable du shell non exportée est une autre notion."
+        },
+        {
+          "id": "C",
+          "text": "Paramètres et variables du Shell / environnement."
+        },
+        {
+          "id": "D",
+          "text": "Lire la valeur / délimiter explicitement le nom."
+        }
+      ],
+      "correct_option_ids": [
+        "C"
+      ],
+      "explanation": "Le résumé de la fiche indique : Paramètres et variables du Shell / environnement.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/variables-et-bash/6-set-printenv"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N04_005-03",
+      "notion_id": "N04_005",
+      "legacy_notion_key": "4:5",
+      "theme": "Variables et Bash",
+      "notion": "set / printenv",
+      "answer_mode": "single",
+      "question_type": "vigilance",
+      "prompt": "Quel point à retenir est directement associé à « set / printenv » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "$(commande) récupère stdout en supprimant les sauts de ligne finaux, mais pas forcément ceux du milieu."
+        },
+        {
+          "id": "B",
+          "text": "Pour l’exercice Holberton BEST=School, une variable du shell non exportée suffit. La commande local est différente et s’utilise uniquement dans une fonction Bash."
+        },
+        {
+          "id": "C",
+          "text": "${VAR} évite d'inclure par erreur le suffixe dans le nom ; les guillemets protègent le résultat."
+        },
+        {
+          "id": "D",
+          "text": "printenv examine l'environnement ; set affiche aussi la configuration du shell et d'autres éléments."
+        }
+      ],
+      "correct_option_ids": [
+        "D"
+      ],
+      "explanation": "La fiche indique : printenv examine l'environnement ; set affiche aussi la configuration du shell et d'autres éléments.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/variables-et-bash/6-set-printenv"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N04_005-04",
+      "notion_id": "N04_005",
+      "legacy_notion_key": "4:5",
+      "theme": "Variables et Bash",
+      "notion": "set / printenv",
+      "answer_mode": "multiple",
+      "question_type": "synthese",
+      "prompt": "Quelles affirmations concernent directement « set / printenv » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Paramètres et variables du Shell / environnement."
+        },
+        {
+          "id": "B",
+          "text": "Une boucle peut visiter chaque élément d'un tableau en utilisant un indice qui va de 0 à la taille moins 1."
+        },
+        {
+          "id": "C",
+          "text": "Ajouter 1 à un pointeur vers int avance de sizeof(int) octets, donc d’un élément int."
+        },
+        {
+          "id": "D",
+          "text": "printenv examine l'environnement ; set affiche aussi la configuration du shell et d'autres éléments."
+        }
+      ],
+      "correct_option_ids": [
+        "A",
+        "D"
+      ],
+      "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/variables-et-bash/6-set-printenv"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "cross_topic_distractors",
+        "check_possible_ambiguity"
+      ]
+    },
+    {
+      "id": "V1-N04_006-01",
+      "notion_id": "N04_006",
+      "legacy_notion_key": "4:6",
+      "theme": "Variables et Bash",
+      "notion": "alias / unalias",
+      "answer_mode": "single",
+      "question_type": "definition",
+      "prompt": "À quelle notion correspond la définition suivante : « Créer / retirer un raccourci de commande. » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "export / unset"
+        },
+        {
+          "id": "B",
+          "text": "alias / unalias"
+        },
+        {
+          "id": "C",
+          "text": "$? / $1 / $#"
+        },
+        {
+          "id": "D",
+          "text": "set / printenv"
+        }
+      ],
+      "correct_option_ids": [
+        "B"
+      ],
+      "explanation": "La définition est extraite du résumé de la fiche correspondante.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/variables-et-bash/7-alias-unalias"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N04_006-02",
+      "notion_id": "N04_006",
+      "legacy_notion_key": "4:6",
+      "theme": "Variables et Bash",
+      "notion": "alias / unalias",
+      "answer_mode": "single",
+      "question_type": "description",
+      "prompt": "Quelle description caractérise « alias / unalias » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Code retour / premier argument / nombre d’arguments positionnels."
+        },
+        {
+          "id": "B",
+          "text": "Exporter une variable / supprimer une variable ou fonction."
+        },
+        {
+          "id": "C",
+          "text": "Paramètres et variables du Shell / environnement."
+        },
+        {
+          "id": "D",
+          "text": "Créer / retirer un raccourci de commande."
+        }
+      ],
+      "correct_option_ids": [
+        "D"
+      ],
+      "explanation": "Le résumé de la fiche indique : Créer / retirer un raccourci de commande.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/variables-et-bash/7-alias-unalias"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N04_006-03",
+      "notion_id": "N04_006",
+      "legacy_notion_key": "4:6",
+      "theme": "Variables et Bash",
+      "notion": "alias / unalias",
+      "answer_mode": "single",
+      "question_type": "vigilance",
+      "prompt": "Quel point à retenir est directement associé à « alias / unalias » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Lis $? immédiatement après la commande concernée : la commande suivante peut le remplacer."
+        },
+        {
+          "id": "B",
+          "text": "printenv examine l'environnement ; set affiche aussi la configuration du shell et d'autres éléments."
+        },
+        {
+          "id": "C",
+          "text": "Un alias est surtout pratique en shell interactif ; ce n'est pas un remplacement universel pour une fonction."
+        },
+        {
+          "id": "D",
+          "text": "export rend visible ; unset supprime. Supprimer une variable ne retire pas rétroactivement la valeur des processus déjà lancés."
+        }
+      ],
+      "correct_option_ids": [
+        "C"
+      ],
+      "explanation": "La fiche indique : Un alias est surtout pratique en shell interactif ; ce n'est pas un remplacement universel pour une fonction.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/variables-et-bash/7-alias-unalias"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N04_006-04",
+      "notion_id": "N04_006",
+      "legacy_notion_key": "4:6",
+      "theme": "Variables et Bash",
+      "notion": "alias / unalias",
+      "answer_mode": "multiple",
+      "question_type": "synthese",
+      "prompt": "Quelles affirmations concernent directement « alias / unalias » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Dans la plupart des expressions, le nom du tableau est converti en pointeur vers son premier élément. Ainsi a et &a[0] désignent la même adresse."
+        },
+        {
+          "id": "B",
+          "text": "Un alias est surtout pratique en shell interactif ; ce n'est pas un remplacement universel pour une fonction."
+        },
+        {
+          "id": "C",
+          "text": "Créer / retirer un raccourci de commande."
+        },
+        {
+          "id": "D",
+          "text": "Le format %s affiche les caractères d’une chaîne jusqu’au caractère nul de fin."
+        }
+      ],
+      "correct_option_ids": [
+        "B",
+        "C"
+      ],
+      "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/variables-et-bash/7-alias-unalias"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "cross_topic_distractors",
+        "check_possible_ambiguity"
+      ]
+    },
+    {
+      "id": "V1-N04_007-01",
+      "notion_id": "N04_007",
+      "legacy_notion_key": "4:7",
+      "theme": "Variables et Bash",
+      "notion": "source / .",
+      "answer_mode": "single",
+      "question_type": "definition",
+      "prompt": "À quelle notion correspond la définition suivante : « Exécuter un script dans le Shell courant. » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "PATH"
+        },
+        {
+          "id": "B",
+          "text": "source / ."
+        },
+        {
+          "id": "C",
+          "text": "Affectation"
+        },
+        {
+          "id": "D",
+          "text": "Variable Shell"
+        }
+      ],
+      "correct_option_ids": [
+        "B"
+      ],
+      "explanation": "La définition est extraite du résumé de la fiche correspondante.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/variables-et-bash/8-source"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N04_007-02",
+      "notion_id": "N04_007",
+      "legacy_notion_key": "4:7",
+      "theme": "Variables et Bash",
+      "notion": "source / .",
+      "answer_mode": "single",
+      "question_type": "description",
+      "prompt": "Quelle description caractérise « source / . » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Exécuter un script dans le Shell courant."
+        },
+        {
+          "id": "B",
+          "text": "BEST=School : pas d’espaces autour du =."
+        },
+        {
+          "id": "C",
+          "text": "Variable définie dans le Shell en cours, non nécessairement exportée."
+        },
+        {
+          "id": "D",
+          "text": "Liste des dossiers recherchés pour trouver une commande, séparés par :."
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "Le résumé de la fiche indique : Exécuter un script dans le Shell courant.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/variables-et-bash/8-source"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N04_007-03",
+      "notion_id": "N04_007",
+      "legacy_notion_key": "4:7",
+      "theme": "Variables et Bash",
+      "notion": "source / .",
+      "answer_mode": "single",
+      "question_type": "vigilance",
+      "prompt": "Quel point à retenir est directement associé à « source / . » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Une affectation Bash n'admet pas d'espaces autour de = dans cette forme."
+        },
+        {
+          "id": "B",
+          "text": "Les dossiers de PATH sont parcourus dans l'ordre. Ajouter un dossier ne crée aucun exécutable."
+        },
+        {
+          "id": "C",
+          "text": "Une variable du shell non exportée n'est pas transmise automatiquement aux programmes enfants."
+        },
+        {
+          "id": "D",
+          "text": "source exécute dans le shell courant : ne charge que des fichiers dont tu comprends et acceptes le contenu."
+        }
+      ],
+      "correct_option_ids": [
+        "D"
+      ],
+      "explanation": "La fiche indique : source exécute dans le shell courant : ne charge que des fichiers dont tu comprends et acceptes le contenu.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/variables-et-bash/8-source"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N04_007-04",
+      "notion_id": "N04_007",
+      "legacy_notion_key": "4:7",
+      "theme": "Variables et Bash",
+      "notion": "source / .",
+      "answer_mode": "multiple",
+      "question_type": "synthese",
+      "prompt": "Quelles affirmations concernent directement « source / . » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "source exécute dans le shell courant : ne charge que des fichiers dont tu comprends et acceptes le contenu."
+        },
+        {
+          "id": "B",
+          "text": "Pour un tableau a, a[2] désigne le même élément que *(a + 2)."
+        },
+        {
+          "id": "C",
+          "text": "Exécuter un script dans le Shell courant."
+        },
+        {
+          "id": "D",
+          "text": "Zone contiguë de mémoire contenant plusieurs éléments de même type : int a[5]; réserve 5 entiers."
+        }
+      ],
+      "correct_option_ids": [
+        "A",
+        "C"
+      ],
+      "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/variables-et-bash/8-source"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "cross_topic_distractors",
+        "check_possible_ambiguity"
+      ]
+    },
+    {
+      "id": "V1-N04_008-01",
+      "notion_id": "N04_008",
+      "legacy_notion_key": "4:8",
+      "theme": "Variables et Bash",
+      "notion": "PATH",
+      "answer_mode": "single",
+      "question_type": "definition",
+      "prompt": "À quelle notion correspond la définition suivante : « Liste des dossiers recherchés pour trouver une commande, séparés par :. » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "$(commande)"
+        },
+        {
+          "id": "B",
+          "text": "Variable d’environnement"
+        },
+        {
+          "id": "C",
+          "text": "$((...))"
+        },
+        {
+          "id": "D",
+          "text": "PATH"
+        }
+      ],
+      "correct_option_ids": [
+        "D"
+      ],
+      "explanation": "La définition est extraite du résumé de la fiche correspondante.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/variables-et-bash/9-path"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N04_008-02",
+      "notion_id": "N04_008",
+      "legacy_notion_key": "4:8",
+      "theme": "Variables et Bash",
+      "notion": "PATH",
+      "answer_mode": "single",
+      "question_type": "description",
+      "prompt": "Quelle description caractérise « PATH » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Évaluation arithmétique."
+        },
+        {
+          "id": "B",
+          "text": "Variable exportée et transmise aux processus enfants."
+        },
+        {
+          "id": "C",
+          "text": "Substitution de commande : récupérer sa sortie."
+        },
+        {
+          "id": "D",
+          "text": "Liste des dossiers recherchés pour trouver une commande, séparés par :."
+        }
+      ],
+      "correct_option_ids": [
+        "D"
+      ],
+      "explanation": "Le résumé de la fiche indique : Liste des dossiers recherchés pour trouver une commande, séparés par :.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/variables-et-bash/9-path"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N04_008-03",
+      "notion_id": "N04_008",
+      "legacy_notion_key": "4:8",
+      "theme": "Variables et Bash",
+      "notion": "PATH",
+      "answer_mode": "single",
+      "question_type": "vigilance",
+      "prompt": "Quel point à retenir est directement associé à « PATH » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "$(commande) récupère stdout en supprimant les sauts de ligne finaux, mais pas forcément ceux du milieu."
+        },
+        {
+          "id": "B",
+          "text": "Les dossiers de PATH sont parcourus dans l'ordre. Ajouter un dossier ne crée aucun exécutable."
+        },
+        {
+          "id": "C",
+          "text": "export influence l'environnement des futurs processus enfants, jamais celui d'un processus parent déjà lancé."
+        },
+        {
+          "id": "D",
+          "text": "$((...)) calcule avec des entiers ; elle ne fournit pas directement une arithmétique décimale."
+        }
+      ],
+      "correct_option_ids": [
+        "B"
+      ],
+      "explanation": "La fiche indique : Les dossiers de PATH sont parcourus dans l'ordre. Ajouter un dossier ne crée aucun exécutable.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/variables-et-bash/9-path"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N04_008-04",
+      "notion_id": "N04_008",
+      "legacy_notion_key": "4:8",
+      "theme": "Variables et Bash",
+      "notion": "PATH",
+      "answer_mode": "multiple",
+      "question_type": "synthese",
+      "prompt": "Quelles affirmations concernent directement « PATH » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "sizeof(a) donne la taille de tout le tableau (nombre d’éléments × taille d’un élément), pas celle d’un pointeur."
+        },
+        {
+          "id": "B",
+          "text": "Sur de nombreux Linux 64 bits, un pointeur d’objet occupe 8 octets ; sa taille dépend de la plateforme."
+        },
+        {
+          "id": "C",
+          "text": "Liste des dossiers recherchés pour trouver une commande, séparés par :."
+        },
+        {
+          "id": "D",
+          "text": "Les dossiers de PATH sont parcourus dans l'ordre. Ajouter un dossier ne crée aucun exécutable."
+        }
+      ],
+      "correct_option_ids": [
+        "C",
+        "D"
+      ],
+      "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/variables-et-bash/9-path"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "cross_topic_distractors",
+        "check_possible_ambiguity"
+      ]
+    },
+    {
+      "id": "V1-N04_009-01",
+      "notion_id": "N04_009",
+      "legacy_notion_key": "4:9",
+      "theme": "Variables et Bash",
+      "notion": "$VAR / ${VAR}",
+      "answer_mode": "single",
+      "question_type": "definition",
+      "prompt": "À quelle notion correspond la définition suivante : « Lire la valeur / délimiter explicitement le nom. » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "$VAR / ${VAR}"
+        },
+        {
+          "id": "B",
+          "text": "Découper PATH"
+        },
+        {
+          "id": "C",
+          "text": "alias / unalias"
+        },
+        {
+          "id": "D",
+          "text": "set / printenv"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "La définition est extraite du résumé de la fiche correspondante.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/variables-et-bash/10-var-var"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N04_009-02",
+      "notion_id": "N04_009",
+      "legacy_notion_key": "4:9",
+      "theme": "Variables et Bash",
+      "notion": "$VAR / ${VAR}",
+      "answer_mode": "single",
+      "question_type": "description",
+      "prompt": "Quelle description caractérise « $VAR / ${VAR} » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Créer / retirer un raccourci de commande."
+        },
+        {
+          "id": "B",
+          "text": "tr \":\" \"\\n\" transforme les séparateurs « : » en retours à la ligne. Le nombre de répertoires peut se déduire des séparateurs, en traitant le dernier élément."
+        },
+        {
+          "id": "C",
+          "text": "Paramètres et variables du Shell / environnement."
+        },
+        {
+          "id": "D",
+          "text": "Lire la valeur / délimiter explicitement le nom."
+        }
+      ],
+      "correct_option_ids": [
+        "D"
+      ],
+      "explanation": "Le résumé de la fiche indique : Lire la valeur / délimiter explicitement le nom.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/variables-et-bash/10-var-var"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N04_009-03",
+      "notion_id": "N04_009",
+      "legacy_notion_key": "4:9",
+      "theme": "Variables et Bash",
+      "notion": "$VAR / ${VAR}",
+      "answer_mode": "single",
+      "question_type": "vigilance",
+      "prompt": "Quel point à retenir est directement associé à « $VAR / ${VAR} » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Un alias est surtout pratique en shell interactif ; ce n'est pas un remplacement universel pour une fonction."
+        },
+        {
+          "id": "B",
+          "text": "${VAR} évite d'inclure par erreur le suffixe dans le nom ; les guillemets protègent le résultat."
+        },
+        {
+          "id": "C",
+          "text": "Une entrée vide de PATH peut désigner le répertoire courant : ce comportement peut présenter un risque de sécurité."
+        },
+        {
+          "id": "D",
+          "text": "printenv examine l'environnement ; set affiche aussi la configuration du shell et d'autres éléments."
+        }
+      ],
+      "correct_option_ids": [
+        "B"
+      ],
+      "explanation": "La fiche indique : ${VAR} évite d'inclure par erreur le suffixe dans le nom ; les guillemets protègent le résultat.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/variables-et-bash/10-var-var"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N04_009-04",
+      "notion_id": "N04_009",
+      "legacy_notion_key": "4:9",
+      "theme": "Variables et Bash",
+      "notion": "$VAR / ${VAR}",
+      "answer_mode": "multiple",
+      "question_type": "synthese",
+      "prompt": "Quelles affirmations concernent directement « $VAR / ${VAR} » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "${VAR} évite d'inclure par erreur le suffixe dans le nom ; les guillemets protègent le résultat."
+        },
+        {
+          "id": "B",
+          "text": "Lire la valeur / délimiter explicitement le nom."
+        },
+        {
+          "id": "C",
+          "text": "int *p pointe vers un int ; char *q pointe vers un char. Le type sert notamment à interpréter les valeurs et à avancer dans un tableau."
+        },
+        {
+          "id": "D",
+          "text": "Les indices commencent à 0 : a[0] est le premier élément et a[4] le cinquième dans int a[5]."
+        }
+      ],
+      "correct_option_ids": [
+        "A",
+        "B"
+      ],
+      "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/variables-et-bash/10-var-var"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "cross_topic_distractors",
+        "check_possible_ambiguity"
+      ]
+    },
+    {
+      "id": "V1-N04_010-01",
+      "notion_id": "N04_010",
+      "legacy_notion_key": "4:10",
+      "theme": "Variables et Bash",
+      "notion": "$(commande)",
+      "answer_mode": "single",
+      "question_type": "definition",
+      "prompt": "À quelle notion correspond la définition suivante : « Substitution de commande : récupérer sa sortie. » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "$(commande)"
+        },
+        {
+          "id": "B",
+          "text": "PATH"
+        },
+        {
+          "id": "C",
+          "text": "Variable locale"
+        },
+        {
+          "id": "D",
+          "text": "Variable Shell"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "La définition est extraite du résumé de la fiche correspondante.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/variables-et-bash/11-commande"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N04_010-02",
+      "notion_id": "N04_010",
+      "legacy_notion_key": "4:10",
+      "theme": "Variables et Bash",
+      "notion": "$(commande)",
+      "answer_mode": "single",
+      "question_type": "description",
+      "prompt": "Quelle description caractérise « $(commande) » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Dans une fonction Bash, local limite la portée d’une variable. Une variable du shell non exportée est une autre notion."
+        },
+        {
+          "id": "B",
+          "text": "Liste des dossiers recherchés pour trouver une commande, séparés par :."
+        },
+        {
+          "id": "C",
+          "text": "Variable définie dans le Shell en cours, non nécessairement exportée."
+        },
+        {
+          "id": "D",
+          "text": "Substitution de commande : récupérer sa sortie."
+        }
+      ],
+      "correct_option_ids": [
+        "D"
+      ],
+      "explanation": "Le résumé de la fiche indique : Substitution de commande : récupérer sa sortie.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/variables-et-bash/11-commande"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N04_010-03",
+      "notion_id": "N04_010",
+      "legacy_notion_key": "4:10",
+      "theme": "Variables et Bash",
+      "notion": "$(commande)",
+      "answer_mode": "single",
+      "question_type": "vigilance",
+      "prompt": "Quel point à retenir est directement associé à « $(commande) » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "$(commande) récupère stdout en supprimant les sauts de ligne finaux, mais pas forcément ceux du milieu."
+        },
+        {
+          "id": "B",
+          "text": "Pour l’exercice Holberton BEST=School, une variable du shell non exportée suffit. La commande local est différente et s’utilise uniquement dans une fonction Bash."
+        },
+        {
+          "id": "C",
+          "text": "Les dossiers de PATH sont parcourus dans l'ordre. Ajouter un dossier ne crée aucun exécutable."
+        },
+        {
+          "id": "D",
+          "text": "Une variable du shell non exportée n'est pas transmise automatiquement aux programmes enfants."
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "La fiche indique : $(commande) récupère stdout en supprimant les sauts de ligne finaux, mais pas forcément ceux du milieu.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/variables-et-bash/11-commande"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N04_010-04",
+      "notion_id": "N04_010",
+      "legacy_notion_key": "4:10",
+      "theme": "Variables et Bash",
+      "notion": "$(commande)",
+      "answer_mode": "multiple",
+      "question_type": "synthese",
+      "prompt": "Quelles affirmations concernent directement « $(commande) » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "En C, un paramètre reçoit une copie de l’argument. Modifier un paramètre int local ne modifie pas la variable initiale."
+        },
+        {
+          "id": "B",
+          "text": "*p accède à l’objet situé à l’adresse contenue dans p : c’est le déréférencement."
+        },
+        {
+          "id": "C",
+          "text": "$(commande) récupère stdout en supprimant les sauts de ligne finaux, mais pas forcément ceux du milieu."
+        },
+        {
+          "id": "D",
+          "text": "Substitution de commande : récupérer sa sortie."
+        }
+      ],
+      "correct_option_ids": [
+        "C",
+        "D"
+      ],
+      "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/variables-et-bash/11-commande"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "cross_topic_distractors",
+        "check_possible_ambiguity"
+      ]
+    },
+    {
+      "id": "V1-N04_011-01",
+      "notion_id": "N04_011",
+      "legacy_notion_key": "4:11",
+      "theme": "Variables et Bash",
+      "notion": "$((...))",
+      "answer_mode": "single",
+      "question_type": "definition",
+      "prompt": "À quelle notion correspond la définition suivante : « Évaluation arithmétique. » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "$((...))"
+        },
+        {
+          "id": "B",
+          "text": "export / unset"
+        },
+        {
+          "id": "C",
+          "text": "$? / $1 / $#"
+        },
+        {
+          "id": "D",
+          "text": "$(commande)"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "La définition est extraite du résumé de la fiche correspondante.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/variables-et-bash/12-"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N04_011-02",
+      "notion_id": "N04_011",
+      "legacy_notion_key": "4:11",
+      "theme": "Variables et Bash",
+      "notion": "$((...))",
+      "answer_mode": "single",
+      "question_type": "description",
+      "prompt": "Quelle description caractérise « $((...)) » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Exporter une variable / supprimer une variable ou fonction."
+        },
+        {
+          "id": "B",
+          "text": "Évaluation arithmétique."
+        },
+        {
+          "id": "C",
+          "text": "Substitution de commande : récupérer sa sortie."
+        },
+        {
+          "id": "D",
+          "text": "Code retour / premier argument / nombre d’arguments positionnels."
+        }
+      ],
+      "correct_option_ids": [
+        "B"
+      ],
+      "explanation": "Le résumé de la fiche indique : Évaluation arithmétique.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/variables-et-bash/12-"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N04_011-03",
+      "notion_id": "N04_011",
+      "legacy_notion_key": "4:11",
+      "theme": "Variables et Bash",
+      "notion": "$((...))",
+      "answer_mode": "single",
+      "question_type": "vigilance",
+      "prompt": "Quel point à retenir est directement associé à « $((...)) » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "export rend visible ; unset supprime. Supprimer une variable ne retire pas rétroactivement la valeur des processus déjà lancés."
+        },
+        {
+          "id": "B",
+          "text": "$(commande) récupère stdout en supprimant les sauts de ligne finaux, mais pas forcément ceux du milieu."
+        },
+        {
+          "id": "C",
+          "text": "Lis $? immédiatement après la commande concernée : la commande suivante peut le remplacer."
+        },
+        {
+          "id": "D",
+          "text": "$((...)) calcule avec des entiers ; elle ne fournit pas directement une arithmétique décimale."
+        }
+      ],
+      "correct_option_ids": [
+        "D"
+      ],
+      "explanation": "La fiche indique : $((...)) calcule avec des entiers ; elle ne fournit pas directement une arithmétique décimale.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/variables-et-bash/12-"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N04_011-04",
+      "notion_id": "N04_011",
+      "legacy_notion_key": "4:11",
+      "theme": "Variables et Bash",
+      "notion": "$((...))",
+      "answer_mode": "multiple",
+      "question_type": "synthese",
+      "prompt": "Quelles affirmations concernent directement « $((...)) » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Le spécificateur %p permet d’afficher une adresse ; l’argument correspondant doit être un void * (conversion explicite recommandée)."
+        },
+        {
+          "id": "B",
+          "text": "Évaluation arithmétique."
+        },
+        {
+          "id": "C",
+          "text": "Emplacement où une variable est stockée. On ne choisit généralement pas soi-même son adresse."
+        },
+        {
+          "id": "D",
+          "text": "$((...)) calcule avec des entiers ; elle ne fournit pas directement une arithmétique décimale."
+        }
+      ],
+      "correct_option_ids": [
+        "B",
+        "D"
+      ],
+      "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/variables-et-bash/12-"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "cross_topic_distractors",
+        "check_possible_ambiguity"
+      ]
+    },
+    {
+      "id": "V1-N04_012-01",
+      "notion_id": "N04_012",
+      "legacy_notion_key": "4:12",
+      "theme": "Variables et Bash",
+      "notion": "$? / $1 / $#",
+      "answer_mode": "single",
+      "question_type": "definition",
+      "prompt": "À quelle notion correspond la définition suivante : « Code retour / premier argument / nombre d’arguments positionnels. » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "alias / unalias"
+        },
+        {
+          "id": "B",
+          "text": "Affectation"
+        },
+        {
+          "id": "C",
+          "text": "$? / $1 / $#"
+        },
+        {
+          "id": "D",
+          "text": "source / ."
+        }
+      ],
+      "correct_option_ids": [
+        "C"
+      ],
+      "explanation": "La définition est extraite du résumé de la fiche correspondante.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/variables-et-bash/13-1"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N04_012-02",
+      "notion_id": "N04_012",
+      "legacy_notion_key": "4:12",
+      "theme": "Variables et Bash",
+      "notion": "$? / $1 / $#",
+      "answer_mode": "single",
+      "question_type": "description",
+      "prompt": "Quelle description caractérise « $? / $1 / $# » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "BEST=School : pas d’espaces autour du =."
+        },
+        {
+          "id": "B",
+          "text": "Code retour / premier argument / nombre d’arguments positionnels."
+        },
+        {
+          "id": "C",
+          "text": "Exécuter un script dans le Shell courant."
+        },
+        {
+          "id": "D",
+          "text": "Créer / retirer un raccourci de commande."
+        }
+      ],
+      "correct_option_ids": [
+        "B"
+      ],
+      "explanation": "Le résumé de la fiche indique : Code retour / premier argument / nombre d’arguments positionnels.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/variables-et-bash/13-1"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N04_012-03",
+      "notion_id": "N04_012",
+      "legacy_notion_key": "4:12",
+      "theme": "Variables et Bash",
+      "notion": "$? / $1 / $#",
+      "answer_mode": "single",
+      "question_type": "vigilance",
+      "prompt": "Quel point à retenir est directement associé à « $? / $1 / $# » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "source exécute dans le shell courant : ne charge que des fichiers dont tu comprends et acceptes le contenu."
+        },
+        {
+          "id": "B",
+          "text": "Un alias est surtout pratique en shell interactif ; ce n'est pas un remplacement universel pour une fonction."
+        },
+        {
+          "id": "C",
+          "text": "Une affectation Bash n'admet pas d'espaces autour de = dans cette forme."
+        },
+        {
+          "id": "D",
+          "text": "Lis $? immédiatement après la commande concernée : la commande suivante peut le remplacer."
+        }
+      ],
+      "correct_option_ids": [
+        "D"
+      ],
+      "explanation": "La fiche indique : Lis $? immédiatement après la commande concernée : la commande suivante peut le remplacer.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/variables-et-bash/13-1"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N04_012-04",
+      "notion_id": "N04_012",
+      "legacy_notion_key": "4:12",
+      "theme": "Variables et Bash",
+      "notion": "$? / $1 / $#",
+      "answer_mode": "multiple",
+      "question_type": "synthese",
+      "prompt": "Quelles affirmations concernent directement « $? / $1 / $# » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Si p = &n, alors *p = 402; modifie n, qui prend la valeur 402."
+        },
+        {
+          "id": "B",
+          "text": "EOF est une valeur entière spéciale signalant la fin d'un flux ou une erreur ; getchar retourne un int et scanf peut aussi renvoyer EOF."
+        },
+        {
+          "id": "C",
+          "text": "Code retour / premier argument / nombre d’arguments positionnels."
+        },
+        {
+          "id": "D",
+          "text": "Lis $? immédiatement après la commande concernée : la commande suivante peut le remplacer."
+        }
+      ],
+      "correct_option_ids": [
+        "C",
+        "D"
+      ],
+      "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/variables-et-bash/13-1"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "cross_topic_distractors",
+        "check_possible_ambiguity"
+      ]
+    },
+    {
+      "id": "V1-N04_013-01",
+      "notion_id": "N04_013",
+      "legacy_notion_key": "4:13",
+      "theme": "Variables et Bash",
+      "notion": "Découper PATH",
+      "answer_mode": "single",
+      "question_type": "definition",
+      "prompt": "À quelle notion correspond la définition suivante : « tr \":\" \"\\n\" transforme les séparateurs « : » en retours à la ligne. Le nombre de répertoires peut se déduire des séparateurs, en traitant le dernier élément. » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Variable locale"
+        },
+        {
+          "id": "B",
+          "text": "$VAR / ${VAR}"
+        },
+        {
+          "id": "C",
+          "text": "Variable d’environnement"
+        },
+        {
+          "id": "D",
+          "text": "Découper PATH"
+        }
+      ],
+      "correct_option_ids": [
+        "D"
+      ],
+      "explanation": "La définition est extraite du résumé de la fiche correspondante.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/variables-et-bash/14-decouper-path"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N04_013-02",
+      "notion_id": "N04_013",
+      "legacy_notion_key": "4:13",
+      "theme": "Variables et Bash",
+      "notion": "Découper PATH",
+      "answer_mode": "single",
+      "question_type": "description",
+      "prompt": "Quelle description caractérise « Découper PATH » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Variable exportée et transmise aux processus enfants."
+        },
+        {
+          "id": "B",
+          "text": "Dans une fonction Bash, local limite la portée d’une variable. Une variable du shell non exportée est une autre notion."
+        },
+        {
+          "id": "C",
+          "text": "tr \":\" \"\\n\" transforme les séparateurs « : » en retours à la ligne. Le nombre de répertoires peut se déduire des séparateurs, en traitant le dernier élément."
+        },
+        {
+          "id": "D",
+          "text": "Lire la valeur / délimiter explicitement le nom."
+        }
+      ],
+      "correct_option_ids": [
+        "C"
+      ],
+      "explanation": "Le résumé de la fiche indique : tr \":\" \"\\n\" transforme les séparateurs « : » en retours à la ligne. Le nombre de répertoires peut se déduire des séparateurs, en traitant le dernier élément.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/variables-et-bash/14-decouper-path"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N04_013-03",
+      "notion_id": "N04_013",
+      "legacy_notion_key": "4:13",
+      "theme": "Variables et Bash",
+      "notion": "Découper PATH",
+      "answer_mode": "single",
+      "question_type": "vigilance",
+      "prompt": "Quel point à retenir est directement associé à « Découper PATH » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Pour l’exercice Holberton BEST=School, une variable du shell non exportée suffit. La commande local est différente et s’utilise uniquement dans une fonction Bash."
+        },
+        {
+          "id": "B",
+          "text": "export influence l'environnement des futurs processus enfants, jamais celui d'un processus parent déjà lancé."
+        },
+        {
+          "id": "C",
+          "text": "Une entrée vide de PATH peut désigner le répertoire courant : ce comportement peut présenter un risque de sécurité."
+        },
+        {
+          "id": "D",
+          "text": "${VAR} évite d'inclure par erreur le suffixe dans le nom ; les guillemets protègent le résultat."
+        }
+      ],
+      "correct_option_ids": [
+        "C"
+      ],
+      "explanation": "La fiche indique : Une entrée vide de PATH peut désigner le répertoire courant : ce comportement peut présenter un risque de sécurité.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/variables-et-bash/14-decouper-path"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N04_013-04",
+      "notion_id": "N04_013",
+      "legacy_notion_key": "4:13",
+      "theme": "Variables et Bash",
+      "notion": "Découper PATH",
+      "answer_mode": "multiple",
+      "question_type": "synthese",
+      "prompt": "Quelles affirmations concernent directement « Découper PATH » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Une entrée vide de PATH peut désigner le répertoire courant : ce comportement peut présenter un risque de sécurité."
+        },
+        {
+          "id": "B",
+          "text": "tr \":\" \"\\n\" transforme les séparateurs « : » en retours à la ligne. Le nombre de répertoires peut se déduire des séparateurs, en traitant le dernier élément."
+        },
+        {
+          "id": "C",
+          "text": "&n produit l’adresse de la variable n ; p = &n fait pointer p vers n."
+        },
+        {
+          "id": "D",
+          "text": "fgets lit au plus taille - 1 caractères, ajoute '\\0' et peut conserver le saut de ligne ; toujours vérifier son retour."
+        }
+      ],
+      "correct_option_ids": [
+        "A",
+        "B"
+      ],
+      "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/variables-et-bash/14-decouper-path"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "cross_topic_distractors",
+        "check_possible_ambiguity"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1698 @@
+{
+  "version": "technique-c-v1",
+  "status": "non_verifie",
+  "questions": [
+    {
+      "id": "CDEEP-08-000-01",
+      "notion_id": "N08_000",
+      "legacy_notion_key": "8:0",
+      "theme": "Programmation C",
+      "notion": "main()",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "En C hébergé, quelle forme d'entrée est conventionnellement utilisée comme point de départ du programme ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "int scanf(void)"
+        },
+        {
+          "id": "B",
+          "text": "void start(void)"
+        },
+        {
+          "id": "C",
+          "text": "char printf(void)"
+        },
+        {
+          "id": "D",
+          "text": "int main(void)"
+        }
+      ],
+      "correct_option_ids": [
+        "D"
+      ],
+      "explanation": "main est le point d'entrée du programme C hébergé.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/1-main"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-08-001-01",
+      "notion_id": "N08_001",
+      "legacy_notion_key": "8:1",
+      "theme": "Programmation C",
+      "notion": "Prototype vs définition",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "multiple",
+      "prompt": "Quelles propositions distinguent prototype et définition de fonction ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Le prototype exécute une fonction lors de la compilation"
+        },
+        {
+          "id": "B",
+          "text": "La définition apporte le corps de la fonction"
+        },
+        {
+          "id": "C",
+          "text": "Tout prototype doit obligatoirement contenir un corps"
+        },
+        {
+          "id": "D",
+          "text": "Le prototype annonce les types de paramètres et le retour"
+        }
+      ],
+      "correct_option_ids": [
+        "B",
+        "D"
+      ],
+      "explanation": "Le prototype indique la signature ; la définition apporte le code exécuté.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/2-prototype-vs-definition"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-08-002-01",
+      "notion_id": "N08_002",
+      "legacy_notion_key": "8:2",
+      "theme": "Programmation C",
+      "notion": "void",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Que signifie le retour `void` dans une définition de fonction ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "La fonction ne renvoie pas de valeur"
+        },
+        {
+          "id": "B",
+          "text": "Elle reçoit forcément un paramètre int"
+        },
+        {
+          "id": "C",
+          "text": "Elle ne peut effectuer aucun appel"
+        },
+        {
+          "id": "D",
+          "text": "Elle retourne forcément 0"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "void indique l'absence de valeur de retour.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/3-void"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-08-003-01",
+      "notion_id": "N08_003",
+      "legacy_notion_key": "8:3",
+      "theme": "Programmation C",
+      "notion": "return",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Dans une fonction `int calcul(void)`, quelle instruction renvoie l'entier 7 ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "exit;"
+        },
+        {
+          "id": "B",
+          "text": "return 7;"
+        },
+        {
+          "id": "C",
+          "text": "void 7;"
+        },
+        {
+          "id": "D",
+          "text": "break 7;"
+        }
+      ],
+      "correct_option_ids": [
+        "B"
+      ],
+      "explanation": "return fournit une valeur compatible avec le type de retour.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/4-return"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-08-004-01",
+      "notion_id": "N08_004",
+      "legacy_notion_key": "8:4",
+      "theme": "Programmation C",
+      "notion": "printf / _putchar",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Quel appel affiche `A` avec la conversion de caractère de printf ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "printf(\"%p\", 'A');"
+        },
+        {
+          "id": "B",
+          "text": "printf(\"%c\", 'A');"
+        },
+        {
+          "id": "C",
+          "text": "printf(\"%d\", \"A\");"
+        },
+        {
+          "id": "D",
+          "text": "printf(\"%s\", 'A');"
+        }
+      ],
+      "correct_option_ids": [
+        "B"
+      ],
+      "explanation": "%c affiche un caractère à partir de la valeur entière promue.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/5-printf-putchar"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-08-005-01",
+      "notion_id": "N08_005",
+      "legacy_notion_key": "8:5",
+      "theme": "Programmation C",
+      "notion": "%d / %c / %.6f",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Pour `double d=1.5;`, quelle conversion de printf affiche six chiffres après la virgule (locale C) ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "%d"
+        },
+        {
+          "id": "B",
+          "text": "%c"
+        },
+        {
+          "id": "C",
+          "text": "%.6f"
+        },
+        {
+          "id": "D",
+          "text": "%p"
+        }
+      ],
+      "correct_option_ids": [
+        "C"
+      ],
+      "explanation": "%.6f indique six chiffres après le séparateur décimal pour une conversion flottante.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/6-d-c-6f"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-08-006-01",
+      "notion_id": "N08_006",
+      "legacy_notion_key": "8:6",
+      "theme": "Programmation C",
+      "notion": "ASCII",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Quel code ASCII correspond à la lettre majuscule A ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "10"
+        },
+        {
+          "id": "B",
+          "text": "48"
+        },
+        {
+          "id": "C",
+          "text": "65"
+        },
+        {
+          "id": "D",
+          "text": "97"
+        }
+      ],
+      "correct_option_ids": [
+        "C"
+      ],
+      "explanation": "Dans ASCII, A vaut 65, a vaut 97 et '0' vaut 48.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/7-ascii"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-08-007-01",
+      "notion_id": "N08_007",
+      "legacy_notion_key": "8:7",
+      "theme": "Programmation C",
+      "notion": "Compilation vs édition de liens",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "À quelle étape rattache-t-on la résolution d'une référence externe à une fonction ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Lecture au clavier"
+        },
+        {
+          "id": "B",
+          "text": "Édition de liens"
+        },
+        {
+          "id": "C",
+          "text": "Montage d'un disque"
+        },
+        {
+          "id": "D",
+          "text": "Prétraitement seul"
+        }
+      ],
+      "correct_option_ids": [
+        "B"
+      ],
+      "explanation": "Le linker assemble les objets et résout les références externes.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/8-compilation-vs-edition-de-liens"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-08-008-01",
+      "notion_id": "N08_008",
+      "legacy_notion_key": "8:8",
+      "theme": "Programmation C",
+      "notion": "undefined reference",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Quelle situation peut produire `undefined reference to fonction` au lien ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "La fonction a été déclarée mais sa définition n'est pas fournie au linker"
+        },
+        {
+          "id": "B",
+          "text": "Une boucle for commence à 0"
+        },
+        {
+          "id": "C",
+          "text": "La variable int vaut 0"
+        },
+        {
+          "id": "D",
+          "text": "Une chaîne contient un retour à la ligne"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "Une déclaration ne fournit pas le code de la fonction à l'éditeur de liens.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/9-undefined-reference"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-08-009-01",
+      "notion_id": "N08_009",
+      "legacy_notion_key": "8:9",
+      "theme": "Programmation C",
+      "notion": "gcc -o nom source.c",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Que fait `gcc -o programme main.c` lorsque toutes les étapes réussissent ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Affiche uniquement le prétraitement"
+        },
+        {
+          "id": "B",
+          "text": "Produit forcément main.o sans lien"
+        },
+        {
+          "id": "C",
+          "text": "Produit un exécutable nommé programme"
+        },
+        {
+          "id": "D",
+          "text": "Démarre un dépôt Git"
+        }
+      ],
+      "correct_option_ids": [
+        "C"
+      ],
+      "explanation": "-o définit le nom de sortie.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/10-gcc-o-nom-source-c"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-08-010-01",
+      "notion_id": "N08_010",
+      "legacy_notion_key": "8:10",
+      "theme": "Programmation C",
+      "notion": "GNU89",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Quelle instruction n'est pas une déclaration de boucle for portable en GNU89 strict avec -pedantic ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "while (1)"
+        },
+        {
+          "id": "B",
+          "text": "for (int i=0; i<3; i++)"
+        },
+        {
+          "id": "C",
+          "text": "int i; for (i=0; i<3; i++)"
+        },
+        {
+          "id": "D",
+          "text": "do {} while (0);"
+        }
+      ],
+      "correct_option_ids": [
+        "B"
+      ],
+      "explanation": "Déclarer une variable dans l'initialisation d'un for est une fonctionnalité introduite en C99.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/11-gnu89"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-08-011-01",
+      "notion_id": "N08_011",
+      "legacy_notion_key": "8:11",
+      "theme": "Programmation C",
+      "notion": "gcc -E",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Que fait `gcc -E source.c` ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Génère toujours un fichier objet"
+        },
+        {
+          "id": "B",
+          "text": "Exécute seulement le préprocesseur"
+        },
+        {
+          "id": "C",
+          "text": "Exécute source.c"
+        },
+        {
+          "id": "D",
+          "text": "Édite uniquement les liens"
+        }
+      ],
+      "correct_option_ids": [
+        "B"
+      ],
+      "explanation": "-E arrête après le prétraitement.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/12-gcc-e"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-08-012-01",
+      "notion_id": "N08_012",
+      "legacy_notion_key": "8:12",
+      "theme": "Programmation C",
+      "notion": "gcc -S",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Que fait `gcc -S source.c` ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Lance un binaire nommé S"
+        },
+        {
+          "id": "B",
+          "text": "Supprime les avertissements"
+        },
+        {
+          "id": "C",
+          "text": "Produit du code assembleur sans assembler"
+        },
+        {
+          "id": "D",
+          "text": "Génère uniquement le flux stdin"
+        }
+      ],
+      "correct_option_ids": [
+        "C"
+      ],
+      "explanation": "-S s'arrête à la génération assembleur.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/13-gcc-s"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-08-013-01",
+      "notion_id": "N08_013",
+      "legacy_notion_key": "8:13",
+      "theme": "Programmation C",
+      "notion": "gcc -c",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Que fait `gcc -c source.c` ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Télécharge la bibliothèque libc"
+        },
+        {
+          "id": "B",
+          "text": "Produits uniquement des logs Git"
+        },
+        {
+          "id": "C",
+          "text": "Compile/assemble en fichier objet sans étape de liaison"
+        },
+        {
+          "id": "D",
+          "text": "Exécute le programme"
+        }
+      ],
+      "correct_option_ids": [
+        "C"
+      ],
+      "explanation": "-c produit un fichier objet sans créer l'exécutable complet.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/14-gcc-c"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-08-014-01",
+      "notion_id": "N08_014",
+      "legacy_notion_key": "8:14",
+      "theme": "Programmation C",
+      "notion": "gcc -o",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Que signifie `-o sortie` dans une commande gcc ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Définit le nom du fichier de sortie"
+        },
+        {
+          "id": "B",
+          "text": "Indique le langage Objective-C"
+        },
+        {
+          "id": "C",
+          "text": "Active la lecture seule"
+        },
+        {
+          "id": "D",
+          "text": "Optimise à un niveau o"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "-o choisit le chemin du fichier généré.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/15-gcc-o"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-08-015-01",
+      "notion_id": "N08_015",
+      "legacy_notion_key": "8:15",
+      "theme": "Programmation C",
+      "notion": "puts / printf",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "multiple",
+      "prompt": "Quels usages de `puts` sont corrects ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Ne prend pas de spécificateurs de format comme printf"
+        },
+        {
+          "id": "B",
+          "text": "Formate des nombres avec %d comme printf"
+        },
+        {
+          "id": "C",
+          "text": "Écrit nécessairement sur stderr"
+        },
+        {
+          "id": "D",
+          "text": "Affiche une chaîne suivie d'un retour à la ligne"
+        }
+      ],
+      "correct_option_ids": [
+        "A",
+        "D"
+      ],
+      "explanation": "puts écrit une chaîne puis une fin de ligne, contrairement aux conversions de printf.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/16-puts-printf"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-08-016-01",
+      "notion_id": "N08_016",
+      "legacy_notion_key": "8:16",
+      "theme": "Programmation C",
+      "notion": "Types entiers en C",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Peut-on supposer que `sizeof(int)` vaut toujours 4 sur toute implémentation C ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Oui, tout int occupe 64 bits"
+        },
+        {
+          "id": "B",
+          "text": "Non, int ne possède jamais de taille"
+        },
+        {
+          "id": "C",
+          "text": "Non, sa taille dépend de l'implémentation"
+        },
+        {
+          "id": "D",
+          "text": "Oui, c'est imposé par tous les standards C"
+        }
+      ],
+      "correct_option_ids": [
+        "C"
+      ],
+      "explanation": "Le standard impose des contraintes, mais pas 4 octets universels.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/17-types-entiers-en-c"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-08-017-01",
+      "notion_id": "N08_017",
+      "legacy_notion_key": "8:17",
+      "theme": "Programmation C",
+      "notion": "signed et unsigned",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Quelle propriété de l'arithmétique unsigned est garantie en C ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Toute opération unsigned provoque un crash en débordement"
+        },
+        {
+          "id": "B",
+          "text": "Le résultat est réduit modulo 2^N selon la largeur du type"
+        },
+        {
+          "id": "C",
+          "text": "Le résultat est indéfini comme pour le signed overflow"
+        },
+        {
+          "id": "D",
+          "text": "Le résultat est toujours négatif après débordement"
+        }
+      ],
+      "correct_option_ids": [
+        "B"
+      ],
+      "explanation": "L'arithmétique non signée est définie modulo un nombre lié à sa plage.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/18-signed-et-unsigned"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-08-018-01",
+      "notion_id": "N08_018",
+      "legacy_notion_key": "8:18",
+      "theme": "Programmation C",
+      "notion": "float et double",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Dans `printf`, `%f` attend quel type après les promotions d'arguments variadiques ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "char *"
+        },
+        {
+          "id": "B",
+          "text": "size_t"
+        },
+        {
+          "id": "C",
+          "text": "float *"
+        },
+        {
+          "id": "D",
+          "text": "double"
+        }
+      ],
+      "correct_option_ids": [
+        "D"
+      ],
+      "explanation": "Un float argument est promu en double pour les appels variadiques.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/19-float-et-double"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-08-019-01",
+      "notion_id": "N08_019",
+      "legacy_notion_key": "8:19",
+      "theme": "Programmation C",
+      "notion": "char et caractère",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "multiple",
+      "prompt": "Quelles déclarations produisent des objets de type char ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "char lettre='A';"
+        },
+        {
+          "id": "B",
+          "text": "char zero='\\0';"
+        },
+        {
+          "id": "C",
+          "text": "int lettre='A';"
+        },
+        {
+          "id": "D",
+          "text": "double lettre='A';"
+        }
+      ],
+      "correct_option_ids": [
+        "A",
+        "B"
+      ],
+      "explanation": "char déclare un caractère, la valeur '\\0' est un caractère nul.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/20-char-et-caractere"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-08-020-01",
+      "notion_id": "N08_020",
+      "legacy_notion_key": "8:20",
+      "theme": "Programmation C",
+      "notion": "return 0 / return 1",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Qu'indique habituellement le retour de main à zéro ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Une fin de programme réussie"
+        },
+        {
+          "id": "B",
+          "text": "Une fuite de mémoire automatiquement détectée"
+        },
+        {
+          "id": "C",
+          "text": "Une erreur obligatoire de link"
+        },
+        {
+          "id": "D",
+          "text": "Un signal systématique de segfault"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "return 0 indique la réussite dans l'environnement hébergé.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/21-return-0-return-1"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-08-021-01",
+      "notion_id": "N08_021",
+      "legacy_notion_key": "8:21",
+      "theme": "Programmation C",
+      "notion": "return d’un caractère (char)",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Une fonction renvoie `char`; un appelant peut-il stocker le résultat dans un int ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Oui, la conversion intégrale existe"
+        },
+        {
+          "id": "B",
+          "text": "Non, une fonction char ne retourne jamais"
+        },
+        {
+          "id": "C",
+          "text": "Non, char et int sont incompatibles dans tous les contextes"
+        },
+        {
+          "id": "D",
+          "text": "Oui mais seulement via malloc"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "Un char peut être converti en int.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/22-return-d-un-caractere-char"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-08-022-01",
+      "notion_id": "N08_022",
+      "legacy_notion_key": "8:22",
+      "theme": "Programmation C",
+      "notion": "return d’un pointeur (int *)",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "multiple",
+      "prompt": "À propos d'un pointeur renvoyé depuis une fonction C, quelles précautions sont justes ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Il est toujours sûr s'il est non NULL"
+        },
+        {
+          "id": "B",
+          "text": "Un return garantit automatiquement la propriété du bloc"
+        },
+        {
+          "id": "C",
+          "text": "Il ne doit pas pointer vers une variable automatique dont la durée de vie a fini"
+        },
+        {
+          "id": "D",
+          "text": "Son objet cible doit rester valide à l'utilisation"
+        }
+      ],
+      "correct_option_ids": [
+        "C",
+        "D"
+      ],
+      "explanation": "Validité et durée de vie de la cible restent essentielles.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/23-return-d-un-pointeur-int"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-08-023-01",
+      "notion_id": "N08_023",
+      "legacy_notion_key": "8:23",
+      "theme": "Programmation C",
+      "notion": "exit() — terminer le programme",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Quelle différence entre return et exit à l'intérieur d'une fonction ordinaire ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "return quitte la fonction courante ; exit termine le processus selon son contrat"
+        },
+        {
+          "id": "B",
+          "text": "return termine toujours le processus entier"
+        },
+        {
+          "id": "C",
+          "text": "exit ne fait rien s'il est appelé dans main"
+        },
+        {
+          "id": "D",
+          "text": "return libère automatiquement tout bloc malloc"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "return concerne la fonction courante, exit concerne la terminaison du programme.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/24-exit-terminer-le-programme"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-08-024-01",
+      "notion_id": "N08_024",
+      "legacy_notion_key": "8:24",
+      "theme": "Programmation C",
+      "notion": "Dennis Ritchie — créateur du langage C",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "À quel langage associe-t-on Dennis Ritchie parmi les propositions ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Python"
+        },
+        {
+          "id": "B",
+          "text": "Java"
+        },
+        {
+          "id": "C",
+          "text": "C"
+        },
+        {
+          "id": "D",
+          "text": "Rust"
+        }
+      ],
+      "correct_option_ids": [
+        "C"
+      ],
+      "explanation": "Dennis Ritchie a conçu le langage C.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/25-dennis-ritchie-createur-du-langage-c"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-08-025-01",
+      "notion_id": "N08_025",
+      "legacy_notion_key": "8:25",
+      "theme": "Programmation C",
+      "notion": "scanf() — lire une saisie au clavier",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Pour `int n;`, quel argument de `scanf(\"%d\", ...)` est correct ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "*n"
+        },
+        {
+          "id": "B",
+          "text": "&n"
+        },
+        {
+          "id": "C",
+          "text": "n"
+        },
+        {
+          "id": "D",
+          "text": "sizeof n"
+        }
+      ],
+      "correct_option_ids": [
+        "B"
+      ],
+      "explanation": "scanf exige l'adresse de l'objet int à remplir.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/26-scanf-lire-une-saisie-au-clavier",
+        "https://en.cppreference.com/w/c/io/fscanf"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-08-025-02",
+      "notion_id": "N08_025",
+      "legacy_notion_key": "8:25",
+      "theme": "Programmation C",
+      "notion": "scanf() — lire une saisie au clavier",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Pour une saisie non numérique dès le premier caractère, que renvoie usuellement `scanf(\"%d\", &n)` ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "1"
+        },
+        {
+          "id": "B",
+          "text": "0"
+        },
+        {
+          "id": "C",
+          "text": "Le contenu de n"
+        },
+        {
+          "id": "D",
+          "text": "-2"
+        }
+      ],
+      "correct_option_ids": [
+        "B"
+      ],
+      "explanation": "Aucune conversion n'est affectée : échec de correspondance.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/26-scanf-lire-une-saisie-au-clavier",
+        "https://en.cppreference.com/w/c/io/fscanf"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-08-026-01",
+      "notion_id": "N08_026",
+      "legacy_notion_key": "8:26",
+      "theme": "Programmation C",
+      "notion": "fgets() — lire une ligne avec une limite",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "multiple",
+      "prompt": "Quelles affirmations concernant fgets sont correctes ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Elle agrandit automatiquement les tableaux trop petits"
+        },
+        {
+          "id": "B",
+          "text": "Elle garantit que toute ligne dépassant la capacité est consommée"
+        },
+        {
+          "id": "C",
+          "text": "Elle conserve le saut de ligne lorsqu'il est lu"
+        },
+        {
+          "id": "D",
+          "text": "Elle lit au plus n-1 caractères utiles dans un tampon de n cases"
+        }
+      ],
+      "correct_option_ids": [
+        "C",
+        "D"
+      ],
+      "explanation": "fgets peut conserver '\\n' et laisse de la place pour '\\0'.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/27-fgets-lire-une-ligne-avec-une-limite",
+        "https://en.cppreference.com/c/io/fgets"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-08-026-02",
+      "notion_id": "N08_026",
+      "legacy_notion_key": "8:26",
+      "theme": "Programmation C",
+      "notion": "fgets() — lire une ligne avec une limite",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Pourquoi faut-il vérifier le retour de fgets avant d'utiliser le tampon ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "fgets renvoie le nombre de caractères"
+        },
+        {
+          "id": "B",
+          "text": "Une erreur garantit toujours une chaîne vide"
+        },
+        {
+          "id": "C",
+          "text": "fgets supprime toutes les erreurs de lecture"
+        },
+        {
+          "id": "D",
+          "text": "NULL signale un échec ou une fin de fichier avant donnée"
+        }
+      ],
+      "correct_option_ids": [
+        "D"
+      ],
+      "explanation": "Le tampon n'est pas nécessairement une ligne réussie si le résultat est NULL.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/27-fgets-lire-une-ligne-avec-une-limite",
+        "https://en.cppreference.com/c/io/fgets"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-08-027-01",
+      "notion_id": "N08_027",
+      "legacy_notion_key": "8:27",
+      "theme": "Programmation C",
+      "notion": "strtol() — convertir une entrée en entier",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Pourquoi utiliser strtol plutôt que atoi lors de la validation d'un entier saisi ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "atoi renvoie toujours une structure complète"
+        },
+        {
+          "id": "B",
+          "text": "atoi interdit les caractères numériques"
+        },
+        {
+          "id": "C",
+          "text": "strtol offre un endptr et une détection d'erreur mieux adaptée"
+        },
+        {
+          "id": "D",
+          "text": "strtol convertit seulement des chaînes de longueur 1"
+        }
+      ],
+      "correct_option_ids": [
+        "C"
+      ],
+      "explanation": "strtol permet de vérifier l'endptr et une éventuelle plage hors limites.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/28-strtol-convertir-une-entree-en-entier",
+        "https://en.cppreference.com/w/c/string/byte/strtol"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-08-028-01",
+      "notion_id": "N08_028",
+      "legacy_notion_key": "8:28",
+      "theme": "Programmation C",
+      "notion": "Chaîne de format — ne pas utiliser une saisie comme format",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Pourquoi `printf(chaine_utilisateur)` est-il dangereux ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "printf autorise uniquement les chaînes constantes"
+        },
+        {
+          "id": "B",
+          "text": "La chaîne peut contenir des spécificateurs interprétés comme format"
+        },
+        {
+          "id": "C",
+          "text": "printf ignore toujours les %"
+        },
+        {
+          "id": "D",
+          "text": "La chaîne est toujours préalablement échappée"
+        }
+      ],
+      "correct_option_ids": [
+        "B"
+      ],
+      "explanation": "Utiliser un format fixe, par exemple printf(\"%s\", chaine).",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/29-chaine-de-format-ne-pas-utiliser-une-saisie-comme-format"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-08-029-01",
+      "notion_id": "N08_029",
+      "legacy_notion_key": "8:29",
+      "theme": "Programmation C",
+      "notion": "EOF — détecter la fin d'une entrée",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "À quoi sert EOF lors de la lecture par getchar ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Indiquer une fin d'entrée ou une erreur selon l'état du flux"
+        },
+        {
+          "id": "B",
+          "text": "Être un octet de nouvelle ligne"
+        },
+        {
+          "id": "C",
+          "text": "Marquer systématiquement la valeur ASCII 255"
+        },
+        {
+          "id": "D",
+          "text": "Représenter toujours le caractère '\\0'"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "getchar renvoie un int, permettant de distinguer les octets d'EOF.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/30-eof-detecter-la-fin-d-une-entree"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-08-030-01",
+      "notion_id": "N08_030",
+      "legacy_notion_key": "8:30",
+      "theme": "Programmation C",
+      "notion": "Integer overflow — dépassement de capacité d'un entier",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Le débordement d'un int signé lors de `INT_MAX+1` en C standard est-il défini ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Oui, il produit toujours INT_MIN"
+        },
+        {
+          "id": "B",
+          "text": "Non, il entraîne un comportement indéfini"
+        },
+        {
+          "id": "C",
+          "text": "Oui, il produit forcément 0"
+        },
+        {
+          "id": "D",
+          "text": "Oui, il affiche un avertissement puis continue"
+        }
+      ],
+      "correct_option_ids": [
+        "B"
+      ],
+      "explanation": "Le signed integer overflow est UB en C standard.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/31-integer-overflow-depassement-de-capacite-d-un-entier",
+        "https://en.cppreference.com/c/language/behavior"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-14-000-01",
+      "notion_id": "N14_000",
+      "legacy_notion_key": "14:0",
+      "theme": "Qualité et méthode en C",
+      "notion": "Prototype de fonction",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Quel avantage apporte un prototype avant un appel de fonction C ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Allouer le tas automatiquement"
+        },
+        {
+          "id": "B",
+          "text": "Créer une boucle implicite"
+        },
+        {
+          "id": "C",
+          "text": "Vérifier la cohérence des paramètres et du retour"
+        },
+        {
+          "id": "D",
+          "text": "Exécuter la fonction avant main"
+        }
+      ],
+      "correct_option_ids": [
+        "C"
+      ],
+      "explanation": "Le prototype décrit la signature.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/qualite-et-methode-en-c/1-prototype-de-fonction"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-14-001-01",
+      "notion_id": "N14_001",
+      "legacy_notion_key": "14:1",
+      "theme": "Qualité et méthode en C",
+      "notion": "Entête de fonction",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Pourquoi documenter les paramètres d'une fonction ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Clarifier ses entrées et son résultat"
+        },
+        {
+          "id": "B",
+          "text": "Changer la valeur de retour automatiquement"
+        },
+        {
+          "id": "C",
+          "text": "Supprimer toute erreur de compilation"
+        },
+        {
+          "id": "D",
+          "text": "Rendre inutile tout test"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "La documentation explicite le contrat.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/qualite-et-methode-en-c/2-entete-de-fonction"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-14-002-01",
+      "notion_id": "N14_002",
+      "legacy_notion_key": "14:2",
+      "theme": "Qualité et méthode en C",
+      "notion": "Tester séparément",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Quel intérêt présente un test isolé d'une fonction ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Effacer le code obsolète"
+        },
+        {
+          "id": "B",
+          "text": "Garantir l'absence de toute vulnérabilité"
+        },
+        {
+          "id": "C",
+          "text": "Remplacer entièrement la compilation"
+        },
+        {
+          "id": "D",
+          "text": "Localiser plus facilement une régression"
+        }
+      ],
+      "correct_option_ids": [
+        "D"
+      ],
+      "explanation": "Des tests ciblés isolent les comportements.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/qualite-et-methode-en-c/3-tester-separement"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-14-003-01",
+      "notion_id": "N14_003",
+      "legacy_notion_key": "14:3",
+      "theme": "Qualité et méthode en C",
+      "notion": "Taille des types",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Pourquoi faut-il éviter de supposer que int et long ont une taille unique sur toutes les machines ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Tout type long occupe 8 octets selon le standard"
+        },
+        {
+          "id": "B",
+          "text": "Les tailles n'existent pas"
+        },
+        {
+          "id": "C",
+          "text": "Leurs tailles dépendent de l'implémentation"
+        },
+        {
+          "id": "D",
+          "text": "Tout type int occupe 1 octet"
+        }
+      ],
+      "correct_option_ids": [
+        "C"
+      ],
+      "explanation": "Utiliser sizeof et les contraintes du standard.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/qualite-et-methode-en-c/4-taille-des-types"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-14-004-01",
+      "notion_id": "N14_004",
+      "legacy_notion_key": "14:4",
+      "theme": "Qualité et méthode en C",
+      "notion": "Compilation et liaison",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Quelle erreur correspond à la phase de liaison et non à la syntaxe C ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "undefined reference to symbole"
+        },
+        {
+          "id": "B",
+          "text": "Une variable déclarée dans un for GNU89 strict"
+        },
+        {
+          "id": "C",
+          "text": "Une accolade manquante"
+        },
+        {
+          "id": "D",
+          "text": "Une expression avec un ; supplémentaire"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "La liaison résout les symboles externes.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/qualite-et-methode-en-c/5-compilation-et-liaison"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-14-005-01",
+      "notion_id": "N14_005",
+      "legacy_notion_key": "14:5",
+      "theme": "Qualité et méthode en C",
+      "notion": "Commentaires et lisibilité",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Quel commentaire est le plus utile à un lecteur ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Une duplication de tous les messages stdout"
+        },
+        {
+          "id": "B",
+          "text": "Un mot au hasard"
+        },
+        {
+          "id": "C",
+          "text": "Une explication du pourquoi d'un choix non évident"
+        },
+        {
+          "id": "D",
+          "text": "Un commentaire qui répète chaque opérateur évident"
+        }
+      ],
+      "correct_option_ids": [
+        "C"
+      ],
+      "explanation": "Un commentaire utile apporte le contexte et les invariants.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/qualite-et-methode-en-c/6-commentaires-et-lisibilite"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-14-007-01",
+      "notion_id": "N14_007",
+      "legacy_notion_key": "14:7",
+      "theme": "Qualité et méthode en C",
+      "notion": "Invariant — condition qui doit rester vraie",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Qu'est-ce qu'un invariant dans un algorithme ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Un pointeur systématiquement NULL"
+        },
+        {
+          "id": "B",
+          "text": "Une variable forcément constante dans toute la vie du programme"
+        },
+        {
+          "id": "C",
+          "text": "Une sortie d'erreur de printf"
+        },
+        {
+          "id": "D",
+          "text": "Une propriété qui doit rester vraie aux points définis"
+        }
+      ],
+      "correct_option_ids": [
+        "D"
+      ],
+      "explanation": "L'invariant encadre le raisonnement correct.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/qualite-et-methode-en-c/8-invariant-condition-qui-doit-rester-vraie"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    },
+    {
+      "id": "CDEEP-14-008-01",
+      "notion_id": "N14_008",
+      "legacy_notion_key": "14:8",
+      "theme": "Qualité et méthode en C",
+      "notion": "Base bundle — analyser le code de départ d'un lab",
+      "question_type": "raisonnement_technique",
+      "answer_mode": "single",
+      "prompt": "Comment analyser les fichiers de départ fournis pour un exercice C inconnu ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Exécuter free sur tous les pointeurs"
+        },
+        {
+          "id": "B",
+          "text": "Affirmer une faille sans ouvrir le code"
+        },
+        {
+          "id": "C",
+          "text": "Lire ses fichiers et reproduire les diagnostics"
+        },
+        {
+          "id": "D",
+          "text": "Corriger uniquement son titre"
+        }
+      ],
+      "correct_option_ids": [
+        "C"
+      ],
+      "explanation": "Le code et les tests sont nécessaires pour confirmer les risques.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/qualite-et-methode-en-c/9-base-bundle-analyser-le-code-de-depart-d-un-lab"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "technical_review_needed",
+        "verify_ngu89",
+        "undefined_behavior_checks"
+      ]
+    }
+  ]
+}
