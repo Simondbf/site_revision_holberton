@@ -6811,7 +6811,7 @@
       "notion": "argv[i][j] — caractère d'un argument et double indirection",
       "answer_mode": "single",
       "question_type": "bornes",
-      "prompt": "Quel test empêche de lire argv[1][1] lorsque le premier argument utilisateur est absent ou ne contient qu'un caractère ? (Une seule réponse correcte.)",
+      "prompt": "Quel test vérifie sans accès hors limites que argv[1] contient au moins deux caractères non nuls, même si le premier argument est absent ou trop court ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -6833,7 +6833,7 @@
       "correct_option_ids": [
         "C"
       ],
-      "explanation": "L'évaluation courte doit d'abord établir que argc>1 et ensuite contrôler que le deuxième caractère existe. Un test isolé sur argv[1] peut accéder à la sentinelle.",
+      "explanation": "L'évaluation courte vérifie d'abord argc > 1. Pour une chaîne d'un caractère, lire argv[1][1] est permis : cette position contient le terminateur nul. Le test confirme donc qu'un deuxième caractère non nul est présent, sans lire hors limites.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/76-argv-i-j-caractere-d-un-argument-et-double-indirection",
         "https://publications.gbdirect.com/c_book/chapter10/arguments_to_main.html",
