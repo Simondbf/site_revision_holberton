@@ -3,7 +3,10 @@ const root=document.getElementById('account');
 const card=root?.querySelector('.helpgrid article:first-child');
 if(!root||!card)throw Error('Page Compte absente.');
 let me={authenticated:false},remote={revision:0,data:null},available=false,busy=false;
-let syncOptIn=false,debounce=null;
+let syncOptIn=false,debounce=null,pendingSync=false;
+function disableSync(){syncOptIn=false;try{localStorage.removeItem('holberton-account-sync-v1');localStorage.removeItem('holberton-account-sync-user-v1')}catch{}}
+function enableSync(){syncOptIn=true;try{localStorage.setItem('holberton-account-sync-v1','yes');localStorage.setItem('holberton-account-sync-user-v1',me.userId)}catch{}}
+function checkSyncOwner(){try{if(!me.userId||localStorage.getItem('holberton-account-sync-user-v1')!==me.userId)disableSync()}catch{disableSync()}}
 try{syncOptIn=localStorage.getItem('holberton-account-sync-v1')==='yes'}catch{}
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const api=async(path,{method='GET',body,csrf}={})=>{
@@ -63,28 +66,33 @@ function displayConnected(){
   try{download('holberton-compte-export.json',await api('/api/account/export'))}catch(e){notice(e.message,true)}
  };
  document.getElementById('accountLogout').onclick=async()=>{
-  try{await api('/api/auth/logout',{method:'POST',csrf:me.csrf});me={authenticated:false};remote={revision:0,data:null};syncOptIn=false;try{localStorage.removeItem('holberton-account-sync-v1')}catch{};displayGuest()}catch(e){notice(e.message,true)}
+  try{await api('/api/auth/logout',{method:'POST',csrf:me.csrf});me={authenticated:false};remote={revision:0,data:null};disableSync();displayGuest()}catch(e){notice(e.message,true)}
  };
  document.getElementById('accountDelete').onclick=async()=>{
   if(!confirm('Supprimer définitivement le compte Holberton Révision et sa progression sur le serveur ? La progression de cet appareil ne sera pas supprimée.'))return;
   if(!confirm('Confirmation définitive : supprimer le compte et ses données de synchronisation ?'))return;
-  try{await api('/api/account',{method:'DELETE',csrf:me.csrf});me={authenticated:false};remote={revision:0,data:null};syncOptIn=false;try{localStorage.removeItem('holberton-account-sync-v1')}catch{};displayGuest();notice('Compte supprimé. La progression invitée de cet appareil est conservée.')}catch(e){notice(e.message,true)}
+  try{await api('/api/account',{method:'DELETE',csrf:me.csrf});me={authenticated:false};remote={revision:0,data:null};disableSync();displayGuest();notice('Compte supprimé. La progression invitée de cet appareil est conservée.')}catch(e){notice(e.message,true)}
  };
 }
 async function saveToAccount(){
  if(busy||!me.authenticated)return;
  const local=progressLocal();
  const count=progressSummary(local).sessions;
- if(!confirm('Sauvegarder les '+count+' session(s) invitées sur ton compte ? En cas de conflit de version, rien ne sera écrasé.'))return;
+ if(!count&&!local.current){notice('Aucun résultat invité à synchroniser.');return}
+ if(remote.data&&(remote.data.history?.length||remote.data.current)){
+  if(!confirm('ATTENTION : ton compte contient déjà une progression. La sauvegarde de cet appareil remplacera cet historique du serveur. Veux-tu continuer ?'))return;
+  if(!confirm('Confirmer le remplacement explicite de la progression du compte ?'))return;
+ }
+ if(!confirm('Sauvegarder les '+count+' session(s) invitées sur ton compte ? En cas de modification concurrente, rien ne sera écrasé.'))return;
  busy=true;
  try{
   // Import d'un historique invité seulement après accord explicite.
   const next=await api('/api/progress',{method:'PUT',csrf:me.csrf,body:{revision:remote.revision,data:local}});
   remote={revision:next.revision,data:local,updatedAt:next.updatedAt};
-  syncOptIn=true;try{localStorage.setItem('holberton-account-sync-v1','yes')}catch{}
+  enableSync()
   displayConnected();notice('Progression synchronisée. Les prochains résultats seront envoyés automatiquement lorsque le serveur sera disponible.');
  }catch(e){
-  if(e.status===409){syncOptIn=false;try{localStorage.removeItem('holberton-account-sync-v1')}catch{};await refreshRemote().catch(()=>{})}
+  if(e.status===409){disableSync();await refreshRemote().catch(()=>{})}
   notice(e.status===409?'Une autre session a changé la progression du compte. Exporte les deux historiques avant de décider quoi conserver.':e.message,true);
  }finally{busy=false}
 }
@@ -96,7 +104,8 @@ async function loadFromAccount(){
  displayConnected();notice('Progression du compte chargée sur cet appareil.');
 }
 async function automaticSync(){
- if(!syncOptIn||!me.authenticated||busy||!available)return;
+ if(!syncOptIn||!me.authenticated||!available)return;
+ if(busy){pendingSync=true;return}
  const local=progressLocal();
  busy=true;
  try{
@@ -104,7 +113,7 @@ async function automaticSync(){
   remote={revision:answer.revision,data:local,updatedAt:answer.updatedAt};
  }catch(e){
   if(e.status===409){syncOptIn=false;try{localStorage.removeItem('holberton-account-sync-v1')}catch{};await refreshRemote().catch(()=>{});if(location.hash.startsWith('#compte')){displayConnected();notice('Conflit de synchronisation : aucune donnée distante écrasée. Un choix manuel est nécessaire.',true)}}
- }finally{busy=false}
+ }finally{busy=false;if(pendingSync){pendingSync=false;setTimeout(automaticSync,0)}}
 }
 window.addEventListener('holberton:quiz:updated',()=>{
  if(debounce)clearTimeout(debounce);
@@ -119,9 +128,9 @@ async function initialize(){
   const check=await api('/api/auth/me');available=true;me=check;
   if(token){
    const verified=await api('/api/auth/verify',{method:'POST',body:{token}});
-   me={...verified,authenticated:true};await refreshRemote();displayConnected();notice('Adresse vérifiée. Bienvenue dans ton compte Holberton Révision.');return;
+   me=await api('/api/auth/me');checkSyncOwner();await refreshRemote();displayConnected();notice('Adresse vérifiée. Bienvenue dans ton compte Holberton Révision.');return;
   }
-  if(me.authenticated){await refreshRemote();displayConnected()}
+  if(me.authenticated){checkSyncOwner();await refreshRemote();displayConnected()}
   else{
    const health=await api('/api/health');
    if(health.emailsAvailable)displayGuest();else displayUnavailable();
