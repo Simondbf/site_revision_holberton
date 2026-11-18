@@ -29,3 +29,4 @@ jobs:
           node scripts/verifier_securite.mjs
           node scripts/verifier_pointeurs_fonctions.mjs
           node scripts/verifier_arguments_main.mjs
+          node scripts/verifier_navigation_compte_quiz.mjs
