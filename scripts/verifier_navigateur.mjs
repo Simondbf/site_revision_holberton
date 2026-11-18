@@ -23,6 +23,8 @@ const target=ii=>route(topicName,contenu.sections[si].items[ii].term);
 const assets={
  '/quiz/core.mjs':'text/javascript',
  '/quiz/engine.mjs':'text/javascript',
+ '/account/client.mjs':'text/javascript',
+ '/account/styles.css':'text/css',
  '/quiz/styles.css':'text/css',
  '/quiz/questions-variadiques.json':'application/json',
  '/docs/quiz/vague1/section-09-pointeurs-et-tableaux-c.json':'application/json'

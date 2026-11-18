@@ -17,9 +17,10 @@ for(const [,attrs,body] of data){
   JSON.parse(body);
 }
 assert.equal(code.length,1,'Un seul script applicatif intégré attendu.');
-assert.equal(modules.length,1,'Un seul module local de quiz attendu.');
-assert.match(modules[0][1],/\btype="module"/, 'Le quiz doit être un module ES.');
-assert.match(modules[0][1],/\bsrc="\.\/quiz\/engine\.mjs"/, 'Le module doit être local et sous contrôle du dépôt.');
+assert.equal(modules.length,2,'Deux modules locaux attendus : quiz et compte.');
+assert.ok(modules.every(([,attrs])=>/\btype="module"/.test(attrs)),'Seuls les modules ES locaux sont autorisés.');
+assert.match(modules[0][1],/\bsrc="\.\/quiz\/engine\.mjs"/, 'Le module quiz doit être local.');
+assert.match(modules[1][1],/\bsrc="\.\/account\/client\.mjs"/, 'Le module compte doit être local.');
 const app=code[0][2];
 
 assert.ok(!/<script\b[^>]*\bsrc\s*=\s*["']https?:/i.test(html),'Aucune dépendance JavaScript distante autorisée.');
@@ -52,4 +53,7 @@ for(const [tag] of links){
 const quiz=readFileSync(new URL('../quiz/engine.mjs',import.meta.url),'utf8');
 assert.ok(quiz.includes("new URL('../docs/quiz/vague1/") && quiz.includes("new URL('questions-variadiques.json'"), 'Seules les banques quiz locales doivent être chargées.');
 assert.ok(!/\bdocument\.cookie\b|\beval\s*\(|new\s+Function\s*\(/.test(quiz),'Opérations sensibles interdites dans le moteur quiz.');
-console.log('Garde-fous statiques : '+notions+' notions accessibles sans compte, module quiz local et aucune authentification simulée.');
+const account=readFileSync(new URL('../account/client.mjs',import.meta.url),'utf8');
+assert.ok(account.includes("api('/api/auth/me')"),'Le module compte ne doit pas simuler une session authentifiée.');
+assert.ok(!/\bdocument\.cookie\b/.test(account),'Les cookies de session doivent être HttpOnly et non lus par JavaScript.');
+console.log('Garde-fous statiques : '+notions+' notions invitées, modules locaux et sessions gérées côté serveur.');

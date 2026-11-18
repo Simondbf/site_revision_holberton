@@ -35,3 +35,4 @@ jobs:
           node --check quiz/engine.mjs
           node --test server/auth.test.mjs
           node --check server/index.mjs
+          node --check account/client.mjs
