@@ -41,8 +41,9 @@ for (const [si, section] of data.sections.entries()) {
 assert.ok(total >= 242, 'Des fiches semblent avoir disparu');
 assert.ok(Object.keys(aide).length > 0, 'Analogies pédagogiques manquantes');
 
-const scripts = [...html.matchAll(/<script(?![^>]*type="application\/json")[^>]*>([\s\S]*?)<\/script>/g)];
-assert.equal(scripts.length, 1, 'Le site doit conserver un script principal unique');
+const scripts = [...html.matchAll(/<script(?![^>]*type="application\/json")(?![^>]*\bsrc=)[^>]*>([\s\S]*?)<\/script>/g)];
+assert.equal(scripts.length, 1, 'Le site doit conserver un unique script principal intégré, les modules externes sont autorisés');
+assert.ok(html.includes('<script type="module" src="./quiz/engine.mjs"></script>'),'Module quiz introuvable');
 new Script(scripts[0][1], { filename: 'site.js' }); // Analyse syntaxique sans exécuter le code.
 assert.ok(html.includes('id="quickSearch"'), 'Recherche globale absente');
 assert.ok(!html.includes('id="conceptDialog"'), 'Les anciennes fenêtres superposées doivent être supprimées');
