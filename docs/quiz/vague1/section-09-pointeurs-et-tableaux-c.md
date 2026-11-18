@@ -1,6 +1,6 @@
 # Première vague — Pointeurs et tableaux C
 
-**288 questions candidates concernant ce chapitre.** La répartition des réponses a été rééquilibrée pour éviter les biais de position. Ces réponses restent des propositions **non validées sur le fond** ; vérifier chaque distracteur et les sources avant publication.
+**315 questions candidates concernant ce chapitre.** La répartition des réponses a été rééquilibrée pour éviter les biais de position. Ces réponses restent des propositions **non validées sur le fond** ; vérifier chaque distracteur et les sources avant publication.
 
 ## N09_000 — Pointeur (pointer)
 
@@ -6257,3 +6257,43 @@ Quelles affirmations distinguent correctement le terminateur de chaîne et la se
 
 ---
 
+
+### V1-N09_003-05 — diagnostic-pointeur-inutilise
+
+**Plusieurs bonnes réponses**
+
+Dans `int main(void) { int valeur = 1; int *p = &valeur; return valeur - 1; }`, compilé avec `gcc -std=gnu89 -Wall -Wextra -Werror -pedantic`, quelles affirmations sont exactes ? (Plusieurs réponses correctes.)
+
+- **A ✅** GCC détecte que la variable locale p est inutilisée avec -Wall.
+- **B ✅** Ajouter `(void)p;` peut signaler que le non-emploi de p est intentionnel.
+- **C ✅** Si p ne sert réellement à rien, supprimer sa déclaration est une correction pertinente.
+- **D ❌** Il faut appeler free(p) puisque p contient une adresse.
+- **E ❌** -Werror désactive le diagnostic -Wunused-variable.
+
+**Réponse proposée :** A, B, C. p est un pointeur local initialisé, mais sa valeur n'est jamais utilisée. -Wall active -Wunused-variable et -Werror transforme l'avertissement en erreur. (void)p peut documenter une utilisation intentionnellement omise, tandis que supprimer p est préférable s'il est inutile ; p ne pointe pas vers un objet alloué dynamiquement et ne doit pas être libéré.
+
+**Sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/4-dans-une-declaration · https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html · https://dev.to/martinlicht/unused-variables-in-cc-why-and-how-4cm4
+
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
+
+---
+
+### V1-N09_072-06 — parametres-inutilises
+
+**Une seule bonne réponse**
+
+Quel est l'effet des instructions `(void)argc; (void)argv;` dans `int main(int argc, char **argv) { (void)argc; (void)argv; return 0; }` sous GNU89 avec `-Wall -Wextra -Werror` ? (Une seule réponse correcte.)
+
+- **A ❌** Elles convertissent les arguments en pointeurs NULL.
+- **B ❌** Elles empêchent l'appel standard de main par le système.
+- **C ❌** Elles libèrent automatiquement la mémoire contenant les arguments.
+- **D ✅** Elles signalent que les paramètres sont intentionnellement inutilisés et évitent leurs avertissements.
+- **E ❌** Elles modifient la valeur de argc avant return.
+
+**Réponse proposée :** D. Le cast explicite vers void évalue la valeur des paramètres sans l'exploiter ; GCC ne les considère alors plus comme paramètres inutilisés. Leur type et leur valeur ne changent pas, et aucune mémoire n'est libérée.
+
+**Sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/73-main-int-argc-char-argv-recevoir-des-arguments · https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html · https://dev.to/martinlicht/unused-variables-in-cc-why-and-how-4cm4
+
+**Revue externe :** ☐ correcte ☐ ambiguë ☐ à reformuler ☐ rejetée
+
+---

@@ -12967,6 +12967,102 @@
         "relecture_independante_requise",
         "fiche_pr22_non_publiee"
       ]
+    },
+    {
+      "id": "V1-N09_003-05",
+      "notion_id": "N09_003",
+      "legacy_notion_key": "9:3",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "* dans une déclaration",
+      "answer_mode": "multiple",
+      "question_type": "diagnostic-pointeur-inutilise",
+      "prompt": "Dans `int main(void) { int valeur = 1; int *p = &valeur; return valeur - 1; }`, compilé avec `gcc -std=gnu89 -Wall -Wextra -Werror -pedantic`, quelles affirmations sont exactes ? (Plusieurs réponses correctes.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "GCC détecte que la variable locale p est inutilisée avec -Wall."
+        },
+        {
+          "id": "B",
+          "text": "Ajouter `(void)p;` peut signaler que le non-emploi de p est intentionnel."
+        },
+        {
+          "id": "C",
+          "text": "Si p ne sert réellement à rien, supprimer sa déclaration est une correction pertinente."
+        },
+        {
+          "id": "D",
+          "text": "Il faut appeler free(p) puisque p contient une adresse."
+        },
+        {
+          "id": "E",
+          "text": "-Werror désactive le diagnostic -Wunused-variable."
+        }
+      ],
+      "correct_option_ids": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "p est un pointeur local initialisé, mais sa valeur n'est jamais utilisée. -Wall active -Wunused-variable et -Werror transforme l'avertissement en erreur. (void)p peut documenter une utilisation intentionnellement omise, tandis que supprimer p est préférable s'il est inutile ; p ne pointe pas vers un objet alloué dynamiquement et ne doit pas être libéré.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/4-dans-une-declaration",
+        "https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html",
+        "https://dev.to/martinlicht/unused-variables-in-cc-why-and-how-4cm4"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "ressource_variables_inutilisees_2026",
+        "gnu89_pedantic",
+        "verification_independante_requise"
+      ]
+    },
+    {
+      "id": "V1-N09_072-06",
+      "notion_id": "N09_072",
+      "legacy_notion_key": "9:72",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "main(int argc, char *argv[]) — recevoir des arguments",
+      "answer_mode": "single",
+      "question_type": "parametres-inutilises",
+      "prompt": "Quel est l'effet des instructions `(void)argc; (void)argv;` dans `int main(int argc, char **argv) { (void)argc; (void)argv; return 0; }` sous GNU89 avec `-Wall -Wextra -Werror` ? (Une seule réponse correcte.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "Elles convertissent les arguments en pointeurs NULL."
+        },
+        {
+          "id": "B",
+          "text": "Elles empêchent l'appel standard de main par le système."
+        },
+        {
+          "id": "C",
+          "text": "Elles libèrent automatiquement la mémoire contenant les arguments."
+        },
+        {
+          "id": "D",
+          "text": "Elles signalent que les paramètres sont intentionnellement inutilisés et évitent leurs avertissements."
+        },
+        {
+          "id": "E",
+          "text": "Elles modifient la valeur de argc avant return."
+        }
+      ],
+      "correct_option_ids": [
+        "D"
+      ],
+      "explanation": "Le cast explicite vers void évalue la valeur des paramètres sans l'exploiter ; GCC ne les considère alors plus comme paramètres inutilisés. Leur type et leur valeur ne changent pas, et aucune mémoire n'est libérée.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/73-main-int-argc-char-argv-recevoir-des-arguments",
+        "https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html",
+        "https://dev.to/martinlicht/unused-variables-in-cc-why-and-how-4cm4"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "ressource_variables_inutilisees_2026",
+        "gnu89_pedantic",
+        "verification_independante_requise"
+      ]
     }
   ]
 }

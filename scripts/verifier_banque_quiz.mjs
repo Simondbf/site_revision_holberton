@@ -18,8 +18,8 @@ for(const file of files){
   assert.ok(q.id&&q.notion_id&&q.legacy_notion_key&&q.prompt?.length>12,'Question incomplète : '+q.id);
   assert.ok(!ids.has(q.id),'ID en doublon : '+q.id);ids.add(q.id);
   assert.ok(['single','multiple'].includes(q.answer_mode),'Mode de réponse invalide : '+q.id);
-  assert.equal(q.options?.length,4,'Nombre d’options invalide : '+q.id);
-  assert.deepEqual(q.options.map(o=>o.id),['A','B','C','D'],'ID d’options invalide : '+q.id);
+  assert.ok([4,5].includes(q.options?.length),'Quatre ou cinq options attendues : '+q.id);
+  assert.deepEqual(q.options.map(o=>o.id),['A','B','C','D','E'].slice(0,q.options.length),'ID d’options invalide : '+q.id);
   assert.equal(new Set(q.options.map(o=>o.text)).size,4,'Options dupliquées : '+q.id);
   const correct=q.correct_option_ids;
   assert.ok(Array.isArray(correct)&&new Set(correct).size===correct.length,'Corrigé dupliqué : '+q.id);
@@ -45,10 +45,10 @@ for(const file of files){
   if(file.startsWith('section-'))structured++;else extra++;
  }
 }
-assert.equal(structured,397,'Questions structurées manquantes');
+assert.equal(structured,399,'Questions structurées manquantes');
 assert.equal(extra,122,'Questions transversales manquantes');
-assert.equal(ids.size,519,'Questions totales manquantes');
+assert.equal(ids.size,521,'Questions totales manquantes');
 assert.equal(notions.size,98,'Notions manquantes');
 assert.ok(multiple>0,'Aucune question à réponses multiples');
-console.log('PR #19 : 519 questions pour 98 notions, JSON et Markdown cohérents.');
+console.log('PR #19 : 521 questions pour 98 notions, JSON et Markdown cohérents.');
 console.log('Toutes les questions restent à vérifier pédagogiquement.');
