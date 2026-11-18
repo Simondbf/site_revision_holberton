@@ -215,39 +215,43 @@
       "notion": "Valeur de p, *p et &p",
       "question_type": "raisonnement_technique",
       "answer_mode": "multiple",
-      "prompt": "Avec `int n=3; int *p=&n;`, quels objets sont différents conceptuellement ?",
+      "prompt": "Avec `int n=3; int *p=&n;`, quelles affirmations sont exactes ?",
       "options": [
         {
           "id": "A",
-          "text": "*p désigne la valeur de n"
+          "text": "*p lit la valeur actuellement stockée dans n."
         },
         {
           "id": "B",
-          "text": "p, *p et &p ont toujours le même type"
+          "text": "p contient l'adresse de n."
         },
         {
           "id": "C",
-          "text": "p est une variable contenant une adresse"
+          "text": "&p désigne l'adresse de la variable pointeur p."
         },
         {
           "id": "D",
-          "text": "&p désigne l'adresse de la variable p"
+          "text": "p et *p ont obligatoirement le même type."
+        },
+        {
+          "id": "E",
+          "text": "L'affectation *p=7 modifierait n."
         }
       ],
       "correct_option_ids": [
         "A",
+        "B",
         "C",
-        "D"
+        "E"
       ],
-      "explanation": "Les trois expressions ne désignent pas la même chose.",
+      "explanation": "p contient l'adresse de n, *p lit ou modifie cet int, et &p est l'adresse de la variable pointeur elle-même.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/7-valeur-de-p-p-et-p"
       ],
       "review_status": "a_verifier",
       "review_flags": [
-        "technical_review_needed",
-        "verify_ngu89",
-        "undefined_behavior_checks"
+        "refonte_apres_audit",
+        "relecture_independante_requise"
       ]
     },
     {
@@ -957,37 +961,36 @@
       "notion": "malloc : vérifier NULL",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Après un malloc potentiellement défaillant, quelle condition empêche de déréférencer NULL ?",
+      "prompt": "Après un malloc qui peut échouer, quel fragment empêche de déréférencer NULL ?",
       "options": [
         {
           "id": "A",
-          "text": "if (p == NULL) puis *p=1"
+          "text": "`if (p == NULL) { *p = 1; }`"
         },
         {
           "id": "B",
-          "text": "while (p == NULL) *p=1"
+          "text": "`if (*p != 0) { *p = 1; }`"
         },
         {
           "id": "C",
-          "text": "if (sizeof p == 0)"
+          "text": "`if (sizeof p > 0) { *p = 1; }`"
         },
         {
           "id": "D",
-          "text": "if (p != NULL)"
+          "text": "`if (p != NULL) { *p = 1; }`"
         }
       ],
       "correct_option_ids": [
         "D"
       ],
-      "explanation": "Tester la réussite avant tout accès.",
+      "explanation": "Il faut vérifier la valeur du pointeur avant de le déréférencer.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/35-malloc-verifier-null"
       ],
       "review_status": "a_verifier",
       "review_flags": [
-        "technical_review_needed",
-        "verify_ngu89",
-        "undefined_behavior_checks"
+        "refonte_apres_audit",
+        "relecture_independante_requise"
       ]
     },
     {
@@ -1162,37 +1165,36 @@
       "notion": "strcpy : copier dans un espace existant",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Quel danger représente strcpy sans capacité suffisante dans la destination ?",
+      "prompt": "Quel risque présente `strcpy(dest, src)` si dest ne possède pas assez de place ?",
       "options": [
         {
           "id": "A",
-          "text": "Une conversion implicite en int"
+          "text": "Une conversion automatique en int."
         },
         {
           "id": "B",
-          "text": "Une allocation automatique sûre"
+          "text": "Une allocation automatique de la zone manquante."
         },
         {
           "id": "C",
-          "text": "Une suppression de '\u0000' garantie"
+          "text": "Une troncature garantie sans dépassement."
         },
         {
           "id": "D",
-          "text": "Une écriture hors limites"
+          "text": "Une écriture hors des limites de dest."
         }
       ],
       "correct_option_ids": [
         "D"
       ],
-      "explanation": "strcpy ne reçoit pas la taille du tampon de destination.",
+      "explanation": "strcpy copie aussi le caractère nul final, sans connaître la capacité de dest. L'appelant doit fournir une destination suffisamment grande.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/41-strcpy-copier-dans-un-espace-existant"
       ],
       "review_status": "a_verifier",
       "review_flags": [
-        "technical_review_needed",
-        "verify_ngu89",
-        "undefined_behavior_checks"
+        "refonte_apres_audit",
+        "relecture_independante_requise"
       ]
     },
     {
@@ -1244,38 +1246,37 @@
       "notion": "Pile et tas : durée de vie des allocations",
       "question_type": "raisonnement_technique",
       "answer_mode": "multiple",
-      "prompt": "Quelle distinction de durée de vie est correcte ?",
+      "prompt": "Quelles propositions sur les durées de vie sont correctes en C ?",
       "options": [
         {
           "id": "A",
-          "text": "Une allocation sur le tas doit être libérée explicitement"
+          "text": "Une allocation malloc peut rester vivante après la sortie du bloc contenant le pointeur."
         },
         {
           "id": "B",
-          "text": "malloc garantit un objet local temporaire"
+          "text": "malloc donne automatiquement une durée de vie de bloc à la zone allouée."
         },
         {
           "id": "C",
-          "text": "Une variable automatique a souvent la durée de vie du bloc"
+          "text": "Un objet local ordinaire à durée de vie automatique existe durant l'exécution de son bloc."
         },
         {
           "id": "D",
-          "text": "Une variable automatique dure nécessairement jusqu'à l'arrêt du programme"
+          "text": "Renvoyer un pointeur vers une variable automatique prolonge la durée de vie de celle-ci."
         }
       ],
       "correct_option_ids": [
         "A",
         "C"
       ],
-      "explanation": "Les durées de vie des variables automatiques et blocs alloués diffèrent.",
+      "explanation": "Le stockage dynamique survit au bloc contenant le pointeur jusqu'à sa libération ; la durée de vie automatique ne se prolonge pas en renvoyant une adresse.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/43-pile-et-tas-duree-de-vie-des-allocations"
       ],
       "review_status": "a_verifier",
       "review_flags": [
-        "technical_review_needed",
-        "verify_ngu89",
-        "undefined_behavior_checks"
+        "refonte_apres_audit",
+        "relecture_independante_requise"
       ]
     },
     {
@@ -1714,21 +1715,19 @@
         },
         {
           "id": "D",
-          "text": "n <= SIZE_MAX / sizeof *p"
+          "text": "`n <= ((size_t)-1) / sizeof *p`"
         }
       ],
       "correct_option_ids": [
         "D"
       ],
-      "explanation": "La division par la taille élément donne le maximum d'éléments représentable.",
+      "explanation": "Le plus grand size_t est ((size_t)-1), expression compatible GNU89 ; vérifier cette borne avant le produit évite son débordement.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/53-debordement-du-calcul-de-taille-avant-malloc"
       ],
       "review_status": "a_verifier",
       "review_flags": [
-        "technical_review_needed",
-        "verify_ngu89",
-        "undefined_behavior_checks"
+        "correction_gnu89"
       ]
     },
     {
@@ -1862,38 +1861,42 @@
       "notion": "Tampon fixe, statique et dynamique — emplacement et durée de vie",
       "question_type": "raisonnement_technique",
       "answer_mode": "multiple",
-      "prompt": "Quelles propriétés sont indépendantes ?",
+      "prompt": "Quelles affirmations montrent que taille, durée de vie et allocation d'un tampon sont des propriétés distinctes ?",
       "options": [
         {
           "id": "A",
-          "text": "Taille fixe ou variable d'un tampon"
+          "text": "Un tableau local de taille fixe peut avoir une durée de vie automatique."
         },
         {
           "id": "B",
-          "text": "Tout tampon fixe est forcément statique"
+          "text": "Un tableau déclaré static dans une fonction possède une durée de vie statique."
         },
         {
           "id": "C",
-          "text": "Tout tampon sur le tas est forcément global"
+          "text": "Un tampon obtenu par malloc a une durée de vie dynamique indépendante du bloc du pointeur."
         },
         {
           "id": "D",
-          "text": "Durée de vie automatique ou statique"
+          "text": "Tout tampon de taille fixe est alloué statiquement."
+        },
+        {
+          "id": "E",
+          "text": "Tout tampon alloué dynamiquement est nécessairement une variable globale."
         }
       ],
       "correct_option_ids": [
         "A",
-        "D"
+        "B",
+        "C"
       ],
-      "explanation": "Taille, durée de vie et allocation sont des aspects distincts.",
+      "explanation": "Une taille fixe n'implique pas une durée de vie statique ; le mode d'allocation et la durée de vie doivent être distingués.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/57-tampon-fixe-statique-et-dynamique-emplacement-et-duree-de-vie"
       ],
       "review_status": "a_verifier",
       "review_flags": [
-        "technical_review_needed",
-        "verify_ngu89",
-        "undefined_behavior_checks"
+        "refonte_apres_audit",
+        "relecture_independante_requise"
       ]
     },
     {
@@ -2232,7 +2235,7 @@
       "notion": "Diagnostics mémoire — INVALID_WRITE, UNINITIALIZED_VALUE et fuites",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Peut-on déduire avec certitude la vulnérabilité d'un code en lisant seulement l'intitulé de son lab ?",
+      "prompt": "Peut-on déduire avec certitude la vulnérabilité d'un code en lisant seulement l'intitulé de son programme d'exemple ?",
       "options": [
         {
           "id": "A",
@@ -2248,7 +2251,7 @@
         },
         {
           "id": "D",
-          "text": "Oui, les noms du lab sont des messages Valgrind exacts"
+          "text": "Oui, les noms du programme d'exemple sont des messages Valgrind exacts"
         }
       ],
       "correct_option_ids": [
@@ -3179,7 +3182,7 @@
       "options": [
         {
           "id": "A",
-          "text": "f++(5) comme arithmétique définie"
+          "text": "`(f + 1)(5)` pour appeler la fonction suivante en mémoire"
         },
         {
           "id": "B",
@@ -3198,7 +3201,7 @@
         "B",
         "D"
       ],
-      "explanation": "Les formes f(5) et (*f)(5) appellent la cible.",
+      "explanation": "Les formes f(5) et (*f)(5) appellent la même fonction. L'arithmétique sur un pointeur de fonction n'est pas une méthode d'appel définie.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/68-appeler-un-pointeur-de-fonction-f-x-ou-f-x"
       ],
