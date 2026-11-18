@@ -879,7 +879,7 @@
         },
         {
           "id": "C",
-          "text": "Distinguer « p » (l’adresse de la structure), « p->x » (le membre de la structure) et « nouvelle_valeur » (le paramètre reçu). La fonction n’a pas besoin de connaître le nom « point » utilisé dans main."
+          "text": "Le paramètre p reçoit une copie de l'adresse de la struct, et p->x permet d'accéder à son membre x."
         },
         {
           "id": "D",
@@ -1691,7 +1691,7 @@
       "options": [
         {
           "id": "A",
-          "text": "Placer l’include guard autour de l’ensemble du .h. Un bon en-tête contient principalement déclarations, types et prototypes ; les définitions de fonctions ordinaires se placent généralement dans un .c. #ifndef / #define / #endif sont des directives du préprocesseur, sans point-virgule."
+          "text": "Un include guard évite les redéfinitions lors d'inclusions répétées d'un même fichier d'en-tête."
         },
         {
           "id": "B",

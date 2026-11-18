@@ -1214,7 +1214,7 @@ Concernant « free — libérer la mémoire », quelles affirmations sont techni
 
 - **A ❌** free(p) met tous les alias de p à NULL.
 - **B ❌** L'adresse d'un tableau automatique peut être transmise à free.
-- **C ✅** Ne jamais appeler free sur une variable locale ou une adresse non allouée dynamiquement ; éviter les doubles free et toute utilisation après free. La mise à NULL d’un pointeur ne corrige pas d’éventuels alias.
+- **C ✅** free ne convient ni aux objets automatiques ni aux littéraux ; p=NULL ne modifie pas ses autres alias.
 - **D ✅** free libère un bloc obtenu par allocation dynamique ; le pointeur ne devient pas automatiquement NULL.
 
 **Corrigé candidat :** C, D. Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet.
@@ -1367,7 +1367,7 @@ Concernant « Fuite mémoire — allocation perdue », quelles affirmations sont
 - **A ❌** Une allocation sauvegardée dans un pointeur ne peut plus fuiter.
 - **B ❌** Le C libère automatiquement tout bloc devenu inaccessible.
 - **C ✅** Une fuite mémoire (memory leak) survient lorsqu’un bloc alloué n’est pas libéré et devient inaccessible ; les fuites répétées épuisent la mémoire.
-- **D ✅** Memory leak = fuite mémoire. Avec Valgrind, « definitely lost » indique un bloc inaccessible, « still reachable » un bloc encore pointé à la sortie. Le système récupère généralement la mémoire à la fin du processus, mais cela ne corrige pas une fuite pendant son fonctionnement.
+- **D ✅** Memcheck distingue les blocs définitivement perdus de ceux encore accessibles à la fin de l'exécution.
 
 **Corrigé candidat :** C, D. Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet.
 
@@ -1785,7 +1785,7 @@ Concernant « realloc — redimensionner une allocation », quelles affirmations
 Concernant « Segfault — faute de segmentation », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)
 
 - **A ❌** Un segfault prouve automatiquement qu'un double free a eu lieu.
-- **B ✅** Un segfault est un symptôme d’accès invalide détecté pendant l’exécution, pas une garantie systématique du C. Les outils de diagnostic aident, mais un test qui réussit ne prouve pas l’absence de comportement indéfini.
+- **B ✅** Un segfault peut signaler un accès mémoire interdit, mais tout comportement indéfini ne provoque pas ce signal.
 - **C ✅** Un segfault (souvent signalé par « Segmentation fault ») est un arrêt causé par un accès mémoire interdit ; un comportement indéfini en C ne provoque cependant pas toujours ce signal.
 - **D ❌** Tout comportement indéfini émet SIGSEGV.
 
@@ -2014,7 +2014,7 @@ Concernant « Double free — ne pas libérer deux fois », quelles affirmations
 
 Concernant « Débordement du calcul de taille avant malloc », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)
 
-- **A ✅** Ne pas multiplier deux tailles non fiables avant d'avoir vérifié le risque de dépassement. malloc vérifie la demande reçue, mais ne peut pas corriger un calcul de taille qui a déjà débordé.
+- **A ✅** Vérifier la borne n avant n*sizeof *p évite un débordement provoquant une allocation trop petite.
 - **B ❌** n*sizeof *p ne peut jamais déborder size_t.
 - **C ❌** Vérifier uniquement le retour de malloc corrige un produit ayant débordé.
 - **D ✅** Avant malloc(n * sizeof *p), vérifier que n ne dépasse pas la capacité de size_t divisée par sizeof *p afin d'éviter une allocation trop petite.
@@ -2092,7 +2092,7 @@ Concernant « memcpy() ou memmove() — zones qui se recouvrent », quelles affi
 
 - **A ❌** memmove exige que l'appelant réserve lui-même un tampon temporaire.
 - **B ✅** memcpy copie des octets seulement si source et destination ne se recouvrent pas ; memmove convient lorsque les zones peuvent se chevaucher.
-- **C ✅** memcpy sur des plages qui se chevauchent a un comportement indéfini ; memmove est prévue pour ce cas. Vérifier la capacité de destination et compter les octets copiés, y compris '\0' pour une chaîne.
+- **C ✅** Lorsque les deux régions se recouvrent, utiliser memmove : memcpy n'est pas définie pour ce cas.
 - **D ❌** memcpy est défini pour des zones recouvrantes.
 
 **Corrigé candidat :** B, C. Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet.
@@ -2130,7 +2130,7 @@ Concernant « Dépassement de tampon sur la pile — erreur avant malloc », que
 
 - **A ❌** Un strcpy ultérieur correct annule la corruption d'une lecture antérieure.
 - **B ❌** Les tableaux locaux ne peuvent pas subir de dépassement.
-- **C ✅** Si une saisie déborde un tampon pendant sa lecture, la mémoire peut être corrompue avant toute copie ultérieure. Vérifier la capacité du tampon pendant la lecture et rejeter une ligne tronquée si l'entrée complète est nécessaire.
+- **C ✅** La taille du tampon doit être contrôlée pendant la lecture ; une copie ultérieure ne répare pas un débordement.
 - **D ✅** Si la lecture de la saisie déborde un tableau local, la mémoire peut être corrompue AVANT malloc et strcpy : copier ensuite ne répare pas cette erreur.
 
 **Corrigé candidat :** C, D. Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet.
@@ -2245,7 +2245,7 @@ Concernant « Stack overflow — épuisement de la pile d'appels », quelles aff
 Concernant « Valgrind : « definitely lost » et les octets perdus », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)
 
 - **A ❌** « 1 blocks » signifie qu'un seul octet a été perdu.
-- **B ✅** 32 bytes = le volume perdu, 1 blocks = le nombre de blocs perdus. « Definitely lost » signifie fuite certaine : il faut corriger la gestion du pointeur ou l'absence de free. L'exemple fourni est volontairement sans fuite.
+- **B ✅** Dans « 32 bytes in 1 blocks », 32 est le nombre d'octets perdus et 1 celui des blocs.
 - **C ✅** « Definitely lost: 32 bytes in 1 blocks » signifie qu'un bloc alloué de 32 octets reste non libéré et sans pointeur retrouvé : fuite certaine.
 - **D ❌** « definitely lost » signifie qu'un pointeur valide vers le bloc subsiste.
 
@@ -2399,7 +2399,7 @@ Concernant « Dangling pointer — pointeur vers un objet qui n'existe plus », 
 
 - **A ❌** Une adresse de variable locale reste utilisable après la fin du bloc.
 - **B ✅** Un dangling pointer désigne un pointeur dont l'objet pointé n'est plus valide, notamment après free ou à la fin de vie d'une variable locale.
-- **C ✅** VRAI : un pointeur vers un bloc libéré ne permet plus d'accéder à ce bloc, immédiatement après free. FAUX : p = NULL protège automatiquement les autres pointeurs qui désignent l'ancien bloc. Un pointeur n'est pas forcément valide jusqu'à la fin du programme.
+- **C ✅** Mettre p à NULL après free(p) ne met pas à NULL les autres alias de l'ancienne adresse.
 - **D ❌** p=NULL efface l'adresse enregistrée dans tous les alias.
 
 **Corrigé candidat :** B, C. Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet.
@@ -2474,7 +2474,7 @@ Concernant « Raw pointer — pointeur brut en C », quelles affirmations sont t
 
 Concernant « char * — pointeur vers un caractère ou une chaîne », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)
 
-- **A ✅** char * désigne un pointeur, char tableau[8] un tableau. sizeof(p) mesure le pointeur, et sizeof(tableau) mesure le tableau lorsqu'il est encore dans sa portée comme tableau. Un texte littéral est à traiter comme non modifiable.
+- **A ✅** sizeof p mesure le pointeur char *, alors que sizeof tableau mesure le tableau de char lui-même.
 - **B ❌** char * contient automatiquement la capacité de la zone désignée.
 - **C ❌** Tout char * désigne une chaîne C terminée.
 - **D ✅** char * est un pointeur vers char ; il peut désigner le début d'un tableau de caractères, mais ne stocke ni sa capacité ni son terminateur.
@@ -2743,8 +2743,8 @@ Concernant « qsort() — comparateur passé par pointeur de fonction », quelle
 
 - **A ❌** qsort garantit la stabilité du tri.
 - **B ❌** Le comparateur de qsort peut renvoyer toujours 1 sans fausser le tri.
-- **C ✅** qsort trie un tableau en appelant le comparateur fourni : int comparer(const void *, const void *) doit renvoyer une valeur négative, nulle ou positive.
-- **D ✅** Le comparateur de qsort reçoit des pointeurs vers des éléments, pas les éléments eux-mêmes. Éviter return a-b si a et b sont des int susceptibles de déborder.
+- **C ✅** Le comparateur de qsort renvoie une valeur négative, nulle ou positive pour définir un ordre.
+- **D ✅** Le comparateur reçoit deux const void *, chacun désignant un élément du tableau trié.
 
 **Corrigé candidat :** C, D. Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet.
 

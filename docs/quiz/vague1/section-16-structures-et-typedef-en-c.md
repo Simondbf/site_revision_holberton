@@ -410,7 +410,7 @@ Concernant « Modifier une struct via son adresse », quelles affirmations sont 
 
 - **A ❌** Passer &objet à une fonction empêche la modification de ses membres.
 - **B ❌** L'opérateur -> est réservé aux membres globaux.
-- **C ✅** Distinguer « p » (l’adresse de la structure), « p->x » (le membre de la structure) et « nouvelle_valeur » (le paramètre reçu). La fonction n’a pas besoin de connaître le nom « point » utilisé dans main.
+- **C ✅** Le paramètre p reçoit une copie de l'adresse de la struct, et p->x permet d'accéder à son membre x.
 - **D ✅** En passant struct point *p à une fonction, celle-ci peut modifier l’objet de l’appelant via p->x.
 
 **Corrigé candidat :** C, D. Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet.
@@ -790,7 +790,7 @@ Concernant « Point ou flèche ? Comparer . et -> », quelles affirmations sont 
 
 Concernant « Include guards — protéger les fichiers .h », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)
 
-- **A ✅** Placer l’include guard autour de l’ensemble du .h. Un bon en-tête contient principalement déclarations, types et prototypes ; les définitions de fonctions ordinaires se placent généralement dans un .c. #ifndef / #define / #endif sont des directives du préprocesseur, sans point-virgule.
+- **A ✅** Un include guard évite les redéfinitions lors d'inclusions répétées d'un même fichier d'en-tête.
 - **B ✅** Un include guard (#ifndef, #define, #endif) évite qu’un même en-tête soit traité plusieurs fois dans une même unité de traduction.
 - **C ❌** Les include guards évitent tous les conflits entre fichiers .c.
 - **D ❌** Les include guards empêchent toute inclusion du même .h dans une autre unité de traduction.
