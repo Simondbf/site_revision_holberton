@@ -1,0 +1,1331 @@
+{
+  "schema_version": 1,
+  "questions": [
+    {
+      "id": "VAR-08-031-01",
+      "notion_id": "N08_031",
+      "legacy_notion_key": "8:31",
+      "theme": "Programmation C — fonctions variadiques",
+      "notion": "Fonction variadique — déclarer des arguments avec ...",
+      "question_type": "fondement",
+      "difficulty_internal": 1,
+      "answer_mode": "single",
+      "prompt": "En ISO C89, quelle déclaration autorise des arguments facultatifs ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "`void f(...);`"
+        },
+        {
+          "id": "B",
+          "text": "`void f(int n, ...);`"
+        },
+        {
+          "id": "C",
+          "text": "`void f(int ... n);`"
+        },
+        {
+          "id": "D",
+          "text": "`void f(int n, int ...);`"
+        }
+      ],
+      "correct_option_ids": [
+        "B"
+      ],
+      "explanation": "Un paramètre fixe nommé précède ... en C89.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/32-fonction-variadique-declarer-des-arguments-avec",
+        "https://man7.org/linux/man-pages/man3/stdarg.3.html",
+        "https://sourceware.org/glibc/manual/"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "nouveau_projet_variadique",
+        "relecture_independante_requise"
+      ]
+    },
+    {
+      "id": "VAR-08-031-02",
+      "notion_id": "N08_031",
+      "legacy_notion_key": "8:31",
+      "theme": "Programmation C — fonctions variadiques",
+      "notion": "Fonction variadique — déclarer des arguments avec ...",
+      "question_type": "fondement",
+      "difficulty_internal": 1,
+      "answer_mode": "single",
+      "prompt": "Avec `f(2, 7, 9)`, combien d'arguments suivent le paramètre fixe `n` ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "1"
+        },
+        {
+          "id": "B",
+          "text": "3"
+        },
+        {
+          "id": "C",
+          "text": "2"
+        },
+        {
+          "id": "D",
+          "text": "0"
+        }
+      ],
+      "correct_option_ids": [
+        "C"
+      ],
+      "explanation": "n reçoit 2 ; les valeurs facultatives sont 7 et 9.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/32-fonction-variadique-declarer-des-arguments-avec",
+        "https://man7.org/linux/man-pages/man3/stdarg.3.html",
+        "https://sourceware.org/glibc/manual/"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "nouveau_projet_variadique",
+        "relecture_independante_requise"
+      ]
+    },
+    {
+      "id": "VAR-08-031-03",
+      "notion_id": "N08_031",
+      "legacy_notion_key": "8:31",
+      "theme": "Programmation C — fonctions variadiques",
+      "notion": "Fonction variadique — déclarer des arguments avec ...",
+      "question_type": "fondement",
+      "difficulty_internal": 2,
+      "answer_mode": "multiple",
+      "prompt": "Quelles affirmations sont correctes sur les fonctions variadiques ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Les arguments après ... peuvent être en nombre variable."
+        },
+        {
+          "id": "B",
+          "text": "Leur nombre est disponible automatiquement dans argc."
+        },
+        {
+          "id": "C",
+          "text": "La fonction doit suivre une convention d'interprétation."
+        },
+        {
+          "id": "D",
+          "text": "Un paramètre fixe est requis dans cette forme C89."
+        },
+        {
+          "id": "E",
+          "text": "va_arg découvre automatiquement les types."
+        }
+      ],
+      "correct_option_ids": [
+        "A",
+        "C",
+        "D"
+      ],
+      "explanation": "Le nombre et les types ne sont pas transmis automatiquement.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/32-fonction-variadique-declarer-des-arguments-avec",
+        "https://man7.org/linux/man-pages/man3/stdarg.3.html",
+        "https://sourceware.org/glibc/manual/"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "nouveau_projet_variadique",
+        "relecture_independante_requise"
+      ]
+    },
+    {
+      "id": "VAR-08-031-04",
+      "notion_id": "N08_031",
+      "legacy_notion_key": "8:31",
+      "theme": "Programmation C — fonctions variadiques",
+      "notion": "Fonction variadique — déclarer des arguments avec ...",
+      "question_type": "fondement",
+      "difficulty_internal": 2,
+      "answer_mode": "single",
+      "prompt": "Que risque `f(3, 5, 7)` si f lit trois int facultatifs ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Une lecture inexistante, donc un comportement indéfini."
+        },
+        {
+          "id": "B",
+          "text": "L'ajout automatique d'un zéro."
+        },
+        {
+          "id": "C",
+          "text": "Une erreur de compilation obligatoire."
+        },
+        {
+          "id": "D",
+          "text": "La lecture du paramètre fixe comme troisième valeur."
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "Seuls deux int suivent n ; en lire trois est indéfini.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/32-fonction-variadique-declarer-des-arguments-avec",
+        "https://man7.org/linux/man-pages/man3/stdarg.3.html",
+        "https://sourceware.org/glibc/manual/"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "nouveau_projet_variadique",
+        "relecture_independante_requise"
+      ]
+    },
+    {
+      "id": "VAR-08-031-05",
+      "notion_id": "N08_031",
+      "legacy_notion_key": "8:31",
+      "theme": "Programmation C — fonctions variadiques",
+      "notion": "Fonction variadique — déclarer des arguments avec ...",
+      "question_type": "fondement",
+      "difficulty_internal": 3,
+      "answer_mode": "single",
+      "prompt": "Pourquoi le paramètre `n` de `somme(int n, ...)` peut-il être utile ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Il contient la somme déjà calculée."
+        },
+        {
+          "id": "B",
+          "text": "Il indique combien de valeurs facultatives lire."
+        },
+        {
+          "id": "C",
+          "text": "Il convertit tous les arguments en double."
+        },
+        {
+          "id": "D",
+          "text": "Il réserve automatiquement un tableau."
+        }
+      ],
+      "correct_option_ids": [
+        "B"
+      ],
+      "explanation": "Un compteur explicite permet d'arrêter le parcours au bon endroit.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/32-fonction-variadique-declarer-des-arguments-avec",
+        "https://man7.org/linux/man-pages/man3/stdarg.3.html",
+        "https://sourceware.org/glibc/manual/"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "nouveau_projet_variadique",
+        "relecture_independante_requise"
+      ]
+    },
+    {
+      "id": "VAR-08-032-01",
+      "notion_id": "N08_032",
+      "legacy_notion_key": "8:32",
+      "theme": "Programmation C — fonctions variadiques",
+      "notion": "va_list et va_start — initialiser le parcours",
+      "question_type": "initialisation",
+      "difficulty_internal": 1,
+      "answer_mode": "single",
+      "prompt": "Quel type de <stdarg.h> représente l'état d'un parcours ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "`vararg_t`"
+        },
+        {
+          "id": "B",
+          "text": "`va_arg`"
+        },
+        {
+          "id": "C",
+          "text": "`va_list`"
+        },
+        {
+          "id": "D",
+          "text": "`argument_list`"
+        }
+      ],
+      "correct_option_ids": [
+        "C"
+      ],
+      "explanation": "va_list est défini par stdarg.h.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/33-va-list-et-va-start-initialiser-le-parcours",
+        "https://man7.org/linux/man-pages/man3/stdarg.3.html",
+        "https://sourceware.org/glibc/manual/"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "nouveau_projet_variadique",
+        "relecture_independante_requise"
+      ]
+    },
+    {
+      "id": "VAR-08-032-02",
+      "notion_id": "N08_032",
+      "legacy_notion_key": "8:32",
+      "theme": "Programmation C — fonctions variadiques",
+      "notion": "va_list et va_start — initialiser le parcours",
+      "question_type": "initialisation",
+      "difficulty_internal": 1,
+      "answer_mode": "single",
+      "prompt": "Pour `void f(int nombre, ...)`, comment initialiser `va_list ap` ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "`va_start(ap, nombre);`"
+        },
+        {
+          "id": "B",
+          "text": "`va_start(nombre, ap);`"
+        },
+        {
+          "id": "C",
+          "text": "`va_arg(ap, nombre);`"
+        },
+        {
+          "id": "D",
+          "text": "`va_start(ap, 0);`"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "Le second argument de va_start est le dernier paramètre fixe nommé.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/33-va-list-et-va-start-initialiser-le-parcours",
+        "https://man7.org/linux/man-pages/man3/stdarg.3.html",
+        "https://sourceware.org/glibc/manual/"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "nouveau_projet_variadique",
+        "relecture_independante_requise"
+      ]
+    },
+    {
+      "id": "VAR-08-032-03",
+      "notion_id": "N08_032",
+      "legacy_notion_key": "8:32",
+      "theme": "Programmation C — fonctions variadiques",
+      "notion": "va_list et va_start — initialiser le parcours",
+      "question_type": "initialisation",
+      "difficulty_internal": 2,
+      "answer_mode": "single",
+      "prompt": "Quelle séquence respecte le cycle de vie de va_list ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "va_arg, va_start, va_end"
+        },
+        {
+          "id": "B",
+          "text": "va_end, va_start, va_arg"
+        },
+        {
+          "id": "C",
+          "text": "va_start, va_end, va_arg"
+        },
+        {
+          "id": "D",
+          "text": "va_start, va_arg, va_end"
+        }
+      ],
+      "correct_option_ids": [
+        "D"
+      ],
+      "explanation": "Il faut initialiser avant la lecture et terminer après.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/33-va-list-et-va-start-initialiser-le-parcours",
+        "https://man7.org/linux/man-pages/man3/stdarg.3.html",
+        "https://sourceware.org/glibc/manual/"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "nouveau_projet_variadique",
+        "relecture_independante_requise"
+      ]
+    },
+    {
+      "id": "VAR-08-032-04",
+      "notion_id": "N08_032",
+      "legacy_notion_key": "8:32",
+      "theme": "Programmation C — fonctions variadiques",
+      "notion": "va_list et va_start — initialiser le parcours",
+      "question_type": "initialisation",
+      "difficulty_internal": 2,
+      "answer_mode": "multiple",
+      "prompt": "Quelles affirmations sur va_list sont exactes ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Sa représentation est opaque et dépend de l'implémentation."
+        },
+        {
+          "id": "B",
+          "text": "Elle est toujours un char * portable."
+        },
+        {
+          "id": "C",
+          "text": "va_start initialise un objet va_list déclaré."
+        },
+        {
+          "id": "D",
+          "text": "Un va_end correspondant est nécessaire."
+        },
+        {
+          "id": "E",
+          "text": "La copie directe avec = est portable sur toute plateforme."
+        }
+      ],
+      "correct_option_ids": [
+        "A",
+        "C",
+        "D"
+      ],
+      "explanation": "va_list n'a pas une représentation imposée ; on le prépare par va_start et le termine par va_end.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/33-va-list-et-va-start-initialiser-le-parcours",
+        "https://man7.org/linux/man-pages/man3/stdarg.3.html",
+        "https://sourceware.org/glibc/manual/"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "nouveau_projet_variadique",
+        "relecture_independante_requise"
+      ]
+    },
+    {
+      "id": "VAR-08-032-05",
+      "notion_id": "N08_032",
+      "legacy_notion_key": "8:32",
+      "theme": "Programmation C — fonctions variadiques",
+      "notion": "va_list et va_start — initialiser le parcours",
+      "question_type": "initialisation",
+      "difficulty_internal": 3,
+      "answer_mode": "single",
+      "prompt": "Pour `void f(const char *format, ...)`, quel second argument faut-il donner à va_start ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "ap"
+        },
+        {
+          "id": "B",
+          "text": "format"
+        },
+        {
+          "id": "C",
+          "text": "argc"
+        },
+        {
+          "id": "D",
+          "text": "argv"
+        }
+      ],
+      "correct_option_ids": [
+        "B"
+      ],
+      "explanation": "format est le dernier paramètre fixe.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/33-va-list-et-va-start-initialiser-le-parcours",
+        "https://man7.org/linux/man-pages/man3/stdarg.3.html",
+        "https://sourceware.org/glibc/manual/"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "nouveau_projet_variadique",
+        "relecture_independante_requise"
+      ]
+    },
+    {
+      "id": "VAR-08-033-01",
+      "notion_id": "N08_033",
+      "legacy_notion_key": "8:33",
+      "theme": "Programmation C — fonctions variadiques",
+      "notion": "va_arg — lire les valeurs et comprendre les promotions",
+      "question_type": "promotion",
+      "difficulty_internal": 1,
+      "answer_mode": "single",
+      "prompt": "Pour un char transmis par ..., quel type faut-il normalement demander à va_arg ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "char"
+        },
+        {
+          "id": "B",
+          "text": "int"
+        },
+        {
+          "id": "C",
+          "text": "char *"
+        },
+        {
+          "id": "D",
+          "text": "float"
+        }
+      ],
+      "correct_option_ids": [
+        "B"
+      ],
+      "explanation": "La promotion entière par défaut transforme ici char en int.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/34-va-arg-lire-les-valeurs-et-comprendre-les-promotions",
+        "https://man7.org/linux/man-pages/man3/stdarg.3.html",
+        "https://sourceware.org/glibc/manual/"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "nouveau_projet_variadique",
+        "relecture_independante_requise"
+      ]
+    },
+    {
+      "id": "VAR-08-033-02",
+      "notion_id": "N08_033",
+      "legacy_notion_key": "8:33",
+      "theme": "Programmation C — fonctions variadiques",
+      "notion": "va_arg — lire les valeurs et comprendre les promotions",
+      "question_type": "promotion",
+      "difficulty_internal": 1,
+      "answer_mode": "single",
+      "prompt": "Un float transmis par ... doit être lu avec va_arg(ap, ...) en quel type ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "int"
+        },
+        {
+          "id": "B",
+          "text": "float"
+        },
+        {
+          "id": "C",
+          "text": "double"
+        },
+        {
+          "id": "D",
+          "text": "long double"
+        }
+      ],
+      "correct_option_ids": [
+        "C"
+      ],
+      "explanation": "float est promu en double avant l'appel.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/34-va-arg-lire-les-valeurs-et-comprendre-les-promotions",
+        "https://man7.org/linux/man-pages/man3/stdarg.3.html",
+        "https://sourceware.org/glibc/manual/"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "nouveau_projet_variadique",
+        "relecture_independante_requise"
+      ]
+    },
+    {
+      "id": "VAR-08-033-03",
+      "notion_id": "N08_033",
+      "legacy_notion_key": "8:33",
+      "theme": "Programmation C — fonctions variadiques",
+      "notion": "va_arg — lire les valeurs et comprendre les promotions",
+      "question_type": "promotion",
+      "difficulty_internal": 2,
+      "answer_mode": "single",
+      "prompt": "La fonction additionne trois int facultatifs 4, 5 et 6 : quel est le total ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "15"
+        },
+        {
+          "id": "B",
+          "text": "14"
+        },
+        {
+          "id": "C",
+          "text": "11"
+        },
+        {
+          "id": "D",
+          "text": "16"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "4 + 5 + 6 vaut 15.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/34-va-arg-lire-les-valeurs-et-comprendre-les-promotions",
+        "https://man7.org/linux/man-pages/man3/stdarg.3.html",
+        "https://sourceware.org/glibc/manual/"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "nouveau_projet_variadique",
+        "relecture_independante_requise"
+      ]
+    },
+    {
+      "id": "VAR-08-033-04",
+      "notion_id": "N08_033",
+      "legacy_notion_key": "8:33",
+      "theme": "Programmation C — fonctions variadiques",
+      "notion": "va_arg — lire les valeurs et comprendre les promotions",
+      "question_type": "promotion",
+      "difficulty_internal": 2,
+      "answer_mode": "multiple",
+      "prompt": "Quelles affirmations sur va_arg sont exactes ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Chaque appel avance au prochain argument."
+        },
+        {
+          "id": "B",
+          "text": "La macro vérifie automatiquement la présence de l'argument."
+        },
+        {
+          "id": "C",
+          "text": "Le type demandé doit correspondre après promotions."
+        },
+        {
+          "id": "D",
+          "text": "Lire un argument inexistant est indéfini."
+        },
+        {
+          "id": "E",
+          "text": "va_arg fonctionne avant va_start."
+        }
+      ],
+      "correct_option_ids": [
+        "A",
+        "C",
+        "D"
+      ],
+      "explanation": "va_arg ne contrôle ni la longueur ni les types à l'exécution.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/34-va-arg-lire-les-valeurs-et-comprendre-les-promotions",
+        "https://man7.org/linux/man-pages/man3/stdarg.3.html",
+        "https://sourceware.org/glibc/manual/"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "nouveau_projet_variadique",
+        "relecture_independante_requise"
+      ]
+    },
+    {
+      "id": "VAR-08-033-05",
+      "notion_id": "N08_033",
+      "legacy_notion_key": "8:33",
+      "theme": "Programmation C — fonctions variadiques",
+      "notion": "va_arg — lire les valeurs et comprendre les promotions",
+      "question_type": "promotion",
+      "difficulty_internal": 3,
+      "answer_mode": "single",
+      "prompt": "Pourquoi `va_arg(ap, float)` est-il incorrect pour un float passé par ... ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Le compilateur le convertit en long double."
+        },
+        {
+          "id": "B",
+          "text": "Le float est promu en double."
+        },
+        {
+          "id": "C",
+          "text": "Le float devient automatiquement un pointeur."
+        },
+        {
+          "id": "D",
+          "text": "La macro renvoie toujours zéro."
+        }
+      ],
+      "correct_option_ids": [
+        "B"
+      ],
+      "explanation": "Le type effectivement transmis est double.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/34-va-arg-lire-les-valeurs-et-comprendre-les-promotions",
+        "https://man7.org/linux/man-pages/man3/stdarg.3.html",
+        "https://sourceware.org/glibc/manual/"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "nouveau_projet_variadique",
+        "relecture_independante_requise"
+      ]
+    },
+    {
+      "id": "VAR-08-034-01",
+      "notion_id": "N08_034",
+      "legacy_notion_key": "8:34",
+      "theme": "Programmation C — fonctions variadiques",
+      "notion": "va_end — terminer correctement une liste variadique",
+      "question_type": "cycle",
+      "difficulty_internal": 1,
+      "answer_mode": "single",
+      "prompt": "Quelle macro doit suivre l'usage d'une liste initialisée ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "va_next"
+        },
+        {
+          "id": "B",
+          "text": "va_copy"
+        },
+        {
+          "id": "C",
+          "text": "va_end"
+        },
+        {
+          "id": "D",
+          "text": "free"
+        }
+      ],
+      "correct_option_ids": [
+        "C"
+      ],
+      "explanation": "va_end termine le parcours.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/35-va-end-terminer-correctement-une-liste-variadique",
+        "https://man7.org/linux/man-pages/man3/stdarg.3.html",
+        "https://sourceware.org/glibc/manual/"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "nouveau_projet_variadique",
+        "relecture_independante_requise"
+      ]
+    },
+    {
+      "id": "VAR-08-034-02",
+      "notion_id": "N08_034",
+      "legacy_notion_key": "8:34",
+      "theme": "Programmation C — fonctions variadiques",
+      "notion": "va_end — terminer correctement une liste variadique",
+      "question_type": "cycle",
+      "difficulty_internal": 1,
+      "answer_mode": "single",
+      "prompt": "Si la fonction retourne après va_start, que doit-elle faire auparavant ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Appeler va_end."
+        },
+        {
+          "id": "B",
+          "text": "Appeler free sur va_list."
+        },
+        {
+          "id": "C",
+          "text": "Appeler une seconde fois va_start."
+        },
+        {
+          "id": "D",
+          "text": "Rien, va_end est facultative."
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "Le chemin doit exécuter va_end avant le retour.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/35-va-end-terminer-correctement-une-liste-variadique",
+        "https://man7.org/linux/man-pages/man3/stdarg.3.html",
+        "https://sourceware.org/glibc/manual/"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "nouveau_projet_variadique",
+        "relecture_independante_requise"
+      ]
+    },
+    {
+      "id": "VAR-08-034-03",
+      "notion_id": "N08_034",
+      "legacy_notion_key": "8:34",
+      "theme": "Programmation C — fonctions variadiques",
+      "notion": "va_end — terminer correctement une liste variadique",
+      "question_type": "cycle",
+      "difficulty_internal": 2,
+      "answer_mode": "single",
+      "prompt": "Peut-on appeler va_arg après va_end sans réinitialisation ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Oui, sans condition."
+        },
+        {
+          "id": "B",
+          "text": "Oui, si la valeur vaut zéro."
+        },
+        {
+          "id": "C",
+          "text": "Oui, si n est positif."
+        },
+        {
+          "id": "D",
+          "text": "Non, il faut initialiser à nouveau."
+        }
+      ],
+      "correct_option_ids": [
+        "D"
+      ],
+      "explanation": "va_end achève la validité du parcours en cours.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/35-va-end-terminer-correctement-une-liste-variadique",
+        "https://man7.org/linux/man-pages/man3/stdarg.3.html",
+        "https://sourceware.org/glibc/manual/"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "nouveau_projet_variadique",
+        "relecture_independante_requise"
+      ]
+    },
+    {
+      "id": "VAR-08-034-04",
+      "notion_id": "N08_034",
+      "legacy_notion_key": "8:34",
+      "theme": "Programmation C — fonctions variadiques",
+      "notion": "va_end — terminer correctement une liste variadique",
+      "question_type": "cycle",
+      "difficulty_internal": 2,
+      "answer_mode": "multiple",
+      "prompt": "Quelles affirmations sur va_end sont justes ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Elle termine l'usage de va_list."
+        },
+        {
+          "id": "B",
+          "text": "Elle ferme stdout."
+        },
+        {
+          "id": "C",
+          "text": "Elle est nécessaire après va_start."
+        },
+        {
+          "id": "D",
+          "text": "Elle ne libère pas automatiquement les arguments pointés."
+        },
+        {
+          "id": "E",
+          "text": "Elle crée un nouvel argument sentinelle."
+        }
+      ],
+      "correct_option_ids": [
+        "A",
+        "C",
+        "D"
+      ],
+      "explanation": "va_end clôt l'itération, sans toucher aux objets transmis.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/35-va-end-terminer-correctement-une-liste-variadique",
+        "https://man7.org/linux/man-pages/man3/stdarg.3.html",
+        "https://sourceware.org/glibc/manual/"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "nouveau_projet_variadique",
+        "relecture_independante_requise"
+      ]
+    },
+    {
+      "id": "VAR-08-034-05",
+      "notion_id": "N08_034",
+      "legacy_notion_key": "8:34",
+      "theme": "Programmation C — fonctions variadiques",
+      "notion": "va_end — terminer correctement une liste variadique",
+      "question_type": "cycle",
+      "difficulty_internal": 3,
+      "answer_mode": "single",
+      "prompt": "Une branche retourne avant tout va_start : que faut-il faire de va_end ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "L'appeler sur une liste non initialisée."
+        },
+        {
+          "id": "B",
+          "text": "Appeler deux fois va_end."
+        },
+        {
+          "id": "C",
+          "text": "Ne pas l'appeler puisque la liste n'a pas été initialisée."
+        },
+        {
+          "id": "D",
+          "text": "Allouer une liste avec malloc."
+        }
+      ],
+      "correct_option_ids": [
+        "C"
+      ],
+      "explanation": "Aucun parcours n'a été démarré dans cette branche.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/35-va-end-terminer-correctement-une-liste-variadique",
+        "https://man7.org/linux/man-pages/man3/stdarg.3.html",
+        "https://sourceware.org/glibc/manual/"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "nouveau_projet_variadique",
+        "relecture_independante_requise"
+      ]
+    },
+    {
+      "id": "VAR-08-035-01",
+      "notion_id": "N08_035",
+      "legacy_notion_key": "8:35",
+      "theme": "Programmation C — fonctions variadiques",
+      "notion": "Fonction variadique — compteur ou sentinelle de fin",
+      "question_type": "protocole",
+      "difficulty_internal": 1,
+      "answer_mode": "single",
+      "prompt": "Avec des valeurs 2, 3, 5 puis la sentinelle -1, combien de valeurs de données ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "2"
+        },
+        {
+          "id": "B",
+          "text": "4"
+        },
+        {
+          "id": "C",
+          "text": "3"
+        },
+        {
+          "id": "D",
+          "text": "5"
+        }
+      ],
+      "correct_option_ids": [
+        "C"
+      ],
+      "explanation": "La sentinelle ne compte pas ; les données sont 2, 3 et 5.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/36-fonction-variadique-compteur-ou-sentinelle-de-fin",
+        "https://man7.org/linux/man-pages/man3/stdarg.3.html",
+        "https://sourceware.org/glibc/manual/"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "nouveau_projet_variadique",
+        "relecture_independante_requise"
+      ]
+    },
+    {
+      "id": "VAR-08-035-02",
+      "notion_id": "N08_035",
+      "legacy_notion_key": "8:35",
+      "theme": "Programmation C — fonctions variadiques",
+      "notion": "Fonction variadique — compteur ou sentinelle de fin",
+      "question_type": "protocole",
+      "difficulty_internal": 1,
+      "answer_mode": "single",
+      "prompt": "Si la sentinelle manque, que risque une lecture répétée via va_arg ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Une lecture hors de la liste, comportement indéfini."
+        },
+        {
+          "id": "B",
+          "text": "Un ajout automatique de -1."
+        },
+        {
+          "id": "C",
+          "text": "L'arrêt automatique au dernier élément."
+        },
+        {
+          "id": "D",
+          "text": "Un retour NULL garanti."
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "La liste n'a pas de fin autodétectée.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/36-fonction-variadique-compteur-ou-sentinelle-de-fin",
+        "https://man7.org/linux/man-pages/man3/stdarg.3.html",
+        "https://sourceware.org/glibc/manual/"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "nouveau_projet_variadique",
+        "relecture_independante_requise"
+      ]
+    },
+    {
+      "id": "VAR-08-035-03",
+      "notion_id": "N08_035",
+      "legacy_notion_key": "8:35",
+      "theme": "Programmation C — fonctions variadiques",
+      "notion": "Fonction variadique — compteur ou sentinelle de fin",
+      "question_type": "protocole",
+      "difficulty_internal": 2,
+      "answer_mode": "single",
+      "prompt": "Quel contrat correspond à `somme(int n, ...)` ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "n est le résultat final."
+        },
+        {
+          "id": "B",
+          "text": "n décrit le nombre de valeurs facultatives."
+        },
+        {
+          "id": "C",
+          "text": "n est le type des arguments."
+        },
+        {
+          "id": "D",
+          "text": "n contient sizeof(va_list)."
+        }
+      ],
+      "correct_option_ids": [
+        "B"
+      ],
+      "explanation": "n doit être cohérent avec les valeurs réellement transmises.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/36-fonction-variadique-compteur-ou-sentinelle-de-fin",
+        "https://man7.org/linux/man-pages/man3/stdarg.3.html",
+        "https://sourceware.org/glibc/manual/"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "nouveau_projet_variadique",
+        "relecture_independante_requise"
+      ]
+    },
+    {
+      "id": "VAR-08-035-04",
+      "notion_id": "N08_035",
+      "legacy_notion_key": "8:35",
+      "theme": "Programmation C — fonctions variadiques",
+      "notion": "Fonction variadique — compteur ou sentinelle de fin",
+      "question_type": "protocole",
+      "difficulty_internal": 2,
+      "answer_mode": "multiple",
+      "prompt": "Quelles règles rendent une sentinelle fiable ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Elle doit être transmise à chaque appel."
+        },
+        {
+          "id": "B",
+          "text": "Elle peut toujours être utilisée comme une donnée normale."
+        },
+        {
+          "id": "C",
+          "text": "Son type doit convenir à va_arg."
+        },
+        {
+          "id": "D",
+          "text": "Une valeur réservée évite de confondre données et arrêt."
+        },
+        {
+          "id": "E",
+          "text": "Elle est automatiquement générée par ..."
+        }
+      ],
+      "correct_option_ids": [
+        "A",
+        "C",
+        "D"
+      ],
+      "explanation": "Une sentinelle est un marqueur prévu par le protocole, du type adéquat.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/36-fonction-variadique-compteur-ou-sentinelle-de-fin",
+        "https://man7.org/linux/man-pages/man3/stdarg.3.html",
+        "https://sourceware.org/glibc/manual/"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "nouveau_projet_variadique",
+        "relecture_independante_requise"
+      ]
+    },
+    {
+      "id": "VAR-08-035-05",
+      "notion_id": "N08_035",
+      "legacy_notion_key": "8:35",
+      "theme": "Programmation C — fonctions variadiques",
+      "notion": "Fonction variadique — compteur ou sentinelle de fin",
+      "question_type": "protocole",
+      "difficulty_internal": 3,
+      "answer_mode": "single",
+      "prompt": "Pour un protocole qui compte des int positifs jusqu'au marqueur int -1, quel appel est conforme ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "`f(2, 4, 6)`"
+        },
+        {
+          "id": "B",
+          "text": "`f(2, 4, 6, 0)`"
+        },
+        {
+          "id": "C",
+          "text": "`f(2, 4, 6, -1)`"
+        },
+        {
+          "id": "D",
+          "text": "`f(2, 4, 6, -1.0)`"
+        }
+      ],
+      "correct_option_ids": [
+        "C"
+      ],
+      "explanation": "Le marqueur final doit être l'entier -1.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/36-fonction-variadique-compteur-ou-sentinelle-de-fin",
+        "https://man7.org/linux/man-pages/man3/stdarg.3.html",
+        "https://sourceware.org/glibc/manual/"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "nouveau_projet_variadique",
+        "relecture_independante_requise"
+      ]
+    },
+    {
+      "id": "VAR-08-036-01",
+      "notion_id": "N08_036",
+      "legacy_notion_key": "8:36",
+      "theme": "Programmation C — fonctions variadiques",
+      "notion": "vprintf et va_copy — transmettre ou dupliquer une liste",
+      "question_type": "transmission",
+      "difficulty_internal": 1,
+      "answer_mode": "single",
+      "prompt": "Quelle fonction standard accepte un format et une va_list préparée ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "printf"
+        },
+        {
+          "id": "B",
+          "text": "scanf"
+        },
+        {
+          "id": "C",
+          "text": "vprintf"
+        },
+        {
+          "id": "D",
+          "text": "puts"
+        }
+      ],
+      "correct_option_ids": [
+        "C"
+      ],
+      "explanation": "vprintf prend un format et une liste va_list.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/37-vprintf-et-va-copy-transmettre-ou-dupliquer-une-liste",
+        "https://man7.org/linux/man-pages/man3/stdarg.3.html",
+        "https://sourceware.org/glibc/manual/"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "nouveau_projet_variadique",
+        "relecture_independante_requise"
+      ]
+    },
+    {
+      "id": "VAR-08-036-02",
+      "notion_id": "N08_036",
+      "legacy_notion_key": "8:36",
+      "theme": "Programmation C — fonctions variadiques",
+      "notion": "vprintf et va_copy — transmettre ou dupliquer une liste",
+      "question_type": "transmission",
+      "difficulty_internal": 1,
+      "answer_mode": "single",
+      "prompt": "Après `va_start(ap,format); vprintf(format,ap);`, quelle opération est requise ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "va_end(ap);"
+        },
+        {
+          "id": "B",
+          "text": "free(ap);"
+        },
+        {
+          "id": "C",
+          "text": "fclose(stdout);"
+        },
+        {
+          "id": "D",
+          "text": "va_start(ap,format);"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "Le relais doit achever l'usage de sa liste.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/37-vprintf-et-va-copy-transmettre-ou-dupliquer-une-liste",
+        "https://man7.org/linux/man-pages/man3/stdarg.3.html",
+        "https://sourceware.org/glibc/manual/"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "nouveau_projet_variadique",
+        "relecture_independante_requise"
+      ]
+    },
+    {
+      "id": "VAR-08-036-03",
+      "notion_id": "N08_036",
+      "legacy_notion_key": "8:36",
+      "theme": "Programmation C — fonctions variadiques",
+      "notion": "vprintf et va_copy — transmettre ou dupliquer une liste",
+      "question_type": "transmission",
+      "difficulty_internal": 2,
+      "answer_mode": "single",
+      "prompt": "Quelle norme ISO C a introduit va_copy ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "C89"
+        },
+        {
+          "id": "B",
+          "text": "C99"
+        },
+        {
+          "id": "C",
+          "text": "C90"
+        },
+        {
+          "id": "D",
+          "text": "Aucune norme ISO C"
+        }
+      ],
+      "correct_option_ids": [
+        "B"
+      ],
+      "explanation": "va_copy est standard à partir de C99.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/37-vprintf-et-va-copy-transmettre-ou-dupliquer-une-liste",
+        "https://man7.org/linux/man-pages/man3/stdarg.3.html",
+        "https://sourceware.org/glibc/manual/"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "nouveau_projet_variadique",
+        "relecture_independante_requise"
+      ]
+    },
+    {
+      "id": "VAR-08-036-04",
+      "notion_id": "N08_036",
+      "legacy_notion_key": "8:36",
+      "theme": "Programmation C — fonctions variadiques",
+      "notion": "vprintf et va_copy — transmettre ou dupliquer une liste",
+      "question_type": "transmission",
+      "difficulty_internal": 2,
+      "answer_mode": "single",
+      "prompt": "Pourquoi ne pas supposer que `va_list b = a;` est portable ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "a est toujours un int."
+        },
+        {
+          "id": "B",
+          "text": "va_list est toujours un double."
+        },
+        {
+          "id": "C",
+          "text": "La copie déclenche automatiquement un malloc."
+        },
+        {
+          "id": "D",
+          "text": "La représentation de va_list n'autorise pas toujours la copie directe."
+        }
+      ],
+      "correct_option_ids": [
+        "D"
+      ],
+      "explanation": "Sur certaines plateformes va_list est représentée comme un tableau ou un type opaque.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/37-vprintf-et-va-copy-transmettre-ou-dupliquer-une-liste",
+        "https://man7.org/linux/man-pages/man3/stdarg.3.html",
+        "https://sourceware.org/glibc/manual/"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "nouveau_projet_variadique",
+        "relecture_independante_requise"
+      ]
+    },
+    {
+      "id": "VAR-08-036-05",
+      "notion_id": "N08_036",
+      "legacy_notion_key": "8:36",
+      "theme": "Programmation C — fonctions variadiques",
+      "notion": "vprintf et va_copy — transmettre ou dupliquer une liste",
+      "question_type": "transmission",
+      "difficulty_internal": 3,
+      "answer_mode": "multiple",
+      "prompt": "Quelles affirmations sont exactes ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "vprintf utilise une va_list fournie par l'appelant."
+        },
+        {
+          "id": "B",
+          "text": "va_copy est obligatoire en ISO C89."
+        },
+        {
+          "id": "C",
+          "text": "__va_copy est une extension GNU, pas une garantie ISO C89."
+        },
+        {
+          "id": "D",
+          "text": "Les arguments doivent correspondre au format donné à vprintf."
+        },
+        {
+          "id": "E",
+          "text": "vprintf doit être suivie de free(ap) plutôt que va_end."
+        }
+      ],
+      "correct_option_ids": [
+        "A",
+        "C",
+        "D"
+      ],
+      "explanation": "Les variantes vprintf travaillent sur va_list ; les macros de copie dépendent du standard.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/37-vprintf-et-va-copy-transmettre-ou-dupliquer-une-liste",
+        "https://man7.org/linux/man-pages/man3/stdarg.3.html",
+        "https://sourceware.org/glibc/manual/"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "nouveau_projet_variadique",
+        "relecture_independante_requise"
+      ]
+    }
+  ]
+}
