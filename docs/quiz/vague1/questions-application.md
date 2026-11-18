@@ -1,12 +1,12 @@
-# Revue de questions — questions application
+# Revue de quiz — undefined
 
-**40 nouvelles questions candidates, non validées.** Les réponses visibles ci-dessous servent exclusivement à la revue des IA ; elles ne sont pas destinées à l'interface du quiz. Les propositions ont été réordonnées de manière déterministe pour éviter qu'une position signale systématiquement la bonne réponse.
+**20 questions candidates à vérifier.** Les réponses indiquées sont destinées aux relecteurs, pas à l'interface des élèves.
 
 ## APP-09-014-001 — Indices de tableau
 
 **Une seule bonne réponse**
 
-Avec `int t[8]={2,4,6,8,10,12,14,16};`, que vaut `t[0]` ?
+Avec `int t[8]={2,4,6,8,10,12,14,16};`, que vaut `t[0]` ? (Une seule réponse correcte.)
 
 - **A ❌** 0
 - **B ❌** Impossible dans cet exemple
@@ -17,7 +17,7 @@ Avec `int t[8]={2,4,6,8,10,12,14,16};`, que vaut `t[0]` ?
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/15-indices-de-tableau
 
-**Contrôle IA :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -25,7 +25,7 @@ Avec `int t[8]={2,4,6,8,10,12,14,16};`, que vaut `t[0]` ?
 
 **Une seule bonne réponse**
 
-Avec `int t[8]={2,4,6,8,10,12,14,16}; int *p=t;`, que vaut `*(p+0)` ?
+Avec `int t[8]={2,4,6,8,10,12,14,16}; int *p=t;`, que vaut `*(p+0)` ? (Une seule réponse correcte.)
 
 - **A ❌** 0
 - **B ❌** Impossible dans cet exemple
@@ -36,7 +36,7 @@ Avec `int t[8]={2,4,6,8,10,12,14,16}; int *p=t;`, que vaut `*(p+0)` ?
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/21-notation-equivalente
 
-**Contrôle IA :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -44,7 +44,7 @@ Avec `int t[8]={2,4,6,8,10,12,14,16}; int *p=t;`, que vaut `*(p+0)` ?
 
 **Une seule bonne réponse**
 
-Un tableau C déclaré avec un seul élément possède quels indices valides ?
+Un tableau C déclaré avec un seul élément possède quels indices valides ? (Une seule réponse correcte.)
 
 - **A ❌** 1 à 1
 - **B ❌** 0 à 1
@@ -55,7 +55,7 @@ Un tableau C déclaré avec un seul élément possède quels indices valides ?
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/27-parcourir-un-tableau
 
-**Contrôle IA :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -63,7 +63,7 @@ Un tableau C déclaré avec un seul élément possède quels indices valides ?
 
 **Une seule bonne réponse**
 
-Avec `int t[8]={2,4,6,8,10,12,14,16};`, que vaut `t[1]` ?
+Avec `int t[8]={2,4,6,8,10,12,14,16};`, que vaut `t[1]` ? (Une seule réponse correcte.)
 
 - **A ✅** 4
 - **B ❌** 3
@@ -74,7 +74,7 @@ Avec `int t[8]={2,4,6,8,10,12,14,16};`, que vaut `t[1]` ?
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/15-indices-de-tableau
 
-**Contrôle IA :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -82,7 +82,7 @@ Avec `int t[8]={2,4,6,8,10,12,14,16};`, que vaut `t[1]` ?
 
 **Une seule bonne réponse**
 
-Avec `int t[8]={2,4,6,8,10,12,14,16}; int *p=t;`, que vaut `*(p+1)` ?
+Avec `int t[8]={2,4,6,8,10,12,14,16}; int *p=t;`, que vaut `*(p+1)` ? (Une seule réponse correcte.)
 
 - **A ✅** 4
 - **B ❌** 102
@@ -93,7 +93,7 @@ Avec `int t[8]={2,4,6,8,10,12,14,16}; int *p=t;`, que vaut `*(p+1)` ?
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/21-notation-equivalente
 
-**Contrôle IA :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -101,7 +101,7 @@ Avec `int t[8]={2,4,6,8,10,12,14,16}; int *p=t;`, que vaut `*(p+1)` ?
 
 **Une seule bonne réponse**
 
-Un tableau déclaré avec 2 éléments valides a quelle plage d'indices ?
+Un tableau déclaré avec 2 éléments valides a quelle plage d'indices ? (Une seule réponse correcte.)
 
 - **A ❌** 0 à 2
 - **B ❌** 1 à 3
@@ -112,7 +112,7 @@ Un tableau déclaré avec 2 éléments valides a quelle plage d'indices ?
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/27-parcourir-un-tableau
 
-**Contrôle IA :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -120,18 +120,18 @@ Un tableau déclaré avec 2 éléments valides a quelle plage d'indices ?
 
 **Une seule bonne réponse**
 
-Avec `int t[8]={2,4,6,8,10,12,14,16};`, que vaut `t[2]` ?
+Pour `int t[4]={7,8,9,10};`, quel est le statut de la lecture `t[4]` ? (Une seule réponse correcte.)
 
-- **A ✅** 6
-- **B ❌** 2
-- **C ❌** 4
-- **D ❌** 103
+- **A ❌** Elle vaut nécessairement 10.
+- **B ❌** Elle lit nécessairement zéro.
+- **C ❌** Elle déclenche obligatoirement SIGSEGV.
+- **D ✅** Elle dépasse les bornes : comportement indéfini.
 
-**Corrigé candidat :** A. Le premier indice est 0.
+**Corrigé candidat :** D. Les indices du tableau sont 0,1,2,3 ; t[4] ne désigne pas un élément accessible.
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/15-indices-de-tableau
 
-**Contrôle IA :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -139,18 +139,18 @@ Avec `int t[8]={2,4,6,8,10,12,14,16};`, que vaut `t[2]` ?
 
 **Une seule bonne réponse**
 
-Avec `int t[8]={2,4,6,8,10,12,14,16}; int *p=t;`, que vaut `*(p+2)` ?
+Avec `int t[]={2,4,6}; int *p=t+1;`, que vaut `p[-1]` ? (Une seule réponse correcte.)
 
 - **A ❌** 4
-- **B ✅** 6
-- **C ❌** 103
-- **D ❌** 2
+- **B ✅** 2
+- **C ❌** 6
+- **D ❌** Comportement indéfini dans ce contexte.
 
-**Corrigé candidat :** B. L'arithmétique des pointeurs avance en éléments, pas en octets.
+**Corrigé candidat :** B. p désigne t[1] ; p[-1] est identique à *(p-1), soit t[0].
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/21-notation-equivalente
 
-**Contrôle IA :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -158,18 +158,18 @@ Avec `int t[8]={2,4,6,8,10,12,14,16}; int *p=t;`, que vaut `*(p+2)` ?
 
 **Une seule bonne réponse**
 
-Un tableau déclaré avec 3 éléments valides a quelle plage d'indices ?
+Avec `int t[3]={1,2,3};`, que risque la boucle `for(i=0;i<=3;i++) printf("%d",t[i]);` ? (Une seule réponse correcte.)
 
-- **A ✅** 0 à 2
-- **B ❌** 0 à 3
-- **C ❌** 1 à 3
-- **D ❌** 1 à 4
+- **A ❌** Elle affiche forcément 1230.
+- **B ✅** Elle lit hors des limites lorsque i vaut 3.
+- **C ❌** Elle n'effectue que deux tours.
+- **D ❌** Elle s'arrête automatiquement à la taille du tableau.
 
-**Corrigé candidat :** A. En C, la plage est 0 à n-1.
+**Corrigé candidat :** B. Le dernier indice de t est 2. La condition i<=3 permet une itération hors limites.
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/27-parcourir-un-tableau
 
-**Contrôle IA :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -177,37 +177,37 @@ Un tableau déclaré avec 3 éléments valides a quelle plage d'indices ?
 
 **Une seule bonne réponse**
 
-Avec `int t[8]={2,4,6,8,10,12,14,16};`, que vaut `t[3]` ?
+Dans `int t[4]={4,8,12,16};`, quel indice désigne le dernier élément valide ? (Une seule réponse correcte.)
 
-- **A ❌** 5
-- **B ✅** 8
-- **C ❌** 3
-- **D ❌** 104
+- **A ✅** 3
+- **B ❌** 4
+- **C ❌** 2
+- **D ❌** 5
 
-**Corrigé candidat :** B. Le premier indice est 0.
+**Corrigé candidat :** A. Le dernier indice d'un tableau de n éléments est n-1.
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/15-indices-de-tableau
 
-**Contrôle IA :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
 ## APP-09-020-004 — Notation équivalente
 
-**Une seule bonne réponse**
+**Plusieurs bonnes réponses**
 
-Avec `int t[8]={2,4,6,8,10,12,14,16}; int *p=t;`, que vaut `*(p+3)` ?
+Avec `int t[]={2,4,6}; int *p=t;`, quelles affirmations sur `*(p++)` sont exactes ? (Plusieurs réponses correctes.)
 
-- **A ❌** 104
-- **B ❌** 5
-- **C ✅** 8
-- **D ❌** 3
+- **A ✅** L'expression lit 2.
+- **B ✅** Après l'expression, p désigne t[1].
+- **C ❌** L'incrémentation modifie t[0].
+- **D ❌** L'expression est équivalente à `*(++p)`.
 
-**Corrigé candidat :** C. L'arithmétique des pointeurs avance en éléments, pas en octets.
+**Corrigé candidat :** A, B. p++ utilise l'ancienne adresse pour le déréférencement, puis avance p d'un élément.
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/21-notation-equivalente
 
-**Contrôle IA :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -215,246 +215,18 @@ Avec `int t[8]={2,4,6,8,10,12,14,16}; int *p=t;`, que vaut `*(p+3)` ?
 
 **Une seule bonne réponse**
 
-Un tableau déclaré avec 4 éléments valides a quelle plage d'indices ?
-
-- **A ✅** 0 à 3
-- **B ❌** 1 à 5
-- **C ❌** 1 à 4
-- **D ❌** 0 à 4
-
-**Corrigé candidat :** A. En C, la plage est 0 à n-1.
-
-**Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/27-parcourir-un-tableau
-
-**Contrôle IA :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
-
----
-
-## APP-09-014-005 — Indices de tableau
-
-**Une seule bonne réponse**
-
-Avec `int t[8]={2,4,6,8,10,12,14,16};`, que vaut `t[4]` ?
+Avec `int t[3]={2,4,8}; int i=3,s=0; for(;i-->0;) s+=t[i];`, quelle est la valeur finale de s ? (Une seule réponse correcte.)
 
 - **A ❌** 6
-- **B ✅** 10
-- **C ❌** 4
-- **D ❌** 105
+- **B ❌** 8
+- **C ❌** 12
+- **D ✅** 14
 
-**Corrigé candidat :** B. Le premier indice est 0.
-
-**Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/15-indices-de-tableau
-
-**Contrôle IA :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
-
----
-
-## APP-09-020-005 — Notation équivalente
-
-**Une seule bonne réponse**
-
-Avec `int t[8]={2,4,6,8,10,12,14,16}; int *p=t;`, que vaut `*(p+4)` ?
-
-- **A ❌** 105
-- **B ✅** 10
-- **C ❌** 6
-- **D ❌** 4
-
-**Corrigé candidat :** B. L'arithmétique des pointeurs avance en éléments, pas en octets.
-
-**Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/21-notation-equivalente
-
-**Contrôle IA :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
-
----
-
-## APP-09-026-005 — Parcourir un tableau
-
-**Une seule bonne réponse**
-
-Un tableau déclaré avec 5 éléments valides a quelle plage d'indices ?
-
-- **A ❌** 1 à 6
-- **B ✅** 0 à 4
-- **C ❌** 1 à 5
-- **D ❌** 0 à 5
-
-**Corrigé candidat :** B. En C, la plage est 0 à n-1.
+**Corrigé candidat :** D. La boucle additionne t[2], t[1] et t[0], soit 8+4+2=14.
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/27-parcourir-un-tableau
 
-**Contrôle IA :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
-
----
-
-## APP-09-014-006 — Indices de tableau
-
-**Une seule bonne réponse**
-
-Avec `int t[8]={2,4,6,8,10,12,14,16};`, que vaut `t[5]` ?
-
-- **A ✅** 12
-- **B ❌** 7
-- **C ❌** 5
-- **D ❌** 106
-
-**Corrigé candidat :** A. Le premier indice est 0.
-
-**Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/15-indices-de-tableau
-
-**Contrôle IA :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
-
----
-
-## APP-09-020-006 — Notation équivalente
-
-**Une seule bonne réponse**
-
-Avec `int t[8]={2,4,6,8,10,12,14,16}; int *p=t;`, que vaut `*(p+5)` ?
-
-- **A ❌** 106
-- **B ✅** 12
-- **C ❌** 7
-- **D ❌** 5
-
-**Corrigé candidat :** B. L'arithmétique des pointeurs avance en éléments, pas en octets.
-
-**Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/21-notation-equivalente
-
-**Contrôle IA :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
-
----
-
-## APP-09-026-006 — Parcourir un tableau
-
-**Une seule bonne réponse**
-
-Un tableau déclaré avec 6 éléments valides a quelle plage d'indices ?
-
-- **A ✅** 0 à 5
-- **B ❌** 1 à 6
-- **C ❌** 1 à 7
-- **D ❌** 0 à 6
-
-**Corrigé candidat :** A. En C, la plage est 0 à n-1.
-
-**Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/27-parcourir-un-tableau
-
-**Contrôle IA :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
-
----
-
-## APP-09-014-007 — Indices de tableau
-
-**Une seule bonne réponse**
-
-Avec `int t[8]={2,4,6,8,10,12,14,16};`, que vaut `t[6]` ?
-
-- **A ❌** 8
-- **B ✅** 14
-- **C ❌** 6
-- **D ❌** 107
-
-**Corrigé candidat :** B. Le premier indice est 0.
-
-**Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/15-indices-de-tableau
-
-**Contrôle IA :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
-
----
-
-## APP-09-020-007 — Notation équivalente
-
-**Une seule bonne réponse**
-
-Avec `int t[8]={2,4,6,8,10,12,14,16}; int *p=t;`, que vaut `*(p+6)` ?
-
-- **A ❌** 8
-- **B ✅** 14
-- **C ❌** 107
-- **D ❌** 6
-
-**Corrigé candidat :** B. L'arithmétique des pointeurs avance en éléments, pas en octets.
-
-**Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/21-notation-equivalente
-
-**Contrôle IA :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
-
----
-
-## APP-09-026-007 — Parcourir un tableau
-
-**Une seule bonne réponse**
-
-Un tableau déclaré avec 7 éléments valides a quelle plage d'indices ?
-
-- **A ✅** 0 à 6
-- **B ❌** 1 à 7
-- **C ❌** 0 à 7
-- **D ❌** 1 à 8
-
-**Corrigé candidat :** A. En C, la plage est 0 à n-1.
-
-**Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/27-parcourir-un-tableau
-
-**Contrôle IA :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
-
----
-
-## APP-09-014-008 — Indices de tableau
-
-**Une seule bonne réponse**
-
-Avec `int t[8]={2,4,6,8,10,12,14,16};`, que vaut `t[7]` ?
-
-- **A ✅** 16
-- **B ❌** 108
-- **C ❌** 9
-- **D ❌** 7
-
-**Corrigé candidat :** A. Le premier indice est 0.
-
-**Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/15-indices-de-tableau
-
-**Contrôle IA :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
-
----
-
-## APP-09-020-008 — Notation équivalente
-
-**Une seule bonne réponse**
-
-Avec `int t[8]={2,4,6,8,10,12,14,16}; int *p=t;`, que vaut `*(p+7)` ?
-
-- **A ❌** 9
-- **B ✅** 16
-- **C ❌** 7
-- **D ❌** 108
-
-**Corrigé candidat :** B. L'arithmétique des pointeurs avance en éléments, pas en octets.
-
-**Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/21-notation-equivalente
-
-**Contrôle IA :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
-
----
-
-## APP-09-026-008 — Parcourir un tableau
-
-**Une seule bonne réponse**
-
-Un tableau déclaré avec 8 éléments valides a quelle plage d'indices ?
-
-- **A ✅** 0 à 7
-- **B ❌** 1 à 8
-- **C ❌** 0 à 8
-- **D ❌** 1 à 9
-
-**Corrigé candidat :** A. En C, la plage est 0 à n-1.
-
-**Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/27-parcourir-un-tableau
-
-**Contrôle IA :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -462,7 +234,7 @@ Un tableau déclaré avec 8 éléments valides a quelle plage d'indices ?
 
 **Une seule bonne réponse**
 
-Avec `char mot[]="Ada";`, que vaut `strlen(mot)` ?
+Avec `char mot[]="Ada";`, que vaut `strlen(mot)` ? (Une seule réponse correcte.)
 
 - **A ❌** 5
 - **B ✅** 3
@@ -473,7 +245,7 @@ Avec `char mot[]="Ada";`, que vaut `strlen(mot)` ?
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/40-strlen-sizeof-et-terminateur-nul
 
-**Contrôle IA :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -481,7 +253,7 @@ Avec `char mot[]="Ada";`, que vaut `strlen(mot)` ?
 
 **Une seule bonne réponse**
 
-Avec `char mot[]="Ada";`, que vaut `sizeof mot` ?
+Avec `char mot[]="Ada";`, que vaut `sizeof mot` ? (Une seule réponse correcte.)
 
 - **A ❌** 5
 - **B ✅** 4
@@ -492,7 +264,7 @@ Avec `char mot[]="Ada";`, que vaut `sizeof mot` ?
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/18-sizeof-tableau
 
-**Contrôle IA :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -500,7 +272,7 @@ Avec `char mot[]="Ada";`, que vaut `sizeof mot` ?
 
 **Une seule bonne réponse**
 
-Avec `char mot[]="C";`, que vaut `strlen(mot)` ?
+Avec `char mot[]="C";`, que vaut `strlen(mot)` ? (Une seule réponse correcte.)
 
 - **A ✅** 1
 - **B ❌** 2
@@ -511,7 +283,7 @@ Avec `char mot[]="C";`, que vaut `strlen(mot)` ?
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/40-strlen-sizeof-et-terminateur-nul
 
-**Contrôle IA :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -519,7 +291,7 @@ Avec `char mot[]="C";`, que vaut `strlen(mot)` ?
 
 **Une seule bonne réponse**
 
-Avec `char mot[]="C";`, que vaut `sizeof mot` ?
+Avec `char mot[]="C";`, que vaut `sizeof mot` ? (Une seule réponse correcte.)
 
 - **A ❌** 0
 - **B ✅** 2
@@ -530,26 +302,27 @@ Avec `char mot[]="C";`, que vaut `sizeof mot` ?
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/18-sizeof-tableau
 
-**Contrôle IA :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
 ## APP-09-039-003 — strlen, sizeof et terminateur nul
 
-**Une seule bonne réponse**
+**Plusieurs bonnes réponses**
 
-Avec `char mot[]="Linux";`, que vaut `strlen(mot)` ?
+Pour `char s[]={'A','\0','B','\0'};`, quelles affirmations sont exactes ? (Plusieurs réponses correctes.)
 
-- **A ❌** 4
-- **B ❌** 7
-- **C ❌** 6
-- **D ✅** 5
+- **A ✅** strlen(s) vaut 1.
+- **B ✅** sizeof s vaut 4.
+- **C ✅** Le caractère B est stocké après le premier nul.
+- **D ❌** strlen(s) vaut 3.
+- **E ❌** sizeof s vaut la taille d'un pointeur.
 
-**Corrigé candidat :** D. strlen compte 5 caractères et exclut le terminateur nul.
+**Corrigé candidat :** A, B, C. Le premier caractère nul arrête strlen, mais le tableau contient quatre éléments dont B.
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/40-strlen-sizeof-et-terminateur-nul
 
-**Contrôle IA :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -557,18 +330,18 @@ Avec `char mot[]="Linux";`, que vaut `strlen(mot)` ?
 
 **Une seule bonne réponse**
 
-Avec `char mot[]="Linux";`, que vaut `sizeof mot` ?
+Pour `int a[5]={1,2,3,4,5};`, que donne `sizeof a / sizeof a[0]` ? (Une seule réponse correcte.)
 
-- **A ❌** 4
-- **B ❌** 5
-- **C ✅** 6
-- **D ❌** 7
+- **A ❌** 1
+- **B ✅** 5
+- **C ❌** La taille d'un pointeur.
+- **D ❌** 20 sur toutes les architectures.
 
-**Corrigé candidat :** C. Le tableau contient aussi le terminateur nul : 6 octets.
+**Corrigé candidat :** B. sizeof a mesure le tableau entier, et sizeof a[0] un élément ; leur quotient vaut cinq.
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/18-sizeof-tableau
 
-**Contrôle IA :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -576,186 +349,37 @@ Avec `char mot[]="Linux";`, que vaut `sizeof mot` ?
 
 **Une seule bonne réponse**
 
-Avec `char mot[]="Bonjour";`, que vaut `strlen(mot)` ?
+Avec `char s[2]={'A','B'};`, que peut-on dire de `strlen(s)` ? (Une seule réponse correcte.)
 
-- **A ❌** 9
-- **B ❌** 6
-- **C ✅** 7
-- **D ❌** 8
+- **A ❌** Elle vaut toujours 2.
+- **B ❌** Elle ajoute automatiquement '\0' dans s.
+- **C ❌** Elle vaut toujours 3.
+- **D ✅** s n'est pas une chaîne C terminée : l'appel ne possède pas de terminaison valide.
 
-**Corrigé candidat :** C. strlen compte 7 caractères et exclut le terminateur nul.
+**Corrigé candidat :** D. strlen exige un terminateur nul ; ce tableau ne contient que A et B.
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/40-strlen-sizeof-et-terminateur-nul
 
-**Contrôle IA :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
 ## APP-09-017-004 — sizeof(tableau)
 
-**Une seule bonne réponse**
+**Plusieurs bonnes réponses**
 
-Avec `char mot[]="Bonjour";`, que vaut `sizeof mot` ?
+Pour `char s[8]="Hi";`, quelles affirmations sont exactes ? (Plusieurs réponses correctes.)
 
-- **A ✅** 8
-- **B ❌** 7
-- **C ❌** 9
-- **D ❌** 6
+- **A ✅** sizeof s vaut 8.
+- **B ✅** strlen(s) vaut 2.
+- **C ❌** sizeof s vaut 3 puisqu'il inclut le nul.
+- **D ❌** Les octets qui suivent le nul restent non initialisés.
 
-**Corrigé candidat :** A. Le tableau contient aussi le terminateur nul : 8 octets.
-
-**Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/18-sizeof-tableau
-
-**Contrôle IA :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
-
----
-
-## APP-09-039-005 — strlen, sizeof et terminateur nul
-
-**Une seule bonne réponse**
-
-Avec `char mot[]="Holberton";`, que vaut `strlen(mot)` ?
-
-- **A ❌** 11
-- **B ❌** 8
-- **C ✅** 9
-- **D ❌** 10
-
-**Corrigé candidat :** C. strlen compte 9 caractères et exclut le terminateur nul.
-
-**Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/40-strlen-sizeof-et-terminateur-nul
-
-**Contrôle IA :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
-
----
-
-## APP-09-017-005 — sizeof(tableau)
-
-**Une seule bonne réponse**
-
-Avec `char mot[]="Holberton";`, que vaut `sizeof mot` ?
-
-- **A ✅** 10
-- **B ❌** 8
-- **C ❌** 11
-- **D ❌** 9
-
-**Corrigé candidat :** A. Le tableau contient aussi le terminateur nul : 10 octets.
+**Corrigé candidat :** A, B. Le tableau possède huit octets ; après H, i et le nul, les éléments restants sont initialisés à zéro.
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/18-sizeof-tableau
 
-**Contrôle IA :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
-## APP-09-039-006 — strlen, sizeof et terminateur nul
-
-**Une seule bonne réponse**
-
-Avec `char mot[]="hello";`, que vaut `strlen(mot)` ?
-
-- **A ❌** 7
-- **B ❌** 4
-- **C ✅** 5
-- **D ❌** 6
-
-**Corrigé candidat :** C. strlen compte 5 caractères et exclut le terminateur nul.
-
-**Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/40-strlen-sizeof-et-terminateur-nul
-
-**Contrôle IA :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
-
----
-
-## APP-09-017-006 — sizeof(tableau)
-
-**Une seule bonne réponse**
-
-Avec `char mot[]="hello";`, que vaut `sizeof mot` ?
-
-- **A ✅** 6
-- **B ❌** 5
-- **C ❌** 7
-- **D ❌** 4
-
-**Corrigé candidat :** A. Le tableau contient aussi le terminateur nul : 6 octets.
-
-**Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/18-sizeof-tableau
-
-**Contrôle IA :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
-
----
-
-## APP-09-039-007 — strlen, sizeof et terminateur nul
-
-**Une seule bonne réponse**
-
-Avec `char mot[]="Bash";`, que vaut `strlen(mot)` ?
-
-- **A ❌** 6
-- **B ✅** 4
-- **C ❌** 3
-- **D ❌** 5
-
-**Corrigé candidat :** B. strlen compte 4 caractères et exclut le terminateur nul.
-
-**Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/40-strlen-sizeof-et-terminateur-nul
-
-**Contrôle IA :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
-
----
-
-## APP-09-017-007 — sizeof(tableau)
-
-**Une seule bonne réponse**
-
-Avec `char mot[]="Bash";`, que vaut `sizeof mot` ?
-
-- **A ❌** 3
-- **B ❌** 6
-- **C ✅** 5
-- **D ❌** 4
-
-**Corrigé candidat :** C. Le tableau contient aussi le terminateur nul : 5 octets.
-
-**Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/18-sizeof-tableau
-
-**Contrôle IA :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
-
----
-
-## APP-09-039-008 — strlen, sizeof et terminateur nul
-
-**Une seule bonne réponse**
-
-Avec `char mot[]="Ubuntu";`, que vaut `strlen(mot)` ?
-
-- **A ✅** 6
-- **B ❌** 7
-- **C ❌** 5
-- **D ❌** 8
-
-**Corrigé candidat :** A. strlen compte 6 caractères et exclut le terminateur nul.
-
-**Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/40-strlen-sizeof-et-terminateur-nul
-
-**Contrôle IA :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
-
----
-
-## APP-09-017-008 — sizeof(tableau)
-
-**Une seule bonne réponse**
-
-Avec `char mot[]="Ubuntu";`, que vaut `sizeof mot` ?
-
-- **A ❌** 8
-- **B ❌** 5
-- **C ✅** 7
-- **D ❌** 6
-
-**Corrigé candidat :** C. Le tableau contient aussi le terminateur nul : 7 octets.
-
-**Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/18-sizeof-tableau
-
-**Contrôle IA :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée

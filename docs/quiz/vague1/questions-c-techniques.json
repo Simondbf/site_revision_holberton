@@ -10,7 +10,7 @@
       "notion": "Pointeur (pointer)",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Quel opérateur donne l'adresse d'un objet ordinaire en C ?",
+      "prompt": "Quel opérateur donne l'adresse d'un objet ordinaire en C ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -51,7 +51,7 @@
       "notion": "& (opérateur d’adresse)",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Avec `int a=7;`, quelle expression a le type int * ?",
+      "prompt": "Avec `int a=7;`, quelle expression a le type int * ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -92,7 +92,7 @@
       "notion": "* dans une déclaration",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Quelle déclaration exprime correctement un pointeur vers int ?",
+      "prompt": "Quelle déclaration exprime correctement un pointeur vers int ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -133,7 +133,7 @@
       "notion": "* dans une expression",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Avec `int a=7; int *p=&a;`, que vaut `*p` ?",
+      "prompt": "Avec `int a=7; int *p=&a;`, que vaut `*p` ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -174,7 +174,7 @@
       "notion": "Modifier une valeur par un pointeur",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Avec `int n=2; int *p=&n; *p=9;`, que vaut n ?",
+      "prompt": "Avec `int n=2; int *p=&n; *p=9;`, que vaut n ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -215,7 +215,7 @@
       "notion": "Valeur de p, *p et &p",
       "question_type": "raisonnement_technique",
       "answer_mode": "multiple",
-      "prompt": "Avec `int n=3; int *p=&n;`, quelles affirmations sont exactes ?",
+      "prompt": "Avec `int n=3; int *p=&n;`, quelles affirmations sont exactes ? (Plusieurs réponses correctes.)",
       "options": [
         {
           "id": "A",
@@ -262,7 +262,7 @@
       "notion": "Type pointé",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Pourquoi le type pointé d'un int * est-il important ?",
+      "prompt": "Pourquoi le type pointé d'un int * est-il important ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -303,7 +303,7 @@
       "notion": "%p avec printf",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Comment afficher correctement un pointeur vers objet avec printf `%p` ?",
+      "prompt": "Comment afficher correctement un pointeur vers objet avec printf `%p` ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -344,7 +344,7 @@
       "notion": "sizeof",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Que mesure sizeof pour un tableau local `int a[4]` dans sa portée ?",
+      "prompt": "Que mesure sizeof pour un tableau local `int a[4]` dans sa portée ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -385,7 +385,7 @@
       "notion": "Tailles des pointeurs",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Est-il portable de considérer que tout pointeur de fonction fait exactement 8 octets ?",
+      "prompt": "Est-il portable de considérer que tout pointeur de fonction fait exactement 8 octets ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -426,7 +426,7 @@
       "notion": "Passage d’arguments par valeur",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "En C, modifier un paramètre `int n` change-t-il automatiquement l'argument original ?",
+      "prompt": "En C, modifier un paramètre `int n` change-t-il automatiquement l'argument original ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -467,7 +467,7 @@
       "notion": "Passer une adresse à une fonction",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Comment une fonction peut-elle modifier un int de l'appelant ?",
+      "prompt": "Comment une fonction peut-elle modifier un int de l'appelant ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -508,7 +508,7 @@
       "notion": "Tableau",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Combien d'éléments comporte `int tab[5]` ?",
+      "prompt": "Combien d'éléments comporte `int tab[5]` ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -549,7 +549,7 @@
       "notion": "Tableau ≠ pointeur",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Pourquoi un tableau n'est-il pas un pointeur, même s'il peut se convertir en pointeur ?",
+      "prompt": "Pourquoi un tableau n'est-il pas un pointeur, même s'il peut se convertir en pointeur ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -590,7 +590,7 @@
       "notion": "Conversion tableau → pointeur",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Dans un appel f(tab), que devient normalement un tableau d'int comme expression argument ?",
+      "prompt": "Dans un appel f(tab), que devient normalement un tableau d'int comme expression argument ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -631,7 +631,7 @@
       "notion": "&tableau",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Pour un tableau int tab[5], quelle différence entre &tab et &tab[0] ?",
+      "prompt": "Pour un tableau int tab[5], quelle différence entre &tab et &tab[0] ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -672,7 +672,7 @@
       "notion": "Arithmétique des pointeurs",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Que signifie `p+1` lorsque p est un int * valide au sein d'un tableau ?",
+      "prompt": "Que signifie `p+1` lorsque p est un int * valide au sein d'un tableau ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -713,7 +713,7 @@
       "notion": "Chaîne de caractères en C",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Qu'est-ce qu'une chaîne C valide ?",
+      "prompt": "Qu'est-ce qu'une chaîne C valide ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -754,7 +754,7 @@
       "notion": "Caractère nul",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Quel rôle joue '\\0' dans une chaîne C ?",
+      "prompt": "Quel rôle joue '\\0' dans une chaîne C ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -795,7 +795,7 @@
       "notion": "%s avec printf",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Que faut-il passer à printf %s ?",
+      "prompt": "Que faut-il passer à printf %s ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -836,7 +836,7 @@
       "notion": "malloc — allocation dynamique",
       "question_type": "raisonnement_technique",
       "answer_mode": "multiple",
-      "prompt": "Quels comportements sont possibles pour malloc selon la taille et l'environnement ?",
+      "prompt": "Quels comportements sont possibles pour malloc selon la taille et l'environnement ? (Plusieurs réponses correctes.)",
       "options": [
         {
           "id": "A",
@@ -878,7 +878,7 @@
       "notion": "free — libérer la mémoire",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Que fait `free(NULL)` selon la bibliothèque standard C ?",
+      "prompt": "Que fait `free(NULL)` selon la bibliothèque standard C ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -919,7 +919,7 @@
       "notion": "Chaîne littérale et tableau de char",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Avec `char *s=\"abc\";`, peut-on modifier s[0] de façon définie ?",
+      "prompt": "Avec `char *s=\"abc\";`, peut-on modifier s[0] de façon définie ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -961,7 +961,7 @@
       "notion": "malloc : vérifier NULL",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Après un malloc qui peut échouer, quel fragment empêche de déréférencer NULL ?",
+      "prompt": "Après un malloc qui peut échouer, quel fragment empêche de déréférencer NULL ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -1001,7 +1001,7 @@
       "notion": "Fuite mémoire — allocation perdue",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Qu'est-ce qu'une fuite mémoire ?",
+      "prompt": "Qu'est-ce qu'une fuite mémoire ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -1042,7 +1042,7 @@
       "notion": "Valgrind — détecter les fuites",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Quel outil peut signaler une fuite par une catégorie definitely lost ?",
+      "prompt": "Quel outil peut signaler une fuite par une catégorie definitely lost ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -1083,7 +1083,7 @@
       "notion": "malloc et sizeof : allouer le bon nombre d’octets",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Pour un int *p et un nombre d'éléments n, quel schéma d'allocation est généralement adéquat si le produit ne déborde pas ?",
+      "prompt": "Pour un int *p et un nombre d'éléments n, quel schéma d'allocation est généralement adéquat si le produit ne déborde pas ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -1124,7 +1124,7 @@
       "notion": "strlen, sizeof et terminateur nul",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Avec `char mot[]=\"abc\";`, que valent strlen(mot) et sizeof mot ?",
+      "prompt": "Avec `char mot[]=\"abc\";`, que valent strlen(mot) et sizeof mot ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -1165,7 +1165,7 @@
       "notion": "strcpy : copier dans un espace existant",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Quel risque présente `strcpy(dest, src)` si dest ne possède pas assez de place ?",
+      "prompt": "Quel risque présente `strcpy(dest, src)` si dest ne possède pas assez de place ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -1205,7 +1205,7 @@
       "notion": "strdup : copie allouée dynamiquement",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Pourquoi faut-il généralement free le résultat réussi de strdup ?",
+      "prompt": "Pourquoi faut-il généralement free le résultat réussi de strdup ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -1246,7 +1246,7 @@
       "notion": "Pile et tas : durée de vie des allocations",
       "question_type": "raisonnement_technique",
       "answer_mode": "multiple",
-      "prompt": "Quelles propositions sur les durées de vie sont correctes en C ?",
+      "prompt": "Quelles propositions sur les durées de vie sont correctes en C ? (Plusieurs réponses correctes.)",
       "options": [
         {
           "id": "A",
@@ -1287,7 +1287,7 @@
       "notion": "free : quelles adresses peut-on libérer ?",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Quelle adresse est libérable par free ?",
+      "prompt": "Quelle adresse est libérable par free ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -1328,7 +1328,7 @@
       "notion": "Pointeur non initialisé : comportement indéfini",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Quel risque avec `int *p; *p=3;` si p n'a pas été initialisé ?",
+      "prompt": "Quel risque avec `int *p; *p=3;` si p n'a pas été initialisé ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -1369,7 +1369,7 @@
       "notion": "realloc — redimensionner une allocation",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Pourquoi utiliser `tmp = realloc(p, taille)` avant de mettre p à jour ?",
+      "prompt": "Pourquoi utiliser `tmp = realloc(p, taille)` avant de mettre p à jour ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -1411,7 +1411,7 @@
       "notion": "realloc — redimensionner une allocation",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Après un realloc réussi de taille positive, peut-on continuer à utiliser l'ancienne valeur de p pour accéder au bloc ?",
+      "prompt": "Après un realloc réussi de taille positive, peut-on continuer à utiliser l'ancienne valeur de p pour accéder au bloc ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -1453,7 +1453,7 @@
       "notion": "Segfault — faute de segmentation",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Une erreur de segmentation signifie-t-elle automatiquement qu'un pointeur nul a été déréférencé ?",
+      "prompt": "Une erreur de segmentation signifie-t-elle automatiquement qu'un pointeur nul a été déréférencé ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -1494,7 +1494,7 @@
       "notion": "strncpy() — copie limitée et terminaison",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Pourquoi strncpy ne garantit-elle pas systématiquement le terminateur nul ?",
+      "prompt": "Pourquoi strncpy ne garantit-elle pas systématiquement le terminateur nul ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -1535,7 +1535,7 @@
       "notion": "calloc() — allouer et initialiser à zéro",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Quelle propriété de calloc est correcte ?",
+      "prompt": "Quelle propriété de calloc est correcte ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -1576,7 +1576,7 @@
       "notion": "Buffer overflow — dépassement de tampon",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Quel accès dépasse les bornes de `int t[3]` ?",
+      "prompt": "Quel accès dépasse les bornes de `int t[3]` ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -1617,7 +1617,7 @@
       "notion": "Use-after-free — réutiliser un bloc libéré",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Après `free(p)`, que produit l'accès `*p=4` au bloc libéré ?",
+      "prompt": "Après `free(p)`, que produit l'accès `*p=4` au bloc libéré ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -1658,7 +1658,7 @@
       "notion": "Double free — ne pas libérer deux fois",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Si q est un alias de p et que free(p) a réussi, que risque free(q) ?",
+      "prompt": "Si q est un alias de p et que free(p) a réussi, que risque free(q) ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -1699,7 +1699,7 @@
       "notion": "Débordement du calcul de taille avant malloc",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Avant malloc(n * sizeof *p), quel contrôle empêche le débordement de size_t (taille élément positive) ?",
+      "prompt": "Avant malloc(n * sizeof *p), quel contrôle empêche le débordement de size_t (taille élément positive) ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -1738,7 +1738,7 @@
       "notion": "Valgrind Memcheck — comprendre les alertes",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Que peut signaler Memcheck avec `Invalid write` ?",
+      "prompt": "Que peut signaler Memcheck avec `Invalid write` ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -1779,7 +1779,7 @@
       "notion": "memcpy() ou memmove() — zones qui se recouvrent",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Quel outil standard convient si source et destination de la copie peuvent se recouvrir ?",
+      "prompt": "Quel outil standard convient si source et destination de la copie peuvent se recouvrir ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -1820,7 +1820,7 @@
       "notion": "Dépassement de tampon sur la pile — erreur avant malloc",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Si la saisie déborde déjà un tampon local avant malloc, quel correctif est prioritaire ?",
+      "prompt": "Si la saisie déborde déjà un tampon local avant malloc, quel correctif est prioritaire ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -1861,7 +1861,7 @@
       "notion": "Tampon fixe, statique et dynamique — emplacement et durée de vie",
       "question_type": "raisonnement_technique",
       "answer_mode": "multiple",
-      "prompt": "Quelles affirmations montrent que taille, durée de vie et allocation d'un tampon sont des propriétés distinctes ?",
+      "prompt": "Quelles affirmations montrent que taille, durée de vie et allocation d'un tampon sont des propriétés distinctes ? (Plusieurs réponses correctes.)",
       "options": [
         {
           "id": "A",
@@ -1907,7 +1907,7 @@
       "notion": "Stack overflow — épuisement de la pile d'appels",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Quelle cause fréquente peut provoquer un épuisement de la pile ?",
+      "prompt": "Quelle cause fréquente peut provoquer un épuisement de la pile ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -1948,7 +1948,7 @@
       "notion": "Valgrind : « definitely lost » et les octets perdus",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Un rapport `definitely lost: 32 bytes in 1 blocks` indique quoi ?",
+      "prompt": "Un rapport `definitely lost: 32 bytes in 1 blocks` indique quoi ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -1989,7 +1989,7 @@
       "notion": "strlen sans terminateur nul — lecture hors limites",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Pourquoi strlen sur un tableau sans '\\0' accessible peut-elle poser problème ?",
+      "prompt": "Pourquoi strlen sur un tableau sans '\\0' accessible peut-elle poser problème ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -2030,7 +2030,7 @@
       "notion": "memcpy() — copier des octets sans chevauchement",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Quel comportement est garanti par memcpy quand les n octets sont valides et ne se recouvrent pas ?",
+      "prompt": "Quel comportement est garanti par memcpy quand les n octets sont valides et ne se recouvrent pas ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -2071,7 +2071,7 @@
       "notion": "Ownership — qui est responsable de free() ?",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Copier un pointeur p dans q transfère-t-il automatiquement la responsabilité de free ?",
+      "prompt": "Copier un pointeur p dans q transfère-t-il automatiquement la responsabilité de free ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -2112,7 +2112,7 @@
       "notion": "Dangling pointer — pointeur vers un objet qui n'existe plus",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Un pointeur vers un objet local dont la durée de vie s'est terminée est appelé comment ?",
+      "prompt": "Un pointeur vers un objet local dont la durée de vie s'est terminée est appelé comment ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -2153,7 +2153,7 @@
       "notion": "Raw pointer — pointeur brut en C",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Que garantit un raw pointer non NULL en C ?",
+      "prompt": "Que garantit un raw pointer non NULL en C ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -2194,7 +2194,7 @@
       "notion": "char * — pointeur vers un caractère ou une chaîne",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Un char * contient-il la taille du tableau pointé ?",
+      "prompt": "Un char * contient-il la taille du tableau pointé ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -2235,7 +2235,7 @@
       "notion": "Diagnostics mémoire — INVALID_WRITE, UNINITIALIZED_VALUE et fuites",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Peut-on déduire avec certitude la vulnérabilité d'un code en lisant seulement l'intitulé de son programme d'exemple ?",
+      "prompt": "Peut-on déduire avec certitude la vulnérabilité d'un code en lisant seulement l'intitulé de son programme d'exemple ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -2276,7 +2276,7 @@
       "notion": "struct : regrouper plusieurs données",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Qu'est-ce qu'une struct en C ?",
+      "prompt": "Qu'est-ce qu'une struct en C ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -2317,7 +2317,7 @@
       "notion": "struct : type et variable",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Avec `struct point {int x; int y;};`, comment déclarer une variable du type ?",
+      "prompt": "Avec `struct point {int x; int y;};`, comment déclarer une variable du type ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -2358,7 +2358,7 @@
       "notion": "Accès aux membres avec .",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Pour `struct point p;`, quel opérateur accède au membre x ?",
+      "prompt": "Pour `struct point p;`, quel opérateur accède au membre x ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -2399,7 +2399,7 @@
       "notion": "Accès par pointeur avec ->",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Pour `struct point *p` valide, comment accéder à x ?",
+      "prompt": "Pour `struct point *p` valide, comment accéder à x ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -2440,7 +2440,7 @@
       "notion": "Initialiser une struct avec { }",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Que permet l'initialisation `struct point p={1,2};` ?",
+      "prompt": "Que permet l'initialisation `struct point p={1,2};` ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -2481,7 +2481,7 @@
       "notion": "Initialiseurs désignés .membre (C99)",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Quel mécanisme C99 permet d'écrire `struct point p={.x=1,.y=2};` ?",
+      "prompt": "Quel mécanisme C99 permet d'écrire `struct point p={.x=1,.y=2};` ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -2522,7 +2522,7 @@
       "notion": "Tableau de structures",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Avec `struct point p[3];`, combien de structures contient le tableau ?",
+      "prompt": "Avec `struct point p[3];`, combien de structures contient le tableau ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -2563,7 +2563,7 @@
       "notion": "Structure imbriquée",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Comment accéder au champ x d'un membre position lui-même de type struct, dans un objet p ?",
+      "prompt": "Comment accéder au champ x d'un membre position lui-même de type struct, dans un objet p ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -2604,7 +2604,7 @@
       "notion": "Copier une struct par affectation",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Que signifie `b=a;` pour deux objets du même type struct ?",
+      "prompt": "Que signifie `b=a;` pour deux objets du même type struct ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -2645,7 +2645,7 @@
       "notion": "Passer une struct par valeur",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Une structure passée comme paramètre ordinaire est-elle copiée ?",
+      "prompt": "Une structure passée comme paramètre ordinaire est-elle copiée ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -2686,7 +2686,7 @@
       "notion": "Modifier une struct via son adresse",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Quel paramètre permet à une fonction de modifier directement l'objet struct de l'appelant ?",
+      "prompt": "Quel paramètre permet à une fonction de modifier directement l'objet struct de l'appelant ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -2727,7 +2727,7 @@
       "notion": "typedef : donner un alias à un type",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Que fait typedef en C ?",
+      "prompt": "Que fait typedef en C ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -2768,7 +2768,7 @@
       "notion": "typedef struct : nommer une structure",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Quel intérêt a `typedef struct point point_t;` si struct point est défini ?",
+      "prompt": "Quel intérêt a `typedef struct point point_t;` si struct point est défini ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -2809,7 +2809,7 @@
       "notion": "typedef avec structure anonyme",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Une struct anonyme définie avec typedef peut-elle être utilisée via son alias ?",
+      "prompt": "Une struct anonyme définie avec typedef peut-elle être utilisée via son alias ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -2850,7 +2850,7 @@
       "notion": "sizeof(struct) et padding (avancé)",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Pourquoi sizeof(struct) peut-elle dépasser la somme des sizeof des membres ?",
+      "prompt": "Pourquoi sizeof(struct) peut-elle dépasser la somme des sizeof des membres ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -2891,7 +2891,7 @@
       "notion": "malloc pour une struct",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Quel idiome alloue l'espace d'une structure visée par p, sous réserve de vérifier le résultat ?",
+      "prompt": "Quel idiome alloue l'espace d'une structure visée par p, sous réserve de vérifier le résultat ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -2932,7 +2932,7 @@
       "notion": "Structure autoréférentielle (avancé)",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Quel champ permet une liste chaînée autoréférentielle de struct noeud ?",
+      "prompt": "Quel champ permet une liste chaînée autoréférentielle de struct noeud ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -2973,7 +2973,7 @@
       "notion": "Documenter une struct pour Betty",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Pourquoi documenter les membres d'une struct dans un en-tête ?",
+      "prompt": "Pourquoi documenter les membres d'une struct dans un en-tête ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -3014,7 +3014,7 @@
       "notion": "typedef avant la définition d'une struct",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Peut-on déclarer `typedef struct cellule cellule_t;` avant de définir les membres de struct cellule ?",
+      "prompt": "Peut-on déclarer `typedef struct cellule cellule_t;` avant de définir les membres de struct cellule ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -3055,7 +3055,7 @@
       "notion": "Point ou flèche ? Comparer . et ->",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Quelle équivalence est correcte pour p pointeur vers struct ?",
+      "prompt": "Quelle équivalence est correcte pour p pointeur vers struct ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -3096,7 +3096,7 @@
       "notion": "Include guards — protéger les fichiers .h",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Quel est l'objectif d'un include guard #ifndef/#define/#endif dans un fichier .h ?",
+      "prompt": "Quel est l'objectif d'un include guard #ifndef/#define/#endif dans un fichier .h ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -3137,7 +3137,7 @@
       "notion": "Pointeur de fonction — déclarer une signature",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Quelle déclaration représente un pointeur vers une fonction int prenant un int ?",
+      "prompt": "Quelle déclaration représente un pointeur vers une fonction int prenant un int ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -3178,7 +3178,7 @@
       "notion": "Appeler un pointeur de fonction — f(x) ou (*f)(x)",
       "question_type": "raisonnement_technique",
       "answer_mode": "multiple",
-      "prompt": "Pour un pointeur de fonction valide f, quelles formes d'appel sont équivalentes ?",
+      "prompt": "Pour un pointeur de fonction valide f, quelles formes d'appel sont équivalentes ? (Plusieurs réponses correctes.)",
       "options": [
         {
           "id": "A",
@@ -3220,7 +3220,7 @@
       "notion": "Callback — transmettre une fonction en paramètre",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Qu'est-ce qu'un callback en C ?",
+      "prompt": "Qu'est-ce qu'un callback en C ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -3261,7 +3261,7 @@
       "notion": "Tableau de pointeurs de fonctions — choisir une opération",
       "question_type": "raisonnement_technique",
       "answer_mode": "multiple",
-      "prompt": "Quelles précautions avec un tableau de pointeurs de fonctions ?",
+      "prompt": "Quelles précautions avec un tableau de pointeurs de fonctions ? (Plusieurs réponses correctes.)",
       "options": [
         {
           "id": "A",
@@ -3303,7 +3303,7 @@
       "notion": "typedef d'un pointeur de fonction — simplifier les signatures",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Que décrit `typedef int (*operation_fn)(int,int);` ?",
+      "prompt": "Que décrit `typedef int (*operation_fn)(int,int);` ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -3344,7 +3344,7 @@
       "notion": "qsort() — comparateur passé par pointeur de fonction",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Pourquoi utiliser `(a>b)-(a<b)` comme comparateur d'int pour qsort ?",
+      "prompt": "Pourquoi utiliser `(a>b)-(a<b)` comme comparateur d'int pour qsort ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",

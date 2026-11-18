@@ -1,12 +1,12 @@
-# Questions techniques C — revue indépendante
+# Revue de quiz — undefined
 
-**82 questions candidates : aucune validation pédagogique définitive.**
+**82 questions candidates à vérifier.** Les réponses indiquées sont destinées aux relecteurs, pas à l'interface des élèves.
 
 ## CDEEP-09-000-01 — Pointeur (pointer)
 
 **Une seule bonne réponse**
 
-Quel opérateur donne l'adresse d'un objet ordinaire en C ?
+Quel opérateur donne l'adresse d'un objet ordinaire en C ? (Une seule réponse correcte.)
 
 - **A ✅** &
 - **B ❌** ||
@@ -17,7 +17,7 @@ Quel opérateur donne l'adresse d'un objet ordinaire en C ?
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/1-pointeur-pointer
 
-**Relecture :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -25,7 +25,7 @@ Quel opérateur donne l'adresse d'un objet ordinaire en C ?
 
 **Une seule bonne réponse**
 
-Avec `int a=7;`, quelle expression a le type int * ?
+Avec `int a=7;`, quelle expression a le type int * ? (Une seule réponse correcte.)
 
 - **A ❌** a
 - **B ❌** sizeof a
@@ -36,7 +36,7 @@ Avec `int a=7;`, quelle expression a le type int * ?
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/3-operateur-d-adresse
 
-**Relecture :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -44,7 +44,7 @@ Avec `int a=7;`, quelle expression a le type int * ?
 
 **Une seule bonne réponse**
 
-Quelle déclaration exprime correctement un pointeur vers int ?
+Quelle déclaration exprime correctement un pointeur vers int ? (Une seule réponse correcte.)
 
 - **A ✅** int *p;
 - **B ❌** pointer<int> p;
@@ -55,7 +55,7 @@ Quelle déclaration exprime correctement un pointeur vers int ?
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/4-dans-une-declaration
 
-**Relecture :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -63,7 +63,7 @@ Quelle déclaration exprime correctement un pointeur vers int ?
 
 **Une seule bonne réponse**
 
-Avec `int a=7; int *p=&a;`, que vaut `*p` ?
+Avec `int a=7; int *p=&a;`, que vaut `*p` ? (Une seule réponse correcte.)
 
 - **A ❌** Une chaîne vide
 - **B ❌** La taille d'un int
@@ -74,7 +74,7 @@ Avec `int a=7; int *p=&a;`, que vaut `*p` ?
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/5-dans-une-expression
 
-**Relecture :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -82,7 +82,7 @@ Avec `int a=7; int *p=&a;`, que vaut `*p` ?
 
 **Une seule bonne réponse**
 
-Avec `int n=2; int *p=&n; *p=9;`, que vaut n ?
+Avec `int n=2; int *p=&n; *p=9;`, que vaut n ? (Une seule réponse correcte.)
 
 - **A ❌** L'adresse de p
 - **B ❌** 0
@@ -93,7 +93,7 @@ Avec `int n=2; int *p=&n; *p=9;`, que vaut n ?
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/6-modifier-une-valeur-par-un-pointeur
 
-**Relecture :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -101,7 +101,7 @@ Avec `int n=2; int *p=&n; *p=9;`, que vaut n ?
 
 **Plusieurs bonnes réponses**
 
-Avec `int n=3; int *p=&n;`, quelles affirmations sont exactes ?
+Avec `int n=3; int *p=&n;`, quelles affirmations sont exactes ? (Plusieurs réponses correctes.)
 
 - **A ✅** *p lit la valeur actuellement stockée dans n.
 - **B ✅** p contient l'adresse de n.
@@ -113,7 +113,7 @@ Avec `int n=3; int *p=&n;`, quelles affirmations sont exactes ?
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/7-valeur-de-p-p-et-p
 
-**Relecture :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -121,7 +121,7 @@ Avec `int n=3; int *p=&n;`, quelles affirmations sont exactes ?
 
 **Une seule bonne réponse**
 
-Pourquoi le type pointé d'un int * est-il important ?
+Pourquoi le type pointé d'un int * est-il important ? (Une seule réponse correcte.)
 
 - **A ❌** Il autorise la modification arbitraire de n'importe quel objet
 - **B ❌** Il force toutes les adresses à valoir zéro
@@ -132,7 +132,7 @@ Pourquoi le type pointé d'un int * est-il important ?
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/8-type-pointe
 
-**Relecture :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -140,7 +140,7 @@ Pourquoi le type pointé d'un int * est-il important ?
 
 **Une seule bonne réponse**
 
-Comment afficher correctement un pointeur vers objet avec printf `%p` ?
+Comment afficher correctement un pointeur vers objet avec printf `%p` ? (Une seule réponse correcte.)
 
 - **A ❌** printf("%d", p);
 - **B ✅** printf("%p", (void *)p);
@@ -151,7 +151,7 @@ Comment afficher correctement un pointeur vers objet avec printf `%p` ?
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/9-p-avec-printf
 
-**Relecture :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -159,7 +159,7 @@ Comment afficher correctement un pointeur vers objet avec printf `%p` ?
 
 **Une seule bonne réponse**
 
-Que mesure sizeof pour un tableau local `int a[4]` dans sa portée ?
+Que mesure sizeof pour un tableau local `int a[4]` dans sa portée ? (Une seule réponse correcte.)
 
 - **A ✅** La taille de tout le tableau en octets
 - **B ❌** La valeur du premier élément
@@ -170,7 +170,7 @@ Que mesure sizeof pour un tableau local `int a[4]` dans sa portée ?
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/10-sizeof
 
-**Relecture :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -178,7 +178,7 @@ Que mesure sizeof pour un tableau local `int a[4]` dans sa portée ?
 
 **Une seule bonne réponse**
 
-Est-il portable de considérer que tout pointeur de fonction fait exactement 8 octets ?
+Est-il portable de considérer que tout pointeur de fonction fait exactement 8 octets ? (Une seule réponse correcte.)
 
 - **A ❌** Oui, même en C89
 - **B ❌** Oui, pour tout système Linux
@@ -189,7 +189,7 @@ Est-il portable de considérer que tout pointeur de fonction fait exactement 8 o
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/11-tailles-des-pointeurs
 
-**Relecture :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -197,7 +197,7 @@ Est-il portable de considérer que tout pointeur de fonction fait exactement 8 o
 
 **Une seule bonne réponse**
 
-En C, modifier un paramètre `int n` change-t-il automatiquement l'argument original ?
+En C, modifier un paramètre `int n` change-t-il automatiquement l'argument original ? (Une seule réponse correcte.)
 
 - **A ❌** Oui : C utilise le passage par référence partout
 - **B ❌** Oui : seulement si n vaut 0
@@ -208,7 +208,7 @@ En C, modifier un paramètre `int n` change-t-il automatiquement l'argument orig
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/12-passage-d-arguments-par-valeur
 
-**Relecture :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -216,7 +216,7 @@ En C, modifier un paramètre `int n` change-t-il automatiquement l'argument orig
 
 **Une seule bonne réponse**
 
-Comment une fonction peut-elle modifier un int de l'appelant ?
+Comment une fonction peut-elle modifier un int de l'appelant ? (Une seule réponse correcte.)
 
 - **A ✅** Recevoir son adresse dans int *p et écrire *p
 - **B ❌** Recevoir une copie int p et écrire p
@@ -227,7 +227,7 @@ Comment une fonction peut-elle modifier un int de l'appelant ?
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/13-passer-une-adresse-a-une-fonction
 
-**Relecture :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -235,7 +235,7 @@ Comment une fonction peut-elle modifier un int de l'appelant ?
 
 **Une seule bonne réponse**
 
-Combien d'éléments comporte `int tab[5]` ?
+Combien d'éléments comporte `int tab[5]` ? (Une seule réponse correcte.)
 
 - **A ❌** 6
 - **B ✅** 5
@@ -246,7 +246,7 @@ Combien d'éléments comporte `int tab[5]` ?
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/14-tableau
 
-**Relecture :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -254,7 +254,7 @@ Combien d'éléments comporte `int tab[5]` ?
 
 **Une seule bonne réponse**
 
-Pourquoi un tableau n'est-il pas un pointeur, même s'il peut se convertir en pointeur ?
+Pourquoi un tableau n'est-il pas un pointeur, même s'il peut se convertir en pointeur ? (Une seule réponse correcte.)
 
 - **A ✅** Il s'agit de types et d'objets distincts
 - **B ❌** Parce que tous les tableaux sont des fonctions
@@ -265,7 +265,7 @@ Pourquoi un tableau n'est-il pas un pointeur, même s'il peut se convertir en po
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/16-tableau-pointeur
 
-**Relecture :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -273,7 +273,7 @@ Pourquoi un tableau n'est-il pas un pointeur, même s'il peut se convertir en po
 
 **Une seule bonne réponse**
 
-Dans un appel f(tab), que devient normalement un tableau d'int comme expression argument ?
+Dans un appel f(tab), que devient normalement un tableau d'int comme expression argument ? (Une seule réponse correcte.)
 
 - **A ❌** Une structure contenant sa longueur
 - **B ✅** Une adresse de son premier élément
@@ -284,7 +284,7 @@ Dans un appel f(tab), que devient normalement un tableau d'int comme expression 
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/17-conversion-tableau-pointeur
 
-**Relecture :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -292,7 +292,7 @@ Dans un appel f(tab), que devient normalement un tableau d'int comme expression 
 
 **Une seule bonne réponse**
 
-Pour un tableau int tab[5], quelle différence entre &tab et &tab[0] ?
+Pour un tableau int tab[5], quelle différence entre &tab et &tab[0] ? (Une seule réponse correcte.)
 
 - **A ❌** &tab[0] désigne toute une structure
 - **B ✅** Ils ont des types de pointeurs différents
@@ -303,7 +303,7 @@ Pour un tableau int tab[5], quelle différence entre &tab et &tab[0] ?
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/19-tableau
 
-**Relecture :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -311,7 +311,7 @@ Pour un tableau int tab[5], quelle différence entre &tab et &tab[0] ?
 
 **Une seule bonne réponse**
 
-Que signifie `p+1` lorsque p est un int * valide au sein d'un tableau ?
+Que signifie `p+1` lorsque p est un int * valide au sein d'un tableau ? (Une seule réponse correcte.)
 
 - **A ❌** Exécuter l'instruction C suivante
 - **B ✅** Avancer d'un élément int
@@ -322,7 +322,7 @@ Que signifie `p+1` lorsque p est un int * valide au sein d'un tableau ?
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/20-arithmetique-des-pointeurs
 
-**Relecture :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -330,7 +330,7 @@ Que signifie `p+1` lorsque p est un int * valide au sein d'un tableau ?
 
 **Une seule bonne réponse**
 
-Qu'est-ce qu'une chaîne C valide ?
+Qu'est-ce qu'une chaîne C valide ? (Une seule réponse correcte.)
 
 - **A ❌** Un pointeur non initialisé
 - **B ❌** Une valeur char unique
@@ -341,7 +341,7 @@ Qu'est-ce qu'une chaîne C valide ?
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/22-chaine-de-caracteres-en-c
 
-**Relecture :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -349,7 +349,7 @@ Qu'est-ce qu'une chaîne C valide ?
 
 **Une seule bonne réponse**
 
-Quel rôle joue '\0' dans une chaîne C ?
+Quel rôle joue '\0' dans une chaîne C ? (Une seule réponse correcte.)
 
 - **A ❌** Indiquer la mémoire allouée
 - **B ❌** Être un saut de ligne
@@ -360,7 +360,7 @@ Quel rôle joue '\0' dans une chaîne C ?
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/23-caractere-nul
 
-**Relecture :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -368,7 +368,7 @@ Quel rôle joue '\0' dans une chaîne C ?
 
 **Une seule bonne réponse**
 
-Que faut-il passer à printf %s ?
+Que faut-il passer à printf %s ? (Une seule réponse correcte.)
 
 - **A ❌** Une adresse de tableau sans terminateur
 - **B ✅** Une adresse de chaîne valide terminée par nul
@@ -379,7 +379,7 @@ Que faut-il passer à printf %s ?
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/24-s-avec-printf
 
-**Relecture :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -387,7 +387,7 @@ Que faut-il passer à printf %s ?
 
 **Plusieurs bonnes réponses**
 
-Quels comportements sont possibles pour malloc selon la taille et l'environnement ?
+Quels comportements sont possibles pour malloc selon la taille et l'environnement ? (Plusieurs réponses correctes.)
 
 - **A ❌** Mettre obligatoirement tous les octets à zéro
 - **B ❌** Libérer le pointeur automatiquement à la fin du bloc local
@@ -398,7 +398,7 @@ Quels comportements sont possibles pour malloc selon la taille et l'environnemen
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/31-malloc-allocation-dynamique
 
-**Relecture :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -406,7 +406,7 @@ Quels comportements sont possibles pour malloc selon la taille et l'environnemen
 
 **Une seule bonne réponse**
 
-Que fait `free(NULL)` selon la bibliothèque standard C ?
+Que fait `free(NULL)` selon la bibliothèque standard C ? (Une seule réponse correcte.)
 
 - **A ❌** Libère toute la mémoire du processus
 - **B ❌** Provoque toujours SIGSEGV
@@ -417,7 +417,7 @@ Que fait `free(NULL)` selon la bibliothèque standard C ?
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/32-free-liberer-la-memoire
 
-**Relecture :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -425,7 +425,7 @@ Que fait `free(NULL)` selon la bibliothèque standard C ?
 
 **Une seule bonne réponse**
 
-Avec `char *s="abc";`, peut-on modifier s[0] de façon définie ?
+Avec `char *s="abc";`, peut-on modifier s[0] de façon définie ? (Une seule réponse correcte.)
 
 - **A ✅** Non : modifier un littéral de chaîne est indéfini
 - **B ❌** Oui : les littéraux sont toujours en mémoire écrivable
@@ -436,7 +436,7 @@ Avec `char *s="abc";`, peut-on modifier s[0] de façon définie ?
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/34-chaine-litterale-et-tableau-de-char · https://en.cppreference.com/w/c/language/string_literal
 
-**Relecture :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -444,7 +444,7 @@ Avec `char *s="abc";`, peut-on modifier s[0] de façon définie ?
 
 **Une seule bonne réponse**
 
-Après un malloc qui peut échouer, quel fragment empêche de déréférencer NULL ?
+Après un malloc qui peut échouer, quel fragment empêche de déréférencer NULL ? (Une seule réponse correcte.)
 
 - **A ❌** `if (p == NULL) { *p = 1; }`
 - **B ❌** `if (*p != 0) { *p = 1; }`
@@ -455,7 +455,7 @@ Après un malloc qui peut échouer, quel fragment empêche de déréférencer NU
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/35-malloc-verifier-null
 
-**Relecture :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -463,7 +463,7 @@ Après un malloc qui peut échouer, quel fragment empêche de déréférencer NU
 
 **Une seule bonne réponse**
 
-Qu'est-ce qu'une fuite mémoire ?
+Qu'est-ce qu'une fuite mémoire ? (Une seule réponse correcte.)
 
 - **A ❌** Une sortie standard vide
 - **B ❌** Une simple lecture de mémoire
@@ -474,7 +474,7 @@ Qu'est-ce qu'une fuite mémoire ?
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/36-fuite-memoire-allocation-perdue
 
-**Relecture :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -482,7 +482,7 @@ Qu'est-ce qu'une fuite mémoire ?
 
 **Une seule bonne réponse**
 
-Quel outil peut signaler une fuite par une catégorie definitely lost ?
+Quel outil peut signaler une fuite par une catégorie definitely lost ? (Une seule réponse correcte.)
 
 - **A ❌** gcc -E
 - **B ❌** git status
@@ -493,7 +493,7 @@ Quel outil peut signaler une fuite par une catégorie definitely lost ?
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/37-valgrind-detecter-les-fuites
 
-**Relecture :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -501,7 +501,7 @@ Quel outil peut signaler une fuite par une catégorie definitely lost ?
 
 **Une seule bonne réponse**
 
-Pour un int *p et un nombre d'éléments n, quel schéma d'allocation est généralement adéquat si le produit ne déborde pas ?
+Pour un int *p et un nombre d'éléments n, quel schéma d'allocation est généralement adéquat si le produit ne déborde pas ? (Une seule réponse correcte.)
 
 - **A ❌** malloc(n) toujours
 - **B ❌** malloc(sizeof n) toujours
@@ -512,7 +512,7 @@ Pour un int *p et un nombre d'éléments n, quel schéma d'allocation est géné
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/39-malloc-et-sizeof-allouer-le-bon-nombre-d-octets
 
-**Relecture :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -520,7 +520,7 @@ Pour un int *p et un nombre d'éléments n, quel schéma d'allocation est géné
 
 **Une seule bonne réponse**
 
-Avec `char mot[]="abc";`, que valent strlen(mot) et sizeof mot ?
+Avec `char mot[]="abc";`, que valent strlen(mot) et sizeof mot ? (Une seule réponse correcte.)
 
 - **A ❌** 3 et 3
 - **B ✅** 3 et 4
@@ -531,7 +531,7 @@ Avec `char mot[]="abc";`, que valent strlen(mot) et sizeof mot ?
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/40-strlen-sizeof-et-terminateur-nul
 
-**Relecture :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -539,7 +539,7 @@ Avec `char mot[]="abc";`, que valent strlen(mot) et sizeof mot ?
 
 **Une seule bonne réponse**
 
-Quel risque présente `strcpy(dest, src)` si dest ne possède pas assez de place ?
+Quel risque présente `strcpy(dest, src)` si dest ne possède pas assez de place ? (Une seule réponse correcte.)
 
 - **A ❌** Une conversion automatique en int.
 - **B ❌** Une allocation automatique de la zone manquante.
@@ -550,7 +550,7 @@ Quel risque présente `strcpy(dest, src)` si dest ne possède pas assez de place
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/41-strcpy-copier-dans-un-espace-existant
 
-**Relecture :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -558,7 +558,7 @@ Quel risque présente `strcpy(dest, src)` si dest ne possède pas assez de place
 
 **Une seule bonne réponse**
 
-Pourquoi faut-il généralement free le résultat réussi de strdup ?
+Pourquoi faut-il généralement free le résultat réussi de strdup ? (Une seule réponse correcte.)
 
 - **A ❌** Le résultat pointe forcément vers un littéral
 - **B ✅** La chaîne dupliquée est allouée dynamiquement
@@ -569,7 +569,7 @@ Pourquoi faut-il généralement free le résultat réussi de strdup ?
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/42-strdup-copie-allouee-dynamiquement
 
-**Relecture :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -577,7 +577,7 @@ Pourquoi faut-il généralement free le résultat réussi de strdup ?
 
 **Plusieurs bonnes réponses**
 
-Quelles propositions sur les durées de vie sont correctes en C ?
+Quelles propositions sur les durées de vie sont correctes en C ? (Plusieurs réponses correctes.)
 
 - **A ✅** Une allocation malloc peut rester vivante après la sortie du bloc contenant le pointeur.
 - **B ❌** malloc donne automatiquement une durée de vie de bloc à la zone allouée.
@@ -588,7 +588,7 @@ Quelles propositions sur les durées de vie sont correctes en C ?
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/43-pile-et-tas-duree-de-vie-des-allocations
 
-**Relecture :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -596,7 +596,7 @@ Quelles propositions sur les durées de vie sont correctes en C ?
 
 **Une seule bonne réponse**
 
-Quelle adresse est libérable par free ?
+Quelle adresse est libérable par free ? (Une seule réponse correcte.)
 
 - **A ✅** Un pointeur issu d'un malloc réussi et non encore libéré
 - **B ❌** Une adresse calculée en plein milieu d'un bloc
@@ -607,7 +607,7 @@ Quelle adresse est libérable par free ?
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/44-free-quelles-adresses-peut-on-liberer
 
-**Relecture :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -615,7 +615,7 @@ Quelle adresse est libérable par free ?
 
 **Une seule bonne réponse**
 
-Quel risque avec `int *p; *p=3;` si p n'a pas été initialisé ?
+Quel risque avec `int *p; *p=3;` si p n'a pas été initialisé ? (Une seule réponse correcte.)
 
 - **A ❌** Allocation automatique d'un int pointé
 - **B ✅** Comportement indéfini
@@ -626,7 +626,7 @@ Quel risque avec `int *p; *p=3;` si p n'a pas été initialisé ?
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/45-pointeur-non-initialise-comportement-indefini
 
-**Relecture :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -634,7 +634,7 @@ Quel risque avec `int *p; *p=3;` si p n'a pas été initialisé ?
 
 **Une seule bonne réponse**
 
-Pourquoi utiliser `tmp = realloc(p, taille)` avant de mettre p à jour ?
+Pourquoi utiliser `tmp = realloc(p, taille)` avant de mettre p à jour ? (Une seule réponse correcte.)
 
 - **A ❌** Éviter tout besoin de free
 - **B ❌** Rendre p utilisable après succès sans mise à jour
@@ -645,7 +645,7 @@ Pourquoi utiliser `tmp = realloc(p, taille)` avant de mettre p à jour ?
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/46-realloc-redimensionner-une-allocation · https://en.cppreference.com/c/memory/realloc
 
-**Relecture :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -653,7 +653,7 @@ Pourquoi utiliser `tmp = realloc(p, taille)` avant de mettre p à jour ?
 
 **Une seule bonne réponse**
 
-Après un realloc réussi de taille positive, peut-on continuer à utiliser l'ancienne valeur de p pour accéder au bloc ?
+Après un realloc réussi de taille positive, peut-on continuer à utiliser l'ancienne valeur de p pour accéder au bloc ? (Une seule réponse correcte.)
 
 - **A ❌** Oui, parce que realloc ne déplace jamais un bloc
 - **B ✅** Non, même si l'adresse numérique semble identique
@@ -664,7 +664,7 @@ Après un realloc réussi de taille positive, peut-on continuer à utiliser l'an
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/46-realloc-redimensionner-une-allocation · https://en.cppreference.com/c/memory/realloc
 
-**Relecture :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -672,7 +672,7 @@ Après un realloc réussi de taille positive, peut-on continuer à utiliser l'an
 
 **Une seule bonne réponse**
 
-Une erreur de segmentation signifie-t-elle automatiquement qu'un pointeur nul a été déréférencé ?
+Une erreur de segmentation signifie-t-elle automatiquement qu'un pointeur nul a été déréférencé ? (Une seule réponse correcte.)
 
 - **A ❌** Non, elle ne concerne jamais la mémoire
 - **B ✅** Non, plusieurs accès mémoire invalides peuvent la provoquer
@@ -683,7 +683,7 @@ Une erreur de segmentation signifie-t-elle automatiquement qu'un pointeur nul a 
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/47-segfault-faute-de-segmentation
 
-**Relecture :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -691,7 +691,7 @@ Une erreur de segmentation signifie-t-elle automatiquement qu'un pointeur nul a 
 
 **Une seule bonne réponse**
 
-Pourquoi strncpy ne garantit-elle pas systématiquement le terminateur nul ?
+Pourquoi strncpy ne garantit-elle pas systématiquement le terminateur nul ? (Une seule réponse correcte.)
 
 - **A ✅** Une source de longueur >= n peut remplir les n octets sans '\0'
 - **B ❌** Parce qu'elle agrandit le tableau sans borne
@@ -702,7 +702,7 @@ Pourquoi strncpy ne garantit-elle pas systématiquement le terminateur nul ?
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/48-strncpy-copie-limitee-et-terminaison
 
-**Relecture :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -710,7 +710,7 @@ Pourquoi strncpy ne garantit-elle pas systématiquement le terminateur nul ?
 
 **Une seule bonne réponse**
 
-Quelle propriété de calloc est correcte ?
+Quelle propriété de calloc est correcte ? (Une seule réponse correcte.)
 
 - **A ❌** Il empêche tout accès hors limites
 - **B ❌** Il retourne toujours la même adresse
@@ -721,7 +721,7 @@ Quelle propriété de calloc est correcte ?
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/49-calloc-allouer-et-initialiser-a-zero
 
-**Relecture :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -729,7 +729,7 @@ Quelle propriété de calloc est correcte ?
 
 **Une seule bonne réponse**
 
-Quel accès dépasse les bornes de `int t[3]` ?
+Quel accès dépasse les bornes de `int t[3]` ? (Une seule réponse correcte.)
 
 - **A ❌** t[0]
 - **B ❌** t[2]
@@ -740,7 +740,7 @@ Quel accès dépasse les bornes de `int t[3]` ?
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/50-buffer-overflow-depassement-de-tampon
 
-**Relecture :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -748,7 +748,7 @@ Quel accès dépasse les bornes de `int t[3]` ?
 
 **Une seule bonne réponse**
 
-Après `free(p)`, que produit l'accès `*p=4` au bloc libéré ?
+Après `free(p)`, que produit l'accès `*p=4` au bloc libéré ? (Une seule réponse correcte.)
 
 - **A ❌** Un zéro automatique
 - **B ✅** Un comportement indéfini
@@ -759,7 +759,7 @@ Après `free(p)`, que produit l'accès `*p=4` au bloc libéré ?
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/51-use-after-free-reutiliser-un-bloc-libere
 
-**Relecture :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -767,7 +767,7 @@ Après `free(p)`, que produit l'accès `*p=4` au bloc libéré ?
 
 **Une seule bonne réponse**
 
-Si q est un alias de p et que free(p) a réussi, que risque free(q) ?
+Si q est un alias de p et que free(p) a réussi, que risque free(q) ? (Une seule réponse correcte.)
 
 - **A ✅** Double free et comportement indéfini
 - **B ❌** Réduction du bloc de moitié
@@ -778,7 +778,7 @@ Si q est un alias de p et que free(p) a réussi, que risque free(q) ?
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/52-double-free-ne-pas-liberer-deux-fois
 
-**Relecture :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -786,7 +786,7 @@ Si q est un alias de p et que free(p) a réussi, que risque free(q) ?
 
 **Une seule bonne réponse**
 
-Avant malloc(n * sizeof *p), quel contrôle empêche le débordement de size_t (taille élément positive) ?
+Avant malloc(n * sizeof *p), quel contrôle empêche le débordement de size_t (taille élément positive) ? (Une seule réponse correcte.)
 
 - **A ❌** n == 0 seulement
 - **B ❌** sizeof p == sizeof *p
@@ -797,7 +797,7 @@ Avant malloc(n * sizeof *p), quel contrôle empêche le débordement de size_t (
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/53-debordement-du-calcul-de-taille-avant-malloc
 
-**Relecture :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -805,7 +805,7 @@ Avant malloc(n * sizeof *p), quel contrôle empêche le débordement de size_t (
 
 **Une seule bonne réponse**
 
-Que peut signaler Memcheck avec `Invalid write` ?
+Que peut signaler Memcheck avec `Invalid write` ? (Une seule réponse correcte.)
 
 - **A ❌** Une branche Git non fusionnée
 - **B ✅** Une écriture à une adresse invalide selon son analyse
@@ -816,7 +816,7 @@ Que peut signaler Memcheck avec `Invalid write` ?
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/54-valgrind-memcheck-comprendre-les-alertes
 
-**Relecture :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -824,7 +824,7 @@ Que peut signaler Memcheck avec `Invalid write` ?
 
 **Une seule bonne réponse**
 
-Quel outil standard convient si source et destination de la copie peuvent se recouvrir ?
+Quel outil standard convient si source et destination de la copie peuvent se recouvrir ? (Une seule réponse correcte.)
 
 - **A ✅** memmove
 - **B ❌** strcpy sans conditions
@@ -835,7 +835,7 @@ Quel outil standard convient si source et destination de la copie peuvent se rec
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/55-memcpy-ou-memmove-zones-qui-se-recouvrent
 
-**Relecture :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -843,7 +843,7 @@ Quel outil standard convient si source et destination de la copie peuvent se rec
 
 **Une seule bonne réponse**
 
-Si la saisie déborde déjà un tampon local avant malloc, quel correctif est prioritaire ?
+Si la saisie déborde déjà un tampon local avant malloc, quel correctif est prioritaire ? (Une seule réponse correcte.)
 
 - **A ❌** Ne jamais vérifier les tailles
 - **B ✅** Limiter la lecture selon la capacité du tableau
@@ -854,7 +854,7 @@ Si la saisie déborde déjà un tampon local avant malloc, quel correctif est pr
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/56-depassement-de-tampon-sur-la-pile-erreur-avant-malloc
 
-**Relecture :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -862,7 +862,7 @@ Si la saisie déborde déjà un tampon local avant malloc, quel correctif est pr
 
 **Plusieurs bonnes réponses**
 
-Quelles affirmations montrent que taille, durée de vie et allocation d'un tampon sont des propriétés distinctes ?
+Quelles affirmations montrent que taille, durée de vie et allocation d'un tampon sont des propriétés distinctes ? (Plusieurs réponses correctes.)
 
 - **A ✅** Un tableau local de taille fixe peut avoir une durée de vie automatique.
 - **B ✅** Un tableau déclaré static dans une fonction possède une durée de vie statique.
@@ -874,7 +874,7 @@ Quelles affirmations montrent que taille, durée de vie et allocation d'un tampo
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/57-tampon-fixe-statique-et-dynamique-emplacement-et-duree-de-vie
 
-**Relecture :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -882,7 +882,7 @@ Quelles affirmations montrent que taille, durée de vie et allocation d'un tampo
 
 **Une seule bonne réponse**
 
-Quelle cause fréquente peut provoquer un épuisement de la pile ?
+Quelle cause fréquente peut provoquer un épuisement de la pile ? (Une seule réponse correcte.)
 
 - **A ❌** Un commit Git
 - **B ❌** Une variable d'environnement vide
@@ -893,7 +893,7 @@ Quelle cause fréquente peut provoquer un épuisement de la pile ?
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/58-stack-overflow-epuisement-de-la-pile-d-appels
 
-**Relecture :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -901,7 +901,7 @@ Quelle cause fréquente peut provoquer un épuisement de la pile ?
 
 **Une seule bonne réponse**
 
-Un rapport `definitely lost: 32 bytes in 1 blocks` indique quoi ?
+Un rapport `definitely lost: 32 bytes in 1 blocks` indique quoi ? (Une seule réponse correcte.)
 
 - **A ❌** Un bloc correctement libéré
 - **B ✅** Un bloc de 32 octets perdu directement
@@ -912,7 +912,7 @@ Un rapport `definitely lost: 32 bytes in 1 blocks` indique quoi ?
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/59-valgrind-definitely-lost-et-les-octets-perdus
 
-**Relecture :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -920,7 +920,7 @@ Un rapport `definitely lost: 32 bytes in 1 blocks` indique quoi ?
 
 **Une seule bonne réponse**
 
-Pourquoi strlen sur un tableau sans '\0' accessible peut-elle poser problème ?
+Pourquoi strlen sur un tableau sans '\0' accessible peut-elle poser problème ? (Une seule réponse correcte.)
 
 - **A ❌** Elle complète automatiquement le tableau
 - **B ❌** Elle renvoie toujours la capacité exacte
@@ -931,7 +931,7 @@ Pourquoi strlen sur un tableau sans '\0' accessible peut-elle poser problème ?
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/60-strlen-sans-terminateur-nul-lecture-hors-limites
 
-**Relecture :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -939,7 +939,7 @@ Pourquoi strlen sur un tableau sans '\0' accessible peut-elle poser problème ?
 
 **Une seule bonne réponse**
 
-Quel comportement est garanti par memcpy quand les n octets sont valides et ne se recouvrent pas ?
+Quel comportement est garanti par memcpy quand les n octets sont valides et ne se recouvrent pas ? (Une seule réponse correcte.)
 
 - **A ✅** La copie exacte de n octets
 - **B ❌** Le tri lexicographique
@@ -950,7 +950,7 @@ Quel comportement est garanti par memcpy quand les n octets sont valides et ne s
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/61-memcpy-copier-des-octets-sans-chevauchement
 
-**Relecture :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -958,7 +958,7 @@ Quel comportement est garanti par memcpy quand les n octets sont valides et ne s
 
 **Une seule bonne réponse**
 
-Copier un pointeur p dans q transfère-t-il automatiquement la responsabilité de free ?
+Copier un pointeur p dans q transfère-t-il automatiquement la responsabilité de free ? (Une seule réponse correcte.)
 
 - **A ❌** Oui, q devient obligatoirement propriétaire unique
 - **B ❌** Oui, p devient NULL
@@ -969,7 +969,7 @@ Copier un pointeur p dans q transfère-t-il automatiquement la responsabilité d
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/62-ownership-qui-est-responsable-de-free
 
-**Relecture :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -977,7 +977,7 @@ Copier un pointeur p dans q transfère-t-il automatiquement la responsabilité d
 
 **Une seule bonne réponse**
 
-Un pointeur vers un objet local dont la durée de vie s'est terminée est appelé comment ?
+Un pointeur vers un objet local dont la durée de vie s'est terminée est appelé comment ? (Une seule réponse correcte.)
 
 - **A ❌** Pointeur vers un objet toujours valide
 - **B ✅** Dangling pointer
@@ -988,7 +988,7 @@ Un pointeur vers un objet local dont la durée de vie s'est terminée est appel�
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/63-dangling-pointer-pointeur-vers-un-objet-qui-n-existe-plus
 
-**Relecture :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -996,7 +996,7 @@ Un pointeur vers un objet local dont la durée de vie s'est terminée est appel�
 
 **Une seule bonne réponse**
 
-Que garantit un raw pointer non NULL en C ?
+Que garantit un raw pointer non NULL en C ? (Une seule réponse correcte.)
 
 - **A ✅** Il contient une valeur de pointeur, pas la validité de sa cible
 - **B ❌** La mémoire est libérée automatiquement
@@ -1007,7 +1007,7 @@ Que garantit un raw pointer non NULL en C ?
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/64-raw-pointer-pointeur-brut-en-c
 
-**Relecture :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -1015,7 +1015,7 @@ Que garantit un raw pointer non NULL en C ?
 
 **Une seule bonne réponse**
 
-Un char * contient-il la taille du tableau pointé ?
+Un char * contient-il la taille du tableau pointé ? (Une seule réponse correcte.)
 
 - **A ✅** Non
 - **B ❌** Oui, seulement sous Linux
@@ -1026,7 +1026,7 @@ Un char * contient-il la taille du tableau pointé ?
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/65-char-pointeur-vers-un-caractere-ou-une-chaine
 
-**Relecture :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -1034,7 +1034,7 @@ Un char * contient-il la taille du tableau pointé ?
 
 **Une seule bonne réponse**
 
-Peut-on déduire avec certitude la vulnérabilité d'un code en lisant seulement l'intitulé de son programme d'exemple ?
+Peut-on déduire avec certitude la vulnérabilité d'un code en lisant seulement l'intitulé de son programme d'exemple ? (Une seule réponse correcte.)
 
 - **A ❌** Oui, sans jamais compiler
 - **B ❌** Oui, l'intitulé suffit
@@ -1045,7 +1045,7 @@ Peut-on déduire avec certitude la vulnérabilité d'un code en lisant seulement
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/66-diagnostics-memoire-invalid-write-uninitialized-value-et-fuites
 
-**Relecture :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -1053,7 +1053,7 @@ Peut-on déduire avec certitude la vulnérabilité d'un code en lisant seulement
 
 **Une seule bonne réponse**
 
-Qu'est-ce qu'une struct en C ?
+Qu'est-ce qu'une struct en C ? (Une seule réponse correcte.)
 
 - **A ❌** Un objet toujours dynamique
 - **B ❌** Une commande Git
@@ -1064,7 +1064,7 @@ Qu'est-ce qu'une struct en C ?
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/structures-et-typedef-en-c/1-struct-regrouper-plusieurs-donnees
 
-**Relecture :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -1072,7 +1072,7 @@ Qu'est-ce qu'une struct en C ?
 
 **Une seule bonne réponse**
 
-Avec `struct point {int x; int y;};`, comment déclarer une variable du type ?
+Avec `struct point {int x; int y;};`, comment déclarer une variable du type ? (Une seule réponse correcte.)
 
 - **A ❌** struct p point;
 - **B ✅** struct point p;
@@ -1083,7 +1083,7 @@ Avec `struct point {int x; int y;};`, comment déclarer une variable du type ?
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/structures-et-typedef-en-c/2-struct-type-et-variable
 
-**Relecture :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -1091,7 +1091,7 @@ Avec `struct point {int x; int y;};`, comment déclarer une variable du type ?
 
 **Une seule bonne réponse**
 
-Pour `struct point p;`, quel opérateur accède au membre x ?
+Pour `struct point p;`, quel opérateur accède au membre x ? (Une seule réponse correcte.)
 
 - **A ❌** &p.x comme accès à la valeur
 - **B ❌** p->x
@@ -1102,7 +1102,7 @@ Pour `struct point p;`, quel opérateur accède au membre x ?
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/structures-et-typedef-en-c/3-acces-aux-membres-avec
 
-**Relecture :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -1110,7 +1110,7 @@ Pour `struct point p;`, quel opérateur accède au membre x ?
 
 **Une seule bonne réponse**
 
-Pour `struct point *p` valide, comment accéder à x ?
+Pour `struct point *p` valide, comment accéder à x ? (Une seule réponse correcte.)
 
 - **A ❌** p.x()
 - **B ✅** p->x
@@ -1121,7 +1121,7 @@ Pour `struct point *p` valide, comment accéder à x ?
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/structures-et-typedef-en-c/4-acces-par-pointeur-avec
 
-**Relecture :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -1129,7 +1129,7 @@ Pour `struct point *p` valide, comment accéder à x ?
 
 **Une seule bonne réponse**
 
-Que permet l'initialisation `struct point p={1,2};` ?
+Que permet l'initialisation `struct point p={1,2};` ? (Une seule réponse correcte.)
 
 - **A ❌** Créer forcément un tableau de deux structures
 - **B ✅** Initialiser les membres dans leur ordre de déclaration
@@ -1140,7 +1140,7 @@ Que permet l'initialisation `struct point p={1,2};` ?
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/structures-et-typedef-en-c/5-initialiser-une-struct-avec
 
-**Relecture :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -1148,7 +1148,7 @@ Que permet l'initialisation `struct point p={1,2};` ?
 
 **Une seule bonne réponse**
 
-Quel mécanisme C99 permet d'écrire `struct point p={.x=1,.y=2};` ?
+Quel mécanisme C99 permet d'écrire `struct point p={.x=1,.y=2};` ? (Une seule réponse correcte.)
 
 - **A ❌** Appel de fonction via pointeur
 - **B ✅** Initialiseurs désignés
@@ -1159,7 +1159,7 @@ Quel mécanisme C99 permet d'écrire `struct point p={.x=1,.y=2};` ?
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/structures-et-typedef-en-c/6-initialiseurs-designes-membre-c99
 
-**Relecture :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -1167,7 +1167,7 @@ Quel mécanisme C99 permet d'écrire `struct point p={.x=1,.y=2};` ?
 
 **Une seule bonne réponse**
 
-Avec `struct point p[3];`, combien de structures contient le tableau ?
+Avec `struct point p[3];`, combien de structures contient le tableau ? (Une seule réponse correcte.)
 
 - **A ❌** 0
 - **B ✅** 3
@@ -1178,7 +1178,7 @@ Avec `struct point p[3];`, combien de structures contient le tableau ?
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/structures-et-typedef-en-c/7-tableau-de-structures
 
-**Relecture :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -1186,7 +1186,7 @@ Avec `struct point p[3];`, combien de structures contient le tableau ?
 
 **Une seule bonne réponse**
 
-Comment accéder au champ x d'un membre position lui-même de type struct, dans un objet p ?
+Comment accéder au champ x d'un membre position lui-même de type struct, dans un objet p ? (Une seule réponse correcte.)
 
 - **A ❌** p[x][position]
 - **B ❌** p->position->x dans tous les cas
@@ -1197,7 +1197,7 @@ Comment accéder au champ x d'un membre position lui-même de type struct, dans 
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/structures-et-typedef-en-c/8-structure-imbriquee
 
-**Relecture :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -1205,7 +1205,7 @@ Comment accéder au champ x d'un membre position lui-même de type struct, dans 
 
 **Une seule bonne réponse**
 
-Que signifie `b=a;` pour deux objets du même type struct ?
+Que signifie `b=a;` pour deux objets du même type struct ? (Une seule réponse correcte.)
 
 - **A ❌** Interdiction absolue du langage C
 - **B ✅** Copie par valeur des membres de a vers b
@@ -1216,7 +1216,7 @@ Que signifie `b=a;` pour deux objets du même type struct ?
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/structures-et-typedef-en-c/9-copier-une-struct-par-affectation
 
-**Relecture :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -1224,7 +1224,7 @@ Que signifie `b=a;` pour deux objets du même type struct ?
 
 **Une seule bonne réponse**
 
-Une structure passée comme paramètre ordinaire est-elle copiée ?
+Une structure passée comme paramètre ordinaire est-elle copiée ? (Une seule réponse correcte.)
 
 - **A ❌** Oui, seulement si elle contient un pointeur
 - **B ❌** Non, les structures sont incompatibles avec les paramètres
@@ -1235,7 +1235,7 @@ Une structure passée comme paramètre ordinaire est-elle copiée ?
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/structures-et-typedef-en-c/10-passer-une-struct-par-valeur
 
-**Relecture :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -1243,7 +1243,7 @@ Une structure passée comme paramètre ordinaire est-elle copiée ?
 
 **Une seule bonne réponse**
 
-Quel paramètre permet à une fonction de modifier directement l'objet struct de l'appelant ?
+Quel paramètre permet à une fonction de modifier directement l'objet struct de l'appelant ? (Une seule réponse correcte.)
 
 - **A ❌** struct point p
 - **B ❌** int p
@@ -1254,7 +1254,7 @@ Quel paramètre permet à une fonction de modifier directement l'objet struct de
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/structures-et-typedef-en-c/11-modifier-une-struct-via-son-adresse
 
-**Relecture :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -1262,7 +1262,7 @@ Quel paramètre permet à une fonction de modifier directement l'objet struct de
 
 **Une seule bonne réponse**
 
-Que fait typedef en C ?
+Que fait typedef en C ? (Une seule réponse correcte.)
 
 - **A ✅** Donne un alias à un type existant
 - **B ❌** Crée un objet alloué
@@ -1273,7 +1273,7 @@ Que fait typedef en C ?
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/structures-et-typedef-en-c/12-typedef-donner-un-alias-a-un-type
 
-**Relecture :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -1281,7 +1281,7 @@ Que fait typedef en C ?
 
 **Une seule bonne réponse**
 
-Quel intérêt a `typedef struct point point_t;` si struct point est défini ?
+Quel intérêt a `typedef struct point point_t;` si struct point est défini ? (Une seule réponse correcte.)
 
 - **A ✅** Utiliser point_t comme alias du type struct point
 - **B ❌** Supprimer tous les membres de la structure
@@ -1292,7 +1292,7 @@ Quel intérêt a `typedef struct point point_t;` si struct point est défini ?
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/structures-et-typedef-en-c/13-typedef-struct-nommer-une-structure
 
-**Relecture :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -1300,7 +1300,7 @@ Quel intérêt a `typedef struct point point_t;` si struct point est défini ?
 
 **Une seule bonne réponse**
 
-Une struct anonyme définie avec typedef peut-elle être utilisée via son alias ?
+Une struct anonyme définie avec typedef peut-elle être utilisée via son alias ? (Une seule réponse correcte.)
 
 - **A ❌** Non, typedef n'accepte aucune structure
 - **B ✅** Oui
@@ -1311,7 +1311,7 @@ Une struct anonyme définie avec typedef peut-elle être utilisée via son alias
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/structures-et-typedef-en-c/14-typedef-avec-structure-anonyme
 
-**Relecture :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -1319,7 +1319,7 @@ Une struct anonyme définie avec typedef peut-elle être utilisée via son alias
 
 **Une seule bonne réponse**
 
-Pourquoi sizeof(struct) peut-elle dépasser la somme des sizeof des membres ?
+Pourquoi sizeof(struct) peut-elle dépasser la somme des sizeof des membres ? (Une seule réponse correcte.)
 
 - **A ❌** Parce que tous les champs ont une taille nulle
 - **B ❌** Parce qu'une struct est toujours de taille 1024
@@ -1330,7 +1330,7 @@ Pourquoi sizeof(struct) peut-elle dépasser la somme des sizeof des membres ?
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/structures-et-typedef-en-c/15-sizeof-struct-et-padding-avance
 
-**Relecture :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -1338,7 +1338,7 @@ Pourquoi sizeof(struct) peut-elle dépasser la somme des sizeof des membres ?
 
 **Une seule bonne réponse**
 
-Quel idiome alloue l'espace d'une structure visée par p, sous réserve de vérifier le résultat ?
+Quel idiome alloue l'espace d'une structure visée par p, sous réserve de vérifier le résultat ? (Une seule réponse correcte.)
 
 - **A ❌** p = sizeof *p;
 - **B ❌** p = malloc(sizeof p); en toute circonstance
@@ -1349,7 +1349,7 @@ Quel idiome alloue l'espace d'une structure visée par p, sous réserve de véri
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/structures-et-typedef-en-c/16-malloc-pour-une-struct
 
-**Relecture :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -1357,7 +1357,7 @@ Quel idiome alloue l'espace d'une structure visée par p, sous réserve de véri
 
 **Une seule bonne réponse**
 
-Quel champ permet une liste chaînée autoréférentielle de struct noeud ?
+Quel champ permet une liste chaînée autoréférentielle de struct noeud ? (Une seule réponse correcte.)
 
 - **A ✅** struct noeud *suivant;
 - **B ❌** char suivant; contenant une adresse
@@ -1368,7 +1368,7 @@ Quel champ permet une liste chaînée autoréférentielle de struct noeud ?
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/structures-et-typedef-en-c/17-structure-autoreferentielle-avance
 
-**Relecture :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -1376,7 +1376,7 @@ Quel champ permet une liste chaînée autoréférentielle de struct noeud ?
 
 **Une seule bonne réponse**
 
-Pourquoi documenter les membres d'une struct dans un en-tête ?
+Pourquoi documenter les membres d'une struct dans un en-tête ? (Une seule réponse correcte.)
 
 - **A ❌** Augmenter automatiquement sa taille
 - **B ❌** Remplacer les prototypes
@@ -1387,7 +1387,7 @@ Pourquoi documenter les membres d'une struct dans un en-tête ?
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/structures-et-typedef-en-c/18-documenter-une-struct-pour-betty
 
-**Relecture :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -1395,7 +1395,7 @@ Pourquoi documenter les membres d'une struct dans un en-tête ?
 
 **Une seule bonne réponse**
 
-Peut-on déclarer `typedef struct cellule cellule_t;` avant de définir les membres de struct cellule ?
+Peut-on déclarer `typedef struct cellule cellule_t;` avant de définir les membres de struct cellule ? (Une seule réponse correcte.)
 
 - **A ❌** Oui, on peut immédiatement faire sizeof(cellule_t) avant définition
 - **B ✅** Oui, il s'agit alors d'un type incomplet utilisable par pointeur
@@ -1406,7 +1406,7 @@ Peut-on déclarer `typedef struct cellule cellule_t;` avant de définir les memb
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/structures-et-typedef-en-c/19-typedef-avant-la-definition-d-une-struct
 
-**Relecture :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -1414,7 +1414,7 @@ Peut-on déclarer `typedef struct cellule cellule_t;` avant de définir les memb
 
 **Une seule bonne réponse**
 
-Quelle équivalence est correcte pour p pointeur vers struct ?
+Quelle équivalence est correcte pour p pointeur vers struct ? (Une seule réponse correcte.)
 
 - **A ❌** p->x appelle toujours malloc
 - **B ❌** p->x == *p.x pour tous les types
@@ -1425,7 +1425,7 @@ Quelle équivalence est correcte pour p pointeur vers struct ?
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/structures-et-typedef-en-c/20-point-ou-fleche-comparer-et
 
-**Relecture :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -1433,7 +1433,7 @@ Quelle équivalence est correcte pour p pointeur vers struct ?
 
 **Une seule bonne réponse**
 
-Quel est l'objectif d'un include guard #ifndef/#define/#endif dans un fichier .h ?
+Quel est l'objectif d'un include guard #ifndef/#define/#endif dans un fichier .h ? (Une seule réponse correcte.)
 
 - **A ❌** Faire un appel réseau
 - **B ❌** Remplacer un compilateur C
@@ -1444,7 +1444,7 @@ Quel est l'objectif d'un include guard #ifndef/#define/#endif dans un fichier .h
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/structures-et-typedef-en-c/21-include-guards-proteger-les-fichiers-h
 
-**Relecture :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -1452,7 +1452,7 @@ Quel est l'objectif d'un include guard #ifndef/#define/#endif dans un fichier .h
 
 **Une seule bonne réponse**
 
-Quelle déclaration représente un pointeur vers une fonction int prenant un int ?
+Quelle déclaration représente un pointeur vers une fonction int prenant un int ? (Une seule réponse correcte.)
 
 - **A ✅** int (*f)(int);
 - **B ❌** int *f(int);
@@ -1463,7 +1463,7 @@ Quelle déclaration représente un pointeur vers une fonction int prenant un int
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/67-pointeur-de-fonction-declarer-une-signature
 
-**Relecture :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -1471,7 +1471,7 @@ Quelle déclaration représente un pointeur vers une fonction int prenant un int
 
 **Plusieurs bonnes réponses**
 
-Pour un pointeur de fonction valide f, quelles formes d'appel sont équivalentes ?
+Pour un pointeur de fonction valide f, quelles formes d'appel sont équivalentes ? (Plusieurs réponses correctes.)
 
 - **A ❌** `(f + 1)(5)` pour appeler la fonction suivante en mémoire
 - **B ✅** f(5)
@@ -1482,7 +1482,7 @@ Pour un pointeur de fonction valide f, quelles formes d'appel sont équivalentes
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/68-appeler-un-pointeur-de-fonction-f-x-ou-f-x
 
-**Relecture :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -1490,7 +1490,7 @@ Pour un pointeur de fonction valide f, quelles formes d'appel sont équivalentes
 
 **Une seule bonne réponse**
 
-Qu'est-ce qu'un callback en C ?
+Qu'est-ce qu'un callback en C ? (Une seule réponse correcte.)
 
 - **A ❌** Un pointeur de données toujours nul
 - **B ✅** Une fonction passée à une autre fonction pour être appelée
@@ -1501,7 +1501,7 @@ Qu'est-ce qu'un callback en C ?
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/69-callback-transmettre-une-fonction-en-parametre
 
-**Relecture :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -1509,7 +1509,7 @@ Qu'est-ce qu'un callback en C ?
 
 **Plusieurs bonnes réponses**
 
-Quelles précautions avec un tableau de pointeurs de fonctions ?
+Quelles précautions avec un tableau de pointeurs de fonctions ? (Plusieurs réponses correctes.)
 
 - **A ✅** Ne pas appeler un élément NULL
 - **B ❌** Supposer que toutes les signatures sont interchangeables
@@ -1520,7 +1520,7 @@ Quelles précautions avec un tableau de pointeurs de fonctions ?
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/70-tableau-de-pointeurs-de-fonctions-choisir-une-operation
 
-**Relecture :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -1528,7 +1528,7 @@ Quelles précautions avec un tableau de pointeurs de fonctions ?
 
 **Une seule bonne réponse**
 
-Que décrit `typedef int (*operation_fn)(int,int);` ?
+Que décrit `typedef int (*operation_fn)(int,int);` ? (Une seule réponse correcte.)
 
 - **A ❌** Une déclaration de tableau automatique
 - **B ❌** Une chaîne de deux int
@@ -1539,7 +1539,7 @@ Que décrit `typedef int (*operation_fn)(int,int);` ?
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/71-typedef-d-un-pointeur-de-fonction-simplifier-les-signatures
 
-**Relecture :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -1547,7 +1547,7 @@ Que décrit `typedef int (*operation_fn)(int,int);` ?
 
 **Une seule bonne réponse**
 
-Pourquoi utiliser `(a>b)-(a<b)` comme comparateur d'int pour qsort ?
+Pourquoi utiliser `(a>b)-(a<b)` comme comparateur d'int pour qsort ? (Une seule réponse correcte.)
 
 - **A ✅** Éviter le débordement possible de `a-b`
 - **B ❌** Garantir que qsort est stable
@@ -1558,7 +1558,7 @@ Pourquoi utiliser `(a>b)-(a<b)` comme comparateur d'int pour qsort ?
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/72-qsort-comparateur-passe-par-pointeur-de-fonction
 
-**Relecture :** ☐ validée ☐ ambiguë ☐ à corriger ☐ rejetée
+**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
