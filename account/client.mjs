@@ -100,7 +100,7 @@ async function loadFromAccount(){
  if(!me.authenticated||!remote.data)return;
  if(!confirm('Remplacer la progression quiz de cet appareil par celle du compte ? Exporte d’abord l’historique invité si tu souhaites le conserver.'))return;
  if(!confirm('Confirmer le remplacement local (sans modifier la progression du serveur) ?'))return;
- reloadQuiz(remote.data);syncOptIn=true;try{localStorage.setItem('holberton-account-sync-v1','yes')}catch{}
+ reloadQuiz(remote.data);enableSync()
  displayConnected();notice('Progression du compte chargée sur cet appareil.');
 }
 async function automaticSync(){
@@ -112,7 +112,7 @@ async function automaticSync(){
   const answer=await api('/api/progress',{method:'PUT',csrf:me.csrf,body:{revision:remote.revision,data:local}});
   remote={revision:answer.revision,data:local,updatedAt:answer.updatedAt};
  }catch(e){
-  if(e.status===409){syncOptIn=false;try{localStorage.removeItem('holberton-account-sync-v1')}catch{};await refreshRemote().catch(()=>{});if(location.hash.startsWith('#compte')){displayConnected();notice('Conflit de synchronisation : aucune donnée distante écrasée. Un choix manuel est nécessaire.',true)}}
+  if(e.status===409){disableSync();await refreshRemote().catch(()=>{});if(location.hash.startsWith('#compte')){displayConnected();notice('Conflit de synchronisation : aucune donnée distante écrasée. Un choix manuel est nécessaire.',true)}}
  }finally{busy=false;if(pendingSync){pendingSync=false;setTimeout(automaticSync,0)}}
 }
 window.addEventListener('holberton:quiz:updated',()=>{
