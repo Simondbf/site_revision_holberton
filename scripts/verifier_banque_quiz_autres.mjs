@@ -16,7 +16,7 @@ for(const file of files){
   assert.ok(['single','multiple'].includes(q.answer_mode),'Mode invalide : '+q.id);
   assert.ok([4,5].includes(q.options?.length),'Quatre ou cinq options attendues : '+q.id);
   assert.deepEqual(q.options.map(o=>o.id),['A','B','C','D','E'].slice(0,q.options.length),'Options incorrectes : '+q.id);
-  assert.equal(new Set(q.options.map(o=>o.text)).size,4,'Options identiques : '+q.id);
+  assert.equal(new Set(q.options.map(o=>o.text)).size,q.options.length,'Options identiques : '+q.id);
   const ans=q.correct_option_ids;
   assert.ok(Array.isArray(ans)&&new Set(ans).size===ans.length,'Corrigé incohérent : '+q.id);
   assert.ok(q.answer_mode==='single'?ans.length===1:ans.length>=2,'Mode incompatible avec les réponses : '+q.id);
