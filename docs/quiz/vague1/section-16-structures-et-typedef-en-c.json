@@ -11,37 +11,37 @@
       "theme": "Structures et typedef en C",
       "notion": "struct : regrouper plusieurs données",
       "answer_mode": "single",
-      "question_type": "definition",
+      "question_type": "reconnaissance_de_notion",
       "prompt": "À quelle notion correspond la définition suivante : « Une struct définit un type composé de membres nommés, éventuellement de types différents. » ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
-          "text": "Tableau de structures"
+          "text": "struct : regrouper plusieurs données"
         },
         {
           "id": "B",
-          "text": "typedef avec structure anonyme"
+          "text": "Accès aux membres avec ."
         },
         {
           "id": "C",
-          "text": "Include guards — protéger les fichiers .h"
+          "text": "Accès par pointeur avec ->"
         },
         {
           "id": "D",
-          "text": "struct : regrouper plusieurs données"
+          "text": "Initialiser une struct avec { }"
         }
       ],
       "correct_option_ids": [
-        "D"
+        "A"
       ],
-      "explanation": "La définition est extraite du résumé de la fiche correspondante.",
+      "explanation": "L'énoncé décrit précisément cette notion ; les autres propositions renvoient à des mécanismes voisins du même domaine.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/structures-et-typedef-en-c/1-struct-regrouper-plusieurs-donnees"
       ],
       "review_status": "a_verifier",
       "review_flags": [
-        "generated_from_course",
-        "check_every_distractor"
+        "decoys_meme_domaine",
+        "relecture_independante_requise"
       ]
     },
     {
@@ -51,39 +51,43 @@
       "theme": "Structures et typedef en C",
       "notion": "struct : regrouper plusieurs données",
       "answer_mode": "multiple",
-      "question_type": "synthese",
-      "prompt": "Quelles affirmations concernent directement « struct : regrouper plusieurs données » ? (Plusieurs réponses correctes.)",
+      "question_type": "analyse_conceptuelle",
+      "prompt": "Concernant « struct : regrouper plusieurs données », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)",
       "options": [
         {
           "id": "A",
-          "text": "strncpy copie au plus n caractères et peut ne pas ajouter '\\0' si la source est trop longue ; la limite ne garantit pas une chaîne C valide."
+          "text": "Une struct définit un type composé de membres nommés, éventuellement de types différents."
         },
         {
           "id": "B",
-          "text": "memcpy copie des octets seulement si source et destination ne se recouvrent pas ; memmove convient lorsque les zones peuvent se chevaucher."
+          "text": "Un type regroupant plusieurs membres"
         },
         {
           "id": "C",
-          "text": "Le nom point est l’étiquette (tag) du type ; les membres sont déclarés dans les accolades. Ne pas oublier le ; final."
+          "text": "Les membres d'une struct doivent tous avoir le même type."
         },
         {
           "id": "D",
-          "text": "Une struct définit un type composé de membres nommés, éventuellement de types différents."
+          "text": "Définir une struct lance automatiquement malloc."
+        },
+        {
+          "id": "E",
+          "text": "Le nom point est l’étiquette (tag) du type ; les membres sont déclarés dans les accolades. Ne pas oublier le ; final."
         }
       ],
       "correct_option_ids": [
-        "C",
-        "D"
+        "A",
+        "B",
+        "E"
       ],
-      "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
+      "explanation": "Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/structures-et-typedef-en-c/1-struct-regrouper-plusieurs-donnees"
       ],
       "review_status": "a_verifier",
       "review_flags": [
-        "generated_from_course",
-        "cross_topic_distractors",
-        "check_possible_ambiguity"
+        "distracteurs_memesujet",
+        "revision_independante_requise"
       ]
     },
     {
@@ -93,37 +97,37 @@
       "theme": "Structures et typedef en C",
       "notion": "struct : type et variable",
       "answer_mode": "single",
-      "question_type": "definition",
+      "question_type": "reconnaissance_de_notion",
       "prompt": "À quelle notion correspond la définition suivante : « « struct chat » nomme un type ; « struct chat felix; » déclare une variable de ce type. » ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
-          "text": "struct : type et variable"
+          "text": "Accès par pointeur avec ->"
         },
         {
           "id": "B",
-          "text": "Modifier une struct via son adresse"
+          "text": "Initialiser une struct avec { }"
         },
         {
           "id": "C",
-          "text": "Documenter une struct pour Betty"
+          "text": "Initialiseurs désignés .membre (C99)"
         },
         {
           "id": "D",
-          "text": "Accès par pointeur avec ->"
+          "text": "struct : type et variable"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
-      "explanation": "La définition est extraite du résumé de la fiche correspondante.",
+      "explanation": "L'énoncé décrit précisément cette notion ; les autres propositions renvoient à des mécanismes voisins du même domaine.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/structures-et-typedef-en-c/2-struct-type-et-variable"
       ],
       "review_status": "a_verifier",
       "review_flags": [
-        "generated_from_course",
-        "check_every_distractor"
+        "decoys_meme_domaine",
+        "relecture_independante_requise"
       ]
     },
     {
@@ -133,39 +137,38 @@
       "theme": "Structures et typedef en C",
       "notion": "struct : type et variable",
       "answer_mode": "multiple",
-      "question_type": "synthese",
-      "prompt": "Quelles affirmations concernent directement « struct : type et variable » ? (Plusieurs réponses correctes.)",
+      "question_type": "analyse_conceptuelle",
+      "prompt": "Concernant « struct : type et variable », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)",
       "options": [
         {
           "id": "A",
-          "text": "« struct chat » nomme un type ; « struct chat felix; » déclare une variable de ce type."
+          "text": "Dans struct chat felix;, felix n'est pas une variable."
         },
         {
           "id": "B",
-          "text": "Reste : 2."
+          "text": "« struct chat » nomme un type ; « struct chat felix; » déclare une variable de ce type."
         },
         {
           "id": "C",
-          "text": "Affiche 87654321 si on affiche i dans le corps."
+          "text": "Le type struct chat n’est pas l’objet felix ; plusieurs objets peuvent partager la même définition."
         },
         {
           "id": "D",
-          "text": "Le type struct chat n’est pas l’objet felix ; plusieurs objets peuvent partager la même définition."
+          "text": "struct chat déclare directement une variable nommée chat."
         }
       ],
       "correct_option_ids": [
-        "A",
-        "D"
+        "B",
+        "C"
       ],
-      "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
+      "explanation": "Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/structures-et-typedef-en-c/2-struct-type-et-variable"
       ],
       "review_status": "a_verifier",
       "review_flags": [
-        "generated_from_course",
-        "cross_topic_distractors",
-        "check_possible_ambiguity"
+        "distracteurs_memesujet",
+        "revision_independante_requise"
       ]
     },
     {
@@ -175,37 +178,37 @@
       "theme": "Structures et typedef en C",
       "notion": "Accès aux membres avec .",
       "answer_mode": "single",
-      "question_type": "definition",
+      "question_type": "reconnaissance_de_notion",
       "prompt": "À quelle notion correspond la définition suivante : « Si p est une variable de type struct point (l’objet lui-même), p.x lit ou modifie son membre x. Le point s’emploie sur l’objet, pas directement sur son adresse. » ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
-          "text": "sizeof(struct) et padding (avancé)"
+          "text": "struct : regrouper plusieurs données"
         },
         {
           "id": "B",
-          "text": "Accès aux membres avec ."
+          "text": "Initialiser une struct avec { }"
         },
         {
           "id": "C",
-          "text": "Include guards — protéger les fichiers .h"
+          "text": "Accès aux membres avec ."
         },
         {
           "id": "D",
-          "text": "Structure imbriquée"
+          "text": "Initialiseurs désignés .membre (C99)"
         }
       ],
       "correct_option_ids": [
-        "B"
+        "C"
       ],
-      "explanation": "La définition est extraite du résumé de la fiche correspondante.",
+      "explanation": "L'énoncé décrit précisément cette notion ; les autres propositions renvoient à des mécanismes voisins du même domaine.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/structures-et-typedef-en-c/3-acces-aux-membres-avec"
       ],
       "review_status": "a_verifier",
       "review_flags": [
-        "generated_from_course",
-        "check_every_distractor"
+        "decoys_meme_domaine",
+        "relecture_independante_requise"
       ]
     },
     {
@@ -215,39 +218,38 @@
       "theme": "Structures et typedef en C",
       "notion": "Accès aux membres avec .",
       "answer_mode": "multiple",
-      "question_type": "synthese",
-      "prompt": "Quelles affirmations concernent directement « Accès aux membres avec . » ? (Plusieurs réponses correctes.)",
+      "question_type": "analyse_conceptuelle",
+      "prompt": "Concernant « Accès aux membres avec . », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)",
       "options": [
         {
           "id": "A",
-          "text": "À retenir : OBJET struct => objet.membre. Ici position est la structure elle-même ; position.x = 7 ne modifie pas position.y. Le point choisit le membre, tandis que = réalise l'affectation."
+          "text": "L'opérateur . s'applique directement à un pointeur de struct."
         },
         {
           "id": "B",
-          "text": "Si p est une variable de type struct point (l’objet lui-même), p.x lit ou modifie son membre x. Le point s’emploie sur l’objet, pas directement sur son adresse."
+          "text": "objet.x désigne nécessairement une adresse NULL."
         },
         {
           "id": "C",
-          "text": "Écraser un fichier avec la sortie / ajouter à la fin."
+          "text": "À retenir : OBJET struct => objet.membre. Ici position est la structure elle-même ; position.x = 7 ne modifie pas position.y. Le point choisit le membre, tandis que = réalise l'affectation."
         },
         {
           "id": "D",
-          "text": "Afficher le dossier actuel / changer de dossier / lister les fichiers."
+          "text": "Si p est une variable de type struct point (l’objet lui-même), p.x lit ou modifie son membre x. Le point s’emploie sur l’objet, pas directement sur son adresse."
         }
       ],
       "correct_option_ids": [
-        "A",
-        "B"
+        "C",
+        "D"
       ],
-      "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
+      "explanation": "Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/structures-et-typedef-en-c/3-acces-aux-membres-avec"
       ],
       "review_status": "a_verifier",
       "review_flags": [
-        "generated_from_course",
-        "cross_topic_distractors",
-        "check_possible_ambiguity"
+        "distracteurs_memesujet",
+        "revision_independante_requise"
       ]
     },
     {
@@ -257,37 +259,37 @@
       "theme": "Structures et typedef en C",
       "notion": "Accès par pointeur avec ->",
       "answer_mode": "single",
-      "question_type": "definition",
+      "question_type": "reconnaissance_de_notion",
       "prompt": "À quelle notion correspond la définition suivante : « Si ptr est un pointeur valide vers une struct, ptr->x accède au membre x de l’objet pointé. La flèche -> équivaut à (*ptr).x, mais n’est pas un signe d’affectation. » ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
-          "text": "Accès par pointeur avec ->"
+          "text": "struct : type et variable"
         },
         {
           "id": "B",
-          "text": "Documenter une struct pour Betty"
+          "text": "Accès par pointeur avec ->"
         },
         {
           "id": "C",
-          "text": "Initialiser une struct avec { }"
+          "text": "Initialiseurs désignés .membre (C99)"
         },
         {
           "id": "D",
-          "text": "typedef : donner un alias à un type"
+          "text": "struct : regrouper plusieurs données"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
-      "explanation": "La définition est extraite du résumé de la fiche correspondante.",
+      "explanation": "L'énoncé décrit précisément cette notion ; les autres propositions renvoient à des mécanismes voisins du même domaine.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/structures-et-typedef-en-c/4-acces-par-pointeur-avec"
       ],
       "review_status": "a_verifier",
       "review_flags": [
-        "generated_from_course",
-        "check_every_distractor"
+        "decoys_meme_domaine",
+        "relecture_independante_requise"
       ]
     },
     {
@@ -297,39 +299,38 @@
       "theme": "Structures et typedef en C",
       "notion": "Accès par pointeur avec ->",
       "answer_mode": "multiple",
-      "question_type": "synthese",
-      "prompt": "Quelles affirmations concernent directement « Accès par pointeur avec -> » ? (Plusieurs réponses correctes.)",
+      "question_type": "analyse_conceptuelle",
+      "prompt": "Concernant « Accès par pointeur avec -> », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)",
       "options": [
         {
           "id": "A",
-          "text": "Si ptr est un pointeur valide vers une struct, ptr->x accède au membre x de l’objet pointé. La flèche -> équivaut à (*ptr).x, mais n’est pas un signe d’affectation."
-        },
-        {
-          "id": "B",
           "text": "Trois expressions pour le MÊME membre : position.x (objet), ptr->x (pointeur) et (*ptr).x (pointeur déréférencé). ptr.x et position->x sont incorrects. -> choisit un membre ; = donne une valeur."
         },
         {
+          "id": "B",
+          "text": "ptr->x est correct lorsque ptr est une struct et non un pointeur."
+        },
+        {
           "id": "C",
-          "text": "Comparaisons."
+          "text": "ptr->x et ptr.x sont toujours équivalents sans tenir compte du type."
         },
         {
           "id": "D",
-          "text": "Une boucle placée dans une autre ; le coût dépend des bornes et du travail effectué."
+          "text": "Si ptr est un pointeur valide vers une struct, ptr->x accède au membre x de l’objet pointé. La flèche -> équivaut à (*ptr).x, mais n’est pas un signe d’affectation."
         }
       ],
       "correct_option_ids": [
         "A",
-        "B"
+        "D"
       ],
-      "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
+      "explanation": "Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/structures-et-typedef-en-c/4-acces-par-pointeur-avec"
       ],
       "review_status": "a_verifier",
       "review_flags": [
-        "generated_from_course",
-        "cross_topic_distractors",
-        "check_possible_ambiguity"
+        "distracteurs_memesujet",
+        "revision_independante_requise"
       ]
     },
     {
@@ -339,37 +340,37 @@
       "theme": "Structures et typedef en C",
       "notion": "Initialiser une struct avec { }",
       "answer_mode": "single",
-      "question_type": "definition",
+      "question_type": "reconnaissance_de_notion",
       "prompt": "À quelle notion correspond la définition suivante : « Une struct peut être initialisée membre par membre dans l’ordre déclaré : struct point p = {2, 3};. » ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
-          "text": "sizeof(struct) et padding (avancé)"
+          "text": "Initialiser une struct avec { }"
         },
         {
           "id": "B",
-          "text": "Copier une struct par affectation"
+          "text": "Accès aux membres avec ."
         },
         {
           "id": "C",
-          "text": "struct : regrouper plusieurs données"
+          "text": "Tableau de structures"
         },
         {
           "id": "D",
-          "text": "Initialiser une struct avec { }"
+          "text": "struct : type et variable"
         }
       ],
       "correct_option_ids": [
-        "D"
+        "A"
       ],
-      "explanation": "La définition est extraite du résumé de la fiche correspondante.",
+      "explanation": "L'énoncé décrit précisément cette notion ; les autres propositions renvoient à des mécanismes voisins du même domaine.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/structures-et-typedef-en-c/5-initialiser-une-struct-avec"
       ],
       "review_status": "a_verifier",
       "review_flags": [
-        "generated_from_course",
-        "check_every_distractor"
+        "decoys_meme_domaine",
+        "relecture_independante_requise"
       ]
     },
     {
@@ -379,8 +380,8 @@
       "theme": "Structures et typedef en C",
       "notion": "Initialiser une struct avec { }",
       "answer_mode": "multiple",
-      "question_type": "synthese",
-      "prompt": "Quelles affirmations concernent directement « Initialiser une struct avec { } » ? (Plusieurs réponses correctes.)",
+      "question_type": "analyse_conceptuelle",
+      "prompt": "Concernant « Initialiser une struct avec { } », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)",
       "options": [
         {
           "id": "A",
@@ -388,30 +389,29 @@
         },
         {
           "id": "B",
-          "text": "Compile en un fichier objet .o, sans édition de liens."
+          "text": "Une struct peut être initialisée membre par membre dans l’ordre déclaré : struct point p = {2, 3};."
         },
         {
           "id": "C",
-          "text": "Dans main, 0 indique une réussite ; dans une autre fonction, 0 et 1 ont le sens défini par cette fonction."
+          "text": "struct point p={2,3} initialise les membres dans l'ordre inverse."
         },
         {
           "id": "D",
-          "text": "Une struct peut être initialisée membre par membre dans l’ordre déclaré : struct point p = {2, 3};."
+          "text": "Une struct ne peut pas être initialisée à la déclaration."
         }
       ],
       "correct_option_ids": [
         "A",
-        "D"
+        "B"
       ],
-      "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
+      "explanation": "Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/structures-et-typedef-en-c/5-initialiser-une-struct-avec"
       ],
       "review_status": "a_verifier",
       "review_flags": [
-        "generated_from_course",
-        "cross_topic_distractors",
-        "check_possible_ambiguity"
+        "distracteurs_memesujet",
+        "revision_independante_requise"
       ]
     },
     {
@@ -421,37 +421,37 @@
       "theme": "Structures et typedef en C",
       "notion": "Initialiseurs désignés .membre (C99)",
       "answer_mode": "single",
-      "question_type": "definition",
+      "question_type": "reconnaissance_de_notion",
       "prompt": "À quelle notion correspond la définition suivante : « Depuis C99, { .age = 7, .id = 3 } permet de choisir les membres par leur nom. » ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
-          "text": "typedef avant la définition d'une struct"
+          "text": "Accès par pointeur avec ->"
         },
         {
           "id": "B",
-          "text": "Initialiser une struct avec { }"
+          "text": "Structure imbriquée"
         },
         {
           "id": "C",
-          "text": "Initialiseurs désignés .membre (C99)"
+          "text": "Accès aux membres avec ."
         },
         {
           "id": "D",
-          "text": "typedef : donner un alias à un type"
+          "text": "Initialiseurs désignés .membre (C99)"
         }
       ],
       "correct_option_ids": [
-        "C"
+        "D"
       ],
-      "explanation": "La définition est extraite du résumé de la fiche correspondante.",
+      "explanation": "L'énoncé décrit précisément cette notion ; les autres propositions renvoient à des mécanismes voisins du même domaine.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/structures-et-typedef-en-c/6-initialiseurs-designes-membre-c99"
       ],
       "review_status": "a_verifier",
       "review_flags": [
-        "generated_from_course",
-        "check_every_distractor"
+        "decoys_meme_domaine",
+        "relecture_independante_requise"
       ]
     },
     {
@@ -461,39 +461,38 @@
       "theme": "Structures et typedef en C",
       "notion": "Initialiseurs désignés .membre (C99)",
       "answer_mode": "multiple",
-      "question_type": "synthese",
-      "prompt": "Quelles affirmations concernent directement « Initialiseurs désignés .membre (C99) » ? (Plusieurs réponses correctes.)",
+      "question_type": "analyse_conceptuelle",
+      "prompt": "Concernant « Initialiseurs désignés .membre (C99) », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)",
       "options": [
         {
           "id": "A",
-          "text": "Depuis C99, { .age = 7, .id = 3 } permet de choisir les membres par leur nom."
+          "text": "Les initialiseurs désignés changent l'ordre des membres en mémoire."
         },
         {
           "id": "B",
-          "text": "Les indices commencent à 0 : a[0] est le premier élément et a[4] le cinquième dans int a[5]."
+          "text": "Depuis C99, { .age = 7, .id = 3 } permet de choisir les membres par leur nom."
         },
         {
           "id": "C",
-          "text": "Suite de caractères stockée notamment dans un tableau de char et terminée par le caractère nul \\0."
+          "text": "Cette syntaxe est C99 et ultérieure ; sous GNU89 strict avec -pedantic-errors, privilégie {3, 7}."
         },
         {
           "id": "D",
-          "text": "Cette syntaxe est C99 et ultérieure ; sous GNU89 strict avec -pedantic-errors, privilégie {3, 7}."
+          "text": "Les initialiseurs .membre sont portables en C89 strict."
         }
       ],
       "correct_option_ids": [
-        "A",
-        "D"
+        "B",
+        "C"
       ],
-      "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
+      "explanation": "Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/structures-et-typedef-en-c/6-initialiseurs-designes-membre-c99"
       ],
       "review_status": "a_verifier",
       "review_flags": [
-        "generated_from_course",
-        "cross_topic_distractors",
-        "check_possible_ambiguity"
+        "distracteurs_memesujet",
+        "revision_independante_requise"
       ]
     },
     {
@@ -503,16 +502,16 @@
       "theme": "Structures et typedef en C",
       "notion": "Tableau de structures",
       "answer_mode": "single",
-      "question_type": "definition",
+      "question_type": "reconnaissance_de_notion",
       "prompt": "À quelle notion correspond la définition suivante : « Un tableau comme struct point a[2] regroupe plusieurs objets struct, accessibles par a[i].x. » ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
-          "text": "Copier une struct par affectation"
+          "text": "Initialiser une struct avec { }"
         },
         {
           "id": "B",
-          "text": "struct : type et variable"
+          "text": "Copier une struct par affectation"
         },
         {
           "id": "C",
@@ -520,20 +519,20 @@
         },
         {
           "id": "D",
-          "text": "malloc pour une struct"
+          "text": "Accès par pointeur avec ->"
         }
       ],
       "correct_option_ids": [
         "C"
       ],
-      "explanation": "La définition est extraite du résumé de la fiche correspondante.",
+      "explanation": "L'énoncé décrit précisément cette notion ; les autres propositions renvoient à des mécanismes voisins du même domaine.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/structures-et-typedef-en-c/7-tableau-de-structures"
       ],
       "review_status": "a_verifier",
       "review_flags": [
-        "generated_from_course",
-        "check_every_distractor"
+        "decoys_meme_domaine",
+        "relecture_independante_requise"
       ]
     },
     {
@@ -543,39 +542,38 @@
       "theme": "Structures et typedef en C",
       "notion": "Tableau de structures",
       "answer_mode": "multiple",
-      "question_type": "synthese",
-      "prompt": "Quelles affirmations concernent directement « Tableau de structures » ? (Plusieurs réponses correctes.)",
+      "question_type": "analyse_conceptuelle",
+      "prompt": "Concernant « Tableau de structures », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)",
       "options": [
         {
           "id": "A",
-          "text": "Memcheck distingue les accès Invalid read/write, les valeurs non initialisées, les libérations invalides et plusieurs catégories de fuites."
+          "text": "Un tableau de struct contient nécessairement des pointeurs alloués séparément."
         },
         {
           "id": "B",
-          "text": "Un tableau comme struct point a[2] regroupe plusieurs objets struct, accessibles par a[i].x."
+          "text": "a[1].x ne peut pas accéder à un membre de struct."
         },
         {
           "id": "C",
-          "text": "a[1] est la deuxième structure du tableau, pas le deuxième membre de la première."
+          "text": "Un tableau comme struct point a[2] regroupe plusieurs objets struct, accessibles par a[i].x."
         },
         {
           "id": "D",
-          "text": "Un segfault (souvent signalé par « Segmentation fault ») est un arrêt causé par un accès mémoire interdit ; un comportement indéfini en C ne provoque cependant pas toujours ce signal."
+          "text": "a[1] est la deuxième structure du tableau, pas le deuxième membre de la première."
         }
       ],
       "correct_option_ids": [
-        "B",
-        "C"
+        "C",
+        "D"
       ],
-      "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
+      "explanation": "Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/structures-et-typedef-en-c/7-tableau-de-structures"
       ],
       "review_status": "a_verifier",
       "review_flags": [
-        "generated_from_course",
-        "cross_topic_distractors",
-        "check_possible_ambiguity"
+        "distracteurs_memesujet",
+        "revision_independante_requise"
       ]
     },
     {
@@ -585,37 +583,37 @@
       "theme": "Structures et typedef en C",
       "notion": "Structure imbriquée",
       "answer_mode": "single",
-      "question_type": "definition",
+      "question_type": "reconnaissance_de_notion",
       "prompt": "À quelle notion correspond la définition suivante : « Un membre peut être lui-même une struct : p.position.x traverse deux niveaux. » ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
-          "text": "Structure imbriquée"
+          "text": "Initialiseurs désignés .membre (C99)"
         },
         {
           "id": "B",
-          "text": "typedef struct : nommer une structure"
+          "text": "Structure imbriquée"
         },
         {
           "id": "C",
-          "text": "Initialiser une struct avec { }"
+          "text": "Passer une struct par valeur"
         },
         {
           "id": "D",
-          "text": "Point ou flèche ? Comparer . et ->"
+          "text": "Initialiser une struct avec { }"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
-      "explanation": "La définition est extraite du résumé de la fiche correspondante.",
+      "explanation": "L'énoncé décrit précisément cette notion ; les autres propositions renvoient à des mécanismes voisins du même domaine.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/structures-et-typedef-en-c/8-structure-imbriquee"
       ],
       "review_status": "a_verifier",
       "review_flags": [
-        "generated_from_course",
-        "check_every_distractor"
+        "decoys_meme_domaine",
+        "relecture_independante_requise"
       ]
     },
     {
@@ -625,39 +623,38 @@
       "theme": "Structures et typedef en C",
       "notion": "Structure imbriquée",
       "answer_mode": "multiple",
-      "question_type": "synthese",
-      "prompt": "Quelles affirmations concernent directement « Structure imbriquée » ? (Plusieurs réponses correctes.)",
+      "question_type": "analyse_conceptuelle",
+      "prompt": "Concernant « Structure imbriquée », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)",
       "options": [
         {
           "id": "A",
-          "text": "Un membre peut être lui-même une struct : p.position.x traverse deux niveaux."
-        },
-        {
-          "id": "B",
           "text": "p.position est une structure entière ; p.position.x en extrait un membre."
         },
         {
+          "id": "B",
+          "text": "On ne peut pas accéder à un membre imbriqué avec plusieurs points."
+        },
+        {
           "id": "C",
-          "text": "Résultat entier : 1."
+          "text": "p.position.x désigne nécessairement un pointeur."
         },
         {
           "id": "D",
-          "text": "Affiche 876543210 si on affiche i dans le corps."
+          "text": "Un membre peut être lui-même une struct : p.position.x traverse deux niveaux."
         }
       ],
       "correct_option_ids": [
         "A",
-        "B"
+        "D"
       ],
-      "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
+      "explanation": "Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/structures-et-typedef-en-c/8-structure-imbriquee"
       ],
       "review_status": "a_verifier",
       "review_flags": [
-        "generated_from_course",
-        "cross_topic_distractors",
-        "check_possible_ambiguity"
+        "distracteurs_memesujet",
+        "revision_independante_requise"
       ]
     },
     {
@@ -667,37 +664,37 @@
       "theme": "Structures et typedef en C",
       "notion": "Copier une struct par affectation",
       "answer_mode": "single",
-      "question_type": "definition",
-      "prompt": "À quelle notion correspond la définition suivante : « Entre deux objets compatibles du même type struct, b = a copie la valeur de tous les membres. » ? (Une seule réponse correcte.)",
+      "question_type": "reconnaissance_de_notion",
+      "prompt": "Quelle notion décrit l'affectation `b = a;` entre deux objets compatibles d'un même type struct ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
-          "text": "struct : type et variable"
+          "text": "Copier une struct par affectation"
         },
         {
           "id": "B",
-          "text": "Structure autoréférentielle (avancé)"
+          "text": "Tableau de structures"
         },
         {
           "id": "C",
-          "text": "Passer une struct par valeur"
+          "text": "Modifier une struct via son adresse"
         },
         {
           "id": "D",
-          "text": "Copier une struct par affectation"
+          "text": "Initialiseurs désignés .membre (C99)"
         }
       ],
       "correct_option_ids": [
-        "D"
+        "A"
       ],
-      "explanation": "La définition est extraite du résumé de la fiche correspondante.",
+      "explanation": "L'énoncé décrit précisément cette notion ; les autres propositions renvoient à des mécanismes voisins du même domaine.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/structures-et-typedef-en-c/9-copier-une-struct-par-affectation"
       ],
       "review_status": "a_verifier",
       "review_flags": [
-        "generated_from_course",
-        "check_every_distractor"
+        "decoys_meme_domaine",
+        "relecture_independante_requise"
       ]
     },
     {
@@ -707,8 +704,8 @@
       "theme": "Structures et typedef en C",
       "notion": "Copier une struct par affectation",
       "answer_mode": "multiple",
-      "question_type": "synthese",
-      "prompt": "Quelles affirmations concernent directement « Copier une struct par affectation » ? (Plusieurs réponses correctes.)",
+      "question_type": "analyse_conceptuelle",
+      "prompt": "Concernant « Copier une struct par affectation », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)",
       "options": [
         {
           "id": "A",
@@ -716,30 +713,29 @@
         },
         {
           "id": "B",
-          "text": "Entrée standard (0) / sortie standard (1) / erreurs (2)."
+          "text": "Entre deux objets compatibles du même type struct, b = a copie la valeur de tous les membres."
         },
         {
           "id": "C",
-          "text": "Dépend du répertoire actuel."
+          "text": "b=a entre deux struct compatibles alloue une copie sur le tas."
         },
         {
           "id": "D",
-          "text": "Entre deux objets compatibles du même type struct, b = a copie la valeur de tous les membres."
+          "text": "La copie de struct duplique en profondeur la mémoire désignée par ses pointeurs membres."
         }
       ],
       "correct_option_ids": [
         "A",
-        "D"
+        "B"
       ],
-      "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
+      "explanation": "Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/structures-et-typedef-en-c/9-copier-une-struct-par-affectation"
       ],
       "review_status": "a_verifier",
       "review_flags": [
-        "generated_from_course",
-        "cross_topic_distractors",
-        "check_possible_ambiguity"
+        "distracteurs_memesujet",
+        "revision_independante_requise"
       ]
     },
     {
@@ -749,16 +745,16 @@
       "theme": "Structures et typedef en C",
       "notion": "Passer une struct par valeur",
       "answer_mode": "single",
-      "question_type": "definition",
-      "prompt": "À quelle notion correspond la définition suivante : « Une fonction qui reçoit struct point p obtient une copie : modifier p.x ne change pas l’objet initial. » ? (Une seule réponse correcte.)",
+      "question_type": "reconnaissance_de_notion",
+      "prompt": "Quelle notion correspond au passage d'une copie de struct à un paramètre `struct point p` ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
-          "text": "Passer une struct par valeur"
+          "text": "Structure imbriquée"
         },
         {
           "id": "B",
-          "text": "typedef avec structure anonyme"
+          "text": "Tableau de structures"
         },
         {
           "id": "C",
@@ -766,20 +762,20 @@
         },
         {
           "id": "D",
-          "text": "Point ou flèche ? Comparer . et ->"
+          "text": "Passer une struct par valeur"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
-      "explanation": "La définition est extraite du résumé de la fiche correspondante.",
+      "explanation": "L'énoncé décrit précisément cette notion ; les autres propositions renvoient à des mécanismes voisins du même domaine.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/structures-et-typedef-en-c/10-passer-une-struct-par-valeur"
       ],
       "review_status": "a_verifier",
       "review_flags": [
-        "generated_from_course",
-        "check_every_distractor"
+        "decoys_meme_domaine",
+        "relecture_independante_requise"
       ]
     },
     {
@@ -789,39 +785,38 @@
       "theme": "Structures et typedef en C",
       "notion": "Passer une struct par valeur",
       "answer_mode": "multiple",
-      "question_type": "synthese",
-      "prompt": "Quelles affirmations concernent directement « Passer une struct par valeur » ? (Plusieurs réponses correctes.)",
+      "question_type": "analyse_conceptuelle",
+      "prompt": "Concernant « Passer une struct par valeur », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)",
       "options": [
         {
           "id": "A",
-          "text": "Égalité / différence. Attention à ne pas confondre = et ==."
+          "text": "Toute struct est passée implicitement par pointeur."
         },
         {
           "id": "B",
-          "text": "0 est faux ; toute valeur différente de 0 est vraie dans une condition."
-        },
-        {
-          "id": "C",
           "text": "Une fonction qui reçoit struct point p obtient une copie : modifier p.x ne change pas l’objet initial."
         },
         {
-          "id": "D",
+          "id": "C",
           "text": "Passer une struct par valeur ne permet pas de modifier directement ses membres dans l’objet de l’appelant."
+        },
+        {
+          "id": "D",
+          "text": "Modifier un paramètre struct passé par valeur modifie directement l'objet de l'appelant."
         }
       ],
       "correct_option_ids": [
-        "C",
-        "D"
+        "B",
+        "C"
       ],
-      "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
+      "explanation": "Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/structures-et-typedef-en-c/10-passer-une-struct-par-valeur"
       ],
       "review_status": "a_verifier",
       "review_flags": [
-        "generated_from_course",
-        "cross_topic_distractors",
-        "check_possible_ambiguity"
+        "distracteurs_memesujet",
+        "revision_independante_requise"
       ]
     },
     {
@@ -831,16 +826,16 @@
       "theme": "Structures et typedef en C",
       "notion": "Modifier une struct via son adresse",
       "answer_mode": "single",
-      "question_type": "definition",
+      "question_type": "reconnaissance_de_notion",
       "prompt": "À quelle notion correspond la définition suivante : « En passant struct point *p à une fonction, celle-ci peut modifier l’objet de l’appelant via p->x. » ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
-          "text": "Structure autoréférentielle (avancé)"
+          "text": "Copier une struct par affectation"
         },
         {
           "id": "B",
-          "text": "Passer une struct par valeur"
+          "text": "Structure imbriquée"
         },
         {
           "id": "C",
@@ -848,20 +843,20 @@
         },
         {
           "id": "D",
-          "text": "Accès aux membres avec ."
+          "text": "Tableau de structures"
         }
       ],
       "correct_option_ids": [
         "C"
       ],
-      "explanation": "La définition est extraite du résumé de la fiche correspondante.",
+      "explanation": "L'énoncé décrit précisément cette notion ; les autres propositions renvoient à des mécanismes voisins du même domaine.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/structures-et-typedef-en-c/11-modifier-une-struct-via-son-adresse"
       ],
       "review_status": "a_verifier",
       "review_flags": [
-        "generated_from_course",
-        "check_every_distractor"
+        "decoys_meme_domaine",
+        "relecture_independante_requise"
       ]
     },
     {
@@ -871,39 +866,38 @@
       "theme": "Structures et typedef en C",
       "notion": "Modifier une struct via son adresse",
       "answer_mode": "multiple",
-      "question_type": "synthese",
-      "prompt": "Quelles affirmations concernent directement « Modifier une struct via son adresse » ? (Plusieurs réponses correctes.)",
+      "question_type": "analyse_conceptuelle",
+      "prompt": "Concernant « Modifier une struct via son adresse », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)",
       "options": [
         {
           "id": "A",
-          "text": "Distinguer « p » (l’adresse de la structure), « p->x » (le membre de la structure) et « nouvelle_valeur » (le paramètre reçu). La fonction n’a pas besoin de connaître le nom « point » utilisé dans main."
+          "text": "Passer &objet à une fonction empêche la modification de ses membres."
         },
         {
           "id": "B",
-          "text": "char représente un petit entier utilisé notamment pour les caractères ; 'A' est une constante de caractère."
+          "text": "L'opérateur -> est réservé aux membres globaux."
         },
         {
           "id": "C",
-          "text": "En passant struct point *p à une fonction, celle-ci peut modifier l’objet de l’appelant via p->x."
+          "text": "Distinguer « p » (l’adresse de la structure), « p->x » (le membre de la structure) et « nouvelle_valeur » (le paramètre reçu). La fonction n’a pas besoin de connaître le nom « point » utilisé dans main."
         },
         {
           "id": "D",
-          "text": "Compile vers un fichier assembleur .s, sans assembler ni effectuer l’édition de liens."
+          "text": "En passant struct point *p à une fonction, celle-ci peut modifier l’objet de l’appelant via p->x."
         }
       ],
       "correct_option_ids": [
-        "A",
-        "C"
+        "C",
+        "D"
       ],
-      "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
+      "explanation": "Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/structures-et-typedef-en-c/11-modifier-une-struct-via-son-adresse"
       ],
       "review_status": "a_verifier",
       "review_flags": [
-        "generated_from_course",
-        "cross_topic_distractors",
-        "check_possible_ambiguity"
+        "distracteurs_memesujet",
+        "revision_independante_requise"
       ]
     },
     {
@@ -913,37 +907,37 @@
       "theme": "Structures et typedef en C",
       "notion": "typedef : donner un alias à un type",
       "answer_mode": "single",
-      "question_type": "definition",
+      "question_type": "reconnaissance_de_notion",
       "prompt": "À quelle notion correspond la définition suivante : « typedef unsigned int identifiant; permet d’écrire identifiant à la place de unsigned int. » ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
-          "text": "Include guards — protéger les fichiers .h"
-        },
-        {
-          "id": "B",
           "text": "typedef avec structure anonyme"
         },
         {
-          "id": "C",
+          "id": "B",
           "text": "typedef : donner un alias à un type"
         },
         {
+          "id": "C",
+          "text": "sizeof(struct) et padding (avancé)"
+        },
+        {
           "id": "D",
-          "text": "Tableau de structures"
+          "text": "malloc pour une struct"
         }
       ],
       "correct_option_ids": [
-        "C"
+        "B"
       ],
-      "explanation": "La définition est extraite du résumé de la fiche correspondante.",
+      "explanation": "L'énoncé décrit précisément cette notion ; les autres propositions renvoient à des mécanismes voisins du même domaine.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/structures-et-typedef-en-c/12-typedef-donner-un-alias-a-un-type"
       ],
       "review_status": "a_verifier",
       "review_flags": [
-        "generated_from_course",
-        "check_every_distractor"
+        "decoys_meme_domaine",
+        "relecture_independante_requise"
       ]
     },
     {
@@ -953,39 +947,38 @@
       "theme": "Structures et typedef en C",
       "notion": "typedef : donner un alias à un type",
       "answer_mode": "multiple",
-      "question_type": "synthese",
-      "prompt": "Quelles affirmations concernent directement « typedef : donner un alias à un type » ? (Plusieurs réponses correctes.)",
+      "question_type": "analyse_conceptuelle",
+      "prompt": "Concernant « typedef : donner un alias à un type », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)",
       "options": [
         {
           "id": "A",
-          "text": "typedef unsigned int identifiant; permet d’écrire identifiant à la place de unsigned int."
-        },
-        {
-          "id": "B",
-          "text": "Zone contiguë de mémoire contenant plusieurs éléments de même type : int a[5]; réserve 5 entiers."
-        },
-        {
-          "id": "C",
           "text": "Un typedef crée un nom de type, pas une variable : identifiant id; déclare l’objet id."
         },
         {
+          "id": "B",
+          "text": "typedef unsigned int identifiant crée un type incompatible avec unsigned int."
+        },
+        {
+          "id": "C",
+          "text": "typedef modifie la représentation mémoire du type."
+        },
+        {
           "id": "D",
-          "text": "Pour un tableau a, a[2] désigne le même élément que *(a + 2)."
+          "text": "typedef unsigned int identifiant; permet d’écrire identifiant à la place de unsigned int."
         }
       ],
       "correct_option_ids": [
         "A",
-        "C"
+        "D"
       ],
-      "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
+      "explanation": "Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/structures-et-typedef-en-c/12-typedef-donner-un-alias-a-un-type"
       ],
       "review_status": "a_verifier",
       "review_flags": [
-        "generated_from_course",
-        "cross_topic_distractors",
-        "check_possible_ambiguity"
+        "distracteurs_memesujet",
+        "revision_independante_requise"
       ]
     },
     {
@@ -995,37 +988,37 @@
       "theme": "Structures et typedef en C",
       "notion": "typedef struct : nommer une structure",
       "answer_mode": "single",
-      "question_type": "definition",
+      "question_type": "reconnaissance_de_notion",
       "prompt": "À quelle notion correspond la définition suivante : « typedef struct animal { int age; } animal_t; rend le type utilisable sous le nom animal_t. » ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
-          "text": "Documenter une struct pour Betty"
+          "text": "typedef struct : nommer une structure"
         },
         {
           "id": "B",
-          "text": "Accès par pointeur avec ->"
+          "text": "sizeof(struct) et padding (avancé)"
         },
         {
           "id": "C",
-          "text": "Passer une struct par valeur"
+          "text": "malloc pour une struct"
         },
         {
           "id": "D",
-          "text": "typedef struct : nommer une structure"
+          "text": "Structure autoréférentielle (avancé)"
         }
       ],
       "correct_option_ids": [
-        "D"
+        "A"
       ],
-      "explanation": "La définition est extraite du résumé de la fiche correspondante.",
+      "explanation": "L'énoncé décrit précisément cette notion ; les autres propositions renvoient à des mécanismes voisins du même domaine.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/structures-et-typedef-en-c/13-typedef-struct-nommer-une-structure"
       ],
       "review_status": "a_verifier",
       "review_flags": [
-        "generated_from_course",
-        "check_every_distractor"
+        "decoys_meme_domaine",
+        "relecture_independante_requise"
       ]
     },
     {
@@ -1035,39 +1028,43 @@
       "theme": "Structures et typedef en C",
       "notion": "typedef struct : nommer une structure",
       "answer_mode": "multiple",
-      "question_type": "synthese",
-      "prompt": "Quelles affirmations concernent directement « typedef struct : nommer une structure » ? (Plusieurs réponses correctes.)",
+      "question_type": "analyse_conceptuelle",
+      "prompt": "Concernant « typedef struct : nommer une structure », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)",
       "options": [
         {
           "id": "A",
-          "text": "Le ; après le } est obligatoire. struct animal et animal_t désignent le même type ; animal_t a; crée une variable."
+          "text": "typedef struct animal {...} animal_t déclare automatiquement un objet animal_t."
         },
         {
           "id": "B",
-          "text": "Avant malloc(n * sizeof *p), vérifier que n ne dépasse pas la capacité de size_t divisée par sizeof *p afin d'éviter une allocation trop petite."
+          "text": "Les membres de struct cessent d'exister après typedef."
         },
         {
           "id": "C",
-          "text": "realloc peut agrandir ou réduire un bloc de mémoire alloué ; employer un pointeur temporaire évite de perdre l’ancien bloc en cas d’échec."
+          "text": "Le ; après le } est obligatoire. struct animal et animal_t désignent le même type ; animal_t a; crée une variable."
         },
         {
           "id": "D",
           "text": "typedef struct animal { int age; } animal_t; rend le type utilisable sous le nom animal_t."
+        },
+        {
+          "id": "E",
+          "text": "Utiliser point_t comme alias du type struct point"
         }
       ],
       "correct_option_ids": [
-        "A",
-        "D"
+        "C",
+        "D",
+        "E"
       ],
-      "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
+      "explanation": "Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/structures-et-typedef-en-c/13-typedef-struct-nommer-une-structure"
       ],
       "review_status": "a_verifier",
       "review_flags": [
-        "generated_from_course",
-        "cross_topic_distractors",
-        "check_possible_ambiguity"
+        "distracteurs_memesujet",
+        "revision_independante_requise"
       ]
     },
     {
@@ -1077,37 +1074,37 @@
       "theme": "Structures et typedef en C",
       "notion": "typedef avec structure anonyme",
       "answer_mode": "single",
-      "question_type": "definition",
+      "question_type": "reconnaissance_de_notion",
       "prompt": "À quelle notion correspond la définition suivante : « typedef struct { int x; int y; } point_t; crée un alias pour une struct sans étiquette. » ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
-          "text": "typedef avec structure anonyme"
+          "text": "typedef : donner un alias à un type"
         },
         {
           "id": "B",
-          "text": "sizeof(struct) et padding (avancé)"
+          "text": "malloc pour une struct"
         },
         {
           "id": "C",
-          "text": "struct : regrouper plusieurs données"
+          "text": "Structure autoréférentielle (avancé)"
         },
         {
           "id": "D",
-          "text": "Tableau de structures"
+          "text": "typedef avec structure anonyme"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
-      "explanation": "La définition est extraite du résumé de la fiche correspondante.",
+      "explanation": "L'énoncé décrit précisément cette notion ; les autres propositions renvoient à des mécanismes voisins du même domaine.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/structures-et-typedef-en-c/14-typedef-avec-structure-anonyme"
       ],
       "review_status": "a_verifier",
       "review_flags": [
-        "generated_from_course",
-        "check_every_distractor"
+        "decoys_meme_domaine",
+        "relecture_independante_requise"
       ]
     },
     {
@@ -1117,39 +1114,38 @@
       "theme": "Structures et typedef en C",
       "notion": "typedef avec structure anonyme",
       "answer_mode": "multiple",
-      "question_type": "synthese",
-      "prompt": "Quelles affirmations concernent directement « typedef avec structure anonyme » ? (Plusieurs réponses correctes.)",
+      "question_type": "analyse_conceptuelle",
+      "prompt": "Concernant « typedef avec structure anonyme », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)",
       "options": [
         {
           "id": "A",
-          "text": "typedef struct { int x; int y; } point_t; crée un alias pour une struct sans étiquette."
+          "text": "point_t p exige le préfixe struct."
         },
         {
           "id": "B",
-          "text": "Retirer 1, puis utiliser la nouvelle valeur."
+          "text": "typedef struct { int x; int y; } point_t; crée un alias pour une struct sans étiquette."
         },
         {
           "id": "C",
-          "text": "Conserve les deux derniers chiffres d’un entier positif."
+          "text": "point_t est l’alias ; struct point_t n’est pas un nom de type valide dans cet exemple."
         },
         {
           "id": "D",
-          "text": "point_t est l’alias ; struct point_t n’est pas un nom de type valide dans cet exemple."
+          "text": "Un typedef de struct anonyme crée une étiquette struct point_t."
         }
       ],
       "correct_option_ids": [
-        "A",
-        "D"
+        "B",
+        "C"
       ],
-      "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
+      "explanation": "Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/structures-et-typedef-en-c/14-typedef-avec-structure-anonyme"
       ],
       "review_status": "a_verifier",
       "review_flags": [
-        "generated_from_course",
-        "cross_topic_distractors",
-        "check_possible_ambiguity"
+        "distracteurs_memesujet",
+        "revision_independante_requise"
       ]
     },
     {
@@ -1159,37 +1155,37 @@
       "theme": "Structures et typedef en C",
       "notion": "sizeof(struct) et padding (avancé)",
       "answer_mode": "single",
-      "question_type": "definition",
+      "question_type": "reconnaissance_de_notion",
       "prompt": "À quelle notion correspond la définition suivante : « sizeof(struct T) inclut les membres et d’éventuels octets de remplissage liés à l’alignement. » ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
-          "text": "Accès par pointeur avec ->"
+          "text": "typedef struct : nommer une structure"
         },
         {
           "id": "B",
-          "text": "sizeof(struct) et padding (avancé)"
+          "text": "Structure autoréférentielle (avancé)"
         },
         {
           "id": "C",
-          "text": "typedef avant la définition d'une struct"
+          "text": "sizeof(struct) et padding (avancé)"
         },
         {
           "id": "D",
-          "text": "Modifier une struct via son adresse"
+          "text": "typedef : donner un alias à un type"
         }
       ],
       "correct_option_ids": [
-        "B"
+        "C"
       ],
-      "explanation": "La définition est extraite du résumé de la fiche correspondante.",
+      "explanation": "L'énoncé décrit précisément cette notion ; les autres propositions renvoient à des mécanismes voisins du même domaine.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/structures-et-typedef-en-c/15-sizeof-struct-et-padding-avance"
       ],
       "review_status": "a_verifier",
       "review_flags": [
-        "generated_from_course",
-        "check_every_distractor"
+        "decoys_meme_domaine",
+        "relecture_independante_requise"
       ]
     },
     {
@@ -1199,39 +1195,38 @@
       "theme": "Structures et typedef en C",
       "notion": "sizeof(struct) et padding (avancé)",
       "answer_mode": "multiple",
-      "question_type": "synthese",
-      "prompt": "Quelles affirmations concernent directement « sizeof(struct) et padding (avancé) » ? (Plusieurs réponses correctes.)",
+      "question_type": "analyse_conceptuelle",
+      "prompt": "Concernant « sizeof(struct) et padding (avancé) », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)",
       "options": [
         {
           "id": "A",
-          "text": "Cette fiche est avancée et facultative. sizeof(struct) et offsetof permettent de constater la disposition réelle sans présumer de la taille de int."
+          "text": "sizeof(struct T) est toujours la somme exacte des tailles des membres."
         },
         {
           "id": "B",
-          "text": "Changer les permissions / propriétaire / utiliser des privilèges élevés."
+          "text": "Le padding ne peut apparaître qu'avant le premier membre."
         },
         {
           "id": "C",
-          "text": "sizeof(struct T) inclut les membres et d’éventuels octets de remplissage liés à l’alignement."
+          "text": "Cette fiche est avancée et facultative. sizeof(struct) et offsetof permettent de constater la disposition réelle sans présumer de la taille de int."
         },
         {
           "id": "D",
-          "text": "Part de /, indépendamment du répertoire actuel."
+          "text": "sizeof(struct T) inclut les membres et d’éventuels octets de remplissage liés à l’alignement."
         }
       ],
       "correct_option_ids": [
-        "A",
-        "C"
+        "C",
+        "D"
       ],
-      "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
+      "explanation": "Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/structures-et-typedef-en-c/15-sizeof-struct-et-padding-avance"
       ],
       "review_status": "a_verifier",
       "review_flags": [
-        "generated_from_course",
-        "cross_topic_distractors",
-        "check_possible_ambiguity"
+        "distracteurs_memesujet",
+        "revision_independante_requise"
       ]
     },
     {
@@ -1241,37 +1236,37 @@
       "theme": "Structures et typedef en C",
       "notion": "malloc pour une struct",
       "answer_mode": "single",
-      "question_type": "definition",
+      "question_type": "reconnaissance_de_notion",
       "prompt": "À quelle notion correspond la définition suivante : « malloc(sizeof *p) réserve assez d’octets pour un objet du type struct pointé par p. » ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
-          "text": "Structure imbriquée"
+          "text": "typedef avec structure anonyme"
         },
         {
           "id": "B",
-          "text": "struct : regrouper plusieurs données"
-        },
-        {
-          "id": "C",
           "text": "malloc pour une struct"
         },
         {
+          "id": "C",
+          "text": "Documenter une struct pour Betty"
+        },
+        {
           "id": "D",
-          "text": "sizeof(struct) et padding (avancé)"
+          "text": "typedef struct : nommer une structure"
         }
       ],
       "correct_option_ids": [
-        "C"
+        "B"
       ],
-      "explanation": "La définition est extraite du résumé de la fiche correspondante.",
+      "explanation": "L'énoncé décrit précisément cette notion ; les autres propositions renvoient à des mécanismes voisins du même domaine.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/structures-et-typedef-en-c/16-malloc-pour-une-struct"
       ],
       "review_status": "a_verifier",
       "review_flags": [
-        "generated_from_course",
-        "check_every_distractor"
+        "decoys_meme_domaine",
+        "relecture_independante_requise"
       ]
     },
     {
@@ -1281,39 +1276,43 @@
       "theme": "Structures et typedef en C",
       "notion": "malloc pour une struct",
       "answer_mode": "multiple",
-      "question_type": "synthese",
-      "prompt": "Quelles affirmations concernent directement « malloc pour une struct » ? (Plusieurs réponses correctes.)",
+      "question_type": "analyse_conceptuelle",
+      "prompt": "Concernant « malloc pour une struct », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)",
       "options": [
         {
           "id": "A",
-          "text": "Choisir une branche selon des conditions."
-        },
-        {
-          "id": "B",
-          "text": "Vérifier malloc et initialiser les membres ; free libère ce bloc, pas automatiquement les allocations éventuellement pointées par ses membres."
-        },
-        {
-          "id": "C",
           "text": "malloc(sizeof *p) réserve assez d’octets pour un objet du type struct pointé par p."
         },
         {
+          "id": "B",
+          "text": "p = malloc(sizeof *p);"
+        },
+        {
+          "id": "C",
+          "text": "malloc(sizeof p) et malloc(sizeof *p) sont toujours égaux pour un struct *p."
+        },
+        {
           "id": "D",
-          "text": "Un passage dans une boucle."
+          "text": "malloc(sizeof *p) initialise automatiquement tous les membres."
+        },
+        {
+          "id": "E",
+          "text": "Vérifier malloc et initialiser les membres ; free libère ce bloc, pas automatiquement les allocations éventuellement pointées par ses membres."
         }
       ],
       "correct_option_ids": [
+        "A",
         "B",
-        "C"
+        "E"
       ],
-      "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
+      "explanation": "Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/structures-et-typedef-en-c/16-malloc-pour-une-struct"
       ],
       "review_status": "a_verifier",
       "review_flags": [
-        "generated_from_course",
-        "cross_topic_distractors",
-        "check_possible_ambiguity"
+        "distracteurs_memesujet",
+        "revision_independante_requise"
       ]
     },
     {
@@ -1323,37 +1322,37 @@
       "theme": "Structures et typedef en C",
       "notion": "Structure autoréférentielle (avancé)",
       "answer_mode": "single",
-      "question_type": "definition",
+      "question_type": "reconnaissance_de_notion",
       "prompt": "À quelle notion correspond la définition suivante : « Une struct peut contenir un pointeur vers son propre type, par exemple struct noeud *suivant. » ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
-          "text": "typedef avant la définition d'une struct"
+          "text": "Structure autoréférentielle (avancé)"
         },
         {
           "id": "B",
-          "text": "Initialiser une struct avec { }"
+          "text": "sizeof(struct) et padding (avancé)"
         },
         {
           "id": "C",
-          "text": "typedef : donner un alias à un type"
+          "text": "typedef avant la définition d'une struct"
         },
         {
           "id": "D",
-          "text": "Structure autoréférentielle (avancé)"
+          "text": "typedef avec structure anonyme"
         }
       ],
       "correct_option_ids": [
-        "D"
+        "A"
       ],
-      "explanation": "La définition est extraite du résumé de la fiche correspondante.",
+      "explanation": "L'énoncé décrit précisément cette notion ; les autres propositions renvoient à des mécanismes voisins du même domaine.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/structures-et-typedef-en-c/17-structure-autoreferentielle-avance"
       ],
       "review_status": "a_verifier",
       "review_flags": [
-        "generated_from_course",
-        "check_every_distractor"
+        "decoys_meme_domaine",
+        "relecture_independante_requise"
       ]
     },
     {
@@ -1363,39 +1362,38 @@
       "theme": "Structures et typedef en C",
       "notion": "Structure autoréférentielle (avancé)",
       "answer_mode": "multiple",
-      "question_type": "synthese",
-      "prompt": "Quelles affirmations concernent directement « Structure autoréférentielle (avancé) » ? (Plusieurs réponses correctes.)",
+      "question_type": "analyse_conceptuelle",
+      "prompt": "Concernant « Structure autoréférentielle (avancé) », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)",
       "options": [
         {
           "id": "A",
-          "text": "Arrête la chaîne de compilation après le préprocesseur : le résultat est du code source prétraité."
-        },
-        {
-          "id": "B",
-          "text": "float et double représentent des nombres à virgule flottante, souvent avec une précision limitée."
-        },
-        {
-          "id": "C",
           "text": "La présence d’un pointeur vers le même type ne crée pas automatiquement un autre nœud : NULL indique ici l’absence de suivant."
         },
         {
-          "id": "D",
+          "id": "B",
           "text": "Une struct peut contenir un pointeur vers son propre type, par exemple struct noeud *suivant."
+        },
+        {
+          "id": "C",
+          "text": "Une struct peut contenir directement un membre de son propre type complet par valeur."
+        },
+        {
+          "id": "D",
+          "text": "struct noeud *suivant doit obligatoirement pointer sur lui-même."
         }
       ],
       "correct_option_ids": [
-        "C",
-        "D"
+        "A",
+        "B"
       ],
-      "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
+      "explanation": "Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/structures-et-typedef-en-c/17-structure-autoreferentielle-avance"
       ],
       "review_status": "a_verifier",
       "review_flags": [
-        "generated_from_course",
-        "cross_topic_distractors",
-        "check_possible_ambiguity"
+        "distracteurs_memesujet",
+        "revision_independante_requise"
       ]
     },
     {
@@ -1405,37 +1403,37 @@
       "theme": "Structures et typedef en C",
       "notion": "Documenter une struct pour Betty",
       "answer_mode": "single",
-      "question_type": "definition",
+      "question_type": "reconnaissance_de_notion",
       "prompt": "À quelle notion correspond la définition suivante : « La convention Betty demande une documentation de la structure et de ses membres : nom, description et annotations @membre. » ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
-          "text": "Documenter une struct pour Betty"
+          "text": "malloc pour une struct"
         },
         {
           "id": "B",
-          "text": "struct : type et variable"
+          "text": "Point ou flèche ? Comparer . et ->"
         },
         {
           "id": "C",
-          "text": "Copier une struct par affectation"
+          "text": "sizeof(struct) et padding (avancé)"
         },
         {
           "id": "D",
-          "text": "sizeof(struct) et padding (avancé)"
+          "text": "Documenter une struct pour Betty"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "D"
       ],
-      "explanation": "La définition est extraite du résumé de la fiche correspondante.",
+      "explanation": "L'énoncé décrit précisément cette notion ; les autres propositions renvoient à des mécanismes voisins du même domaine.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/structures-et-typedef-en-c/18-documenter-une-struct-pour-betty"
       ],
       "review_status": "a_verifier",
       "review_flags": [
-        "generated_from_course",
-        "check_every_distractor"
+        "decoys_meme_domaine",
+        "relecture_independante_requise"
       ]
     },
     {
@@ -1445,39 +1443,38 @@
       "theme": "Structures et typedef en C",
       "notion": "Documenter une struct pour Betty",
       "answer_mode": "multiple",
-      "question_type": "synthese",
-      "prompt": "Quelles affirmations concernent directement « Documenter une struct pour Betty » ? (Plusieurs réponses correctes.)",
+      "question_type": "analyse_conceptuelle",
+      "prompt": "Concernant « Documenter une struct pour Betty », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)",
       "options": [
         {
           "id": "A",
-          "text": "La convention Betty demande une documentation de la structure et de ses membres : nom, description et annotations @membre."
+          "text": "Les annotations @membre doivent obligatoirement figurer dans le .c."
         },
         {
           "id": "B",
-          "text": "Une fonction recevant int *p peut modifier la variable de l’appelant grâce à *p ; le pointeur lui-même reste passé par valeur."
+          "text": "La convention Betty demande une documentation de la structure et de ses membres : nom, description et annotations @membre."
         },
         {
           "id": "C",
-          "text": "Ajouter 1 à un pointeur vers int avance de sizeof(int) octets, donc d’un élément int."
+          "text": "Betty est une convention de documentation externe au C : commenter struct point ainsi que chaque membre avec @x: et @y:. La documentation doit accompagner la définition, pas être reportée à la fin."
         },
         {
           "id": "D",
-          "text": "Betty est une convention de documentation externe au C : commenter struct point ainsi que chaque membre avec @x: et @y:. La documentation doit accompagner la définition, pas être reportée à la fin."
+          "text": "Betty ne demande aucune documentation des membres de la struct."
         }
       ],
       "correct_option_ids": [
-        "A",
-        "D"
+        "B",
+        "C"
       ],
-      "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
+      "explanation": "Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/structures-et-typedef-en-c/18-documenter-une-struct-pour-betty"
       ],
       "review_status": "a_verifier",
       "review_flags": [
-        "generated_from_course",
-        "cross_topic_distractors",
-        "check_possible_ambiguity"
+        "distracteurs_memesujet",
+        "revision_independante_requise"
       ]
     },
     {
@@ -1487,37 +1484,37 @@
       "theme": "Structures et typedef en C",
       "notion": "typedef avant la définition d'une struct",
       "answer_mode": "single",
-      "question_type": "definition",
+      "question_type": "reconnaissance_de_notion",
       "prompt": "À quelle notion correspond la définition suivante : « typedef struct point point; annonce un alias pour un type encore incomplet ; sa définition complète permet ensuite de créer point p. » ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
-          "text": "Initialiseurs désignés .membre (C99)"
+          "text": "Structure autoréférentielle (avancé)"
         },
         {
           "id": "B",
-          "text": "typedef avant la définition d'une struct"
+          "text": "Include guards — protéger les fichiers .h"
         },
         {
           "id": "C",
-          "text": "typedef : donner un alias à un type"
+          "text": "typedef avant la définition d'une struct"
         },
         {
           "id": "D",
-          "text": "Point ou flèche ? Comparer . et ->"
+          "text": "malloc pour une struct"
         }
       ],
       "correct_option_ids": [
-        "B"
+        "C"
       ],
-      "explanation": "La définition est extraite du résumé de la fiche correspondante.",
+      "explanation": "L'énoncé décrit précisément cette notion ; les autres propositions renvoient à des mécanismes voisins du même domaine.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/structures-et-typedef-en-c/19-typedef-avant-la-definition-d-une-struct"
       ],
       "review_status": "a_verifier",
       "review_flags": [
-        "generated_from_course",
-        "check_every_distractor"
+        "decoys_meme_domaine",
+        "relecture_independante_requise"
       ]
     },
     {
@@ -1527,39 +1524,38 @@
       "theme": "Structures et typedef en C",
       "notion": "typedef avant la définition d'une struct",
       "answer_mode": "multiple",
-      "question_type": "synthese",
-      "prompt": "Quelles affirmations concernent directement « typedef avant la définition d'une struct » ? (Plusieurs réponses correctes.)",
+      "question_type": "analyse_conceptuelle",
+      "prompt": "Concernant « typedef avant la définition d'une struct », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)",
       "options": [
         {
           "id": "A",
-          "text": "Un typedef ne remplace pas la définition complète de la structure. L'alias point et struct point sont le même type ; la déclaration anticipée ne suffit pas pour créer un objet avant les accolades."
+          "text": "Un type déclaré par typedef struct point point; peut être instancié sans définition complète."
         },
         {
           "id": "B",
-          "text": "typedef struct point point; annonce un alias pour un type encore incomplet ; sa définition complète permet ensuite de créer point p."
+          "text": "La déclaration anticipée définit automatiquement tous les champs."
         },
         {
           "id": "C",
-          "text": "Appeler free deux fois avec la même adresse d'un bloc déjà libéré est un comportement indéfini ; free(NULL) est sans effet."
+          "text": "Un typedef ne remplace pas la définition complète de la structure. L'alias point et struct point sont le même type ; la déclaration anticipée ne suffit pas pour créer un objet avant les accolades."
         },
         {
           "id": "D",
-          "text": "Déclarer int *ptr; sans lui donner d’adresse valide, puis écrire *ptr = 98; provoque un comportement indéfini, pas nécessairement un segfault."
+          "text": "typedef struct point point; annonce un alias pour un type encore incomplet ; sa définition complète permet ensuite de créer point p."
         }
       ],
       "correct_option_ids": [
-        "A",
-        "B"
+        "C",
+        "D"
       ],
-      "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
+      "explanation": "Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/structures-et-typedef-en-c/19-typedef-avant-la-definition-d-une-struct"
       ],
       "review_status": "a_verifier",
       "review_flags": [
-        "generated_from_course",
-        "cross_topic_distractors",
-        "check_possible_ambiguity"
+        "distracteurs_memesujet",
+        "revision_independante_requise"
       ]
     },
     {
@@ -1569,37 +1565,37 @@
       "theme": "Structures et typedef en C",
       "notion": "Point ou flèche ? Comparer . et ->",
       "answer_mode": "single",
-      "question_type": "definition",
+      "question_type": "reconnaissance_de_notion",
       "prompt": "À quelle notion correspond la définition suivante : « Sur une variable struct, on écrit objet.membre ; sur un pointeur vers cette struct, on écrit ptr->membre. Ces deux expressions peuvent désigner exactement le même membre. » ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
-          "text": "Point ou flèche ? Comparer . et ->"
+          "text": "Documenter une struct pour Betty"
         },
         {
           "id": "B",
-          "text": "Copier une struct par affectation"
+          "text": "Point ou flèche ? Comparer . et ->"
         },
         {
           "id": "C",
-          "text": "malloc pour une struct"
+          "text": "Structure autoréférentielle (avancé)"
         },
         {
           "id": "D",
-          "text": "Accès aux membres avec ."
+          "text": "malloc pour une struct"
         }
       ],
       "correct_option_ids": [
-        "A"
+        "B"
       ],
-      "explanation": "La définition est extraite du résumé de la fiche correspondante.",
+      "explanation": "L'énoncé décrit précisément cette notion ; les autres propositions renvoient à des mécanismes voisins du même domaine.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/structures-et-typedef-en-c/20-point-ou-fleche-comparer-et"
       ],
       "review_status": "a_verifier",
       "review_flags": [
-        "generated_from_course",
-        "check_every_distractor"
+        "decoys_meme_domaine",
+        "relecture_independante_requise"
       ]
     },
     {
@@ -1609,39 +1605,38 @@
       "theme": "Structures et typedef en C",
       "notion": "Point ou flèche ? Comparer . et ->",
       "answer_mode": "multiple",
-      "question_type": "synthese",
-      "prompt": "Quelles affirmations concernent directement « Point ou flèche ? Comparer . et -> » ? (Plusieurs réponses correctes.)",
+      "question_type": "analyse_conceptuelle",
+      "prompt": "Concernant « Point ou flèche ? Comparer . et -> », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)",
       "options": [
         {
           "id": "A",
-          "text": "Supprime le dernier chiffre d’un entier positif."
-        },
-        {
-          "id": "B",
-          "text": "Question réflexe : « à gauche, ai-je une struct ou un pointeur vers struct ? » Objet => . ; pointeur => -> ; le signe = sert ensuite à affecter la valeur. L’expression (*p).pages est équivalente à p->pages."
-        },
-        {
-          "id": "C",
           "text": "Sur une variable struct, on écrit objet.membre ; sur un pointeur vers cette struct, on écrit ptr->membre. Ces deux expressions peuvent désigner exactement le même membre."
         },
         {
+          "id": "B",
+          "text": "ptr.x est toujours valide pour un pointeur ptr vers struct."
+        },
+        {
+          "id": "C",
+          "text": "objet->x est toujours valide pour une variable objet de type struct."
+        },
+        {
           "id": "D",
-          "text": "Utiliser l’ancienne valeur, puis retirer 1."
+          "text": "Question réflexe : « à gauche, ai-je une struct ou un pointeur vers struct ? » Objet => . ; pointeur => -> ; le signe = sert ensuite à affecter la valeur. L’expression (*p).pages est équivalente à p->pages."
         }
       ],
       "correct_option_ids": [
-        "B",
-        "C"
+        "A",
+        "D"
       ],
-      "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
+      "explanation": "Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/structures-et-typedef-en-c/20-point-ou-fleche-comparer-et"
       ],
       "review_status": "a_verifier",
       "review_flags": [
-        "generated_from_course",
-        "cross_topic_distractors",
-        "check_possible_ambiguity"
+        "distracteurs_memesujet",
+        "revision_independante_requise"
       ]
     },
     {
@@ -1651,37 +1646,37 @@
       "theme": "Structures et typedef en C",
       "notion": "Include guards — protéger les fichiers .h",
       "answer_mode": "single",
-      "question_type": "definition",
+      "question_type": "reconnaissance_de_notion",
       "prompt": "À quelle notion correspond la définition suivante : « Un include guard (#ifndef, #define, #endif) évite qu’un même en-tête soit traité plusieurs fois dans une même unité de traduction. » ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
-          "text": "Initialiseurs désignés .membre (C99)"
+          "text": "Include guards — protéger les fichiers .h"
         },
         {
           "id": "B",
-          "text": "Point ou flèche ? Comparer . et ->"
+          "text": "typedef avant la définition d'une struct"
         },
         {
           "id": "C",
-          "text": "typedef struct : nommer une structure"
+          "text": "Documenter une struct pour Betty"
         },
         {
           "id": "D",
-          "text": "Include guards — protéger les fichiers .h"
+          "text": "Structure autoréférentielle (avancé)"
         }
       ],
       "correct_option_ids": [
-        "D"
+        "A"
       ],
-      "explanation": "La définition est extraite du résumé de la fiche correspondante.",
+      "explanation": "L'énoncé décrit précisément cette notion ; les autres propositions renvoient à des mécanismes voisins du même domaine.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/structures-et-typedef-en-c/21-include-guards-proteger-les-fichiers-h"
       ],
       "review_status": "a_verifier",
       "review_flags": [
-        "generated_from_course",
-        "check_every_distractor"
+        "decoys_meme_domaine",
+        "relecture_independante_requise"
       ]
     },
     {
@@ -1691,8 +1686,8 @@
       "theme": "Structures et typedef en C",
       "notion": "Include guards — protéger les fichiers .h",
       "answer_mode": "multiple",
-      "question_type": "synthese",
-      "prompt": "Quelles affirmations concernent directement « Include guards — protéger les fichiers .h » ? (Plusieurs réponses correctes.)",
+      "question_type": "analyse_conceptuelle",
+      "prompt": "Concernant « Include guards — protéger les fichiers .h », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)",
       "options": [
         {
           "id": "A",
@@ -1700,30 +1695,29 @@
         },
         {
           "id": "B",
-          "text": "Dossier courant / dossier parent."
+          "text": "Un include guard (#ifndef, #define, #endif) évite qu’un même en-tête soit traité plusieurs fois dans une même unité de traduction."
         },
         {
           "id": "C",
-          "text": "r = lecture (4), w = écriture (2), x = exécution (1) ; rwx = 7 (4 + 2 + 1)."
+          "text": "Les include guards évitent tous les conflits entre fichiers .c."
         },
         {
           "id": "D",
-          "text": "Un include guard (#ifndef, #define, #endif) évite qu’un même en-tête soit traité plusieurs fois dans une même unité de traduction."
+          "text": "Les include guards empêchent toute inclusion du même .h dans une autre unité de traduction."
         }
       ],
       "correct_option_ids": [
         "A",
-        "D"
+        "B"
       ],
-      "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
+      "explanation": "Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/structures-et-typedef-en-c/21-include-guards-proteger-les-fichiers-h"
       ],
       "review_status": "a_verifier",
       "review_flags": [
-        "generated_from_course",
-        "cross_topic_distractors",
-        "check_possible_ambiguity"
+        "distracteurs_memesujet",
+        "revision_independante_requise"
       ]
     }
   ]
