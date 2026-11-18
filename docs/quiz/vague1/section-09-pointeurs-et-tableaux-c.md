@@ -255,7 +255,7 @@ Concernant « Modifier une valeur par un pointeur », quelles affirmations sont 
 
 Concernant « Valeur de p, *p et &p », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)
 
-- **A ✅** Ne confonds pas la case qui contient une adresse avec la case située à cette adresse.
+- **A ✅** L'adresse conservée dans p et la valeur lue par *p sont deux informations distinctes.
 - **B ✅** p contient une adresse ; *p est la valeur pointée ; &p est l’adresse mémoire du pointeur lui-même.
 - **C ✅** *p lit la valeur actuellement stockée dans n.
 - **D ✅** p contient l'adresse de n.
@@ -373,8 +373,8 @@ Concernant « sizeof », quelles affirmations sont techniquement exactes ? (Plus
 - **A ❌** sizeof mesure toujours strlen d'une chaîne.
 - **B ❌** sizeof(int) vaut obligatoirement 4.
 - **C ✅** sizeof donne la taille en octets d’un type ou d’un objet. Exemple : sizeof(int) pour un entier.
-- **D ✅** Utiliser %zu pour afficher une valeur de type size_t.
-- **E ✅** La taille de tout le tableau en octets
+- **D ✅** L'opérateur sizeof produit une valeur de type size_t.
+- **E ✅** sizeof appliqué à un tableau local donne la taille de ce tableau entier en octets.
 
 **Corrigé candidat :** C, D, E. Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet.
 
@@ -486,7 +486,7 @@ Concernant « Passage d’arguments par valeur », quelles affirmations sont tec
 Concernant « Passer une adresse à une fonction », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)
 
 - **A ✅** La fonction doit recevoir une adresse valide avant de déréférencer p.
-- **B ✅** Recevoir son adresse dans int *p et écrire *p
+- **B ✅** Une fonction peut modifier un int de l'appelant en recevant int *p et en écrivant *p.
 - **C ❌** Passer &n ne transmet que la valeur entière de n.
 - **D ❌** Modifier le paramètre local p de type int * change le pointeur original de l'appelant.
 - **E ✅** Une fonction recevant int *p peut modifier la variable de l’appelant grâce à *p ; le pointeur lui-même reste passé par valeur.
@@ -603,7 +603,7 @@ Concernant « Tableau ≠ pointeur », quelles affirmations sont techniquement e
 - **A ❌** sizeof(tableau) vaut toujours sizeof(pointeur).
 - **B ✅** sizeof(a) et sizeof(p) ne mesurent pas la même chose.
 - **C ✅** Un tableau n’est pas une variable pointeur. Son nom identifie le tableau et ne peut pas recevoir une nouvelle adresse par affectation.
-- **D ✅** Il s'agit de types et d'objets distincts
+- **D ✅** Un tableau n'est pas une variable pointeur réaffectable.
 - **E ❌** Le nom d'un tableau peut recevoir une nouvelle adresse par affectation.
 
 **Corrigé candidat :** B, C, D. Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet.
@@ -715,7 +715,7 @@ Concernant « sizeof(tableau) », quelles affirmations sont techniquement exacte
 
 Concernant « &tableau », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)
 
-- **A ✅** Ils ont des types de pointeurs différents
+- **A ✅** Pour int a[5], &a est de type int (*)[5], tandis que &a[0] est de type int *.
 - **B ❌** &a et &a[0] ont exactement le même type.
 - **C ❌** (&a)+1 avance d'un seul élément de a.
 - **D ✅** Pour `int a[5]`, le type de `&a` est `int (*)[5]`, un pointeur vers le tableau entier de cinq int.
@@ -832,7 +832,7 @@ Concernant « Chaîne de caractères en C », quelles affirmations sont techniqu
 
 - **A ✅** Toutes les suites de char ne sont pas nécessairement des chaînes valides.
 - **B ✅** Suite de caractères stockée notamment dans un tableau de char et terminée par le caractère nul \0.
-- **C ✅** Une suite de caractères terminée par '\0' dans une zone accessible
+- **C ✅** Pour être une chaîne C valide, une suite de caractères doit avoir un terminateur nul accessible.
 - **D ❌** Un tableau de char sans nul final forme nécessairement une chaîne C.
 - **E ❌** Tout tableau char insère automatiquement le terminateur.
 
@@ -1176,7 +1176,7 @@ Concernant « malloc — allocation dynamique », quelles affirmations sont tech
 - **A ❌** Un bloc obtenu par malloc reste légalement accessible après free.
 - **B ✅** malloc réserve un bloc de mémoire pendant l’exécution et renvoie son adresse (ou NULL si l’allocation échoue).
 - **C ✅** Vérifier p != NULL avant de le déréférencer. malloc ne met pas les octets à zéro ; chaque allocation réussie doit être libérée une fois quand elle n’est plus utile.
-- **D ✅** Renvoyer un pointeur utilisable si elle réussit
+- **D ✅** Sur succès pour une taille positive, malloc renvoie une adresse de zone allouée.
 - **E ❌** malloc met automatiquement tous les octets à zéro.
 
 **Corrigé candidat :** B, C, D. Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet.
@@ -1519,7 +1519,7 @@ Concernant « strlen, sizeof et terminateur nul », quelles affirmations sont te
 - **A ❌** strlen("Ada") vaut 4 en comptant le nul.
 - **B ❌** sizeof("Ada") vaut 3 parce que le nul est invisible.
 - **C ✅** strlen("Best School") vaut 11 ; sizeof("Best School") vaut 12 : une copie de cette chaîne demande 12 octets, car il faut aussi stocker '\0'.
-- **D ✅** Pour le littéral : sizeof("Best School") = 12, strlen("Best School") = 11. Pour un pointeur char *p, sizeof(p) ne mesure jamais la longueur de la chaîne. malloc(sizeof("Best School") + 1) réserve 13 octets : c’est suffisant, sans être nécessaire. strlen n'est sûr que pour une chaîne correctement terminée : il n'empêche pas un débordement lors de la saisie.
+- **D ✅** Pour char *p, sizeof p mesure le pointeur, pas la longueur du texte pointé.
 
 **Corrigé candidat :** C, D. Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet.
 
@@ -1746,9 +1746,9 @@ Concernant « Pointeur non initialisé : comportement indéfini », quelles affi
 Concernant « realloc — redimensionner une allocation », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)
 
 - **A ❌** Après succès de realloc l'ancien pointeur reste utilisable.
-- **B ✅** Le piège classique : p = realloc(p, taille); peut faire perdre le bloc initial sur échec. Avec tmp, l’ancien pointeur reste disponible. Ne pas utiliser l’ancienne adresse après une réussite, même si la valeur numérique semble identique.
+- **B ✅** Sur échec, realloc renvoie NULL et laisse l'ancienne allocation disponible via le pointeur original.
 - **C ✅** realloc peut agrandir ou réduire un bloc de mémoire alloué ; employer un pointeur temporaire évite de perdre l’ancien bloc en cas d’échec.
-- **D ✅** Préserver p si realloc échoue
+- **D ✅** Après un realloc réussi, l'ancien pointeur ne doit plus être utilisé.
 - **E ❌** Sur échec realloc libère nécessairement l'ancien bloc.
 
 **Corrigé candidat :** B, C, D. Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet.
@@ -1860,7 +1860,7 @@ Concernant « strncpy() — copie limitée et terminaison », quelles affirmatio
 
 Concernant « calloc() — allouer et initialiser à zéro », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)
 
-- **A ✅** Les octets alloués sont initialisés à zéro
+- **A ✅** calloc initialise tous les octets de la zone allouée à zéro.
 - **B ❌** calloc laisse ses octets non initialisés comme malloc.
 - **C ❌** Un bloc calloc ne doit jamais être libéré.
 - **D ✅** calloc réserve de la mémoire pour plusieurs éléments et met ses octets à zéro ; vérifier NULL et libérer le bloc avec free.
@@ -1975,9 +1975,9 @@ Concernant « Use-after-free — réutiliser un bloc libéré », quelles affirm
 
 Concernant « Double free — ne pas libérer deux fois », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)
 
-- **A ✅** Ne pas utiliser free deux fois sur une même allocation. L'exemple appelle free sur p puis sur NULL : ce n'est pas une double libération du bloc. Mettre p à NULL ne sécurise pas les alias éventuels. Un double free peut venir d'une ownership ambiguë ou de deux chemins de nettoyage ; chercher les chemins réels avant de conclure.
+- **A ✅** Deux chemins de nettoyage qui libèrent la même allocation peuvent provoquer une double libération.
 - **B ✅** Appeler free deux fois avec la même adresse d'un bloc déjà libéré est un comportement indéfini ; free(NULL) est sans effet.
-- **C ✅** Double free et comportement indéfini
+- **C ✅** Après free(p), mettre p à NULL ne modifie pas les autres pointeurs qui copiaient son ancienne adresse.
 - **D ❌** free(NULL) provoque un double free.
 - **E ❌** Une allocation peut être libérée deux fois si aucune lecture ne suit.
 
@@ -2053,7 +2053,7 @@ Concernant « Débordement du calcul de taille avant malloc », quelles affirmat
 Concernant « Valgrind Memcheck — comprendre les alertes », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)
 
 - **A ✅** Memcheck distingue les accès Invalid read/write, les valeurs non initialisées, les libérations invalides et plusieurs catégories de fuites.
-- **B ✅** La première erreur affichée peut provoquer les suivantes. Consulter la pile des appels, les lignes indiquées par -g et le contexte des allocations/libérations. Un « 0 errors » sur un test n'est pas une preuve générale d'absence de bugs. Exemple : « definitely lost: 32 bytes in 1 blocks » = 1 bloc de 32 octets définitivement perdu. Ces libellés en majuscules sont des catégories descriptives, pas nécessairement des messages littéraux de Memcheck.
+- **B ✅** Dans Memcheck, « definitely lost: 32 bytes in 1 blocks » désigne un bloc perdu de 32 octets.
 - **C ❌** Memcheck classe une lecture invalide comme « definitely lost ».
 - **D ❌** Une valeur non initialisée est nécessairement égale à NULL.
 
@@ -2167,7 +2167,7 @@ Concernant « Dépassement de tampon sur la pile — erreur avant malloc », que
 Concernant « Tampon fixe, statique et dynamique — emplacement et durée de vie », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)
 
 - **A ✅** Un tampon peut être de taille fixe, avoir une durée de vie statique ou être alloué dynamiquement : ces propriétés sont différentes.
-- **B ✅** Taille et durée de vie ne sont pas synonymes : char local[8] est fixe et automatique ; static char stable[8] est fixe et de durée de vie statique ; malloc(8) crée un bloc dynamique de huit octets. Ne jamais appeler free sur local ou stable.
+- **B ✅** Un tableau local ordinaire et un tableau local static peuvent avoir la même capacité et des durées de vie différentes.
 - **C ✅** Un tableau local de taille fixe peut avoir une durée de vie automatique.
 - **D ✅** Un tableau déclaré static dans une fonction possède une durée de vie statique.
 - **E ❌** Un tampon malloc est obligatoirement global.
@@ -2206,7 +2206,7 @@ Concernant « Tampon fixe, statique et dynamique — emplacement et durée de vi
 Concernant « Stack overflow — épuisement de la pile d'appels », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)
 
 - **A ✅** Une récursion sans cas d'arrêt peut épuiser la pile ; une grande variable locale peut également poser problème. Stack overflow et stack buffer overflow ne désignent pas la même erreur.
-- **B ✅** Récursion sans condition d'arrêt
+- **B ✅** Une récursion sans cas d'arrêt peut épuiser l'espace réservé aux appels de fonctions.
 - **C ❌** Un stack overflow est simplement un accès au-delà d'un tableau local.
 - **D ❌** Une récursion non bornée n'utilise aucun espace pour les appels.
 - **E ✅** Un stack overflow survient lorsque l'espace disponible pour les appels de fonctions est épuisé, souvent par récursion sans arrêt ou objets automatiques trop volumineux.
@@ -2321,9 +2321,9 @@ Concernant « strlen sans terminateur nul — lecture hors limites », quelles a
 Concernant « memcpy() — copier des octets sans chevauchement », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)
 
 - **A ❌** Le paramètre n de memcpy est une longueur déduite de strlen.
-- **B ✅** memcpy ne garantit ni le terminateur '\0', ni la capacité, ni l'absence de chevauchement : le développeur doit vérifier ces conditions avant l'appel. Pour déplacer des octets avec recouvrement, utiliser memmove.
+- **B ✅** Avec recouvrement des deux zones mémoire, memmove convient, contrairement à memcpy.
 - **C ✅** memcpy(dest, src, n) copie exactement n octets entre deux zones valides qui ne se recouvrent pas ; aucun '\0' n'est ajouté automatiquement.
-- **D ✅** La copie exacte de n octets
+- **D ✅** Le troisième paramètre de memcpy est un nombre d'octets à copier.
 - **E ❌** memcpy ajoute automatiquement un nul final.
 
 **Corrigé candidat :** B, C, D. Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet.
@@ -2435,7 +2435,7 @@ Concernant « Dangling pointer — pointeur vers un objet qui n'existe plus », 
 
 Concernant « Raw pointer — pointeur brut en C », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)
 
-- **A ✅** Il contient une valeur de pointeur, pas la validité de sa cible
+- **A ✅** Un pointeur brut ne garantit ni la validité de l'objet pointé ni son ownership.
 - **B ❌** Un raw pointer libère automatiquement la mémoire pointée.
 - **C ❌** Un pointeur C classique assure automatiquement le comptage de références.
 - **D ✅** Un pointeur de type int * est une adresse typée, pas une preuve que le bloc est accessible, ni une indication de propriété. Le terme raw pointer ne désigne pas une autre syntaxe du C.
@@ -2668,7 +2668,7 @@ Concernant « Tableau de pointeurs de fonctions — choisir une opération », q
 - **B ❌** Un tableau de pointeurs de fonctions peut mélanger librement des signatures incompatibles.
 - **C ✅** operations[index] est un pointeur de fonction, pas le résultat d'une fonction. Toujours valider l'indice et la non-nullité avant l'appel.
 - **D ✅** Un tableau de pointeurs de fonctions regroupe des fonctions de même signature ; un indice contrôlé permet de choisir une opération sans longue chaîne de if.
-- **E ✅** Ne pas appeler un élément NULL
+- **E ✅** Appeler un élément NULL d'un tableau de pointeurs de fonctions est invalide.
 
 **Corrigé candidat :** C, D, E. Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet.
 

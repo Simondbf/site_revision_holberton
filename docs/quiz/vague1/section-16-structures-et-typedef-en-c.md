@@ -28,7 +28,7 @@
 Concernant « struct : regrouper plusieurs données », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)
 
 - **A ✅** Une struct définit un type composé de membres nommés, éventuellement de types différents.
-- **B ✅** Un type regroupant plusieurs membres
+- **B ✅** Les membres d'une structure sont nommés dans sa définition et peuvent avoir des types différents.
 - **C ❌** Les membres d'une struct doivent tous avoir le même type.
 - **D ❌** Définir une struct lance automatiquement malloc.
 - **E ✅** Le nom point est l’étiquette (tag) du type ; les membres sont déclarés dans les accolades. Ne pas oublier le ; final.
@@ -488,7 +488,7 @@ Concernant « typedef struct : nommer une structure », quelles affirmations son
 - **B ❌** Les membres de struct cessent d'exister après typedef.
 - **C ✅** Le ; après le } est obligatoire. struct animal et animal_t désignent le même type ; animal_t a; crée une variable.
 - **D ✅** typedef struct animal { int age; } animal_t; rend le type utilisable sous le nom animal_t.
-- **E ✅** Utiliser point_t comme alias du type struct point
+- **E ✅** Après cet alias de type, animal_t a; déclare un objet sans écrire struct animal.
 
 **Corrigé candidat :** C, D, E. Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet.
 
@@ -600,7 +600,7 @@ Concernant « sizeof(struct) et padding (avancé) », quelles affirmations sont 
 Concernant « malloc pour une struct », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)
 
 - **A ✅** malloc(sizeof *p) réserve assez d’octets pour un objet du type struct pointé par p.
-- **B ✅** p = malloc(sizeof *p);
+- **B ✅** Dans malloc(sizeof *p), sizeof *p mesure le type de struct pointé et non la taille du pointeur.
 - **C ❌** malloc(sizeof p) et malloc(sizeof *p) sont toujours égaux pour un struct *p.
 - **D ❌** malloc(sizeof *p) initialise automatiquement tous les membres.
 - **E ✅** Vérifier malloc et initialiser les membres ; free libère ce bloc, pas automatiquement les allocations éventuellement pointées par ses membres.

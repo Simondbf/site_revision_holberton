@@ -60,7 +60,7 @@
         },
         {
           "id": "B",
-          "text": "Un type regroupant plusieurs membres"
+          "text": "Les membres d'une structure sont nommés dans sa définition et peuvent avoir des types différents."
         },
         {
           "id": "C",
@@ -1049,7 +1049,7 @@
         },
         {
           "id": "E",
-          "text": "Utiliser point_t comme alias du type struct point"
+          "text": "Après cet alias de type, animal_t a; déclare un objet sans écrire struct animal."
         }
       ],
       "correct_option_ids": [
@@ -1285,7 +1285,7 @@
         },
         {
           "id": "B",
-          "text": "p = malloc(sizeof *p);"
+          "text": "Dans malloc(sizeof *p), sizeof *p mesure le type de struct pointé et non la taille du pointeur."
         },
         {
           "id": "C",
