@@ -1,12 +1,19 @@
 import {createServer} from 'node:http';
 import {createHash,randomBytes,randomUUID,timingSafeEqual} from 'node:crypto';
 import {DatabaseSync} from 'node:sqlite';
+import {isIP} from 'node:net';
 
 const LOGIN_TTL=15*60*1000;
 const SESSION_TTL=14*24*60*60*1000;
 const MAX_PROGRESS_BYTES=256*1024;
 const sha256=text=>createHash('sha256').update(text).digest('hex');
 const secret=()=>randomBytes(32).toString('base64url');
+function clientIp(req){
+ const socket=String(req.socket.remoteAddress||'unknown');
+ const loopback=['127.0.0.1','::1','::ffff:127.0.0.1'].includes(socket);
+ const forwarded=String(req.headers['x-real-ip']||'');
+ return loopback&&isIP(forwarded)?forwarded:socket;
+}
 class ApiError extends Error{
  constructor(status,message){super(message);this.status=status}
 }
@@ -107,7 +114,7 @@ export function createAuthApp({db,publicOrigin,sendLoginEmail=null,secureCookies
     if(!sendLoginEmail)throw new ApiError(503,'Le service d’envoi transactionnel n’est pas encore activé.');
     const body=await jsonBody(req,12*1024),email=normalizeEmail(body.email);
     if(!email)throw new ApiError(400,'Adresse électronique invalide.');
-    const ip=String(req.socket.remoteAddress||'unknown');
+    const ip=clientIp(req);
     const allowed=rate('ip:'+ip,8)&&rate('email:'+sha256(email),3);
     // Réponse identique quelle que soit l'existence d'un compte.
     if(allowed){
@@ -124,7 +131,7 @@ export function createAuthApp({db,publicOrigin,sendLoginEmail=null,secureCookies
     response(res,202,{message:'Si la demande peut être traitée, un lien de connexion sera envoyé.'});return;
    }
    if(path==='/api/auth/verify'&&method==='POST'){
-    const ip=String(req.socket.remoteAddress||'unknown');
+    const ip=clientIp(req);
     if(!rate('verify:'+ip,16))throw new ApiError(429,'Trop de tentatives, réessayer plus tard.');
     const body=await jsonBody(req,4096),token=body.token;
     if(typeof token!=='string'||!(/^[a-zA-Z0-9_-]{43}$/).test(token))throw new ApiError(400,'Lien invalide ou expiré.');
@@ -140,6 +147,7 @@ export function createAuthApp({db,publicOrigin,sendLoginEmail=null,secureCookies
       db.prepare('INSERT INTO users(id,email,verified_at,created_at) VALUES(?,?,?,?)').run(uid,link.email,now(),now());
       user={id:uid,email:link.email};
      }
+     db.prepare('DELETE FROM sessions WHERE expires_at<?').run(now());
      rawSession=secret();csrf=secret();userEmail=user.email;
      db.prepare('INSERT INTO sessions(token_hash,user_id,csrf,created_at,expires_at) VALUES(?,?,?,?,?)').run(sha256(rawSession),user.id,csrf,now(),now()+SESSION_TTL);
      db.exec('COMMIT');
@@ -189,6 +197,7 @@ export function createAuthApp({db,publicOrigin,sendLoginEmail=null,secureCookies
    if(path==='/api/account'&&method==='DELETE'){
     const s=protectedWrite(req);
     if(now()-s.created_at>15*60*1000)throw new ApiError(403,'Reconnecte-toi récemment pour supprimer ton compte.');
+    db.prepare('DELETE FROM login_links WHERE email=?').run(s.email);
     db.prepare('DELETE FROM users WHERE id=?').run(s.user_id);
     response(res,200,{deleted:true},{'Set-Cookie':expiredCookie()});return;
    }
