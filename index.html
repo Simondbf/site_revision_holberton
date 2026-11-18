@@ -217,6 +217,7 @@ body.dark .lesson-visual figcaption{color:#c5d9e7}
 #account button.cta,#quiz button.cta{margin-top:12px}
 </style>
 <link rel="stylesheet" href="./quiz/styles.css">
+<link rel="stylesheet" href="./account/styles.css">
 </head>
 <body>
 <header><div class="shell topbar">
@@ -305,10 +306,10 @@ const categorySlug=()=>sidebarGroups.map(([name])=>slug(name));
 const routeCategory=gi=>`#categorie/${categorySlug()[gi]}`;
 const routeCourse=(si,ii)=>`#cours/${sectionSlug[si]}/${conceptSlug[si][ii]}`;
 let favorites=[];try{favorites=JSON.parse(localStorage.getItem('holberton-favorites-v2')||'[]');if(!Array.isArray(favorites))favorites=[]}catch{}
-const store=()=>{try{localStorage.setItem('holberton-favorites-v2',JSON.stringify(favorites))}catch{}};
+const store=()=>{try{localStorage.setItem('holberton-favorites-v2',JSON.stringify(favorites))}catch{};window.dispatchEvent(new Event('holberton:preferences:updated'))};
 let dark=false;try{dark=localStorage.getItem('holberton-dark-v2')==='yes'}catch{}
 function theme(){document.body.classList.toggle('dark',dark);$('theme').innerHTML=dark?'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.65 17.65l1.42 1.42M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.65 6.35l1.42-1.42"/></svg>':'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 15.5A9 9 0 0 1 8.5 3.5a9 9 0 1 0 12 12Z"/></svg>';$('theme').setAttribute('aria-label',dark?'Passer au mode clair':'Passer au mode sombre');$('theme').style.display='grid';$('theme').style.placeItems='center';$('theme').querySelector('svg').style.width='21px';$('theme').querySelector('svg').style.height='21px'}
-theme();$('theme').onclick=()=>{dark=!dark;theme();try{localStorage.setItem('holberton-dark-v2',dark?'yes':'no')}catch{}};
+theme();$('theme').onclick=()=>{dark=!dark;theme();try{localStorage.setItem('holberton-dark-v2',dark?'yes':'no')}catch{};window.dispatchEvent(new Event('holberton:preferences:updated'))};
 $('countTopics').textContent=sections.length+' thèmes';$('countCards').textContent=all.length+' notions';
 const panels=['browse','detail','course','favorites','account','quiz','about'];
 let currentPage='home',topicIndex=-1,currentConcept=-1;
@@ -1431,8 +1432,14 @@ const updateCourseToolbarOffset=()=>{
 updateCourseToolbarOffset();
 if('ResizeObserver' in window)new ResizeObserver(updateCourseToolbarOffset).observe(document.querySelector('body > header'));
 window.addEventListener('resize',updateCourseToolbarOffset,{passive:true});
+window.addEventListener('holberton:preferences:reload',()=>{
+ try{const saved=JSON.parse(localStorage.getItem('holberton-favorites-v2')||'[]');favorites=Array.isArray(saved)?saved:[]}catch{favorites=[]}
+ try{dark=localStorage.getItem('holberton-dark-v2')==='yes'}catch{dark=false}
+ theme();renderRoute();
+});
 renderTopics();renderSidebar();window.addEventListener('hashchange',renderRoute);renderRoute();
 })();
 </script>
 <script type="module" src="./quiz/engine.mjs"></script>
+<script type="module" src="./account/client.mjs"></script>
 </body></html>

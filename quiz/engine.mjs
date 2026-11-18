@@ -4,7 +4,7 @@ if(!root||!account)throw Error('Pages Compte et Quiz absentes.');
 let bank=[],progress=readProgress(localStorage),loading=true,error='',family='all',paused=false,lastReport=null;
 const escape=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const isQuiz=()=>location.hash.split('/')[0]==='#quiz';
-const write=()=>writeProgress(localStorage,progress);
+const write=()=>{const ok=writeProgress(localStorage,progress);window.dispatchEvent(new Event('holberton:quiz:updated'));return ok};
 const findQuestion=id=>bank.find(q=>q.id===id);
 function page(title,sub,body){
  root.innerHTML='<div class="quiz-app"><header class="quiz-heading"><span class="quiz-kicker">RÉVISION C · VERSION TEST</span><h2>'+escape(title)+'</h2><p>'+escape(sub)+'</p></header><div class="quiz-warning" role="note">Les réponses de cette première banque restent en relecture pédagogique. Les scores servent à t’entraîner et ne constituent pas une certification.</div>'+body+'</div>';
@@ -126,4 +126,5 @@ async function load(){
  loading=false;render();renderAccount();
 }
 window.addEventListener('hashchange',()=>{if(isQuiz())render();if(location.hash.split('/')[0]==='#compte')renderAccount()});
+window.addEventListener('holberton:quiz:reload',()=>{progress=readProgress(localStorage);lastReport=null;paused=false;renderAccount();render()});
 renderAccount();load();

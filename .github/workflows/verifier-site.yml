@@ -33,3 +33,9 @@ jobs:
           node scripts/verifier_quiz.mjs
           node --check quiz/core.mjs
           node --check quiz/engine.mjs
+          node --test server/auth.test.mjs
+          node --check server/index.mjs
+          node --check account/client.mjs
+          cd server
+          npm ci --omit=dev --ignore-scripts --no-audit --no-fund
+          node --check email.mjs
