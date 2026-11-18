@@ -284,7 +284,7 @@ try{
  await page.goto(origin+'/#quiz');
  await page.locator('#quizStart').waitFor({state:'visible',timeout:15000});
  assert.match(await page.locator('#quiz .quiz-app').innerText(),/55 questions candidates/);
- await page.locator('#quizCount').selectOption('5');
+ assert.equal(await page.locator('#quizCount').count(),0,'Le choix imposé de 5/10/20 questions doit être absent.');
  await page.locator('#quizStart').click();
  assert.equal(await page.locator('#quiz .quiz-choice').count()>=4,true);
  await page.locator('#quiz .quiz-choice').first().click();
@@ -296,14 +296,12 @@ try{
  await page.locator('#quizResume').waitFor({state:'visible',timeout:15000});
  await page.locator('#quizResume').click();
  assert.ok(await page.locator('#quizNext').isVisible(),'La réponse précédente ne reprend pas correctement.');
- for(let index=0;index<5;index++){
-  if(index>0){
-   await page.locator('#quiz .quiz-choice').first().click();
-   await page.locator('#quizSubmit').click();
-  }
-  await page.locator('#quizNext').click();
- }
- assert.match(await page.locator('#quiz .quiz-score').innerText(),/\/ 5/,'Le score final n’apparaît pas.');
+ await page.locator('#quizNext').click();
+ await page.locator('#quiz .quiz-choice').first().click();
+ await page.locator('#quizSubmit').click();
+ assert.ok(await page.locator('#quizFinish').isVisible(),'La fin libre du quiz doit être proposée après validation.');
+ await page.locator('#quizFinish').click();
+ assert.match(await page.locator('#quiz .quiz-score').innerText(),/\/ 2/,'Le bilan doit refléter seulement les deux réponses données.');
  await page.goto(origin+'/#compte');
  await page.locator('#guestProgress').waitFor({state:'visible'});
  assert.match(await page.locator('#guestProgress').innerText(),/1 session/,'La progression invitée n’est pas enregistrée.');
