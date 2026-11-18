@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
-import {readProgress,writeProgress,emptyProgress,combineCandidates,checkBank,selectQuestions,newSession,applyAnswer,completeSession,matchesAnswer,progressSummary} from '../quiz/core.mjs';
+import {readProgress,writeProgress,emptyProgress,combineCandidates,checkBank,selectQuestions,newSession,applyAnswer,completeSession,finishSession,matchesAnswer,progressSummary} from '../quiz/core.mjs';
 const dir=new URL('../',import.meta.url);
 const argc=JSON.parse(readFileSync(new URL('docs/quiz/vague1/section-09-pointeurs-et-tableaux-c.json',dir),'utf8'));
 const varia=JSON.parse(readFileSync(new URL('quiz/questions-variadiques.json',dir),'utf8'));
@@ -33,6 +33,14 @@ for(const q of items){
 }
 assert.equal(Object.keys(session.answers).length,11);
 assert.throws(()=>applyAnswer(session,items[0],[items[0].correct_option_ids[0]]),/déjà enregistrée/);
+const partialSession={...session,cursor:1};
+const early=finishSession(emptyProgress(),partialSession,bank);
+assert.equal(early.summary.total,11,'Les réponses déjà données restent comptées même en fin anticipée.');
+const cut={...session,answers:Object.fromEntries(Object.entries(session.answers).slice(0,2)),cursor:1};
+const earlyCut=finishSession(emptyProgress(),cut,bank);
+assert.equal(earlyCut.summary.total,2,'Le bilan libre ne doit pas compter les questions non posées.');
+assert.equal(earlyCut.progress.history[0].questionIds.length,2);
+assert.throws(()=>finishSession(emptyProgress(),{...session,answers:{}},bank),/au moins une réponse/);
 const result=completeSession(emptyProgress(),session,bank);
 assert.equal(result.summary.total,11);
 assert.equal(result.progress.current,null);
