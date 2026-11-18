@@ -20,7 +20,28 @@ const route=(topic,notion)=>{
  return '#cours/'+slug(topic)+'/'+(ii+1)+'-'+slug(notion);
 };
 const target=ii=>route(topicName,contenu.sections[si].items[ii].term);
-const server=createServer((_req,res)=>{
+const assets={
+ '/quiz/core.mjs':'text/javascript',
+ '/quiz/engine.mjs':'text/javascript',
+ '/quiz/styles.css':'text/css',
+ '/quiz/questions-variadiques.json':'application/json',
+ '/docs/quiz/vague1/section-09-pointeurs-et-tableaux-c.json':'application/json'
+};
+const server=createServer((req,res)=>{
+ const pathname=new URL(req.url,'http://localhost').pathname;
+ if(pathname in assets){
+  try{
+   const data=readFileSync(new URL('..'+pathname,import.meta.url));
+   res.writeHead(200,{'Content-Type':assets[pathname]+'; charset=utf-8','Cache-Control':'no-store'});
+   res.end(data);
+  }catch{
+   res.writeHead(404,{'Content-Type':'text/plain'});res.end('Fichier absent');
+  }
+  return;
+ }
+ if(pathname!=='/'){
+  res.writeHead(404,{'Content-Type':'text/plain'});res.end('Introuvable');return;
+ }
  res.writeHead(200,{'Content-Type':'text/html; charset=utf-8','Cache-Control':'no-store'});
  res.end(source);
 });
@@ -256,6 +277,35 @@ try{
  assert.equal(await page.locator('#about .project-help a').count(),2,
   'Les deux liens vers GitHub doivent être visibles.');
  await page.screenshot({path:'apercus/a-propos-simplifie.png'});
+
+ // Préversion du quiz : charger deux lots, valider une réponse, mettre en pause et reprendre.
+ await page.goto(origin+'/#quiz');
+ await page.locator('#quizStart').waitFor({state:'visible',timeout:15000});
+ assert.match(await page.locator('#quiz .quiz-app').innerText(),/55 questions candidates/);
+ await page.locator('#quizCount').selectOption('5');
+ await page.locator('#quizStart').click();
+ assert.equal(await page.locator('#quiz .quiz-choice').count()>=4,true);
+ await page.locator('#quiz .quiz-choice').first().click();
+ await page.locator('#quizSubmit').click();
+ assert.equal(await page.locator('#quiz .quiz-feedback').count(),1,'Le corrigé n’est pas affiché après validation.');
+ await page.locator('#quizPause').click();
+ assert.ok(await page.locator('#quizResume').isVisible(),'La pause ne sauvegarde pas la session.');
+ await page.reload();
+ await page.locator('#quizResume').waitFor({state:'visible',timeout:15000});
+ await page.locator('#quizResume').click();
+ assert.ok(await page.locator('#quizNext').isVisible(),'La réponse précédente ne reprend pas correctement.');
+ for(let index=0;index<5;index++){
+  if(index>0){
+   await page.locator('#quiz .quiz-choice').first().click();
+   await page.locator('#quizSubmit').click();
+  }
+  await page.locator('#quizNext').click();
+ }
+ assert.match(await page.locator('#quiz .quiz-score').innerText(),/\/ 5/,'Le score final n’apparaît pas.');
+ await page.goto(origin+'/#compte');
+ await page.locator('#guestProgress').waitFor({state:'visible'});
+ assert.match(await page.locator('#guestProgress').innerText(),/1 session/,'La progression invitée n’est pas enregistrée.');
+ await page.screenshot({path:'apercus/quiz-compte-progression.png'});
 
  // Le comportement mobile existant reste préservé, sans refonte de l'interface.
  const mobile=await browser.newPage({viewport:{width:390,height:844},isMobile:true,hasTouch:true});
