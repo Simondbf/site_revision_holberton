@@ -330,7 +330,7 @@
       "notion": "Parcourir un tableau",
       "question_type": "application_conceptuelle",
       "answer_mode": "single",
-      "prompt": "Avec `int t[3]={1,2,3};`, que risque la boucle `for(i=0;i<=3;i++) printf(\"%d\",t[i]);` ? (Une seule réponse correcte.)",
+      "prompt": "Avec `int t[3]={1,2,3}; int i;`, que risque la boucle `for(i=0;i<=3;i++) printf(\"%d\",t[i]);` ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",

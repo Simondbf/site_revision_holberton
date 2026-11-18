@@ -672,37 +672,36 @@
       "notion": "Arithmétique des pointeurs",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Que signifie `p+1` lorsque p est un int * valide au sein d'un tableau ? (Une seule réponse correcte.)",
+      "prompt": "Que signifie `p+1` lorsque p est un int * valide pointant dans un tableau ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
-          "text": "Exécuter l'instruction C suivante"
+          "text": "Déréférencer p puis ajouter 1 à la valeur de cet int."
         },
         {
           "id": "B",
-          "text": "Avancer d'un élément int"
+          "text": "Avancer d'un élément int, sans lire directement sa valeur."
         },
         {
           "id": "C",
-          "text": "Déréférencer automatiquement p"
+          "text": "Avancer d'un caractère, quelle que soit la taille de int."
         },
         {
           "id": "D",
-          "text": "Avancer toujours d'un octet"
+          "text": "Faire pointer p vers le même int après modification de l'adresse."
         }
       ],
       "correct_option_ids": [
         "B"
       ],
-      "explanation": "L'arithmétique des pointeurs dépend de la taille du type pointé.",
+      "explanation": "L'arithmétique des pointeurs est exprimée en éléments du type pointé. p+1 désigne l'int suivant si ce déplacement respecte les limites.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/20-arithmetique-des-pointeurs"
       ],
       "review_status": "a_verifier",
       "review_flags": [
-        "technical_review_needed",
-        "verify_ngu89",
-        "undefined_behavior_checks"
+        "relecture_distracteurs_meme_notion",
+        "verification_independante_requise"
       ]
     },
     {
@@ -882,33 +881,32 @@
       "options": [
         {
           "id": "A",
-          "text": "Libère toute la mémoire du processus"
+          "text": "Libère un bloc de taille zéro."
         },
         {
           "id": "B",
-          "text": "Provoque toujours SIGSEGV"
+          "text": "Provoque une double libération."
         },
         {
           "id": "C",
-          "text": "Renvoie -1"
+          "text": "Modifie automatiquement les autres pointeurs du programme."
         },
         {
           "id": "D",
-          "text": "Rien"
+          "text": "N'a aucun effet."
         }
       ],
       "correct_option_ids": [
         "D"
       ],
-      "explanation": "Un pointeur nul est accepté par free.",
+      "explanation": "free(NULL) est défini comme une opération sans effet ; cela ne correspond à aucune libération de bloc.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/32-free-liberer-la-memoire"
       ],
       "review_status": "a_verifier",
       "review_flags": [
-        "technical_review_needed",
-        "verify_ngu89",
-        "undefined_behavior_checks"
+        "relecture_distracteurs_meme_notion",
+        "verification_independante_requise"
       ]
     },
     {
@@ -1001,37 +999,36 @@
       "notion": "Fuite mémoire — allocation perdue",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Qu'est-ce qu'une fuite mémoire ? (Une seule réponse correcte.)",
+      "prompt": "Quelle situation caractérise une fuite mémoire certaine ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
-          "text": "Une sortie standard vide"
+          "text": "Un bloc alloué qui a été libéré puis dont un alias est encore stocké."
         },
         {
           "id": "B",
-          "text": "Une simple lecture de mémoire"
+          "text": "Un bloc alloué conservé volontairement et accessible jusqu'à la fin du programme."
         },
         {
           "id": "C",
-          "text": "Un bloc alloué qu'on ne libère pas lorsqu'il n'est plus utile"
+          "text": "Un bloc alloué non libéré devenu inaccessible pour le programme."
         },
         {
           "id": "D",
-          "text": "Une variable int locale"
+          "text": "Un tableau automatique dont la durée de vie s'est normalement terminée."
         }
       ],
       "correct_option_ids": [
         "C"
       ],
-      "explanation": "La responsabilité de libération n'est pas honorée.",
+      "explanation": "Un bloc dynamique devenu inaccessible avant d'avoir été libéré est une fuite ; un pointeur encore accessible n'implique pas nécessairement une fuite.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/36-fuite-memoire-allocation-perdue"
       ],
       "review_status": "a_verifier",
       "review_flags": [
-        "technical_review_needed",
-        "verify_ngu89",
-        "undefined_behavior_checks"
+        "relecture_distracteurs_meme_notion",
+        "verification_independante_requise"
       ]
     },
     {
@@ -1042,37 +1039,36 @@
       "notion": "Valgrind — détecter les fuites",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Quel outil peut signaler une fuite par une catégorie definitely lost ? (Une seule réponse correcte.)",
+      "prompt": "Quel outil peut rapporter une fuite dans la catégorie `definitely lost` ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
-          "text": "gcc -E"
+          "text": "Le préprocesseur gcc -E."
         },
         {
           "id": "B",
-          "text": "git status"
+          "text": "Le chargeur de bibliothèques ldd."
         },
         {
           "id": "C",
-          "text": "Valgrind Memcheck"
+          "text": "Valgrind Memcheck."
         },
         {
           "id": "D",
-          "text": "grep -A"
+          "text": "Le débogueur gdb utilisé sans analyse de fuites."
         }
       ],
       "correct_option_ids": [
         "C"
       ],
-      "explanation": "Valgrind Memcheck détecte certaines fuites et accès invalides.",
+      "explanation": "La catégorie definitely lost appartient aux rapports de fuites de Memcheck ; les autres outils n'émettent pas ce diagnostic.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/37-valgrind-detecter-les-fuites"
       ],
       "review_status": "a_verifier",
       "review_flags": [
-        "technical_review_needed",
-        "verify_ngu89",
-        "undefined_behavior_checks"
+        "relecture_distracteurs_meme_notion",
+        "verification_independante_requise"
       ]
     },
     {
@@ -1539,33 +1535,32 @@
       "options": [
         {
           "id": "A",
-          "text": "Il empêche tout accès hors limites"
+          "text": "Il empêche tous les accès hors limites après allocation."
         },
         {
           "id": "B",
-          "text": "Il retourne toujours la même adresse"
+          "text": "Il garantit toujours le retour d'une adresse non NULL."
         },
         {
           "id": "C",
-          "text": "Les octets alloués sont initialisés à zéro"
+          "text": "Il initialise à zéro les octets de la zone allouée."
         },
         {
           "id": "D",
-          "text": "Il réserve toujours un bloc de 1 Go"
+          "text": "Il rend inutile l'appel à free."
         }
       ],
       "correct_option_ids": [
         "C"
       ],
-      "explanation": "calloc initialise à zéro les octets de l'espace alloué.",
+      "explanation": "calloc met les octets alloués à zéro, sans garantir la réussite de l'allocation ni la sécurité des accès futurs.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/49-calloc-allouer-et-initialiser-a-zero"
       ],
       "review_status": "a_verifier",
       "review_flags": [
-        "technical_review_needed",
-        "verify_ngu89",
-        "undefined_behavior_checks"
+        "relecture_distracteurs_meme_notion",
+        "verification_independante_requise"
       ]
     },
     {
@@ -1738,37 +1733,36 @@
       "notion": "Valgrind Memcheck — comprendre les alertes",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Que peut signaler Memcheck avec `Invalid write` ? (Une seule réponse correcte.)",
+      "prompt": "Dans un rapport Memcheck, que signifie un diagnostic `Invalid write` ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
-          "text": "Une branche Git non fusionnée"
+          "text": "Une écriture dans un emplacement que Memcheck estime invalide."
         },
         {
           "id": "B",
-          "text": "Une écriture à une adresse invalide selon son analyse"
+          "text": "Une fuite directe de 32 octets sans écriture."
         },
         {
           "id": "C",
-          "text": "Un succès garanti de malloc"
+          "text": "La lecture d'une valeur non initialisée sans écriture."
         },
         {
           "id": "D",
-          "text": "Une variable Bash non exportée"
+          "text": "Un bloc encore accessible lors de la fin du processus."
         }
       ],
       "correct_option_ids": [
-        "B"
+        "A"
       ],
-      "explanation": "Memcheck signale des écritures invalides, dont hors limites et après libération.",
+      "explanation": "Invalid write décrit une écriture considérée invalide : adresse hors limites, libérée ou autrement inaccessible.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/54-valgrind-memcheck-comprendre-les-alertes"
       ],
       "review_status": "a_verifier",
       "review_flags": [
-        "technical_review_needed",
-        "verify_ngu89",
-        "undefined_behavior_checks"
+        "relecture_distracteurs_meme_notion",
+        "verification_independante_requise"
       ]
     },
     {
@@ -1820,37 +1814,36 @@
       "notion": "Dépassement de tampon sur la pile — erreur avant malloc",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Si la saisie déborde déjà un tampon local avant malloc, quel correctif est prioritaire ? (Une seule réponse correcte.)",
+      "prompt": "La saisie déborde déjà un tampon local avant un appel ultérieur à malloc. Quel correctif doit intervenir en premier ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
-          "text": "Ne jamais vérifier les tailles"
+          "text": "Contrôler la taille seulement après que la lecture est terminée."
         },
         {
           "id": "B",
-          "text": "Limiter la lecture selon la capacité du tableau"
+          "text": "Limiter la lecture d'après la capacité réelle du tableau local."
         },
         {
           "id": "C",
-          "text": "Ajouter davantage de free après strcpy"
+          "text": "Conserver strcpy, puisque malloc corrigera la corruption initiale."
         },
         {
           "id": "D",
-          "text": "Changer uniquement le nom du fichier"
+          "text": "Ajouter un second appel à free lors du nettoyage."
         }
       ],
       "correct_option_ids": [
         "B"
       ],
-      "explanation": "La corruption se produit au moment de la lecture non bornée.",
+      "explanation": "La lecture elle-même doit être bornée. Une copie ou une libération ultérieure ne répare pas les écritures hors limites déjà commises.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/56-depassement-de-tampon-sur-la-pile-erreur-avant-malloc"
       ],
       "review_status": "a_verifier",
       "review_flags": [
-        "technical_review_needed",
-        "verify_ngu89",
-        "undefined_behavior_checks"
+        "relecture_distracteurs_meme_notion",
+        "verification_independante_requise"
       ]
     },
     {
@@ -1907,37 +1900,36 @@
       "notion": "Stack overflow — épuisement de la pile d'appels",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Quelle cause fréquente peut provoquer un épuisement de la pile ? (Une seule réponse correcte.)",
+      "prompt": "Quelle situation peut épuiser la pile d'appels d'un processus ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
-          "text": "Un commit Git"
+          "text": "Une boucle itérative qui n'ajoute aucun appel de fonction."
         },
         {
           "id": "B",
-          "text": "Une variable d'environnement vide"
+          "text": "Une opération malloc dont le résultat est conservé dans un pointeur."
         },
         {
           "id": "C",
-          "text": "Un simple printf unique"
+          "text": "Une fonction qui retourne aussitôt au premier appel."
         },
         {
           "id": "D",
-          "text": "Récursion sans condition d'arrêt"
+          "text": "Une récursion qui ne rencontre jamais de condition d'arrêt."
         }
       ],
       "correct_option_ids": [
         "D"
       ],
-      "explanation": "Les appels répétés peuvent épuiser l'espace de pile.",
+      "explanation": "Chaque appel récursif peut ajouter des informations de pile ; une récursion non bornée peut épuiser cette ressource.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/58-stack-overflow-epuisement-de-la-pile-d-appels"
       ],
       "review_status": "a_verifier",
       "review_flags": [
-        "technical_review_needed",
-        "verify_ngu89",
-        "undefined_behavior_checks"
+        "relecture_distracteurs_meme_notion",
+        "verification_independante_requise"
       ]
     },
     {
@@ -1948,37 +1940,36 @@
       "notion": "Valgrind : « definitely lost » et les octets perdus",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Un rapport `definitely lost: 32 bytes in 1 blocks` indique quoi ? (Une seule réponse correcte.)",
+      "prompt": "Que signifie `definitely lost: 32 bytes in 1 blocks` dans Memcheck ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
-          "text": "Un bloc correctement libéré"
+          "text": "Un bloc de 32 octets correctement libéré."
         },
         {
           "id": "B",
-          "text": "Un bloc de 32 octets perdu directement"
+          "text": "Un bloc inaccessible de 32 octets perdu directement."
         },
         {
           "id": "C",
-          "text": "32 pointeurs valides"
+          "text": "Trente-deux blocs d'un octet encore accessibles."
         },
         {
           "id": "D",
-          "text": "Un temps CPU de 32 ms"
+          "text": "Un bloc de 32 octets classé comme still reachable."
         }
       ],
       "correct_option_ids": [
         "B"
       ],
-      "explanation": "La fuite certaine concerne un bloc alloué de 32 octets.",
+      "explanation": "Un seul bloc totalisant 32 octets a été perdu sans pointeur connu permettant de le récupérer.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/59-valgrind-definitely-lost-et-les-octets-perdus"
       ],
       "review_status": "a_verifier",
       "review_flags": [
-        "technical_review_needed",
-        "verify_ngu89",
-        "undefined_behavior_checks"
+        "relecture_distracteurs_meme_notion",
+        "verification_independante_requise"
       ]
     },
     {
@@ -1989,37 +1980,36 @@
       "notion": "strlen sans terminateur nul — lecture hors limites",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Pourquoi strlen sur un tableau sans '\\0' accessible peut-elle poser problème ? (Une seule réponse correcte.)",
+      "prompt": "Pourquoi `strlen` sur un tableau sans caractère nul accessible est-elle dangereuse ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
-          "text": "Elle complète automatiquement le tableau"
+          "text": "Elle complète automatiquement le tableau avec un nul."
         },
         {
           "id": "B",
-          "text": "Elle renvoie toujours la capacité exacte"
+          "text": "Elle s'arrête automatiquement aux limites réelles du tableau."
         },
         {
           "id": "C",
-          "text": "Elle appelle malloc"
+          "text": "Elle utilise sizeof pour déterminer la capacité sans aide."
         },
         {
           "id": "D",
-          "text": "Elle poursuit la recherche et peut lire hors limites"
+          "text": "Elle continue à rechercher le nul, avec accès potentiel hors limites."
         }
       ],
       "correct_option_ids": [
         "D"
       ],
-      "explanation": "strlen ne reçoit pas de longueur maximale et cherche un caractère nul.",
+      "explanation": "strlen ne reçoit pas de capacité : une chaîne doit avoir un terminateur nul accessible.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/60-strlen-sans-terminateur-nul-lecture-hors-limites"
       ],
       "review_status": "a_verifier",
       "review_flags": [
-        "technical_review_needed",
-        "verify_ngu89",
-        "undefined_behavior_checks"
+        "relecture_distracteurs_meme_notion",
+        "verification_independante_requise"
       ]
     },
     {
@@ -2030,37 +2020,36 @@
       "notion": "memcpy() — copier des octets sans chevauchement",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Quel comportement est garanti par memcpy quand les n octets sont valides et ne se recouvrent pas ? (Une seule réponse correcte.)",
+      "prompt": "Que garantit `memcpy(dest,src,n)` si les n octets sont valides et les zones sans recouvrement ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
-          "text": "La copie exacte de n octets"
+          "text": "La copie des n octets demandés."
         },
         {
           "id": "B",
-          "text": "Le tri lexicographique"
+          "text": "La terminaison du résultat comme chaîne C."
         },
         {
           "id": "C",
-          "text": "L'ajout systématique de '\\0'"
+          "text": "La détection de la taille maximale de dest."
         },
         {
           "id": "D",
-          "text": "La suppression des allocations de destination"
+          "text": "La copie dans l'ordre lexical des caractères."
         }
       ],
       "correct_option_ids": [
         "A"
       ],
-      "explanation": "memcpy copie des octets sans ajouter de terminaison de chaîne.",
+      "explanation": "memcpy copie des octets, sans ajouter de nul ni vérifier la taille réelle de la destination.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/61-memcpy-copier-des-octets-sans-chevauchement"
       ],
       "review_status": "a_verifier",
       "review_flags": [
-        "technical_review_needed",
-        "verify_ngu89",
-        "undefined_behavior_checks"
+        "relecture_distracteurs_meme_notion",
+        "verification_independante_requise"
       ]
     },
     {
@@ -2194,37 +2183,36 @@
       "notion": "char * — pointeur vers un caractère ou une chaîne",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Un char * contient-il la taille du tableau pointé ? (Une seule réponse correcte.)",
+      "prompt": "Une variable `char *p` connaît-elle automatiquement la capacité de la zone qu'elle désigne ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
-          "text": "Non"
+          "text": "Non : la capacité doit être déterminée par ailleurs."
         },
         {
           "id": "B",
-          "text": "Oui, seulement sous Linux"
+          "text": "Oui : sizeof p renvoie la taille du tableau désigné."
         },
         {
           "id": "C",
-          "text": "Oui, automatiquement"
+          "text": "Oui : strlen(p) mesure la capacité même sans caractère nul."
         },
         {
           "id": "D",
-          "text": "Oui, si l'adresse est paire"
+          "text": "Oui : le type char * intègre une longueur cachée."
         }
       ],
       "correct_option_ids": [
         "A"
       ],
-      "explanation": "Le pointeur ne porte pas la longueur du bloc.",
+      "explanation": "char * indique le type de caractère visé, pas la capacité. sizeof p est la taille du pointeur, et strlen exige une chaîne terminée.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/65-char-pointeur-vers-un-caractere-ou-une-chaine"
       ],
       "review_status": "a_verifier",
       "review_flags": [
-        "technical_review_needed",
-        "verify_ngu89",
-        "undefined_behavior_checks"
+        "relecture_distracteurs_meme_notion",
+        "verification_independante_requise"
       ]
     },
     {
@@ -2235,37 +2223,36 @@
       "notion": "Diagnostics mémoire — INVALID_WRITE, UNINITIALIZED_VALUE et fuites",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Peut-on déduire avec certitude la vulnérabilité d'un code en lisant seulement l'intitulé de son programme d'exemple ? (Une seule réponse correcte.)",
+      "prompt": "Pourquoi un intitulé de diagnostic mémoire ne suffit-il pas à établir la cause exacte d'un problème ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
-          "text": "Oui, sans jamais compiler"
+          "text": "Il garantit que toute erreur mémoire provient de malloc."
         },
         {
           "id": "B",
-          "text": "Oui, l'intitulé suffit"
+          "text": "La présence d'un nom de catégorie suffit à identifier la ligne fautive."
         },
         {
           "id": "C",
-          "text": "Non, il faut examiner le code réel et les diagnostics"
+          "text": "Il faut confronter la catégorie aux accès, allocations et traces d'exécution réels."
         },
         {
           "id": "D",
-          "text": "Oui, les noms du programme d'exemple sont des messages Valgrind exacts"
+          "text": "Un rapport de fuite prouve qu'aucun dépassement de tampon n'a eu lieu."
         }
       ],
       "correct_option_ids": [
         "C"
       ],
-      "explanation": "Ne pas prétendre avoir établi une erreur sans consulter les preuves.",
+      "explanation": "Les catégories de diagnostics résument un symptôme ; leur contexte d'exécution et les traces sont nécessaires pour conclure.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/66-diagnostics-memoire-invalid-write-uninitialized-value-et-fuites"
       ],
       "review_status": "a_verifier",
       "review_flags": [
-        "technical_review_needed",
-        "verify_ngu89",
-        "undefined_behavior_checks"
+        "relecture_distracteurs_meme_notion",
+        "verification_independante_requise"
       ]
     },
     {
@@ -2276,37 +2263,36 @@
       "notion": "struct : regrouper plusieurs données",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Qu'est-ce qu'une struct en C ? (Une seule réponse correcte.)",
+      "prompt": "En C, que définit `struct point { int x; int y; };` ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
-          "text": "Un objet toujours dynamique"
+          "text": "Une allocation sur le tas créée automatiquement."
         },
         {
           "id": "B",
-          "text": "Une commande Git"
+          "text": "Une union où les membres partagent le même stockage."
         },
         {
           "id": "C",
-          "text": "Un type regroupant plusieurs membres"
+          "text": "Un type composé de deux membres entiers nommés."
         },
         {
           "id": "D",
-          "text": "Une boucle exécutée automatiquement"
+          "text": "Une fonction dont les paramètres sont x et y."
         }
       ],
       "correct_option_ids": [
         "C"
       ],
-      "explanation": "Une structure regroupe des données nommées.",
+      "explanation": "La déclaration définit un type de structure possédant deux membres nommés ; elle n'alloue pas à elle seule une variable.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/structures-et-typedef-en-c/1-struct-regrouper-plusieurs-donnees"
       ],
       "review_status": "a_verifier",
       "review_flags": [
-        "technical_review_needed",
-        "verify_ngu89",
-        "undefined_behavior_checks"
+        "relecture_distracteurs_meme_notion",
+        "verification_independante_requise"
       ]
     },
     {
@@ -2481,37 +2467,36 @@
       "notion": "Initialiseurs désignés .membre (C99)",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Quel mécanisme C99 permet d'écrire `struct point p={.x=1,.y=2};` ? (Une seule réponse correcte.)",
+      "prompt": "Quel mécanisme introduit en C99 permet `struct point p={.x=1,.y=2};` ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
-          "text": "Appel de fonction via pointeur"
+          "text": "Une affectation à des membres par flèche dans une fonction."
         },
         {
           "id": "B",
-          "text": "Initialiseurs désignés"
+          "text": "Des initialiseurs désignés par le nom des membres."
         },
         {
           "id": "C",
-          "text": "Union anonyme obligatoire"
+          "text": "Une réorganisation physique de l'ordre des membres."
         },
         {
           "id": "D",
-          "text": "Arithmétique des pointeurs"
+          "text": "Une allocation dynamique implicite des membres."
         }
       ],
       "correct_option_ids": [
         "B"
       ],
-      "explanation": "Les initialisateurs désignés sont une fonctionnalité C99.",
+      "explanation": "Les initialiseurs désignés C99 choisissent les membres par leurs noms. Ce mécanisme n'appartient pas au C89 strict.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/structures-et-typedef-en-c/6-initialiseurs-designes-membre-c99"
       ],
       "review_status": "a_verifier",
       "review_flags": [
-        "technical_review_needed",
-        "verify_ngu89",
-        "undefined_behavior_checks"
+        "relecture_distracteurs_meme_notion",
+        "verification_independante_requise"
       ]
     },
     {
@@ -2768,37 +2753,36 @@
       "notion": "typedef struct : nommer une structure",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Quel intérêt a `typedef struct point point_t;` si struct point est défini ? (Une seule réponse correcte.)",
+      "prompt": "Quel avantage apporte `typedef struct point point_t;` une fois le type complété ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
-          "text": "Utiliser point_t comme alias du type struct point"
+          "text": "Déclarer des variables point_t sans répéter struct point."
         },
         {
           "id": "B",
-          "text": "Supprimer tous les membres de la structure"
+          "text": "Modifier automatiquement les membres de struct point."
         },
         {
           "id": "C",
-          "text": "Transformer une structure en chaîne"
+          "text": "Rendre point_t incompatible avec le type struct point."
         },
         {
           "id": "D",
-          "text": "Allouer un tableau automatiquement"
+          "text": "Permettre d'instancier un point_t avant définition complète."
         }
       ],
       "correct_option_ids": [
         "A"
       ],
-      "explanation": "L'alias facilite la déclaration.",
+      "explanation": "L'alias point_t désigne le même type, sans changer sa disposition ou rendre un type incomplet instanciable.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/structures-et-typedef-en-c/13-typedef-struct-nommer-une-structure"
       ],
       "review_status": "a_verifier",
       "review_flags": [
-        "technical_review_needed",
-        "verify_ngu89",
-        "undefined_behavior_checks"
+        "relecture_distracteurs_meme_notion",
+        "verification_independante_requise"
       ]
     },
     {
@@ -2973,37 +2957,36 @@
       "notion": "Documenter une struct pour Betty",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Pourquoi documenter les membres d'une struct dans un en-tête ? (Une seule réponse correcte.)",
+      "prompt": "Pourquoi documenter une structure et ses membres dans un en-tête selon Betty ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
-          "text": "Augmenter automatiquement sa taille"
+          "text": "Pour supprimer les membres non utilisés lors de la compilation."
         },
         {
           "id": "B",
-          "text": "Remplacer les prototypes"
+          "text": "Pour garantir l'absence de padding dans la structure."
         },
         {
           "id": "C",
-          "text": "Rendre le contrat du type compréhensible"
+          "text": "Pour expliciter le contrat et la signification des champs."
         },
         {
           "id": "D",
-          "text": "Transformer tous les champs en pointeurs"
+          "text": "Pour permettre de modifier les membres en contournant leurs types."
         }
       ],
       "correct_option_ids": [
         "C"
       ],
-      "explanation": "La documentation explicite les champs et leur sens.",
+      "explanation": "La documentation décrit le rôle du type et des membres. Elle ne change ni la mémoire ni la sémantique du langage.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/structures-et-typedef-en-c/18-documenter-une-struct-pour-betty"
       ],
       "review_status": "a_verifier",
       "review_flags": [
-        "technical_review_needed",
-        "verify_ngu89",
-        "undefined_behavior_checks"
+        "relecture_distracteurs_meme_notion",
+        "verification_independante_requise"
       ]
     },
     {
@@ -3220,37 +3203,36 @@
       "notion": "Callback — transmettre une fonction en paramètre",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Qu'est-ce qu'un callback en C ? (Une seule réponse correcte.)",
+      "prompt": "Qu'appelle-t-on callback en C ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
-          "text": "Un pointeur de données toujours nul"
+          "text": "Une fonction qui doit être exécutée uniquement après la fin de main."
         },
         {
           "id": "B",
-          "text": "Une fonction passée à une autre fonction pour être appelée"
+          "text": "Une fonction passée à une autre fonction afin que celle-ci puisse l'appeler."
         },
         {
           "id": "C",
-          "text": "Un tableau toujours sur le tas"
+          "text": "Une fonction implicitement compatible avec toutes les signatures."
         },
         {
           "id": "D",
-          "text": "Une variable locale de type char"
+          "text": "Une fonction recevant automatiquement toutes les variables locales de l'appelant."
         }
       ],
       "correct_option_ids": [
         "B"
       ],
-      "explanation": "Le callback fournit un traitement sélectionnable via un pointeur de fonction.",
+      "explanation": "Un callback est appelé via une référence de fonction, et sa signature doit être compatible avec celle attendue.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/69-callback-transmettre-une-fonction-en-parametre"
       ],
       "review_status": "a_verifier",
       "review_flags": [
-        "technical_review_needed",
-        "verify_ngu89",
-        "undefined_behavior_checks"
+        "relecture_distracteurs_meme_notion",
+        "verification_independante_requise"
       ]
     },
     {
@@ -3261,38 +3243,37 @@
       "notion": "Tableau de pointeurs de fonctions — choisir une opération",
       "question_type": "raisonnement_technique",
       "answer_mode": "multiple",
-      "prompt": "Quelles précautions avec un tableau de pointeurs de fonctions ? (Plusieurs réponses correctes.)",
+      "prompt": "Quelles précautions respecter pour un tableau de pointeurs de fonctions ? (Plusieurs réponses correctes.)",
       "options": [
         {
           "id": "A",
-          "text": "Ne pas appeler un élément NULL"
+          "text": "Contrôler qu'un élément n'est pas NULL avant de l'appeler."
         },
         {
           "id": "B",
-          "text": "Supposer que toutes les signatures sont interchangeables"
+          "text": "Considérer deux signatures de fonctions différentes comme interchangeables."
         },
         {
           "id": "C",
-          "text": "Appeler un indice hors limites pour tester la vitesse"
+          "text": "Supposer que tout indice est sûr si le tableau a une durée de vie statique."
         },
         {
           "id": "D",
-          "text": "Vérifier l'indice avant l'accès"
+          "text": "Vérifier les bornes de l'indice avant l'accès."
         }
       ],
       "correct_option_ids": [
         "A",
         "D"
       ],
-      "explanation": "L'indice et le pointeur doivent être valides et les signatures compatibles.",
+      "explanation": "L'indice et le pointeur de fonction doivent être valides ; les signatures appelées doivent être compatibles.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/70-tableau-de-pointeurs-de-fonctions-choisir-une-operation"
       ],
       "review_status": "a_verifier",
       "review_flags": [
-        "technical_review_needed",
-        "verify_ngu89",
-        "undefined_behavior_checks"
+        "relecture_distracteurs_meme_notion",
+        "verification_independante_requise"
       ]
     },
     {
@@ -3303,37 +3284,36 @@
       "notion": "typedef d'un pointeur de fonction — simplifier les signatures",
       "question_type": "raisonnement_technique",
       "answer_mode": "single",
-      "prompt": "Que décrit `typedef int (*operation_fn)(int,int);` ? (Une seule réponse correcte.)",
+      "prompt": "Que déclare `typedef int (*operation_fn)(int,int);` ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
-          "text": "Une déclaration de tableau automatique"
+          "text": "Une fonction operation_fn appelée immédiatement au chargement."
         },
         {
           "id": "B",
-          "text": "Une chaîne de deux int"
+          "text": "Un alias de type int pour le résultat de toutes les opérations."
         },
         {
           "id": "C",
-          "text": "Un alias pour un type de pointeur de fonction"
+          "text": "Un alias pour un pointeur vers fonction prenant deux int et renvoyant int."
         },
         {
           "id": "D",
-          "text": "Une fonction appelée immédiatement"
+          "text": "Un tableau de deux fonctions ayant des résultats entiers."
         }
       ],
       "correct_option_ids": [
         "C"
       ],
-      "explanation": "typedef renomme le type de pointeur vers fonction.",
+      "explanation": "typedef nomme un type de pointeur vers fonction, sans créer ni exécuter de fonction.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/71-typedef-d-un-pointeur-de-fonction-simplifier-les-signatures"
       ],
       "review_status": "a_verifier",
       "review_flags": [
-        "technical_review_needed",
-        "verify_ngu89",
-        "undefined_behavior_checks"
+        "relecture_distracteurs_meme_notion",
+        "verification_independante_requise"
       ]
     },
     {

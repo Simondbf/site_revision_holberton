@@ -1,6 +1,6 @@
-# Revue de quiz — undefined
+# Relecture — undefined
 
-**20 questions candidates à vérifier.** Les réponses indiquées sont destinées aux relecteurs, pas à l'interface des élèves.
+**20 questions candidates, toujours à vérifier.**
 
 ## APP-09-014-001 — Indices de tableau
 
@@ -17,7 +17,7 @@ Avec `int t[8]={2,4,6,8,10,12,14,16};`, que vaut `t[0]` ? (Une seule réponse co
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/15-indices-de-tableau
 
-**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
+**Relecture :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -36,7 +36,7 @@ Avec `int t[8]={2,4,6,8,10,12,14,16}; int *p=t;`, que vaut `*(p+0)` ? (Une seule
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/21-notation-equivalente
 
-**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
+**Relecture :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -55,7 +55,7 @@ Un tableau C déclaré avec un seul élément possède quels indices valides ? (
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/27-parcourir-un-tableau
 
-**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
+**Relecture :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -74,7 +74,7 @@ Avec `int t[8]={2,4,6,8,10,12,14,16};`, que vaut `t[1]` ? (Une seule réponse co
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/15-indices-de-tableau
 
-**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
+**Relecture :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -93,7 +93,7 @@ Avec `int t[8]={2,4,6,8,10,12,14,16}; int *p=t;`, que vaut `*(p+1)` ? (Une seule
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/21-notation-equivalente
 
-**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
+**Relecture :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -112,7 +112,7 @@ Un tableau déclaré avec 2 éléments valides a quelle plage d'indices ? (Une s
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/27-parcourir-un-tableau
 
-**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
+**Relecture :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -131,7 +131,7 @@ Pour `int t[4]={7,8,9,10};`, quel est le statut de la lecture `t[4]` ? (Une seul
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/15-indices-de-tableau
 
-**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
+**Relecture :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -150,7 +150,7 @@ Avec `int t[]={2,4,6}; int *p=t+1;`, que vaut `p[-1]` ? (Une seule réponse corr
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/21-notation-equivalente
 
-**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
+**Relecture :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -158,7 +158,7 @@ Avec `int t[]={2,4,6}; int *p=t+1;`, que vaut `p[-1]` ? (Une seule réponse corr
 
 **Une seule bonne réponse**
 
-Avec `int t[3]={1,2,3};`, que risque la boucle `for(i=0;i<=3;i++) printf("%d",t[i]);` ? (Une seule réponse correcte.)
+Avec `int t[3]={1,2,3}; int i;`, que risque la boucle `for(i=0;i<=3;i++) printf("%d",t[i]);` ? (Une seule réponse correcte.)
 
 - **A ❌** Elle affiche forcément 1230.
 - **B ✅** Elle lit hors des limites lorsque i vaut 3.
@@ -169,7 +169,7 @@ Avec `int t[3]={1,2,3};`, que risque la boucle `for(i=0;i<=3;i++) printf("%d",t[
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/27-parcourir-un-tableau
 
-**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
+**Relecture :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -188,7 +188,7 @@ Dans `int t[4]={4,8,12,16};`, quel indice désigne le dernier élément valide ?
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/15-indices-de-tableau
 
-**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
+**Relecture :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -207,7 +207,7 @@ Avec `int t[]={2,4,6}; int *p=t;`, quelles affirmations sur `*(p++)` sont exacte
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/21-notation-equivalente
 
-**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
+**Relecture :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -226,7 +226,7 @@ Avec `int t[3]={2,4,8}; int i=3,s=0; for(;i-->0;) s+=t[i];`, quelle est la valeu
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/27-parcourir-un-tableau
 
-**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
+**Relecture :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -245,7 +245,7 @@ Avec `char mot[]="Ada";`, que vaut `strlen(mot)` ? (Une seule réponse correcte.
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/40-strlen-sizeof-et-terminateur-nul
 
-**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
+**Relecture :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -264,7 +264,7 @@ Avec `char mot[]="Ada";`, que vaut `sizeof mot` ? (Une seule réponse correcte.)
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/18-sizeof-tableau
 
-**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
+**Relecture :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -283,7 +283,7 @@ Avec `char mot[]="C";`, que vaut `strlen(mot)` ? (Une seule réponse correcte.)
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/40-strlen-sizeof-et-terminateur-nul
 
-**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
+**Relecture :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -302,7 +302,7 @@ Avec `char mot[]="C";`, que vaut `sizeof mot` ? (Une seule réponse correcte.)
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/18-sizeof-tableau
 
-**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
+**Relecture :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -322,7 +322,7 @@ Pour `char s[]={'A','\0','B','\0'};`, quelles affirmations sont exactes ? (Plusi
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/40-strlen-sizeof-et-terminateur-nul
 
-**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
+**Relecture :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -341,7 +341,7 @@ Pour `int a[5]={1,2,3,4,5};`, que donne `sizeof a / sizeof a[0]` ? (Une seule r�
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/18-sizeof-tableau
 
-**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
+**Relecture :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -360,7 +360,7 @@ Avec `char s[2]={'A','B'};`, que peut-on dire de `strlen(s)` ? (Une seule répon
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/40-strlen-sizeof-et-terminateur-nul
 
-**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
+**Relecture :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
@@ -379,7 +379,7 @@ Pour `char s[8]="Hi";`, quelles affirmations sont exactes ? (Plusieurs réponses
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/18-sizeof-tableau
 
-**Relecture indépendante :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
+**Relecture :** ☐ exacte ☐ ambiguë ☐ correction ☐ rejetée
 
 ---
 
