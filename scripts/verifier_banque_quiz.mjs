@@ -7,7 +7,7 @@ assert.deepEqual(files,[
   'section-09-pointeurs-et-tableaux-c.json','section-16-structures-et-typedef-en-c.json'
 ],'PR #19 doit contenir uniquement les deux thèmes et les deux collections associées');
 const expected=new Map([[9,77],[16,21]]);
-const ids=new Set(),notions=new Set();
+const ids=new Set(),notions=new Set(),prompts=new Set();
 let structured=0,extra=0,multiple=0;
 const single=new Map([['A',0],['B',0],['C',0],['D',0]]);
 for(const file of files){
@@ -17,7 +17,11 @@ for(const file of files){
  for(const q of j.questions){
   assert.ok(q.id&&q.notion_id&&q.legacy_notion_key&&q.prompt?.length>12,'Question incomplète : '+q.id);
   assert.ok(!ids.has(q.id),'ID en doublon : '+q.id);ids.add(q.id);
+  const normalized=q.prompt.toLowerCase().replace(/\s+/g,' ').trim();
+  assert.ok(!prompts.has(normalized),'Énoncé en doublon : '+q.id);prompts.add(normalized);
   assert.ok(['single','multiple'].includes(q.answer_mode),'Mode de réponse invalide : '+q.id);
+  assert.ok(q.prompt.endsWith(q.answer_mode==='single'?'(Une seule réponse correcte.)':'(Plusieurs réponses correctes.)'),'Indication de mode absente : '+q.id);
+  assert.ok(!JSON.stringify(q).includes('\\u0000'),'Caractère NUL parasite : '+q.id);
   assert.ok([4,5].includes(q.options?.length),'Quatre ou cinq options attendues : '+q.id);
   assert.deepEqual(q.options.map(o=>o.id),['A','B','C','D','E'].slice(0,q.options.length),'ID d’options invalide : '+q.id);
   assert.equal(new Set(q.options.map(o=>o.text)).size,q.options.length,'Options dupliquées : '+q.id);
@@ -45,10 +49,10 @@ for(const file of files){
   if(file.startsWith('section-'))structured++;else extra++;
  }
 }
-assert.equal(structured,399,'Questions structurées manquantes');
-assert.equal(extra,122,'Questions transversales manquantes');
-assert.equal(ids.size,521,'Questions totales manquantes');
+assert.equal(structured,213,'Questions structurées manquantes');
+assert.equal(extra,102,'Questions transversales manquantes');
+assert.equal(ids.size,315,'Questions totales manquantes');
 assert.equal(notions.size,98,'Notions manquantes');
-assert.ok(multiple>0,'Aucune question à réponses multiples');
-console.log('PR #19 : 521 questions pour 98 notions, JSON et Markdown cohérents.');
+assert.ok(multiple>=90,'Réponses multiples insuffisantes');
+console.log('PR #19 : 315 questions pour 98 notions, JSON et Markdown cohérents.');
 console.log('Toutes les questions restent à vérifier pédagogiquement.');
