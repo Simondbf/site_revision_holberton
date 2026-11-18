@@ -39,7 +39,7 @@ function renderMenu(){
   progress.current=newSession(selection,family);write();paused=false;lastReport=null;renderQuestion();renderAccount();
  };
  const resume=document.getElementById('quizResume');
- if(resume)resume.onclick=()=>{paused=false;renderQuestion()};
+ if(resume)resume.onclick=()=>{paused=false;progress.current.paused=false;write();renderQuestion()};
 }
 function renderQuestion(){
  const session=progress.current;
@@ -71,7 +71,7 @@ function renderQuestion(){
    const completed=completeSession(progress,session,bank);progress=completed.progress;lastReport=completed.summary;write();renderResults();renderAccount();
   }else{progress.current.cursor=index+1;write();renderQuestion()}
  };
- document.getElementById('quizPause').onclick=()=>{paused=true;write();renderMenu();renderAccount()};
+ document.getElementById('quizPause').onclick=()=>{paused=true;progress.current.paused=true;write();renderMenu();renderAccount()};
 }
 function renderResults(){
  const sum=lastReport;if(!sum){renderMenu();return}
@@ -106,7 +106,7 @@ function render(){
  if(loading){page('Chargement des quiz','Préparation des questions…','<p role="status">Chargement</p>');return}
  if(error){page('Quiz indisponible',error,'<button id="quizRetry" class="quiz-primary">Réessayer</button>');document.getElementById('quizRetry').onclick=load;return}
  if(lastReport){renderResults();return}
- if(progress.current&&!paused){renderQuestion();return}
+ if(progress.current&&!paused&&!progress.current.paused){renderQuestion();return}
  renderMenu();
 }
 async function load(){
