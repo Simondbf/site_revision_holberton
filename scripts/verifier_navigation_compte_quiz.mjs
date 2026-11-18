@@ -28,6 +28,7 @@ found('holberton-dark-v2');
 const scripts=[...html.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/g)];
 const app=scripts.filter(m=>!/\btype="application\/json"/.test(m[1])&&!/\bsrc=/.test(m[1])).at(-1)?.[2];
 found('src="./quiz/engine.mjs"');
+found('src="./account/client.mjs"');
 found('href="./quiz/styles.css"');
 assert.ok(app,'Script d’application introuvable');
 const check=new Function(app);assert.equal(typeof check,'function','JS de l’application invalide');
