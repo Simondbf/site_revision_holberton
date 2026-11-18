@@ -33,3 +33,5 @@ jobs:
           node scripts/verifier_quiz.mjs
           node --check quiz/core.mjs
           node --check quiz/engine.mjs
+          node --test server/auth.test.mjs
+          node --check server/index.mjs
