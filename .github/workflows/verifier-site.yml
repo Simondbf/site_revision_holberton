@@ -36,3 +36,8 @@ jobs:
           node --test server/auth.test.mjs
           node --check server/index.mjs
           node --check account/client.mjs
+          cd server
+          npm install --package-lock-only --ignore-scripts --no-audit --no-fund
+          echo HBTN_LOCKFILE_BEGIN
+          cat package-lock.json
+          echo HBTN_LOCKFILE_END
