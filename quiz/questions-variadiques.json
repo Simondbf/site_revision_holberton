@@ -380,15 +380,16 @@
         },
         {
           "id": "E",
-          "text": "La copie directe avec = est portable sur toute plateforme."
+          "text": "La déclaration `va_list ap;` utilise un type fourni par `<stdarg.h>`."
         }
       ],
       "correct_option_ids": [
         "A",
         "C",
-        "D"
+        "D",
+        "E"
       ],
-      "explanation": "va_list n'a pas une représentation imposée ; on le prépare par va_start et le termine par va_end.",
+      "explanation": "va_list est le type fourni par stdarg.h et sa représentation dépend de l’implémentation ; va_start initialise le parcours, va_end le clôt. Une simple affectation n’est pas une copie portable.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/33-va-list-et-va-start-initialiser-le-parcours",
         "https://man7.org/linux/man-pages/man3/stdarg.3.html",
@@ -397,7 +398,8 @@
       "review_status": "a_verifier",
       "review_flags": [
         "nouveau_projet_variadique",
-        "relecture_independante_requise"
+        "relecture_independante_requise",
+        "reformule_pour_precision_gnu89_20261118"
       ]
     },
     {
@@ -452,7 +454,7 @@
       "question_type": "promotion",
       "difficulty_internal": 1,
       "answer_mode": "single",
-      "prompt": "Pour un char transmis par ..., quel type faut-il normalement demander à va_arg ?",
+      "prompt": "Pour un `signed char` transmis par `...`, quel type faut-il demander à `va_arg` après les promotions par défaut ?",
       "options": [
         {
           "id": "A",
@@ -474,7 +476,7 @@
       "correct_option_ids": [
         "B"
       ],
-      "explanation": "La promotion entière par défaut transforme ici char en int.",
+      "explanation": "La valeur d’un signed char peut toujours être représentée par int : la promotion entière par défaut la transmet comme un int.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/34-va-arg-lire-les-valeurs-et-comprendre-les-promotions",
         "https://man7.org/linux/man-pages/man3/stdarg.3.html",
@@ -483,7 +485,8 @@
       "review_status": "a_verifier",
       "review_flags": [
         "nouveau_projet_variadique",
-        "relecture_independante_requise"
+        "relecture_independante_requise",
+        "reformule_pour_precision_gnu89_20261118"
       ]
     },
     {
@@ -810,11 +813,11 @@
         },
         {
           "id": "B",
-          "text": "Elle ferme stdout."
+          "text": "Elle réinitialise le parcours au premier argument facultatif."
         },
         {
           "id": "C",
-          "text": "Elle est nécessaire après va_start."
+          "text": "Elle contrôle automatiquement que tous les arguments facultatifs ont été lus."
         },
         {
           "id": "D",
@@ -827,10 +830,9 @@
       ],
       "correct_option_ids": [
         "A",
-        "C",
         "D"
       ],
-      "explanation": "va_end clôt l'itération, sans toucher aux objets transmis.",
+      "explanation": "va_end termine l’usage d’une liste initialisée, sans vérifier combien de paramètres ont été lus ni libérer les objets transmis ; elle ne remet pas la liste au début.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/35-va-end-terminer-correctement-une-liste-variadique",
         "https://man7.org/linux/man-pages/man3/stdarg.3.html",
@@ -839,7 +841,8 @@
       "review_status": "a_verifier",
       "review_flags": [
         "nouveau_projet_variadique",
-        "relecture_independante_requise"
+        "relecture_independante_requise",
+        "reformule_pour_precision_gnu89_20261118"
       ]
     },
     {
