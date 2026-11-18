@@ -33,7 +33,9 @@ function progressLocal(){
  return p;
 }
 function reloadQuiz(data){
- writeProgress(localStorage,data);
+ if(!writeProgress(localStorage,data)){
+  throw new Error('Impossible d’enregistrer la progression sur cet appareil. Aucune synchronisation activée.');
+ }
  if(Array.isArray(data.favorites)){try{localStorage.setItem('holberton-favorites-v2',JSON.stringify(data.favorites.filter(x=>typeof x==='string'&&/^\d+:\d+$/.test(x)).slice(0,500)))}catch{}}
  if(data.theme==='dark'||data.theme==='light'){try{localStorage.setItem('holberton-dark-v2',data.theme==='dark'?'yes':'no')}catch{}}
  window.dispatchEvent(new Event('holberton:quiz:reload'));
@@ -109,8 +111,12 @@ async function loadFromAccount(){
  if(!me.authenticated||!remote.data)return;
  if(!confirm('Remplacer la progression quiz de cet appareil par celle du compte ? Exporte d’abord l’historique invité si tu souhaites le conserver.'))return;
  if(!confirm('Confirmer le remplacement local (sans modifier la progression du serveur) ?'))return;
- reloadQuiz(remote.data);enableSync()
- displayConnected();notice('Progression du compte chargée sur cet appareil.');
+ try{
+  reloadQuiz(remote.data);
+  enableSync();
+  displayConnected();
+  notice('Progression du compte chargée sur cet appareil.');
+ }catch(e){notice(e.message,true)}
 }
 async function automaticSync(){
  if(!syncOptIn||!me.authenticated||!available)return;
