@@ -1,0 +1,814 @@
+{
+  "version": "applications-v1",
+  "status": "non_valide",
+  "questions": [
+    {
+      "id": "APP-09-014-001",
+      "notion_id": "N09_014",
+      "legacy_notion_key": "9:14",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "Indices de tableau",
+      "question_type": "indice",
+      "answer_mode": "single",
+      "prompt": "Avec `int t[8]={2,4,6,8,10,12,14,16};`, que vaut `t[0]` ? (Une seule réponse correcte.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "0"
+        },
+        {
+          "id": "B",
+          "text": "Impossible dans cet exemple"
+        },
+        {
+          "id": "C",
+          "text": "101"
+        },
+        {
+          "id": "D",
+          "text": "2"
+        }
+      ],
+      "correct_option_ids": [
+        "D"
+      ],
+      "explanation": "Le premier indice est 0.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/15-indices-de-tableau"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "practical_question",
+        "verify_technical_details"
+      ]
+    },
+    {
+      "id": "APP-09-020-001",
+      "notion_id": "N09_020",
+      "legacy_notion_key": "9:20",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "Notation équivalente",
+      "question_type": "pointeur",
+      "answer_mode": "single",
+      "prompt": "Avec `int t[8]={2,4,6,8,10,12,14,16}; int *p=t;`, que vaut `*(p+0)` ? (Une seule réponse correcte.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "0"
+        },
+        {
+          "id": "B",
+          "text": "Impossible dans cet exemple"
+        },
+        {
+          "id": "C",
+          "text": "101"
+        },
+        {
+          "id": "D",
+          "text": "2"
+        }
+      ],
+      "correct_option_ids": [
+        "D"
+      ],
+      "explanation": "L'arithmétique des pointeurs avance en éléments, pas en octets.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/21-notation-equivalente"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "practical_question",
+        "verify_technical_details"
+      ]
+    },
+    {
+      "id": "APP-09-026-001",
+      "notion_id": "N09_026",
+      "legacy_notion_key": "9:26",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "Parcourir un tableau",
+      "question_type": "indices",
+      "answer_mode": "single",
+      "prompt": "Un tableau C déclaré avec un seul élément possède quels indices valides ? (Une seule réponse correcte.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "1 à 1"
+        },
+        {
+          "id": "B",
+          "text": "0 à 1"
+        },
+        {
+          "id": "C",
+          "text": "0 à 0"
+        },
+        {
+          "id": "D",
+          "text": "1 à 2"
+        }
+      ],
+      "correct_option_ids": [
+        "C"
+      ],
+      "explanation": "En C, la plage est 0 à n-1.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/27-parcourir-un-tableau"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "practical_question",
+        "verify_technical_details"
+      ]
+    },
+    {
+      "id": "APP-09-014-002",
+      "notion_id": "N09_014",
+      "legacy_notion_key": "9:14",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "Indices de tableau",
+      "question_type": "indice",
+      "answer_mode": "single",
+      "prompt": "Avec `int t[8]={2,4,6,8,10,12,14,16};`, que vaut `t[1]` ? (Une seule réponse correcte.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "4"
+        },
+        {
+          "id": "B",
+          "text": "3"
+        },
+        {
+          "id": "C",
+          "text": "1"
+        },
+        {
+          "id": "D",
+          "text": "102"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "Le premier indice est 0.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/15-indices-de-tableau"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "practical_question",
+        "verify_technical_details"
+      ]
+    },
+    {
+      "id": "APP-09-020-002",
+      "notion_id": "N09_020",
+      "legacy_notion_key": "9:20",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "Notation équivalente",
+      "question_type": "pointeur",
+      "answer_mode": "single",
+      "prompt": "Avec `int t[8]={2,4,6,8,10,12,14,16}; int *p=t;`, que vaut `*(p+1)` ? (Une seule réponse correcte.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "4"
+        },
+        {
+          "id": "B",
+          "text": "102"
+        },
+        {
+          "id": "C",
+          "text": "3"
+        },
+        {
+          "id": "D",
+          "text": "1"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "L'arithmétique des pointeurs avance en éléments, pas en octets.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/21-notation-equivalente"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "practical_question",
+        "verify_technical_details"
+      ]
+    },
+    {
+      "id": "APP-09-026-002",
+      "notion_id": "N09_026",
+      "legacy_notion_key": "9:26",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "Parcourir un tableau",
+      "question_type": "indices",
+      "answer_mode": "single",
+      "prompt": "Un tableau déclaré avec 2 éléments valides a quelle plage d'indices ? (Une seule réponse correcte.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "0 à 2"
+        },
+        {
+          "id": "B",
+          "text": "1 à 3"
+        },
+        {
+          "id": "C",
+          "text": "0 à 1"
+        },
+        {
+          "id": "D",
+          "text": "1 à 2"
+        }
+      ],
+      "correct_option_ids": [
+        "C"
+      ],
+      "explanation": "En C, la plage est 0 à n-1.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/27-parcourir-un-tableau"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "practical_question",
+        "verify_technical_details"
+      ]
+    },
+    {
+      "id": "APP-09-014-003",
+      "notion_id": "N09_014",
+      "legacy_notion_key": "9:14",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "Indices de tableau",
+      "question_type": "application_conceptuelle",
+      "answer_mode": "single",
+      "prompt": "Pour `int t[4]={7,8,9,10};`, quel est le statut de la lecture `t[4]` ? (Une seule réponse correcte.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "Elle vaut nécessairement 10."
+        },
+        {
+          "id": "B",
+          "text": "Elle lit nécessairement zéro."
+        },
+        {
+          "id": "C",
+          "text": "Elle déclenche obligatoirement SIGSEGV."
+        },
+        {
+          "id": "D",
+          "text": "Elle dépasse les bornes : comportement indéfini."
+        }
+      ],
+      "correct_option_ids": [
+        "D"
+      ],
+      "explanation": "Les indices du tableau sont 0,1,2,3 ; t[4] ne désigne pas un élément accessible.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/15-indices-de-tableau"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "exercice_non_clone",
+        "relecture_requise"
+      ]
+    },
+    {
+      "id": "APP-09-020-003",
+      "notion_id": "N09_020",
+      "legacy_notion_key": "9:20",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "Notation équivalente",
+      "question_type": "application_conceptuelle",
+      "answer_mode": "single",
+      "prompt": "Avec `int t[]={2,4,6}; int *p=t+1;`, que vaut `p[-1]` ? (Une seule réponse correcte.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "4"
+        },
+        {
+          "id": "B",
+          "text": "2"
+        },
+        {
+          "id": "C",
+          "text": "6"
+        },
+        {
+          "id": "D",
+          "text": "Comportement indéfini dans ce contexte."
+        }
+      ],
+      "correct_option_ids": [
+        "B"
+      ],
+      "explanation": "p désigne t[1] ; p[-1] est identique à *(p-1), soit t[0].",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/21-notation-equivalente"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "exercice_non_clone",
+        "relecture_requise"
+      ]
+    },
+    {
+      "id": "APP-09-026-003",
+      "notion_id": "N09_026",
+      "legacy_notion_key": "9:26",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "Parcourir un tableau",
+      "question_type": "application_conceptuelle",
+      "answer_mode": "single",
+      "prompt": "Avec `int t[3]={1,2,3}; int i;`, que risque la boucle `for(i=0;i<=3;i++) printf(\"%d\",t[i]);` ? (Une seule réponse correcte.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "Elle affiche forcément 1230."
+        },
+        {
+          "id": "B",
+          "text": "Elle lit hors des limites lorsque i vaut 3."
+        },
+        {
+          "id": "C",
+          "text": "Elle n'effectue que deux tours."
+        },
+        {
+          "id": "D",
+          "text": "Elle s'arrête automatiquement à la taille du tableau."
+        }
+      ],
+      "correct_option_ids": [
+        "B"
+      ],
+      "explanation": "Le dernier indice de t est 2. La condition i<=3 permet une itération hors limites.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/27-parcourir-un-tableau"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "exercice_non_clone",
+        "relecture_requise"
+      ]
+    },
+    {
+      "id": "APP-09-014-004",
+      "notion_id": "N09_014",
+      "legacy_notion_key": "9:14",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "Indices de tableau",
+      "question_type": "application_conceptuelle",
+      "answer_mode": "single",
+      "prompt": "Dans `int t[4]={4,8,12,16};`, quel indice désigne le dernier élément valide ? (Une seule réponse correcte.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "3"
+        },
+        {
+          "id": "B",
+          "text": "4"
+        },
+        {
+          "id": "C",
+          "text": "2"
+        },
+        {
+          "id": "D",
+          "text": "5"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "Le dernier indice d'un tableau de n éléments est n-1.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/15-indices-de-tableau"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "exercice_non_clone",
+        "relecture_requise"
+      ]
+    },
+    {
+      "id": "APP-09-020-004",
+      "notion_id": "N09_020",
+      "legacy_notion_key": "9:20",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "Notation équivalente",
+      "question_type": "application_conceptuelle",
+      "answer_mode": "multiple",
+      "prompt": "Avec `int t[]={2,4,6}; int *p=t;`, quelles affirmations sur `*(p++)` sont exactes ? (Plusieurs réponses correctes.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "L'expression lit 2."
+        },
+        {
+          "id": "B",
+          "text": "Après l'expression, p désigne t[1]."
+        },
+        {
+          "id": "C",
+          "text": "L'incrémentation modifie t[0]."
+        },
+        {
+          "id": "D",
+          "text": "L'expression est équivalente à `*(++p)`."
+        }
+      ],
+      "correct_option_ids": [
+        "A",
+        "B"
+      ],
+      "explanation": "p++ utilise l'ancienne adresse pour le déréférencement, puis avance p d'un élément.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/21-notation-equivalente"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "exercice_non_clone",
+        "relecture_requise"
+      ]
+    },
+    {
+      "id": "APP-09-026-004",
+      "notion_id": "N09_026",
+      "legacy_notion_key": "9:26",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "Parcourir un tableau",
+      "question_type": "application_conceptuelle",
+      "answer_mode": "single",
+      "prompt": "Avec `int t[3]={2,4,8}; int i=3,s=0; for(;i-->0;) s+=t[i];`, quelle est la valeur finale de s ? (Une seule réponse correcte.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "6"
+        },
+        {
+          "id": "B",
+          "text": "8"
+        },
+        {
+          "id": "C",
+          "text": "12"
+        },
+        {
+          "id": "D",
+          "text": "14"
+        }
+      ],
+      "correct_option_ids": [
+        "D"
+      ],
+      "explanation": "La boucle additionne t[2], t[1] et t[0], soit 8+4+2=14.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/27-parcourir-un-tableau"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "exercice_non_clone",
+        "relecture_requise"
+      ]
+    },
+    {
+      "id": "APP-09-039-001",
+      "notion_id": "N09_039",
+      "legacy_notion_key": "9:39",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "strlen, sizeof et terminateur nul",
+      "question_type": "chaine",
+      "answer_mode": "single",
+      "prompt": "Avec `char mot[]=\"Ada\";`, que vaut `strlen(mot)` ? (Une seule réponse correcte.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "5"
+        },
+        {
+          "id": "B",
+          "text": "3"
+        },
+        {
+          "id": "C",
+          "text": "2"
+        },
+        {
+          "id": "D",
+          "text": "4"
+        }
+      ],
+      "correct_option_ids": [
+        "B"
+      ],
+      "explanation": "strlen compte 3 caractères et exclut le terminateur nul.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/40-strlen-sizeof-et-terminateur-nul"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "practical_question",
+        "verify_technical_details"
+      ]
+    },
+    {
+      "id": "APP-09-017-001",
+      "notion_id": "N09_017",
+      "legacy_notion_key": "9:17",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "sizeof(tableau)",
+      "question_type": "chaine",
+      "answer_mode": "single",
+      "prompt": "Avec `char mot[]=\"Ada\";`, que vaut `sizeof mot` ? (Une seule réponse correcte.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "5"
+        },
+        {
+          "id": "B",
+          "text": "4"
+        },
+        {
+          "id": "C",
+          "text": "2"
+        },
+        {
+          "id": "D",
+          "text": "3"
+        }
+      ],
+      "correct_option_ids": [
+        "B"
+      ],
+      "explanation": "Le tableau contient aussi le terminateur nul : 4 octets.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/18-sizeof-tableau"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "practical_question",
+        "verify_technical_details"
+      ]
+    },
+    {
+      "id": "APP-09-039-002",
+      "notion_id": "N09_039",
+      "legacy_notion_key": "9:39",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "strlen, sizeof et terminateur nul",
+      "question_type": "chaine",
+      "answer_mode": "single",
+      "prompt": "Avec `char mot[]=\"C\";`, que vaut `strlen(mot)` ? (Une seule réponse correcte.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "1"
+        },
+        {
+          "id": "B",
+          "text": "2"
+        },
+        {
+          "id": "C",
+          "text": "3"
+        },
+        {
+          "id": "D",
+          "text": "0"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "strlen compte 1 caractères et exclut le terminateur nul.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/40-strlen-sizeof-et-terminateur-nul"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "practical_question",
+        "verify_technical_details"
+      ]
+    },
+    {
+      "id": "APP-09-017-002",
+      "notion_id": "N09_017",
+      "legacy_notion_key": "9:17",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "sizeof(tableau)",
+      "question_type": "chaine",
+      "answer_mode": "single",
+      "prompt": "Avec `char mot[]=\"C\";`, que vaut `sizeof mot` ? (Une seule réponse correcte.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "0"
+        },
+        {
+          "id": "B",
+          "text": "2"
+        },
+        {
+          "id": "C",
+          "text": "1"
+        },
+        {
+          "id": "D",
+          "text": "3"
+        }
+      ],
+      "correct_option_ids": [
+        "B"
+      ],
+      "explanation": "Le tableau contient aussi le terminateur nul : 2 octets.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/18-sizeof-tableau"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "practical_question",
+        "verify_technical_details"
+      ]
+    },
+    {
+      "id": "APP-09-039-003",
+      "notion_id": "N09_039",
+      "legacy_notion_key": "9:39",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "strlen, sizeof et terminateur nul",
+      "question_type": "application_conceptuelle",
+      "answer_mode": "multiple",
+      "prompt": "Pour `char s[]={'A','\\0','B','\\0'};`, quelles affirmations sont exactes ? (Plusieurs réponses correctes.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "strlen(s) vaut 1."
+        },
+        {
+          "id": "B",
+          "text": "sizeof s vaut 4."
+        },
+        {
+          "id": "C",
+          "text": "Le caractère B est stocké après le premier nul."
+        },
+        {
+          "id": "D",
+          "text": "strlen(s) vaut 3."
+        },
+        {
+          "id": "E",
+          "text": "sizeof s vaut la taille d'un pointeur."
+        }
+      ],
+      "correct_option_ids": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "Le premier caractère nul arrête strlen, mais le tableau contient quatre éléments dont B.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/40-strlen-sizeof-et-terminateur-nul"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "exercice_non_clone",
+        "relecture_requise"
+      ]
+    },
+    {
+      "id": "APP-09-017-003",
+      "notion_id": "N09_017",
+      "legacy_notion_key": "9:17",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "sizeof(tableau)",
+      "question_type": "application_conceptuelle",
+      "answer_mode": "single",
+      "prompt": "Pour `int a[5]={1,2,3,4,5};`, que donne `sizeof a / sizeof a[0]` ? (Une seule réponse correcte.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "1"
+        },
+        {
+          "id": "B",
+          "text": "5"
+        },
+        {
+          "id": "C",
+          "text": "La taille d'un pointeur."
+        },
+        {
+          "id": "D",
+          "text": "20 sur toutes les architectures."
+        }
+      ],
+      "correct_option_ids": [
+        "B"
+      ],
+      "explanation": "sizeof a mesure le tableau entier, et sizeof a[0] un élément ; leur quotient vaut cinq.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/18-sizeof-tableau"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "exercice_non_clone",
+        "relecture_requise"
+      ]
+    },
+    {
+      "id": "APP-09-039-004",
+      "notion_id": "N09_039",
+      "legacy_notion_key": "9:39",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "strlen, sizeof et terminateur nul",
+      "question_type": "application_conceptuelle",
+      "answer_mode": "single",
+      "prompt": "Avec `char s[2]={'A','B'};`, que peut-on dire de `strlen(s)` ? (Une seule réponse correcte.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "Elle vaut toujours 2."
+        },
+        {
+          "id": "B",
+          "text": "Elle ajoute automatiquement '\\0' dans s."
+        },
+        {
+          "id": "C",
+          "text": "Elle vaut toujours 3."
+        },
+        {
+          "id": "D",
+          "text": "s n'est pas une chaîne C terminée : l'appel ne possède pas de terminaison valide."
+        }
+      ],
+      "correct_option_ids": [
+        "D"
+      ],
+      "explanation": "strlen exige un terminateur nul ; ce tableau ne contient que A et B.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/40-strlen-sizeof-et-terminateur-nul"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "exercice_non_clone",
+        "relecture_requise"
+      ]
+    },
+    {
+      "id": "APP-09-017-004",
+      "notion_id": "N09_017",
+      "legacy_notion_key": "9:17",
+      "theme": "Pointeurs et tableaux C",
+      "notion": "sizeof(tableau)",
+      "question_type": "application_conceptuelle",
+      "answer_mode": "multiple",
+      "prompt": "Pour `char s[8]=\"Hi\";`, quelles affirmations sont exactes ? (Plusieurs réponses correctes.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "sizeof s vaut 8."
+        },
+        {
+          "id": "B",
+          "text": "strlen(s) vaut 2."
+        },
+        {
+          "id": "C",
+          "text": "sizeof s vaut 3 puisqu'il inclut le nul."
+        },
+        {
+          "id": "D",
+          "text": "Les octets qui suivent le nul restent non initialisés."
+        }
+      ],
+      "correct_option_ids": [
+        "A",
+        "B"
+      ],
+      "explanation": "Le tableau possède huit octets ; après H, i et le nul, les éléments restants sont initialisés à zéro.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/18-sizeof-tableau"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "exercice_non_clone",
+        "relecture_requise"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,379 @@
+{
+  "status": "propositions_a_controler_individuellement",
+  "goal": "Distracteurs faux mais plausibles sur la même notion",
+  "generated": "2026-11-18",
+  "misconceptions": {
+    "9:0": [
+      "int *p crée automatiquement un entier vers lequel p pointe.",
+      "Un pointeur conserve la taille du tableau désigné."
+    ],
+    "9:1": [
+      "Deux variables différentes ont obligatoirement la même adresse.",
+      "Le programmeur choisit directement l'adresse de toute variable locale."
+    ],
+    "9:2": [
+      "&n donne la valeur numérique de n, pas son adresse.",
+      "&5 désigne un entier modifiable en mémoire."
+    ],
+    "9:3": [
+      "int *p déclare un int ordinaire, non un pointeur.",
+      "int *p, q déclare deux pointeurs."
+    ],
+    "9:4": [
+      "*p renvoie nécessairement l'adresse stockée dans p.",
+      "Déréférencer NULL est permis en lecture."
+    ],
+    "9:5": [
+      "Si p=&n, affecter p=7 change la valeur de n.",
+      "Écrire *p=7 ne peut pas modifier n."
+    ],
+    "9:6": [
+      "p et &p désignent toujours la même adresse.",
+      "p et *p ont toujours le même type."
+    ],
+    "9:7": [
+      "p+1 avance d'un octet pour tous les types pointés.",
+      "Le type pointé n'a aucune influence sur l'interprétation de *p."
+    ],
+    "9:8": [
+      "%p exige un int et non un void *.",
+      "%p affiche exactement les mêmes caractères sur toutes les plateformes."
+    ],
+    "9:9": [
+      "sizeof mesure toujours strlen d'une chaîne.",
+      "sizeof(int) vaut obligatoirement 4."
+    ],
+    "9:10": [
+      "sizeof(int *) est nécessairement égal à sizeof(int).",
+      "Tous les pointeurs de fonction ont forcément la même taille que int *."
+    ],
+    "9:11": [
+      "Modifier un paramètre int modifie directement l'argument entier de l'appelant.",
+      "Les arguments int sont automatiquement passés par référence."
+    ],
+    "9:12": [
+      "Passer &n ne transmet que la valeur entière de n.",
+      "Modifier le paramètre local p de type int * change le pointeur original de l'appelant."
+    ],
+    "9:13": [
+      "Un tableau int[5] contient cinq pointeurs indépendants.",
+      "Les éléments d'un tableau ne sont pas stockés de façon contiguë."
+    ],
+    "9:14": [
+      "Le dernier indice de int a[5] est 5.",
+      "a[-1] est toujours autorisé pour un tableau."
+    ],
+    "9:15": [
+      "Le nom d'un tableau peut recevoir une nouvelle adresse par affectation.",
+      "sizeof(tableau) vaut toujours sizeof(pointeur)."
+    ],
+    "9:16": [
+      "La conversion tableau-pointeur alloue une copie des éléments.",
+      "L'opérande de sizeof est toujours converti en pointeur."
+    ],
+    "9:17": [
+      "sizeof(a) ne mesure que l'adresse du tableau a.",
+      "sizeof(int a[3]) représente toujours 3 octets."
+    ],
+    "9:18": [
+      "&a et &a[0] ont exactement le même type.",
+      "(&a)+1 avance d'un seul élément de a."
+    ],
+    "9:19": [
+      "Ajouter 1 à int *p avance d'un seul octet.",
+      "Faire f++ sur un pointeur de fonction est un parcours de fonctions défini."
+    ],
+    "9:20": [
+      "a[2] désigne nécessairement *(a+3).",
+      "Les indices de tableau vérifient automatiquement les limites."
+    ],
+    "9:21": [
+      "Un tableau de char sans nul final forme nécessairement une chaîne C.",
+      "Tout tableau char insère automatiquement le terminateur."
+    ],
+    "9:22": [
+      "Le caractère '\\0' est identique au caractère '0'.",
+      "Le caractère nul doit apparaître visuellement avec printf(\"%s\")."
+    ],
+    "9:23": [
+      "Le format %s connaît la capacité du tableau source.",
+      "%s peut afficher n'importe quelle adresse sans chaîne terminée."
+    ],
+    "9:24": [
+      "Une valeur pointée et une adresse sont interchangeables dans printf.",
+      "On peut toujours ignorer la durée de vie des objets dans un raisonnement sur les pointeurs."
+    ],
+    "9:25": [
+      "int t[2]={1,2} est une initialisation interdite.",
+      "Les éléments omis d'une initialisation partielle sont nécessairement indéterminés."
+    ],
+    "9:26": [
+      "Pour n éléments, il faut parcourir les indices de 0 à n inclus.",
+      "tab[n] est toujours valide lors d'un parcours de n éléments."
+    ],
+    "9:27": [
+      "a[1][2] se trouve dans la troisième ligne de int a[2][3].",
+      "int a[2][3] est forcément un tableau de six pointeurs."
+    ],
+    "9:28": [
+      "Un échange de deux caractères exige malloc.",
+      "Après a=b puis b=a, on retrouve automatiquement les deux anciennes valeurs."
+    ],
+    "9:29": [
+      "Inverser une chaîne nécessite de permuter le nul final avec son premier caractère.",
+      "Toute inversion en place impose un second tableau."
+    ],
+    "9:30": [
+      "malloc met automatiquement tous les octets à zéro.",
+      "Un bloc obtenu par malloc reste légalement accessible après free."
+    ],
+    "9:31": [
+      "free(p) met tous les alias de p à NULL.",
+      "L'adresse d'un tableau automatique peut être transmise à free."
+    ],
+    "9:32": [
+      "Toute variable locale doit être libérée par free.",
+      "Une variable automatique reste valide après la sortie de son bloc."
+    ],
+    "9:33": [
+      "Le contenu d'une chaîne littérale peut être modifié sans comportement indéfini.",
+      "char s[]=\"Ada\" est un pointeur réaffectable."
+    ],
+    "9:34": [
+      "Un retour non NULL de malloc garantit un contenu initialisé à zéro.",
+      "On peut déréférencer le retour de malloc avant de vérifier NULL."
+    ],
+    "9:35": [
+      "Une allocation sauvegardée dans un pointeur ne peut plus fuiter.",
+      "Le C libère automatiquement tout bloc devenu inaccessible."
+    ],
+    "9:36": [
+      "Valgrind est une alternative au compilateur plutôt qu'un outil d'exécution.",
+      "Aucune fuite signalée garantit qu'aucun accès mémoire invalide n'existe."
+    ],
+    "9:37": [
+      "ISO C exige l'utilisation physique de la section .rodata pour les littéraux.",
+      "Une chaîne littérale est toujours modifiable par char *."
+    ],
+    "9:38": [
+      "malloc(10*sizeof p) suffit toujours pour dix objets *p.",
+      "sizeof *p vaut nécessairement 8 sur une architecture 64 bits."
+    ],
+    "9:39": [
+      "strlen(\"Ada\") vaut 4 en comptant le nul.",
+      "sizeof(\"Ada\") vaut 3 parce que le nul est invisible."
+    ],
+    "9:40": [
+      "strcpy crée automatiquement la destination.",
+      "strcpy tronque toujours pour respecter la capacité de dest."
+    ],
+    "9:41": [
+      "strdup est une fonction ISO C89 obligatoire.",
+      "strdup renvoie toujours exactement l'adresse de sa source."
+    ],
+    "9:42": [
+      "Le bloc alloué par malloc disparaît à la sortie du bloc local contenant p.",
+      "Renvoyer l'adresse d'une variable automatique prolonge sa durée de vie."
+    ],
+    "9:43": [
+      "free accepte l'adresse d'un littéral de chaîne.",
+      "Deux free sur la même allocation sont sans danger si aucune lecture ne suit."
+    ],
+    "9:44": [
+      "Un pointeur non initialisé vaut forcément NULL.",
+      "Un comportement indéfini provoque nécessairement un segfault."
+    ],
+    "9:45": [
+      "Sur échec realloc libère nécessairement l'ancien bloc.",
+      "Après succès de realloc l'ancien pointeur reste utilisable."
+    ],
+    "9:46": [
+      "Tout comportement indéfini émet SIGSEGV.",
+      "Un segfault prouve automatiquement qu'un double free a eu lieu."
+    ],
+    "9:47": [
+      "strncpy ajoute toujours '\\0' lorsque la source atteint n caractères.",
+      "strncpy connaît la capacité du tableau dest par son type."
+    ],
+    "9:48": [
+      "calloc laisse ses octets non initialisés comme malloc.",
+      "Un bloc calloc ne doit jamais être libéré."
+    ],
+    "9:49": [
+      "Un débordement est impossible pour un tableau local.",
+      "Écrire un octet juste au-delà d'un tableau reste défini."
+    ],
+    "9:50": [
+      "Un bloc libéré reste valide si son contenu est inchangé.",
+      "p=NULL met automatiquement à NULL tous ses alias."
+    ],
+    "9:51": [
+      "free(NULL) provoque un double free.",
+      "Une allocation peut être libérée deux fois si aucune lecture ne suit."
+    ],
+    "9:52": [
+      "n*sizeof *p ne peut jamais déborder size_t.",
+      "Vérifier uniquement le retour de malloc corrige un produit ayant débordé."
+    ],
+    "9:53": [
+      "Memcheck classe une lecture invalide comme « definitely lost ».",
+      "Une valeur non initialisée est nécessairement égale à NULL."
+    ],
+    "9:54": [
+      "memcpy est défini pour des zones recouvrantes.",
+      "memmove exige que l'appelant réserve lui-même un tampon temporaire."
+    ],
+    "9:55": [
+      "Un strcpy ultérieur correct annule la corruption d'une lecture antérieure.",
+      "Les tableaux locaux ne peuvent pas subir de dépassement."
+    ],
+    "9:56": [
+      "Un tableau fixe a toujours une durée de vie statique.",
+      "Un tampon malloc est obligatoirement global."
+    ],
+    "9:57": [
+      "Un stack overflow est simplement un accès au-delà d'un tableau local.",
+      "Une récursion non bornée n'utilise aucun espace pour les appels."
+    ],
+    "9:58": [
+      "« definitely lost » signifie qu'un pointeur valide vers le bloc subsiste.",
+      "« 1 blocks » signifie qu'un seul octet a été perdu."
+    ],
+    "9:59": [
+      "strlen connaît la capacité du tableau derrière char *.",
+      "Sans nul final strlen renvoie nécessairement la taille du tableau."
+    ],
+    "9:60": [
+      "memcpy ajoute automatiquement un nul final.",
+      "Le paramètre n de memcpy est une longueur déduite de strlen."
+    ],
+    "9:61": [
+      "Copier une adresse transfère automatiquement l'ownership.",
+      "Chaque alias doit appeler free une fois sur le même bloc."
+    ],
+    "9:62": [
+      "p=NULL efface l'adresse enregistrée dans tous les alias.",
+      "Une adresse de variable locale reste utilisable après la fin du bloc."
+    ],
+    "9:63": [
+      "Un raw pointer libère automatiquement la mémoire pointée.",
+      "Un pointeur C classique assure automatiquement le comptage de références."
+    ],
+    "9:64": [
+      "char * contient automatiquement la capacité de la zone désignée.",
+      "Tout char * désigne une chaîne C terminée."
+    ],
+    "9:65": [
+      "USE_AFTER_FREE est toujours un message textuel exact de Memcheck.",
+      "Une fuite indirecte est la même erreur qu'une écriture invalide."
+    ],
+    "9:66": [
+      "int (*f)(int) et int *f(int) déclarent le même type.",
+      "Un pointeur de fonction peut être utilisé comme int * pour modifier le code."
+    ],
+    "9:67": [
+      "f(5) et (*f)(5) appellent des fonctions différentes.",
+      "f++ est un moyen défini de passer à une autre fonction."
+    ],
+    "9:68": [
+      "Un callback doit toujours s'exécuter de manière asynchrone.",
+      "Le callback possède automatiquement toutes les variables locales de l'appelant."
+    ],
+    "9:69": [
+      "Tout indice de tableau de pointeurs de fonctions peut être appelé sans contrôle.",
+      "Un tableau de pointeurs de fonctions peut mélanger librement des signatures incompatibles."
+    ],
+    "9:70": [
+      "typedef int (*fn)(int) appelle automatiquement la fonction fn.",
+      "typedef rend automatiquement compatibles des fonctions aux signatures différentes."
+    ],
+    "9:71": [
+      "qsort garantit la stabilité du tri.",
+      "Le comparateur de qsort peut renvoyer toujours 1 sans fausser le tri."
+    ],
+    "16:0": [
+      "Les membres d'une struct doivent tous avoir le même type.",
+      "Définir une struct lance automatiquement malloc."
+    ],
+    "16:1": [
+      "struct chat déclare directement une variable nommée chat.",
+      "Dans struct chat felix;, felix n'est pas une variable."
+    ],
+    "16:2": [
+      "L'opérateur . s'applique directement à un pointeur de struct.",
+      "objet.x désigne nécessairement une adresse NULL."
+    ],
+    "16:3": [
+      "ptr->x est correct lorsque ptr est une struct et non un pointeur.",
+      "ptr->x et ptr.x sont toujours équivalents sans tenir compte du type."
+    ],
+    "16:4": [
+      "struct point p={2,3} initialise les membres dans l'ordre inverse.",
+      "Une struct ne peut pas être initialisée à la déclaration."
+    ],
+    "16:5": [
+      "Les initialiseurs .membre sont portables en C89 strict.",
+      "Les initialiseurs désignés changent l'ordre des membres en mémoire."
+    ],
+    "16:6": [
+      "Un tableau de struct contient nécessairement des pointeurs alloués séparément.",
+      "a[1].x ne peut pas accéder à un membre de struct."
+    ],
+    "16:7": [
+      "On ne peut pas accéder à un membre imbriqué avec plusieurs points.",
+      "p.position.x désigne nécessairement un pointeur."
+    ],
+    "16:8": [
+      "b=a entre deux struct compatibles alloue une copie sur le tas.",
+      "La copie de struct duplique en profondeur la mémoire désignée par ses pointeurs membres."
+    ],
+    "16:9": [
+      "Modifier un paramètre struct passé par valeur modifie directement l'objet de l'appelant.",
+      "Toute struct est passée implicitement par pointeur."
+    ],
+    "16:10": [
+      "Passer &objet à une fonction empêche la modification de ses membres.",
+      "L'opérateur -> est réservé aux membres globaux."
+    ],
+    "16:11": [
+      "typedef unsigned int identifiant crée un type incompatible avec unsigned int.",
+      "typedef modifie la représentation mémoire du type."
+    ],
+    "16:12": [
+      "typedef struct animal {...} animal_t déclare automatiquement un objet animal_t.",
+      "Les membres de struct cessent d'exister après typedef."
+    ],
+    "16:13": [
+      "Un typedef de struct anonyme crée une étiquette struct point_t.",
+      "point_t p exige le préfixe struct."
+    ],
+    "16:14": [
+      "sizeof(struct T) est toujours la somme exacte des tailles des membres.",
+      "Le padding ne peut apparaître qu'avant le premier membre."
+    ],
+    "16:15": [
+      "malloc(sizeof p) et malloc(sizeof *p) sont toujours égaux pour un struct *p.",
+      "malloc(sizeof *p) initialise automatiquement tous les membres."
+    ],
+    "16:16": [
+      "Une struct peut contenir directement un membre de son propre type complet par valeur.",
+      "struct noeud *suivant doit obligatoirement pointer sur lui-même."
+    ],
+    "16:17": [
+      "Betty ne demande aucune documentation des membres de la struct.",
+      "Les annotations @membre doivent obligatoirement figurer dans le .c."
+    ],
+    "16:18": [
+      "Un type déclaré par typedef struct point point; peut être instancié sans définition complète.",
+      "La déclaration anticipée définit automatiquement tous les champs."
+    ],
+    "16:19": [
+      "ptr.x est toujours valide pour un pointeur ptr vers struct.",
+      "objet->x est toujours valide pour une variable objet de type struct."
+    ],
+    "16:20": [
+      "Les include guards évitent tous les conflits entre fichiers .c.",
+      "Les include guards empêchent toute inclusion du même .h dans une autre unité de traduction."
+    ]
+  }
+}
