@@ -5,7 +5,7 @@ if(!root||!card)throw Error('Page Compte absente.');
 let me={authenticated:false},remote={revision:0,data:null},available=false,busy=false;
 let syncOptIn=false,debounce=null;
 try{syncOptIn=localStorage.getItem('holberton-account-sync-v1')==='yes'}catch{}
-const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&gt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const api=async(path,{method='GET',body,csrf}={})=>{
  const headers={};
  if(body!==undefined)headers['Content-Type']='application/json';
@@ -122,7 +122,10 @@ async function initialize(){
    me={...verified,authenticated:true};await refreshRemote();displayConnected();notice('Adresse vérifiée. Bienvenue dans ton compte Holberton Révision.');return;
   }
   if(me.authenticated){await refreshRemote();displayConnected()}
-  else displayGuest();
+  else{
+   const health=await api('/api/health');
+   if(health.emailsAvailable)displayGuest();else displayUnavailable();
+  }
  }catch(e){
   if(e.status===404||e.status===503||!available){available=false;displayUnavailable()}
   else{displayGuest();notice(e.message,true)}
