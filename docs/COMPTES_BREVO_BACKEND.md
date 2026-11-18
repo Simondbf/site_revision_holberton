@@ -32,7 +32,7 @@ Les identifiants e-mail, les jetons et les réponses aux quiz ne doivent pas êt
 
 ## Configuration et installation, seulement après audit
 
-1. Installer Node.js **22.13 ou plus récent** sur le VPS, ainsi que les dépendances de `server/package.json`. Créer et conserver un **package-lock.json audité** avant le déploiement. `node:sqlite` est encore marqué expérimental dans certaines versions de Node 22 ; revoir sa stabilité et figer le runtime.
+1. Installer Node.js **22.13 ou plus récent** sur le VPS, ainsi que les dépendances de `server/package.json`. Le fichier **package-lock.json** est maintenant versionné (Nodemailer 7.0.13) ; utiliser `npm ci --omit=dev` et effectuer un audit de dépendances avant déploiement. `node:sqlite` est encore marqué expérimental dans certaines versions de Node 22 ; revoir sa stabilité et figer le runtime.
 2. Créer un utilisateur système dédié `holberton-revision`, un dossier non public `/var/lib/holberton-revision/` avec permissions minimales et une base SQLite `accounts.sqlite` hors de la racine Web.
 3. Définir les variables de `server/env.example` dans un fichier privé `/etc/holberton-revision.env` (`root:root`, `chmod 600`). Ne jamais copier d'identifiants dans le HTML, Git, une capture ou les logs.
 4. Configurer le relais **SMTP Brevo** existant avec un expéditeur vérifié (par exemple `contact@soleiljaune.be`), mais sous variables propres à ce service. Le domaine `soleiljaune.be` a déjà été authentifié pour le projet Comptes ; **un envoi réel depuis ce service n'est pas encore confirmé**.
@@ -44,13 +44,15 @@ location /api/ {
     proxy_pass http://127.0.0.1:3024;
     proxy_set_header Host $host;
     proxy_set_header X-Forwarded-Proto $scheme;
+    proxy_set_header X-Real-IP $remote_addr;   # Nécessaire au quota par IP derrière Nginx
     proxy_read_timeout 20s;
 }
 ```
 
-6. Ne pas activer avant d'avoir testé deux comptes isolés, confirmation des liens, CSRF, expirations, limites d'envois, authentification, perte de session, sauvegarde/restauration SQLite, cookies HTTPS, suppression, export, erreurs SMTP et mode invité.
-7. Le déploiement automatique VPS actuellement déclenché par timer doit être conditionné aux tests GitHub réussis et à une politique de rollback ; protéger `main` avant toute ouverture publique des comptes. Un blocage ou indisponibilité Brevo ne doit jamais bloquer le cours ni le quiz invité.
-8. Finaliser les mentions RGPD et politiques de conservation, notamment l'effacement dans les sauvegardes selon une période définie. **Une CI verte n'est pas une certification de sécurité**.
+6. L'API écoute uniquement sur 127.0.0.1 et n'accepte X-Real-IP que depuis cette interface ; Nginx doit systématiquement réécrire cet en-tête et ajouter des limitations de débit et de taille de requête au niveau proxy.
+7. Ne pas activer avant d'avoir testé deux comptes isolés, confirmation des liens, CSRF, expirations, limites d'envois, authentification, perte de session, sauvegarde/restauration SQLite, cookies HTTPS, suppression, export, erreurs SMTP et mode invité.
+8. Le déploiement automatique VPS actuellement déclenché par timer doit être conditionné aux tests GitHub réussis et à une politique de rollback ; protéger `main` avant toute ouverture publique des comptes. Un blocage ou indisponibilité Brevo ne doit jamais bloquer le cours ni le quiz invité.
+9. Finaliser les mentions RGPD et politiques de conservation, notamment l'effacement dans les sauvegardes selon une période définie. **Une CI verte n'est pas une certification de sécurité**.
 
 ## Synchronisation côté navigateur
 
