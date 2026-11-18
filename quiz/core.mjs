@@ -105,6 +105,14 @@ export function completeSession(progress,session,bank){
  }
  return {progress:next,summary};
 }
+// Une session est libre : l'apprenant peut demander son bilan après n'importe quelle réponse validée.
+export function finishSession(progress,session,bank){
+ if(!session?.questionIds?.length||!session?.answers)throw Error('Session invalide');
+ const answeredIds=session.questionIds.filter(id=>Object.hasOwn(session.answers,id));
+ if(!answeredIds.length)throw Error('Valide au moins une réponse avant de terminer.');
+ const finished={...session,questionIds:answeredIds,cursor:answeredIds.length-1};
+ return completeSession(progress,finished,bank);
+}
 export function progressSummary(progress){
  const rows=progress.history||[];
  return {sessions:rows.length,answered:rows.reduce((sum,s)=>sum+(Number(s.total)||0),0),correct:rows.reduce((sum,s)=>sum+(Number(s.correct)||0),0),notions:Object.keys(progress.stats||{}).length,unfinished:!!progress.current};
