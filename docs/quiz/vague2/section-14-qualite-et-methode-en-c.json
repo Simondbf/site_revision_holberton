@@ -1477,6 +1477,231 @@
         "cross_topic_distractors",
         "check_possible_ambiguity"
       ]
+    },
+    {
+      "id": "V2-N14_002-05",
+      "notion_id": "N14_002",
+      "legacy_notion_key": "14:2",
+      "theme": "Qualité et méthode en C",
+      "notion": "Tester séparément",
+      "answer_mode": "single",
+      "question_type": "diagnostic",
+      "prompt": "Avec `gcc -std=gnu89 -Wall -Wextra -Werror -pedantic`, que se passe-t-il pour `int main(void) { int compteur = 7; return 0; }` ? (Une seule réponse correcte.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "La compilation échoue sur l'avertissement « unused variable » transformé en erreur."
+        },
+        {
+          "id": "B",
+          "text": "Le programme affiche 7 puis termine."
+        },
+        {
+          "id": "C",
+          "text": "Le compilateur signale un paramètre de fonction inutilisé."
+        },
+        {
+          "id": "D",
+          "text": "La compilation échoue pour absence de `#include <stdio.h>`."
+        },
+        {
+          "id": "E",
+          "text": "La variable est automatiquement considérée comme utilisée car elle est initialisée."
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "compteur est initialisée mais sa valeur n'est jamais utilisée ; -Wall active l'avertissement -Wunused-variable, et -Werror le transforme en erreur. L'initialisation n'est pas une utilisation du résultat.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/qualite-et-methode-en-c/3-tester-separement",
+        "https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html",
+        "https://dev.to/martinlicht/unused-variables-in-cc-why-and-how-4cm4"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "ressource_variables_inutilisees_2026",
+        "verification_gcc_necessaire",
+        "relecture_independante_requise"
+      ]
+    },
+    {
+      "id": "V2-N14_002-06",
+      "notion_id": "N14_002",
+      "legacy_notion_key": "14:2",
+      "theme": "Qualité et méthode en C",
+      "notion": "Tester séparément",
+      "answer_mode": "multiple",
+      "question_type": "analyse-diagnostics",
+      "prompt": "Quelles affirmations sont exactes pour GCC en C GNU89 ? (Plusieurs réponses correctes.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "L'option -Wall active généralement le diagnostic -Wunused-variable."
+        },
+        {
+          "id": "B",
+          "text": "Avec -Wall -Wextra, GCC peut signaler un paramètre nommé inutilisé."
+        },
+        {
+          "id": "C",
+          "text": "L'instruction `(void)parametre;` peut indiquer une non-utilisation intentionnelle et supprimer cet avertissement."
+        },
+        {
+          "id": "D",
+          "text": "-Werror désactive les avertissements du compilateur."
+        },
+        {
+          "id": "E",
+          "text": "`[[maybe_unused]]` est une fonctionnalité du C89 portable."
+        }
+      ],
+      "correct_option_ids": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "-Wall inclut -Wunused-variable ; -Wextra avec -Wall active le contrôle des paramètres inutilisés ; (void)parametre marque une utilisation volontaire. -Werror transforme les avertissements activés en erreurs, et [[maybe_unused]] n'appartient pas au C89 portable.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/qualite-et-methode-en-c/3-tester-separement",
+        "https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html",
+        "https://dev.to/martinlicht/unused-variables-in-cc-why-and-how-4cm4"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "ressource_variables_inutilisees_2026",
+        "verification_gcc_necessaire",
+        "relecture_independante_requise"
+      ]
+    },
+    {
+      "id": "V2-N14_002-07",
+      "notion_id": "N14_002",
+      "legacy_notion_key": "14:2",
+      "theme": "Qualité et méthode en C",
+      "notion": "Tester séparément",
+      "answer_mode": "single",
+      "question_type": "refactorisation",
+      "prompt": "Après un refactoring, une variable locale n'a plus aucune utilité ni effet de bord. Quelle correction est généralement préférable ? (Une seule réponse correcte.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "La laisser et désactiver -Wall pour tout le projet."
+        },
+        {
+          "id": "B",
+          "text": "L'entourer d'une boucle qui ne s'exécute jamais."
+        },
+        {
+          "id": "C",
+          "text": "Supprimer sa déclaration et l'initialisation devenue inutile."
+        },
+        {
+          "id": "D",
+          "text": "Faire systématiquement `(void)variable;` même si elle n'a aucune utilité."
+        }
+      ],
+      "correct_option_ids": [
+        "C"
+      ],
+      "explanation": "Quand la variable est vraiment inutile et que son initialisation n'a pas d'effet requis, la supprimer clarifie le code. Le cast vers void sert surtout lorsque conserver une déclaration ou un paramètre est intentionnel.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/qualite-et-methode-en-c/3-tester-separement",
+        "https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html",
+        "https://dev.to/martinlicht/unused-variables-in-cc-why-and-how-4cm4"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "ressource_variables_inutilisees_2026",
+        "verification_gcc_necessaire",
+        "relecture_independante_requise"
+      ]
+    },
+    {
+      "id": "V2-N14_004-05",
+      "notion_id": "N14_004",
+      "legacy_notion_key": "14:4",
+      "theme": "Qualité et méthode en C",
+      "notion": "Compilation et liaison",
+      "answer_mode": "single",
+      "question_type": "avertissement-vs-erreur",
+      "prompt": "Quel est l'effet précis de `-Werror` lors d'une compilation GCC ? (Une seule réponse correcte.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "Forcer le langage C99 même en mode GNU89."
+        },
+        {
+          "id": "B",
+          "text": "Traiter comme erreurs les avertissements émis et activés par le compilateur."
+        },
+        {
+          "id": "C",
+          "text": "Ignorer les paramètres inutilisés et les avertissements de style."
+        },
+        {
+          "id": "D",
+          "text": "Vérifier le programme uniquement pendant son exécution."
+        }
+      ],
+      "correct_option_ids": [
+        "B"
+      ],
+      "explanation": "-Werror transforme les avertissements du compilateur en erreurs de compilation. Il n'active pas à lui seul toutes les familles de diagnostics, et ne change pas le dialecte du langage.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/qualite-et-methode-en-c/5-compilation-et-liaison",
+        "https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html",
+        "https://dev.to/martinlicht/unused-variables-in-cc-why-and-how-4cm4"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "ressource_variables_inutilisees_2026",
+        "verification_gcc_necessaire",
+        "relecture_independante_requise"
+      ]
+    },
+    {
+      "id": "V2-N14_005-05",
+      "notion_id": "N14_005",
+      "legacy_notion_key": "14:5",
+      "theme": "Qualité et méthode en C",
+      "notion": "Commentaires et lisibilité",
+      "answer_mode": "single",
+      "question_type": "intention",
+      "prompt": "Dans `int somme(int a, int b) { (void)b; return a; }`, pourquoi écrire `(void)b;` sous GNU89 avec `-Wall -Wextra -Werror` ? (Une seule réponse correcte.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "Pour convertir définitivement b en un objet de type void."
+        },
+        {
+          "id": "B",
+          "text": "Pour libérer l'espace mémoire alloué à b."
+        },
+        {
+          "id": "C",
+          "text": "Pour afficher la valeur de b sans printf."
+        },
+        {
+          "id": "D",
+          "text": "Pour signaler que b n'est pas utilisé intentionnellement et éviter l'avertissement de paramètre inutilisé."
+        }
+      ],
+      "correct_option_ids": [
+        "D"
+      ],
+      "explanation": "Le cast explicite vers void évalue b sans exploiter sa valeur, ce qui évite le diagnostic de paramètre inutilisé. Il ne change pas la signature de la fonction et ne libère aucune mémoire.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/qualite-et-methode-en-c/6-commentaires-et-lisibilite",
+        "https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html",
+        "https://dev.to/martinlicht/unused-variables-in-cc-why-and-how-4cm4"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "ressource_variables_inutilisees_2026",
+        "verification_gcc_necessaire",
+        "relecture_independante_requise"
+      ]
     }
   ]
 }

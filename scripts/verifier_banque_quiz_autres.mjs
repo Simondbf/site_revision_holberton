@@ -14,8 +14,8 @@ for(const file of files){
   assert.ok(q.id&&q.prompt&&q.explanation&&q.notion_id&&q.legacy_notion_key,'Question incomplète : '+q.id);
   assert.ok(!ids.has(q.id),'ID en doublon : '+q.id);ids.add(q.id);
   assert.ok(['single','multiple'].includes(q.answer_mode),'Mode invalide : '+q.id);
-  assert.equal(q.options?.length,4,'Quatre options attendues : '+q.id);
-  assert.deepEqual(q.options.map(o=>o.id),['A','B','C','D'],'Options incorrectes : '+q.id);
+  assert.ok([4,5].includes(q.options?.length),'Quatre ou cinq options attendues : '+q.id);
+  assert.deepEqual(q.options.map(o=>o.id),['A','B','C','D','E'].slice(0,q.options.length),'Options incorrectes : '+q.id);
   assert.equal(new Set(q.options.map(o=>o.text)).size,4,'Options identiques : '+q.id);
   const ans=q.correct_option_ids;
   assert.ok(Array.isArray(ans)&&new Set(ans).size===ans.length,'Corrigé incohérent : '+q.id);
@@ -42,8 +42,8 @@ for(const file of files){
  }
 }
 assert.equal(notions.size,121,'Nombre de notions incorrect');
-assert.equal(structured,484,'Nombre de questions structurées incorrect');
+assert.equal(structured,489,'Nombre de questions structurées incorrect');
 assert.equal(extra,295,'Nombre de questions transversales incorrect');
-assert.equal(ids.size,779,'Total de questions incorrect');
-console.log('PR #21 : 779 questions, 121 notions, 11 thèmes ; JSON/Markdown cohérents.');
+assert.equal(ids.size,784,'Total de questions incorrect');
+console.log('PR #21 : 784 questions, 121 notions, 11 thèmes ; JSON/Markdown cohérents.');
 console.log('Les contrôles automatiques ne valident pas les réponses sur le fond.');
