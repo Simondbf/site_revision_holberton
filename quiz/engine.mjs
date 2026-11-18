@@ -1,7 +1,7 @@
-import {readProgress,writeProgress,emptyProgress,checkBank,combineCandidates,selectQuestions,newSession,applyAnswer,completeSession,progressSummary} from './core.mjs';
+import {readProgress,writeProgress,emptyProgress,checkBank,combineCandidates,selectQuestions,newSession,applyAnswer,completeSession,finishSession,progressSummary} from './core.mjs';
 const root=document.getElementById('quiz'),account=document.getElementById('account');
 if(!root||!account)throw Error('Pages Compte et Quiz absentes.');
-let bank=[],progress=readProgress(localStorage),loading=true,error='',family='all',quantity='10',paused=false,lastReport=null;
+let bank=[],progress=readProgress(localStorage),loading=true,error='',family='all',paused=false,lastReport=null;
 const escape=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const isQuiz=()=>location.hash.split('/')[0]==='#quiz';
 const write=()=>writeProgress(localStorage,progress);
@@ -16,26 +16,25 @@ function linkCourse(q){
  const [si,ii]=q.legacy_notion_key.split(':').map(Number);
  try{
   const lessons=JSON.parse(document.getElementById('content-data').textContent).sections;
-  if(!lessons?.[si]?.items?.[ii])return '<span class="quiz-muted">Fiche prévue dans la PR #23 — non publiée</span>';
+  if(!lessons?.[si]?.items?.[ii])return '<span class="quiz-muted">Cette fiche n’est pas encore disponible sur le site</span>';
  }catch{return '<span class="quiz-muted">Fiche momentanément indisponible</span>'}
  return '<a href="'+escape(hash)+'" class="quiz-link">Revoir la fiche</a>';
 }
 function renderMenu(){
  const info=progressSummary(progress),running=progress.current&&progress.current.questionIds?.length;
- page('Choisir une session','55 questions candidates sur les projets de la semaine : argc/argv et stdarg.h. La difficulté évolue automatiquement selon tes tentatives.',
- (running?'<div class="quiz-card"><strong>Session enregistrée</strong><p>'+escape(progress.current.questionIds.length)+' questions, '+Object.keys(progress.current.answers||{}).length+' réponse(s) déjà données.</p><button id="quizResume" class="quiz-primary">Reprendre</button></div>':'')+
+ page('Réviser librement','55 questions candidates sur argc/argv et stdarg.h. Aucune durée ni quantité imposée : termine ta session quand tu veux. La sélection privilégie progressivement les notions à renforcer.',
+ (running?'<div class="quiz-card"><strong>Session enregistrée</strong><p>'+Object.keys(progress.current.answers||{}).length+' réponse(s) déjà enregistrée(s).</p><button id="quizResume" class="quiz-primary">Reprendre</button></div>':'')+
  '<div class="quiz-card quiz-start"><label>Thèmes<select id="quizFamily"><option value="all">Tous les thèmes</option><option value="argc">argc et argv</option><option value="stdarg">stdarg.h et fonctions variadiques</option></select></label>'+
- '<label>Nombre de questions<select id="quizCount"><option value="5">5 questions</option><option value="10">10 questions</option><option value="20">20 questions</option><option value="all">Toutes les questions</option></select></label>'+
+ '<p class="quiz-muted">Pas de nombre de questions prédéfini : tu peux faire une pause ou afficher ton bilan après chaque réponse.</p>'+
  '<button class="quiz-primary" id="quizStart">Démarrer</button></div>'+
  '<div class="quiz-stats"><span>'+info.sessions+' session(s)</span><span>'+info.answered+' question(s) traitée(s)</span><span>'+info.notions+' notion(s) révisée(s)</span></div>'+
  '<p class="quiz-muted">Sans compte et sans API payante. Les données sont locales ; elles peuvent être exportées depuis Compte.</p>');
  document.getElementById('quizFamily').value=family;
- document.getElementById('quizCount').value=quantity;
  document.getElementById('quizStart').onclick=()=>{
-  family=document.getElementById('quizFamily').value;quantity=document.getElementById('quizCount').value;
+  family=document.getElementById('quizFamily').value;
   if(progress.current&&!confirm('Remplacer la session non terminée ?'))return;
   const available=bank.filter(q=>family==='all'||q.family===family);
-  const selection=selectQuestions(bank,{family,amount:quantity==='all'?available.length:Number(quantity),stats:progress.stats,seen:progress.seen});
+  const selection=selectQuestions(bank,{family,amount:available.length,stats:progress.stats,seen:progress.seen});
   progress.current=newSession(selection,family);write();paused=false;lastReport=null;renderQuestion();renderAccount();
  };
  const resume=document.getElementById('quizResume');
@@ -53,12 +52,12 @@ function renderQuestion(){
   return '<label class="quiz-choice'+cls+'"><input name="quiz-answer" type="'+(q.answer_mode==='single'?'radio':'checkbox')+'" value="'+escape(o.id)+'" '+(selected?'checked ':'')+(answered?'disabled':'')+'><b>'+escape(o.id)+'</b><span>'+escape(o.text)+'</span></label>';
  }).join('');
  const feedback=answered?'<div class="quiz-feedback '+(given.correct?'quiz-good':'quiz-bad')+'" role="status"><strong>'+(given.correct?'Réponse exacte.':'Réponse fausse ou incomplète.')+'</strong><p>'+escape(q.explanation)+'</p>'+linkCourse(q)+'</div>':'';
- page('Question '+(index+1)+' / '+session.questionIds.length,q.notion,
- '<div class="quiz-bar" role="progressbar" aria-label="Avancement du quiz" aria-valuemin="0" aria-valuemax="'+session.questionIds.length+'" aria-valuenow="'+index+'"><span style="width:'+Math.round(index/session.questionIds.length*100)+'%"></span></div>'+
+ page('Question '+(index+1),q.notion,
+ '<p class="quiz-muted">Réponds à ton rythme : la session n’impose aucun nombre de questions.</p>'+
  '<div class="quiz-card"><p class="quiz-mode">'+mode+'</p><h3>'+escape(q.prompt)+'</h3><fieldset class="quiz-options"><legend class="sr-only">Choix de réponse</legend>'+options+'</fieldset>'+
  '<p id="quizError" class="quiz-error" role="alert" hidden>Choisis au moins une proposition.</p>'+feedback+
  '<div class="quiz-actions">'+(answered?'<button class="quiz-primary" id="quizNext">'+(index+1===session.questionIds.length?'Voir le bilan':'Question suivante')+'</button>':'<button class="quiz-primary" id="quizSubmit">Valider</button>')+
- '<button class="quiz-secondary" id="quizPause">Pause</button></div></div>');
+ '<button class="quiz-secondary" id="quizPause">Pause</button>'+(answered&&index+1<session.questionIds.length?'<button class="quiz-secondary" id="quizFinish">Terminer et voir mon bilan</button>':'')+'</div></div>');
  const submit=document.getElementById('quizSubmit');
  if(submit)submit.onclick=()=>{
   const selected=[...root.querySelectorAll('input[name="quiz-answer"]:checked')].map(el=>el.value);
@@ -70,6 +69,11 @@ function renderQuestion(){
   if(index+1===session.questionIds.length){
    const completed=completeSession(progress,session,bank);progress=completed.progress;lastReport=completed.summary;write();renderResults();renderAccount();
   }else{progress.current.cursor=index+1;write();renderQuestion()}
+ };
+ const finish=document.getElementById('quizFinish');
+ if(finish)finish.onclick=()=>{
+  const completed=finishSession(progress,progress.current,bank);
+  progress=completed.progress;lastReport=completed.summary;write();renderResults();renderAccount();
  };
  document.getElementById('quizPause').onclick=()=>{paused=true;progress.current.paused=true;write();renderMenu();renderAccount()};
 }
