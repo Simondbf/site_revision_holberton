@@ -4,10 +4,10 @@
 
 - Accès par l'onglet `#quiz` **sans créer de compte**.
 - 25 questions initiales sur `argc`/`argv` et 30 questions nouvelles sur `stdarg.h`, soit **55 questions candidates et 11 notions**.
-- Sessions de 5, 10, 20 ou toutes les questions, au choix ; sélection des thèmes argc/argv, stdarg.h ou mixte.
+- **Aucun quota de 5/10/15/20 questions** : révision libre jusqu’à ce que l’apprenant choisisse « Terminer et voir mon bilan » après une réponse. La banque disponible sert de limite naturelle, sans exiger d’aller jusqu’à sa dernière question. Sélection des thèmes argc/argv, stdarg.h ou mixte.
 - Mode **unique** (radio) ou **multiple** (cases à cocher), sans révélation du nombre exact de bonnes réponses.
 - Validation explicite ; correction exacte : cocher un choix incorrect ou omettre un bon choix donne zéro point à cette question.
-- Explication après validation et lien direct vers la fiche lorsque la fiche est déjà présente ; pour les six notions stdarg.h, cela nécessite la fusion préalable de #23.
+- Explication après validation et lien direct vers la fiche. Les six notions stdarg.h ont été ajoutées par la PR #23 (fusionnée le 18 novembre 2026).
 - Pause et reprise dans le navigateur ; bilan global et par notion, notions à retravailler sans qualifier une notion de non maîtrisée après une seule erreur.
 - Progression locale accessible sur `#compte`, historique et statistiques cumulées ; export JSON et suppression volontaire **uniquement** des résultats de quiz.
 - La répartition initiale couvre plusieurs notions ; la sélection des sessions suivantes donne plus de poids aux notions sur lesquelles des erreurs ont déjà été observées, sans proposer de difficulté manuelle.
