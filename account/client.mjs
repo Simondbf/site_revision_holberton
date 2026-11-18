@@ -26,9 +26,18 @@ function download(name,data){
  const url=URL.createObjectURL(new Blob([JSON.stringify(data,null,2)],{type:'application/json'}));
  const link=document.createElement('a');link.href=url;link.download=name;document.body.append(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),500);
 }
-function progressLocal(){return readProgress(localStorage)}
+function progressLocal(){
+ const p=readProgress(localStorage);
+ try{const fav=JSON.parse(localStorage.getItem('holberton-favorites-v2')||'[]');p.favorites=Array.isArray(fav)?fav.filter(x=>typeof x==='string'&&/^\d+:\d+$/.test(x)).slice(0,500):[]}catch{p.favorites=[]}
+ try{p.theme=localStorage.getItem('holberton-dark-v2')==='yes'?'dark':'light'}catch{p.theme='light'}
+ return p;
+}
 function reloadQuiz(data){
- writeProgress(localStorage,data);window.dispatchEvent(new Event('holberton:quiz:reload'));
+ writeProgress(localStorage,data);
+ if(Array.isArray(data.favorites)){try{localStorage.setItem('holberton-favorites-v2',JSON.stringify(data.favorites.filter(x=>typeof x==='string'&&/^\d+:\d+$/.test(x)).slice(0,500)))}catch{}}
+ if(data.theme==='dark'||data.theme==='light'){try{localStorage.setItem('holberton-dark-v2',data.theme==='dark'?'yes':'no')}catch{}}
+ window.dispatchEvent(new Event('holberton:quiz:reload'));
+ window.dispatchEvent(new Event('holberton:preferences:reload'));
 }
 async function refreshRemote(){remote=await api('/api/progress')}
 function displayGuest(){
@@ -49,10 +58,10 @@ function displayUnavailable(){
  '<p class="quiz-muted">Dès que le service sera sécurisé et déployé, cette page proposera l’inscription et la connexion facultatives.</p>';
 }
 function displayConnected(){
- const guest=progressSummary(progressLocal());
+ const local=progressLocal(),guest=progressSummary(local);
  const remoteSummary=remote.data?progressSummary(remote.data):null;
  card.innerHTML='<h3>Mon compte</h3><p>Adresse vérifiée : <strong>'+esc(me.email)+'</strong></p>'+
- '<div class="account-metrics"><span>Appareil : '+guest.sessions+' session(s)</span><span>Compte : '+(remoteSummary?.sessions||0)+' session(s) sauvegardée(s)</span></div>'+
+ '<div class="account-metrics"><span>Appareil : '+guest.sessions+' session(s)</span><span>Compte : '+(remoteSummary?.sessions||0)+' session(s) sauvegardée(s)</span><span>Favoris locaux : '+(local.favorites?.length||0)+'</span></div>'+
  '<p>La progression du compte est stockée séparément des données de l’application financière. Tu choisis explicitement si tu souhaites importer ou remplacer une progression existante.</p>'+
  '<div class="quiz-actions"><button class="quiz-primary" id="accountSendProgress" type="button">Sauvegarder ma progression locale</button>'+
  '<button class="quiz-secondary" id="accountLoadProgress" type="button" '+(!remote.data?'disabled':'')+'>Charger ma progression du compte</button></div>'+
@@ -83,7 +92,7 @@ async function saveToAccount(){
   if(!confirm('ATTENTION : ton compte contient déjà une progression. La sauvegarde de cet appareil remplacera cet historique du serveur. Veux-tu continuer ?'))return;
   if(!confirm('Confirmer le remplacement explicite de la progression du compte ?'))return;
  }
- if(!confirm('Sauvegarder les '+count+' session(s) invitées sur ton compte ? En cas de modification concurrente, rien ne sera écrasé.'))return;
+ if(!confirm('Sauvegarder '+count+' session(s), tes favoris et ton thème dans ce compte ? En cas de modification concurrente, rien ne sera écrasé.'))return;
  busy=true;
  try{
   // Import d'un historique invité seulement après accord explicite.
@@ -115,6 +124,10 @@ async function automaticSync(){
   if(e.status===409){disableSync();await refreshRemote().catch(()=>{});if(location.hash.startsWith('#compte')){displayConnected();notice('Conflit de synchronisation : aucune donnée distante écrasée. Un choix manuel est nécessaire.',true)}}
  }finally{busy=false;if(pendingSync){pendingSync=false;setTimeout(automaticSync,0)}}
 }
+window.addEventListener('holberton:preferences:updated',()=>{
+ if(debounce)clearTimeout(debounce);
+ if(syncOptIn&&me.authenticated)debounce=setTimeout(automaticSync,900);
+});
 window.addEventListener('holberton:quiz:updated',()=>{
  if(debounce)clearTimeout(debounce);
  if(syncOptIn&&me.authenticated)debounce=setTimeout(automaticSync,900);

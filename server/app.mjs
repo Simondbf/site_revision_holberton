@@ -56,6 +56,8 @@ function sameSecret(a,b){
 }
 function progressPayload(data){
  if(!data||typeof data!=='object'||Array.isArray(data)||data.version!==1||!Array.isArray(data.history)||data.history.length>60||typeof data.stats!=='object'||!data.stats||typeof data.seen!=='object'||!data.seen)throw new ApiError(400,'Format de progression invalide.');
+ if(data.favorites!==undefined&&(!Array.isArray(data.favorites)||data.favorites.length>500||data.favorites.some(x=>typeof x!=='string'||!/^\d+:\d+$/.test(x))))throw new ApiError(400,'Favoris invalides.');
+ if(data.theme!==undefined&&!['light','dark'].includes(data.theme))throw new ApiError(400,'Thème invalide.');
  const text=JSON.stringify(data);
  if(Buffer.byteLength(text)>MAX_PROGRESS_BYTES)throw new ApiError(413,'Progression trop volumineuse.');
  return text;
