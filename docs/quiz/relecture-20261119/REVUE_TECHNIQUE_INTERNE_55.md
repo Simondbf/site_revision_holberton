@@ -1,6 +1,6 @@
 # Relecture technique des 55 questions — contrôles internes, 19 novembre 2026
 
-**Nature du document :** vérification contradictoire interne à ChatGPT, fondée sur les règles C89/GNU89 et les textes de référence. **Ce document NE REMPLACE PAS une deuxième relecture indépendante** ; le statut des questions reste `a_verifier`.
+**Nature du document :** vérification technique interne à ChatGPT, ajustée après le rapport PDF externe du 19 novembre 2026. **Ce document NE REMPLACE PAS une deuxième relecture indépendante exhaustive** ; le statut des questions reste `a_verifier`.
 
 Les lettres correctes ci-dessous ont été reconstruites question par question, puis comparées aux clés du dépôt. Toutes les propositions sont analysées individuellement. La relecture véritablement indépendante doit partir de `QUESTIONS_SANS_CORRIGES.md`, sans ouvrir ce document.
 
@@ -319,10 +319,10 @@ Références transversales : [main et argv](https://en.cppreference.com/w/c/lang
 
 **Clé examinée : A** · Mode : réponse unique.
 
-- **A — correcte :** Lire un troisième int alors que deux sont fournis engendre un comportement indéfini.
-- **B — incorrecte :** Aucun zéro n’est ajouté automatiquement.
-- **C — incorrecte :** La compilation n’est pas obligatoirement rejetée.
-- **D — incorrecte :** n est un paramètre fixe, non un troisième argument lu via va_arg.
+- **A — correcte :** Lire un troisième int alors que seuls deux arguments variables ont été fournis entraîne un comportement indéfini.
+- **B — incorrecte :** Le langage n’ajoute aucun zéro automatiquement.
+- **C — incorrecte :** Aucune erreur de compilation n’est imposée pour une incohérence non vérifiable à l’appel.
+- **D — incorrecte :** Une lecture de fin de liste n’est pas une opération à comportement défini : elle provoque un comportement indéfini.
 
 **Conclusion provisoire :** cohérent après contrôle interne ; une seconde expertise autonome reste nécessaire.
 
@@ -341,10 +341,10 @@ Références transversales : [main et argv](https://en.cppreference.com/w/c/lang
 
 **Clé examinée : C** · Mode : réponse unique.
 
-- **A — incorrecte :** vararg_t n’est pas le type standard.
-- **B — incorrecte :** va_arg est une macro d’accès, pas le type du curseur.
-- **C — correcte :** va_list représente l’état du parcours variadique.
-- **D — incorrecte :** argument_list n’est pas le type de stdarg.h.
+- **A — incorrecte :** vararg_t n’est pas le nom standard du type.
+- **B — incorrecte :** va_arg est une macro de lecture, pas un type.
+- **C — correcte :** va_list est le type qui conserve l’état du parcours.
+- **D — incorrecte :** va_start est une macro d’initialisation, pas un type.
 
 **Conclusion provisoire :** cohérent après contrôle interne ; une seconde expertise autonome reste nécessaire.
 
@@ -372,13 +372,13 @@ Références transversales : [main et argv](https://en.cppreference.com/w/c/lang
 
 ## VAR-08-032-04 — va_list et va_start — initialiser le parcours
 
-**Clé examinée : A, C, D, E** · Mode : réponses multiples.
+**Clé examinée : A, C, D** · Mode : réponses multiples.
 
 - **A — correcte :** La représentation de va_list dépend de l’implémentation.
-- **B — incorrecte :** Le type n’est pas universellement char*.
-- **C — correcte :** va_start initialise un objet va_list déclaré.
-- **D — correcte :** Une liste initialisée doit être terminée par va_end.
-- **E — correcte :** Le nom va_list provient bien de stdarg.h.
+- **B — incorrecte :** va_list n’est pas universellement char*.
+- **C — correcte :** va_start initialise un objet va_list préalablement déclaré.
+- **D — correcte :** Une liste initialisée par va_start doit être terminée par va_end.
+- **E — incorrecte :** La copie d’un va_list par simple affectation ne fonctionne pas de façon portable.
 
 **Conclusion provisoire :** cohérent après contrôle interne ; une seconde expertise autonome reste nécessaire.
 
@@ -440,12 +440,12 @@ Références transversales : [main et argv](https://en.cppreference.com/w/c/lang
 
 ## VAR-08-033-05 — va_arg — lire les valeurs et comprendre les promotions
 
-**Clé examinée : B** · Mode : réponse unique.
+**Clé examinée : A** · Mode : réponse unique.
 
-- **A — incorrecte :** La promotion float ne produit pas long double.
-- **B — correcte :** float devient double dans les arguments variadiques.
-- **C — incorrecte :** Aucune conversion automatique vers un pointeur n’a lieu.
-- **D — incorrecte :** va_arg ne renvoie pas toujours zéro et l’appel avec float est incorrect.
+- **A — correcte :** Les arguments sont transmis dans l’ordre : int 42, puis float promu en double.
+- **B — incorrecte :** Cette séquence inverse l’ordre et lit le premier int comme un double.
+- **C — incorrecte :** float a été promu en double : va_arg(ap, float) n’est pas approprié.
+- **D — incorrecte :** long double n’est pas le type promu d’un float transmis dans ...
 
 **Conclusion provisoire :** cohérent après contrôle interne ; une seconde expertise autonome reste nécessaire.
 
@@ -596,12 +596,12 @@ Références transversales : [main et argv](https://en.cppreference.com/w/c/lang
 
 ## VAR-08-036-04 — vprintf et va_copy — transmettre ou dupliquer une liste
 
-**Clé examinée : D** · Mode : réponse unique.
+**Clé examinée : A** · Mode : réponse unique.
 
-- **A — incorrecte :** va_list n’est pas toujours int.
-- **B — incorrecte :** va_list n’est pas toujours double.
-- **C — incorrecte :** Copier une liste n’alloue pas automatiquement un bloc.
-- **D — correcte :** va_list peut être un type opaque ou un tableau : l’affectation n’est pas portable.
+- **A — correcte :** En C99, va_copy initialise dest depuis src ; après utilisation, dest et src reçoivent chacun va_end.
+- **B — incorrecte :** L’affectation d’un va_list n’est pas une copie portable et dest n’est pas correctement terminé.
+- **C — incorrecte :** Après va_end(src), src ne peut plus servir de source à va_copy sans réinitialisation.
+- **D — incorrecte :** Les arguments de va_copy sont inversés : dest, non initialisé, ne peut pas servir de source valide.
 
 **Conclusion provisoire :** cohérent après contrôle interne ; une seconde expertise autonome reste nécessaire.
 
@@ -623,3 +623,11 @@ Références transversales : [main et argv](https://en.cppreference.com/w/c/lang
 - La nuance sur les promotions dans `VAR-08-033-04` et la distinction entre terminateur et accès hors limites dans `V1-N09_075-04` ont été clarifiées sur la branche.
 - Toute divergence de la relecture indépendante doit être corrigée avant de passer le statut pédagogique des questions à validé.
 - Les tests unitaires et navigateur restent obligatoires après la dernière modification.
+
+## Contrôle du rapport PDF reçu le 19 novembre
+
+- Rapport externe favorable sur le dossier, mais **seulement 12 questions sur 55** ont été vérifiées techniquement avec références ; il réclame lui-même une seconde contre-expertise indépendante complète.
+- Rectification du rapport : pour `VAR-08-031-03`, l’affirmation D (« Un paramètre fixe est requis dans cette forme C89 ») est vraie ; la clé correcte est **A, C, D** et non A, C. Le JSON n’a pas été modifié sur ce point.
+- Rectification du rapport : les 55 questions comptent **11 questions à réponses multiples** et non les huit mentionnées dans une section du PDF.
+- Les six corrections de forme ou de diversité proposées ont été intégrées au quiz. La version aveugle a été régénérée depuis les JSON après ces changements, et les libellés de mode ont été harmonisés.
+- Ces changements rendent l’audit précédent partiellement obsolète. **Les réponses nouvelles de `VAR-08-033-05` et `VAR-08-036-04` exigent une revue externe supplémentaire** avant toute validation définitive.
