@@ -239,7 +239,7 @@
 
 ### VAR-08-031-01 — Fonction variadique — déclarer des arguments avec ...
 
-**Mode : une seule bonne réponse.** En ISO C89, quelle déclaration autorise des arguments facultatifs ?
+**Mode : une seule bonne réponse.** En ISO C89, quelle déclaration autorise des arguments facultatifs ? (Une seule réponse correcte.)
 
 - **A.** `void f(...);`
 - **B.** `void f(int n, ...);`
@@ -248,7 +248,7 @@
 
 ### VAR-08-031-02 — Fonction variadique — déclarer des arguments avec ...
 
-**Mode : une seule bonne réponse.** Avec `f(2, 7, 9)`, combien d'arguments suivent le paramètre fixe `n` ?
+**Mode : une seule bonne réponse.** Avec `f(2, 7, 9)`, combien d'arguments suivent le paramètre fixe `n` ? (Une seule réponse correcte.)
 
 - **A.** 1
 - **B.** 3
@@ -257,7 +257,7 @@
 
 ### VAR-08-031-03 — Fonction variadique — déclarer des arguments avec ...
 
-**Mode : plusieurs bonnes réponses possibles.** Quelles affirmations sont correctes sur les fonctions variadiques ?
+**Mode : plusieurs bonnes réponses possibles.** Quelles affirmations sont correctes sur les fonctions variadiques ? (Plusieurs réponses correctes.)
 
 - **A.** Les arguments après ... peuvent être en nombre variable.
 - **B.** Leur nombre est disponible automatiquement dans argc.
@@ -267,16 +267,16 @@
 
 ### VAR-08-031-04 — Fonction variadique — déclarer des arguments avec ...
 
-**Mode : une seule bonne réponse.** Que risque `f(3, 5, 7)` si f lit trois int facultatifs ?
+**Mode : une seule bonne réponse.** Que risque `f(3, 5, 7)` si f lit trois int facultatifs ? (Une seule réponse correcte.)
 
 - **A.** Une lecture inexistante, donc un comportement indéfini.
 - **B.** L'ajout automatique d'un zéro.
 - **C.** Une erreur de compilation obligatoire.
-- **D.** La lecture du paramètre fixe comme troisième valeur.
+- **D.** La lecture d'une valeur indéterminée, mais un comportement toujours défini.
 
 ### VAR-08-031-05 — Fonction variadique — déclarer des arguments avec ...
 
-**Mode : une seule bonne réponse.** Pourquoi le paramètre `n` de `somme(int n, ...)` peut-il être utile ?
+**Mode : une seule bonne réponse.** Pourquoi le paramètre `n` de `somme(int n, ...)` peut-il être utile ? (Une seule réponse correcte.)
 
 - **A.** Il contient la somme déjà calculée.
 - **B.** Il indique combien de valeurs facultatives lire.
@@ -285,16 +285,16 @@
 
 ### VAR-08-032-01 — va_list et va_start — initialiser le parcours
 
-**Mode : une seule bonne réponse.** Quel type de <stdarg.h> représente l'état d'un parcours ?
+**Mode : une seule bonne réponse.** Quel type de <stdarg.h> représente l'état d'un parcours ? (Une seule réponse correcte.)
 
 - **A.** `vararg_t`
 - **B.** `va_arg`
 - **C.** `va_list`
-- **D.** `argument_list`
+- **D.** `va_start`
 
 ### VAR-08-032-02 — va_list et va_start — initialiser le parcours
 
-**Mode : une seule bonne réponse.** Pour `void f(int nombre, ...)`, comment initialiser `va_list ap` ?
+**Mode : une seule bonne réponse.** Pour `void f(int nombre, ...)`, comment initialiser `va_list ap` ? (Une seule réponse correcte.)
 
 - **A.** `va_start(ap, nombre);`
 - **B.** `va_start(nombre, ap);`
@@ -303,7 +303,7 @@
 
 ### VAR-08-032-03 — va_list et va_start — initialiser le parcours
 
-**Mode : une seule bonne réponse.** Quelle séquence respecte le cycle de vie de va_list ?
+**Mode : une seule bonne réponse.** Quelle séquence respecte le cycle de vie de va_list ? (Une seule réponse correcte.)
 
 - **A.** va_arg, va_start, va_end
 - **B.** va_end, va_start, va_arg
@@ -312,17 +312,17 @@
 
 ### VAR-08-032-04 — va_list et va_start — initialiser le parcours
 
-**Mode : plusieurs bonnes réponses possibles.** Quelles affirmations sur va_list sont exactes ?
+**Mode : plusieurs bonnes réponses possibles.** Quelles affirmations sur va_list sont exactes ? (Plusieurs réponses correctes.)
 
 - **A.** Sa représentation est opaque et dépend de l'implémentation.
 - **B.** Elle est toujours un char * portable.
 - **C.** va_start initialise un objet va_list déclaré.
 - **D.** Un va_end correspondant est nécessaire.
-- **E.** La déclaration `va_list ap;` utilise un type fourni par `<stdarg.h>`.
+- **E.** Une `va_list` initialisée peut toujours être copiée par une simple affectation C.
 
 ### VAR-08-032-05 — va_list et va_start — initialiser le parcours
 
-**Mode : une seule bonne réponse.** Pour `void f(const char *format, ...)`, quel second argument faut-il donner à va_start ?
+**Mode : une seule bonne réponse.** Pour `void f(const char *format, ...)`, quel second argument faut-il donner à va_start ? (Une seule réponse correcte.)
 
 - **A.** ap
 - **B.** format
@@ -331,7 +331,7 @@
 
 ### VAR-08-033-01 — va_arg — lire les valeurs et comprendre les promotions
 
-**Mode : une seule bonne réponse.** Pour un `signed char` transmis par `...`, quel type faut-il demander à `va_arg` après les promotions par défaut ?
+**Mode : une seule bonne réponse.** Pour un `signed char` transmis par `...`, quel type faut-il demander à `va_arg` après les promotions par défaut ? (Une seule réponse correcte.)
 
 - **A.** char
 - **B.** int
@@ -340,7 +340,7 @@
 
 ### VAR-08-033-02 — va_arg — lire les valeurs et comprendre les promotions
 
-**Mode : une seule bonne réponse.** Un float transmis par ... doit être lu avec va_arg(ap, ...) en quel type ?
+**Mode : une seule bonne réponse.** Un float transmis par ... doit être lu avec va_arg(ap, ...) en quel type ? (Une seule réponse correcte.)
 
 - **A.** int
 - **B.** float
@@ -349,7 +349,7 @@
 
 ### VAR-08-033-03 — va_arg — lire les valeurs et comprendre les promotions
 
-**Mode : une seule bonne réponse.** La fonction additionne trois int facultatifs 4, 5 et 6 : quel est le total ?
+**Mode : une seule bonne réponse.** La fonction additionne trois int facultatifs 4, 5 et 6 : quel est le total ? (Une seule réponse correcte.)
 
 - **A.** 15
 - **B.** 14
@@ -358,26 +358,26 @@
 
 ### VAR-08-033-04 — va_arg — lire les valeurs et comprendre les promotions
 
-**Mode : plusieurs bonnes réponses possibles.** Quelles affirmations sur va_arg sont exactes ?
+**Mode : plusieurs bonnes réponses possibles.** Quelles affirmations sur va_arg sont exactes ? (Plusieurs réponses correctes.)
 
 - **A.** Chaque appel avance au prochain argument.
 - **B.** La macro vérifie automatiquement la présence de l'argument.
-- **C.** Le type demandé doit correspondre après promotions.
+- **C.** Le choix du type demandé doit tenir compte des promotions par défaut.
 - **D.** Lire un argument inexistant est indéfini.
 - **E.** va_arg fonctionne avant va_start.
 
 ### VAR-08-033-05 — va_arg — lire les valeurs et comprendre les promotions
 
-**Mode : une seule bonne réponse.** Pourquoi `va_arg(ap, float)` est-il incorrect pour un float passé par ... ?
+**Mode : une seule bonne réponse.** Dans `void f(const char *format, ...)`, après `va_start(ap, format)` et pour l’appel `f("%d %.1f", 42, 2.5f)`, quelle suite de lectures récupère correctement les deux arguments facultatifs ? (Une seule réponse correcte.)
 
-- **A.** Le compilateur le convertit en long double.
-- **B.** Le float est promu en double.
-- **C.** Le float devient automatiquement un pointeur.
-- **D.** La macro renvoie toujours zéro.
+- **A.** `va_arg(ap, int); va_arg(ap, double);`
+- **B.** `va_arg(ap, double); va_arg(ap, int);`
+- **C.** `va_arg(ap, int); va_arg(ap, float);`
+- **D.** `va_arg(ap, int); va_arg(ap, long double);`
 
 ### VAR-08-034-01 — va_end — terminer correctement une liste variadique
 
-**Mode : une seule bonne réponse.** Quelle macro doit suivre l'usage d'une liste initialisée ?
+**Mode : une seule bonne réponse.** Quelle macro doit suivre l'usage d'une liste initialisée ? (Une seule réponse correcte.)
 
 - **A.** va_next
 - **B.** va_copy
@@ -386,7 +386,7 @@
 
 ### VAR-08-034-02 — va_end — terminer correctement une liste variadique
 
-**Mode : une seule bonne réponse.** Si la fonction retourne après va_start, que doit-elle faire auparavant ?
+**Mode : une seule bonne réponse.** Si la fonction retourne après va_start, que doit-elle faire auparavant ? (Une seule réponse correcte.)
 
 - **A.** Appeler va_end.
 - **B.** Appeler free sur va_list.
@@ -395,7 +395,7 @@
 
 ### VAR-08-034-03 — va_end — terminer correctement une liste variadique
 
-**Mode : une seule bonne réponse.** Peut-on appeler va_arg après va_end sans réinitialisation ?
+**Mode : une seule bonne réponse.** Peut-on appeler va_arg après va_end sans réinitialisation ? (Une seule réponse correcte.)
 
 - **A.** Oui, sans condition.
 - **B.** Oui, si la valeur vaut zéro.
@@ -404,7 +404,7 @@
 
 ### VAR-08-034-04 — va_end — terminer correctement une liste variadique
 
-**Mode : plusieurs bonnes réponses possibles.** Quelles affirmations sur va_end sont justes ?
+**Mode : plusieurs bonnes réponses possibles.** Quelles affirmations sur va_end sont justes ? (Plusieurs réponses correctes.)
 
 - **A.** Elle termine l'usage de va_list.
 - **B.** Elle réinitialise le parcours au premier argument facultatif.
@@ -414,7 +414,7 @@
 
 ### VAR-08-034-05 — va_end — terminer correctement une liste variadique
 
-**Mode : une seule bonne réponse.** Une branche retourne avant tout va_start : que faut-il faire de va_end ?
+**Mode : une seule bonne réponse.** Une branche retourne avant tout va_start : que faut-il faire de va_end ? (Une seule réponse correcte.)
 
 - **A.** L'appeler sur une liste non initialisée.
 - **B.** Appeler deux fois va_end.
@@ -423,7 +423,7 @@
 
 ### VAR-08-035-01 — Fonction variadique — compteur ou sentinelle de fin
 
-**Mode : une seule bonne réponse.** Avec des valeurs 2, 3, 5 puis la sentinelle -1, combien de valeurs de données ?
+**Mode : une seule bonne réponse.** Avec des valeurs 2, 3, 5 puis la sentinelle -1, combien de valeurs de données ? (Une seule réponse correcte.)
 
 - **A.** 2
 - **B.** 4
@@ -432,7 +432,7 @@
 
 ### VAR-08-035-02 — Fonction variadique — compteur ou sentinelle de fin
 
-**Mode : une seule bonne réponse.** Si la sentinelle manque, que risque une lecture répétée via va_arg ?
+**Mode : une seule bonne réponse.** Si la sentinelle manque, que risque une lecture répétée via va_arg ? (Une seule réponse correcte.)
 
 - **A.** Une lecture hors de la liste, comportement indéfini.
 - **B.** Un ajout automatique de -1.
@@ -441,7 +441,7 @@
 
 ### VAR-08-035-03 — Fonction variadique — compteur ou sentinelle de fin
 
-**Mode : une seule bonne réponse.** Quel contrat correspond à `somme(int n, ...)` ?
+**Mode : une seule bonne réponse.** Quel contrat correspond à `somme(int n, ...)` ? (Une seule réponse correcte.)
 
 - **A.** n est le résultat final.
 - **B.** n décrit le nombre de valeurs facultatives.
@@ -450,7 +450,7 @@
 
 ### VAR-08-035-04 — Fonction variadique — compteur ou sentinelle de fin
 
-**Mode : plusieurs bonnes réponses possibles.** Quelles règles rendent une sentinelle fiable ?
+**Mode : plusieurs bonnes réponses possibles.** Quelles règles rendent une sentinelle fiable ? (Plusieurs réponses correctes.)
 
 - **A.** Elle doit être transmise à chaque appel.
 - **B.** Elle peut toujours être utilisée comme une donnée normale.
@@ -460,7 +460,7 @@
 
 ### VAR-08-035-05 — Fonction variadique — compteur ou sentinelle de fin
 
-**Mode : une seule bonne réponse.** Pour un protocole qui compte des int positifs jusqu'au marqueur int -1, quel appel est conforme ?
+**Mode : une seule bonne réponse.** Pour un protocole qui compte des int positifs jusqu'au marqueur int -1, quel appel est conforme ? (Une seule réponse correcte.)
 
 - **A.** `f(2, 4, 6)`
 - **B.** `f(2, 4, 6, 0)`
@@ -469,7 +469,7 @@
 
 ### VAR-08-036-01 — vprintf et va_copy — transmettre ou dupliquer une liste
 
-**Mode : une seule bonne réponse.** Quelle fonction standard accepte un format et une va_list préparée ?
+**Mode : une seule bonne réponse.** Quelle fonction standard accepte un format et une va_list préparée ? (Une seule réponse correcte.)
 
 - **A.** printf
 - **B.** scanf
@@ -478,7 +478,7 @@
 
 ### VAR-08-036-02 — vprintf et va_copy — transmettre ou dupliquer une liste
 
-**Mode : une seule bonne réponse.** Après `va_start(ap,format); vprintf(format,ap);`, quelle opération est requise ?
+**Mode : une seule bonne réponse.** Après `va_start(ap,format); vprintf(format,ap);`, quelle opération est requise ? (Une seule réponse correcte.)
 
 - **A.** va_end(ap);
 - **B.** free(ap);
@@ -487,7 +487,7 @@
 
 ### VAR-08-036-03 — vprintf et va_copy — transmettre ou dupliquer une liste
 
-**Mode : une seule bonne réponse.** Quelle norme ISO C a introduit va_copy ?
+**Mode : une seule bonne réponse.** Quelle norme ISO C a introduit va_copy ? (Une seule réponse correcte.)
 
 - **A.** C89
 - **B.** C99
@@ -496,16 +496,16 @@
 
 ### VAR-08-036-04 — vprintf et va_copy — transmettre ou dupliquer une liste
 
-**Mode : une seule bonne réponse.** Pourquoi ne pas supposer que `va_list b = a;` est portable ?
+**Mode : une seule bonne réponse.** En C99, `src` est une `va_list` déjà initialisée par `va_start(src, n)` et `dest` est déclarée mais non initialisée. Quelle séquence permet de lire indépendamment une copie et de terminer correctement les deux listes ? (Une seule réponse correcte.)
 
-- **A.** a est toujours un int.
-- **B.** va_list est toujours un double.
-- **C.** La copie déclenche automatiquement un malloc.
-- **D.** La représentation de va_list n'autorise pas toujours la copie directe.
+- **A.** `va_copy(dest, src); /* lire dest */ va_end(dest); va_end(src);`
+- **B.** `dest = src; /* lire dest */ va_end(src);`
+- **C.** `va_end(src); va_copy(dest, src); /* lire dest */ va_end(dest);`
+- **D.** `va_copy(src, dest); /* lire dest */ va_end(dest); va_end(src);`
 
 ### VAR-08-036-05 — vprintf et va_copy — transmettre ou dupliquer une liste
 
-**Mode : plusieurs bonnes réponses possibles.** Quelles affirmations sont exactes ?
+**Mode : plusieurs bonnes réponses possibles.** Quelles affirmations sont exactes ? (Plusieurs réponses correctes.)
 
 - **A.** vprintf utilise une va_list fournie par l'appelant.
 - **B.** va_copy est obligatoire en ISO C89.
