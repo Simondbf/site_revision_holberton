@@ -32,7 +32,7 @@ origin=$(git -C "$HBTN_SOURCE_REPO" remote get-url origin)
 }
 git -C "$HBTN_SOURCE_REPO" fetch --quiet --no-tags origin main
 sha=$(git -C "$HBTN_SOURCE_REPO" rev-parse --verify refs/remotes/origin/main^{commit})
-guard="$HBTN_SOURCE_REPO/deploiement/verifier_ci_main.sh"
+guard="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)/verifier_ci_main.sh"
 [[ -f "$guard" ]] || { echo 'Garde CI non encore installé dans le dépôt de référence.' >&2; exit 1; }
 bash "$guard" "$sha"
 previous=$(readlink -f "$HBTN_ACTIVE_LINK")
