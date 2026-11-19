@@ -15,6 +15,33 @@ assert.ok(bank.some(q=>q.options.length===5),'Questions à cinq propositions att
 assert.ok(bank.some(q=>q.correct_option_ids.length===3),'Variation des bonnes réponses requise');
 assert.ok(bank.some(q=>q.correct_option_ids.length===1)&&bank.some(q=>q.correct_option_ids.length===2));
 assert.equal(checkBank(bank),true);
+// Relecture éditoriale : aucun corrigé ne doit apparaître dans le dossier aveugle.
+assert.equal(bank.reduce((n,q)=>n+q.options.length,0),226,'226 propositions attendues.');
+assert.equal(bank.filter(q=>q.answer_mode==='multiple').length,11,'11 questions multiples attendues.');
+for(const question of bank){
+ const regex=question.answer_mode==='single'?/une seule (?:bonne )?réponse correcte/i:/plusieurs (?:bonnes )?réponses correctes/i;
+ assert.ok(regex.test(question.prompt),'Mode explicite absent : '+question.id);
+}
+const blind=readFileSync(new URL('docs/quiz/relecture-20261119/QUESTIONS_SANS_CORRIGES.md',dir),'utf8');
+assert.equal((blind.match(/^### (?:V1-N09_|VAR-08-)/gm)||[]).length,55,'55 questions requises dans le document aveugle.');
+for(const q of bank){
+ assert.ok(blind.includes('### '+q.id+' — '),'Question absente du dossier aveugle : '+q.id);
+ assert.ok(blind.includes(q.prompt),'Énoncé aveugle désynchronisé : '+q.id);
+ for(const option of q.options){
+  assert.ok(blind.includes('- **'+option.id+'.** '+option.text),'Option aveugle désynchronisée : '+q.id+' '+option.id);
+ }
+}
+assert.ok(!blind.includes('correct_option_ids')&&!blind.includes('Corrigé candidat :'),'Les corrigés ont fui dans le dossier aveugle.');
+const findQ=id=>bank.find(q=>q.id===id);
+assert.match(findQ('V1-N09_073-01').prompt,/\.\/outil un deux trois/,'Question argc toujours ambiguë.');
+assert.deepEqual(findQ('VAR-08-031-03').correct_option_ids,['A','C','D'],
+ 'En C89, un paramètre fixe est requis : la réponse D est vraie.');
+assert.deepEqual(findQ('VAR-08-032-04').correct_option_ids,['A','C','D'],
+ 'La copie de va_list par affectation ne doit pas être acceptée comme portable.');
+assert.deepEqual(findQ('VAR-08-033-05').correct_option_ids,['A'],
+ 'La lecture des arguments int et double doit respecter les promotions.');
+assert.deepEqual(findQ('VAR-08-036-04').correct_option_ids,['A'],
+ 'La séquence va_copy / va_end en C99 doit être correcte.');
 assert.equal(matchesAnswer(['A','C'],['C','A']),true,'L’ordre des choix ne doit pas modifier le score');
 assert.equal(matchesAnswer(['A','C','D'],['A','C']),false,'Cocher une mauvaise réponse ne donne pas le point');
 assert.equal(matchesAnswer(['A'],['A','B']),false,'Omettre une réponse ne donne pas le point');
