@@ -596,7 +596,7 @@
         },
         {
           "id": "C",
-          "text": "Le type demandé doit correspondre après promotions."
+          "text": "Le choix du type demandé doit tenir compte des promotions par défaut."
         },
         {
           "id": "D",
