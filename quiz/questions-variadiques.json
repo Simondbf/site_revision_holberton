@@ -10,7 +10,7 @@
       "question_type": "fondement",
       "difficulty_internal": 1,
       "answer_mode": "single",
-      "prompt": "En ISO C89, quelle déclaration autorise des arguments facultatifs ?",
+      "prompt": "En ISO C89, quelle déclaration autorise des arguments facultatifs ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -53,7 +53,7 @@
       "question_type": "fondement",
       "difficulty_internal": 1,
       "answer_mode": "single",
-      "prompt": "Avec `f(2, 7, 9)`, combien d'arguments suivent le paramètre fixe `n` ?",
+      "prompt": "Avec `f(2, 7, 9)`, combien d'arguments suivent le paramètre fixe `n` ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -96,7 +96,7 @@
       "question_type": "fondement",
       "difficulty_internal": 2,
       "answer_mode": "multiple",
-      "prompt": "Quelles affirmations sont correctes sur les fonctions variadiques ?",
+      "prompt": "Quelles affirmations sont correctes sur les fonctions variadiques ? (Plusieurs réponses correctes.)",
       "options": [
         {
           "id": "A",
@@ -145,7 +145,7 @@
       "question_type": "fondement",
       "difficulty_internal": 2,
       "answer_mode": "single",
-      "prompt": "Que risque `f(3, 5, 7)` si f lit trois int facultatifs ?",
+      "prompt": "Que risque `f(3, 5, 7)` si f lit trois int facultatifs ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -161,7 +161,7 @@
         },
         {
           "id": "D",
-          "text": "La lecture du paramètre fixe comme troisième valeur."
+          "text": "La lecture d'une valeur indéterminée, mais un comportement toujours défini."
         }
       ],
       "correct_option_ids": [
@@ -188,7 +188,7 @@
       "question_type": "fondement",
       "difficulty_internal": 3,
       "answer_mode": "single",
-      "prompt": "Pourquoi le paramètre `n` de `somme(int n, ...)` peut-il être utile ?",
+      "prompt": "Pourquoi le paramètre `n` de `somme(int n, ...)` peut-il être utile ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -231,7 +231,7 @@
       "question_type": "initialisation",
       "difficulty_internal": 1,
       "answer_mode": "single",
-      "prompt": "Quel type de <stdarg.h> représente l'état d'un parcours ?",
+      "prompt": "Quel type de <stdarg.h> représente l'état d'un parcours ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -247,7 +247,7 @@
         },
         {
           "id": "D",
-          "text": "`argument_list`"
+          "text": "`va_start`"
         }
       ],
       "correct_option_ids": [
@@ -274,7 +274,7 @@
       "question_type": "initialisation",
       "difficulty_internal": 1,
       "answer_mode": "single",
-      "prompt": "Pour `void f(int nombre, ...)`, comment initialiser `va_list ap` ?",
+      "prompt": "Pour `void f(int nombre, ...)`, comment initialiser `va_list ap` ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -317,7 +317,7 @@
       "question_type": "initialisation",
       "difficulty_internal": 2,
       "answer_mode": "single",
-      "prompt": "Quelle séquence respecte le cycle de vie de va_list ?",
+      "prompt": "Quelle séquence respecte le cycle de vie de va_list ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -360,7 +360,7 @@
       "question_type": "initialisation",
       "difficulty_internal": 2,
       "answer_mode": "multiple",
-      "prompt": "Quelles affirmations sur va_list sont exactes ?",
+      "prompt": "Quelles affirmations sur va_list sont exactes ? (Plusieurs réponses correctes.)",
       "options": [
         {
           "id": "A",
@@ -380,16 +380,15 @@
         },
         {
           "id": "E",
-          "text": "La déclaration `va_list ap;` utilise un type fourni par `<stdarg.h>`."
+          "text": "Une `va_list` initialisée peut toujours être copiée par une simple affectation C."
         }
       ],
       "correct_option_ids": [
         "A",
         "C",
-        "D",
-        "E"
+        "D"
       ],
-      "explanation": "va_list est le type fourni par stdarg.h et sa représentation dépend de l’implémentation ; va_start initialise le parcours, va_end le clôt. Une simple affectation n’est pas une copie portable.",
+      "explanation": "va_list dépend de l’implémentation : va_start initialise le parcours, va_end le termine. La copie par simple affectation n’est pas portable, notamment si va_list est un type tableau.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/33-va-list-et-va-start-initialiser-le-parcours",
         "https://man7.org/linux/man-pages/man3/stdarg.3.html",
@@ -411,7 +410,7 @@
       "question_type": "initialisation",
       "difficulty_internal": 3,
       "answer_mode": "single",
-      "prompt": "Pour `void f(const char *format, ...)`, quel second argument faut-il donner à va_start ?",
+      "prompt": "Pour `void f(const char *format, ...)`, quel second argument faut-il donner à va_start ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -454,7 +453,7 @@
       "question_type": "promotion",
       "difficulty_internal": 1,
       "answer_mode": "single",
-      "prompt": "Pour un `signed char` transmis par `...`, quel type faut-il demander à `va_arg` après les promotions par défaut ?",
+      "prompt": "Pour un `signed char` transmis par `...`, quel type faut-il demander à `va_arg` après les promotions par défaut ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -498,7 +497,7 @@
       "question_type": "promotion",
       "difficulty_internal": 1,
       "answer_mode": "single",
-      "prompt": "Un float transmis par ... doit être lu avec va_arg(ap, ...) en quel type ?",
+      "prompt": "Un float transmis par ... doit être lu avec va_arg(ap, ...) en quel type ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -541,7 +540,7 @@
       "question_type": "promotion",
       "difficulty_internal": 2,
       "answer_mode": "single",
-      "prompt": "La fonction additionne trois int facultatifs 4, 5 et 6 : quel est le total ?",
+      "prompt": "La fonction additionne trois int facultatifs 4, 5 et 6 : quel est le total ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -584,7 +583,7 @@
       "question_type": "promotion",
       "difficulty_internal": 2,
       "answer_mode": "multiple",
-      "prompt": "Quelles affirmations sur va_arg sont exactes ?",
+      "prompt": "Quelles affirmations sur va_arg sont exactes ? (Plusieurs réponses correctes.)",
       "options": [
         {
           "id": "A",
@@ -633,29 +632,29 @@
       "question_type": "promotion",
       "difficulty_internal": 3,
       "answer_mode": "single",
-      "prompt": "Pourquoi `va_arg(ap, float)` est-il incorrect pour un float passé par ... ?",
+      "prompt": "Dans `void f(const char *format, ...)`, après `va_start(ap, format)` et pour l’appel `f(\"%d %.1f\", 42, 2.5f)`, quelle suite de lectures récupère correctement les deux arguments facultatifs ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
-          "text": "Le compilateur le convertit en long double."
+          "text": "`va_arg(ap, int); va_arg(ap, double);`"
         },
         {
           "id": "B",
-          "text": "Le float est promu en double."
+          "text": "`va_arg(ap, double); va_arg(ap, int);`"
         },
         {
           "id": "C",
-          "text": "Le float devient automatiquement un pointeur."
+          "text": "`va_arg(ap, int); va_arg(ap, float);`"
         },
         {
           "id": "D",
-          "text": "La macro renvoie toujours zéro."
+          "text": "`va_arg(ap, int); va_arg(ap, long double);`"
         }
       ],
       "correct_option_ids": [
-        "B"
+        "A"
       ],
-      "explanation": "Le type effectivement transmis est double.",
+      "explanation": "Le premier argument facultatif est un int (42), puis le float 2.5f est promu en double. Le parcours doit respecter cet ordre et utiliser les types réellement transmis.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/34-va-arg-lire-les-valeurs-et-comprendre-les-promotions",
         "https://man7.org/linux/man-pages/man3/stdarg.3.html",
@@ -676,7 +675,7 @@
       "question_type": "cycle",
       "difficulty_internal": 1,
       "answer_mode": "single",
-      "prompt": "Quelle macro doit suivre l'usage d'une liste initialisée ?",
+      "prompt": "Quelle macro doit suivre l'usage d'une liste initialisée ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -719,7 +718,7 @@
       "question_type": "cycle",
       "difficulty_internal": 1,
       "answer_mode": "single",
-      "prompt": "Si la fonction retourne après va_start, que doit-elle faire auparavant ?",
+      "prompt": "Si la fonction retourne après va_start, que doit-elle faire auparavant ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -762,7 +761,7 @@
       "question_type": "cycle",
       "difficulty_internal": 2,
       "answer_mode": "single",
-      "prompt": "Peut-on appeler va_arg après va_end sans réinitialisation ?",
+      "prompt": "Peut-on appeler va_arg après va_end sans réinitialisation ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -805,7 +804,7 @@
       "question_type": "cycle",
       "difficulty_internal": 2,
       "answer_mode": "multiple",
-      "prompt": "Quelles affirmations sur va_end sont justes ?",
+      "prompt": "Quelles affirmations sur va_end sont justes ? (Plusieurs réponses correctes.)",
       "options": [
         {
           "id": "A",
@@ -854,7 +853,7 @@
       "question_type": "cycle",
       "difficulty_internal": 3,
       "answer_mode": "single",
-      "prompt": "Une branche retourne avant tout va_start : que faut-il faire de va_end ?",
+      "prompt": "Une branche retourne avant tout va_start : que faut-il faire de va_end ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -897,7 +896,7 @@
       "question_type": "protocole",
       "difficulty_internal": 1,
       "answer_mode": "single",
-      "prompt": "Avec des valeurs 2, 3, 5 puis la sentinelle -1, combien de valeurs de données ?",
+      "prompt": "Avec des valeurs 2, 3, 5 puis la sentinelle -1, combien de valeurs de données ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -940,7 +939,7 @@
       "question_type": "protocole",
       "difficulty_internal": 1,
       "answer_mode": "single",
-      "prompt": "Si la sentinelle manque, que risque une lecture répétée via va_arg ?",
+      "prompt": "Si la sentinelle manque, que risque une lecture répétée via va_arg ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -983,7 +982,7 @@
       "question_type": "protocole",
       "difficulty_internal": 2,
       "answer_mode": "single",
-      "prompt": "Quel contrat correspond à `somme(int n, ...)` ?",
+      "prompt": "Quel contrat correspond à `somme(int n, ...)` ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -1026,7 +1025,7 @@
       "question_type": "protocole",
       "difficulty_internal": 2,
       "answer_mode": "multiple",
-      "prompt": "Quelles règles rendent une sentinelle fiable ?",
+      "prompt": "Quelles règles rendent une sentinelle fiable ? (Plusieurs réponses correctes.)",
       "options": [
         {
           "id": "A",
@@ -1075,7 +1074,7 @@
       "question_type": "protocole",
       "difficulty_internal": 3,
       "answer_mode": "single",
-      "prompt": "Pour un protocole qui compte des int positifs jusqu'au marqueur int -1, quel appel est conforme ?",
+      "prompt": "Pour un protocole qui compte des int positifs jusqu'au marqueur int -1, quel appel est conforme ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -1118,7 +1117,7 @@
       "question_type": "transmission",
       "difficulty_internal": 1,
       "answer_mode": "single",
-      "prompt": "Quelle fonction standard accepte un format et une va_list préparée ?",
+      "prompt": "Quelle fonction standard accepte un format et une va_list préparée ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -1161,7 +1160,7 @@
       "question_type": "transmission",
       "difficulty_internal": 1,
       "answer_mode": "single",
-      "prompt": "Après `va_start(ap,format); vprintf(format,ap);`, quelle opération est requise ?",
+      "prompt": "Après `va_start(ap,format); vprintf(format,ap);`, quelle opération est requise ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -1204,7 +1203,7 @@
       "question_type": "transmission",
       "difficulty_internal": 2,
       "answer_mode": "single",
-      "prompt": "Quelle norme ISO C a introduit va_copy ?",
+      "prompt": "Quelle norme ISO C a introduit va_copy ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -1247,29 +1246,29 @@
       "question_type": "transmission",
       "difficulty_internal": 2,
       "answer_mode": "single",
-      "prompt": "Pourquoi ne pas supposer que `va_list b = a;` est portable ?",
+      "prompt": "En C99, `src` est une `va_list` déjà initialisée par `va_start(src, n)` et `dest` est déclarée mais non initialisée. Quelle séquence permet de lire indépendamment une copie et de terminer correctement les deux listes ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
-          "text": "a est toujours un int."
+          "text": "`va_copy(dest, src); /* lire dest */ va_end(dest); va_end(src);`"
         },
         {
           "id": "B",
-          "text": "va_list est toujours un double."
+          "text": "`dest = src; /* lire dest */ va_end(src);`"
         },
         {
           "id": "C",
-          "text": "La copie déclenche automatiquement un malloc."
+          "text": "`va_end(src); va_copy(dest, src); /* lire dest */ va_end(dest);`"
         },
         {
           "id": "D",
-          "text": "La représentation de va_list n'autorise pas toujours la copie directe."
+          "text": "`va_copy(src, dest); /* lire dest */ va_end(dest); va_end(src);`"
         }
       ],
       "correct_option_ids": [
-        "D"
+        "A"
       ],
-      "explanation": "Sur certaines plateformes va_list est représentée comme un tableau ou un type opaque.",
+      "explanation": "Depuis C99, va_copy(dest, src) initialise une copie indépendante du parcours de src. Il faut achever séparément dest et src avec va_end après utilisation.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/37-vprintf-et-va-copy-transmettre-ou-dupliquer-une-liste",
         "https://man7.org/linux/man-pages/man3/stdarg.3.html",
@@ -1290,7 +1289,7 @@
       "question_type": "transmission",
       "difficulty_internal": 3,
       "answer_mode": "multiple",
-      "prompt": "Quelles affirmations sont exactes ?",
+      "prompt": "Quelles affirmations sont exactes ? (Plusieurs réponses correctes.)",
       "options": [
         {
           "id": "A",
