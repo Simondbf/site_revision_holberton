@@ -288,6 +288,17 @@ try{
  await page.locator('#quiz .quiz-choice').first().click();
  await page.locator('#quizSubmit').click();
  assert.equal(await page.locator('#quiz .quiz-feedback').count(),1,'Le corrigé n’est pas affiché après validation.');
+ const quizLesson=page.locator('#quiz .quiz-feedback a.quiz-link');
+ assert.ok(await quizLesson.isVisible(),'La correction doit donner un lien vers le cours.');
+ const quizLessonHash=await quizLesson.getAttribute('href');
+ assert.ok(quizLessonHash.startsWith('#cours/'),'Le lien du corrigé ne mène pas au cours.');
+ await quizLesson.click();
+ await page.waitForFunction(expected=>location.hash===expected,quizLessonHash);
+ assert.ok(await page.locator('#courseArticle .lesson-selected').count()>0,
+  'Le corrigé ne sélectionne aucune fiche.');
+ await page.goto(origin+'/#quiz');
+ assert.ok(await page.locator('#quizPause').isVisible(),
+  'Le retour depuis la fiche doit retrouver la session en cours.');
  await page.locator('#quizPause').click();
  assert.ok(await page.locator('#quizResume').isVisible(),'La pause ne sauvegarde pas la session.');
  await page.reload();
@@ -359,6 +370,13 @@ try{
  await figure.waitFor({state:'visible',timeout:12000});
  assert.ok((await figure.boundingBox())?.width>=600,'La taille du schéma mobile a été réduite.');
  await mobile.screenshot({path:'apercus/postit-et-cours-mobile.png'});
+ await mobile.goto(origin+'/#quiz');
+ await mobile.locator('#quizStart').waitFor({state:'visible',timeout:15000});
+ await mobile.locator('#quizStart').click();
+ const mobileChoice=await mobile.locator('#quiz .quiz-choice').first().boundingBox();
+ assert.ok(mobileChoice && mobileChoice.x>=0 && mobileChoice.x+mobileChoice.width<=390,
+  'Les propositions du quiz débordent sur petit écran.');
+ await mobile.screenshot({path:'apercus/quiz-mobile.png'});
 
  assert.deepEqual(errors,[],'Erreurs JavaScript navigateur : '+errors.join(' / '));
  console.log('Navigation réussie : post-it, lecture continue, sommaire synchronisé, historique, recherche, favoris et mobile.');
