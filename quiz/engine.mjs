@@ -4,7 +4,15 @@ if(!root||!account)throw Error('Pages Compte et Quiz absentes.');
 let bank=[],progress=readProgress(localStorage),loading=true,error='',family='all',paused=false,lastReport=null;
 const escape=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const isQuiz=()=>location.hash.split('/')[0]==='#quiz';
-const write=()=>writeProgress(localStorage,progress);
+function persist(next){
+ if(!writeProgress(localStorage,next)){
+  window.alert('Impossible d’enregistrer la progression dans ce navigateur. Vérifie l’espace disponible et les autorisations de stockage.');
+  return false;
+ }
+ progress=next;
+ window.dispatchEvent(new Event('holberton:quiz:updated'));
+ return true;
+}
 const findQuestion=id=>bank.find(q=>q.id===id);
 function page(title,sub,body){
  root.innerHTML='<div class="quiz-app"><header class="quiz-heading"><span class="quiz-kicker">RÉVISION C · VERSION TEST</span><h2>'+escape(title)+'</h2><p>'+escape(sub)+'</p></header><div class="quiz-warning" role="note">Les réponses de cette première banque restent en relecture pédagogique. Les scores servent à t’entraîner et ne constituent pas une certification.</div>'+body+'</div>';
@@ -35,10 +43,14 @@ function renderMenu(){
   if(progress.current&&!confirm('Remplacer la session non terminée ?'))return;
   const available=bank.filter(q=>family==='all'||q.family===family);
   const selection=selectQuestions(bank,{family,amount:available.length,stats:progress.stats,seen:progress.seen});
-  progress.current=newSession(selection,family);write();paused=false;lastReport=null;renderQuestion();renderAccount();
+  if(!persist({...progress,current:newSession(selection,family)}))return;
+  paused=false;lastReport=null;renderQuestion();renderAccount();
  };
  const resume=document.getElementById('quizResume');
- if(resume)resume.onclick=()=>{paused=false;progress.current.paused=false;write();renderQuestion()};
+ if(resume)resume.onclick=()=>{
+  if(!persist({...progress,current:{...progress.current,paused:false}}))return;
+  paused=false;renderQuestion();
+ };
 }
 function renderQuestion(){
  const session=progress.current;
@@ -62,20 +74,33 @@ function renderQuestion(){
  if(submit)submit.onclick=()=>{
   const selected=[...root.querySelectorAll('input[name="quiz-answer"]:checked')].map(el=>el.value);
   if(!selected.length){document.getElementById('quizError').hidden=false;return}
-  try{progress.current=applyAnswer(progress.current,q,selected);write();renderQuestion();renderAccount()}catch(e){let el=document.getElementById('quizError');el.textContent=e.message;el.hidden=false}
+  try{
+   const current=applyAnswer(progress.current,q,selected);
+   if(!persist({...progress,current}))return;
+   renderQuestion();renderAccount();
+  }catch(e){let el=document.getElementById('quizError');el.textContent=e.message;el.hidden=false}
  };
  const next=document.getElementById('quizNext');
  if(next)next.onclick=()=>{
   if(index+1===session.questionIds.length){
-   const completed=completeSession(progress,session,bank);progress=completed.progress;lastReport=completed.summary;write();renderResults();renderAccount();
-  }else{progress.current.cursor=index+1;write();renderQuestion()}
+   const completed=completeSession(progress,session,bank);
+   if(!persist(completed.progress))return;
+   lastReport=completed.summary;renderResults();renderAccount();
+  }else{
+   if(!persist({...progress,current:{...progress.current,cursor:index+1}}))return;
+   renderQuestion();
+  }
  };
  const finish=document.getElementById('quizFinish');
  if(finish)finish.onclick=()=>{
   const completed=finishSession(progress,progress.current,bank);
-  progress=completed.progress;lastReport=completed.summary;write();renderResults();renderAccount();
+  if(!persist(completed.progress))return;
+  lastReport=completed.summary;renderResults();renderAccount();
  };
- document.getElementById('quizPause').onclick=()=>{paused=true;progress.current.paused=true;write();renderMenu();renderAccount()};
+ document.getElementById('quizPause').onclick=()=>{
+  if(!persist({...progress,current:{...progress.current,paused:true}}))return;
+  paused=true;renderMenu();renderAccount();
+ };
 }
 function renderResults(){
  const sum=lastReport;if(!sum){renderMenu();return}
@@ -102,7 +127,8 @@ function renderAccount(){
  };
  document.getElementById('guestClear').onclick=()=>{
   if(!confirm('Supprimer uniquement les résultats quiz de ce navigateur ? Tes favoris et ton thème restent intacts.'))return;
-  progress=emptyProgress();write();lastReport=null;paused=false;renderAccount();if(isQuiz())renderMenu();
+  if(!persist(emptyProgress()))return;
+  lastReport=null;paused=false;renderAccount();if(isQuiz())renderMenu();
  };
 }
 function render(){
@@ -126,4 +152,17 @@ async function load(){
  loading=false;render();renderAccount();
 }
 window.addEventListener('hashchange',()=>{if(isQuiz())render();if(location.hash.split('/')[0]==='#compte')renderAccount()});
+function reloadLocalProgress(){
+ progress=readProgress(localStorage);
+ paused=!!progress.current?.paused;
+ lastReport=null;
+ renderAccount();
+ render();
+}
+// Le chargement depuis un compte doit aussi remplacer l'état en mémoire du moteur.
+window.addEventListener('holberton:quiz:reload',reloadLocalProgress);
+// Un autre onglet peut mettre à jour le même historique invité.
+window.addEventListener('storage',event=>{
+ if(event.key==='holberton-quiz-guest-v1')reloadLocalProgress();
+});
 renderAccount();load();
