@@ -33,3 +33,12 @@ jobs:
           node scripts/verifier_quiz.mjs
           node --check quiz/core.mjs
           node --check quiz/engine.mjs
+          node scripts/preparer_publication.mjs
+
+      - name: Conserver les ressources statiques vérifiées
+        uses: actions/upload-artifact@v4
+        with:
+          name: site-statique-a-valider
+          path: publication/
+          if-no-files-found: error
+          retention-days: 7
