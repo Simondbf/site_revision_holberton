@@ -2853,14 +2853,14 @@ Dans `int main(int argc, char *argv[])`, quel type a l'expression `argv[0]` si a
 
 **Une seule bonne réponse**
 
-Sous Linux, le programme `./outil` reçoit les trois paramètres `un`, `deux`, `trois`. Quelle est normalement la valeur de argc ? (Une seule réponse correcte.)
+Sous Linux, l’utilisateur lance la commande `./outil un deux trois`. Quelle est normalement la valeur de `argc` reçue par `main` ? (Une seule réponse correcte.)
 
 - **A ❌** 3
 - **B ❌** 2
 - **C ❌** 0
 - **D ✅** 4
 
-**Corrigé candidat :** D. L'élément argv[0] (l'invocation) s'ajoute aux trois arguments utilisateur : argc vaut 4.
+**Corrigé candidat :** D. La commande transmet argv[0] = ./outil et les trois arguments utilisateur un, deux et trois ; argc vaut donc 4.
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/74-argc-compter-les-arguments-de-la-ligne-de-commande · https://publications.gbdirect.com/c_book/chapter10/arguments_to_main.html · https://en.cppreference.com/w/c/language/main_function
 
