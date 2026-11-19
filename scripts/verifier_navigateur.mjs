@@ -307,6 +307,7 @@ try{
 
  // La sauvegarde émet un événement exploitable par l'interface de synchronisation.
  await page.goto(origin+'/#quiz');
+ await page.locator('#quizAgain').click();
  await page.evaluate(()=>{
   window.__quizUpdates=0;
   window.addEventListener('holberton:quiz:updated',()=>window.__quizUpdates++);
