@@ -305,6 +305,51 @@ try{
  assert.match(await page.locator('#guestProgress').innerText(),/1 session/,'La progression invitée n’est pas enregistrée.');
  await page.screenshot({path:'apercus/quiz-compte-progression.png'});
 
+ // La sauvegarde émet un événement exploitable par l'interface de synchronisation.
+ await page.goto(origin+'/#quiz');
+ await page.evaluate(()=>{
+  window.__quizUpdates=0;
+  window.addEventListener('holberton:quiz:updated',()=>window.__quizUpdates++);
+ });
+ await page.locator('#quizStart').click();
+ assert.equal(await page.evaluate(()=>window.__quizUpdates),1,
+  'Le moteur n’annonce pas les sauvegardes à la synchronisation des comptes.');
+
+ // Un chargement distant remplace l'état en mémoire, pas seulement localStorage.
+ await page.goto(origin+'/#compte');
+ await page.evaluate(()=>{
+  const key='holberton-quiz-guest-v1';
+  const current=JSON.parse(localStorage.getItem(key));
+  current.history=[];current.current=null;current.stats={};current.seen={};
+  localStorage.setItem(key,JSON.stringify(current));
+  window.dispatchEvent(new Event('holberton:quiz:reload'));
+ });
+ assert.match(await page.locator('#guestProgress').innerText(),/0 session/,
+  'Le compte a restauré une progression mais le quiz garde son ancien historique.');
+ await page.goto(origin+'/#quiz');
+ assert.equal(await page.locator('#quizResume').count(),0,
+  'La session précédente reste active après un chargement distant.');
+
+ // En cas de quota localStorage dépassé, ne pas prétendre avoir enregistré un nouveau quiz.
+ await page.evaluate(()=>{
+  const previous=Storage.prototype.setItem;
+  window.__quizOriginalSetItem=previous;
+  Storage.prototype.setItem=function(key,value){
+   if(key==='holberton-quiz-guest-v1')throw new DOMException('Quota dépassé','QuotaExceededError');
+   return previous.call(this,key,value);
+  };
+ });
+ page.once('dialog',dialog=>dialog.dismiss());
+ await page.locator('#quizStart').click();
+ assert.ok(await page.locator('#quizStart').isVisible(),
+  'Le quiz démarre alors que sa progression ne peut pas être enregistrée.');
+ assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('holberton-quiz-guest-v1')).current),null,
+  'Une session non persistée a remplacé le suivi local.');
+ await page.evaluate(()=>{
+  Storage.prototype.setItem=window.__quizOriginalSetItem;
+  delete window.__quizOriginalSetItem;
+ });
+
  // Le comportement mobile existant reste préservé, sans refonte de l'interface.
  const mobile=await browser.newPage({viewport:{width:390,height:844},isMobile:true,hasTouch:true});
  mobile.on('pageerror',e=>errors.push('Mobile : '+e.message));
