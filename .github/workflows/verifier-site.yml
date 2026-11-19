@@ -31,3 +31,4 @@ jobs:
           node scripts/verifier_arguments_main.mjs
           node scripts/verifier_fonctions_variadiques.mjs
           node scripts/verifier_controle_flux.mjs
+          node scripts/verifier_formats_atoi.mjs
