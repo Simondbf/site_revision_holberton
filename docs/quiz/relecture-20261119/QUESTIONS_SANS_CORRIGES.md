@@ -57,7 +57,7 @@
 
 ### V1-N09_073-01 — argc — compter les arguments de la ligne de commande
 
-**Mode : une seule bonne réponse.** Sous Linux, le programme `./outil` reçoit les trois paramètres `un`, `deux`, `trois`. Quelle est normalement la valeur de argc ? (Une seule réponse correcte.)
+**Mode : une seule bonne réponse.** Sous Linux, l’utilisateur lance la commande `./outil un deux trois`. Quelle est normalement la valeur de `argc` reçue par `main` ? (Une seule réponse correcte.)
 
 - **A.** 3
 - **B.** 2
