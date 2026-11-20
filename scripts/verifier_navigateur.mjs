@@ -265,6 +265,21 @@ try{
  assert.match(await page.locator('#notion-14-8').innerText(),/double free/,
   'Le risque de libération en double doit être expliqué.');
 
+ // Les nouvelles fiches sur les formats et atoi sont visibles via leurs liens directs.
+ for(const [index,term,needle] of [
+  [40,'printf — spécificateurs de format et types','%.2f'],
+  [41,'scanf et sscanf — formats de lecture et adresses','%9s'],
+  [42,'atoi() — convertir une chaîne en int','strtol']
+ ]){
+  await page.goto(origin+'/'+route('Programmation C',term));
+  await page.waitForFunction(i=>document.querySelector('#notion-8-'+i)?.classList.contains('lesson-selected'),index);
+  const fiche=page.locator('#notion-8-'+index);
+  assert.ok(await fiche.locator('.lesson-reading p').count()>=3,'Texte trop court pour la fiche '+index);
+  assert.ok((await fiche.innerText()).includes(needle),'Notion essentielle absente de la fiche '+index);
+  assert.ok(await fiche.locator('.lesson-sources a').count()>=2,'Sources absentes pour la fiche '+index);
+ }
+ await page.screenshot({path:'apercus/atoi-et-formats-c.png'});
+
  // À propos : structure simplifiée, liens de contribution et hiérarchie lisible.
  await page.goto(origin+'/#apropos');
  await page.waitForFunction(()=>!document.querySelector('#about')?.classList.contains('hidden'));
