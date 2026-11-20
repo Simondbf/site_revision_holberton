@@ -1,4 +1,4 @@
-import {readProgress,writeProgress,emptyProgress,checkBank,combineCandidates,selectQuestions,shuffleOptionIds,newSession,applyAnswer,skipAnswer,completeSession,finishSession,progressSummary} from './core.mjs';
+import {readProgress,writeProgress,emptyProgress,guestResumeOnly,checkBank,combineCandidates,selectQuestions,shuffleOptionIds,newSession,applyAnswer,skipAnswer,completeSession,finishSession,progressSummary} from './core.mjs';
 const root=document.getElementById('quiz'),account=document.getElementById('account');
 if(!root||!account)throw Error('Pages Compte et Quiz absentes.');
 // Nettoyer uniquement les paramètres de provenance ajoutés par des liens ChatGPT.
@@ -14,7 +14,7 @@ if(removedTracking)history.replaceState(history.state,'',cleanUrl.pathname+clean
 // Aide d'affichage distincte du corpus d'origine : clés de correction inchangées.
 let pedagogicHelp={};
 try{pedagogicHelp=JSON.parse(document.getElementById('quiz-aide-bank')?.textContent||'{}').questions||{};}catch{}
-let bank=[],progress=readProgress(localStorage),loading=true,error='',families=null,paused=false,lastReport=null,lastReviewedSession=null,accountTab='quiz';
+let bank=[],progress=guestResumeOnly(readProgress(localStorage)),loading=true,error='',families=null,paused=false,lastReport=null,lastReviewedSession=null,accountTab='quiz',guestFeedbackChoice='immediate';
 const escape=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const formatInline=s=>escape(s).replace(/\x60([^\x60]+)\x60/g,'<code>$1</code>');
 const isQuiz=()=>location.hash.split('/')[0]==='#quiz';
@@ -22,11 +22,14 @@ const isAccountActive=()=>document.documentElement.dataset.holbertonAccount==='c
 const useAdaptivePriority=()=>isAccountActive()&&progress.adaptiveEnabled===true;
 const feedbackMode=mode=>mode==='end'?'end':'immediate';
 function persist(next){
- if(!writeProgress(localStorage,next)){
-  window.alert('Impossible d’enregistrer la progression dans ce navigateur. Vérifie l’espace disponible et les autorisations de stockage.');
+ // Un invité n'enregistre que le quiz en cours. Le bilan terminé reste visible
+ // dans cette page, mais ne survit pas à la navigation/recharge.
+ const saved=isAccountActive()?next:guestResumeOnly(next);
+ if(!writeProgress(localStorage,saved)){
+  window.alert('Impossible d’enregistrer la session en cours. Vérifie le stockage de ton navigateur.');
   return false;
  }
- progress=next;
+ progress=saved;
  window.dispatchEvent(new Event('holberton:quiz:updated'));
  return true;
 }
@@ -49,7 +52,7 @@ function linkCourse(q){
  return '<a href="'+escape(hash)+'" class="quiz-link">Revoir la fiche</a>';
 }
 function renderMenu(){
- const info=progressSummary(progress),running=progress.current&&progress.current.questionIds?.length;
+ const running=progress.current&&progress.current.questionIds?.length;
  const themeNames={argc:'argc et argv',stdarg:'stdarg.h et fonctions variadiques'};
  const themeIds=[...new Set(bank.map(q=>q.family))];
  const themeLabel=id=>themeNames[id]||id;
@@ -68,26 +71,8 @@ function renderMenu(){
  themeIds.map(id=>'<label><input type="checkbox" name="quizTheme" value="'+escape(id)+'" '+(!families||families.includes(id)?'checked':'')+'> '+escape(themeLabel(id))+'</label>').join('')+'</fieldset>'+
  '<p id="quizThemeNoMatch" class="quiz-muted" hidden>Aucun thème correspondant.</p></div></details></div>'+
  '<p id="quizThemeError" class="quiz-error" role="alert" hidden>Sélectionne au moins un thème.</p>'+timingControl+
- '<p class="quiz-muted">Pas de nombre de questions prédéfini : tu peux faire une pause ou afficher ton bilan après chaque réponse.</p>'+
- '<button class="quiz-primary" id="quizStart">Démarrer</button></div>'+
- '<div class="quiz-stats"><span>'+info.sessions+' session(s)</span><span>'+info.answered+' question(s) traitée(s)</span><span>'+info.notions+' notion(s) révisée(s)</span></div>'+
- '<div class="quiz-card quiz-recent"><h3>Dernières sessions</h3>'+
- (progress.history.length?'<ul class="quiz-recent-list">'+progress.history.slice(-5).reverse().map(session=>
-  '<li><span>'+escape(new Date(session.finishedAt||session.createdAt).toLocaleDateString('fr-FR'))+
-  '</span><strong>'+escape(session.correct)+' / '+escape(session.total)+' bonnes réponses</strong></li>').join('')+'</ul>':
-  '<p>Termine un quiz pour retrouver son résultat ici.</p>')+
- '<div class="quiz-actions"><button type="button" class="quiz-secondary" id="quizExport">Exporter mes résultats</button>'+
- '<button type="button" class="quiz-secondary quiz-danger" id="quizClear">Effacer mes résultats</button></div></div>');
- document.getElementById('quizExport').onclick=()=>{
-  const url=URL.createObjectURL(new Blob([JSON.stringify(progress,null,2)],{type:'application/json'}));
-  const link=document.createElement('a');link.href=url;link.download='holberton-resultats-quiz.json';
-  document.body.append(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),500);
- };
- document.getElementById('quizClear').onclick=()=>{
-  if(!confirm('Effacer les résultats et les sessions de ce navigateur ?'))return;
-  if(!persist(emptyProgress()))return;
-  paused=false;lastReport=null;lastReviewedSession=null;renderMenu();
- };
+ '<p class="quiz-muted quiz-start-note">Tu peux mettre ta session en pause ou terminer ton quiz après une réponse.</p>'+
+ '<button class="quiz-primary" id="quizStart">Démarrer</button></div>');
  const themeBoxes=[...root.querySelectorAll('input[name="quizTheme"]')];
  const updateAvailable=()=>{
   const selected=new Set(themeBoxes.filter(input=>input.checked).map(input=>input.value));
@@ -118,8 +103,12 @@ function renderMenu(){
  updateAvailable();
  const timing=document.getElementById('quizFeedbackMode');
  if(timing){
-  timing.value=feedbackMode(progress.feedbackMode);
+  timing.value=isAccountActive()?feedbackMode(progress.feedbackMode):guestFeedbackChoice;
   timing.onchange=()=>{
+   if(!isAccountActive()){
+    guestFeedbackChoice=feedbackMode(timing.value);
+    return;
+   }
    if(!persist({...progress,feedbackMode:feedbackMode(timing.value)}))timing.value=feedbackMode(progress.feedbackMode);
   };
  }
@@ -129,7 +118,8 @@ function renderMenu(){
   if(progress.current&&!confirm('Remplacer la session non terminée ?'))return;
   const available=bank.filter(q=>chosen.includes(q.family));
   const selection=selectQuestions(bank,{families:chosen,amount:available.length,stats:progress.stats,seen:progress.seen,adaptive:useAdaptivePriority()});
-  if(!persist({...progress,current:newSession(selection,chosen,new Date(),Math.random,feedbackMode(progress.feedbackMode),useAdaptivePriority())}))return;
+  const mode=isAccountActive()?feedbackMode(progress.feedbackMode):guestFeedbackChoice;
+  if(!persist({...progress,current:newSession(selection,chosen,new Date(),Math.random,mode,useAdaptivePriority())}))return;
   families=[...chosen];
   paused=false;lastReport=null;lastReviewedSession=null;renderQuestion();renderAccount();
  };
@@ -361,9 +351,9 @@ async function load(){
  }catch(e){error=e.message||String(e)}
  loading=false;render();renderAccount();
 }
-window.addEventListener('hashchange',()=>{if(isQuiz())render();if(location.hash.split('/')[0]==='#compte')renderAccount()});
+window.addEventListener('hashchange',()=>{if(!isQuiz()&&!isAccountActive()){lastReport=null;lastReviewedSession=null}if(isQuiz())render();if(location.hash.split('/')[0]==='#compte')renderAccount()});
 function reloadLocalProgress(){
- progress=readProgress(localStorage);
+ progress=isAccountActive()?readProgress(localStorage):guestResumeOnly(readProgress(localStorage));
  paused=!!progress.current?.paused;
  lastReport=null;lastReviewedSession=null;
  renderAccount();
@@ -373,6 +363,7 @@ function reloadLocalProgress(){
 window.addEventListener('holberton:quiz:reload',reloadLocalProgress);
 // L’application de comptes (PR #26) signale les changements de connexion sur <html>.
 window.addEventListener('holberton:account:status',()=>{
+ progress=isAccountActive()?readProgress(localStorage):guestResumeOnly(readProgress(localStorage));
  renderAccount();
  if(isQuiz()&&(!progress.current||paused||progress.current.paused))renderMenu();
 });

@@ -9,11 +9,11 @@ Un site de révision indépendant, créé pour retrouver facilement les notions 
 - **Fiches et cours** : des résumés courts et des explications détaillées, classés par thème.
 - **Recherche et sommaire** : retrouver rapidement une notion, puis lire le cours correspondant.
 - **Exemples et schémas** : visualiser le fonctionnement des commandes et du code.
-- **Favoris** : conserver ses fiches préférées sur l'appareil utilisé.
+- **Quiz** : questions tirées au sort, choix multithèmes, corrections détaillées et pause/reprise d'une session en cours.
 
-**Aucun compte n’est nécessaire** pour consulter les cours et utiliser les quiz invités. Les favoris et les résultats des quiz restent enregistrés dans le navigateur. Le quiz invité (JavaScript, CSS et 55 questions) est intégré à **`index.html`**, afin de fonctionner avec le déploiement actuel du site qui ne publie que ce fichier. La sauvegarde des résultats utilise le stockage local du navigateur.
+**Aucun compte n’est nécessaire** pour consulter les cours et utiliser les quiz invités. Une session invitée inachevée peut être reprise sur le même navigateur, mais les résultats d'un quiz terminé ne sont pas conservés dans un historique et ne peuvent pas être exportés. Les statistiques par notion sont réservées aux futurs comptes connectés. Le quiz invité (JavaScript, CSS et 55 questions) est intégré à **`index.html`**, afin de fonctionner avec le déploiement actuel du site qui ne publie que ce fichier.
 
-Les spécifications techniques et les évolutions envisagées sont suivies séparément dans [le cahier des charges](docs/COMPTES_OPTIONNELS_ET_QUIZ.md).
+Les spécifications techniques et les évolutions envisagées sont suivies séparément dans [le cahier des charges](docs/COMPTES_OPTIONNELS_ET_QUIZ.md). Le format des questions et leurs corrigés sont documentés pour les contributeurs IA dans [le contrat du quiz](docs/QUIZ_CONTRAT_IA.md).
 
 ## Participer
 

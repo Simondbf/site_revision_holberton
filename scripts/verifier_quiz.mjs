@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
-import {readProgress,writeProgress,emptyProgress,combineCandidates,checkBank,selectQuestions,shuffleOptionIds,newSession,applyAnswer,skipAnswer,completeSession,finishSession,matchesAnswer,progressSummary} from '../quiz/core.mjs';
+import {readProgress,writeProgress,emptyProgress,guestResumeOnly,combineCandidates,checkBank,selectQuestions,shuffleOptionIds,newSession,applyAnswer,skipAnswer,completeSession,finishSession,matchesAnswer,progressSummary} from '../quiz/core.mjs';
 const dir=new URL('../',import.meta.url);
 const argc=JSON.parse(readFileSync(new URL('docs/quiz/vague1/section-09-pointeurs-et-tableaux-c.json',dir),'utf8'));
 const varia=JSON.parse(readFileSync(new URL('quiz/questions-variadiques.json',dir),'utf8'));
@@ -245,6 +245,19 @@ const memory=new Map();
 const storage={getItem:key=>memory.get(key)??null,setItem:(key,val)=>memory.set(key,val)};
 assert.equal(writeProgress(storage,result.progress),true);
 assert.equal(readProgress(storage).history.length,1,'Historique local persisté');
+const visitor=guestResumeOnly(result.progress);
+assert.equal(visitor.current,null,'Une session invitée terminée ne reste pas active.');
+assert.deepEqual(visitor.history,[],'Un invité ne conserve pas d’historique de résultats.');
+assert.deepEqual(visitor.stats,{},'Un invité ne conserve pas de maîtrise par notion.');
+assert.deepEqual(visitor.seen,{},'Un invité ne conserve pas le nombre de passages.');
+assert.equal(visitor.feedbackMode,'immediate','Les préférences d’un invité ne sont pas conservées.');
+const unfinished=guestResumeOnly({...result.progress,current:session,feedbackMode:'end'});
+assert.equal(unfinished.current.id,session.id,'Un invité doit pouvoir reprendre un quiz inachevé.');
+assert.deepEqual(unfinished.history,[],'Le quiz en cours n’autorise pas un historique invité.');
+assert.equal(writeProgress(storage,unfinished),true);
+assert.equal(readProgress(storage).current.id,session.id,'La progression temporaire doit survivre au rechargement.');
+assert.equal(readProgress(storage).history.length,0,'L’historique doit rester vide après rechargement.');
+
 const html=readFileSync(new URL('index.html',dir),'utf8');
 assert.ok(html.includes('id="quiz-inline-module"'),'Le module quiz autonome n’est pas intégré');
 assert.ok(html.includes('id="quiz-inline-style"'),'Les styles quiz ne sont pas intégrés');
@@ -278,8 +291,10 @@ assert.deepEqual(embedded('quiz-variadic-bank'),varia,
  'Le paquet intégré doit contenir exactement les 30 questions variadiques relues.');
 assert.ok(html.includes('id="accountComingSoon"')&&html.includes('À venir prochainement'),
  'Le compte invité doit afficher seulement son ouverture prochaine.');
-assert.ok(html.includes('quizExport')&&html.includes('quizClear'),
- 'L’accès à ses résultats doit rester dans Quiz.');
+assert.ok(!html.includes('id="quizExport"')&&!html.includes('id="quizClear"'),
+ 'Aucune commande d’export ou d’historique de résultats dans Quiz.');
+assert.ok(!html.includes('Dernières sessions</h3>'),
+ 'La liste des résultats récents ne doit plus apparaître dans Quiz.');
 assert.ok(html.includes('account-competencies')&&html.includes('accountTabSettings'),
  'Le tableau personnel et ses paramètres doivent être réservés au compte connecté.');
 assert.ok(!html.includes('Tes sessions et résultats sont sauvegardés sur cet appareil, dans ce navigateur.'),
