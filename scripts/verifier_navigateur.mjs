@@ -163,6 +163,8 @@ try{
  await page.waitForFunction(()=>location.hash.startsWith('#cours/'));
  await page.locator('#courseBack').click();
  await page.waitForFunction(()=>location.hash==='#fiches');
+ await page.locator('#browse').waitFor({state:'visible'});
+ await page.locator('#searchClear').waitFor({state:'visible',timeout:10000});
  assert.equal(await page.locator('#search').inputValue(),'modulo','La recherche doit rester remplie.');
  assert.ok(await page.locator('#results article.def').count()>0,'Les résultats doivent être restaurés.');
  assert.ok(await page.locator('#searchClear').isVisible(),
