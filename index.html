@@ -1217,8 +1217,39 @@ function visualStructureLesson(ii){
  return visualFigure(title,caption,b.join(""));
 }
 
+function visualRecursionLesson(ii){
+ const parts=[];
+ if(ii===3){
+  const levels=[{n:0,y:35},{n:1,y:102},{n:2,y:169}];
+  levels.forEach(({n,y})=>{
+   parts.push(visualBox(200,y,300,51,n===0?"#e8f7ed":"#eaf6ff"));
+   parts.push(visualText(350,y+32,"etapes("+n+")", "vtext vvalue"));
+  });
+  parts.push(visualText(100,48,"Sommet", "vblue vlabel"));
+  parts.push(visualArrow(157,57,192,57));
+  parts.push(visualText(596,194,"Premier appel", "vmuted vlabel"));
+  parts.push(visualArrow(525,193,525,55));
+  return visualFigure("Pile d'appels : le dernier appel se termine en premier",
+   "Pour etapes(2), le premier appel est en bas. etapes(0) est en haut ; il termine en premier, puis etapes(1), puis etapes(2).",parts.join(""));
+ }
+ if(ii===4){
+  const vals=[{n:0,v:0},{n:1,v:1},{n:2,v:3},{n:3,v:6},{n:4,v:10}];
+  vals.forEach(({n,v},i)=>{
+   const x=20+i*140;
+   parts.push(visualBox(x,76,120,103,i===0?"#e8f7ed":"#eaf6ff"));
+   parts.push(visualText(x+60,110,"somme("+n+")","vtext vlabel"));
+   parts.push(visualText(x+60,150,"retour "+v,"vtext vlabel"));
+   if(i<4)parts.push(visualArrow(x+121,129,x+139,129));
+  });
+  parts.push(visualText(345,218,"Remontée : 0 → 1 → 3 → 6 → 10","vblue vlabel"));
+  return visualFigure("Remontée des valeurs : du cas de base au résultat",
+   "Les appels somme(4) jusqu'à somme(0) descendent avant que les valeurs 0, 1, 3, 6 et 10 remontent.",parts.join(""));
+ }
+ return "";
+}
 function pedagogicVisual(si,ii){
  const k=si+':'+ii;
+ if(si===17)return visualRecursionLesson(ii);
  if(si===16)return visualStructureLesson(ii);
  // Chaque dessin doit correspondre à l'opération exacte étudiée.
  // Ne pas afficher une illustration quand elle n'apporte rien.
