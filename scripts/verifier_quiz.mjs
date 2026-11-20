@@ -291,8 +291,6 @@ assert.deepEqual(embedded('quiz-variadic-bank'),varia,
  'Le paquet intégré doit contenir exactement les 30 questions variadiques relues.');
 assert.ok(html.includes('id="accountComingSoon"')&&html.includes('À venir prochainement'),
  'Le compte invité doit afficher seulement son ouverture prochaine.');
-assert.ok(html.includes('quizExport')&&html.includes('quizClear'),
- 'L’accès à ses résultats doit rester dans Quiz.');
 assert.ok(!html.includes('id="quizExport"')&&!html.includes('id="quizClear"'),
  'Aucune commande d’export ou d’historique de résultats dans Quiz.');
 assert.ok(!html.includes('Dernières sessions</h3>'),
