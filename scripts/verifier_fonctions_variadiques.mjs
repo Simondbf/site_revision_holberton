@@ -11,7 +11,7 @@ function data(id){
  return JSON.parse(html.slice(i+tag.length,j));
 }
 const sections=data('content-data').sections,extra=data('extra-lessons'),notes=data('teaching-notes');
-assert.equal(sections.length,17,'17 thèmes attendus');
+assert.equal(sections.length,18,'18 thèmes attendus après ajout de la récursivité');
 assert.ok(sections[8].items.length>=37,'Les six notions variadiques doivent rester présentes');
 const cases=[
  [31,'Fonction variadique — déclarer des arguments avec ...','5 8 13\n'],
