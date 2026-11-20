@@ -307,6 +307,14 @@ body[data-fullpage="true"] #quiz .quiz-app{max-width:1280px;margin:0 auto}
 .quiz-theme-panel .quiz-theme-selection label[hidden],#quizThemeNoMatch[hidden]{display:none}
 #quizThemeNoMatch{margin:0}
 @media(max-width:680px){.quiz-theme-panel{padding:10px}.quiz-theme-panel .quiz-theme-selection{max-height:40vh}}
+
+/* Historique de sessions dans Quiz, y compris en mode invité. */
+.quiz-recent{margin-top:12px}
+.quiz-recent h3{margin-top:0}
+.quiz-recent-list{list-style:none;padding:0;margin:14px 0;display:grid;gap:9px}
+.quiz-recent-list li{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap;padding:11px 14px;border:1px solid var(--line);border-radius:9px;background:var(--surface-alt)}
+.quiz-recent-list strong{font-weight:800}
+.quiz-recent-list span{color:var(--muted);font-size:13px}
 </style>
 <!-- FIN QUIZ CSS INTEGRE -->
 </head>
@@ -1692,7 +1700,7 @@ if(removedTracking)history.replaceState(history.state,'',cleanUrl.pathname+clean
 // Aide d'affichage distincte du corpus d'origine : clés de correction inchangées.
 let pedagogicHelp={};
 try{pedagogicHelp=JSON.parse(document.getElementById('quiz-aide-bank')?.textContent||'{}').questions||{};}catch{}
-let bank=[],progress=readProgress(localStorage),loading=true,error='',families=null,paused=false,lastReport=null,lastReviewedSession=null;
+let bank=[],progress=readProgress(localStorage),loading=true,error='',families=null,paused=false,lastReport=null,lastReviewedSession=null,accountTab='quiz';
 const escape=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const formatInline=s=>escape(s).replace(/\x60([^\x60]+)\x60/g,'<code>$1</code>');
 const isQuiz=()=>location.hash.split('/')[0]==='#quiz';
@@ -1736,7 +1744,7 @@ function renderMenu(){
   '<label for="quizFeedbackMode">Afficher les réponses et explications'+
   '<select id="quizFeedbackMode"><option value="immediate">Après chaque question (par défaut)</option><option value="end">À la fin de la session</option></select></label>';
  page('Réviser librement','55 questions sur argc/argv et stdarg.h. Aucune durée ni quantité imposée : termine ta session quand tu veux. '+(useAdaptivePriority()?'Les notions difficiles sont privilégiées.':'Les questions sont tirées au sort sans priorité adaptative.'),
- (running?'<div class="quiz-card"><strong>Session enregistrée</strong><p>'+Object.keys(progress.current.answers||{}).length+' réponse(s) déjà enregistrée(s).</p><button id="quizResume" class="quiz-primary">Reprendre</button></div>':'')+
+ (running?'<div class="quiz-card"><strong>Session en cours</strong><p>'+Object.keys(progress.current.answers||{}).length+' réponse(s) déjà enregistrée(s).</p><button id="quizResume" class="quiz-primary">Reprendre</button></div>':'')+
  '<div class="quiz-card quiz-start"><div class="quiz-theme-container"><p class="quiz-theme-heading">Thèmes à réviser (un ou plusieurs)</p>'+
  '<details class="quiz-theme-dropdown" id="quizThemeDropdown"><summary id="quizThemeSummary">Tous les thèmes</summary>'+
  '<div class="quiz-theme-panel"><label for="quizThemeSearch">Rechercher un thème</label>'+
@@ -1749,7 +1757,23 @@ function renderMenu(){
  '<p class="quiz-muted">Pas de nombre de questions prédéfini : tu peux faire une pause ou afficher ton bilan après chaque réponse.</p>'+
  '<button class="quiz-primary" id="quizStart">Démarrer</button></div>'+
  '<div class="quiz-stats"><span>'+info.sessions+' session(s)</span><span>'+info.answered+' question(s) traitée(s)</span><span>'+info.notions+' notion(s) révisée(s)</span></div>'+
- '<p class="quiz-muted">Sans compte : tes sessions et résultats sont sauvegardés sur cet appareil, dans ce navigateur. Tu peux les exporter depuis Compte.</p>');
+ '<div class="quiz-card quiz-recent"><h3>Dernières sessions</h3>'+
+ (progress.history.length?'<ul class="quiz-recent-list">'+progress.history.slice(-5).reverse().map(session=>
+  '<li><span>'+escape(new Date(session.finishedAt||session.createdAt).toLocaleDateString('fr-FR'))+
+  '</span><strong>'+escape(session.correct)+' / '+escape(session.total)+' bonnes réponses</strong></li>').join('')+'</ul>':
+  '<p>Termine un quiz pour retrouver son résultat ici.</p>')+
+ '<div class="quiz-actions"><button type="button" class="quiz-secondary" id="quizExport">Exporter mes résultats</button>'+
+ '<button type="button" class="quiz-secondary quiz-danger" id="quizClear">Effacer mes résultats</button></div></div>');
+ document.getElementById('quizExport').onclick=()=>{
+  const url=URL.createObjectURL(new Blob([JSON.stringify(progress,null,2)],{type:'application/json'}));
+  const link=document.createElement('a');link.href=url;link.download='holberton-resultats-quiz.json';
+  document.body.append(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),500);
+ };
+ document.getElementById('quizClear').onclick=()=>{
+  if(!confirm('Effacer les résultats et les sessions de ce navigateur ?'))return;
+  if(!persist(emptyProgress()))return;
+  paused=false;lastReport=null;lastReviewedSession=null;renderMenu();
+ };
  const themeBoxes=[...root.querySelectorAll('input[name="quizTheme"]')];
  const updateAvailable=()=>{
   const selected=new Set(themeBoxes.filter(input=>input.checked).map(input=>input.value));
@@ -1928,47 +1952,69 @@ function renderResults(){
  document.getElementById('quizAgain').onclick=()=>{lastReport=null;lastReviewedSession=null;renderMenu()};
 }
 function renderAccount(){
- let holder=document.getElementById('guestProgress');
- if(!holder){holder=document.createElement('section');holder.id='guestProgress';holder.className='quiz-card quiz-account';account.querySelector('.helpgrid')?.insertAdjacentElement('afterend',holder)}
- if(!holder)return;
- const info=progressSummary(progress),last=progress.history?.at(-1);
- holder.innerHTML='<h3>'+(isAccountActive()?'Ma progression — appareil connecté':'Ma progression — invité')+'</h3><p>Tes sessions et résultats sont sauvegardés sur cet appareil, dans ce navigateur.'+(isAccountActive()?' La synchronisation dépend des réglages de ton compte.':' Ils ne sont pas synchronisés entre appareils.')+'</p>'+
- '<div class="quiz-stats"><span>'+info.sessions+' session(s)</span><span>'+info.answered+' réponse(s)</span><span>'+info.notions+' notion(s)</span></div>'+
- (last?'<p>Dernière session : '+escape(last.correct)+' / '+escape(last.total)+' réponses exactes.</p>':'<p>Commence un quiz pour enregistrer ta première session.</p>')+
- (info.unfinished?'<p><strong>Une session peut être reprise depuis l’onglet Quiz.</strong></p>':'')+
- '<div class="quiz-feedback-settings"><label for="accountQuizFeedbackMode">Afficher les réponses et explications</label>'+
- '<select id="accountQuizFeedbackMode"><option value="immediate">Après chaque question</option><option value="end">À la fin de la session</option></select>'+
- '<p class="quiz-muted">Ce réglage s’applique aux prochaines sessions. Il est sauvegardé dans ta progression'+(isAccountActive()?' et peut être synchronisé avec ton compte.': ' sur cet appareil.')+'</p></div>'+
- (isAccountActive()?
-  '<div class="quiz-feedback-settings quiz-adaptive-settings"><label class="quiz-adaptive-label" for="accountQuizAdaptiveEnabled"><input type="checkbox" id="accountQuizAdaptiveEnabled"> Priorité aux notions en difficulté</label><p class="quiz-muted">Désactivée par défaut : les questions sont aléatoires pour tous. Tu peux activer la priorité aux notions difficiles. Le choix s’applique aux prochaines sessions.</p></div>':
-  '<p class="quiz-muted">En mode invité, les questions sont tirées au sort sans priorité adaptative.</p>')+
- '<div class="quiz-actions"><button id="guestExport" class="quiz-secondary">Exporter ma progression</button><button id="guestClear" class="quiz-secondary quiz-danger">Effacer ma progression quiz</button></div>';
- const accountTiming=document.getElementById('accountQuizFeedbackMode');
- accountTiming.value=feedbackMode(progress.feedbackMode);
- accountTiming.onchange=()=>{
-  if(!persist({...progress,feedbackMode:feedbackMode(accountTiming.value)})){accountTiming.value=feedbackMode(progress.feedbackMode);return}
-  renderAccount();
+ const soon=document.getElementById('accountComingSoon'),connected=document.getElementById('accountConnectedContent');
+ if(!soon||!connected)return;
+ const active=isAccountActive();
+ soon.hidden=active;connected.hidden=!active;
+ if(!active){connected.replaceChildren();accountTab='quiz';return}
+ const info=progressSummary(progress);
+ const notions=[...new Map(bank.map(q=>[q.notion_id,q.notion])).entries()].map(([id,label])=>{
+  const stat=progress.stats[id]||{};
+  const attempts=Math.max(0,Number(stat.attempts)||0);
+  const errors=Math.max(0,Number(stat.errors)||0);
+  const rate=attempts?Math.round(100*(attempts-errors)/attempts):0;
+  const category=!attempts?'À découvrir':attempts<3?'En découverte':rate>=80?'Bien assimilée':rate>=50?'À consolider':'À renforcer';
+  return {id,label,attempts,rate,category};
+ });
+ const counts={
+  strong:notions.filter(n=>n.category==='Bien assimilée').length,
+  practice:notions.filter(n=>n.category==='En découverte'||n.category==='À consolider').length,
+  weak:notions.filter(n=>n.category==='À renforcer').length,
+  new:notions.filter(n=>n.category==='À découvrir').length
+ };
+ connected.innerHTML='<nav class="account-tabs" aria-label="Mon compte"><button type="button" id="accountTabQuiz" role="tab" aria-selected="'+(accountTab==='quiz')+'">Quiz</button>'+
+  '<button type="button" id="accountTabSettings" role="tab" aria-selected="'+(accountTab==='settings')+'">Paramètres</button></nav>'+
+  (accountTab==='quiz'?
+   '<div class="account-dashboard"><section class="quiz-card"><h3>Ma progression</h3>'+
+   '<div class="account-competencies">'+
+   '<div><strong>'+counts.strong+'</strong><span>Bien assimilées</span></div>'+
+   '<div><strong>'+counts.practice+'</strong><span>En progression</span></div>'+
+   '<div><strong>'+counts.weak+'</strong><span>À renforcer</span></div>'+
+   '<div><strong>'+counts.new+'</strong><span>À découvrir</span></div></div>'+
+   '<p class="quiz-muted">Classement indicatif : une notion n’est évaluée qu’après plusieurs réponses.</p>'+
+   '<h4>Résultats par notion</h4><ul class="account-competency-list">'+
+   notions.map(n=>'<li><span><strong>'+escape(n.label)+'</strong><small> — '+escape(n.category)+
+    ' ('+n.attempts+' réponse'+(n.attempts>1?'s':'')+')</small></span>'+
+    '<div class="account-competency-bar" aria-label="'+n.rate+' % de réussite"><i style="width:'+n.rate+'%"></i></div>'+
+    '<span>'+(!n.attempts?'Non évaluée':n.rate+' %')+'</span></li>').join('')+'</ul></section>'+
+   '<section class="quiz-card"><h3>Historique de mes quiz</h3><p>'+info.sessions+' session(s) terminée(s).</p>'+
+   (progress.history.length?'<ul class="quiz-recent-list">'+progress.history.slice().reverse().map(session=>
+    '<li><span>'+escape(new Date(session.finishedAt||session.createdAt).toLocaleDateString('fr-FR'))+
+    '</span><strong>'+escape(session.correct)+' / '+escape(session.total)+'</strong></li>').join('')+'</ul>':
+    '<p>Aucun quiz terminé.</p>')+'</section></div>':
+   '<section class="quiz-card account-dashboard"><h3>Préférences de quiz</h3>'+
+   '<div class="quiz-feedback-settings"><label for="accountQuizFeedbackMode">Afficher les réponses et explications</label>'+
+   '<select id="accountQuizFeedbackMode"><option value="immediate">Après chaque question</option><option value="end">À la fin du quiz</option></select></div>'+
+   '<div class="quiz-feedback-settings quiz-adaptive-settings"><label class="quiz-adaptive-label" for="accountQuizAdaptiveEnabled">'+
+   '<input type="checkbox" id="accountQuizAdaptiveEnabled"> Priorité aux notions en difficulté</label>'+
+   '<p class="quiz-muted">Désactivée par défaut. Activable pour tes prochaines sessions.</p></div></section>');
+ const tabQuiz=document.getElementById('accountTabQuiz'),tabSettings=document.getElementById('accountTabSettings');
+ tabQuiz.onclick=()=>{accountTab='quiz';renderAccount()};
+ tabSettings.onclick=()=>{accountTab='settings';renderAccount()};
+ if(accountTab!=='settings')return;
+ const timing=document.getElementById('accountQuizFeedbackMode');
+ timing.value=feedbackMode(progress.feedbackMode);
+ timing.onchange=()=>{
+  if(!persist({...progress,feedbackMode:feedbackMode(timing.value)})){timing.value=feedbackMode(progress.feedbackMode);return}
   if(isQuiz()&&!progress.current)renderMenu();
  };
- const adaptiveCheckbox=document.getElementById('accountQuizAdaptiveEnabled');
- if(adaptiveCheckbox){
-  adaptiveCheckbox.checked=progress.adaptiveEnabled===true;
-  adaptiveCheckbox.onchange=()=>{
-   if(!persist({...progress,adaptiveEnabled:adaptiveCheckbox.checked})){
-    adaptiveCheckbox.checked=progress.adaptiveEnabled===true;return;
-   }
-   renderAccount();
-   if(isQuiz()&&!progress.current)renderMenu();
-  };
- }
- document.getElementById('guestExport').onclick=()=>{
-  const url=URL.createObjectURL(new Blob([JSON.stringify(progress,null,2)],{type:'application/json'}));
-  const a=document.createElement('a');a.href=url;a.download='holberton-progression-invite.json';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),500);
- };
- document.getElementById('guestClear').onclick=()=>{
-  if(!confirm('Supprimer uniquement les résultats quiz de ce navigateur ? Tes favoris et ton thème restent intacts.'))return;
-  if(!persist(emptyProgress()))return;
-  lastReport=null;lastReviewedSession=null;paused=false;renderAccount();if(isQuiz())renderMenu();
+ const adaptive=document.getElementById('accountQuizAdaptiveEnabled');
+ adaptive.checked=progress.adaptiveEnabled===true;
+ adaptive.onchange=()=>{
+  if(!persist({...progress,adaptiveEnabled:adaptive.checked})){
+   adaptive.checked=progress.adaptiveEnabled===true;return;
+  }
+  if(isQuiz()&&!progress.current)renderMenu();
  };
 }
 function render(){
