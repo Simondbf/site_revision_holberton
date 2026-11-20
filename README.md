@@ -1,6 +1,6 @@
 # Holberton Révision
 
-Un site de révision indépendant, créé pour retrouver facilement les notions étudiées à Holberton. Les fiches, exemples et schémas sont rédigés pour aider à comprendre, sans être une publication officielle de l'école.
+Un site de révision indépendant, créé pour retrouver facilement les notions étudiées à Holberton. Les fiches, exemples et schémas sont rédigés pour aider à comprendre. Les quiz sont là pour s'entrainer :)
 
 **🌐 [Accéder au site](https://revision-hbtn.soleiljaune.be)**
 
