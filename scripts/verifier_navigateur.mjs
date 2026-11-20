@@ -319,6 +319,15 @@ try{
  // Préversion du quiz : charger deux lots, valider une réponse, mettre en pause et reprendre.
  await page.goto(origin+'/#quiz');
  await page.locator('#quizStart').waitFor({state:'visible',timeout:15000});
+ await page.evaluate(()=>window.scrollTo(0,0));
+ const navBox=await page.locator('body > header').boundingBox();
+ const quizHeaderBox=await page.locator('#quiz .quiz-heading').boundingBox();
+ assert.ok(navBox&&quizHeaderBox&&quizHeaderBox.y>=navBox.y+navBox.height-2,
+  'Le titre du quiz ne doit pas chevaucher la barre de navigation.');
+ assert.equal(await page.locator('#quiz .quiz-heading').evaluate(node=>getComputedStyle(node).position),'static',
+  'L’en-tête du quiz doit rester dans le flux de la page, non sticky.');
+ assert.equal(await page.locator('#quiz .quiz-start').evaluate(node=>getComputedStyle(node).gridTemplateColumns),'none',
+  'Les réglages de démarrage du quiz ne doivent plus être organisés sur deux colonnes.');
  assert.equal(await page.locator('#courseSidebar').isVisible(),false,
   'Le sommaire doit être masqué dans Quiz.');
  assert.equal(await page.evaluate(()=>document.body.dataset.fullpage),'true');
@@ -419,6 +428,11 @@ try{
  assert.ok(await page.locator('#quizFinish').isVisible(),'La fin libre du quiz doit être proposée après Je ne sais pas.');
  await page.locator('#quizFinish').click();
  assert.match(await page.locator('#quiz .quiz-score').innerText(),/\/ 2/,'Le bilan doit refléter seulement les deux réponses données.');
+ assert.deepEqual(await page.evaluate(()=>{
+  const data=JSON.parse(localStorage.getItem('holberton-quiz-guest-v1'));
+  return {current:data.current,history:data.history,stats:data.stats,seen:data.seen};
+ }),{current:null,history:[],stats:{},seen:{}},
+ 'Un invité ne doit conserver ni résultat terminé ni historique ni statistiques.');
  await page.goto(origin+'/#compte');
  assert.ok(await page.locator('#accountComingSoon').isVisible(),'Un invité ne doit voir que À venir prochainement.');
  assert.match(await page.locator('#account').innerText(),/À venir prochainement/);
@@ -428,10 +442,13 @@ try{
 
  // La sauvegarde émet un événement exploitable par l'interface de synchronisation.
  await page.goto(origin+'/#quiz');
- await page.locator('#quizAgain').click();
- assert.match(await page.locator('.quiz-recent').innerText(),/Dernières sessions/,
-  'Les résultats récents doivent être consultables directement depuis Quiz.');
- assert.equal(await page.locator('.quiz-recent-list li').count()>0,true);
+ await page.goto(origin+'/#quiz');
+ assert.equal(await page.locator('#quiz .quiz-score').count(),0,
+  'Le bilan invité doit disparaître après navigation hors du quiz.');
+ assert.equal(await page.locator('#quizExport').count(),0,'Aucune exportation de résultats sur Quiz.');
+ assert.equal(await page.locator('#quizClear').count(),0,'Aucun effacement d’historique n’est nécessaire pour les invités.');
+ assert.equal(await page.locator('#quiz .quiz-recent').count(),0,'Aucun historique des sessions sur Quiz.');
+ assert.equal(await page.locator('#quiz .quiz-stats').count(),0,'Aucune statistique invitée sur Quiz.');
  await page.evaluate(()=>{
   window.__quizUpdates=0;
   window.addEventListener('holberton:quiz:updated',()=>window.__quizUpdates++);
@@ -471,9 +488,8 @@ try{
   window.dispatchEvent(new Event('holberton:quiz:reload'));
  });
  await page.goto(origin+'/#quiz');
- assert.match(await page.locator('#quiz .quiz-stats').innerText(),/0 session/,
-  'Un chargement distant doit actualiser les statistiques du quiz.');
- await page.goto(origin+'/#quiz');
+ assert.equal(await page.locator('#quiz .quiz-recent').count(),0,
+  'Aucun historique ne doit réapparaître après un chargement distant.');
  assert.equal(await page.locator('#quizResume').count(),0,
   'La session précédente reste active après un chargement distant.');
 
@@ -528,12 +544,13 @@ try{
  // Correction différée : ne pas révéler la réponse avant le bilan, même en cas d'erreur.
  await page.locator('#quizPause').click();
  await page.locator('#quizFeedbackMode').selectOption('end');
- assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('holberton-quiz-guest-v1')).feedbackMode),'end',
-  'Le choix invité doit être enregistré localement.');
+ assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('holberton-quiz-guest-v1')).feedbackMode),'immediate',
+  'Le choix invité ne doit pas devenir une préférence enregistrée.');
  await page.reload();
  await page.locator('#quizFeedbackMode').waitFor({state:'visible'});
- assert.equal(await page.locator('#quizFeedbackMode').inputValue(),'end',
-  'Le choix invité doit survivre au rechargement.');
+ assert.equal(await page.locator('#quizFeedbackMode').inputValue(),'immediate',
+  'Sans compte, le choix du corrigé n’est pas conservé entre deux visites.');
+ await page.locator('#quizFeedbackMode').selectOption('end');
  page.once('dialog',dialog=>dialog.accept());
  await page.locator('#quizStart').click();
  const currentTotal=await page.evaluate(()=>JSON.parse(localStorage.getItem('holberton-quiz-guest-v1')).current.questionIds.length);
@@ -642,7 +659,15 @@ try{
  await mobile.screenshot({path:'apercus/postit-et-cours-mobile.png'});
  await mobile.goto(origin+'/#quiz');
  await mobile.locator('#quizStart').waitFor({state:'visible',timeout:15000});
+ const mobileTop=await mobile.locator('body > header').boundingBox();
+ const mobileQuizTop=await mobile.locator('#quiz .quiz-heading').boundingBox();
+ assert.ok(mobileTop&&mobileQuizTop&&mobileQuizTop.y>=mobileTop.y+mobileTop.height-2,
+  'L’en-tête du quiz empiète sur la navigation mobile.');
  await mobile.locator('#quizStart').click();
+ const mobileQuestionTop=await mobile.locator('#quiz .quiz-heading').boundingBox();
+ const mobileNav=await mobile.locator('body > header').boundingBox();
+ assert.ok(mobileQuestionTop&&mobileNav&&mobileQuestionTop.y>=mobileNav.y+mobileNav.height-2,
+  'Le titre de question empiète sur la navigation mobile.');
  const mobileChoice=await mobile.locator('#quiz .quiz-choice').first().boundingBox();
  assert.ok(mobileChoice && mobileChoice.x>=0 && mobileChoice.x+mobileChoice.width<=390,
   'Les propositions du quiz débordent sur petit écran.');
