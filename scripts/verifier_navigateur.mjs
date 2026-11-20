@@ -341,6 +341,29 @@ try{
  assert.equal(await page.evaluate(()=>window.__quizUpdates),1,
   'Le moteur n’annonce pas les sauvegardes à la synchronisation des comptes.');
 
+ // Notation exacte indépendante des nouvelles lettres affichées à l'écran.
+ const graded=await page.evaluate(async()=>{
+  const session=JSON.parse(localStorage.getItem('holberton-quiz-guest-v1')).current;
+  const [argc,stdarg]=await Promise.all([
+   fetch('/docs/quiz/vague1/section-09-pointeurs-et-tableaux-c.json').then(r=>r.json()),
+   fetch('/quiz/questions-variadiques.json').then(r=>r.json())
+  ]);
+  const id=session.questionIds[session.cursor];
+  const q=[...argc.questions,...stdarg.questions].find(item=>item.id===id);
+  if(!q)throw Error('Question introuvable pour la vérification de notation.');
+  return {id,correct:q.correct_option_ids,order:session.optionOrder[id]};
+ });
+ assert.deepEqual(await page.locator('#quiz .quiz-choice input').evaluateAll(nodes=>nodes.map(el=>el.value)),
+  graded.order,'Les identifiants des choix doivent rester associés aux textes corrects.');
+ for(const id of graded.correct)await page.locator('#quiz .quiz-choice input[value="'+id+'"]').check();
+ await page.locator('#quizSubmit').click();
+ assert.match(await page.locator('#quiz .quiz-feedback').innerText(),/Réponse exacte/,
+  'Les bonnes réponses doivent être reconnues quelle que soit leur position affichée.');
+ assert.deepEqual(
+  await page.evaluate(id=>JSON.parse(localStorage.getItem('holberton-quiz-guest-v1')).current.answers[id].selected.sort(),graded.id),
+  [...graded.correct].sort(),
+  'La progression doit enregistrer les identifiants d’origine, pas les positions visibles.');
+
  // Un chargement distant remplace l'état en mémoire, pas seulement localStorage.
  await page.goto(origin+'/#compte');
  await page.evaluate(()=>{
