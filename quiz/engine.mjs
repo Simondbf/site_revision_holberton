@@ -19,6 +19,7 @@ const escape=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>'
 const formatInline=s=>escape(s).replace(/\x60([^\x60]+)\x60/g,'<code>$1</code>');
 const isQuiz=()=>location.hash.split('/')[0]==='#quiz';
 const isAccountActive=()=>document.documentElement.dataset.holbertonAccount==='connected';
+const useAdaptivePriority=()=>isAccountActive()&&progress.adaptiveEnabled!==false;
 const feedbackMode=mode=>mode==='end'?'end':'immediate';
 function persist(next){
  if(!writeProgress(localStorage,next)){
@@ -53,7 +54,7 @@ function renderMenu(){
   '<p class="quiz-muted quiz-timing-note">Le moment d’affichage des corrigés se règle dans l’onglet Compte.</p>':
   '<label for="quizFeedbackMode">Afficher les réponses et explications'+
   '<select id="quizFeedbackMode"><option value="immediate">Après chaque question (par défaut)</option><option value="end">À la fin de la session</option></select></label>';
- page('Réviser librement','55 questions sur argc/argv et stdarg.h. Aucune durée ni quantité imposée : termine ta session quand tu veux. La sélection privilégie progressivement les notions à renforcer.',
+ page('Réviser librement','55 questions sur argc/argv et stdarg.h. Aucune durée ni quantité imposée : termine ta session quand tu veux. '+(useAdaptivePriority()?'Les notions difficiles sont privilégiées.':'Les questions sont tirées au sort sans priorité adaptative.'),
  (running?'<div class="quiz-card"><strong>Session enregistrée</strong><p>'+Object.keys(progress.current.answers||{}).length+' réponse(s) déjà enregistrée(s).</p><button id="quizResume" class="quiz-primary">Reprendre</button></div>':'')+
  '<div class="quiz-card quiz-start"><fieldset class="quiz-theme-selection"><legend>Thèmes à réviser (un ou plusieurs)</legend>'+[...new Set(bank.map(q=>q.family))].map(id=>'<label><input type="checkbox" name="quizTheme" value="'+escape(id)+'" '+(!families||families.includes(id)?'checked':'')+'> '+escape(({argc:'argc et argv',stdarg:'stdarg.h et fonctions variadiques'})[id]||id)+'</label>').join('')+'</fieldset><p id="quizThemeError" class="quiz-error" role="alert" hidden>Sélectionne au moins un thème.</p>'+timingControl+
  '<p class="quiz-muted">Pas de nombre de questions prédéfini : tu peux faire une pause ou afficher ton bilan après chaque réponse.</p>'+
@@ -82,8 +83,8 @@ function renderMenu(){
   if(!chosen.length){document.getElementById('quizThemeError').hidden=false;return}
   if(progress.current&&!confirm('Remplacer la session non terminée ?'))return;
   const available=bank.filter(q=>chosen.includes(q.family));
-  const selection=selectQuestions(bank,{families:chosen,amount:available.length,stats:progress.stats,seen:progress.seen});
-  if(!persist({...progress,current:newSession(selection,chosen,new Date(),Math.random,feedbackMode(progress.feedbackMode))}))return;
+  const selection=selectQuestions(bank,{families:chosen,amount:available.length,stats:progress.stats,seen:progress.seen,adaptive:useAdaptivePriority()});
+  if(!persist({...progress,current:newSession(selection,chosen,new Date(),Math.random,feedbackMode(progress.feedbackMode),useAdaptivePriority())}))return;
   families=[...chosen];
   paused=false;lastReport=null;lastReviewedSession=null;renderQuestion();renderAccount();
  };
@@ -231,6 +232,9 @@ function renderAccount(){
  '<div class="quiz-feedback-settings"><label for="accountQuizFeedbackMode">Afficher les réponses et explications</label>'+
  '<select id="accountQuizFeedbackMode"><option value="immediate">Après chaque question</option><option value="end">À la fin de la session</option></select>'+
  '<p class="quiz-muted">Ce réglage s’applique aux prochaines sessions. Il est sauvegardé dans ta progression'+(isAccountActive()?' et peut être synchronisé avec ton compte.': ' sur cet appareil.')+'</p></div>'+
+ (isAccountActive()?
+  '<div class="quiz-feedback-settings quiz-adaptive-settings"><label class="quiz-adaptive-label" for="accountQuizAdaptiveEnabled"><input type="checkbox" id="accountQuizAdaptiveEnabled"> Priorité aux notions en difficulté</label><p class="quiz-muted">Activée par défaut pour les comptes connectés. Tu peux la désactiver pour obtenir un tirage aléatoire, sans préférence liée à tes erreurs. Le choix s’applique aux prochaines sessions.</p></div>':
+  '<p class="quiz-muted">En mode invité, les questions sont tirées au sort sans priorité adaptative.</p>')+
  '<div class="quiz-actions"><button id="guestExport" class="quiz-secondary">Exporter ma progression</button><button id="guestClear" class="quiz-secondary quiz-danger">Effacer ma progression quiz</button></div>';
  const accountTiming=document.getElementById('accountQuizFeedbackMode');
  accountTiming.value=feedbackMode(progress.feedbackMode);
@@ -239,6 +243,17 @@ function renderAccount(){
   renderAccount();
   if(isQuiz()&&!progress.current)renderMenu();
  };
+ const adaptiveCheckbox=document.getElementById('accountQuizAdaptiveEnabled');
+ if(adaptiveCheckbox){
+  adaptiveCheckbox.checked=progress.adaptiveEnabled!==false;
+  adaptiveCheckbox.onchange=()=>{
+   if(!persist({...progress,adaptiveEnabled:adaptiveCheckbox.checked})){
+    adaptiveCheckbox.checked=progress.adaptiveEnabled!==false;return;
+   }
+   renderAccount();
+   if(isQuiz()&&!progress.current)renderMenu();
+  };
+ }
  document.getElementById('guestExport').onclick=()=>{
   const url=URL.createObjectURL(new Blob([JSON.stringify(progress,null,2)],{type:'application/json'}));
   const a=document.createElement('a');a.href=url;a.download='holberton-progression-invite.json';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),500);

@@ -1,7 +1,7 @@
 export const STORAGE_KEY='holberton-quiz-guest-v1';
 export const MAX_HISTORY=60;
 export const normalizeFeedbackMode=mode=>mode==='end'?'end':'immediate';
-export const emptyProgress=()=>({version:1,current:null,history:[],stats:{},seen:{},feedbackMode:'immediate'});
+export const emptyProgress=()=>({version:1,current:null,history:[],stats:{},seen:{},feedbackMode:'immediate',adaptiveEnabled:true});
 export function normalizeProgress(data){
  const fresh=emptyProgress();
  if(!data||typeof data!=='object'||data.version!==1)return fresh;
@@ -11,7 +11,8 @@ export function normalizeProgress(data){
   history:Array.isArray(data.history)?data.history.slice(-MAX_HISTORY):[],
   stats:data.stats&&typeof data.stats==='object'?data.stats:{},
   seen:data.seen&&typeof data.seen==='object'?data.seen:{},
-  feedbackMode:normalizeFeedbackMode(data.feedbackMode)
+  feedbackMode:normalizeFeedbackMode(data.feedbackMode),
+  adaptiveEnabled:data.adaptiveEnabled!==false
  };
 }
 export function readProgress(storage){
@@ -49,9 +50,20 @@ export function matchesAnswer(given,answer){
  if(!Array.isArray(given)||!given.length||new Set(given).size!==given.length)return false;
  return given.length===answer.length && given.every(x=>answer.includes(x));
 }
-export function selectQuestions(bank,{family='all',families=null,amount=10,stats={},seen={},random=Math.random}={}){
+export function selectQuestions(bank,{family='all',families=null,amount=10,stats={},seen={},random=Math.random,adaptive=true}={}){
  const chosen=Array.isArray(families)?new Set(families):family==='all'?null:new Set([family]);
  const eligible=bank.filter(q=>!chosen||chosen.has(q.family));
+ if(!adaptive){
+  // Sans compte ou sans adaptation : tirage global, indépendant de l'historique des erreurs.
+  const shuffled=[...eligible];
+  for(let i=shuffled.length-1;i>0;i--){
+   const sample=random();
+   if(!(sample>=0&&sample<1))throw Error('Source aléatoire invalide');
+   const j=Math.floor(sample*(i+1));
+   [shuffled[i],shuffled[j]]=[shuffled[j],shuffled[i]];
+  }
+  return shuffled.slice(0,Math.min(amount,eligible.length));
+ }
  const groups=new Map();
  for(const q of eligible){if(!groups.has(q.notion_id))groups.set(q.notion_id,[]);groups.get(q.notion_id).push(q)}
  const entries=[...groups].map(([notionId,items])=>{
@@ -81,11 +93,11 @@ export function shuffleOptionIds(options,random=Math.random){
  }
  return ids;
 }
-export function newSession(questions,family='all',now=new Date(),random=Math.random,feedbackMode='immediate'){
+export function newSession(questions,family='all',now=new Date(),random=Math.random,feedbackMode='immediate',adaptiveEnabled=true){
  if(!questions.length)throw Error('Aucune question disponible');
  // Le tirage est renouvelé pour chaque session, mais enregistré pour pause/reprise.
  const optionOrder=Object.fromEntries(questions.map(q=>[q.id,shuffleOptionIds(q.options,random)]));
- return {version:1,id:'guest-'+now.getTime()+'-'+Math.random().toString(36).slice(2,9),family:Array.isArray(family)?[...family]:family,createdAt:now.toISOString(),questionIds:questions.map(q=>q.id),cursor:0,answers:{},optionOrder,feedbackMode:normalizeFeedbackMode(feedbackMode)};
+ return {version:1,id:'guest-'+now.getTime()+'-'+Math.random().toString(36).slice(2,9),family:Array.isArray(family)?[...family]:family,createdAt:now.toISOString(),questionIds:questions.map(q=>q.id),cursor:0,answers:{},optionOrder,feedbackMode:normalizeFeedbackMode(feedbackMode),adaptiveEnabled:!!adaptiveEnabled};
 }
 export function applyAnswer(session,question,selected,now=new Date()){
  if(!session.questionIds.includes(question.id)||session.answers[question.id])throw Error('Réponse déjà enregistrée ou question inconnue');
