@@ -299,6 +299,14 @@ try{
  assert.equal(await page.locator('#quizCount').count(),0,'Le choix imposé de 5/10/20 questions doit être absent.');
  await page.locator('#quizStart').click();
  assert.equal(await page.locator('#quiz .quiz-choice').count()>=4,true);
+ assert.ok(await page.locator('#quizDontKnow').isVisible(),'Je ne sais pas doit être disponible pour chaque question.');
+ const firstHelp=await page.evaluate(()=>{
+  const current=JSON.parse(localStorage.getItem('holberton-quiz-guest-v1')).current;
+  return JSON.parse(document.getElementById('quiz-aide-bank').textContent).questions[current.questionIds[0]];
+ });
+ assert.ok(firstHelp?.prompt,'La question doit avoir une formulation accessible.');
+ assert.equal((await page.locator('#quiz .quiz-question-title').innerText()).trim(),
+  firstHelp.prompt.replaceAll('`',''),'La formulation affichée n’est pas celle de la révision pédagogique.');
  const firstQuestionOrder=await page.evaluate(()=>{
   const session=JSON.parse(localStorage.getItem('holberton-quiz-guest-v1')).current;
   return session.optionOrder[session.questionIds[0]];
@@ -334,9 +342,23 @@ try{
   firstQuestionOrder,'La pause et le rechargement ne doivent pas remélanger les choix de la même question.');
  assert.ok(await page.locator('#quizNext').isVisible(),'La réponse précédente ne reprend pas correctement.');
  await page.locator('#quizNext').click();
- await page.locator('#quiz .quiz-choice').first().click();
+ await page.locator('#quizDontKnow').check();
+ assert.equal(await page.locator('#quiz .quiz-choice input:enabled').count(),0,
+  'Je ne sais pas doit empêcher les choix contradictoires.');
+ assert.equal(await page.locator('#quizSubmit').innerText(),'Voir la correction');
  await page.locator('#quizSubmit').click();
- assert.ok(await page.locator('#quizFinish').isVisible(),'La fin libre du quiz doit être proposée après validation.');
+ assert.match(await page.locator('#quiz .quiz-feedback').innerText(),/Question passée/,
+  'Je ne sais pas doit afficher le corrigé.');
+ assert.equal(await page.locator('#quiz .quiz-option-reasons li').count()>=4,true,
+  'Les explications détaillées de toutes les propositions sont attendues.');
+ assert.ok(await page.locator('#quiz .quiz-correct-answers li').count()>0,
+  'Les bonnes réponses doivent être montrées après avoir passé une question.');
+ assert.equal(await page.evaluate(()=>{
+  const current=JSON.parse(localStorage.getItem('holberton-quiz-guest-v1')).current;
+  return current.answers[current.questionIds[current.cursor]].skipped;
+ }),true,'La progression doit conserver le choix Je ne sais pas.');
+ assert.ok(await page.locator('#quizNext').isVisible(),'Il faut pouvoir passer à la question suivante.');
+ assert.ok(await page.locator('#quizFinish').isVisible(),'La fin libre du quiz doit être proposée après Je ne sais pas.');
  await page.locator('#quizFinish').click();
  assert.match(await page.locator('#quiz .quiz-score').innerText(),/\/ 2/,'Le bilan doit refléter seulement les deux réponses données.');
  await page.goto(origin+'/#compte');
@@ -414,6 +436,106 @@ try{
   Storage.prototype.setItem=window.__quizOriginalSetItem;
   delete window.__quizOriginalSetItem;
  });
+
+ // Vérifier le détail d'une vraie réponse incorrecte et le nettoyage du lien ChatGPT.
+ await page.goto(origin+'/?source=gpt-quiz#quiz');
+ await page.locator('#quizStart').waitFor({state:'visible'});
+ assert.equal(new URL(page.url()).searchParams.has('source'),false,
+  'Le paramètre source=gpt doit disparaître de l’URL sans perdre le quiz.');
+ await page.locator('#quizStart').click();
+ const wrong=await page.evaluate(()=>{
+  const current=JSON.parse(localStorage.getItem('holberton-quiz-guest-v1')).current;
+  const argc=JSON.parse(document.getElementById('quiz-argc-bank').textContent);
+  const varia=JSON.parse(document.getElementById('quiz-variadic-bank').textContent);
+  const q=[...argc.questions,...varia.questions].find(q=>q.id===current.questionIds[0]);
+  return q.options.find(option=>!q.correct_option_ids.includes(option.id)).id;
+ });
+ await page.locator('#quiz .quiz-choice input[value="'+wrong+'"]').check();
+ await page.locator('#quizSubmit').click();
+ assert.match(await page.locator('#quiz .quiz-feedback').innerText(),/Réponse fausse ou incomplète/,
+  'Une réponse incorrecte doit rester incorrecte.');
+ assert.ok(await page.locator('#quiz .quiz-option-reasons li').count()>=4,
+  'Le moteur doit expliquer pourquoi chaque proposition est juste ou fausse.');
+ assert.ok(await page.locator('#quiz .quiz-correct-answers li').count()>0,
+  'Une erreur doit afficher les réponses attendues.');
+
+ // Correction différée : ne pas révéler la réponse avant le bilan, même en cas d'erreur.
+ await page.locator('#quizPause').click();
+ await page.locator('#quizFeedbackMode').selectOption('end');
+ assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('holberton-quiz-guest-v1')).feedbackMode),'end',
+  'Le choix invité doit être enregistré localement.');
+ await page.reload();
+ await page.locator('#quizFeedbackMode').waitFor({state:'visible'});
+ assert.equal(await page.locator('#quizFeedbackMode').inputValue(),'end',
+  'Le choix invité doit survivre au rechargement.');
+ page.once('dialog',dialog=>dialog.accept());
+ await page.locator('#quizStart').click();
+ const currentTotal=await page.evaluate(()=>JSON.parse(localStorage.getItem('holberton-quiz-guest-v1')).current.questionIds.length);
+ assert.equal(await page.locator('#quiz .quiz-question-count').innerText(),'Question 1 / '+currentTotal,
+  'Le compteur doit être visible en haut à droite.');
+ const endWrong=await page.evaluate(()=>{
+  const p=JSON.parse(localStorage.getItem('holberton-quiz-guest-v1')).current;
+  const a=JSON.parse(document.getElementById('quiz-argc-bank').textContent);
+  const v=JSON.parse(document.getElementById('quiz-variadic-bank').textContent);
+  const q=[...a.questions,...v.questions].find(q=>q.id===p.questionIds[0]);
+  return q.options.find(o=>!q.correct_option_ids.includes(o.id)).id;
+ });
+ await page.locator('#quiz .quiz-choice input[value="'+endWrong+'"]').check();
+ await page.locator('#quizSubmit').click();
+ assert.ok(await page.locator('#quiz .quiz-pending').isVisible(),
+  'Le mode différé doit afficher seulement un accusé d’enregistrement.');
+ assert.equal(await page.locator('#quiz .quiz-correct-answers li').count(),0,
+  'La bonne réponse ne doit pas être révélée prématurément.');
+ assert.equal(await page.locator('#quiz .quiz-choice.correct').count(),0,
+  'Aucune proposition ne doit être marquée correcte en mode différé.');
+ await page.locator('#quizNext').click();
+ assert.equal(await page.locator('#quiz .quiz-question-count').innerText(),'Question 2 / '+currentTotal,
+  'Le compteur doit avancer avec la question.');
+ await page.locator('#quizDontKnow').check();
+ await page.locator('#quizSubmit').click();
+ assert.ok(await page.locator('#quiz .quiz-pending').isVisible(),
+  'Je ne sais pas ne doit pas révéler le corrigé en mode différé.');
+ assert.equal(await page.locator('#quiz .quiz-option-reasons li').count(),0,
+  'Les explications sont réservées à la fin de session.');
+ await page.locator('#quizFinish').click();
+ assert.match(await page.locator('#quiz .quiz-score').innerText(),/\/ 2/,
+  'Le bilan différé doit compter la réponse erronée et la question passée.');
+ assert.equal(await page.locator('#quiz .quiz-review-question').count(),2,
+  'Le bilan différé doit contenir une correction par question traitée.');
+ await page.locator('#quiz .quiz-review-question').first().locator('summary').click();
+ assert.ok(await page.locator('#quiz .quiz-review-question').first().locator('.quiz-option-reasons li').count()>=4,
+  'Le bilan doit expliquer les choix de la première question.');
+ await page.locator('#quiz .quiz-review-question').nth(1).locator('summary').click();
+ assert.match(await page.locator('#quiz .quiz-review-question').nth(1).innerText(),/Je ne sais pas/,
+  'Le bilan doit également corriger les questions passées.');
+
+ // Contrat de la future connexion : le réglage quitte l'onglet Quiz et reste dans Compte.
+ await page.locator('#quizAgain').click();
+ await page.evaluate(()=>{
+  document.documentElement.dataset.holbertonAccount='connected';
+  window.dispatchEvent(new Event('holberton:account:status'));
+ });
+ assert.equal(await page.locator('#quizFeedbackMode').count(),0,
+  'Un compte connecté ne doit plus afficher le sélecteur dans le quiz.');
+ await page.evaluate(()=>{location.hash='#compte'});
+ assert.ok(await page.locator('#accountQuizFeedbackMode').isVisible(),
+  'Le choix du moment du corrigé doit être disponible depuis Compte.');
+ await page.locator('#accountQuizFeedbackMode').selectOption('immediate');
+ assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('holberton-quiz-guest-v1')).feedbackMode),'immediate',
+  'Le réglage dans Compte doit être persisté pour les prochaines sessions.');
+ await page.evaluate(()=>{location.hash='#quiz'});
+ assert.equal(await page.locator('#quizFeedbackMode').count(),0,
+  'Le réglage ne doit pas réapparaître sur Quiz en mode connecté.');
+ await page.locator('#quizStart').click();
+ assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('holberton-quiz-guest-v1')).current.feedbackMode),'immediate',
+  'Le quiz doit utiliser le réglage du compte pour la nouvelle session.');
+ await page.locator('#quizPause').click();
+ await page.evaluate(()=>{
+  document.documentElement.dataset.holbertonAccount='guest';
+  window.dispatchEvent(new Event('holberton:account:status'));
+ });
+ assert.ok(await page.locator('#quizFeedbackMode').isVisible(),
+  'Un invité doit retrouver son réglage directement dans le quiz.');
 
  // Le comportement mobile existant reste préservé, sans refonte de l'interface.
  const mobile=await browser.newPage({viewport:{width:390,height:844},isMobile:true,hasTouch:true});

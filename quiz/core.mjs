@@ -1,6 +1,7 @@
 export const STORAGE_KEY='holberton-quiz-guest-v1';
 export const MAX_HISTORY=60;
-export const emptyProgress=()=>({version:1,current:null,history:[],stats:{},seen:{}});
+export const normalizeFeedbackMode=mode=>mode==='end'?'end':'immediate';
+export const emptyProgress=()=>({version:1,current:null,history:[],stats:{},seen:{},feedbackMode:'immediate'});
 export function normalizeProgress(data){
  const fresh=emptyProgress();
  if(!data||typeof data!=='object'||data.version!==1)return fresh;
@@ -9,7 +10,8 @@ export function normalizeProgress(data){
   current:data.current&&typeof data.current==='object'?data.current:null,
   history:Array.isArray(data.history)?data.history.slice(-MAX_HISTORY):[],
   stats:data.stats&&typeof data.stats==='object'?data.stats:{},
-  seen:data.seen&&typeof data.seen==='object'?data.seen:{}
+  seen:data.seen&&typeof data.seen==='object'?data.seen:{},
+  feedbackMode:normalizeFeedbackMode(data.feedbackMode)
  };
 }
 export function readProgress(storage){
@@ -77,17 +79,25 @@ export function shuffleOptionIds(options,random=Math.random){
  }
  return ids;
 }
-export function newSession(questions,family='all',now=new Date(),random=Math.random){
+export function newSession(questions,family='all',now=new Date(),random=Math.random,feedbackMode='immediate'){
  if(!questions.length)throw Error('Aucune question disponible');
  // Le tirage est renouvelé pour chaque session, mais enregistré pour pause/reprise.
  const optionOrder=Object.fromEntries(questions.map(q=>[q.id,shuffleOptionIds(q.options,random)]));
- return {version:1,id:'guest-'+now.getTime()+'-'+Math.random().toString(36).slice(2,9),family,createdAt:now.toISOString(),questionIds:questions.map(q=>q.id),cursor:0,answers:{},optionOrder};
+ return {version:1,id:'guest-'+now.getTime()+'-'+Math.random().toString(36).slice(2,9),family,createdAt:now.toISOString(),questionIds:questions.map(q=>q.id),cursor:0,answers:{},optionOrder,feedbackMode:normalizeFeedbackMode(feedbackMode)};
 }
 export function applyAnswer(session,question,selected,now=new Date()){
  if(!session.questionIds.includes(question.id)||session.answers[question.id])throw Error('Réponse déjà enregistrée ou question inconnue');
  if(!selected.length||new Set(selected).size!==selected.length||selected.some(id=>!question.options.some(o=>o.id===id)))throw Error('Sélection invalide');
  const saved={...session,answers:{...session.answers}};
  saved.answers[question.id]={selected:[...selected],correct:matchesAnswer(selected,question.correct_option_ids),at:now.toISOString()};
+ return saved;
+}
+// « Je ne sais pas » compte comme une question traitée mais incorrecte.
+ // Cette trace distincte aide à revoir les notions difficiles sans inventer de réponse.
+export function skipAnswer(session,question,now=new Date()){
+ if(!session.questionIds.includes(question.id)||session.answers[question.id])throw Error('Réponse déjà enregistrée ou question inconnue');
+ const saved={...session,answers:{...session.answers}};
+ saved.answers[question.id]={selected:[],skipped:true,correct:false,at:now.toISOString()};
  return saved;
 }
 export function resultSummary(session,bank){

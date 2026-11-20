@@ -1,10 +1,12 @@
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
-import {readProgress,writeProgress,emptyProgress,combineCandidates,checkBank,selectQuestions,shuffleOptionIds,newSession,applyAnswer,completeSession,finishSession,matchesAnswer,progressSummary} from '../quiz/core.mjs';
+import {readProgress,writeProgress,emptyProgress,combineCandidates,checkBank,selectQuestions,shuffleOptionIds,newSession,applyAnswer,skipAnswer,completeSession,finishSession,matchesAnswer,progressSummary} from '../quiz/core.mjs';
 const dir=new URL('../',import.meta.url);
 const argc=JSON.parse(readFileSync(new URL('docs/quiz/vague1/section-09-pointeurs-et-tableaux-c.json',dir),'utf8'));
 const varia=JSON.parse(readFileSync(new URL('quiz/questions-variadiques.json',dir),'utf8'));
 const bank=combineCandidates(argc,varia);
+const help=JSON.parse(readFileSync(new URL('quiz/aide-pedagogique.json',dir),'utf8'));
+
 assert.equal(bank.length,55,'25 questions argc + 30 questions stdarg attendues');
 assert.equal(bank.filter(q=>q.family==='argc').length,25);
 assert.equal(bank.filter(q=>q.family==='stdarg').length,30);
@@ -15,6 +17,16 @@ assert.ok(bank.some(q=>q.options.length===5),'Questions à cinq propositions att
 assert.ok(bank.some(q=>q.correct_option_ids.length===3),'Variation des bonnes réponses requise');
 assert.ok(bank.some(q=>q.correct_option_ids.length===1)&&bank.some(q=>q.correct_option_ids.length===2));
 assert.equal(checkBank(bank),true);
+assert.equal(Object.keys(help.questions).length,55,'Toutes les questions doivent être reformulées.');
+for(const q of bank){
+ const explanations=help.questions[q.id];
+ assert.ok(explanations?.prompt?.length>=30,'Reformulation absente : '+q.id);
+ assert.deepEqual(Object.keys(explanations.feedback||{}).sort(),q.options.map(o=>o.id).sort(),
+  'Chaque proposition doit être justifiée : '+q.id);
+}
+assert.equal(bank.reduce((n,q)=>n+Object.keys(help.questions[q.id].feedback).length,0),226,
+ '226 justifications indépendantes des positions sont requises.');
+
 // Relecture éditoriale : aucun corrigé ne doit apparaître dans le dossier aveugle.
 assert.equal(bank.reduce((n,q)=>n+q.options.length,0),226,'226 propositions attendues.');
 assert.equal(bank.filter(q=>q.answer_mode==='multiple').length,11,'11 questions multiples attendues.');
@@ -116,6 +128,35 @@ assert.equal(threePartial.answers[threeMulti.id].correct,false,
 assert.equal(applyAnswer(newSession([fourMulti]),fourMulti,['A','B','D']).answers[fourMulti.id].correct,true);
 assert.equal(applyAnswer(newSession([fiveMulti]),fiveMulti,['A','B','C','D']).answers[fiveMulti.id].correct,true);
 const sampleQuestion=bank.find(q=>q.options.length===4);
+assert.equal(emptyProgress().feedbackMode,'immediate','Invité : correction immédiatement par défaut.');
+const endSession=newSession([sampleQuestion],'all',new Date('2026-11-20T10:00:00Z'),()=>0.5,'end');
+assert.equal(endSession.feedbackMode,'end','La session doit figer le mode de correction choisi au démarrage.');
+const savedMode={...emptyProgress(),current:endSession,feedbackMode:'end'};
+const modeStorage={value:'',setItem(_,value){this.value=value},getItem(){return this.value}};
+assert.equal(writeProgress(modeStorage,savedMode),true);
+assert.equal(readProgress(modeStorage).feedbackMode,'end','Le réglage de correction doit survivre au rechargement.');
+assert.equal(readProgress(modeStorage).current.feedbackMode,'end','Le mode de la session doit survivre au rechargement.');
+const answeredEnd=applyAnswer(endSession,sampleQuestion,sampleQuestion.correct_option_ids);
+assert.equal(answeredEnd.feedbackMode,'end','La validation ne change pas le mode de correction.');
+assert.equal(finishSession(savedMode,answeredEnd,bank).summary.total,1,
+ 'Les questions avec correction différée doivent rester comptabilisées.');
+
+const skipped=skipAnswer(newSession([sampleQuestion]),sampleQuestion);
+assert.equal(skipped.answers[sampleQuestion.id].correct,false,'Je ne sais pas vaut une erreur.');
+assert.equal(skipped.answers[sampleQuestion.id].skipped,true,'La réponse inconnue doit être identifiée.');
+assert.deepEqual(skipped.answers[sampleQuestion.id].selected,[],'Aucune réponse inventée après Je ne sais pas.');
+assert.throws(()=>applyAnswer(skipped,sampleQuestion,sampleQuestion.correct_option_ids),/déjà enregistrée/,
+ 'La question passée ne doit pas pouvoir être répondue deux fois.');
+const skippedFinish=finishSession(emptyProgress(),skipped,bank);
+assert.equal(skippedFinish.summary.answered,1,'Une question passée est traitée.');
+assert.equal(skippedFinish.summary.correct,0,'Une question passée ne rapporte pas de point.');
+assert.equal(skippedFinish.progress.stats[sampleQuestion.notion_id].errors,1,
+ 'L’adaptation doit considérer le manque de maîtrise.');
+const skippedStorage={value:'',setItem(_,v){this.value=v},getItem(){return this.value}};
+assert.equal(writeProgress(skippedStorage,{...emptyProgress(),current:skipped}),true);
+assert.equal(readProgress(skippedStorage).current.answers[sampleQuestion.id].skipped,true,
+ 'Le choix Je ne sais pas doit survivre à un rechargement.');
+
 const sessionA=newSession([sampleQuestion],'all',new Date('2026-11-19T15:00:00Z'),()=>0);
 const sessionB=newSession([sampleQuestion],'all',new Date('2026-11-19T15:00:00Z'),()=>0.99999);
 assert.notDeepEqual(sessionA.optionOrder[sampleQuestion.id],sessionB.optionOrder[sampleQuestion.id],
@@ -177,6 +218,15 @@ const embedded=id=>{
 assert.deepEqual(embedded('quiz-argc-bank').questions,
  argc.questions.filter(q=>/^V1-N09_07[2-6]-0[1-5]$/.test(q.id)),
  'Le paquet intégré doit contenir exactement les 25 questions argc relues.');
+assert.deepEqual(embedded('quiz-aide-bank'),help,'Les explications intégrées doivent correspondre au fichier source.');
+assert.ok(html.includes('id="quizDontKnow"'),'Le formulaire doit offrir Je ne sais pas.');
+assert.ok(html.includes('quiz-option-reasons'),'Les corrections détaillées doivent être disponibles.');
+assert.ok(html.includes('quiz-question-count'),'Le compteur doit figurer en haut à droite.');
+assert.ok(html.includes('quizFeedbackMode')&&html.includes('accountQuizFeedbackMode'),
+ 'Le mode de correction doit être réglable par un invité ou depuis Compte.');
+assert.ok(html.includes('quiz-review-question'),'Les corrigés à la fin doivent présenter chaque question.');
+assert.ok(html.includes('holberton:account:status'),'La connexion doit mettre à jour les réglages visibles.');
+
 assert.deepEqual(embedded('quiz-variadic-bank'),varia,
  'Le paquet intégré doit contenir exactement les 30 questions variadiques relues.');
 assert.ok(html.includes('Tes sessions et résultats sont sauvegardés sur cet appareil, dans ce navigateur.'),

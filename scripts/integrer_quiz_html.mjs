@@ -12,9 +12,19 @@ const core=source('quiz/core.mjs');
 const engine=source('quiz/engine.mjs');
 const argc=JSON.parse(source('docs/quiz/vague1/section-09-pointeurs-et-tableaux-c.json'));
 const variadic=JSON.parse(source('quiz/questions-variadiques.json'));
+const help=JSON.parse(source('quiz/aide-pedagogique.json'));
 const argcQuestions=argc.questions.filter(q=>/^V1-N09_07[2-6]-0[1-5]$/.test(q.id));
 assert.equal(argcQuestions.length,25,'25 questions argc/argv attendues');
 assert.equal(variadic.questions.length,30,'30 questions variadiques attendues');
+const questions=[...argcQuestions,...variadic.questions];
+assert.equal(Object.keys(help.questions).length,questions.length,'Une reformulation par question attendue.');
+for(const question of questions){
+ const item=help.questions[question.id];
+ assert.ok(item?.prompt?.length>=30,'Question reformulée manquante : '+question.id);
+ assert.deepEqual(Object.keys(item.feedback).sort(),question.options.map(o=>o.id).sort(),
+  'Justification manquante : '+question.id);
+ for(const reason of Object.values(item.feedback))assert.ok(reason.length>=12,'Justification trop courte : '+question.id);
+}
 
 // Échapper < afin que des données JSON ne puissent jamais clore un élément script HTML.
 const safeJSON=data=>JSON.stringify(data).replace(/</g,'\\u003c');
@@ -33,6 +43,7 @@ const cssBlock=cssStart+'\n<style id="quiz-inline-style">\n'+css+'\n</style>\n'+
 const appBlock=appStart+'\n'+
  '<script id="quiz-argc-bank" type="application/json">'+safeJSON({questions:argcQuestions})+'</script>\n'+
  '<script id="quiz-variadic-bank" type="application/json">'+safeJSON(variadic)+'</script>\n'+
+ '<script id="quiz-aide-bank" type="application/json">'+safeJSON(help)+'</script>\n'+
  '<script type="module" id="quiz-inline-module">\n'+pureCore+'\n'+pureEngine+'\n</script>\n'+appEnd;
 function replaceBlock(text,start,end,legacy,replacement){
  const i=text.indexOf(start);
