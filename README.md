@@ -9,6 +9,7 @@ Un site de révision indépendant, créé pour retrouver facilement les notions 
 - **Fiches et cours** : des résumés courts et des explications détaillées, classés par thème.
 - **Recherche et sommaire** : retrouver rapidement une notion, puis lire le cours correspondant.
 - **Exemples et schémas** : visualiser le fonctionnement des commandes et du code.
+- **Récursivité en C** : onze fiches supplémentaires sur les cas de base, la pile d'appels, les retours, la complexité et les limites, avec exemples testés et schémas.
 - **Quiz** : questions tirées au sort, choix multithèmes, corrections détaillées et pause/reprise d'une session en cours.
 
 **Aucun compte n’est nécessaire** pour consulter les cours et utiliser les quiz invités. Une session invitée inachevée peut être reprise sur le même navigateur, mais les résultats d'un quiz terminé ne sont pas conservés dans un historique et ne peuvent pas être exportés. Les statistiques par notion sont réservées aux futurs comptes connectés. Le quiz invité (JavaScript, CSS et 55 questions) est intégré à **`index.html`**, afin de fonctionner avec le déploiement actuel du site qui ne publie que ce fichier.

@@ -66,6 +66,18 @@ assert.ok(html.includes("if(k==='9:39')return visualStringSizeQuiz()"), 'Schéma
 assert.ok(html.includes("if(k==='9:44')return visualUninitializedQuiz()"), 'Schéma de pointeur non initialisé manquant');
 assert.ok(extra['8:23']?.explanation && extra['8:23']?.note, 'Fiche exit absente');
 assert.ok(html.includes("if(k==='8:23')return visualExitVsReturn()"), 'Schéma return / exit manquant');
+assert.equal(data.sections[17]?.title,'Récursivité en C','Le thème récursivité doit être ajouté sans déplacer les chapitres existants.');
+assert.equal(data.sections[17].items.length,11,'Onze notions complémentaires sur la récursivité sont attendues.');
+for(let i=0;i<11;i++){
+ const key='17:'+i,lesson=extra[key];
+ assert.ok(lesson?.explanation?.split(String.fromCharCode(10,10)).length>=3,
+  'Une notion récursive doit posséder trois paragraphes : '+key);
+ assert.ok(lesson.example?.includes('int main(void)')&&lesson.sources?.length>=2,
+  'Exemple autonome ou sources manquantes : '+key);
+ assert.ok(aide[key]?.analogy&&aide[key]?.explained,'Décryptage pédagogique absent : '+key);
+}
+assert.ok(html.includes('function visualRecursionLesson(ii)')&&html.includes('if(si===17)return visualRecursionLesson(ii)'),
+ 'Les schémas de pile et de remontée doivent être reliés au nouveau chapitre.');
 assert.equal(data.sections[16]?.title, 'Structures et typedef en C',
  'Le thème des structures doit exister sans déplacer les anciens thèmes.');
 assert.ok(data.sections[16].items.length >= 21,'Les notions sur struct, typedef et include guards sont attendues.');
@@ -88,7 +100,7 @@ assert.ok(extra['16:20']?.example?.includes('#ifndef POINT_H') && extra['16:20']
  'Include guards absents');
 assert.ok(html.includes('case 19:') && html.includes('case 20:'),
  'Schémas point/flèche et include guards manquants');
-assert.ok(html.includes("['Programmation en C',[5,8,9,10,11,14,16]]"),
+assert.ok(html.includes("['Programmation en C',[5,8,9,10,11,14,16,17]]"),
  'Le nouveau thème doit apparaître dans la navigation C.');
 for(const [si,ii,term] of [
   [8,26,'fgets()'],[8,27,'strtol()'],[8,28,'Chaîne de format'],[8,29,'EOF'],
