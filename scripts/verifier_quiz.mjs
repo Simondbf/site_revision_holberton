@@ -129,6 +129,12 @@ assert.equal(applyAnswer(newSession([fourMulti]),fourMulti,['A','B','D']).answer
 assert.equal(applyAnswer(newSession([fiveMulti]),fiveMulti,['A','B','C','D']).answers[fiveMulti.id].correct,true);
 const sampleQuestion=bank.find(q=>q.options.length===4);
 assert.equal(emptyProgress().feedbackMode,'immediate','Invité : correction immédiatement par défaut.');
+assert.equal(emptyProgress().adaptiveEnabled,true,'Un nouveau compte doit proposer l’adaptation activée.');
+const legacyProgress={...emptyProgress()};delete legacyProgress.adaptiveEnabled;
+const legacyStorage={getItem(){return JSON.stringify(legacyProgress)}};
+assert.equal(readProgress(legacyStorage).adaptiveEnabled,true,'L’historique antérieur doit conserver le défaut adaptatif pour un compte.');
+const disabledStorage={getItem(){return JSON.stringify({...emptyProgress(),adaptiveEnabled:false})}};
+assert.equal(readProgress(disabledStorage).adaptiveEnabled,false,'Le choix de désactiver l’adaptation doit être préservé.');
 const endSession=newSession([sampleQuestion],'all',new Date('2026-11-20T10:00:00Z'),()=>0.5,'end');
 assert.equal(endSession.feedbackMode,'end','La session doit figer le mode de correction choisi au démarrage.');
 const savedMode={...emptyProgress(),current:endSession,feedbackMode:'end'};
@@ -195,6 +201,19 @@ const weakId=bank.find(q=>q.family==='argc').notion_id;
 const adaptiveStats=Object.fromEntries([...new Set(bank.map(q=>q.notion_id))].map(id=>[id,{attempts:10,errors:id===weakId?10:0}]));
 assert.equal(selectQuestions(bank,{families:['argc','stdarg'],amount:1,stats:adaptiveStats,random:seeded(1)})[0].notion_id,weakId,
  'La randomisation ne doit pas supprimer la priorité d’une notion mal maîtrisée.');
+const plainA=selectQuestions(bank,{families:['argc','stdarg'],amount:20,random:seeded(42),adaptive:false});
+const plainB=selectQuestions(bank,{families:['argc','stdarg'],amount:20,random:seeded(42),adaptive:false,
+ stats:adaptiveStats,seen:Object.fromEntries(bank.map(q=>[q.id,99]))});
+assert.deepEqual(plainA.map(q=>q.id),plainB.map(q=>q.id),
+ 'Sans adaptation, les erreurs et le nombre de passages ne doivent pas influer sur le tirage.');
+assert.equal(new Set(plainA.map(q=>q.id)).size,plainA.length,
+ 'Un tirage non adaptatif ne doit pas répéter de question dans la session.');
+const plainOrders=new Set(Array.from({length:8},(_,i)=>selectQuestions(bank,{amount:10,random:seeded(i+1),adaptive:false}).map(q=>q.id).join(',')));
+assert.ok(plainOrders.size>=6,'Le tirage non adaptatif doit changer d’une session à l’autre.');
+const plainSession=newSession(plainA,['argc','stdarg'],new Date('2026-11-20T11:00:00Z'),seeded(1),'immediate',false);
+assert.equal(plainSession.adaptiveEnabled,false,'L’absence d’adaptation doit être figée pendant la session.');
+const adaptiveSession=newSession(plainA,['argc','stdarg'],new Date('2026-11-20T11:00:00Z'),seeded(1),'immediate',true);
+assert.equal(adaptiveSession.adaptiveEnabled,true,'Le mode adaptatif doit être conservé pour la reprise.');
 let session=newSession(items,'all',new Date('2026-11-18T12:00:00Z'));
 let i=0;
 for(const q of items){
@@ -242,6 +261,8 @@ assert.ok(html.includes('quiz-question-count'),'Le compteur doit figurer en haut
 assert.ok(html.includes('quizFeedbackMode')&&html.includes('accountQuizFeedbackMode'),
  'Le mode de correction doit être réglable par un invité ou depuis Compte.');
 assert.ok(html.includes('quiz-review-question'),'Les corrigés à la fin doivent présenter chaque question.');
+assert.ok(html.includes('accountQuizAdaptiveEnabled'),'Le réglage adaptatif réservé aux comptes doit être intégré au site autonome.');
+assert.ok(html.includes('useAdaptivePriority()'),'Le mode invité doit désactiver la priorité des erreurs.');
 assert.ok(html.includes('holberton:account:status'),'La connexion doit mettre à jour les réglages visibles.');
 
 assert.deepEqual(embedded('quiz-variadic-bank'),varia,
