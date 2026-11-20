@@ -113,6 +113,7 @@ test('Réservé à l’administrateur : statistiques et confidentialité',async(
   assert.equal(stats.status,200);
   assert.equal(stats.body.visitsTotal,2);
   assert.equal(stats.body.visitsLast30Days,2);
+  assert.match(stats.body.note,/profil de navigateur/,'Les chiffres sont des estimations par navigateur, non des visiteurs uniques.');
   assert.equal(stats.body.registeredAccounts,2);
   assert.equal(stats.body.accountsWithProgress,0);
   assert.equal(stats.body.githubContributors.count,3);
