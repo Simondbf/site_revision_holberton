@@ -303,6 +303,25 @@ try{
  }
  await page.screenshot({path:'apercus/atoi-et-formats-c.png'});
 
+ // Le nouveau thème récursivité doit être navigable, avec onze cours détaillés.
+ await page.goto(origin+'/#theme/recursivite-en-c');
+ await page.waitForFunction(()=>!document.querySelector('#detail')?.classList.contains('hidden'));
+ assert.equal(await page.locator('#definitions article.def').count(),11,
+  'Le nouveau thème récursivité doit contenir onze fiches.');
+ await page.locator('#definitions .card-hit').nth(3).click();
+ await page.waitForFunction(()=>document.querySelector('#notion-17-3')?.classList.contains('lesson-selected'));
+ assert.equal(await page.locator('#courseArticle .lesson-panel').count(),11,
+  'Les onze cours de récursivité doivent être lisibles en continu.');
+ assert.equal(await page.locator('#notion-17-3 .lesson-visual svg').count(),1,
+  'Le schéma des appels sur la pile est manquant.');
+ assert.equal(await page.locator('#notion-17-4 .lesson-visual svg').count(),1,
+  'Le schéma de la remontée des valeurs est manquant.');
+ assert.ok(await page.locator('#notion-17-0 .lesson-sources a').count()>=4,
+  'Les liens pédagogiques transmis sur la récursivité doivent être accessibles.');
+ assert.match(await page.locator('#notion-17-6').innerText(),/tableau|pointeur/,
+  'Le cas récursif sur un tableau doit être expliqué.');
+ await page.screenshot({path:'apercus/recursivite-c.png'});
+
  // À propos : structure simplifiée, liens de contribution et hiérarchie lisible.
  await page.goto(origin+'/#apropos');
  await page.waitForFunction(()=>!document.querySelector('#about')?.classList.contains('hidden'));
@@ -666,7 +685,12 @@ try{
  await figure.waitFor({state:'visible',timeout:12000});
  assert.ok((await figure.boundingBox())?.width>=600,'La taille du schéma mobile a été réduite.');
  await mobile.screenshot({path:'apercus/postit-et-cours-mobile.png'});
- await mobile.goto(origin+'/#quiz');
+ await mobile.goto(origin+'/#theme/recursivite-en-c');
+ await mobile.waitForFunction(()=>!document.querySelector('#detail')?.classList.contains('hidden'));
+ assert.equal(await mobile.locator('#definitions article.def').count(),11,
+  'Le thème récursivité doit être navigable sur mobile.');
+ assert.ok(await mobile.locator('#definitions article.def').first().isVisible());
+  await mobile.goto(origin+'/#quiz');
  await mobile.locator('#quizStart').waitFor({state:'visible',timeout:15000});
  const mobileTop=await mobile.locator('body > header').boundingBox();
  const mobileQuizTop=await mobile.locator('#quiz .quiz-heading').boundingBox();
