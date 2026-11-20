@@ -27,16 +27,13 @@ const assets={
  '/quiz/questions-variadiques.json':'application/json',
  '/docs/quiz/vague1/section-09-pointeurs-et-tableaux-c.json':'application/json'
 };
+const requestedExtra=[];
 const server=createServer((req,res)=>{
  const pathname=new URL(req.url,'http://localhost').pathname;
  if(pathname in assets){
-  try{
-   const data=readFileSync(new URL('..'+pathname,import.meta.url));
-   res.writeHead(200,{'Content-Type':assets[pathname]+'; charset=utf-8','Cache-Control':'no-store'});
-   res.end(data);
-  }catch{
-   res.writeHead(404,{'Content-Type':'text/plain'});res.end('Fichier absent');
-  }
+  // Simuler exactement le timer VPS historique : seul index.html est publié.
+  requestedExtra.push(pathname);
+  res.writeHead(404,{'Content-Type':'text/plain'});res.end('Le serveur ne publie que index.html');
   return;
  }
  if(pathname!=='/'){
@@ -430,6 +427,8 @@ try{
   'Les propositions du quiz débordent sur petit écran.');
  await mobile.screenshot({path:'apercus/quiz-mobile.png'});
 
+ assert.deepEqual(requestedExtra,[],
+  'Le quiz autonome a demandé des ressources que le VPS historique ne déploie pas.');
  assert.deepEqual(errors,[],'Erreurs JavaScript navigateur : '+errors.join(' / '));
  console.log('Navigation réussie : post-it, lecture continue, sommaire synchronisé, historique, recherche, favoris et mobile.');
 } finally {
