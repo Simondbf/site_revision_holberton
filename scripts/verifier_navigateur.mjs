@@ -300,13 +300,30 @@ try{
  const themes=page.locator('input[name="quizTheme"]');
  assert.equal(await themes.count(),2,'Deux thèmes doivent être proposés séparément.');
  assert.equal(await page.locator('input[name="quizTheme"]:checked').count(),2,'Les deux thèmes sont sélectionnés par défaut.');
+ assert.equal(await page.locator('#quizThemeDropdown').getAttribute('open'),null,
+  'La liste déroulante doit être repliée par défaut.');
+ assert.match(await page.locator('#quizThemeSummary').innerText(),/Tous les thèmes \(2\)/);
+ await page.locator('#quizThemeSummary').click();
+ await page.locator('#quizThemeSearch').fill('argc');
+ assert.equal(await page.locator('.quiz-theme-selection label:visible').count(),1,
+  'La recherche doit filtrer les thèmes sans perdre les choix.');
+ await page.locator('#quizThemeSearch').fill('inexistant');
+ assert.ok(await page.locator('#quizThemeNoMatch').isVisible(),
+  'Une recherche sans résultat doit être signalée.');
+ await page.locator('#quizThemeSearch').fill('');
  await themes.nth(1).uncheck();
+ assert.match(await page.locator('#quizThemeSummary').innerText(),/argc et argv/);
  assert.match(await page.locator('.quiz-question-count').innerText(),/25 questions disponibles/);
- await themes.nth(0).uncheck();
+ await page.locator('#quizThemeNone').click();
+ await page.locator('#quizThemeSummary').click();
  await page.locator('#quizStart').click();
  assert.ok(await page.locator('#quizThemeError').isVisible(),'Aucun quiz ne doit démarrer sans thème.');
- await themes.nth(0).check();await themes.nth(1).check();
+ await page.locator('#quizThemeSummary').click();
+ await page.locator('#quizThemeAll').click();
+ assert.equal(await page.locator('input[name="quizTheme"]:checked').count(),2,
+  'Tout sélectionner doit cocher tous les thèmes.');
  assert.match(await page.locator('.quiz-question-count').innerText(),/55 questions disponibles/);
+ await page.locator('#quizThemeSummary').click();
  await page.locator('#quizStart').click();
  assert.deepEqual(await page.evaluate(()=>JSON.parse(localStorage.getItem('holberton-quiz-guest-v1')).current.family),['argc','stdarg'],
   'La sélection de plusieurs thèmes doit être enregistrée.');
@@ -540,14 +557,14 @@ try{
   'Le choix du moment du corrigé doit être disponible depuis Compte.');
  assert.ok(await page.locator('#accountQuizAdaptiveEnabled').isVisible(),
   'Une personne connectée doit pouvoir régler la priorité dans Compte.');
- assert.equal(await page.locator('#accountQuizAdaptiveEnabled').isChecked(),true,
-  'La priorité adaptative doit être active par défaut pour un compte connecté.');
+ assert.equal(await page.locator('#accountQuizAdaptiveEnabled').isChecked(),false,
+  'La priorité adaptative doit être désactivée par défaut même pour un compte connecté.');
+ await page.locator('#accountQuizAdaptiveEnabled').check();
+ assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('holberton-quiz-guest-v1')).adaptiveEnabled),true,
+  'Activer la priorité doit enregistrer le choix.');
  await page.locator('#accountQuizAdaptiveEnabled').uncheck();
  assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('holberton-quiz-guest-v1')).adaptiveEnabled),false,
   'Désactiver la priorité doit enregistrer le choix.');
- await page.locator('#accountQuizAdaptiveEnabled').check();
- assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('holberton-quiz-guest-v1')).adaptiveEnabled),true,
-  'Réactiver la priorité doit enregistrer le choix.');
  await page.locator('#accountQuizFeedbackMode').selectOption('immediate');
  assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('holberton-quiz-guest-v1')).feedbackMode),'immediate',
   'Le réglage dans Compte doit être persisté pour les prochaines sessions.');
@@ -557,8 +574,16 @@ try{
  await page.locator('#quizStart').click();
  assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('holberton-quiz-guest-v1')).current.feedbackMode),'immediate',
   'Le quiz doit utiliser le réglage du compte pour la nouvelle session.');
+ assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('holberton-quiz-guest-v1')).current.adaptiveEnabled),false,
+  'Le compte connecté doit démarrer le quiz aléatoire par défaut.');
+ await page.locator('#quizPause').click();
+ await page.evaluate(()=>{location.hash='#compte'});
+ await page.locator('#accountQuizAdaptiveEnabled').check();
+ await page.evaluate(()=>{location.hash='#quiz'});
+ page.once('dialog',dialog=>dialog.accept());
+ await page.locator('#quizStart').click();
  assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('holberton-quiz-guest-v1')).current.adaptiveEnabled),true,
-  'Le compte connecté doit démarrer le quiz avec adaptation active.');
+  'Après activation dans Compte, la prochaine session doit être adaptative.');
  await page.locator('#quizPause').click();
  await page.evaluate(()=>{
   document.documentElement.dataset.holbertonAccount='guest';

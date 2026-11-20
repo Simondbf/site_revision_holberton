@@ -45,3 +45,22 @@
 .quiz-adaptive-settings .quiz-adaptive-label{display:flex;align-items:center;gap:10px;cursor:pointer}
 .quiz-adaptive-settings input[type=checkbox]{width:19px;height:19px;accent-color:var(--primary);flex-shrink:0}
 .quiz-adaptive-settings .quiz-adaptive-label:focus-within{outline:2px solid var(--primary);outline-offset:4px;border-radius:4px}
+
+/* Liste déroulante multithème : recherche, actions groupées et défilement interne. */
+.quiz-theme-container{grid-column:1/-1;min-width:0;max-width:560px}
+.quiz-theme-heading{margin:0 0 8px;font-weight:800}
+.quiz-theme-dropdown{position:relative;width:100%}
+.quiz-theme-dropdown summary{cursor:pointer;padding:12px 15px;border:1px solid var(--line);border-radius:10px;background:var(--surface-alt);font-weight:750;line-height:1.5}
+.quiz-theme-dropdown summary:focus-visible{outline:3px solid var(--primary);outline-offset:2px}
+.quiz-theme-dropdown[open] summary{border-color:var(--primary)}
+.quiz-theme-panel{position:absolute;left:0;right:0;z-index:20;top:calc(100% + 5px);display:grid;gap:11px;padding:14px;border:1px solid var(--line);border-radius:12px;background:var(--surface);box-shadow:var(--shadow)}
+.quiz-theme-panel>label{font-weight:700}
+.quiz-theme-panel input[type=search]{width:100%;min-width:0;font:inherit;padding:10px 12px;border-radius:9px;border:1px solid var(--line);background:var(--surface-alt);color:var(--text)}
+.quiz-theme-actions{display:flex;flex-wrap:wrap;gap:9px}
+.quiz-theme-actions button{font:inherit;cursor:pointer;color:var(--text);background:var(--surface-alt);border:1px solid var(--line);border-radius:8px;padding:8px 11px;font-size:13px;font-weight:700}
+.quiz-theme-actions button:focus-visible,.quiz-theme-panel input[type=search]:focus-visible{outline:2px solid var(--primary);outline-offset:2px}
+.quiz-theme-panel .quiz-theme-selection{display:block;min-width:0;max-height:min(38vh,300px);overflow-y:auto;padding:6px;border:1px solid var(--line);border-radius:8px}
+.quiz-theme-panel .quiz-theme-selection label{display:flex;align-items:center;gap:10px;padding:9px 8px;margin:1px 0;overflow-wrap:anywhere}
+.quiz-theme-panel .quiz-theme-selection label[hidden],#quizThemeNoMatch[hidden]{display:none}
+#quizThemeNoMatch{margin:0}
+@media(max-width:680px){.quiz-theme-panel{padding:10px}.quiz-theme-panel .quiz-theme-selection{max-height:40vh}}

@@ -19,7 +19,7 @@ const escape=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>'
 const formatInline=s=>escape(s).replace(/\x60([^\x60]+)\x60/g,'<code>$1</code>');
 const isQuiz=()=>location.hash.split('/')[0]==='#quiz';
 const isAccountActive=()=>document.documentElement.dataset.holbertonAccount==='connected';
-const useAdaptivePriority=()=>isAccountActive()&&progress.adaptiveEnabled!==false;
+const useAdaptivePriority=()=>isAccountActive()&&progress.adaptiveEnabled===true;
 const feedbackMode=mode=>mode==='end'?'end':'immediate';
 function persist(next){
  if(!writeProgress(localStorage,next)){
@@ -50,13 +50,24 @@ function linkCourse(q){
 }
 function renderMenu(){
  const info=progressSummary(progress),running=progress.current&&progress.current.questionIds?.length;
+ const themeNames={argc:'argc et argv',stdarg:'stdarg.h et fonctions variadiques'};
+ const themeIds=[...new Set(bank.map(q=>q.family))];
+ const themeLabel=id=>themeNames[id]||id;
  const timingControl=isAccountActive()?
   '<p class="quiz-muted quiz-timing-note">Le moment d’affichage des corrigés se règle dans l’onglet Compte.</p>':
   '<label for="quizFeedbackMode">Afficher les réponses et explications'+
   '<select id="quizFeedbackMode"><option value="immediate">Après chaque question (par défaut)</option><option value="end">À la fin de la session</option></select></label>';
  page('Réviser librement','55 questions sur argc/argv et stdarg.h. Aucune durée ni quantité imposée : termine ta session quand tu veux. '+(useAdaptivePriority()?'Les notions difficiles sont privilégiées.':'Les questions sont tirées au sort sans priorité adaptative.'),
  (running?'<div class="quiz-card"><strong>Session enregistrée</strong><p>'+Object.keys(progress.current.answers||{}).length+' réponse(s) déjà enregistrée(s).</p><button id="quizResume" class="quiz-primary">Reprendre</button></div>':'')+
- '<div class="quiz-card quiz-start"><fieldset class="quiz-theme-selection"><legend>Thèmes à réviser (un ou plusieurs)</legend>'+[...new Set(bank.map(q=>q.family))].map(id=>'<label><input type="checkbox" name="quizTheme" value="'+escape(id)+'" '+(!families||families.includes(id)?'checked':'')+'> '+escape(({argc:'argc et argv',stdarg:'stdarg.h et fonctions variadiques'})[id]||id)+'</label>').join('')+'</fieldset><p id="quizThemeError" class="quiz-error" role="alert" hidden>Sélectionne au moins un thème.</p>'+timingControl+
+ '<div class="quiz-card quiz-start"><div class="quiz-theme-container"><p class="quiz-theme-heading">Thèmes à réviser (un ou plusieurs)</p>'+
+ '<details class="quiz-theme-dropdown" id="quizThemeDropdown"><summary id="quizThemeSummary">Tous les thèmes</summary>'+
+ '<div class="quiz-theme-panel"><label for="quizThemeSearch">Rechercher un thème</label>'+
+ '<input id="quizThemeSearch" type="search" placeholder="Rechercher..." autocomplete="off">'+
+ '<div class="quiz-theme-actions"><button type="button" id="quizThemeAll">Tout sélectionner</button><button type="button" id="quizThemeNone">Tout désélectionner</button></div>'+
+ '<fieldset class="quiz-theme-selection"><legend class="sr-only">Sélection des thèmes</legend>'+
+ themeIds.map(id=>'<label><input type="checkbox" name="quizTheme" value="'+escape(id)+'" '+(!families||families.includes(id)?'checked':'')+'> '+escape(themeLabel(id))+'</label>').join('')+'</fieldset>'+
+ '<p id="quizThemeNoMatch" class="quiz-muted" hidden>Aucun thème correspondant.</p></div></details></div>'+
+ '<p id="quizThemeError" class="quiz-error" role="alert" hidden>Sélectionne au moins un thème.</p>'+timingControl+
  '<p class="quiz-muted">Pas de nombre de questions prédéfini : tu peux faire une pause ou afficher ton bilan après chaque réponse.</p>'+
  '<button class="quiz-primary" id="quizStart">Démarrer</button></div>'+
  '<div class="quiz-stats"><span>'+info.sessions+' session(s)</span><span>'+info.answered+' question(s) traitée(s)</span><span>'+info.notions+' notion(s) révisée(s)</span></div>'+
@@ -67,8 +78,26 @@ function renderMenu(){
   const count=bank.filter(q=>selected.has(q.family)).length;
   const indicator=root.querySelector('.quiz-question-count');
   if(indicator)indicator.textContent=count+' question'+(count>1?'s':'')+' disponible'+(count>1?'s':'');
+  const summary=document.getElementById('quizThemeSummary');
+  summary.textContent=selected.size===themeIds.length?'Tous les thèmes ('+selected.size+')':
+   selected.size===0?'Aucun thème sélectionné':
+   selected.size===1?themeLabel([...selected][0]):
+   selected.size+' thèmes sélectionnés';
   document.getElementById('quizThemeError').hidden=selected.size>0;
  };
+ const search=document.getElementById('quizThemeSearch');
+ search.addEventListener('input',()=>{
+  const term=search.value.trim().toLocaleLowerCase('fr');
+  let visible=0;
+  for(const input of themeBoxes){
+   const label=input.closest('label');
+   label.hidden=!label.textContent.toLocaleLowerCase('fr').includes(term);
+   if(!label.hidden)visible++;
+  }
+  document.getElementById('quizThemeNoMatch').hidden=visible>0;
+ });
+ document.getElementById('quizThemeAll').onclick=()=>{themeBoxes.forEach(input=>input.checked=true);updateAvailable()};
+ document.getElementById('quizThemeNone').onclick=()=>{themeBoxes.forEach(input=>input.checked=false);updateAvailable()};
  themeBoxes.forEach(input=>input.addEventListener('change',updateAvailable));
  updateAvailable();
  const timing=document.getElementById('quizFeedbackMode');
@@ -233,7 +262,7 @@ function renderAccount(){
  '<select id="accountQuizFeedbackMode"><option value="immediate">Après chaque question</option><option value="end">À la fin de la session</option></select>'+
  '<p class="quiz-muted">Ce réglage s’applique aux prochaines sessions. Il est sauvegardé dans ta progression'+(isAccountActive()?' et peut être synchronisé avec ton compte.': ' sur cet appareil.')+'</p></div>'+
  (isAccountActive()?
-  '<div class="quiz-feedback-settings quiz-adaptive-settings"><label class="quiz-adaptive-label" for="accountQuizAdaptiveEnabled"><input type="checkbox" id="accountQuizAdaptiveEnabled"> Priorité aux notions en difficulté</label><p class="quiz-muted">Activée par défaut pour les comptes connectés. Tu peux la désactiver pour obtenir un tirage aléatoire, sans préférence liée à tes erreurs. Le choix s’applique aux prochaines sessions.</p></div>':
+  '<div class="quiz-feedback-settings quiz-adaptive-settings"><label class="quiz-adaptive-label" for="accountQuizAdaptiveEnabled"><input type="checkbox" id="accountQuizAdaptiveEnabled"> Priorité aux notions en difficulté</label><p class="quiz-muted">Désactivée par défaut : les questions sont aléatoires pour tous. Tu peux activer la priorité aux notions difficiles. Le choix s’applique aux prochaines sessions.</p></div>':
   '<p class="quiz-muted">En mode invité, les questions sont tirées au sort sans priorité adaptative.</p>')+
  '<div class="quiz-actions"><button id="guestExport" class="quiz-secondary">Exporter ma progression</button><button id="guestClear" class="quiz-secondary quiz-danger">Effacer ma progression quiz</button></div>';
  const accountTiming=document.getElementById('accountQuizFeedbackMode');
@@ -245,10 +274,10 @@ function renderAccount(){
  };
  const adaptiveCheckbox=document.getElementById('accountQuizAdaptiveEnabled');
  if(adaptiveCheckbox){
-  adaptiveCheckbox.checked=progress.adaptiveEnabled!==false;
+  adaptiveCheckbox.checked=progress.adaptiveEnabled===true;
   adaptiveCheckbox.onchange=()=>{
    if(!persist({...progress,adaptiveEnabled:adaptiveCheckbox.checked})){
-    adaptiveCheckbox.checked=progress.adaptiveEnabled!==false;return;
+    adaptiveCheckbox.checked=progress.adaptiveEnabled===true;return;
    }
    renderAccount();
    if(isQuiz()&&!progress.current)renderMenu();
