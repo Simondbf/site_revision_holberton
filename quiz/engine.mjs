@@ -163,9 +163,11 @@ function renderQuestion(){
  };
  const finish=document.getElementById('quizFinish');
  if(finish)finish.onclick=()=>{
-  const completed=finishSession(progress,progress.current,bank);
+  // Conserver les réponses pour le bilan AVANT de vider current dans la progression.
+  const reviewedSession=progress.current;
+  const completed=finishSession(progress,reviewedSession,bank);
   if(!persist(completed.progress))return;
-  lastReport=completed.summary;lastReviewedSession=progress.current;renderResults();renderAccount();
+  lastReport=completed.summary;lastReviewedSession=reviewedSession;renderResults();renderAccount();
  };
  document.getElementById('quizPause').onclick=()=>{
   if(!persist({...progress,current:{...progress.current,paused:true}}))return;
