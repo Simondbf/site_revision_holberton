@@ -66,9 +66,22 @@ export function selectQuestions(bank,{family='all',amount=10,stats={},seen={},ra
  }
  return result;
 }
-export function newSession(questions,family='all',now=new Date()){
+// Fisher-Yates : toutes les permutations sont équiprobables si random() est uniforme.
+export function shuffleOptionIds(options,random=Math.random){
+ const ids=options.map(option=>option.id);
+ for(let i=ids.length-1;i>0;i--){
+  const sample=random();
+  if(!(sample>=0&&sample<1))throw Error('Source aléatoire invalide');
+  const j=Math.floor(sample*(i+1));
+  [ids[i],ids[j]]=[ids[j],ids[i]];
+ }
+ return ids;
+}
+export function newSession(questions,family='all',now=new Date(),random=Math.random){
  if(!questions.length)throw Error('Aucune question disponible');
- return {version:1,id:'guest-'+now.getTime()+'-'+Math.random().toString(36).slice(2,9),family,createdAt:now.toISOString(),questionIds:questions.map(q=>q.id),cursor:0,answers:{}};
+ // Le tirage est renouvelé pour chaque session, mais enregistré pour pause/reprise.
+ const optionOrder=Object.fromEntries(questions.map(q=>[q.id,shuffleOptionIds(q.options,random)]));
+ return {version:1,id:'guest-'+now.getTime()+'-'+Math.random().toString(36).slice(2,9),family,createdAt:now.toISOString(),questionIds:questions.map(q=>q.id),cursor:0,answers:{},optionOrder};
 }
 export function applyAnswer(session,question,selected,now=new Date()){
  if(!session.questionIds.includes(question.id)||session.answers[question.id])throw Error('Réponse déjà enregistrée ou question inconnue');
