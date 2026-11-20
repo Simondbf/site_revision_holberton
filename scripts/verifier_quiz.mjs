@@ -180,6 +180,21 @@ assert.equal(new Set(items.map(q=>q.notion_id)).size,11,'Diversité des notions 
 const argcOnly=selectQuestions(bank,{family:'argc',amount:100,random:()=>0.5});
 assert.equal(argcOnly.length,25);
 assert.ok(argcOnly.every(q=>q.family==='argc'));
+const stdargOnly=selectQuestions(bank,{families:['stdarg'],amount:100,random:()=>0.5});
+assert.equal(stdargOnly.length,30,'Un thème sélectionné doit exclure les autres.');
+assert.ok(stdargOnly.every(q=>q.family==='stdarg'));
+const both=selectQuestions(bank,{families:['argc','stdarg'],amount:100,random:()=>0.5});
+assert.equal(both.length,55,'La sélection simultanée des deux thèmes doit donner toutes les questions.');
+assert.equal(selectQuestions(bank,{families:[],amount:100}).length,0,'Une liste vide ne doit rien sélectionner.');
+const multiSession=newSession(both,['argc','stdarg'],new Date('2026-11-20T10:45:00Z'),()=>0.42);
+assert.deepEqual(multiSession.family,['argc','stdarg'],'Les thèmes doivent être conservés dans la session.');
+function seeded(seed){return ()=>((seed=(Math.imul(seed,1664525)+1013904223)>>>0)/4294967296)}
+const orders=new Set(Array.from({length:12},(_,i)=>selectQuestions(bank,{families:['argc','stdarg'],amount:11,random:seeded(i+1)}).map(q=>q.id).join(',')));
+assert.ok(orders.size>=6,'Les premiers tirages de questions doivent changer réellement entre deux sessions.');
+const weakId=bank.find(q=>q.family==='argc').notion_id;
+const adaptiveStats=Object.fromEntries([...new Set(bank.map(q=>q.notion_id))].map(id=>[id,{attempts:10,errors:id===weakId?10:0}]));
+assert.equal(selectQuestions(bank,{families:['argc','stdarg'],amount:1,stats:adaptiveStats,random:seeded(1)})[0].notion_id,weakId,
+ 'La randomisation ne doit pas supprimer la priorité d’une notion mal maîtrisée.');
 let session=newSession(items,'all',new Date('2026-11-18T12:00:00Z'));
 let i=0;
 for(const q of items){
@@ -219,6 +234,8 @@ assert.deepEqual(embedded('quiz-argc-bank').questions,
  argc.questions.filter(q=>/^V1-N09_07[2-6]-0[1-5]$/.test(q.id)),
  'Le paquet intégré doit contenir exactement les 25 questions argc relues.');
 assert.deepEqual(embedded('quiz-aide-bank'),help,'Les explications intégrées doivent correspondre au fichier source.');
+assert.ok(html.includes('name="quizTheme"'),'Le quiz publié doit proposer les thèmes multisélection.');
+assert.ok(!html.includes('id="quizFamily"'),'L’ancien sélecteur de thème unique doit être supprimé.');
 assert.ok(html.includes('id="quizDontKnow"'),'Le formulaire doit offrir Je ne sais pas.');
 assert.ok(html.includes('quiz-option-reasons'),'Les corrections détaillées doivent être disponibles.');
 assert.ok(html.includes('quiz-question-count'),'Le compteur doit figurer en haut à droite.');

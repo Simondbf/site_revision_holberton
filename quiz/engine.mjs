@@ -14,7 +14,7 @@ if(removedTracking)history.replaceState(history.state,'',cleanUrl.pathname+clean
 // Aide d'affichage distincte du corpus d'origine : clés de correction inchangées.
 let pedagogicHelp={};
 try{pedagogicHelp=JSON.parse(document.getElementById('quiz-aide-bank')?.textContent||'{}').questions||{};}catch{}
-let bank=[],progress=readProgress(localStorage),loading=true,error='',family='all',paused=false,lastReport=null,lastReviewedSession=null;
+let bank=[],progress=readProgress(localStorage),loading=true,error='',families=null,paused=false,lastReport=null,lastReviewedSession=null;
 const escape=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const formatInline=s=>escape(s).replace(/\x60([^\x60]+)\x60/g,'<code>$1</code>');
 const isQuiz=()=>location.hash.split('/')[0]==='#quiz';
@@ -55,12 +55,21 @@ function renderMenu(){
   '<select id="quizFeedbackMode"><option value="immediate">Après chaque question (par défaut)</option><option value="end">À la fin de la session</option></select></label>';
  page('Réviser librement','55 questions sur argc/argv et stdarg.h. Aucune durée ni quantité imposée : termine ta session quand tu veux. La sélection privilégie progressivement les notions à renforcer.',
  (running?'<div class="quiz-card"><strong>Session enregistrée</strong><p>'+Object.keys(progress.current.answers||{}).length+' réponse(s) déjà enregistrée(s).</p><button id="quizResume" class="quiz-primary">Reprendre</button></div>':'')+
- '<div class="quiz-card quiz-start"><label>Thèmes<select id="quizFamily"><option value="all">Tous les thèmes</option><option value="argc">argc et argv</option><option value="stdarg">stdarg.h et fonctions variadiques</option></select></label>'+timingControl+
+ '<div class="quiz-card quiz-start"><fieldset class="quiz-theme-selection"><legend>Thèmes à réviser (un ou plusieurs)</legend>'+[...new Set(bank.map(q=>q.family))].map(id=>'<label><input type="checkbox" name="quizTheme" value="'+escape(id)+'" '+(!families||families.includes(id)?'checked':'')+'> '+escape(({argc:'argc et argv',stdarg:'stdarg.h et fonctions variadiques'})[id]||id)+'</label>').join('')+'</fieldset><p id="quizThemeError" class="quiz-error" role="alert" hidden>Sélectionne au moins un thème.</p>'+timingControl+
  '<p class="quiz-muted">Pas de nombre de questions prédéfini : tu peux faire une pause ou afficher ton bilan après chaque réponse.</p>'+
  '<button class="quiz-primary" id="quizStart">Démarrer</button></div>'+
  '<div class="quiz-stats"><span>'+info.sessions+' session(s)</span><span>'+info.answered+' question(s) traitée(s)</span><span>'+info.notions+' notion(s) révisée(s)</span></div>'+
  '<p class="quiz-muted">Sans compte : tes sessions et résultats sont sauvegardés sur cet appareil, dans ce navigateur. Tu peux les exporter depuis Compte.</p>');
- document.getElementById('quizFamily').value=family;
+ const themeBoxes=[...root.querySelectorAll('input[name="quizTheme"]')];
+ const updateAvailable=()=>{
+  const selected=new Set(themeBoxes.filter(input=>input.checked).map(input=>input.value));
+  const count=bank.filter(q=>selected.has(q.family)).length;
+  const indicator=root.querySelector('.quiz-question-count');
+  if(indicator)indicator.textContent=count+' question'+(count>1?'s':'')+' disponible'+(count>1?'s':'');
+  document.getElementById('quizThemeError').hidden=selected.size>0;
+ };
+ themeBoxes.forEach(input=>input.addEventListener('change',updateAvailable));
+ updateAvailable();
  const timing=document.getElementById('quizFeedbackMode');
  if(timing){
   timing.value=feedbackMode(progress.feedbackMode);
@@ -69,11 +78,13 @@ function renderMenu(){
   };
  }
  document.getElementById('quizStart').onclick=()=>{
-  family=document.getElementById('quizFamily').value;
+  const chosen=themeBoxes.filter(input=>input.checked).map(input=>input.value);
+  if(!chosen.length){document.getElementById('quizThemeError').hidden=false;return}
   if(progress.current&&!confirm('Remplacer la session non terminée ?'))return;
-  const available=bank.filter(q=>family==='all'||q.family===family);
-  const selection=selectQuestions(bank,{family,amount:available.length,stats:progress.stats,seen:progress.seen});
-  if(!persist({...progress,current:newSession(selection,family,new Date(),Math.random,feedbackMode(progress.feedbackMode))}))return;
+  const available=bank.filter(q=>chosen.includes(q.family));
+  const selection=selectQuestions(bank,{families:chosen,amount:available.length,stats:progress.stats,seen:progress.seen});
+  if(!persist({...progress,current:newSession(selection,chosen,new Date(),Math.random,feedbackMode(progress.feedbackMode))}))return;
+  families=[...chosen];
   paused=false;lastReport=null;lastReviewedSession=null;renderQuestion();renderAccount();
  };
  const resume=document.getElementById('quizResume');

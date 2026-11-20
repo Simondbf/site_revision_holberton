@@ -252,6 +252,14 @@ body.dark .lesson-visual figcaption{color:#c5d9e7}
 .quiz-review-content h4{margin:15px 0 8px}
 .quiz-review-content p{line-height:1.7}
 @media(max-width:680px){.quiz-question-count{font-size:12px;padding:7px 11px}}
+
+/* Sélection accessible de plusieurs thèmes sur ordinateur et mobile. */
+.quiz-theme-selection{grid-column:1/-1;display:flex;align-items:center;gap:10px 14px;flex-wrap:wrap;min-width:0;border:1px solid var(--line);padding:12px 14px;border-radius:12px}
+.quiz-theme-selection legend{font-weight:800;padding:0 6px}
+.quiz-start .quiz-theme-selection label{display:inline-flex;align-items:center;gap:9px;font-weight:650;padding:6px 9px;cursor:pointer}
+.quiz-theme-selection input{accent-color:var(--primary);width:18px;height:18px}
+.quiz-theme-selection label:focus-within{outline:2px solid var(--primary);outline-offset:2px;border-radius:6px}
+#quizThemeError{grid-column:1/-1;margin:0}
 </style>
 <!-- FIN QUIZ CSS INTEGRE -->
 </head>
@@ -1525,16 +1533,18 @@ function matchesAnswer(given,answer){
  if(!Array.isArray(given)||!given.length||new Set(given).size!==given.length)return false;
  return given.length===answer.length && given.every(x=>answer.includes(x));
 }
-function selectQuestions(bank,{family='all',amount=10,stats={},seen={},random=Math.random}={}){
- const eligible=bank.filter(q=>family==='all'||q.family===family);
+function selectQuestions(bank,{family='all',families=null,amount=10,stats={},seen={},random=Math.random}={}){
+ const chosen=Array.isArray(families)?new Set(families):family==='all'?null:new Set([family]);
+ const eligible=bank.filter(q=>!chosen||chosen.has(q.family));
  const groups=new Map();
  for(const q of eligible){if(!groups.has(q.notion_id))groups.set(q.notion_id,[]);groups.get(q.notion_id).push(q)}
  const entries=[...groups].map(([notionId,items])=>{
    const s=stats[notionId]||{};
    const attempts=Number(s.attempts)||0,errors=Number(s.errors)||0;
    const priority=attempts?errors/attempts:0.6;
-   return {id:notionId,priority,items:items.map(q=>({q,rand:random()})).sort((a,b)=>(Number(seen[a.q.id])||0)-(Number(seen[b.q.id])||0)||a.rand-b.rand).map(x=>x.q)};
- }).sort((a,b)=>b.priority-a.priority||a.id.localeCompare(b.id));
+   return {id:notionId,priority,tie:random(),items:items.map(q=>({q,rand:random()})).sort((a,b)=>(Number(seen[a.q.id])||0)-(Number(seen[b.q.id])||0)||a.rand-b.rand).map(x=>x.q)};
+ }).sort((a,b)=>b.priority-a.priority||a.tie-b.tie);
+ // L'adaptation conserve les notions faibles prioritaires ; à priorité égale, leur ordre est tiré au sort.
  const result=[];
  while(result.length<Math.min(amount,eligible.length)&&entries.some(x=>x.items.length)){
   for(const entry of entries){
@@ -1559,7 +1569,7 @@ function newSession(questions,family='all',now=new Date(),random=Math.random,fee
  if(!questions.length)throw Error('Aucune question disponible');
  // Le tirage est renouvelé pour chaque session, mais enregistré pour pause/reprise.
  const optionOrder=Object.fromEntries(questions.map(q=>[q.id,shuffleOptionIds(q.options,random)]));
- return {version:1,id:'guest-'+now.getTime()+'-'+Math.random().toString(36).slice(2,9),family,createdAt:now.toISOString(),questionIds:questions.map(q=>q.id),cursor:0,answers:{},optionOrder,feedbackMode:normalizeFeedbackMode(feedbackMode)};
+ return {version:1,id:'guest-'+now.getTime()+'-'+Math.random().toString(36).slice(2,9),family:Array.isArray(family)?[...family]:family,createdAt:now.toISOString(),questionIds:questions.map(q=>q.id),cursor:0,answers:{},optionOrder,feedbackMode:normalizeFeedbackMode(feedbackMode)};
 }
 function applyAnswer(session,question,selected,now=new Date()){
  if(!session.questionIds.includes(question.id)||session.answers[question.id])throw Error('Réponse déjà enregistrée ou question inconnue');
@@ -1632,7 +1642,7 @@ if(removedTracking)history.replaceState(history.state,'',cleanUrl.pathname+clean
 // Aide d'affichage distincte du corpus d'origine : clés de correction inchangées.
 let pedagogicHelp={};
 try{pedagogicHelp=JSON.parse(document.getElementById('quiz-aide-bank')?.textContent||'{}').questions||{};}catch{}
-let bank=[],progress=readProgress(localStorage),loading=true,error='',family='all',paused=false,lastReport=null,lastReviewedSession=null;
+let bank=[],progress=readProgress(localStorage),loading=true,error='',families=null,paused=false,lastReport=null,lastReviewedSession=null;
 const escape=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const formatInline=s=>escape(s).replace(/\x60([^\x60]+)\x60/g,'<code>$1</code>');
 const isQuiz=()=>location.hash.split('/')[0]==='#quiz';
@@ -1673,12 +1683,21 @@ function renderMenu(){
   '<select id="quizFeedbackMode"><option value="immediate">Après chaque question (par défaut)</option><option value="end">À la fin de la session</option></select></label>';
  page('Réviser librement','55 questions sur argc/argv et stdarg.h. Aucune durée ni quantité imposée : termine ta session quand tu veux. La sélection privilégie progressivement les notions à renforcer.',
  (running?'<div class="quiz-card"><strong>Session enregistrée</strong><p>'+Object.keys(progress.current.answers||{}).length+' réponse(s) déjà enregistrée(s).</p><button id="quizResume" class="quiz-primary">Reprendre</button></div>':'')+
- '<div class="quiz-card quiz-start"><label>Thèmes<select id="quizFamily"><option value="all">Tous les thèmes</option><option value="argc">argc et argv</option><option value="stdarg">stdarg.h et fonctions variadiques</option></select></label>'+timingControl+
+ '<div class="quiz-card quiz-start"><fieldset class="quiz-theme-selection"><legend>Thèmes à réviser (un ou plusieurs)</legend>'+[...new Set(bank.map(q=>q.family))].map(id=>'<label><input type="checkbox" name="quizTheme" value="'+escape(id)+'" '+(!families||families.includes(id)?'checked':'')+'> '+escape(({argc:'argc et argv',stdarg:'stdarg.h et fonctions variadiques'})[id]||id)+'</label>').join('')+'</fieldset><p id="quizThemeError" class="quiz-error" role="alert" hidden>Sélectionne au moins un thème.</p>'+timingControl+
  '<p class="quiz-muted">Pas de nombre de questions prédéfini : tu peux faire une pause ou afficher ton bilan après chaque réponse.</p>'+
  '<button class="quiz-primary" id="quizStart">Démarrer</button></div>'+
  '<div class="quiz-stats"><span>'+info.sessions+' session(s)</span><span>'+info.answered+' question(s) traitée(s)</span><span>'+info.notions+' notion(s) révisée(s)</span></div>'+
  '<p class="quiz-muted">Sans compte : tes sessions et résultats sont sauvegardés sur cet appareil, dans ce navigateur. Tu peux les exporter depuis Compte.</p>');
- document.getElementById('quizFamily').value=family;
+ const themeBoxes=[...root.querySelectorAll('input[name="quizTheme"]')];
+ const updateAvailable=()=>{
+  const selected=new Set(themeBoxes.filter(input=>input.checked).map(input=>input.value));
+  const count=bank.filter(q=>selected.has(q.family)).length;
+  const indicator=root.querySelector('.quiz-question-count');
+  if(indicator)indicator.textContent=count+' question'+(count>1?'s':'')+' disponible'+(count>1?'s':'');
+  document.getElementById('quizThemeError').hidden=selected.size>0;
+ };
+ themeBoxes.forEach(input=>input.addEventListener('change',updateAvailable));
+ updateAvailable();
  const timing=document.getElementById('quizFeedbackMode');
  if(timing){
   timing.value=feedbackMode(progress.feedbackMode);
@@ -1687,11 +1706,13 @@ function renderMenu(){
   };
  }
  document.getElementById('quizStart').onclick=()=>{
-  family=document.getElementById('quizFamily').value;
+  const chosen=themeBoxes.filter(input=>input.checked).map(input=>input.value);
+  if(!chosen.length){document.getElementById('quizThemeError').hidden=false;return}
   if(progress.current&&!confirm('Remplacer la session non terminée ?'))return;
-  const available=bank.filter(q=>family==='all'||q.family===family);
-  const selection=selectQuestions(bank,{family,amount:available.length,stats:progress.stats,seen:progress.seen});
-  if(!persist({...progress,current:newSession(selection,family,new Date(),Math.random,feedbackMode(progress.feedbackMode))}))return;
+  const available=bank.filter(q=>chosen.includes(q.family));
+  const selection=selectQuestions(bank,{families:chosen,amount:available.length,stats:progress.stats,seen:progress.seen});
+  if(!persist({...progress,current:newSession(selection,chosen,new Date(),Math.random,feedbackMode(progress.feedbackMode))}))return;
+  families=[...chosen];
   paused=false;lastReport=null;lastReviewedSession=null;renderQuestion();renderAccount();
  };
  const resume=document.getElementById('quizResume');
