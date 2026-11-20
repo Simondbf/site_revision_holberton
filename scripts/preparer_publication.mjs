@@ -7,10 +7,17 @@ import {fileURLToPath} from 'node:url';
 // Prépare seulement les fichiers statiques à publier ; aucun déploiement VPS.
 const root=fileURLToPath(new URL('../',import.meta.url));
 const html=readFileSync(join(root,'index.html'),'utf8');
-const quiz=html.includes('src="./quiz/engine.mjs"');
+const quizInline=html.includes('id="quiz-inline-module"');
+const quizExternal=html.includes('src="./quiz/engine.mjs"');
 const account=html.includes('src="./account/client.mjs"');
 const required=['index.html'];
-if(quiz){
+assert.ok(quizInline!==quizExternal,'Il faut exactement un mode de chargement du quiz.');
+if(quizInline){
+ assert.ok(html.includes('id="quiz-inline-style"')&&
+  html.includes('id="quiz-argc-bank"')&&html.includes('id="quiz-variadic-bank"'),
+  'Le quiz autonome doit inclure les styles et toutes les questions.');
+ assert.ok(!html.includes('href="./quiz/styles.css"'),'Le site autonome ne doit pas charger de CSS externe.');
+}else if(quizExternal){
  assert.ok(html.includes('href="./quiz/styles.css"'),'CSS du quiz non référencé.');
  required.push('quiz/core.mjs','quiz/engine.mjs','quiz/styles.css',
   'quiz/questions-variadiques.json',
@@ -32,6 +39,6 @@ for(const path of required){
  files.push({path,sha256});
 }
 assert.ok(!files.some(x=>x.path.startsWith('server/')),'Le backend privé ne doit pas être publié comme fichier statique.');
-const manifest={schema:1,hasQuiz:quiz,hasAccountInterface:account,files};
+const manifest={schema:1,hasQuiz:quizInline||quizExternal,publicationIndexSeul:quizInline&&!account,hasAccountInterface:account,files};
 writeFileSync(join(dest,'manifest-publication.json'),JSON.stringify(manifest,null,2)+'\n');
-console.log('Paquet de publication statique contrôlé : '+files.length+' fichiers. Quiz : '+quiz+', compte : '+account+'.');
+console.log('Paquet de publication statique contrôlé : '+files.length+' fichiers. Quiz intégré à index.html : '+quizInline+', compte : '+account+'.');
