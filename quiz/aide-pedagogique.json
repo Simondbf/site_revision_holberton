@@ -1,0 +1,507 @@
+{
+  "version": 1,
+  "origin": "Reformulations de présentation et justifications adaptées de la relecture technique ; le corrigé JSON d'origine reste la référence.",
+  "questions": {
+    "V1-N09_072-01": {
+      "prompt": "Quelle écriture de `main` permet à un programme C de recevoir les arguments donnés au lancement ?",
+      "feedback": {
+        "A": "Signature conforme de main en environnement hébergé.",
+        "B": "Un unique char* ne représente pas le tableau des arguments.",
+        "C": "Le retour void n’est pas la forme standard attendue.",
+        "D": "argc doit être un int, pas un pointeur vers int."
+      }
+    },
+    "V1-N09_072-02": {
+      "prompt": "On lance `./outil bonjour \"deux mots\"` dans un terminal Linux. Quelle valeur reçoit `argc` ?",
+      "feedback": {
+        "A": "Omet des arguments fournis.",
+        "B": "Ne compte pas correctement la commande et ses paramètres.",
+        "C": "argv[0], bonjour et deux mots forment trois éléments.",
+        "D": "Les guillemets regroupent deux mots en un argument."
+      }
+    },
+    "V1-N09_072-03": {
+      "prompt": "Quand on lance un programme C avec des arguments dans le terminal, quelles affirmations sont vraies ?",
+      "feedback": {
+        "A": "Les arguments de lancement ne proviennent pas de scanf.",
+        "B": "Ils sont transmis au démarrage du programme.",
+        "C": "argv expose des chaînes, non des int imposés.",
+        "D": "Les guillemets du shell groupent les mots."
+      }
+    },
+    "V1-N09_072-04": {
+      "prompt": "Dans `int main(int argc, char *argv[])`, quelle condition faut-il vérifier avant de lire `argv[1]` ?",
+      "feedback": {
+        "A": "argc peut valoir 1 sans argument utilisateur.",
+        "B": "argc égal à 1 désigne habituellement le seul argv[0].",
+        "C": "argc > 1 garantit la présence d’argv[1].",
+        "D": "Ne garantit pas d’argument utilisateur."
+      }
+    },
+    "V1-N09_072-05": {
+      "prompt": "Dans `int main(int argc, char *argv[])`, quel est le type de `argv[0]` lorsque `argc` est positif ?",
+      "feedback": {
+        "A": "Chaque élément valide de argv possède le type char*.",
+        "B": "Il ne s’agit pas d’un int.",
+        "C": "char** désigne argv après ajustement, pas argv[0].",
+        "D": "Un caractère n’est pas un pointeur vers caractère."
+      }
+    },
+    "V1-N09_073-01": {
+      "prompt": "On lance `./outil un deux trois` dans un terminal Linux. Quelle est la valeur de `argc` ?",
+      "feedback": {
+        "A": "Omet argv[0].",
+        "B": "Ne compte que deux éléments.",
+        "C": "Un lancement normal ne donne pas zéro avec trois arguments utilisateur.",
+        "D": "argv[0] et les trois arguments font quatre éléments."
+      }
+    },
+    "V1-N09_073-02": {
+      "prompt": "Que compte exactement la variable `argc` reçue par `main` ?",
+      "feedback": {
+        "A": "argc ne mesure pas la taille mémoire des arguments.",
+        "B": "argv contient argc éléments avant le pointeur nul final.",
+        "C": "argc ne fournit pas la longueur des chaînes.",
+        "D": "argc ne mesure pas la longueur d’argv[0]."
+      }
+    },
+    "V1-N09_073-03": {
+      "prompt": "Lors d'un lancement classique, `argc` vaut 3. Combien d'arguments l'utilisateur a-t-il ajoutés après le nom du programme ?",
+      "feedback": {
+        "A": "Avec argc=3, argv[1] et argv[2] sont les deux arguments utilisateur.",
+        "B": "Inclut à tort l’élément d’invocation.",
+        "C": "Compte un argument en trop.",
+        "D": "Ignore les deux arguments utilisateur."
+      }
+    },
+    "V1-N09_073-04": {
+      "prompt": "Quelles affirmations sont vraies au sujet de la variable `argc` en C ?",
+      "feedback": {
+        "A": "argc est un entier et non un pointeur.",
+        "B": "La norme C impose un entier argc non négatif.",
+        "C": "argc ne mesure pas les caractères d’argv[1].",
+        "D": "Dans l’invocation normale décrite, argv[0] entre dans le décompte."
+      }
+    },
+    "V1-N09_073-05": {
+      "prompt": "On a vérifié que `argv[1]` contient bien une chaîne valide. Quelle expression donne sa longueur en caractères, sans compter `\\0` ?",
+      "feedback": {
+        "A": "argc-1 compte les arguments utilisateur usuels.",
+        "B": "sizeof argv dans main mesure le pointeur ajusté, pas la chaîne.",
+        "C": "strlen retourne le nombre de caractères avant le nul final.",
+        "D": "argv[argc] est le pointeur nul sentinelle."
+      }
+    },
+    "V1-N09_074-01": {
+      "prompt": "On lance `./outil rouge`. À quoi correspond habituellement `argv[0]` ?",
+      "feedback": {
+        "A": "rouge se trouve normalement dans argv[1].",
+        "B": "argv[0] contient le nom/chemin d’invocation, si fourni.",
+        "C": "La sentinelle n’est pas argv[0] dans cette invocation.",
+        "D": "argc, et non argv[0], compte les arguments."
+      }
+    },
+    "V1-N09_074-02": {
+      "prompt": "On lance `./outil \"deux mots\"` dans un terminal. Combien d'arguments utilisateur sont transmis après le nom du programme ?",
+      "feedback": {
+        "A": "Un argument utilisateur est présent.",
+        "B": "Les guillemets empêchent de scinder les mots.",
+        "C": "Trois arguments utilisateur ne sont pas fournis.",
+        "D": "Le shell transmet deux mots comme une chaîne unique."
+      }
+    },
+    "V1-N09_074-03": {
+      "prompt": "Si `argc == 3` lors d'un lancement classique, dans quelle case de `argv` se trouve le deuxième argument fourni par l'utilisateur ?",
+      "feedback": {
+        "A": "argv[2] désigne le deuxième argument utilisateur.",
+        "B": "argv[1] désigne le premier.",
+        "C": "argv[argc], ici argv[3], est NULL.",
+        "D": "argv[0] désigne normalement l’invocation."
+      }
+    },
+    "V1-N09_074-04": {
+      "prompt": "À propos des chaînes contenues dans `argv`, quelles affirmations sont exactes ?",
+      "feedback": {
+        "A": "Pour un indice valide inférieur à argc, chaque élément est une chaîne C terminée par nul.",
+        "B": "argv[i] n’est pas un int, mais un char*.",
+        "C": "argv[argc] est un pointeur nul et ne doit pas être traité comme une chaîne.",
+        "D": "La longueur des différentes chaînes peut varier."
+      }
+    },
+    "V1-N09_074-05": {
+      "prompt": "On lance `./outil ab cd`. Quel caractère contient l'expression `argv[1][1]` ?",
+      "feedback": {
+        "A": "c appartient au second argument cd.",
+        "B": "Le terminateur de ab est à l’indice 2, pas à 1.",
+        "C": "a est à l’indice 0.",
+        "D": "b est le caractère à l’indice 1 de ab."
+      }
+    },
+    "V1-N09_075-01": {
+      "prompt": "Dans la liste des paramètres d'une fonction C, `char *argv[]` est traité comme un pointeur. Quel est son type après cet ajustement ?",
+      "feedback": {
+        "A": "char* désigne un élément de argv, pas le paramètre tableau ajusté.",
+        "B": "Un paramètre char* argv[] est ajusté en char** argv.",
+        "C": "char ne représente pas un tableau de pointeurs.",
+        "D": "char (*)[2] est un pointeur vers tableau de deux char."
+      }
+    },
+    "V1-N09_075-02": {
+      "prompt": "Si `argv[1]` contient la chaîne `\"code\"`, quel caractère lit-on avec `argv[1][0]` ?",
+      "feedback": {
+        "A": "c est le premier caractère de code.",
+        "B": "o est le second, indice 1.",
+        "C": "Le nul final se trouve après les quatre caractères.",
+        "D": "d est le troisième caractère."
+      }
+    },
+    "V1-N09_075-03": {
+      "prompt": "Si `argv[1]` contient `\"code\"`, quel caractère lit l'expression `*(*(argv + 1) + 1)` ?",
+      "feedback": {
+        "A": "L’expression déréférence finalement un caractère, pas argv[0].",
+        "B": "c est à l’indice 0, pas 1.",
+        "C": "Le nul final suit code, à l’indice 4.",
+        "D": "Le calcul mène au caractère d’indice 1, o."
+      }
+    },
+    "V1-N09_075-04": {
+      "prompt": "On veut vérifier que `argv[1]` existe et contient au moins deux caractères avant `\\0`. Quel test peut être utilisé sans lire hors des limites ?",
+      "feedback": {
+        "A": "argc>0 ne garantit pas l’existence d’argv[1].",
+        "B": "Il manque une garde sur argc avant d’accéder à argv[1].",
+        "C": "L’évaluation courte assure argc>1, puis exige deux caractères non nuls ; lire le terminateur à l’indice 1 d’une chaîne d’un caractère est légal.",
+        "D": "argc==1 peut rendre l’expression vraie sans deuxième caractère et sans valider la présence de l’argument."
+      }
+    },
+    "V1-N09_075-05": {
+      "prompt": "Dans l'expression `argv[i][j]`, que représentent `i` et `j`, et quelles précautions sont nécessaires ?",
+      "feedback": {
+        "A": "L’indice i choisit une chaîne et j un caractère.",
+        "B": "argc est un entier indépendant, pas un tableau d’octets.",
+        "C": "Les deux indices doivent rester dans les limites de leurs objets respectifs.",
+        "D": "Les longueurs de chaînes ne sont pas uniformes."
+      }
+    },
+    "V1-N09_076-01": {
+      "prompt": "À la fin du tableau `argv`, que contient précisément `argv[argc]` dans un programme C hébergé ?",
+      "feedback": {
+        "A": "Le caractère '0' n’est pas un pointeur nul.",
+        "B": "Une chaîne vide est un objet, pas la valeur NULL du pointeur.",
+        "C": "La norme garantit argv[argc] == NULL.",
+        "D": "La sentinelle ne pointe pas vers argc."
+      }
+    },
+    "V1-N09_076-02": {
+      "prompt": "Si `argc` vaut 3, combien d'itérations effectue la boucle `for (i = 1; i < argc; i++)` ?",
+      "feedback": {
+        "A": "La boucle n’effectue pas trois itérations lorsque argc vaut 3.",
+        "B": "i prend les valeurs 1 et 2 : deux itérations.",
+        "C": "Une seule itération oublierait un argument.",
+        "D": "L’indice 3 termine la boucle, sans quatrième itération."
+      }
+    },
+    "V1-N09_076-03": {
+      "prompt": "Si `argc` vaut 4, quel est l'indice du dernier argument de `argv` avant la sentinelle `argv[argc]` ?",
+      "feedback": {
+        "A": "argv[4] est la sentinelle NULL lorsque argc=4.",
+        "B": "argv[0] est le premier élément.",
+        "C": "argv[5] sort du tableau garanti.",
+        "D": "Le dernier indice d’une chaîne est argc-1, ici 3."
+      }
+    },
+    "V1-N09_076-04": {
+      "prompt": "`argv[argc]` marque la fin de la liste d'arguments. Parmi ces opérations, laquelle faut-il éviter ?",
+      "feedback": {
+        "A": "puts attend un pointeur vers chaîne valide et argv[argc] est NULL.",
+        "B": "Comparer argv[argc] à NULL est défini.",
+        "C": "Comparer argv[argc] à un pointeur non nul est défini.",
+        "D": "Comparer l’entier argc à zéro est défini."
+      }
+    },
+    "V1-N09_076-05": {
+      "prompt": "En C, une chaîne se termine par `\\0`, tandis que la liste `argv` se termine par un pointeur nul. Quelles propositions respectent cette différence ?",
+      "feedback": {
+        "A": "La chaîne est terminée par un caractère nul, non un pointeur nul.",
+        "B": "Chaque chaîne argv[i] valide possède le caractère '\\0' final.",
+        "C": "La sentinelle n’est pas la chaîne littérale NULL.",
+        "D": "argv[argc] est un pointeur nul qui suit la liste d’éléments."
+      }
+    },
+    "VAR-08-031-01": {
+      "prompt": "En C89, quelle déclaration permet à une fonction de recevoir un nombre variable d'arguments après un paramètre fixe ?",
+      "feedback": {
+        "A": "La forme sans paramètre fixe n’est pas admise en ISO C89.",
+        "B": "Le paramètre fixe n précède les points de suspension.",
+        "C": "L’ellipse ne peut pas se placer au milieu d’un déclarateur.",
+        "D": "Cette syntaxe ne déclare pas valablement un paramètre facultatif C89."
+      }
+    },
+    "VAR-08-031-02": {
+      "prompt": "Avec une fonction `f(int n, ...)`, on appelle `f(2, 7, 9)`. Combien d'arguments viennent après le paramètre fixe `n` ?",
+      "feedback": {
+        "A": "Un seul argument facultatif omettrait une valeur.",
+        "B": "Trois compte aussi n alors que la question demande ceux après n.",
+        "C": "Les valeurs 7 et 9 sont les deux arguments facultatifs.",
+        "D": "Le passage de deux arguments après n exclut zéro."
+      }
+    },
+    "VAR-08-031-03": {
+      "prompt": "Une fonction variadique possède des paramètres fixes, puis éventuellement `...`. Quelles affirmations sont exactes ?",
+      "feedback": {
+        "A": "Le nombre de paramètres après l’ellipse peut varier.",
+        "B": "argc ne s’applique pas automatiquement aux fonctions variadiques.",
+        "C": "L’appelant et la fonction doivent convenir des types et de l’arrêt.",
+        "D": "En C89, l’ellipse exige au moins un paramètre fixe nommé.",
+        "E": "va_arg ne découvre pas dynamiquement les types."
+      }
+    },
+    "VAR-08-031-04": {
+      "prompt": "On appelle `f(3, 5, 7)`. Si `f` tente de lire trois entiers dans ses arguments variables, quel problème peut se produire ?",
+      "feedback": {
+        "A": "Lire un troisième int alors que seuls deux arguments variables ont été fournis entraîne un comportement indéfini.",
+        "B": "Le langage n’ajoute aucun zéro automatiquement.",
+        "C": "Aucune erreur de compilation n’est imposée pour une incohérence non vérifiable à l’appel.",
+        "D": "Une lecture de fin de liste n’est pas une opération à comportement défini : elle provoque un comportement indéfini."
+      }
+    },
+    "VAR-08-031-05": {
+      "prompt": "Dans `somme(int n, ...)`, à quoi le paramètre fixe `n` peut-il servir pour lire les autres arguments ?",
+      "feedback": {
+        "A": "n n’est pas la somme calculée.",
+        "B": "Un compteur explicite permet de limiter les lectures.",
+        "C": "n ne convertit pas les arguments facultatifs en double.",
+        "D": "Aucun tableau n’est automatiquement réservé."
+      }
+    },
+    "VAR-08-032-01": {
+      "prompt": "Dans `<stdarg.h>`, quel type permet de mémoriser la position de lecture dans les arguments variables ?",
+      "feedback": {
+        "A": "vararg_t n’est pas le nom standard du type.",
+        "B": "va_arg est une macro de lecture, pas un type.",
+        "C": "va_list est le type qui conserve l’état du parcours.",
+        "D": "va_start est une macro d’initialisation, pas un type."
+      }
+    },
+    "VAR-08-032-02": {
+      "prompt": "Dans `void f(int nombre, ...)`, comment initialise-t-on une variable `va_list ap` avant de lire les arguments variables ?",
+      "feedback": {
+        "A": "va_start prend l’objet va_list puis le dernier paramètre fixe nommé.",
+        "B": "Les paramètres sont inversés.",
+        "C": "va_arg lit un argument ; il n’initialise pas la liste.",
+        "D": "Le second argument doit désigner nombre dans cet exemple."
+      }
+    },
+    "VAR-08-032-03": {
+      "prompt": "Pour lire des arguments variables avec `<stdarg.h>`, dans quel ordre utilise-t-on normalement `va_start`, `va_arg` et `va_end` ?",
+      "feedback": {
+        "A": "Lire avant initialisation est incorrect.",
+        "B": "Terminer avant initialisation et lecture est incorrect.",
+        "C": "Lire après va_end sans réinitialisation est incorrect.",
+        "D": "Initialiser, lire puis terminer respecte l’ordre."
+      }
+    },
+    "VAR-08-032-04": {
+      "prompt": "La variable `ap` est de type `va_list`. Quelles affirmations sur son utilisation sont correctes ?",
+      "feedback": {
+        "A": "La représentation de va_list dépend de l’implémentation.",
+        "B": "va_list n’est pas universellement char*.",
+        "C": "va_start initialise un objet va_list préalablement déclaré.",
+        "D": "Une liste initialisée par va_start doit être terminée par va_end.",
+        "E": "La copie d’un va_list par simple affectation ne fonctionne pas de façon portable."
+      }
+    },
+    "VAR-08-032-05": {
+      "prompt": "Dans `void f(const char *format, ...)`, quel est le deuxième argument à fournir à `va_start(ap, ...)` ?",
+      "feedback": {
+        "A": "ap est l’objet curseur et non le dernier paramètre fixe.",
+        "B": "format est le dernier paramètre fixe de f.",
+        "C": "argc n’est pas un paramètre de f.",
+        "D": "argv n’est pas un paramètre de f."
+      }
+    },
+    "VAR-08-033-01": {
+      "prompt": "Un `signed char` est transmis dans les arguments variables `...`. Quel type faut-il normalement demander à `va_arg` après les promotions automatiques ?",
+      "feedback": {
+        "A": "char n’est pas le type promu lu avec va_arg.",
+        "B": "signed char se promeut en int sur les environnements ISO C concernés.",
+        "C": "char* est un pointeur, pas la promotion de signed char.",
+        "D": "float n’est pas la promotion entière de signed char."
+      }
+    },
+    "VAR-08-033-02": {
+      "prompt": "Une valeur `float` est transmise parmi les arguments variables `...`. Quel type faut-il demander à `va_arg` pour la récupérer ?",
+      "feedback": {
+        "A": "Un float transmis n’est pas promu en int.",
+        "B": "Le type effectif transmis n’est plus float.",
+        "C": "La promotion par défaut convertit float en double.",
+        "D": "long double n’est pas la promotion par défaut de float."
+      }
+    },
+    "VAR-08-033-03": {
+      "prompt": "Une fonction lit trois entiers variables : `4`, `5` et `6`, puis les additionne. Quel résultat obtient-elle ?",
+      "feedback": {
+        "A": "4+5+6 donne 15.",
+        "B": "14 est inférieur à la somme réelle.",
+        "C": "11 omet l’un des termes.",
+        "D": "16 est supérieur à la somme réelle."
+      }
+    },
+    "VAR-08-033-04": {
+      "prompt": "La macro `va_arg` lit un argument variable à la fois. Quelles affirmations décrivent correctement son fonctionnement ?",
+      "feedback": {
+        "A": "Chaque va_arg avance à l’argument suivant.",
+        "B": "Aucune vérification automatique de fin de liste n’est fournie.",
+        "C": "Le type demandé doit tenir compte des promotions par défaut ; quelques exceptions normatives existent.",
+        "D": "Lire au-delà des arguments présents est indéfini.",
+        "E": "va_arg nécessite une initialisation préalable par va_start ou une copie valide."
+      }
+    },
+    "VAR-08-033-05": {
+      "prompt": "Une fonction `f(const char *format, ...)` reçoit `f(\"%d %.1f\", 42, 2.5f)`. Après `va_start(ap, format)`, quelle suite de `va_arg` lit correctement les deux valeurs, dans l'ordre ?",
+      "feedback": {
+        "A": "Les arguments sont transmis dans l’ordre : int 42, puis float promu en double.",
+        "B": "Cette séquence inverse l’ordre et lit le premier int comme un double.",
+        "C": "float a été promu en double : va_arg(ap, float) n’est pas approprié.",
+        "D": "long double n’est pas le type promu d’un float transmis dans ..."
+      }
+    },
+    "VAR-08-034-01": {
+      "prompt": "Après avoir terminé la lecture d'une `va_list` initialisée avec `va_start`, quelle macro doit-on appeler ?",
+      "feedback": {
+        "A": "va_next n’est pas une macro standard.",
+        "B": "va_copy duplique une liste, sans clôturer son usage.",
+        "C": "va_end termine une liste initialisée.",
+        "D": "free ne remplace pas va_end."
+      }
+    },
+    "VAR-08-034-02": {
+      "prompt": "Une fonction a déjà appelé `va_start(ap, n)` et va retourner. Que doit-elle faire avec `ap` avant le `return` ?",
+      "feedback": {
+        "A": "Une liste initialisée doit être terminée avant le retour.",
+        "B": "L’objet va_list n’est pas une allocation à libérer avec free.",
+        "C": "Un second va_start n’est pas une terminaison.",
+        "D": "La clôture par va_end est requise."
+      }
+    },
+    "VAR-08-034-03": {
+      "prompt": "Après `va_end(ap)`, peut-on à nouveau lire des arguments avec `va_arg(ap, ...)` sans réinitialiser `ap` ?",
+      "feedback": {
+        "A": "Un parcours terminé ne peut pas être relu tel quel.",
+        "B": "La valeur zéro ne réactive pas un va_list terminé.",
+        "C": "Le signe de n ne change pas la validité du curseur.",
+        "D": "va_start doit réinitialiser avant une nouvelle lecture."
+      }
+    },
+    "VAR-08-034-04": {
+      "prompt": "Concernant `va_end`, quelles affirmations sont exactes ?",
+      "feedback": {
+        "A": "va_end clôt le parcours en cours.",
+        "B": "va_end ne revient pas au premier argument.",
+        "C": "va_end ne compte pas les arguments lus.",
+        "D": "va_end ne libère pas les objets vers lesquels pointent les arguments.",
+        "E": "va_end ne crée aucune sentinelle."
+      }
+    },
+    "VAR-08-034-05": {
+      "prompt": "Une fonction retourne avant d'avoir exécuté `va_start`. Que doit-elle faire avec `va_end` sur une liste non initialisée ?",
+      "feedback": {
+        "A": "va_end ne doit pas être utilisé sur une liste jamais initialisée.",
+        "B": "Deux appels va_end ne réparent pas une liste non initialisée.",
+        "C": "Aucun va_start n’a eu lieu : aucun va_end correspondant n’est nécessaire.",
+        "D": "va_list n’exige pas un malloc préalable."
+      }
+    },
+    "VAR-08-035-01": {
+      "prompt": "Une fonction lit les valeurs `2`, `3`, `5`, puis rencontre la sentinelle `-1` qui marque l'arrêt. Combien de valeurs utiles a-t-elle lues ?",
+      "feedback": {
+        "A": "Deux oublierait une donnée.",
+        "B": "Quatre inclurait la sentinelle.",
+        "C": "Les trois valeurs 2, 3, 5 sont les données.",
+        "D": "Cinq excède le nombre de données transmises."
+      }
+    },
+    "VAR-08-035-02": {
+      "prompt": "Une fonction lit des arguments variables jusqu'à trouver une sentinelle. Si l'appelant oublie cette sentinelle, quel risque existe ?",
+      "feedback": {
+        "A": "Sans sentinelle, la boucle peut lire au-delà de la liste réelle : comportement indéfini.",
+        "B": "La sentinelle n’est jamais ajoutée par le langage.",
+        "C": "La macro n’a pas de test de fin intégré.",
+        "D": "Un NULL final n’est pas garanti."
+      }
+    },
+    "VAR-08-035-03": {
+      "prompt": "Une fonction est déclarée `somme(int n, ...)`. Quelle règle de fonctionnement (contrat) peut-elle utiliser pour savoir combien d'entiers additionner ?",
+      "feedback": {
+        "A": "n ne porte pas le résultat final.",
+        "B": "Dans le contrat décrit, n compte les valeurs supplémentaires.",
+        "C": "n ne décrit pas le type dynamique des arguments.",
+        "D": "n ne contient pas sizeof(va_list)."
+      }
+    },
+    "VAR-08-035-04": {
+      "prompt": "Une sentinelle est une valeur spéciale qui indique l'arrêt de lecture des arguments variables. Quelles règles rendent cette méthode fiable ?",
+      "feedback": {
+        "A": "Le contrat impose une sentinelle à chaque appel.",
+        "B": "La sentinelle réservée ne peut pas indistinctement être une donnée ordinaire.",
+        "C": "Le marqueur doit avoir un type compatible avec la lecture via va_arg.",
+        "D": "Une valeur réservée permet de distinguer fin et données.",
+        "E": "Les points de suspension ne génèrent aucun marqueur."
+      }
+    },
+    "VAR-08-035-05": {
+      "prompt": "La fonction `f` reçoit un paramètre fixe, puis des `int` positifs jusqu'à une sentinelle entière `-1`. Quel appel respecte ce protocole ?",
+      "feedback": {
+        "A": "La séquence ne contient pas -1.",
+        "B": "Zéro n’est pas la sentinelle -1 spécifiée.",
+        "C": "La sentinelle finale est l’int -1 attendu.",
+        "D": "-1.0 est un double, pas l’int sentinelle exigé."
+      }
+    },
+    "VAR-08-036-01": {
+      "prompt": "Quelle fonction standard affiche du texte avec un format, mais reçoit ses arguments variables sous la forme d'une `va_list` déjà préparée ?",
+      "feedback": {
+        "A": "printf accepte des arguments variadiques et non directement va_list.",
+        "B": "scanf ne consomme pas la va_list d’un format d’affichage.",
+        "C": "vprintf accepte un format et un objet va_list.",
+        "D": "puts n’accepte qu’une chaîne."
+      }
+    },
+    "VAR-08-036-02": {
+      "prompt": "On a exécuté `va_start(ap, format); vprintf(format, ap);`. Que faut-il encore faire avant de terminer ?",
+      "feedback": {
+        "A": "Le code appelant doit appeler va_end après le relais vprintf.",
+        "B": "free(ap) n’est pas la fermeture prévue.",
+        "C": "Fermer stdout n’est pas nécessaire ni pertinent.",
+        "D": "Un second va_start ne remplace pas va_end."
+      }
+    },
+    "VAR-08-036-03": {
+      "prompt": "À partir de quelle version de la norme ISO C la macro `va_copy` est-elle standard ?",
+      "feedback": {
+        "A": "va_copy n’a pas été standardisée en C89.",
+        "B": "va_copy entre dans l’ISO C avec C99.",
+        "C": "C90 ne normalise pas va_copy.",
+        "D": "La macro est normalisée depuis C99."
+      }
+    },
+    "VAR-08-036-04": {
+      "prompt": "En C99, `src` est une `va_list` initialisée et `dest` une `va_list` déclarée, mais pas initialisée. Quelle séquence copie `src` vers `dest` et termine correctement les deux listes après utilisation ?",
+      "feedback": {
+        "A": "En C99, va_copy initialise dest depuis src ; après utilisation, dest et src reçoivent chacun va_end.",
+        "B": "L’affectation d’un va_list n’est pas une copie portable et dest n’est pas correctement terminé.",
+        "C": "Après va_end(src), src ne peut plus servir de source à va_copy sans réinitialisation.",
+        "D": "Les arguments de va_copy sont inversés : dest, non initialisé, ne peut pas servir de source valide."
+      }
+    },
+    "VAR-08-036-05": {
+      "prompt": "À propos de `vprintf`, de `va_copy` et des arguments variadiques, quelles affirmations sont correctes ?",
+      "feedback": {
+        "A": "vprintf reçoit un va_list fourni par l’appelant.",
+        "B": "va_copy est apparu avec C99, pas C89.",
+        "C": "__va_copy n’est qu’une extension GNU et ne garantit pas ISO C89.",
+        "D": "Les types et le nombre d’arguments doivent respecter le format.",
+        "E": "free(ap) ne remplace pas va_end."
+      }
+    }
+  }
+}
