@@ -70,7 +70,7 @@ assert.equal(data.sections[17]?.title,'Récursivité en C','Le thème récursivi
 assert.equal(data.sections[17].items.length,11,'Onze notions complémentaires sur la récursivité sont attendues.');
 for(let i=0;i<11;i++){
  const key='17:'+i,lesson=extra[key];
- assert.ok(lesson?.explanation?.split('\\n\\n').length>=3,
+ assert.ok(lesson?.explanation?.split(String.fromCharCode(10,10)).length>=3,
   'Une notion récursive doit posséder trois paragraphes : '+key);
  assert.ok(lesson.example?.includes('int main(void)')&&lesson.sources?.length>=2,
   'Exemple autonome ou sources manquantes : '+key);
