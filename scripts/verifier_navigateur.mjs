@@ -299,6 +299,14 @@ try{
  assert.equal(await page.locator('#quizCount').count(),0,'Le choix imposé de 5/10/20 questions doit être absent.');
  await page.locator('#quizStart').click();
  assert.equal(await page.locator('#quiz .quiz-choice').count()>=4,true);
+ assert.ok(await page.locator('#quizDontKnow').isVisible(),'Je ne sais pas doit être disponible pour chaque question.');
+ const firstHelp=await page.evaluate(()=>{
+  const current=JSON.parse(localStorage.getItem('holberton-quiz-guest-v1')).current;
+  return JSON.parse(document.getElementById('quiz-aide-bank').textContent).questions[current.questionIds[0]];
+ });
+ assert.ok(firstHelp?.prompt,'La question doit avoir une formulation accessible.');
+ assert.equal((await page.locator('#quiz .quiz-question-title').innerText()).trim(),
+  firstHelp.prompt.replaceAll('`',''),'La formulation affichée n’est pas celle de la révision pédagogique.');
  const firstQuestionOrder=await page.evaluate(()=>{
   const session=JSON.parse(localStorage.getItem('holberton-quiz-guest-v1')).current;
   return session.optionOrder[session.questionIds[0]];
@@ -334,9 +342,23 @@ try{
   firstQuestionOrder,'La pause et le rechargement ne doivent pas remélanger les choix de la même question.');
  assert.ok(await page.locator('#quizNext').isVisible(),'La réponse précédente ne reprend pas correctement.');
  await page.locator('#quizNext').click();
- await page.locator('#quiz .quiz-choice').first().click();
+ await page.locator('#quizDontKnow').check();
+ assert.equal(await page.locator('#quiz .quiz-choice input:enabled').count(),0,
+  'Je ne sais pas doit empêcher les choix contradictoires.');
+ assert.equal(await page.locator('#quizSubmit').innerText(),'Voir la correction');
  await page.locator('#quizSubmit').click();
- assert.ok(await page.locator('#quizFinish').isVisible(),'La fin libre du quiz doit être proposée après validation.');
+ assert.match(await page.locator('#quiz .quiz-feedback').innerText(),/Question passée/,
+  'Je ne sais pas doit afficher le corrigé.');
+ assert.equal(await page.locator('#quiz .quiz-option-reasons li').count()>=4,true,
+  'Les explications détaillées de toutes les propositions sont attendues.');
+ assert.ok(await page.locator('#quiz .quiz-correct-answers li').count()>0,
+  'Les bonnes réponses doivent être montrées après avoir passé une question.');
+ assert.equal(await page.evaluate(()=>{
+  const current=JSON.parse(localStorage.getItem('holberton-quiz-guest-v1')).current;
+  return current.answers[current.questionIds[current.cursor]].skipped;
+ }),true,'La progression doit conserver le choix Je ne sais pas.');
+ assert.ok(await page.locator('#quizNext').isVisible(),'Il faut pouvoir passer à la question suivante.');
+ assert.ok(await page.locator('#quizFinish').isVisible(),'La fin libre du quiz doit être proposée après Je ne sais pas.');
  await page.locator('#quizFinish').click();
  assert.match(await page.locator('#quiz .quiz-score').innerText(),/\/ 2/,'Le bilan doit refléter seulement les deux réponses données.');
  await page.goto(origin+'/#compte');
@@ -414,6 +436,28 @@ try{
   Storage.prototype.setItem=window.__quizOriginalSetItem;
   delete window.__quizOriginalSetItem;
  });
+
+ // Vérifier le détail d'une vraie réponse incorrecte et le nettoyage du lien ChatGPT.
+ await page.goto(origin+'/?source=gpt-quiz#quiz');
+ await page.locator('#quizStart').waitFor({state:'visible'});
+ assert.equal(new URL(page.url()).searchParams.has('source'),false,
+  'Le paramètre source=gpt doit disparaître de l’URL sans perdre le quiz.');
+ await page.locator('#quizStart').click();
+ const wrong=await page.evaluate(()=>{
+  const current=JSON.parse(localStorage.getItem('holberton-quiz-guest-v1')).current;
+  const argc=JSON.parse(document.getElementById('quiz-argc-bank').textContent);
+  const varia=JSON.parse(document.getElementById('quiz-variadic-bank').textContent);
+  const q=[...argc.questions,...varia.questions].find(q=>q.id===current.questionIds[0]);
+  return q.options.find(option=>!q.correct_option_ids.includes(option.id)).id;
+ });
+ await page.locator('#quiz .quiz-choice input[value="'+wrong+'"]').check();
+ await page.locator('#quizSubmit').click();
+ assert.match(await page.locator('#quiz .quiz-feedback').innerText(),/Réponse fausse ou incomplète/,
+  'Une réponse incorrecte doit rester incorrecte.');
+ assert.ok(await page.locator('#quiz .quiz-option-reasons li').count()>=4,
+  'Le moteur doit expliquer pourquoi chaque proposition est juste ou fausse.');
+ assert.ok(await page.locator('#quiz .quiz-correct-answers li').count()>0,
+  'Une erreur doit afficher les réponses attendues.');
 
  // Le comportement mobile existant reste préservé, sans refonte de l'interface.
  const mobile=await browser.newPage({viewport:{width:390,height:844},isMobile:true,hasTouch:true});
