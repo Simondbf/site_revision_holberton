@@ -260,6 +260,11 @@ body.dark .lesson-visual figcaption{color:#c5d9e7}
 .quiz-theme-selection input{accent-color:var(--primary);width:18px;height:18px}
 .quiz-theme-selection label:focus-within{outline:2px solid var(--primary);outline-offset:2px;border-radius:6px}
 #quizThemeError{grid-column:1/-1;margin:0}
+
+/* Réglage réservé aux comptes connectés pour la priorité adaptative. */
+.quiz-adaptive-settings .quiz-adaptive-label{display:flex;align-items:center;gap:10px;cursor:pointer}
+.quiz-adaptive-settings input[type=checkbox]{width:19px;height:19px;accent-color:var(--primary);flex-shrink:0}
+.quiz-adaptive-settings .quiz-adaptive-label:focus-within{outline:2px solid var(--primary);outline-offset:4px;border-radius:4px}
 </style>
 <!-- FIN QUIZ CSS INTEGRE -->
 </head>
@@ -1485,7 +1490,7 @@ renderTopics();renderSidebar();window.addEventListener('hashchange',renderRoute)
 const STORAGE_KEY='holberton-quiz-guest-v1';
 const MAX_HISTORY=60;
 const normalizeFeedbackMode=mode=>mode==='end'?'end':'immediate';
-const emptyProgress=()=>({version:1,current:null,history:[],stats:{},seen:{},feedbackMode:'immediate'});
+const emptyProgress=()=>({version:1,current:null,history:[],stats:{},seen:{},feedbackMode:'immediate',adaptiveEnabled:true});
 function normalizeProgress(data){
  const fresh=emptyProgress();
  if(!data||typeof data!=='object'||data.version!==1)return fresh;
@@ -1495,7 +1500,8 @@ function normalizeProgress(data){
   history:Array.isArray(data.history)?data.history.slice(-MAX_HISTORY):[],
   stats:data.stats&&typeof data.stats==='object'?data.stats:{},
   seen:data.seen&&typeof data.seen==='object'?data.seen:{},
-  feedbackMode:normalizeFeedbackMode(data.feedbackMode)
+  feedbackMode:normalizeFeedbackMode(data.feedbackMode),
+  adaptiveEnabled:data.adaptiveEnabled!==false
  };
 }
 function readProgress(storage){
@@ -1533,9 +1539,20 @@ function matchesAnswer(given,answer){
  if(!Array.isArray(given)||!given.length||new Set(given).size!==given.length)return false;
  return given.length===answer.length && given.every(x=>answer.includes(x));
 }
-function selectQuestions(bank,{family='all',families=null,amount=10,stats={},seen={},random=Math.random}={}){
+function selectQuestions(bank,{family='all',families=null,amount=10,stats={},seen={},random=Math.random,adaptive=true}={}){
  const chosen=Array.isArray(families)?new Set(families):family==='all'?null:new Set([family]);
  const eligible=bank.filter(q=>!chosen||chosen.has(q.family));
+ if(!adaptive){
+  // Sans compte ou sans adaptation : tirage global, indépendant de l'historique des erreurs.
+  const shuffled=[...eligible];
+  for(let i=shuffled.length-1;i>0;i--){
+   const sample=random();
+   if(!(sample>=0&&sample<1))throw Error('Source aléatoire invalide');
+   const j=Math.floor(sample*(i+1));
+   [shuffled[i],shuffled[j]]=[shuffled[j],shuffled[i]];
+  }
+  return shuffled.slice(0,Math.min(amount,eligible.length));
+ }
  const groups=new Map();
  for(const q of eligible){if(!groups.has(q.notion_id))groups.set(q.notion_id,[]);groups.get(q.notion_id).push(q)}
  const entries=[...groups].map(([notionId,items])=>{
@@ -1565,11 +1582,11 @@ function shuffleOptionIds(options,random=Math.random){
  }
  return ids;
 }
-function newSession(questions,family='all',now=new Date(),random=Math.random,feedbackMode='immediate'){
+function newSession(questions,family='all',now=new Date(),random=Math.random,feedbackMode='immediate',adaptiveEnabled=true){
  if(!questions.length)throw Error('Aucune question disponible');
  // Le tirage est renouvelé pour chaque session, mais enregistré pour pause/reprise.
  const optionOrder=Object.fromEntries(questions.map(q=>[q.id,shuffleOptionIds(q.options,random)]));
- return {version:1,id:'guest-'+now.getTime()+'-'+Math.random().toString(36).slice(2,9),family:Array.isArray(family)?[...family]:family,createdAt:now.toISOString(),questionIds:questions.map(q=>q.id),cursor:0,answers:{},optionOrder,feedbackMode:normalizeFeedbackMode(feedbackMode)};
+ return {version:1,id:'guest-'+now.getTime()+'-'+Math.random().toString(36).slice(2,9),family:Array.isArray(family)?[...family]:family,createdAt:now.toISOString(),questionIds:questions.map(q=>q.id),cursor:0,answers:{},optionOrder,feedbackMode:normalizeFeedbackMode(feedbackMode),adaptiveEnabled:!!adaptiveEnabled};
 }
 function applyAnswer(session,question,selected,now=new Date()){
  if(!session.questionIds.includes(question.id)||session.answers[question.id])throw Error('Réponse déjà enregistrée ou question inconnue');
@@ -1647,6 +1664,7 @@ const escape=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>'
 const formatInline=s=>escape(s).replace(/\x60([^\x60]+)\x60/g,'<code>$1</code>');
 const isQuiz=()=>location.hash.split('/')[0]==='#quiz';
 const isAccountActive=()=>document.documentElement.dataset.holbertonAccount==='connected';
+const useAdaptivePriority=()=>isAccountActive()&&progress.adaptiveEnabled!==false;
 const feedbackMode=mode=>mode==='end'?'end':'immediate';
 function persist(next){
  if(!writeProgress(localStorage,next)){
@@ -1681,7 +1699,7 @@ function renderMenu(){
   '<p class="quiz-muted quiz-timing-note">Le moment d’affichage des corrigés se règle dans l’onglet Compte.</p>':
   '<label for="quizFeedbackMode">Afficher les réponses et explications'+
   '<select id="quizFeedbackMode"><option value="immediate">Après chaque question (par défaut)</option><option value="end">À la fin de la session</option></select></label>';
- page('Réviser librement','55 questions sur argc/argv et stdarg.h. Aucune durée ni quantité imposée : termine ta session quand tu veux. La sélection privilégie progressivement les notions à renforcer.',
+ page('Réviser librement','55 questions sur argc/argv et stdarg.h. Aucune durée ni quantité imposée : termine ta session quand tu veux. '+(useAdaptivePriority()?'Les notions difficiles sont privilégiées.':'Les questions sont tirées au sort sans priorité adaptative.'),
  (running?'<div class="quiz-card"><strong>Session enregistrée</strong><p>'+Object.keys(progress.current.answers||{}).length+' réponse(s) déjà enregistrée(s).</p><button id="quizResume" class="quiz-primary">Reprendre</button></div>':'')+
  '<div class="quiz-card quiz-start"><fieldset class="quiz-theme-selection"><legend>Thèmes à réviser (un ou plusieurs)</legend>'+[...new Set(bank.map(q=>q.family))].map(id=>'<label><input type="checkbox" name="quizTheme" value="'+escape(id)+'" '+(!families||families.includes(id)?'checked':'')+'> '+escape(({argc:'argc et argv',stdarg:'stdarg.h et fonctions variadiques'})[id]||id)+'</label>').join('')+'</fieldset><p id="quizThemeError" class="quiz-error" role="alert" hidden>Sélectionne au moins un thème.</p>'+timingControl+
  '<p class="quiz-muted">Pas de nombre de questions prédéfini : tu peux faire une pause ou afficher ton bilan après chaque réponse.</p>'+
@@ -1710,8 +1728,8 @@ function renderMenu(){
   if(!chosen.length){document.getElementById('quizThemeError').hidden=false;return}
   if(progress.current&&!confirm('Remplacer la session non terminée ?'))return;
   const available=bank.filter(q=>chosen.includes(q.family));
-  const selection=selectQuestions(bank,{families:chosen,amount:available.length,stats:progress.stats,seen:progress.seen});
-  if(!persist({...progress,current:newSession(selection,chosen,new Date(),Math.random,feedbackMode(progress.feedbackMode))}))return;
+  const selection=selectQuestions(bank,{families:chosen,amount:available.length,stats:progress.stats,seen:progress.seen,adaptive:useAdaptivePriority()});
+  if(!persist({...progress,current:newSession(selection,chosen,new Date(),Math.random,feedbackMode(progress.feedbackMode),useAdaptivePriority())}))return;
   families=[...chosen];
   paused=false;lastReport=null;lastReviewedSession=null;renderQuestion();renderAccount();
  };
@@ -1859,6 +1877,9 @@ function renderAccount(){
  '<div class="quiz-feedback-settings"><label for="accountQuizFeedbackMode">Afficher les réponses et explications</label>'+
  '<select id="accountQuizFeedbackMode"><option value="immediate">Après chaque question</option><option value="end">À la fin de la session</option></select>'+
  '<p class="quiz-muted">Ce réglage s’applique aux prochaines sessions. Il est sauvegardé dans ta progression'+(isAccountActive()?' et peut être synchronisé avec ton compte.': ' sur cet appareil.')+'</p></div>'+
+ (isAccountActive()?
+  '<div class="quiz-feedback-settings quiz-adaptive-settings"><label class="quiz-adaptive-label" for="accountQuizAdaptiveEnabled"><input type="checkbox" id="accountQuizAdaptiveEnabled"> Priorité aux notions en difficulté</label><p class="quiz-muted">Activée par défaut pour les comptes connectés. Tu peux la désactiver pour obtenir un tirage aléatoire, sans préférence liée à tes erreurs. Le choix s’applique aux prochaines sessions.</p></div>':
+  '<p class="quiz-muted">En mode invité, les questions sont tirées au sort sans priorité adaptative.</p>')+
  '<div class="quiz-actions"><button id="guestExport" class="quiz-secondary">Exporter ma progression</button><button id="guestClear" class="quiz-secondary quiz-danger">Effacer ma progression quiz</button></div>';
  const accountTiming=document.getElementById('accountQuizFeedbackMode');
  accountTiming.value=feedbackMode(progress.feedbackMode);
@@ -1867,6 +1888,17 @@ function renderAccount(){
   renderAccount();
   if(isQuiz()&&!progress.current)renderMenu();
  };
+ const adaptiveCheckbox=document.getElementById('accountQuizAdaptiveEnabled');
+ if(adaptiveCheckbox){
+  adaptiveCheckbox.checked=progress.adaptiveEnabled!==false;
+  adaptiveCheckbox.onchange=()=>{
+   if(!persist({...progress,adaptiveEnabled:adaptiveCheckbox.checked})){
+    adaptiveCheckbox.checked=progress.adaptiveEnabled!==false;return;
+   }
+   renderAccount();
+   if(isQuiz()&&!progress.current)renderMenu();
+  };
+ }
  document.getElementById('guestExport').onclick=()=>{
   const url=URL.createObjectURL(new Blob([JSON.stringify(progress,null,2)],{type:'application/json'}));
   const a=document.createElement('a');a.href=url;a.download='holberton-progression-invite.json';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),500);
