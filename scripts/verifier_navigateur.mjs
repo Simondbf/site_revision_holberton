@@ -364,7 +364,14 @@ try{
   'Tout sélectionner doit cocher tous les thèmes.');
  assert.match(await page.locator('.quiz-question-count').innerText(),/55 questions disponibles/);
  await page.locator('#quizThemeSummary').click();
+ await page.screenshot({path:'apercus/quiz-menu-bureau.png'});
  await page.locator('#quizStart').click();
+ await page.evaluate(()=>window.scrollTo(0,0));
+ const desktopNavQuestion=await page.locator('body > header').boundingBox();
+ const desktopQuestionTitle=await page.locator('#quiz .quiz-heading').boundingBox();
+ assert.ok(desktopNavQuestion&&desktopQuestionTitle&&desktopQuestionTitle.y>=desktopNavQuestion.y+desktopNavQuestion.height-2,
+  'Le titre de la question empiète sur la navigation sur ordinateur.');
+ await page.screenshot({path:'apercus/quiz-question-bureau.png'});
  assert.deepEqual(await page.evaluate(()=>JSON.parse(localStorage.getItem('holberton-quiz-guest-v1')).current.family),['argc','stdarg'],
   'La sélection de plusieurs thèmes doit être enregistrée.');
  assert.equal(await page.locator('#quiz .quiz-choice').count()>=4,true);
