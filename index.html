@@ -265,6 +265,25 @@ body.dark .lesson-visual figcaption{color:#c5d9e7}
 .quiz-adaptive-settings .quiz-adaptive-label{display:flex;align-items:center;gap:10px;cursor:pointer}
 .quiz-adaptive-settings input[type=checkbox]{width:19px;height:19px;accent-color:var(--primary);flex-shrink:0}
 .quiz-adaptive-settings .quiz-adaptive-label:focus-within{outline:2px solid var(--primary);outline-offset:4px;border-radius:4px}
+
+/* Liste déroulante multithème : recherche, actions groupées et défilement interne. */
+.quiz-theme-container{grid-column:1/-1;min-width:0;max-width:560px}
+.quiz-theme-heading{margin:0 0 8px;font-weight:800}
+.quiz-theme-dropdown{position:relative;width:100%}
+.quiz-theme-dropdown summary{cursor:pointer;padding:12px 15px;border:1px solid var(--line);border-radius:10px;background:var(--surface-alt);font-weight:750;line-height:1.5}
+.quiz-theme-dropdown summary:focus-visible{outline:3px solid var(--primary);outline-offset:2px}
+.quiz-theme-dropdown[open] summary{border-color:var(--primary)}
+.quiz-theme-panel{position:absolute;left:0;right:0;z-index:20;top:calc(100% + 5px);display:grid;gap:11px;padding:14px;border:1px solid var(--line);border-radius:12px;background:var(--surface);box-shadow:var(--shadow)}
+.quiz-theme-panel>label{font-weight:700}
+.quiz-theme-panel input[type=search]{width:100%;min-width:0;font:inherit;padding:10px 12px;border-radius:9px;border:1px solid var(--line);background:var(--surface-alt);color:var(--text)}
+.quiz-theme-actions{display:flex;flex-wrap:wrap;gap:9px}
+.quiz-theme-actions button{font:inherit;cursor:pointer;color:var(--text);background:var(--surface-alt);border:1px solid var(--line);border-radius:8px;padding:8px 11px;font-size:13px;font-weight:700}
+.quiz-theme-actions button:focus-visible,.quiz-theme-panel input[type=search]:focus-visible{outline:2px solid var(--primary);outline-offset:2px}
+.quiz-theme-panel .quiz-theme-selection{display:block;min-width:0;max-height:min(38vh,300px);overflow-y:auto;padding:6px;border:1px solid var(--line);border-radius:8px}
+.quiz-theme-panel .quiz-theme-selection label{display:flex;align-items:center;gap:10px;padding:9px 8px;margin:1px 0;overflow-wrap:anywhere}
+.quiz-theme-panel .quiz-theme-selection label[hidden],#quizThemeNoMatch[hidden]{display:none}
+#quizThemeNoMatch{margin:0}
+@media(max-width:680px){.quiz-theme-panel{padding:10px}.quiz-theme-panel .quiz-theme-selection{max-height:40vh}}
 </style>
 <!-- FIN QUIZ CSS INTEGRE -->
 </head>
@@ -1490,7 +1509,7 @@ renderTopics();renderSidebar();window.addEventListener('hashchange',renderRoute)
 const STORAGE_KEY='holberton-quiz-guest-v1';
 const MAX_HISTORY=60;
 const normalizeFeedbackMode=mode=>mode==='end'?'end':'immediate';
-const emptyProgress=()=>({version:1,current:null,history:[],stats:{},seen:{},feedbackMode:'immediate',adaptiveEnabled:true});
+const emptyProgress=()=>({version:1,current:null,history:[],stats:{},seen:{},feedbackMode:'immediate',adaptiveEnabled:false,adaptivePreferenceVersion:2});
 function normalizeProgress(data){
  const fresh=emptyProgress();
  if(!data||typeof data!=='object'||data.version!==1)return fresh;
@@ -1501,7 +1520,8 @@ function normalizeProgress(data){
   stats:data.stats&&typeof data.stats==='object'?data.stats:{},
   seen:data.seen&&typeof data.seen==='object'?data.seen:{},
   feedbackMode:normalizeFeedbackMode(data.feedbackMode),
-  adaptiveEnabled:data.adaptiveEnabled!==false
+  adaptiveEnabled:data.adaptivePreferenceVersion===2&&data.adaptiveEnabled===true,
+  adaptivePreferenceVersion:2
  };
 }
 function readProgress(storage){
@@ -1539,7 +1559,7 @@ function matchesAnswer(given,answer){
  if(!Array.isArray(given)||!given.length||new Set(given).size!==given.length)return false;
  return given.length===answer.length && given.every(x=>answer.includes(x));
 }
-function selectQuestions(bank,{family='all',families=null,amount=10,stats={},seen={},random=Math.random,adaptive=true}={}){
+function selectQuestions(bank,{family='all',families=null,amount=10,stats={},seen={},random=Math.random,adaptive=false}={}){
  const chosen=Array.isArray(families)?new Set(families):family==='all'?null:new Set([family]);
  const eligible=bank.filter(q=>!chosen||chosen.has(q.family));
  if(!adaptive){
@@ -1582,7 +1602,7 @@ function shuffleOptionIds(options,random=Math.random){
  }
  return ids;
 }
-function newSession(questions,family='all',now=new Date(),random=Math.random,feedbackMode='immediate',adaptiveEnabled=true){
+function newSession(questions,family='all',now=new Date(),random=Math.random,feedbackMode='immediate',adaptiveEnabled=false){
  if(!questions.length)throw Error('Aucune question disponible');
  // Le tirage est renouvelé pour chaque session, mais enregistré pour pause/reprise.
  const optionOrder=Object.fromEntries(questions.map(q=>[q.id,shuffleOptionIds(q.options,random)]));
@@ -1664,7 +1684,7 @@ const escape=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>'
 const formatInline=s=>escape(s).replace(/\x60([^\x60]+)\x60/g,'<code>$1</code>');
 const isQuiz=()=>location.hash.split('/')[0]==='#quiz';
 const isAccountActive=()=>document.documentElement.dataset.holbertonAccount==='connected';
-const useAdaptivePriority=()=>isAccountActive()&&progress.adaptiveEnabled!==false;
+const useAdaptivePriority=()=>isAccountActive()&&progress.adaptiveEnabled===true;
 const feedbackMode=mode=>mode==='end'?'end':'immediate';
 function persist(next){
  if(!writeProgress(localStorage,next)){
@@ -1695,13 +1715,24 @@ function linkCourse(q){
 }
 function renderMenu(){
  const info=progressSummary(progress),running=progress.current&&progress.current.questionIds?.length;
+ const themeNames={argc:'argc et argv',stdarg:'stdarg.h et fonctions variadiques'};
+ const themeIds=[...new Set(bank.map(q=>q.family))];
+ const themeLabel=id=>themeNames[id]||id;
  const timingControl=isAccountActive()?
   '<p class="quiz-muted quiz-timing-note">Le moment d’affichage des corrigés se règle dans l’onglet Compte.</p>':
   '<label for="quizFeedbackMode">Afficher les réponses et explications'+
   '<select id="quizFeedbackMode"><option value="immediate">Après chaque question (par défaut)</option><option value="end">À la fin de la session</option></select></label>';
  page('Réviser librement','55 questions sur argc/argv et stdarg.h. Aucune durée ni quantité imposée : termine ta session quand tu veux. '+(useAdaptivePriority()?'Les notions difficiles sont privilégiées.':'Les questions sont tirées au sort sans priorité adaptative.'),
  (running?'<div class="quiz-card"><strong>Session enregistrée</strong><p>'+Object.keys(progress.current.answers||{}).length+' réponse(s) déjà enregistrée(s).</p><button id="quizResume" class="quiz-primary">Reprendre</button></div>':'')+
- '<div class="quiz-card quiz-start"><fieldset class="quiz-theme-selection"><legend>Thèmes à réviser (un ou plusieurs)</legend>'+[...new Set(bank.map(q=>q.family))].map(id=>'<label><input type="checkbox" name="quizTheme" value="'+escape(id)+'" '+(!families||families.includes(id)?'checked':'')+'> '+escape(({argc:'argc et argv',stdarg:'stdarg.h et fonctions variadiques'})[id]||id)+'</label>').join('')+'</fieldset><p id="quizThemeError" class="quiz-error" role="alert" hidden>Sélectionne au moins un thème.</p>'+timingControl+
+ '<div class="quiz-card quiz-start"><div class="quiz-theme-container"><p class="quiz-theme-heading">Thèmes à réviser (un ou plusieurs)</p>'+
+ '<details class="quiz-theme-dropdown" id="quizThemeDropdown"><summary id="quizThemeSummary">Tous les thèmes</summary>'+
+ '<div class="quiz-theme-panel"><label for="quizThemeSearch">Rechercher un thème</label>'+
+ '<input id="quizThemeSearch" type="search" placeholder="Rechercher..." autocomplete="off">'+
+ '<div class="quiz-theme-actions"><button type="button" id="quizThemeAll">Tout sélectionner</button><button type="button" id="quizThemeNone">Tout désélectionner</button></div>'+
+ '<fieldset class="quiz-theme-selection"><legend class="sr-only">Sélection des thèmes</legend>'+
+ themeIds.map(id=>'<label><input type="checkbox" name="quizTheme" value="'+escape(id)+'" '+(!families||families.includes(id)?'checked':'')+'> '+escape(themeLabel(id))+'</label>').join('')+'</fieldset>'+
+ '<p id="quizThemeNoMatch" class="quiz-muted" hidden>Aucun thème correspondant.</p></div></details></div>'+
+ '<p id="quizThemeError" class="quiz-error" role="alert" hidden>Sélectionne au moins un thème.</p>'+timingControl+
  '<p class="quiz-muted">Pas de nombre de questions prédéfini : tu peux faire une pause ou afficher ton bilan après chaque réponse.</p>'+
  '<button class="quiz-primary" id="quizStart">Démarrer</button></div>'+
  '<div class="quiz-stats"><span>'+info.sessions+' session(s)</span><span>'+info.answered+' question(s) traitée(s)</span><span>'+info.notions+' notion(s) révisée(s)</span></div>'+
@@ -1712,8 +1743,26 @@ function renderMenu(){
   const count=bank.filter(q=>selected.has(q.family)).length;
   const indicator=root.querySelector('.quiz-question-count');
   if(indicator)indicator.textContent=count+' question'+(count>1?'s':'')+' disponible'+(count>1?'s':'');
+  const summary=document.getElementById('quizThemeSummary');
+  summary.textContent=selected.size===themeIds.length?'Tous les thèmes ('+selected.size+')':
+   selected.size===0?'Aucun thème sélectionné':
+   selected.size===1?themeLabel([...selected][0]):
+   selected.size+' thèmes sélectionnés';
   document.getElementById('quizThemeError').hidden=selected.size>0;
  };
+ const search=document.getElementById('quizThemeSearch');
+ search.addEventListener('input',()=>{
+  const term=search.value.trim().toLocaleLowerCase('fr');
+  let visible=0;
+  for(const input of themeBoxes){
+   const label=input.closest('label');
+   label.hidden=!label.textContent.toLocaleLowerCase('fr').includes(term);
+   if(!label.hidden)visible++;
+  }
+  document.getElementById('quizThemeNoMatch').hidden=visible>0;
+ });
+ document.getElementById('quizThemeAll').onclick=()=>{themeBoxes.forEach(input=>input.checked=true);updateAvailable()};
+ document.getElementById('quizThemeNone').onclick=()=>{themeBoxes.forEach(input=>input.checked=false);updateAvailable()};
  themeBoxes.forEach(input=>input.addEventListener('change',updateAvailable));
  updateAvailable();
  const timing=document.getElementById('quizFeedbackMode');
@@ -1878,7 +1927,7 @@ function renderAccount(){
  '<select id="accountQuizFeedbackMode"><option value="immediate">Après chaque question</option><option value="end">À la fin de la session</option></select>'+
  '<p class="quiz-muted">Ce réglage s’applique aux prochaines sessions. Il est sauvegardé dans ta progression'+(isAccountActive()?' et peut être synchronisé avec ton compte.': ' sur cet appareil.')+'</p></div>'+
  (isAccountActive()?
-  '<div class="quiz-feedback-settings quiz-adaptive-settings"><label class="quiz-adaptive-label" for="accountQuizAdaptiveEnabled"><input type="checkbox" id="accountQuizAdaptiveEnabled"> Priorité aux notions en difficulté</label><p class="quiz-muted">Activée par défaut pour les comptes connectés. Tu peux la désactiver pour obtenir un tirage aléatoire, sans préférence liée à tes erreurs. Le choix s’applique aux prochaines sessions.</p></div>':
+  '<div class="quiz-feedback-settings quiz-adaptive-settings"><label class="quiz-adaptive-label" for="accountQuizAdaptiveEnabled"><input type="checkbox" id="accountQuizAdaptiveEnabled"> Priorité aux notions en difficulté</label><p class="quiz-muted">Désactivée par défaut : les questions sont aléatoires pour tous. Tu peux activer la priorité aux notions difficiles. Le choix s’applique aux prochaines sessions.</p></div>':
   '<p class="quiz-muted">En mode invité, les questions sont tirées au sort sans priorité adaptative.</p>')+
  '<div class="quiz-actions"><button id="guestExport" class="quiz-secondary">Exporter ma progression</button><button id="guestClear" class="quiz-secondary quiz-danger">Effacer ma progression quiz</button></div>';
  const accountTiming=document.getElementById('accountQuizFeedbackMode');
@@ -1890,10 +1939,10 @@ function renderAccount(){
  };
  const adaptiveCheckbox=document.getElementById('accountQuizAdaptiveEnabled');
  if(adaptiveCheckbox){
-  adaptiveCheckbox.checked=progress.adaptiveEnabled!==false;
+  adaptiveCheckbox.checked=progress.adaptiveEnabled===true;
   adaptiveCheckbox.onchange=()=>{
    if(!persist({...progress,adaptiveEnabled:adaptiveCheckbox.checked})){
-    adaptiveCheckbox.checked=progress.adaptiveEnabled!==false;return;
+    adaptiveCheckbox.checked=progress.adaptiveEnabled===true;return;
    }
    renderAccount();
    if(isQuiz()&&!progress.current)renderMenu();
