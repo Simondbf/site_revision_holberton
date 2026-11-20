@@ -219,7 +219,7 @@
       }
     },
     "V1-N09_076-05": {
-      "prompt": "En C, une chaîne se termine par `\\0`, tandis que la liste `argv` se termine par un pointeur nul. Quelles propositions respectent cette différence ?",
+      "prompt": "Quelles affirmations distinguent correctement la fin d'une chaîne de caractères C et la fin du tableau d'arguments `argv` ?",
       "feedback": {
         "A": "La chaîne est terminée par un caractère nul, non un pointeur nul.",
         "B": "Chaque chaîne argv[i] valide possède le caractère '\\0' final.",
@@ -347,7 +347,7 @@
       }
     },
     "VAR-08-033-04": {
-      "prompt": "La macro `va_arg` lit un argument variable à la fois. Quelles affirmations décrivent correctement son fonctionnement ?",
+      "prompt": "Lorsqu'une fonction utilise `va_arg` pour récupérer des arguments variables, quelles affirmations sont exactes ?",
       "feedback": {
         "A": "Chaque va_arg avance à l’argument suivant.",
         "B": "Aucune vérification automatique de fin de liste n’est fournie.",
