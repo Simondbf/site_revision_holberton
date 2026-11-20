@@ -24,7 +24,7 @@ export function checkBank(questions){
   if(!q.id||ids.has(q.id))throw Error('Identifiant de question dupliqué : '+q.id);
   ids.add(q.id);
   if(!q.notion_id||!q.prompt||!q.explanation||!Array.isArray(q.options)||!Array.isArray(q.correct_option_ids))throw Error('Question incomplète : '+q.id);
-  if(q.options.length<4||q.options.length>5||new Set(q.options.map(o=>o.text)).size!==q.options.length)throw Error('Choix incohérents : '+q.id);
+  if(q.options.length<3||q.options.length>5||new Set(q.options.map(o=>o.text)).size!==q.options.length)throw Error('Choix incohérents : '+q.id);
   if(!['single','multiple'].includes(q.answer_mode))throw Error('Mode inconnu : '+q.id);
   const optionIds=q.options.map(x=>x.id);
   if(optionIds.join('')!=='ABCDE'.slice(0,q.options.length))throw Error('Options non standard : '+q.id);
