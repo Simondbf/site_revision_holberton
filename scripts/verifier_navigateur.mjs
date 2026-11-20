@@ -459,6 +459,84 @@ try{
  assert.ok(await page.locator('#quiz .quiz-correct-answers li').count()>0,
   'Une erreur doit afficher les réponses attendues.');
 
+ // Correction différée : ne pas révéler la réponse avant le bilan, même en cas d'erreur.
+ await page.locator('#quizPause').click();
+ await page.locator('#quizFeedbackMode').selectOption('end');
+ assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('holberton-quiz-guest-v1')).feedbackMode),'end',
+  'Le choix invité doit être enregistré localement.');
+ await page.reload();
+ await page.locator('#quizFeedbackMode').waitFor({state:'visible'});
+ assert.equal(await page.locator('#quizFeedbackMode').inputValue(),'end',
+  'Le choix invité doit survivre au rechargement.');
+ page.once('dialog',dialog=>dialog.accept());
+ await page.locator('#quizStart').click();
+ const currentTotal=await page.evaluate(()=>JSON.parse(localStorage.getItem('holberton-quiz-guest-v1')).current.questionIds.length);
+ assert.equal(await page.locator('#quiz .quiz-question-count').innerText(),'Question 1 / '+currentTotal,
+  'Le compteur doit être visible en haut à droite.');
+ const endWrong=await page.evaluate(()=>{
+  const p=JSON.parse(localStorage.getItem('holberton-quiz-guest-v1')).current;
+  const a=JSON.parse(document.getElementById('quiz-argc-bank').textContent);
+  const v=JSON.parse(document.getElementById('quiz-variadic-bank').textContent);
+  const q=[...a.questions,...v.questions].find(q=>q.id===p.questionIds[0]);
+  return q.options.find(o=>!q.correct_option_ids.includes(o.id)).id;
+ });
+ await page.locator('#quiz .quiz-choice input[value="'+endWrong+'"]').check();
+ await page.locator('#quizSubmit').click();
+ assert.ok(await page.locator('#quiz .quiz-pending').isVisible(),
+  'Le mode différé doit afficher seulement un accusé d’enregistrement.');
+ assert.equal(await page.locator('#quiz .quiz-correct-answers li').count(),0,
+  'La bonne réponse ne doit pas être révélée prématurément.');
+ assert.equal(await page.locator('#quiz .quiz-choice.correct').count(),0,
+  'Aucune proposition ne doit être marquée correcte en mode différé.');
+ await page.locator('#quizNext').click();
+ assert.equal(await page.locator('#quiz .quiz-question-count').innerText(),'Question 2 / '+currentTotal,
+  'Le compteur doit avancer avec la question.');
+ await page.locator('#quizDontKnow').check();
+ await page.locator('#quizSubmit').click();
+ assert.ok(await page.locator('#quiz .quiz-pending').isVisible(),
+  'Je ne sais pas ne doit pas révéler le corrigé en mode différé.');
+ assert.equal(await page.locator('#quiz .quiz-option-reasons li').count(),0,
+  'Les explications sont réservées à la fin de session.');
+ await page.locator('#quizFinish').click();
+ assert.match(await page.locator('#quiz .quiz-score').innerText(),/\/ 2/,
+  'Le bilan différé doit compter la réponse erronée et la question passée.');
+ assert.equal(await page.locator('#quiz .quiz-review-question').count(),2,
+  'Le bilan différé doit contenir une correction par question traitée.');
+ await page.locator('#quiz .quiz-review-question').first().locator('summary').click();
+ assert.ok(await page.locator('#quiz .quiz-review-question').first().locator('.quiz-option-reasons li').count()>=4,
+  'Le bilan doit expliquer les choix de la première question.');
+ await page.locator('#quiz .quiz-review-question').nth(1).locator('summary').click();
+ assert.match(await page.locator('#quiz .quiz-review-question').nth(1).innerText(),/Je ne sais pas/,
+  'Le bilan doit également corriger les questions passées.');
+
+ // Contrat de la future connexion : le réglage quitte l'onglet Quiz et reste dans Compte.
+ await page.locator('#quizAgain').click();
+ await page.evaluate(()=>{
+  document.documentElement.dataset.holbertonAccount='connected';
+  window.dispatchEvent(new Event('holberton:account:status'));
+ });
+ assert.equal(await page.locator('#quizFeedbackMode').count(),0,
+  'Un compte connecté ne doit plus afficher le sélecteur dans le quiz.');
+ await page.evaluate(()=>{location.hash='#compte'});
+ assert.ok(await page.locator('#accountQuizFeedbackMode').isVisible(),
+  'Le choix du moment du corrigé doit être disponible depuis Compte.');
+ await page.locator('#accountQuizFeedbackMode').selectOption('immediate');
+ assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('holberton-quiz-guest-v1')).feedbackMode),'immediate',
+  'Le réglage dans Compte doit être persisté pour les prochaines sessions.');
+ await page.evaluate(()=>{location.hash='#quiz'});
+ assert.equal(await page.locator('#quizFeedbackMode').count(),0,
+  'Le réglage ne doit pas réapparaître sur Quiz en mode connecté.');
+ await page.locator('#quizStart').click();
+ assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('holberton-quiz-guest-v1')).current.feedbackMode),'immediate',
+  'Le quiz doit utiliser le réglage du compte pour la nouvelle session.');
+ await page.locator('#quizPause').click();
+ await page.evaluate(()=>{
+  document.documentElement.dataset.holbertonAccount='guest';
+  window.dispatchEvent(new Event('holberton:account:status'));
+ });
+ assert.ok(await page.locator('#quizFeedbackMode').isVisible(),
+  'Un invité doit retrouver son réglage directement dans le quiz.');
+
  // Le comportement mobile existant reste préservé, sans refonte de l'interface.
  const mobile=await browser.newPage({viewport:{width:390,height:844},isMobile:true,hasTouch:true});
  mobile.on('pageerror',e=>errors.push('Mobile : '+e.message));
