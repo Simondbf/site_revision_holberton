@@ -49,16 +49,18 @@ export function matchesAnswer(given,answer){
  if(!Array.isArray(given)||!given.length||new Set(given).size!==given.length)return false;
  return given.length===answer.length && given.every(x=>answer.includes(x));
 }
-export function selectQuestions(bank,{family='all',amount=10,stats={},seen={},random=Math.random}={}){
- const eligible=bank.filter(q=>family==='all'||q.family===family);
+export function selectQuestions(bank,{family='all',families=null,amount=10,stats={},seen={},random=Math.random}={}){
+ const chosen=Array.isArray(families)?new Set(families):family==='all'?null:new Set([family]);
+ const eligible=bank.filter(q=>!chosen||chosen.has(q.family));
  const groups=new Map();
  for(const q of eligible){if(!groups.has(q.notion_id))groups.set(q.notion_id,[]);groups.get(q.notion_id).push(q)}
  const entries=[...groups].map(([notionId,items])=>{
    const s=stats[notionId]||{};
    const attempts=Number(s.attempts)||0,errors=Number(s.errors)||0;
    const priority=attempts?errors/attempts:0.6;
-   return {id:notionId,priority,items:items.map(q=>({q,rand:random()})).sort((a,b)=>(Number(seen[a.q.id])||0)-(Number(seen[b.q.id])||0)||a.rand-b.rand).map(x=>x.q)};
- }).sort((a,b)=>b.priority-a.priority||a.id.localeCompare(b.id));
+   return {id:notionId,priority,tie:random(),items:items.map(q=>({q,rand:random()})).sort((a,b)=>(Number(seen[a.q.id])||0)-(Number(seen[b.q.id])||0)||a.rand-b.rand).map(x=>x.q)};
+ }).sort((a,b)=>b.priority-a.priority||a.tie-b.tie);
+ // L'adaptation conserve les notions faibles prioritaires ; à priorité égale, leur ordre est tiré au sort.
  const result=[];
  while(result.length<Math.min(amount,eligible.length)&&entries.some(x=>x.items.length)){
   for(const entry of entries){
@@ -83,7 +85,7 @@ export function newSession(questions,family='all',now=new Date(),random=Math.ran
  if(!questions.length)throw Error('Aucune question disponible');
  // Le tirage est renouvelé pour chaque session, mais enregistré pour pause/reprise.
  const optionOrder=Object.fromEntries(questions.map(q=>[q.id,shuffleOptionIds(q.options,random)]));
- return {version:1,id:'guest-'+now.getTime()+'-'+Math.random().toString(36).slice(2,9),family,createdAt:now.toISOString(),questionIds:questions.map(q=>q.id),cursor:0,answers:{},optionOrder,feedbackMode:normalizeFeedbackMode(feedbackMode)};
+ return {version:1,id:'guest-'+now.getTime()+'-'+Math.random().toString(36).slice(2,9),family:Array.isArray(family)?[...family]:family,createdAt:now.toISOString(),questionIds:questions.map(q=>q.id),cursor:0,answers:{},optionOrder,feedbackMode:normalizeFeedbackMode(feedbackMode)};
 }
 export function applyAnswer(session,question,selected,now=new Date()){
  if(!session.questionIds.includes(question.id)||session.answers[question.id])throw Error('Réponse déjà enregistrée ou question inconnue');

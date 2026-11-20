@@ -32,3 +32,11 @@
 .quiz-review-content h4{margin:15px 0 8px}
 .quiz-review-content p{line-height:1.7}
 @media(max-width:680px){.quiz-question-count{font-size:12px;padding:7px 11px}}
+
+/* Sélection accessible de plusieurs thèmes sur ordinateur et mobile. */
+.quiz-theme-selection{grid-column:1/-1;display:flex;align-items:center;gap:10px 14px;flex-wrap:wrap;min-width:0;border:1px solid var(--line);padding:12px 14px;border-radius:12px}
+.quiz-theme-selection legend{font-weight:800;padding:0 6px}
+.quiz-start .quiz-theme-selection label{display:inline-flex;align-items:center;gap:9px;font-weight:650;padding:6px 9px;cursor:pointer}
+.quiz-theme-selection input{accent-color:var(--primary);width:18px;height:18px}
+.quiz-theme-selection label:focus-within{outline:2px solid var(--primary);outline-offset:2px;border-radius:6px}
+#quizThemeError{grid-column:1/-1;margin:0}

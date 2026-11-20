@@ -297,7 +297,19 @@ try{
  assert.doesNotMatch(await page.locator('#quiz .quiz-app').innerText(),/VERSION TEST|relecture pédagogique|ne constituent pas une certification/,
   'La page publique ne doit plus prétendre que les questions restent en relecture.');
  assert.equal(await page.locator('#quizCount').count(),0,'Le choix imposé de 5/10/20 questions doit être absent.');
+ const themes=page.locator('input[name="quizTheme"]');
+ assert.equal(await themes.count(),2,'Deux thèmes doivent être proposés séparément.');
+ assert.equal(await page.locator('input[name="quizTheme"]:checked').count(),2,'Les deux thèmes sont sélectionnés par défaut.');
+ await themes.nth(1).uncheck();
+ assert.match(await page.locator('.quiz-question-count').innerText(),/25 questions disponibles/);
+ await themes.nth(0).uncheck();
  await page.locator('#quizStart').click();
+ assert.ok(await page.locator('#quizThemeError').isVisible(),'Aucun quiz ne doit démarrer sans thème.');
+ await themes.nth(0).check();await themes.nth(1).check();
+ assert.match(await page.locator('.quiz-question-count').innerText(),/55 questions disponibles/);
+ await page.locator('#quizStart').click();
+ assert.deepEqual(await page.evaluate(()=>JSON.parse(localStorage.getItem('holberton-quiz-guest-v1')).current.family),['argc','stdarg'],
+  'La sélection de plusieurs thèmes doit être enregistrée.');
  assert.equal(await page.locator('#quiz .quiz-choice').count()>=4,true);
  assert.ok(await page.locator('#quizDontKnow').isVisible(),'Je ne sais pas doit être disponible pour chaque question.');
  const firstHelp=await page.evaluate(()=>{
