@@ -54,6 +54,10 @@ try{
 
  // Les post-it gardent leur définition et n'ouvrent plus de fenêtre superposée.
  await page.goto(origin+'/#theme/'+slug(topicName));
+ assert.equal(await page.locator('body.dark').count(),0,
+  'Un visiteur sans préférence doit démarrer en mode clair.');
+ assert.equal(await page.locator('#courseSidebar').innerText().then(t=>t.includes('CATÉGORIES ET NOTIONS')),false,
+  'Le sous-titre redondant du sommaire doit avoir disparu.');
  const cards=page.locator('#definitions article.def');
  assert.equal(await cards.count(),expectedCards,'Le thème doit afficher tous ses post-it.');
  assert.match(await cards.first().innerText(),/Variable dont la valeur est une adresse/);
@@ -161,6 +165,28 @@ try{
  await page.waitForFunction(()=>location.hash==='#fiches');
  assert.equal(await page.locator('#search').inputValue(),'modulo','La recherche doit rester remplie.');
  assert.ok(await page.locator('#results article.def').count()>0,'Les résultats doivent être restaurés.');
+ assert.ok(await page.locator('#searchClear').isVisible(),
+  'La croix de recherche doit apparaître quand une valeur est saisie.');
+ assert.equal(await page.locator('#quickSearch').inputValue(),'modulo',
+  'La barre de recherche du haut doit être synchronisée.');
+ await page.locator('#searchClear').click();
+ assert.equal(await page.locator('#search').inputValue(),'');
+ assert.equal(await page.locator('#quickSearch').inputValue(),'');
+ assert.equal(await page.locator('#searchClear').isVisible(),false);
+ assert.ok(await page.locator('#cards .topic').count()>0,
+  'Effacer une recherche doit restaurer la liste des thèmes.');
+ await page.locator('#quickSearch').fill('printf');
+ assert.ok(await page.locator('#quickSearchClear').isVisible(),
+  'La croix de recherche de l’en-tête doit apparaître.');
+ await page.locator('#quickSearchClear').click();
+ assert.equal(await page.locator('#quickSearch').inputValue(),'');
+ assert.equal(await page.locator('#search').inputValue(),'');
+ await page.locator('#theme').click();
+ assert.equal(await page.locator('body.dark').count(),1,
+  'Le thème sombre doit rester activable.');
+ await page.locator('#theme').click();
+ assert.equal(await page.locator('body.dark').count(),0,
+  'Revenir au thème clair doit fonctionner.');
 
  // Les favoris ne sont plus proposés ; les anciennes URL sont redirigées vers les fiches.
  await page.goto(origin+'/#theme/pointeurs-et-tableaux-c');
