@@ -42,9 +42,13 @@ assert.ok(total >= 242, 'Des fiches semblent avoir disparu');
 assert.ok(Object.keys(aide).length > 0, 'Analogies pédagogiques manquantes');
 
 const scripts = [...html.matchAll(/<script(?![^>]*type="application\/json")(?![^>]*\bsrc=)[^>]*>([\s\S]*?)<\/script>/g)];
-assert.equal(scripts.length, 1, 'Le site doit conserver un unique script principal intégré, les modules externes sont autorisés');
-assert.ok(html.includes('<script type="module" src="./quiz/engine.mjs"></script>'),'Module quiz introuvable');
-new Script(scripts[0][1], { filename: 'site.js' }); // Analyse syntaxique sans exécuter le code.
+assert.equal(scripts.length, 2, 'Un script principal et un module quiz intégrés sont attendus');
+assert.ok(html.includes('<script type="module" id="quiz-inline-module">'),'Module quiz autonome introuvable');
+assert.ok(html.includes('id="quiz-inline-style"'),'CSS quiz autonome introuvable');
+assert.ok(html.includes('id="quiz-argc-bank"')&&html.includes('id="quiz-variadic-bank"'),'Banques de quiz intégrées manquantes');
+assert.ok(!html.includes('src="./quiz/engine.mjs"'),'Le quiz publié ne doit pas nécessiter un module externe');
+new Script(scripts[0][1], { filename: 'site.js' }); // Analyse syntaxique du script principal.
+assert.ok(scripts[1][1].includes('function renderQuestion()'),'Moteur de quiz absent du module intégré');
 assert.ok(html.includes('id="quickSearch"'), 'Recherche globale absente');
 assert.ok(!html.includes('id="conceptDialog"'), 'Les anciennes fenêtres superposées doivent être supprimées');
 assert.ok(html.includes('data-course-link'), 'Post-it sans accès direct au cours');
