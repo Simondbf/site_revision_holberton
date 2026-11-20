@@ -1237,13 +1237,13 @@ function visualRecursionLesson(ii){
   vals.forEach(({n,v},i)=>{
    const x=20+i*140;
    parts.push(visualBox(x,76,120,103,i===0?"#e8f7ed":"#eaf6ff"));
-   parts.push(visualText(x+60,110,"somme("+n+")","vtext vlabel"));
+   parts.push(visualText(x+60,110,"s("+n+")","vtext vlabel"));
    parts.push(visualText(x+60,150,"retour "+v,"vtext vlabel"));
    if(i<4)parts.push(visualArrow(x+121,129,x+139,129));
   });
   parts.push(visualText(345,218,"Remontée : 0 → 1 → 3 → 6 → 10","vblue vlabel"));
   return visualFigure("Remontée des valeurs : du cas de base au résultat",
-   "Les appels somme(4) jusqu'à somme(0) descendent avant que les valeurs 0, 1, 3, 6 et 10 remontent.",parts.join(""));
+   "Ici s désigne somme_pile : les appels s(4) à s(0) descendent, puis les valeurs 0, 1, 3, 6 et 10 remontent.",parts.join(""));
  }
  return "";
 }
