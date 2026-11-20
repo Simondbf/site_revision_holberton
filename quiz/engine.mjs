@@ -1,4 +1,4 @@
-import {readProgress,writeProgress,emptyProgress,checkBank,combineCandidates,selectQuestions,newSession,applyAnswer,completeSession,finishSession,progressSummary} from './core.mjs';
+import {readProgress,writeProgress,emptyProgress,checkBank,combineCandidates,selectQuestions,shuffleOptionIds,newSession,applyAnswer,completeSession,finishSession,progressSummary} from './core.mjs';
 const root=document.getElementById('quiz'),account=document.getElementById('account');
 if(!root||!account)throw Error('Pages Compte et Quiz absentes.');
 let bank=[],progress=readProgress(localStorage),loading=true,error='',family='all',paused=false,lastReport=null;
@@ -53,15 +53,26 @@ function renderMenu(){
  };
 }
 function renderQuestion(){
- const session=progress.current;
+ let session=progress.current;
  if(!session?.questionIds?.length){renderMenu();return}
  const index=session.cursor||0,q=findQuestion(session.questionIds[index]);
  if(!q){renderMenu();return}
+ // Compatibilité des anciennes sessions : créer puis conserver un ordre une seule fois.
+ const ids=q.options.map(option=>option.id);
+ let order=session.optionOrder?.[q.id];
+ if(!Array.isArray(order)||order.length!==ids.length||new Set(order).size!==ids.length||!order.every(id=>ids.includes(id))){
+  order=shuffleOptionIds(q.options);
+  session={...session,optionOrder:{...session.optionOrder,[q.id]:order}};
+  if(!persist({...progress,current:session}))return;
+ }
+ const optionById=new Map(q.options.map(option=>[option.id,option]));
  const given=session.answers[q.id],answered=!!given,mode=q.answer_mode==='single'?'Une seule bonne réponse':'Plusieurs bonnes réponses';
- const options=q.options.map(o=>{
+ const options=order.map((id,position)=>{
+  const o=optionById.get(id);
   const selected=given?.selected?.includes(o.id)||false,correct=q.correct_option_ids.includes(o.id);
   const cls=answered?(correct?' correct':selected?' incorrect':''):'';
-  return '<label class="quiz-choice'+cls+'"><input name="quiz-answer" type="'+(q.answer_mode==='single'?'radio':'checkbox')+'" value="'+escape(o.id)+'" '+(selected?'checked ':'')+(answered?'disabled':'')+'><b>'+escape(o.id)+'</b><span>'+escape(o.text)+'</span></label>';
+  // Les lettres indiquent la POSITION affichée ; les identifiants d'origine restent utilisés pour la notation.
+  return '<label class="quiz-choice'+cls+'"><input name="quiz-answer" type="'+(q.answer_mode==='single'?'radio':'checkbox')+'" value="'+escape(o.id)+'" '+(selected?'checked ':'')+(answered?'disabled':'')+'><b>'+String.fromCharCode(65+position)+'</b><span>'+escape(o.text)+'</span></label>';
  }).join('');
  const feedback=answered?'<div class="quiz-feedback '+(given.correct?'quiz-good':'quiz-bad')+'" role="status"><strong>'+(given.correct?'Réponse exacte.':'Réponse fausse ou incomplète.')+'</strong><p>'+escape(q.explanation)+'</p>'+linkCourse(q)+'</div>':'';
  page('Question '+(index+1),q.notion,
