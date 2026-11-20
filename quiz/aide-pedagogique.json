@@ -362,7 +362,7 @@
         "A": "Les arguments sont transmis dans l’ordre : int 42, puis float promu en double.",
         "B": "Cette séquence inverse l’ordre et lit le premier int comme un double.",
         "C": "float a été promu en double : va_arg(ap, float) n’est pas approprié.",
-        "D": "long double n’est pas le type promu d’un float transmis dans ..."
+        "D": "Le type transmis est double après promotion ; long double est donc incompatible avec l'argument fourni."
       }
     },
     "VAR-08-034-01": {
