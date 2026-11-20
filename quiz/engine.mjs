@@ -15,7 +15,7 @@ function persist(next){
 }
 const findQuestion=id=>bank.find(q=>q.id===id);
 function page(title,sub,body){
- root.innerHTML='<div class="quiz-app"><header class="quiz-heading"><span class="quiz-kicker">RÉVISION C · VERSION TEST</span><h2>'+escape(title)+'</h2><p>'+escape(sub)+'</p></header><div class="quiz-warning" role="note">Les réponses de cette première banque restent en relecture pédagogique. Les scores servent à t’entraîner et ne constituent pas une certification.</div>'+body+'</div>';
+ root.innerHTML='<div class="quiz-app"><header class="quiz-heading"><span class="quiz-kicker">RÉVISION C · QUIZ</span><h2>'+escape(title)+'</h2><p>'+escape(sub)+'</p></header>'+body+'</div>';
 }
 function linkCourse(q){
  const course=q.source_urls?.find(s=>s.startsWith('https://revision-hbtn.soleiljaune.be/#cours/'));
@@ -30,13 +30,13 @@ function linkCourse(q){
 }
 function renderMenu(){
  const info=progressSummary(progress),running=progress.current&&progress.current.questionIds?.length;
- page('Réviser librement','55 questions candidates sur argc/argv et stdarg.h. Aucune durée ni quantité imposée : termine ta session quand tu veux. La sélection privilégie progressivement les notions à renforcer.',
+ page('Réviser librement','55 questions sur argc/argv et stdarg.h. Aucune durée ni quantité imposée : termine ta session quand tu veux. La sélection privilégie progressivement les notions à renforcer.',
  (running?'<div class="quiz-card"><strong>Session enregistrée</strong><p>'+Object.keys(progress.current.answers||{}).length+' réponse(s) déjà enregistrée(s).</p><button id="quizResume" class="quiz-primary">Reprendre</button></div>':'')+
  '<div class="quiz-card quiz-start"><label>Thèmes<select id="quizFamily"><option value="all">Tous les thèmes</option><option value="argc">argc et argv</option><option value="stdarg">stdarg.h et fonctions variadiques</option></select></label>'+
  '<p class="quiz-muted">Pas de nombre de questions prédéfini : tu peux faire une pause ou afficher ton bilan après chaque réponse.</p>'+
  '<button class="quiz-primary" id="quizStart">Démarrer</button></div>'+
  '<div class="quiz-stats"><span>'+info.sessions+' session(s)</span><span>'+info.answered+' question(s) traitée(s)</span><span>'+info.notions+' notion(s) révisée(s)</span></div>'+
- '<p class="quiz-muted">Sans compte et sans API payante. Les données sont locales ; elles peuvent être exportées depuis Compte.</p>');
+ '<p class="quiz-muted">Sans compte : tes sessions et résultats sont sauvegardés sur cet appareil, dans ce navigateur. Tu peux les exporter depuis Compte.</p>');
  document.getElementById('quizFamily').value=family;
  document.getElementById('quizStart').onclick=()=>{
   family=document.getElementById('quizFamily').value;
@@ -127,7 +127,7 @@ function renderAccount(){
  if(!holder){holder=document.createElement('section');holder.id='guestProgress';holder.className='quiz-card quiz-account';account.querySelector('.helpgrid')?.insertAdjacentElement('afterend',holder)}
  if(!holder)return;
  const info=progressSummary(progress),last=progress.history?.at(-1);
- holder.innerHTML='<h3>Ma progression — invité</h3><p>Suivi local, sans inscription. L’historique n’est pas encore synchronisé sur le serveur.</p>'+
+ holder.innerHTML='<h3>Ma progression — invité</h3><p>Tes sessions et résultats sont sauvegardés sur cet appareil, dans ce navigateur. Ils ne sont pas synchronisés entre appareils.</p>'+
  '<div class="quiz-stats"><span>'+info.sessions+' session(s)</span><span>'+info.answered+' réponse(s)</span><span>'+info.notions+' notion(s)</span></div>'+
  (last?'<p>Dernière session : '+escape(last.correct)+' / '+escape(last.total)+' réponses exactes.</p>':'<p>Commence un quiz pour enregistrer ta première session.</p>')+
  (info.unfinished?'<p><strong>Une session peut être reprise depuis l’onglet Quiz.</strong></p>':'')+

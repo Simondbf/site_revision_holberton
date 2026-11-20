@@ -293,7 +293,9 @@ try{
  // Préversion du quiz : charger deux lots, valider une réponse, mettre en pause et reprendre.
  await page.goto(origin+'/#quiz');
  await page.locator('#quizStart').waitFor({state:'visible',timeout:15000});
- assert.match(await page.locator('#quiz .quiz-app').innerText(),/55 questions candidates/);
+ assert.match(await page.locator('#quiz .quiz-app').innerText(),/55 questions sur argc\/argv et stdarg\.h/);
+ assert.doesNotMatch(await page.locator('#quiz .quiz-app').innerText(),/VERSION TEST|relecture pédagogique|ne constituent pas une certification/,
+  'La page publique ne doit plus prétendre que les questions restent en relecture.');
  assert.equal(await page.locator('#quizCount').count(),0,'Le choix imposé de 5/10/20 questions doit être absent.');
  await page.locator('#quizStart').click();
  assert.equal(await page.locator('#quiz .quiz-choice').count()>=4,true);
@@ -340,6 +342,10 @@ try{
  await page.goto(origin+'/#compte');
  await page.locator('#guestProgress').waitFor({state:'visible'});
  assert.match(await page.locator('#guestProgress').innerText(),/1 session/,'La progression invitée n’est pas enregistrée.');
+ assert.match(await page.locator('#guestProgress').innerText(),/sur cet appareil, dans ce navigateur/,
+  'La sauvegarde invitée doit préciser cet appareil et ce navigateur.');
+ assert.doesNotMatch(await page.locator('#account').innerText(),/aucune donnée bancaire|La suppression des données locales/,
+  'Le texte hors sujet sur les banques doit être supprimé.');
  await page.screenshot({path:'apercus/quiz-compte-progression.png'});
 
  // La sauvegarde émet un événement exploitable par l'interface de synchronisation.

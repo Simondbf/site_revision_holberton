@@ -21,10 +21,13 @@ assert.ok(!html.includes('Accessible hors ligne'),'Promesse hors ligne non véri
 assert.ok(!html.includes('Consultation hors ligne.'),'Meta-description hors ligne incorrecte');
 assert.ok(!html.includes('les favoris et le thème d\'affichage sont conservés dans ton navigateur'),'Ancien libellé de données locales');
 found('Les inscriptions et les e-mails Brevo ne sont pas encore activés');
-found('315 questions candidates');
+found('55 questions sur argc/argv et stdarg.h');
 found('id="favoriteItems"');
 found('holberton-favorites-v2');
 found('holberton-dark-v2');
+found('Ta progression reste sur cet appareil.');
+assert.ok(!html.includes('La suppression des données locales et la suppression d’un futur compte'),
+ 'Ancienne phrase sur les données bancaires encore présente.');
 const scripts=[...html.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/g)];
 const app=scripts.find(m=>!/\btype="application\/json"/.test(m[1])&&!/\btype="module"/.test(m[1])&&!/\bsrc=/.test(m[1]))?.[2];
 found('id="quiz-inline-module"');
