@@ -7,3 +7,4 @@
 .account-metrics span{background:var(--surface-alt);border:1px solid var(--line);border-radius:11px;padding:11px 14px;font-size:13px}
 .account-error{color:#b34b4b;font-weight:700}.account-info{color:var(--primary);font-weight:700}
 #account .quiz-primary:disabled,#account .quiz-secondary:disabled{opacity:.5;cursor:not-allowed}
+.account-admin{margin:24px 0;max-width:100%}.account-admin h3{margin-top:0}.account-admin details{margin:15px 0}.account-admin summary{cursor:pointer;font-weight:750}.account-admin-table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}.account-admin-table th,.account-admin-table td{text-align:left;padding:9px 13px;border-bottom:1px solid var(--line)}

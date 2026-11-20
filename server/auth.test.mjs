@@ -82,3 +82,42 @@ test('Service sans SMTP : accès invité possible et inscription indisponible',a
   assert.equal((await (await fetch(base+'/api/auth/me')).json()).authenticated,false);
  }finally{await new Promise(resolve=>server.close(resolve));db.close()}
 });
+
+test('Réservé à l’administrateur : statistiques et confidentialité',async()=>{
+ const db=openDatabase(':memory:'),sent=[],origin='http://site.test';
+ const {server}=createAuthApp({db,publicOrigin:origin,secureCookies:false,adminEmail:'admin@example.org',
+  getContributorStats:async()=>({count:3,complete:true}),now:()=>Date.parse('2026-11-20T11:00:00Z'),
+  sendLoginEmail:async(to,link)=>sent.push({to,link})});
+ await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
+ const base='http://127.0.0.1:'+server.address().port;
+ async function req(path,method='GET',body,cookie){
+  const headers={};if(method==='POST')headers.Origin=origin;
+  if(body)headers['Content-Type']='application/json';if(cookie)headers.Cookie=cookie;
+  const r=await fetch(base+path,{method,headers,body:body?JSON.stringify(body):undefined});
+  return {status:r.status,body:await r.json(),cookie:r.headers.get('set-cookie')?.split(';')[0]};
+ }
+ async function login(email){
+  assert.equal((await req('/api/auth/request-link','POST',{email})).status,202);
+  return req('/api/auth/verify','POST',{token:sent.at(-1).link.split('/').at(-1)});
+ }
+ try{
+  assert.equal((await req('/api/admin/stats')).status,401);
+  assert.equal((await req('/api/analytics/visit','POST')).status,202);
+  assert.equal((await req('/api/analytics/visit','POST')).status,202);
+  const guest=await login('guest@example.org');
+  assert.equal((await req('/api/auth/me','GET',null,guest.cookie)).body.isAdmin,false);
+  assert.equal((await req('/api/admin/stats','GET',null,guest.cookie)).status,403);
+  const admin=await login('admin@example.org');
+  assert.equal((await req('/api/auth/me','GET',null,admin.cookie)).body.isAdmin,true);
+  const stats=await req('/api/admin/stats','GET',null,admin.cookie);
+  assert.equal(stats.status,200);
+  assert.equal(stats.body.visitsTotal,2);
+  assert.equal(stats.body.visitsLast30Days,2);
+  assert.match(stats.body.note,/profil de navigateur/,'Les chiffres sont des estimations par navigateur, non des visiteurs uniques.');
+  assert.equal(stats.body.registeredAccounts,2);
+  assert.equal(stats.body.accountsWithProgress,0);
+  assert.equal(stats.body.githubContributors.count,3);
+  assert.equal(stats.body.daily[0].day,'2026-11-20');
+  assert.ok(!JSON.stringify(stats.body).includes('guest@example.org'));
+ }finally{await new Promise(resolve=>server.close(resolve));db.close()}
+});
