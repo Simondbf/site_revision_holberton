@@ -238,6 +238,14 @@ body[data-fullpage="true"] #quiz .quiz-app{max-width:1280px;margin:0 auto}
 .account-competency-bar i{display:block;height:100%;background:var(--primary);border-radius:999px}
 @media(max-width:800px){.account-competencies{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:500px){.account-competencies{grid-template-columns:1fr 1fr}.account-coming-soon{padding:28px 16px}}
+
+/* Recherche : effacement accessible, cohérent avec les deux champs. */
+:root{color-scheme:light}
+.searchfield input,.header-search input{min-width:0;flex:1}
+.search-clear{display:grid;place-items:center;flex:0 0 auto;width:30px;height:30px;padding:0;border:0;border-radius:8px;background:transparent;color:var(--muted);font-size:24px;line-height:1;cursor:pointer}
+.search-clear:hover{background:var(--surface-alt);color:var(--text)}
+.search-clear:focus-visible{outline:2px solid var(--primary);outline-offset:2px}
+.search-clear[hidden]{display:none!important}
 </style>
 <!-- DEBUT QUIZ CSS INTEGRE -->
 <style id="quiz-inline-style">
@@ -315,14 +323,6 @@ body[data-fullpage="true"] #quiz .quiz-app{max-width:1280px;margin:0 auto}
 .quiz-recent-list li{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap;padding:11px 14px;border:1px solid var(--line);border-radius:9px;background:var(--surface-alt)}
 .quiz-recent-list strong{font-weight:800}
 .quiz-recent-list span{color:var(--muted);font-size:13px}
-
-/* Recherche : effacement accessible, cohérent avec les deux champs. */
-:root{color-scheme:light}
-.searchfield input,.header-search input{min-width:0;flex:1}
-.search-clear{display:grid;place-items:center;flex:0 0 auto;width:30px;height:30px;padding:0;border:0;border-radius:8px;background:transparent;color:var(--muted);font-size:24px;line-height:1;cursor:pointer}
-.search-clear:hover{background:var(--surface-alt);color:var(--text)}
-.search-clear:focus-visible{outline:2px solid var(--primary);outline-offset:2px}
-.search-clear[hidden]{display:none!important}
 </style>
 <!-- FIN QUIZ CSS INTEGRE -->
 </head>
