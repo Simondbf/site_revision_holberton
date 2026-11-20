@@ -108,7 +108,18 @@ try{
     {name:'Betty struct documentation C valid',source:'#include <stdio.h>\n'+extra['16:17'].example+'\nint main(void) { struct point p = {1, 2}; printf("%d %d\\n",p.x,p.y); return 0; }\n',output:'1 2\n'},
     {name:'typedef forward type completed',source:extra['16:18'].example+'\n',output:'1 2\n'},
     {name:'struct objet et pointeur — même membre',source:extra['16:19'].example+'\n',output:'130 130\n'},
-    {name:'include guard — double définition protégée',source:extra['16:20'].example+'\n'+extra['16:20'].example+'\n#include <stdio.h>\nint main(void) { struct point p = {1, 2}; printf("%d %d\\n", p.x, p.y); return 0; }\n',output:'1 2\n'}
+    {name:'include guard — double définition protégée',source:extra['16:20'].example+'\n'+extra['16:20'].example+'\n#include <stdio.h>\nint main(void) { struct point p = {1, 2}; printf("%d %d\\n", p.x, p.y); return 0; }\n',output:'1 2\n'},
+    {name:"Recursion 17:0 — descente",source:extra['17:0'].example+'\n',output:"2\n1\n0\n",secure:true},
+    {name:"Recursion 17:1 — cas de base",source:extra['17:1'].example+'\n',output:"6\n",secure:true},
+    {name:"Recursion 17:2 — progresser vers arret",source:extra['17:2'].example+'\n',output:"1\n3\n5\n",secure:true},
+    {name:"Recursion 17:3 — pile d appels",source:extra['17:3'].example+'\n',output:"entree 2\nentree 1\nentree 0\nsortie 0\nsortie 1\nsortie 2\n",secure:true},
+    {name:"Recursion 17:4 — remontee",source:extra['17:4'].example+'\n',output:"10\n",secure:true},
+    {name:"Recursion 17:5 — avant et apres",source:extra['17:5'].example+'\n',output:"avant 2\navant 1\napres 1\napres 2\n",secure:true},
+    {name:"Recursion 17:6 — tableau borne",source:extra['17:6'].example+'\n',output:"12\n",secure:true},
+    {name:"Recursion 17:7 — double appel",source:extra['17:7'].example+'\n',output:"8\n",secure:true},
+    {name:"Recursion 17:8 — recursion iteration",source:extra['17:8'].example+'\n',output:"6 6\n",secure:true},
+    {name:"Recursion 17:9 — profondeur bornee",source:extra['17:9'].example+'\n',output:"5\n4\nstop\n",secure:true},
+    {name:"Recursion 17:10 — terminale",source:extra['17:10'].example+'\n',output:"6\n",secure:true}
   ];
   for(const [i,test]of testsC.entries()){
     const exe=join(travail,'exemple-'+i);
