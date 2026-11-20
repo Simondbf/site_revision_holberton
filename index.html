@@ -2090,7 +2090,7 @@ async function load(){
  }catch(e){error=e.message||String(e)}
  loading=false;render();renderAccount();
 }
-window.addEventListener('hashchange',()=>{if(isQuiz())render();if(location.hash.split('/')[0]==='#compte')renderAccount()});
+window.addEventListener('hashchange',()=>{if(!isQuiz()&&!isAccountActive()){lastReport=null;lastReviewedSession=null}if(isQuiz())render();if(location.hash.split('/')[0]==='#compte')renderAccount()});
 function reloadLocalProgress(){
  progress=isAccountActive()?readProgress(localStorage):guestResumeOnly(readProgress(localStorage));
  paused=!!progress.current?.paused;
