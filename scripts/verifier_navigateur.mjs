@@ -356,10 +356,8 @@ try{
  // Notation exacte indépendante des nouvelles lettres affichées à l'écran.
  const graded=await page.evaluate(async()=>{
   const session=JSON.parse(localStorage.getItem('holberton-quiz-guest-v1')).current;
-  const [argc,stdarg]=await Promise.all([
-   fetch('/docs/quiz/vague1/section-09-pointeurs-et-tableaux-c.json').then(r=>r.json()),
-   fetch('/quiz/questions-variadiques.json').then(r=>r.json())
-  ]);
+  const argc=JSON.parse(document.getElementById('quiz-argc-bank').textContent);
+  const stdarg=JSON.parse(document.getElementById('quiz-variadic-bank').textContent);
   const id=session.questionIds[session.cursor];
   const q=[...argc.questions,...stdarg.questions].find(item=>item.id===id);
   if(!q)throw Error('Question introuvable pour la vérification de notation.');
