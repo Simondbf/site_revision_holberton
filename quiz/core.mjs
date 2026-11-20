@@ -1,6 +1,7 @@
 export const STORAGE_KEY='holberton-quiz-guest-v1';
 export const MAX_HISTORY=60;
-export const emptyProgress=()=>({version:1,current:null,history:[],stats:{},seen:{}});
+export const normalizeFeedbackMode=mode=>mode==='end'?'end':'immediate';
+export const emptyProgress=()=>({version:1,current:null,history:[],stats:{},seen:{},feedbackMode:'immediate'});
 export function normalizeProgress(data){
  const fresh=emptyProgress();
  if(!data||typeof data!=='object'||data.version!==1)return fresh;
@@ -9,7 +10,8 @@ export function normalizeProgress(data){
   current:data.current&&typeof data.current==='object'?data.current:null,
   history:Array.isArray(data.history)?data.history.slice(-MAX_HISTORY):[],
   stats:data.stats&&typeof data.stats==='object'?data.stats:{},
-  seen:data.seen&&typeof data.seen==='object'?data.seen:{}
+  seen:data.seen&&typeof data.seen==='object'?data.seen:{},
+  feedbackMode:normalizeFeedbackMode(data.feedbackMode)
  };
 }
 export function readProgress(storage){
@@ -77,11 +79,11 @@ export function shuffleOptionIds(options,random=Math.random){
  }
  return ids;
 }
-export function newSession(questions,family='all',now=new Date(),random=Math.random){
+export function newSession(questions,family='all',now=new Date(),random=Math.random,feedbackMode='immediate'){
  if(!questions.length)throw Error('Aucune question disponible');
  // Le tirage est renouvelé pour chaque session, mais enregistré pour pause/reprise.
  const optionOrder=Object.fromEntries(questions.map(q=>[q.id,shuffleOptionIds(q.options,random)]));
- return {version:1,id:'guest-'+now.getTime()+'-'+Math.random().toString(36).slice(2,9),family,createdAt:now.toISOString(),questionIds:questions.map(q=>q.id),cursor:0,answers:{},optionOrder};
+ return {version:1,id:'guest-'+now.getTime()+'-'+Math.random().toString(36).slice(2,9),family,createdAt:now.toISOString(),questionIds:questions.map(q=>q.id),cursor:0,answers:{},optionOrder,feedbackMode:normalizeFeedbackMode(feedbackMode)};
 }
 export function applyAnswer(session,question,selected,now=new Date()){
  if(!session.questionIds.includes(question.id)||session.answers[question.id])throw Error('Réponse déjà enregistrée ou question inconnue');
