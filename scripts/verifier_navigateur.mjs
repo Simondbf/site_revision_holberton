@@ -449,12 +449,18 @@ try{
   delete window.__quizOriginalSetItem;
  });
 
+ // Les invités ne bénéficient jamais de la priorité adaptative.
+ await page.goto(origin+'/#compte');
+ assert.equal(await page.locator('#accountQuizAdaptiveEnabled').count(),0,
+  'La priorité adaptative ne doit pas être activable sans connexion.');
  // Vérifier le détail d'une vraie réponse incorrecte et le nettoyage du lien ChatGPT.
  await page.goto(origin+'/?source=gpt-quiz#quiz');
  await page.locator('#quizStart').waitFor({state:'visible'});
  assert.equal(new URL(page.url()).searchParams.has('source'),false,
   'Le paramètre source=gpt doit disparaître de l’URL sans perdre le quiz.');
  await page.locator('#quizStart').click();
+ assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('holberton-quiz-guest-v1')).current.adaptiveEnabled),false,
+  'Une session invitée doit démarrer sans adaptation, même si le réglage par défaut est actif.');
  const wrong=await page.evaluate(()=>{
   const current=JSON.parse(localStorage.getItem('holberton-quiz-guest-v1')).current;
   const argc=JSON.parse(document.getElementById('quiz-argc-bank').textContent);
@@ -532,6 +538,16 @@ try{
  await page.evaluate(()=>{location.hash='#compte'});
  assert.ok(await page.locator('#accountQuizFeedbackMode').isVisible(),
   'Le choix du moment du corrigé doit être disponible depuis Compte.');
+ assert.ok(await page.locator('#accountQuizAdaptiveEnabled').isVisible(),
+  'Une personne connectée doit pouvoir régler la priorité dans Compte.');
+ assert.equal(await page.locator('#accountQuizAdaptiveEnabled').isChecked(),true,
+  'La priorité adaptative doit être active par défaut pour un compte connecté.');
+ await page.locator('#accountQuizAdaptiveEnabled').uncheck();
+ assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('holberton-quiz-guest-v1')).adaptiveEnabled),false,
+  'Désactiver la priorité doit enregistrer le choix.');
+ await page.locator('#accountQuizAdaptiveEnabled').check();
+ assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('holberton-quiz-guest-v1')).adaptiveEnabled),true,
+  'Réactiver la priorité doit enregistrer le choix.');
  await page.locator('#accountQuizFeedbackMode').selectOption('immediate');
  assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('holberton-quiz-guest-v1')).feedbackMode),'immediate',
   'Le réglage dans Compte doit être persisté pour les prochaines sessions.');
@@ -541,6 +557,8 @@ try{
  await page.locator('#quizStart').click();
  assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('holberton-quiz-guest-v1')).current.feedbackMode),'immediate',
   'Le quiz doit utiliser le réglage du compte pour la nouvelle session.');
+ assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('holberton-quiz-guest-v1')).current.adaptiveEnabled),true,
+  'Le compte connecté doit démarrer le quiz avec adaptation active.');
  await page.locator('#quizPause').click();
  await page.evaluate(()=>{
   document.documentElement.dataset.holbertonAccount='guest';
@@ -548,6 +566,8 @@ try{
  });
  assert.ok(await page.locator('#quizFeedbackMode').isVisible(),
   'Un invité doit retrouver son réglage directement dans le quiz.');
+ assert.equal(await page.locator('#accountQuizAdaptiveEnabled').count(),0,
+  'Le réglage adaptatif doit disparaître à la déconnexion.');
 
  // Le comportement mobile existant reste préservé, sans refonte de l'interface.
  const mobile=await browser.newPage({viewport:{width:390,height:844},isMobile:true,hasTouch:true});
