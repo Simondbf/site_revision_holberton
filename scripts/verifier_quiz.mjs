@@ -64,7 +64,7 @@ function allOrders(n){
  assert.deepEqual(options.map(x=>x.id),'ABCDE'.slice(0,n).split(''),'Les données sources ne doivent pas être modifiées.');
  return orders;
 }
-for(const n of [4,5]){
+for(const n of [3,4,5]){
  const orders=allOrders(n),available='ABCDE'.slice(0,n).split('');
  for(const id of available){
   for(let position=0;position<n;position++){
@@ -87,6 +87,34 @@ for(const n of [4,5]){
   }
  }
 }
+// Le moteur accepte aussi une question multiple à seulement 3 propositions.
+// Le corpus GLM actuellement revu reste volontairement inchangé (4 ou 5 choix).
+const example=bank.find(q=>q.options.length===5);
+const makeSample=(id,n,correct)=>({
+ ...example,id,options:example.options.slice(0,n),answer_mode:correct.length===1?'single':'multiple',
+ correct_option_ids:correct,
+ prompt:'Question synthétique de test ('+(correct.length===1?'Une seule réponse correcte.':'Plusieurs réponses correctes.')+')'
+});
+const threeMulti=makeSample('TEST-THREE-MULTI',3,['A','C']);
+const threeSingle=makeSample('TEST-THREE-SINGLE',3,['B']);
+const fourMulti=makeSample('TEST-FOUR-MULTI',4,['A','B','D']);
+const fiveMulti=makeSample('TEST-FIVE-MULTI',5,['A','B','C','D']);
+assert.equal(checkBank([threeMulti,threeSingle,fourMulti,fiveMulti]),true,
+ 'Les formats à 3, 4 et 5 choix, avec 1 à 4 bonnes réponses appropriées, sont acceptés.');
+assert.throws(()=>checkBank([{...threeMulti,id:'TWO-OPTIONS',options:threeMulti.options.slice(0,2),correct_option_ids:['A']}]),/Choix incohérents/,
+ 'Deux propositions doivent rester interdites.');
+assert.throws(()=>checkBank([{...threeMulti,id:'ALL-CORRECT',correct_option_ids:['A','B','C']}]),/Réponses multiples invalides/,
+ 'Au moins une option incorrecte est nécessaire pour un QCM multiple.');
+const threeOrder=newSession([threeMulti],'all',new Date('2026-11-20T08:00:00Z'),()=>0.42);
+assert.equal(threeOrder.optionOrder[threeMulti.id].length,3,'Le tirage à 3 propositions doit être persisté.');
+const threeCorrect=applyAnswer(threeOrder,threeMulti,['C','A']);
+assert.equal(threeCorrect.answers[threeMulti.id].correct,true,
+ 'Deux bonnes réponses parmi trois donnent le point, quel que soit leur ordre.');
+const threePartial=applyAnswer(threeOrder,threeMulti,['A']);
+assert.equal(threePartial.answers[threeMulti.id].correct,false,
+ 'Une réponse partielle dans un QCM à trois propositions ne donne pas le point.');
+assert.equal(applyAnswer(newSession([fourMulti]),fourMulti,['A','B','D']).answers[fourMulti.id].correct,true);
+assert.equal(applyAnswer(newSession([fiveMulti]),fiveMulti,['A','B','C','D']).answers[fiveMulti.id].correct,true);
 const sampleQuestion=bank.find(q=>q.options.length===4);
 const sessionA=newSession([sampleQuestion],'all',new Date('2026-11-19T15:00:00Z'),()=>0);
 const sessionB=newSession([sampleQuestion],'all',new Date('2026-11-19T15:00:00Z'),()=>0.99999);
