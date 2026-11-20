@@ -161,13 +161,13 @@ assert.ok(!readme.includes('holberton-deploy.service') &&
 assert.ok(!contributing.includes('N’ajoute jamais de token') &&
  !contributing.includes('déclenche le déploiement'),
  'Les consignes pour humains doivent être concises et à jour.');
-assert.ok(html.includes('Réviser à son rythme') &&
- html.includes('conserve tes favoris dans ce navigateur') &&
- !html.includes('Les futurs quiz seront eux aussi utilisables sans compte'),
- 'À propos doit présenter les fonctionnalités actuelles sans promesses futures.');
-assert.ok(html.includes('À propos de Holberton Révision') &&
- html.includes('Informations pratiques') && html.includes('project-details'),
- 'La nouvelle page À propos ne doit pas disparaître.');
+assert.ok(html.includes('Tes données de révision') &&
+ html.includes('Sans compte :') && html.includes('Avec un compte :') &&
+ html.includes('Un site de révision collaboratif'),
+ 'À propos doit expliquer clairement le stockage local et la synchronisation à venir.');
+assert.ok(!html.includes('Sauvegarde actuelle :') && !html.includes('Informations pratiques</h3>') &&
+ !html.includes('Réviser à son rythme</h3>'),
+ 'Les anciens blocs de À propos doivent avoir disparu.');
 assert.ok(!html.includes('Les coordonnées légales complètes') &&
  !html.includes('Les conditions de réutilisation du code sont à définir'),
  'Des avertissements inutiles sont réapparus sur la page À propos.');
