@@ -215,6 +215,29 @@ body.dark .lesson-visual figcaption{color:#c5d9e7}
 }
 #account .def,#quiz .def{min-height:180px}
 #account button.cta,#quiz button.cta{margin-top:12px}
+
+/* Quiz et Compte : pages pleine largeur, sans sommaire latéral. */
+body[data-fullpage="true"] .site-layout{grid-template-columns:minmax(0,1fr);max-width:1600px}
+body[data-fullpage="true"] #courseSidebar,body[data-fullpage="true"] #sideShade,body[data-fullpage="true"] #sideToggle{display:none!important}
+body[data-fullpage="true"] .site-layout>.wrap{width:100%;max-width:none;min-width:0}
+body[data-fullpage="true"] #quiz .quiz-app{max-width:1280px;margin:0 auto}
+.account-coming-soon{margin:24px auto;max-width:700px;background:var(--surface);border:1px solid var(--line);padding:42px 26px;border-radius:18px;text-align:center;box-shadow:var(--shadow)}
+.account-coming-soon h3{margin:0;font-size:clamp(22px,3vw,32px)}
+.account-tabs{display:flex;gap:8px;margin:16px 0 20px;flex-wrap:wrap}
+.account-tabs button{border:1px solid var(--line);padding:10px 19px;border-radius:11px;background:var(--surface);color:var(--text);font-weight:800;cursor:pointer}
+.account-tabs button[aria-selected="true"]{background:var(--surface-alt);border-color:var(--primary)}
+.account-dashboard{display:grid;gap:18px}
+.account-dashboard .quiz-card{margin:0}
+.account-competencies{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.account-competencies>div{border:1px solid var(--line);background:var(--surface-alt);padding:16px;border-radius:12px}
+.account-competencies strong{font-size:27px;display:block}
+.account-competencies span{font-size:13px;color:var(--muted)}
+.account-competency-list{display:grid;gap:9px;list-style:none;padding:0}
+.account-competency-list li{padding:11px 14px;background:var(--surface-alt);border:1px solid var(--line);border-radius:9px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.account-competency-bar{height:10px;border-radius:999px;background:var(--line);overflow:hidden;min-width:85px;flex:1}
+.account-competency-bar i{display:block;height:100%;background:var(--primary);border-radius:999px}
+@media(max-width:800px){.account-competencies{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:500px){.account-competencies{grid-template-columns:1fr 1fr}.account-coming-soon{padding:28px 16px}}
 </style>
 <!-- DEBUT QUIZ CSS INTEGRE -->
 <style id="quiz-inline-style">
@@ -309,39 +332,28 @@ body.dark .lesson-visual figcaption{color:#c5d9e7}
 <section id="browse"><div class="sectionhead"><div><h2 id="listingTitle">Thèmes de révision</h2><p id="listingSubtitle">Des explications courtes et structurées, par sujet.</p></div></div><label class="searchfield"><span aria-hidden="true">⌕</span><input id="search" type="search" autocomplete="off" placeholder="Par exemple : tableau, printf, Docker…" aria-label="Rechercher dans les fiches"></label><div id="searchSummary" class="results-label hidden" aria-live="polite"></div><div id="cards" class="cards"></div><div id="results" class="defs hidden"></div></section>
 <section id="detail" class="hidden"><button id="back" class="linkbtn">← Tous les thèmes</button><div class="crumb" id="breadcrumb"></div><h2 id="detailTitle" class="detail-title"></h2><p id="detailCount" class="detail-intro"></p><div id="definitions" class="defs"></div></section>
 <section id="course" class="hidden"><div class="course-toolbar" id="courseToolbar"><button class="linkbtn" id="courseBack" type="button">← Retour aux fiches</button><div class="crumb" id="courseBreadcrumb"></div></div><article class="course-article" id="courseArticle"></article></section>
-<section id="favorites" class="hidden"><div class="sectionhead"><div><h2>Mes favoris</h2><p>Retrouve rapidement les notions enregistrées sur cet appareil.</p></div></div><div class="mininote">Les favoris sont enregistrés dans ce navigateur uniquement. Ils ne sont pas synchronisés entre les appareils.</div><div id="favoriteItems" class="defs" style="margin-top:15px"></div></section>
-<section id="account" class="hidden">
-<div class="sectionhead"><div><h2>Mon compte</h2><p>Mode invité : cours et quiz accessibles sans inscription. Ta progression reste sur cet appareil.</p></div></div>
-<div class="helpgrid">
- <article class="def"><h3>Connexion et inscription</h3><p>L’espace de compte personnel est en préparation. Les inscriptions et les e-mails Brevo ne sont pas encore activés sur ce site.</p><p class="mininote">Une fois le service sécurisé et testé, un compte facultatif permettra de synchroniser favoris et progression entre appareils.</p></article>
- <article class="def"><h3>Mes favoris</h3><p>Tu peux continuer à retrouver les notions marquées d’une étoile sur cet appareil.</p><button id="accountFavorites" type="button" class="cta">Voir mes favoris</button><p class="mininote">Tes favoris sont enregistrés sur cet appareil, dans ce navigateur.</p></article>
-</div>
-</section>
-<section id="quiz" class="hidden">
-<div class="sectionhead"><div><h2>Quiz de révision</h2><p>55 questions sur argc/argv et stdarg.h, sans inscription.</p></div></div>
-<div class="helpgrid">
- <article class="def"><h3>Réviser librement</h3><p>Les questions proposent une ou plusieurs bonnes réponses. Après validation, une explication et un lien vers le cours sont disponibles.</p><p class="mininote">Le quiz interactif nécessite JavaScript.</p></article>
- <article class="def"><h3>Progression sur cet appareil</h3><p>Tes sessions sont enregistrées dans ce navigateur. Tu peux les reprendre ou exporter ton historique depuis Compte.</p><button id="quizExplore" type="button" class="cta">Réviser les fiches</button></article>
-</div>
-</section>
-<section id="about" class="hidden">
-<div class="sectionhead"><div><h2>À propos de Holberton Révision</h2><p>Réviser, comprendre et partager.</p></div></div>
-<div class="helpgrid">
- <article class="def"><h3>Pourquoi ce site ?</h3><p>Retrouver les notions étudiées à Holberton grâce à des fiches, des exemples et des schémas accessibles aux débutants. C'est un projet indépendant, non officiel.</p></article>
- <article class="def"><h3>Réviser à son rythme</h3><p>Retrouve facilement les notions, les exemples et les schémas, puis conserve tes favoris dans ce navigateur. Les fiches restent également consultables hors ligne après téléchargement du site.</p></article>
-</div>
-<section class="project-info" aria-labelledby="about-community">
- <h3 id="about-community">Un site de révision collaboratif</h3>
- <p>Une erreur à corriger, une explication à améliorer ou une notion à ajouter ? Chacun peut proposer une contribution sur GitHub.</p>
- <p class="project-help"><a href="https://github.com/Simondbf/site_revision_holberton/issues/new" target="_blank" rel="noopener noreferrer">Proposer une amélioration</a> · <a href="https://github.com/Simondbf/site_revision_holberton" target="_blank" rel="noopener noreferrer">Voir le projet sur GitHub</a></p>
- <div class="project-details"><h3>Informations pratiques</h3>
-  <p><strong>Projet :</strong> maintenu par <a href="https://github.com/Simondbf" target="_blank" rel="noopener noreferrer">Simondbf</a>. <a href="https://github.com/Simondbf/site_revision_holberton/issues" target="_blank" rel="noopener noreferrer">Contact sur GitHub</a>.</p>
-  <p><strong>Hébergement :</strong> VPS chez Hetzner Online GmbH (Allemagne).</p>
-  <p><strong>Sauvegarde actuelle :</strong> les favoris et le thème d’affichage sont conservés sur cet appareil. Une synchronisation facultative sera proposée après la mise en place de comptes sécurisés ; elle n’est pas encore active.</p>
- </div>
-</section>
-</section>
-<div class="footer"><span>Holberton Révision</span><span>Dernière mise à jour : novembre 2026</span></div>
+<section id="favorites" class="hidden" aria-hidden="true"><div id="favoriteItems" hidden></div></section>
+ <section id="account" class="hidden">
+ <div class="sectionhead"><div><h2>Mon compte</h2></div></div>
+ <div id="accountComingSoon" class="account-coming-soon"><h3>À venir prochainement</h3></div>
+ <div id="accountConnectedContent" hidden></div>
+ </section>
+ <section id="quiz" class="hidden"><div class="sectionhead"><div><h2>Quiz de révision</h2><p>Préparation des questions…</p></div></div></section>
+ <section id="about" class="hidden">
+ <div class="sectionhead"><div><h2>À propos de Holberton Révision</h2><p>Réviser, comprendre et partager. Un projet indépendant de Holberton.</p></div></div>
+ <section class="project-info" aria-labelledby="about-community">
+  <h3 id="about-community">Un site de révision collaboratif</h3>
+  <p>Une erreur à corriger, une explication à améliorer ou une notion à ajouter ? Chacun peut proposer une contribution sur GitHub.</p>
+  <p class="project-help"><a href="https://github.com/Simondbf/site_revision_holberton/issues/new" target="_blank" rel="noopener noreferrer">Proposer une amélioration</a> · <a href="https://github.com/Simondbf/site_revision_holberton" target="_blank" rel="noopener noreferrer">Voir le projet sur GitHub</a></p>
+ </section>
+ <section class="project-info about-data" aria-labelledby="about-data-heading">
+  <h3 id="about-data-heading">Tes données de révision</h3>
+  <p><strong>Sans compte :</strong> tes résultats de quiz restent dans ce navigateur, sur cet appareil.</p>
+  <p><strong>Avec un compte :</strong> tes résultats et ton historique pourront être synchronisés entre tes appareils dès l'ouverture du service de comptes. Tu pourras consulter tes progrès et demander la suppression de ton compte.</p>
+  <p>La consultation des cours et les quiz restent accessibles sans inscription.</p>
+ </section>
+ </section>
+ <div class="footer"><span>Holberton Révision</span><span>Dernière mise à jour : novembre 2026</span></div>
 </main>
 </div>
 
@@ -403,9 +415,9 @@ function updateSidebar(){
  });
  document.querySelectorAll('.navbtn').forEach(b=>b.classList.toggle('active',b.dataset.page===currentPage));
 }
-function panel(id,scroll=true){for(const p of panels)$(p).classList.toggle('hidden',p!==id);$('hero').classList.toggle('hidden',id!=='browse'||currentPage!=='home');updateSidebar();if(scroll)window.scrollTo({top:0,behavior:'instant'})}
+function panel(id,scroll=true){for(const p of panels)$(p).classList.toggle('hidden',p!==id);$('hero').classList.toggle('hidden',id!=='browse'||currentPage!=='home');document.body.dataset.fullpage=id==='quiz'||id==='account'?'true':'false';updateSidebar();if(scroll)window.scrollTo({top:0,behavior:'instant'})}
 function renderTopics(indices=sections.map((_,i)=>i)){$('cards').innerHTML=indices.map(si=>[sections[si],si]).map(([s,si])=>`<a class="topic" href="${routeTopic(si)}" style="text-decoration:none"><span class="topic-icon">${esc(icons[si%icons.length])}</span><span><h3>${esc(s.title)}</h3><p>${s.items.length} notions à revoir</p></span><span class="arrow">›</span></a>`).join('')}
-function definitionCard(it){const saved=favorites.includes(it.id);return `<article class="def" tabindex="0" data-card-route="${routeCourse(it.si,it.ii)}" aria-label="Ouvrir le cours de ${esc(it.term)}"><h3>${esc(it.term)}</h3><button class="fav-btn ${saved?'saved':''}" type="button" data-fav="${it.id}" aria-label="${saved?'Retirer des':'Ajouter aux'} favoris : ${esc(it.term)}">${saved?'★':'☆'}</button><p>${esc(it.definition)}</p><a class="card-hit" href="${routeCourse(it.si,it.ii)}" data-course-link="${it.id}" aria-label="Ouvrir le cours détaillé de ${esc(it.term)}"></a><div class="mininote">${esc(it.topic)}</div></article>`}
+function definitionCard(it){return `<article class="def" tabindex="0" data-card-route="${routeCourse(it.si,it.ii)}" aria-label="Ouvrir le cours de ${esc(it.term)}"><h3>${esc(it.term)}</h3><p>${esc(it.definition)}</p><a class="card-hit" href="${routeCourse(it.si,it.ii)}" data-course-link="${it.id}" aria-label="Ouvrir le cours détaillé de ${esc(it.term)}"></a><div class="mininote">${esc(it.topic)}</div></article>`}
 function wireFav(container){container.querySelectorAll('[data-fav]').forEach(btn=>btn.onclick=()=>{const id=btn.dataset.fav;favorites=favorites.includes(id)?favorites.filter(x=>x!==id):[...favorites,id];store();if(currentPage==='favorites')drawFavorites();else if(currentPage==='topics'&&topicIndex>=0)drawTopic(topicIndex);else if($('search').value.trim())search()})}
 function wireCourseLinks(container){
  container.querySelectorAll('[data-course-link]').forEach(a=>a.addEventListener('click',rememberCardOrigin));
@@ -1415,6 +1427,7 @@ function scrollToCourseNotion(si,ii){
  }
  function renderRoute(){
   const r=parseRoute();
+  if(r.page==='favoris'){history.replaceState(history.state,'','#fiches');renderRoute();return;}
   if(r.legacy)history.replaceState(history.state,'',routeCourse(r.si,r.ii));
   const previousWasCourse=!$('course').classList.contains('hidden');
   if(previousWasCourse && savedCardOrigin && location.hash===savedCardOrigin.hash && !pendingCardRestoration){
@@ -1488,7 +1501,7 @@ $('quickSearch').addEventListener('input',()=>{const q=$('quickSearch').value; i
 $('back').onclick=()=>go('#fiches');
 $('courseBack').onclick=returnToCards;
 $('start').onclick=()=>go('#fiches');$('goQuiz').onclick=()=>go('#quiz');
-$('accountFavorites').onclick=()=>go('#favoris');$('quizExplore').onclick=()=>go('#fiches');
+
 $('brandHome').onclick=e=>{e.preventDefault();go('#accueil')};
 document.querySelectorAll('[data-page]').forEach(b=>b.onclick=()=>go({home:'#accueil',account:'#compte',quiz:'#quiz',topics:'#fiches',about:'#apropos'}[b.dataset.page]));
 const updateCourseToolbarOffset=()=>{
