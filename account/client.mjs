@@ -60,14 +60,14 @@ async function showAdmin(){
   const ghCount=gh?number(gh.count)+(gh.complete?'':' (au moins)'):'Indisponible';
   const days=(s.daily||[]).slice(-30).reverse().map(x=>'<tr><th scope="row">'+esc(x.day)+'</th><td>'+number(x.visits)+'</td></tr>').join('');
   panel.innerHTML='<h3>Administration — statistiques</h3>'+
-   '<div class="account-metrics"><span>Visites : <strong>'+number(s.visitsTotal)+'</strong></span>'+
+   '<div class="account-metrics"><span>Journées de navigateurs (total) : <strong>'+number(s.visitsTotal)+'</strong></span>'+
    '<span>Sur 30 jours : <strong>'+number(s.visitsLast30Days)+'</strong></span>'+
    '<span>Comptes : <strong>'+number(s.registeredAccounts)+'</strong></span>'+
    '<span>Comptes synchronisés : <strong>'+number(s.accountsWithProgress)+'</strong></span>'+
    '<span>Contributeurs GitHub (commits) : <strong>'+esc(ghCount)+'</strong></span></div>'+
    '<p class="quiz-muted">'+esc(s.note)+' Les données démarrent à l’activation du service et peuvent être incomplètes.</p>'+
    '<p><a href="https://github.com/Simondbf/site_revision_holberton/graphs/contributors" target="_blank" rel="noopener noreferrer">Contributions GitHub</a></p>'+
-   '<details><summary>Visites par jour (UTC)</summary><table class="account-admin-table"><thead><tr><th>Date</th><th>Ouvertures</th></tr></thead><tbody>'+
+   '<details><summary>Navigateurs estimés par jour (UTC)</summary><table class="account-admin-table"><thead><tr><th>Date</th><th>Navigateurs</th></tr></thead><tbody>'+
    (days||'<tr><td colspan="2">Aucune visite enregistrée</td></tr>')+'</tbody></table></details>'+
    '<button class="quiz-secondary" id="accountStatsRefresh" type="button">Actualiser</button>';
   document.getElementById('accountStatsRefresh').onclick=showAdmin;
@@ -201,14 +201,16 @@ window.addEventListener('hashchange',()=>{
  if(location.hash.startsWith('#compte/verification/'))initialize();
  if(location.hash==='#compte'&&me.authenticated)displayConnected();
 });
-// Comptage non nominatif : une ouverture par onglet et par jour UTC.
+// Une seule mesure estimée par profil de navigateur et par jour (UTC).
+// Aucun identifiant de navigateur ou autre donnée personnelle n'est transmis.
 async function trackVisit(){
  try{
   const day=new Date().toISOString().slice(0,10);
-  if(sessionStorage.getItem('holberton-visit-day')===day)return;
+  const key='holberton-audience-day-v1';
+  if(localStorage.getItem(key)===day)return;
   const r=await fetch('/api/analytics/visit',{method:'POST',credentials:'same-origin',cache:'no-store',keepalive:true});
-  if(r.ok)sessionStorage.setItem('holberton-visit-day',day);
- }catch{/* Le mode invité continue sans l'API. */}
+  if(r.ok)localStorage.setItem(key,day);
+ }catch{/* Les cours et quiz restent accessibles en cas de blocage du stockage/de l'API. */}
 }
 trackVisit();
 initialize();
