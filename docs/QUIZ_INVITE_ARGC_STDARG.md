@@ -1,5 +1,13 @@
 # Quiz invité — première version fonctionnelle (PR dépendante de #24 et #23)
 
+## Améliorations de l'expérience de révision
+
+- **« Je ne sais pas »** : case explicite sous les propositions, sans obligation de cocher une réponse au hasard. Valider ouvre le corrigé détaillé, puis « Question suivante » permet de continuer. La question est comptée comme traitée mais incorrecte, et la difficulté est conservée dans la progression locale.
+- **Questions plus lisibles** : les 55 énoncés disposent d'une reformulation en français plus direct. Les extraits C sont présentés en code. Les formulations d'origine, les options et les clés de réponses restent conservées.
+- **Après une erreur ou un « Je ne sais pas »** : la page affiche les bonnes propositions, l'explication générale, et **une justification de chacune des 226 propositions**, indépendamment de leur position aléatoire à l'écran.
+- **Liens propres** : suppression à l'affichage des paramètres de provenance `source=gpt...` et `utm_source=chatgpt...`, en préservant la page et l'ancre courante.
+- L'aide d'affichage est stockée dans `quiz/aide-pedagogique.json`, versionnée, puis intégrée à `index.html` par `scripts/integrer_quiz_html.mjs` pour rester compatible avec le déploiement statique actuel. Les explications par option proviennent de la revue technique interne et doivent rester révisables par un humain.
+
 ## Ce qui fonctionne dans l'interface
 
 - Accès par l'onglet `#quiz` **sans créer de compte**.
