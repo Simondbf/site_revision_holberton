@@ -1,5 +1,15 @@
 # Quiz invité — première version fonctionnelle (PR dépendante de #24 et #23)
 
+## Choix du moment d'affichage des corrigés
+
+- **Compteur** en haut à droite : le nombre total de questions disponibles dans le menu et `Question X / N` pendant une session.
+- **Deux modes** : affichage des corrections après chaque question (mode invité par défaut) ou uniquement à la fin de la session.
+- Si le mode « à la fin » est choisi, la validation enregistre la réponse sans révéler sa justesse, les bonnes options ni les explications. Après « Terminer et voir mon bilan » ou à la dernière question, le bilan affiche la correction détaillée de chaque question effectivement traitée, y compris les questions passées avec « Je ne sais pas ».
+- Le mode est **enregistré localement dans la progression** et fixé au démarrage de chaque session : une pause, un rechargement ou une reprise ne change pas le comportement en cours.
+- **Sans compte**, le réglage est visible dans le menu Quiz et dans Compte. Avec un compte connecté, le menu Quiz masque le réglage : il reste disponible dans Compte et peut suivre la progression synchronisée.
+- **Attention** : la PR #26 d'authentification n'est pas encore publiée. Son client devra publier `document.documentElement.dataset.holbertonAccount='connected'` et émettre `holberton:account:status` après connexion, ou rétablir `guest` à la déconnexion. Cette intégration est testée en navigateur mais l'authentification réelle n'est pas activée par le présent changement.
+- La notion **sentinelle** est déjà expliquée dans le cours de programmation C consacré au compteur ou marqueur de fin (`8:35`), dans les questions `stdarg.h` et pour `argv[argc]` ; aucun doublon n'est ajouté.
+
 ## Améliorations de l'expérience de révision
 
 - **« Je ne sais pas »** : case explicite sous les propositions, sans obligation de cocher une réponse au hasard. Valider ouvre le corrigé détaillé, puis « Question suivante » permet de continuer. La question est comptée comme traitée mais incorrecte, et la difficulté est conservée dans la progression locale.
