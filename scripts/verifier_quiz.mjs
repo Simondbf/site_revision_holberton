@@ -128,6 +128,19 @@ assert.equal(threePartial.answers[threeMulti.id].correct,false,
 assert.equal(applyAnswer(newSession([fourMulti]),fourMulti,['A','B','D']).answers[fourMulti.id].correct,true);
 assert.equal(applyAnswer(newSession([fiveMulti]),fiveMulti,['A','B','C','D']).answers[fiveMulti.id].correct,true);
 const sampleQuestion=bank.find(q=>q.options.length===4);
+assert.equal(emptyProgress().feedbackMode,'immediate','Invité : correction immédiatement par défaut.');
+const endSession=newSession([sampleQuestion],'all',new Date('2026-11-20T10:00:00Z'),()=>0.5,'end');
+assert.equal(endSession.feedbackMode,'end','La session doit figer le mode de correction choisi au démarrage.');
+const savedMode={...emptyProgress(),current:endSession,feedbackMode:'end'};
+const modeStorage={value:'',setItem(_,value){this.value=value},getItem(){return this.value}};
+assert.equal(writeProgress(modeStorage,savedMode),true);
+assert.equal(readProgress(modeStorage).feedbackMode,'end','Le réglage de correction doit survivre au rechargement.');
+assert.equal(readProgress(modeStorage).current.feedbackMode,'end','Le mode de la session doit survivre au rechargement.');
+const answeredEnd=applyAnswer(endSession,sampleQuestion,sampleQuestion.correct_option_ids);
+assert.equal(answeredEnd.feedbackMode,'end','La validation ne change pas le mode de correction.');
+assert.equal(finishSession(savedMode,answeredEnd,bank).summary.total,1,
+ 'Les questions avec correction différée doivent rester comptabilisées.');
+
 const skipped=skipAnswer(newSession([sampleQuestion]),sampleQuestion);
 assert.equal(skipped.answers[sampleQuestion.id].correct,false,'Je ne sais pas vaut une erreur.');
 assert.equal(skipped.answers[sampleQuestion.id].skipped,true,'La réponse inconnue doit être identifiée.');
@@ -208,6 +221,12 @@ assert.deepEqual(embedded('quiz-argc-bank').questions,
 assert.deepEqual(embedded('quiz-aide-bank'),help,'Les explications intégrées doivent correspondre au fichier source.');
 assert.ok(html.includes('id="quizDontKnow"'),'Le formulaire doit offrir Je ne sais pas.');
 assert.ok(html.includes('quiz-option-reasons'),'Les corrections détaillées doivent être disponibles.');
+assert.ok(html.includes('quiz-question-count'),'Le compteur doit figurer en haut à droite.');
+assert.ok(html.includes('quizFeedbackMode')&&html.includes('accountQuizFeedbackMode'),
+ 'Le mode de correction doit être réglable par un invité ou depuis Compte.');
+assert.ok(html.includes('quiz-review-question'),'Les corrigés à la fin doivent présenter chaque question.');
+assert.ok(html.includes('holberton:account:status'),'La connexion doit mettre à jour les réglages visibles.');
+
 assert.deepEqual(embedded('quiz-variadic-bank'),varia,
  'Le paquet intégré doit contenir exactement les 30 questions variadiques relues.');
 assert.ok(html.includes('Tes sessions et résultats sont sauvegardés sur cet appareil, dans ce navigateur.'),
