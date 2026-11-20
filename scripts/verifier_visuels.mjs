@@ -4,8 +4,8 @@ import {createHash} from 'node:crypto';
 import assert from 'node:assert/strict';
 
 const html=readFileSync(new URL('../index.html',import.meta.url),'utf8');
-const scripts=[...html.matchAll(/<script(?![^>]*type="application\/json")[^>]*>([\s\S]*?)<\/script>/g)];
-assert.equal(scripts.length,1,'Un seul script applicatif attendu.');
+const scripts=[...html.matchAll(/<script(?![^>]*type="application\/json")(?![^>]*\bsrc=)[^>]*>([\s\S]*?)<\/script>/g)];
+assert.equal(scripts.length,2,'Script du site et quiz autonome intégrés attendus.');
 const src=scripts[0][1];
 const start=src.indexOf('function visualBox(');
 const stop=src.indexOf('function lessonContent(si,ii)',start);

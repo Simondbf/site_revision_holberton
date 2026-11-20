@@ -8,17 +8,24 @@ const html=readFileSync(new URL('../index.html',import.meta.url),'utf8');
 // service distant exige une revue du modèle de menace et de ce test.
 const scripts=[...html.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/gi)];
 const data=scripts.filter(([,attrs])=>/\btype=["']application\/json["']/i.test(attrs));
-const code=scripts.filter(([,attrs])=>!/\btype=["']application\/json["']/i.test(attrs));
+const code=scripts.filter(([,attrs])=>!/\btype=["']application\/json["']/i.test(attrs)&&!/\bsrc\s*=/i.test(attrs));
+const modules=scripts.filter(([,attrs])=>/\bsrc\s*=/i.test(attrs));
 
 assert.ok(data.length>=5,'Blocs pédagogiques JSON manquants.');
 for(const [,attrs,body] of data){
   assert.ok(!/\bsrc\s*=/i.test(attrs),'JSON pédagogique chargé depuis un serveur tiers.');
   JSON.parse(body);
 }
-assert.equal(code.length,1,'Le site doit conserver un seul script applicatif autonome.');
-const app=code[0][2];
+assert.equal(code.length,2,'Le script principal et le module quiz doivent être intégrés.');
+assert.equal(modules.length,0,'Aucun script externe nécessaire : le VPS ne publie que index.html.');
+assert.match(code[1][1],/\btype="module"/,'Le quiz doit conserver la sémantique de module ES.');
+assert.match(code[1][1],/\bid="quiz-inline-module"/,'Le bundle quiz intégré doit être identifiable.');
+const app=code[0][2],inlineQuiz=code[1][2];
+assert.ok(inlineQuiz.includes('function renderQuestion()'),'Moteur quiz intégré absent.');
+assert.ok(!/\bdocument\.cookie\b|\beval\s*\(|new\s+Function\s*\(/.test(inlineQuiz),
+ 'Opérations dangereuses interdites dans le bundle quiz.');
 
-assert.ok(!/<script\b[^>]*\bsrc\s*=/i.test(html),'Dépendance JS externe détectée.');
+assert.ok(!/<script\b[^>]*\bsrc\s*=\s*["']https?:/i.test(html),'Aucune dépendance JavaScript distante autorisée.');
 assert.ok(!/<(?:iframe|object|embed)\b/i.test(html),'Contenu tiers embarqué détecté.');
 assert.ok(!/<link\b[^>]*\brel=["']stylesheet["'][^>]*\bhref=["']https?:/i.test(html),
   'Feuille de style externe détectée.');
@@ -45,5 +52,10 @@ for(const [tag] of links){
     'Lien ouvrant un nouvel onglet sans noopener : '+tag.slice(0,120));
 }
 
-console.log('Garde-fous statiques : '+notions+
-  ' notions accessibles sans compte, scripts autonomes et aucun appel réseau applicatif.');
+const quiz=readFileSync(new URL('../quiz/engine.mjs',import.meta.url),'utf8');
+assert.ok(quiz.includes("getElementById('quiz-argc-bank')") && quiz.includes("getElementById('quiz-variadic-bank')"),
+ 'Le moteur doit pouvoir lire les banques sans requête réseau.');
+assert.ok(html.includes('<style id="quiz-inline-style">'),'Les styles du quiz doivent être intégrés.');
+assert.ok(!html.includes('href="./quiz/styles.css"'),'La page ne doit pas nécessiter le CSS externe.');
+assert.ok(!/\bdocument\.cookie\b|\beval\s*\(|new\s+Function\s*\(/.test(quiz),'Opérations sensibles interdites dans le moteur quiz.');
+console.log('Garde-fous statiques : '+notions+' notions accessibles sans compte, module quiz local et aucune authentification simulée.');

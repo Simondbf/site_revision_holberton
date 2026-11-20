@@ -20,7 +20,25 @@ const route=(topic,notion)=>{
  return '#cours/'+slug(topic)+'/'+(ii+1)+'-'+slug(notion);
 };
 const target=ii=>route(topicName,contenu.sections[si].items[ii].term);
-const server=createServer((_req,res)=>{
+const assets={
+ '/quiz/core.mjs':'text/javascript',
+ '/quiz/engine.mjs':'text/javascript',
+ '/quiz/styles.css':'text/css',
+ '/quiz/questions-variadiques.json':'application/json',
+ '/docs/quiz/vague1/section-09-pointeurs-et-tableaux-c.json':'application/json'
+};
+const requestedExtra=[];
+const server=createServer((req,res)=>{
+ const pathname=new URL(req.url,'http://localhost').pathname;
+ if(pathname in assets){
+  // Simuler exactement le timer VPS historique : seul index.html est publié.
+  requestedExtra.push(pathname);
+  res.writeHead(404,{'Content-Type':'text/plain'});res.end('Le serveur ne publie que index.html');
+  return;
+ }
+ if(pathname!=='/'){
+  res.writeHead(404,{'Content-Type':'text/plain'});res.end('Introuvable');return;
+ }
  res.writeHead(200,{'Content-Type':'text/html; charset=utf-8','Cache-Control':'no-store'});
  res.end(source);
 });
@@ -272,6 +290,125 @@ try{
   'Les deux liens vers GitHub doivent être visibles.');
  await page.screenshot({path:'apercus/a-propos-simplifie.png'});
 
+ // Préversion du quiz : charger deux lots, valider une réponse, mettre en pause et reprendre.
+ await page.goto(origin+'/#quiz');
+ await page.locator('#quizStart').waitFor({state:'visible',timeout:15000});
+ assert.match(await page.locator('#quiz .quiz-app').innerText(),/55 questions candidates/);
+ assert.equal(await page.locator('#quizCount').count(),0,'Le choix imposé de 5/10/20 questions doit être absent.');
+ await page.locator('#quizStart').click();
+ assert.equal(await page.locator('#quiz .quiz-choice').count()>=4,true);
+ const firstQuestionOrder=await page.evaluate(()=>{
+  const session=JSON.parse(localStorage.getItem('holberton-quiz-guest-v1')).current;
+  return session.optionOrder[session.questionIds[0]];
+ });
+ const displayedOrder=await page.locator('#quiz .quiz-choice input').evaluateAll(inputs=>inputs.map(input=>input.value));
+ assert.deepEqual(displayedOrder,firstQuestionOrder,
+  'L’ordre tiré doit être exactement celui affiché, avec les identifiants d’origine.');
+ assert.deepEqual(await page.locator('#quiz .quiz-choice b').allTextContents(),
+  'ABCDE'.slice(0,displayedOrder.length).split(''),
+  'Les lettres affichées doivent suivre les positions, pas les identifiants JSON.');
+ await page.locator('#quiz .quiz-choice').first().click();
+ await page.locator('#quizSubmit').click();
+ assert.deepEqual(await page.locator('#quiz .quiz-choice input').evaluateAll(inputs=>inputs.map(input=>input.value)),
+  firstQuestionOrder,'L’ordre ne doit pas changer lors de l’affichage du corrigé.');
+ assert.equal(await page.locator('#quiz .quiz-feedback').count(),1,'Le corrigé n’est pas affiché après validation.');
+ const quizLesson=page.locator('#quiz .quiz-feedback a.quiz-link');
+ assert.ok(await quizLesson.isVisible(),'La correction doit donner un lien vers le cours.');
+ const quizLessonHash=await quizLesson.getAttribute('href');
+ assert.ok(quizLessonHash.startsWith('#cours/'),'Le lien du corrigé ne mène pas au cours.');
+ await quizLesson.click();
+ await page.waitForFunction(expected=>location.hash===expected,quizLessonHash);
+ assert.ok(await page.locator('#courseArticle .lesson-selected').count()>0,
+  'Le corrigé ne sélectionne aucune fiche.');
+ await page.goto(origin+'/#quiz');
+ assert.ok(await page.locator('#quizPause').isVisible(),
+  'Le retour depuis la fiche doit retrouver la session en cours.');
+ await page.locator('#quizPause').click();
+ assert.ok(await page.locator('#quizResume').isVisible(),'La pause ne sauvegarde pas la session.');
+ await page.reload();
+ await page.locator('#quizResume').waitFor({state:'visible',timeout:15000});
+ await page.locator('#quizResume').click();
+ assert.deepEqual(await page.locator('#quiz .quiz-choice input').evaluateAll(inputs=>inputs.map(input=>input.value)),
+  firstQuestionOrder,'La pause et le rechargement ne doivent pas remélanger les choix de la même question.');
+ assert.ok(await page.locator('#quizNext').isVisible(),'La réponse précédente ne reprend pas correctement.');
+ await page.locator('#quizNext').click();
+ await page.locator('#quiz .quiz-choice').first().click();
+ await page.locator('#quizSubmit').click();
+ assert.ok(await page.locator('#quizFinish').isVisible(),'La fin libre du quiz doit être proposée après validation.');
+ await page.locator('#quizFinish').click();
+ assert.match(await page.locator('#quiz .quiz-score').innerText(),/\/ 2/,'Le bilan doit refléter seulement les deux réponses données.');
+ await page.goto(origin+'/#compte');
+ await page.locator('#guestProgress').waitFor({state:'visible'});
+ assert.match(await page.locator('#guestProgress').innerText(),/1 session/,'La progression invitée n’est pas enregistrée.');
+ await page.screenshot({path:'apercus/quiz-compte-progression.png'});
+
+ // La sauvegarde émet un événement exploitable par l'interface de synchronisation.
+ await page.goto(origin+'/#quiz');
+ await page.locator('#quizAgain').click();
+ await page.evaluate(()=>{
+  window.__quizUpdates=0;
+  window.addEventListener('holberton:quiz:updated',()=>window.__quizUpdates++);
+ });
+ await page.locator('#quizStart').click();
+ assert.equal(await page.evaluate(()=>window.__quizUpdates),1,
+  'Le moteur n’annonce pas les sauvegardes à la synchronisation des comptes.');
+
+ // Notation exacte indépendante des nouvelles lettres affichées à l'écran.
+ const graded=await page.evaluate(async()=>{
+  const session=JSON.parse(localStorage.getItem('holberton-quiz-guest-v1')).current;
+  const argc=JSON.parse(document.getElementById('quiz-argc-bank').textContent);
+  const stdarg=JSON.parse(document.getElementById('quiz-variadic-bank').textContent);
+  const id=session.questionIds[session.cursor];
+  const q=[...argc.questions,...stdarg.questions].find(item=>item.id===id);
+  if(!q)throw Error('Question introuvable pour la vérification de notation.');
+  return {id,correct:q.correct_option_ids,order:session.optionOrder[id]};
+ });
+ assert.deepEqual(await page.locator('#quiz .quiz-choice input').evaluateAll(nodes=>nodes.map(el=>el.value)),
+  graded.order,'Les identifiants des choix doivent rester associés aux textes corrects.');
+ for(const id of graded.correct)await page.locator('#quiz .quiz-choice input[value="'+id+'"]').check();
+ await page.locator('#quizSubmit').click();
+ assert.match(await page.locator('#quiz .quiz-feedback').innerText(),/Réponse exacte/,
+  'Les bonnes réponses doivent être reconnues quelle que soit leur position affichée.');
+ assert.deepEqual(
+  await page.evaluate(id=>JSON.parse(localStorage.getItem('holberton-quiz-guest-v1')).current.answers[id].selected.sort(),graded.id),
+  [...graded.correct].sort(),
+  'La progression doit enregistrer les identifiants d’origine, pas les positions visibles.');
+
+ // Un chargement distant remplace l'état en mémoire, pas seulement localStorage.
+ await page.goto(origin+'/#compte');
+ await page.evaluate(()=>{
+  const key='holberton-quiz-guest-v1';
+  const current=JSON.parse(localStorage.getItem(key));
+  current.history=[];current.current=null;current.stats={};current.seen={};
+  localStorage.setItem(key,JSON.stringify(current));
+  window.dispatchEvent(new Event('holberton:quiz:reload'));
+ });
+ assert.match(await page.locator('#guestProgress').innerText(),/0 session/,
+  'Le compte a restauré une progression mais le quiz garde son ancien historique.');
+ await page.goto(origin+'/#quiz');
+ assert.equal(await page.locator('#quizResume').count(),0,
+  'La session précédente reste active après un chargement distant.');
+
+ // En cas de quota localStorage dépassé, ne pas prétendre avoir enregistré un nouveau quiz.
+ await page.evaluate(()=>{
+  const previous=Storage.prototype.setItem;
+  window.__quizOriginalSetItem=previous;
+  Storage.prototype.setItem=function(key,value){
+   if(key==='holberton-quiz-guest-v1')throw new DOMException('Quota dépassé','QuotaExceededError');
+   return previous.call(this,key,value);
+  };
+ });
+ page.once('dialog',dialog=>dialog.dismiss());
+ await page.locator('#quizStart').click();
+ assert.ok(await page.locator('#quizStart').isVisible(),
+  'Le quiz démarre alors que sa progression ne peut pas être enregistrée.');
+ assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('holberton-quiz-guest-v1')).current),null,
+  'Une session non persistée a remplacé le suivi local.');
+ await page.evaluate(()=>{
+  Storage.prototype.setItem=window.__quizOriginalSetItem;
+  delete window.__quizOriginalSetItem;
+ });
+
  // Le comportement mobile existant reste préservé, sans refonte de l'interface.
  const mobile=await browser.newPage({viewport:{width:390,height:844},isMobile:true,hasTouch:true});
  mobile.on('pageerror',e=>errors.push('Mobile : '+e.message));
@@ -280,7 +417,16 @@ try{
  await figure.waitFor({state:'visible',timeout:12000});
  assert.ok((await figure.boundingBox())?.width>=600,'La taille du schéma mobile a été réduite.');
  await mobile.screenshot({path:'apercus/postit-et-cours-mobile.png'});
+ await mobile.goto(origin+'/#quiz');
+ await mobile.locator('#quizStart').waitFor({state:'visible',timeout:15000});
+ await mobile.locator('#quizStart').click();
+ const mobileChoice=await mobile.locator('#quiz .quiz-choice').first().boundingBox();
+ assert.ok(mobileChoice && mobileChoice.x>=0 && mobileChoice.x+mobileChoice.width<=390,
+  'Les propositions du quiz débordent sur petit écran.');
+ await mobile.screenshot({path:'apercus/quiz-mobile.png'});
 
+ assert.deepEqual(requestedExtra,[],
+  'Le quiz autonome a demandé des ressources que le VPS historique ne déploie pas.');
  assert.deepEqual(errors,[],'Erreurs JavaScript navigateur : '+errors.join(' / '));
  console.log('Navigation réussie : post-it, lecture continue, sommaire synchronisé, historique, recherche, favoris et mobile.');
 } finally {
