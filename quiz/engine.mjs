@@ -1,8 +1,22 @@
-import {readProgress,writeProgress,emptyProgress,checkBank,combineCandidates,selectQuestions,shuffleOptionIds,newSession,applyAnswer,completeSession,finishSession,progressSummary} from './core.mjs';
+import {readProgress,writeProgress,emptyProgress,checkBank,combineCandidates,selectQuestions,shuffleOptionIds,newSession,applyAnswer,skipAnswer,completeSession,finishSession,progressSummary} from './core.mjs';
 const root=document.getElementById('quiz'),account=document.getElementById('account');
 if(!root||!account)throw Error('Pages Compte et Quiz absentes.');
+// Nettoyer uniquement les paramètres de provenance ajoutés par des liens ChatGPT.
+const cleanUrl=new URL(location.href);
+let removedTracking=false;
+for(const key of ['source','utm_source']){
+ if(cleanUrl.searchParams.has(key)&&/^(?:gpt|chatgpt)/i.test(cleanUrl.searchParams.get(key))){
+  cleanUrl.searchParams.delete(key);
+  removedTracking=true;
+ }
+}
+if(removedTracking)history.replaceState(history.state,'',cleanUrl.pathname+cleanUrl.search+cleanUrl.hash);
+// Aide d'affichage distincte du corpus d'origine : clés de correction inchangées.
+let pedagogicHelp={};
+try{pedagogicHelp=JSON.parse(document.getElementById('quiz-aide-bank')?.textContent||'{}').questions||{};}catch{}
 let bank=[],progress=readProgress(localStorage),loading=true,error='',family='all',paused=false,lastReport=null;
 const escape=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const formatInline=s=>escape(s).replace(/\x60([^\x60]+)\x60/g,'<code>$1</code>');
 const isQuiz=()=>location.hash.split('/')[0]==='#quiz';
 function persist(next){
  if(!writeProgress(localStorage,next)){
@@ -57,7 +71,7 @@ function renderQuestion(){
  if(!session?.questionIds?.length){renderMenu();return}
  const index=session.cursor||0,q=findQuestion(session.questionIds[index]);
  if(!q){renderMenu();return}
- // Compatibilité des anciennes sessions : créer puis conserver un ordre une seule fois.
+ // Une même session conserve l'ordre de ses choix, y compris après pause ou rechargement.
  const ids=q.options.map(option=>option.id);
  let order=session.optionOrder?.[q.id];
  if(!Array.isArray(order)||order.length!==ids.length||new Set(order).size!==ids.length||!order.every(id=>ids.includes(id))){
@@ -65,28 +79,53 @@ function renderQuestion(){
   session={...session,optionOrder:{...session.optionOrder,[q.id]:order}};
   if(!persist({...progress,current:session}))return;
  }
+ const help=pedagogicHelp[q.id]||{};
  const optionById=new Map(q.options.map(option=>[option.id,option]));
+ const correctIds=new Set(q.correct_option_ids);
  const given=session.answers[q.id],answered=!!given,mode=q.answer_mode==='single'?'Une seule bonne réponse':'Plusieurs bonnes réponses';
  const options=order.map((id,position)=>{
   const o=optionById.get(id);
-  const selected=given?.selected?.includes(o.id)||false,correct=q.correct_option_ids.includes(o.id);
+  const selected=given?.selected?.includes(o.id)||false,correct=correctIds.has(o.id);
   const cls=answered?(correct?' correct':selected?' incorrect':''):'';
-  // Les lettres indiquent la POSITION affichée ; les identifiants d'origine restent utilisés pour la notation.
-  return '<label class="quiz-choice'+cls+'"><input name="quiz-answer" type="'+(q.answer_mode==='single'?'radio':'checkbox')+'" value="'+escape(o.id)+'" '+(selected?'checked ':'')+(answered?'disabled':'')+'><b>'+String.fromCharCode(65+position)+'</b><span>'+escape(o.text)+'</span></label>';
+  return '<label class="quiz-choice'+cls+'"><input name="quiz-answer" type="'+(q.answer_mode==='single'?'radio':'checkbox')+'" value="'+escape(o.id)+'" '+(selected?'checked ':'')+(answered?'disabled':'')+'><b>'+String.fromCharCode(65+position)+'</b><span>'+formatInline(o.text)+'</span></label>';
  }).join('');
- const feedback=answered?'<div class="quiz-feedback '+(given.correct?'quiz-good':'quiz-bad')+'" role="status"><strong>'+(given.correct?'Réponse exacte.':'Réponse fausse ou incomplète.')+'</strong><p>'+escape(q.explanation)+'</p>'+linkCourse(q)+'</div>':'';
+ const correctOptions=order.filter(id=>correctIds.has(id)).map(id=>{
+  const position=order.indexOf(id),o=optionById.get(id);
+  return '<li><strong>'+String.fromCharCode(65+position)+'.</strong> '+formatInline(o.text)+'</li>';
+ }).join('');
+ const explanations=order.map((id,position)=>{
+  const isCorrect=correctIds.has(id),label=String.fromCharCode(65+position);
+  const reason=help.feedback?.[id]||q.explanation;
+  return '<li class="'+(isCorrect?'quiz-reason-good':'quiz-reason-bad')+'"><strong>'+label+' — '+(isCorrect?'Correcte':'Incorrecte')+' :</strong> '+formatInline(reason)+'</li>';
+ }).join('');
+ const detailed=given&&!given.correct?
+  '<div class="quiz-review-detail"><h4>'+(given.skipped?'Voici les bonnes réponses :':'Réponse(s) attendue(s) :')+'</h4><ul class="quiz-correct-answers">'+correctOptions+'</ul><h4>Explication de chaque proposition</h4><ul class="quiz-option-reasons">'+explanations+'</ul></div>':'';
+ const feedback=answered?'<div class="quiz-feedback '+(given.correct?'quiz-good':'quiz-bad')+'" role="status"><strong>'+
+  (given.skipped?'Question passée : tu as indiqué « Je ne sais pas ».':given.correct?'Réponse exacte.':'Réponse fausse ou incomplète.')+
+  '</strong><p>'+formatInline(q.explanation)+'</p>'+detailed+linkCourse(q)+'</div>':'';
  page('Question '+(index+1),q.notion,
- '<p class="quiz-muted">Réponds à ton rythme : la session n’impose aucun nombre de questions.</p>'+
- '<div class="quiz-card"><p class="quiz-mode">'+mode+'</p><h3>'+escape(q.prompt)+'</h3><fieldset class="quiz-options"><legend class="sr-only">Choix de réponse</legend>'+options+'</fieldset>'+
- '<p id="quizError" class="quiz-error" role="alert" hidden>Choisis au moins une proposition.</p>'+feedback+
+ '<p class="quiz-muted">Prends ton temps : tu peux répondre, indiquer « Je ne sais pas » ou mettre la session en pause.</p>'+
+ '<div class="quiz-card"><p class="quiz-mode">'+mode+'</p><h3 class="quiz-question-title">'+formatInline(help.prompt||q.prompt)+'</h3><fieldset class="quiz-options"><legend class="sr-only">Choix de réponse</legend>'+options+'</fieldset>'+
+ (answered?'':'<label class="quiz-unknown"><input type="checkbox" id="quizDontKnow"> <span>Je ne sais pas</span></label><p class="quiz-muted quiz-unknown-help">Afficher le corrigé avant de passer à la question suivante.</p>')+
+ '<p id="quizError" class="quiz-error" role="alert" hidden>Choisis une proposition ou coche « Je ne sais pas ».</p>'+feedback+
  '<div class="quiz-actions">'+(answered?'<button class="quiz-primary" id="quizNext">'+(index+1===session.questionIds.length?'Voir le bilan':'Question suivante')+'</button>':'<button class="quiz-primary" id="quizSubmit">Valider</button>')+
  '<button class="quiz-secondary" id="quizPause">Pause</button>'+(answered&&index+1<session.questionIds.length?'<button class="quiz-secondary" id="quizFinish">Terminer et voir mon bilan</button>':'')+'</div></div>');
  const submit=document.getElementById('quizSubmit');
+ const unknown=document.getElementById('quizDontKnow');
+ if(unknown)unknown.onchange=()=>{
+  for(const input of root.querySelectorAll('.quiz-choice input')){
+   if(unknown.checked)input.checked=false;
+   input.disabled=unknown.checked;
+  }
+  if(submit)submit.textContent=unknown.checked?'Voir la correction':'Valider';
+  document.getElementById('quizError').hidden=true;
+ };
  if(submit)submit.onclick=()=>{
+  const skipped=!!unknown?.checked;
   const selected=[...root.querySelectorAll('input[name="quiz-answer"]:checked')].map(el=>el.value);
-  if(!selected.length){document.getElementById('quizError').hidden=false;return}
+  if(!skipped&&!selected.length){document.getElementById('quizError').hidden=false;return}
   try{
-   const current=applyAnswer(progress.current,q,selected);
+   const current=skipped?skipAnswer(progress.current,q):applyAnswer(progress.current,q,selected);
    if(!persist({...progress,current}))return;
    renderQuestion();renderAccount();
   }catch(e){let el=document.getElementById('quizError');el.textContent=e.message;el.hidden=false}
