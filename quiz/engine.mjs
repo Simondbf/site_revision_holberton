@@ -153,10 +153,20 @@ function render(){
 async function load(){
  loading=true;error='';render();
  try{
-  const urls=[new URL('../docs/quiz/vague1/section-09-pointeurs-et-tableaux-c.json',import.meta.url),new URL('questions-variadiques.json',import.meta.url)];
-  const response=await Promise.all(urls.map(url=>fetch(url,{cache:'no-cache'})));
-  if(response.some(r=>!r.ok))throw Error('Les fichiers de questions ne sont pas disponibles.');
-  const [pointer,varia]=await Promise.all(response.map(r=>r.json()));
+  const embeddedPointer=document.getElementById('quiz-argc-bank');
+  const embeddedVaria=document.getElementById('quiz-variadic-bank');
+  let pointer,varia;
+  if(embeddedPointer&&embeddedVaria){
+   // Le serveur historique ne déploie que index.html : les deux banques y sont intégrées.
+   pointer=JSON.parse(embeddedPointer.textContent);
+   varia=JSON.parse(embeddedVaria.textContent);
+  }else{
+   // Conserve la compatibilité du module source avec un serveur de développement complet.
+   const urls=[new URL('../docs/quiz/vague1/section-09-pointeurs-et-tableaux-c.json',import.meta.url),new URL('questions-variadiques.json',import.meta.url)];
+   const response=await Promise.all(urls.map(url=>fetch(url,{cache:'no-cache'})));
+   if(response.some(r=>!r.ok))throw Error('Les fichiers de questions ne sont pas disponibles.');
+   [pointer,varia]=await Promise.all(response.map(r=>r.json()));
+  }
   bank=combineCandidates(pointer,varia);checkBank(bank);
   if(progress.current?.questionIds?.some(id=>!findQuestion(id)))progress.current=null;
  }catch(e){error=e.message||String(e)}
