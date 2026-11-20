@@ -129,10 +129,15 @@ assert.equal(applyAnswer(newSession([fourMulti]),fourMulti,['A','B','D']).answer
 assert.equal(applyAnswer(newSession([fiveMulti]),fiveMulti,['A','B','C','D']).answers[fiveMulti.id].correct,true);
 const sampleQuestion=bank.find(q=>q.options.length===4);
 assert.equal(emptyProgress().feedbackMode,'immediate','Invité : correction immédiatement par défaut.');
-assert.equal(emptyProgress().adaptiveEnabled,true,'Un nouveau compte doit proposer l’adaptation activée.');
-const legacyProgress={...emptyProgress()};delete legacyProgress.adaptiveEnabled;
+assert.equal(emptyProgress().adaptiveEnabled,false,'Le tirage aléatoire doit être le défaut pour tous.');
+const legacyProgress={...emptyProgress(),adaptiveEnabled:true};
+delete legacyProgress.adaptivePreferenceVersion;
 const legacyStorage={getItem(){return JSON.stringify(legacyProgress)}};
-assert.equal(readProgress(legacyStorage).adaptiveEnabled,true,'L’historique antérieur doit conserver le défaut adaptatif pour un compte.');
+assert.equal(readProgress(legacyStorage).adaptiveEnabled,false,
+ 'Un ancien défaut adaptatif ne doit pas activer automatiquement le mode connecté.');
+const enabledStorage={getItem(){return JSON.stringify({...emptyProgress(),adaptiveEnabled:true})}};
+assert.equal(readProgress(enabledStorage).adaptiveEnabled,true,
+ 'Le choix explicite d’activer l’adaptation doit être conservé.');
 const disabledStorage={getItem(){return JSON.stringify({...emptyProgress(),adaptiveEnabled:false})}};
 assert.equal(readProgress(disabledStorage).adaptiveEnabled,false,'Le choix de désactiver l’adaptation doit être préservé.');
 const endSession=newSession([sampleQuestion],'all',new Date('2026-11-20T10:00:00Z'),()=>0.5,'end');
@@ -180,7 +185,7 @@ assert.equal(matchesAnswer(['A','C'],['C','A']),true,'L’ordre des choix ne doi
 assert.equal(matchesAnswer(['A','C','D'],['A','C']),false,'Cocher une mauvaise réponse ne donne pas le point');
 assert.equal(matchesAnswer(['A'],['A','B']),false,'Omettre une réponse ne donne pas le point');
 assert.equal(matchesAnswer(['A','B','C','D'],['A','B']),false,'Cocher toutes les réponses ne donne pas le point');
-const items=selectQuestions(bank,{family:'all',amount:11,random:()=>0.5});
+const items=selectQuestions(bank,{family:'all',amount:11,random:()=>0.5,adaptive:true});
 assert.equal(items.length,11,'Onze questions sélectionnées');
 assert.equal(new Set(items.map(q=>q.notion_id)).size,11,'Diversité des notions en début de session');
 const argcOnly=selectQuestions(bank,{family:'argc',amount:100,random:()=>0.5});
@@ -199,7 +204,7 @@ const orders=new Set(Array.from({length:12},(_,i)=>selectQuestions(bank,{familie
 assert.ok(orders.size>=6,'Les premiers tirages de questions doivent changer réellement entre deux sessions.');
 const weakId=bank.find(q=>q.family==='argc').notion_id;
 const adaptiveStats=Object.fromEntries([...new Set(bank.map(q=>q.notion_id))].map(id=>[id,{attempts:10,errors:id===weakId?10:0}]));
-assert.equal(selectQuestions(bank,{families:['argc','stdarg'],amount:1,stats:adaptiveStats,random:seeded(1)})[0].notion_id,weakId,
+assert.equal(selectQuestions(bank,{families:['argc','stdarg'],amount:1,stats:adaptiveStats,random:seeded(1),adaptive:true})[0].notion_id,weakId,
  'La randomisation ne doit pas supprimer la priorité d’une notion mal maîtrisée.');
 const plainA=selectQuestions(bank,{families:['argc','stdarg'],amount:20,random:seeded(42),adaptive:false});
 const plainB=selectQuestions(bank,{families:['argc','stdarg'],amount:20,random:seeded(42),adaptive:false,
@@ -254,6 +259,10 @@ assert.deepEqual(embedded('quiz-argc-bank').questions,
  'Le paquet intégré doit contenir exactement les 25 questions argc relues.');
 assert.deepEqual(embedded('quiz-aide-bank'),help,'Les explications intégrées doivent correspondre au fichier source.');
 assert.ok(html.includes('name="quizTheme"'),'Le quiz publié doit proposer les thèmes multisélection.');
+assert.ok(html.includes('id="quizThemeDropdown"')&&html.includes('id="quizThemeSearch"'),
+ 'La liste déroulante avec recherche doit être intégrée au site autonome.');
+assert.ok(html.includes('quizThemeAll')&&html.includes('quizThemeNone'),
+ 'La sélection globale des thèmes doit être proposée.');
 assert.ok(!html.includes('id="quizFamily"'),'L’ancien sélecteur de thème unique doit être supprimé.');
 assert.ok(html.includes('id="quizDontKnow"'),'Le formulaire doit offrir Je ne sais pas.');
 assert.ok(html.includes('quiz-option-reasons'),'Les corrections détaillées doivent être disponibles.');
