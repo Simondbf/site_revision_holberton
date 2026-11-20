@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
-import {readProgress,writeProgress,emptyProgress,combineCandidates,checkBank,selectQuestions,newSession,applyAnswer,completeSession,finishSession,matchesAnswer,progressSummary} from '../quiz/core.mjs';
+import {readProgress,writeProgress,emptyProgress,combineCandidates,checkBank,selectQuestions,shuffleOptionIds,newSession,applyAnswer,completeSession,finishSession,matchesAnswer,progressSummary} from '../quiz/core.mjs';
 const dir=new URL('../',import.meta.url);
 const argc=JSON.parse(readFileSync(new URL('docs/quiz/vague1/section-09-pointeurs-et-tableaux-c.json',dir),'utf8'));
 const varia=JSON.parse(readFileSync(new URL('quiz/questions-variadiques.json',dir),'utf8'));
@@ -42,6 +42,65 @@ assert.deepEqual(findQ('VAR-08-033-05').correct_option_ids,['A'],
  'La lecture des arguments int et double doit respecter les promotions.');
 assert.deepEqual(findQ('VAR-08-036-04').correct_option_ids,['A'],
  'La séquence va_copy / va_end en C99 doit être correcte.');
+// Preuve exhaustive du mélange de Fisher-Yates (tirages indépendants et uniformes) :
+ // n! permutations, chaque réponse identifiable en position p avec probabilité 1/n,
+ // et chaque ensemble de k positions correctes avec probabilité 1/C(n,k).
+const fact=n=>n<=1?1:n*fact(n-1);
+const comb=(n,k)=>fact(n)/(fact(k)*fact(n-k));
+function allOrders(n){
+ const options='ABCDE'.slice(0,n).split('').map(id=>({id,text:id}));
+ const orders=[];
+ function visit(i,rolls){
+  if(i===0){
+   let index=0;
+   orders.push(shuffleOptionIds(options,()=>rolls[index++]));
+   return;
+  }
+  for(let j=0;j<=i;j++)visit(i-1,[...rolls,(j+0.5)/(i+1)]);
+ }
+ visit(n-1,[]);
+ assert.equal(orders.length,fact(n));
+ assert.equal(new Set(orders.map(x=>x.join(','))).size,fact(n),'Le mélange doit produire chaque permutation une fois.');
+ assert.deepEqual(options.map(x=>x.id),'ABCDE'.slice(0,n).split(''),'Les données sources ne doivent pas être modifiées.');
+ return orders;
+}
+for(const n of [4,5]){
+ const orders=allOrders(n),available='ABCDE'.slice(0,n).split('');
+ for(const id of available){
+  for(let position=0;position<n;position++){
+   assert.equal(orders.filter(order=>order[position]===id).length,fact(n)/n,
+    'Chaque proposition doit avoir exactement 1/'+n+' de chance par position.');
+  }
+ }
+ for(let k=1;k<n;k++){
+  const correct=new Set(available.slice(0,k)),sets=new Map();
+  for(const order of orders){
+   const positions=order.flatMap((id,i)=>correct.has(id)?[i]:[]).join(',');
+   sets.set(positions,(sets.get(positions)||0)+1);
+  }
+  assert.equal(sets.size,comb(n,k),'Toutes les répartitions des '+k+' réponses doivent être possibles.');
+  assert.ok([...sets.values()].every(count=>count===fact(n)/comb(n,k)),
+   'La répartition des ensembles de '+k+' bonnes réponses doit être uniforme.');
+  for(let position=0;position<n;position++){
+   assert.equal(orders.filter(order=>correct.has(order[position])).length,fact(n)*k/n,
+    'Une position doit avoir une probabilité k/n de contenir une bonne réponse.');
+  }
+ }
+}
+const sampleQuestion=bank.find(q=>q.options.length===4);
+const sessionA=newSession([sampleQuestion],'all',new Date('2026-11-19T15:00:00Z'),()=>0);
+const sessionB=newSession([sampleQuestion],'all',new Date('2026-11-19T15:00:00Z'),()=>0.99999);
+assert.notDeepEqual(sessionA.optionOrder[sampleQuestion.id],sessionB.optionOrder[sampleQuestion.id],
+ 'Deux nouvelles sessions doivent pouvoir redistribuer la même question.');
+const answeredShuffle=applyAnswer(sessionA,sampleQuestion,[sampleQuestion.correct_option_ids[0]]);
+assert.deepEqual(answeredShuffle.optionOrder,sessionA.optionOrder,'La validation ne doit jamais remélanger les propositions.');
+assert.equal(answeredShuffle.answers[sampleQuestion.id].correct,sampleQuestion.answer_mode==='single',
+ 'La notation doit comparer les identifiants, indépendamment de la position.');
+const shuffleStorage={data:'',getItem(){return this.data},setItem(_,value){this.data=value}};
+assert.equal(writeProgress(shuffleStorage,{...emptyProgress(),current:answeredShuffle}),true);
+assert.deepEqual(readProgress(shuffleStorage).current.optionOrder,sessionA.optionOrder,
+ 'L’ordre des propositions doit persister après rechargement ou synchronisation.');
+
 assert.equal(matchesAnswer(['A','C'],['C','A']),true,'L’ordre des choix ne doit pas modifier le score');
 assert.equal(matchesAnswer(['A','C','D'],['A','C']),false,'Cocher une mauvaise réponse ne donne pas le point');
 assert.equal(matchesAnswer(['A'],['A','B']),false,'Omettre une réponse ne donne pas le point');
