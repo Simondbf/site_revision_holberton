@@ -285,8 +285,20 @@ try{
  assert.equal(await page.locator('#quizCount').count(),0,'Le choix imposé de 5/10/20 questions doit être absent.');
  await page.locator('#quizStart').click();
  assert.equal(await page.locator('#quiz .quiz-choice').count()>=4,true);
+ const firstQuestionOrder=await page.evaluate(()=>{
+  const session=JSON.parse(localStorage.getItem('holberton-quiz-guest-v1')).current;
+  return session.optionOrder[session.questionIds[0]];
+ });
+ const displayedOrder=await page.locator('#quiz .quiz-choice input').evaluateAll(inputs=>inputs.map(input=>input.value));
+ assert.deepEqual(displayedOrder,firstQuestionOrder,
+  'L’ordre tiré doit être exactement celui affiché, avec les identifiants d’origine.');
+ assert.deepEqual(await page.locator('#quiz .quiz-choice b').allTextContents(),
+  'ABCDE'.slice(0,displayedOrder.length).split(''),
+  'Les lettres affichées doivent suivre les positions, pas les identifiants JSON.');
  await page.locator('#quiz .quiz-choice').first().click();
  await page.locator('#quizSubmit').click();
+ assert.deepEqual(await page.locator('#quiz .quiz-choice input').evaluateAll(inputs=>inputs.map(input=>input.value)),
+  firstQuestionOrder,'L’ordre ne doit pas changer lors de l’affichage du corrigé.');
  assert.equal(await page.locator('#quiz .quiz-feedback').count(),1,'Le corrigé n’est pas affiché après validation.');
  const quizLesson=page.locator('#quiz .quiz-feedback a.quiz-link');
  assert.ok(await quizLesson.isVisible(),'La correction doit donner un lien vers le cours.');
@@ -304,6 +316,8 @@ try{
  await page.reload();
  await page.locator('#quizResume').waitFor({state:'visible',timeout:15000});
  await page.locator('#quizResume').click();
+ assert.deepEqual(await page.locator('#quiz .quiz-choice input').evaluateAll(inputs=>inputs.map(input=>input.value)),
+  firstQuestionOrder,'La pause et le rechargement ne doivent pas remélanger les choix de la même question.');
  assert.ok(await page.locator('#quizNext').isVisible(),'La réponse précédente ne reprend pas correctement.');
  await page.locator('#quizNext').click();
  await page.locator('#quiz .quiz-choice').first().click();
