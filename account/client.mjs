@@ -47,7 +47,34 @@ function reloadQuiz(data){
  window.dispatchEvent(new Event('holberton:preferences:reload'));
 }
 async function refreshRemote(){remote=await api('/api/progress')}
+function clearAdmin(){root.querySelector('#accountAdmin')?.remove()}
+async function showAdmin(){
+ clearAdmin();if(!me.authenticated||!me.isAdmin)return;
+ const panel=document.createElement('section');panel.id='accountAdmin';panel.className='account-admin quiz-card';
+ root.querySelector('.helpgrid')?.insertAdjacentElement('afterend',panel);
+ panel.innerHTML='<h3>Administration — statistiques</h3><p role="status">Chargement…</p>';
+ try{
+  const s=await api('/api/admin/stats');if(!panel.isConnected)return;
+  const number=n=>Number.isSafeInteger(n)?String(n):'Indisponible';
+  const gh=s.githubContributors;
+  const ghCount=gh?number(gh.count)+(gh.complete?'':' (au moins)'):'Indisponible';
+  const days=(s.daily||[]).slice(-30).reverse().map(x=>'<tr><th scope="row">'+esc(x.day)+'</th><td>'+number(x.visits)+'</td></tr>').join('');
+  panel.innerHTML='<h3>Administration — statistiques</h3>'+
+   '<div class="account-metrics"><span>Visites : <strong>'+number(s.visitsTotal)+'</strong></span>'+
+   '<span>Sur 30 jours : <strong>'+number(s.visitsLast30Days)+'</strong></span>'+
+   '<span>Comptes : <strong>'+number(s.registeredAccounts)+'</strong></span>'+
+   '<span>Comptes synchronisés : <strong>'+number(s.accountsWithProgress)+'</strong></span>'+
+   '<span>Contributeurs GitHub (commits) : <strong>'+esc(ghCount)+'</strong></span></div>'+
+   '<p class="quiz-muted">'+esc(s.note)+' Les données démarrent à l’activation du service et peuvent être incomplètes.</p>'+
+   '<p><a href="https://github.com/Simondbf/site_revision_holberton/graphs/contributors" target="_blank" rel="noopener noreferrer">Contributions GitHub</a></p>'+
+   '<details><summary>Visites par jour (UTC)</summary><table class="account-admin-table"><thead><tr><th>Date</th><th>Ouvertures</th></tr></thead><tbody>'+
+   (days||'<tr><td colspan="2">Aucune visite enregistrée</td></tr>')+'</tbody></table></details>'+
+   '<button class="quiz-secondary" id="accountStatsRefresh" type="button">Actualiser</button>';
+  document.getElementById('accountStatsRefresh').onclick=showAdmin;
+ }catch(e){if(panel.isConnected)panel.innerHTML='<h3>Administration — statistiques</h3><p class="account-error">'+esc(e.message)+'</p>'}
+}
 function displayGuest(){
+ clearAdmin();
  announceLoginStatus();
  card.innerHTML='<h3>Se connecter ou créer un compte</h3><p>Un compte est facultatif. Il permet la synchronisation de la progression entre appareils après validation de l’adresse e-mail.</p>'+
  '<form id="accountLoginForm"><label for="accountEmail">Adresse e-mail</label><input id="accountEmail" type="email" name="email" autocomplete="email" required maxlength="254" placeholder="adresse@exemple.fr">'+
@@ -62,11 +89,13 @@ function displayGuest(){
  };
 }
 function displayUnavailable(){
+ clearAdmin();
  announceLoginStatus();
  card.innerHTML='<h3>Comptes en préparation</h3><p>Le backend privé et son relais Brevo ne sont pas encore activés sur le site public. L’accès invité, les favoris et les quiz restent disponibles.</p>'+
  '<p class="quiz-muted">Dès que le service sera sécurisé et déployé, cette page proposera l’inscription et la connexion facultatives.</p>';
 }
 function displayConnected(){
+ clearAdmin();
  announceLoginStatus();
  const local=progressLocal(),guest=progressSummary(local);
  const remoteSummary=remote.data?progressSummary(remote.data):null;
@@ -79,6 +108,7 @@ function displayConnected(){
  '<button class="quiz-secondary" id="accountLogout" type="button">Se déconnecter</button>'+
  '<button class="quiz-secondary quiz-danger" id="accountDelete" type="button">Supprimer mon compte</button></div>'+
  '<p id="accountStatus" role="status" aria-live="polite"></p>';
+ if(me.isAdmin)showAdmin();
  document.getElementById('accountSendProgress').onclick=saveToAccount;
  document.getElementById('accountLoadProgress').onclick=loadFromAccount;
  document.getElementById('accountExport').onclick=async()=>{
@@ -171,4 +201,14 @@ window.addEventListener('hashchange',()=>{
  if(location.hash.startsWith('#compte/verification/'))initialize();
  if(location.hash==='#compte'&&me.authenticated)displayConnected();
 });
+// Comptage non nominatif : une ouverture par onglet et par jour UTC.
+async function trackVisit(){
+ try{
+  const day=new Date().toISOString().slice(0,10);
+  if(sessionStorage.getItem('holberton-visit-day')===day)return;
+  const r=await fetch('/api/analytics/visit',{method:'POST',credentials:'same-origin',cache:'no-store',keepalive:true});
+  if(r.ok)sessionStorage.setItem('holberton-visit-day',day);
+ }catch{/* Le mode invité continue sans l'API. */}
+}
+trackVisit();
 initialize();

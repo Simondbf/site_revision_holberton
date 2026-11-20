@@ -71,3 +71,11 @@ location /api/ {
 ## Décision de fusion
 
 Cette PR est **empilée sur #25, lui-même dépendant de #24**. Elle ne doit pas être fusionnée avant la validation des PR de navigation et de quiz, et **ne déploie pas** le backend à elle seule. La protection de `main` et le déploiement sécurisé doivent être validés par le propriétaire.
+
+## Administration et statistiques — PR complémentaire, non activée
+
+- L'administrateur se connecte avec une adresse vérifiée, correspondant exactement à la variable privée `HBTN_ADMIN_EMAIL` définie côté VPS. Le navigateur ne peut jamais s'attribuer ce droit.
+- `GET /api/admin/stats` vérifie la session côté serveur et ne fournit que des agrégats : comptes inscrits, comptes synchronisés, visites journalières, nombre d'auteurs de commits GitHub. Invité : 401 ; compte ordinaire : 403.
+- `POST /api/analytics/visit` compte au plus une ouverture par onglet et jour UTC grâce à `sessionStorage`, avec contrôle d'origine ; ces visites approximatives ne sont pas des visiteurs uniques, peuvent être bloquées et sont susceptibles d'abus. Aucun e-mail, adresse IP ou identifiant de session n'est stocké dans la table des visites ; limitation par IP hachée en mémoire.
+- Auteurs de commits via l'API GitHub publique, cache une heure ; nombre indisponible en cas d'échec ou indiqué comme minimum si plus de 100 contributeurs.
+- Statistiques non rétroactives et non activées en production avant audit du backend, SMTP Brevo réel, sauvegardes, sécurité RGPD, HTTPS, CI et rollback.

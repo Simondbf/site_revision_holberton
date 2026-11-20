@@ -15,7 +15,7 @@ if(!Number.isSafeInteger(port)||port<1||port>65535)throw Error('Port serveur inv
 mkdirSync(resolve(dbPath,'..'),{recursive:true,mode:0o700});
 const db=openDatabase(dbPath);
 const sendLoginEmail=await makeBrevoSmtpSender(env);
-const {server}=createAuthApp({db,publicOrigin,sendLoginEmail,secureCookies:publicOrigin.startsWith('https://')});
+const {server}=createAuthApp({db,publicOrigin,sendLoginEmail,secureCookies:publicOrigin.startsWith('https://'),adminEmail:env.HBTN_ADMIN_EMAIL||''});
 server.listen(port,bind,()=>{
  console.log('Service comptes Holberton Révision sur '+bind+':'+port+' (e-mail '+(sendLoginEmail?'configuré':'désactivé')+').');
 });
