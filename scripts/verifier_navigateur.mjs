@@ -444,8 +444,9 @@ try{
   localStorage.setItem(key,JSON.stringify(current));
   window.dispatchEvent(new Event('holberton:quiz:reload'));
  });
- assert.match(await page.locator('#guestProgress').innerText(),/0 session/,
-  'Le compte a restauré une progression mais le quiz garde son ancien historique.');
+ await page.goto(origin+'/#quiz');
+ assert.match(await page.locator('#quiz .quiz-stats').innerText(),/0 session/,
+  'Un chargement distant doit actualiser les statistiques du quiz.');
  await page.goto(origin+'/#quiz');
  assert.equal(await page.locator('#quizResume').count(),0,
   'La session précédente reste active après un chargement distant.');
