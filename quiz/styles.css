@@ -40,3 +40,8 @@
 .quiz-theme-selection input{accent-color:var(--primary);width:18px;height:18px}
 .quiz-theme-selection label:focus-within{outline:2px solid var(--primary);outline-offset:2px;border-radius:6px}
 #quizThemeError{grid-column:1/-1;margin:0}
+
+/* Réglage réservé aux comptes connectés pour la priorité adaptative. */
+.quiz-adaptive-settings .quiz-adaptive-label{display:flex;align-items:center;gap:10px;cursor:pointer}
+.quiz-adaptive-settings input[type=checkbox]{width:19px;height:19px;accent-color:var(--primary);flex-shrink:0}
+.quiz-adaptive-settings .quiz-adaptive-label:focus-within{outline:2px solid var(--primary);outline-offset:4px;border-radius:4px}
