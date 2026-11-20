@@ -6,13 +6,14 @@ const nav=[...html.matchAll(/<button class="navbtn(?: active)?" data-page="([^"]
 assert.deepEqual(nav,[['home','Accueil'],['account','Compte'],['quiz','Quiz'],['topics','Fiches'],['about','À propos']],'Ordre de la navigation incorrect');
 found('id="goQuiz"');
 found("go('#quiz')");
-found('id="accountFavorites"');
-found("go('#favoris')");
-found('id="quizExplore"');
 found("go('#fiches')");
 found('id="account" class="hidden"');
 found('id="quiz" class="hidden"');
 found("const panels=['browse','detail','course','favorites','account','quiz','about']");
+found('id="accountComingSoon"');
+found('À venir prochainement');
+found('data-fullpage');
+found('id="accountConnectedContent"');
 found("page:['accueil','fiches','favoris','compte','quiz','apropos']");
 assert.ok(!html.includes('id="goFavorites"'),'Bouton historique non remplacé');
 assert.ok(!html.includes('<a class="side-home" href="#accueil">'),'Doublon accueil dans le sommaire');
@@ -20,12 +21,12 @@ assert.ok(!html.includes('<a class="side-home" href="#fiches">'),'Doublon fiches
 assert.ok(!html.includes('Accessible hors ligne'),'Promesse hors ligne non vérifiée');
 assert.ok(!html.includes('Consultation hors ligne.'),'Meta-description hors ligne incorrecte');
 assert.ok(!html.includes('les favoris et le thème d\'affichage sont conservés dans ton navigateur'),'Ancien libellé de données locales');
-found('Les inscriptions et les e-mails Brevo ne sont pas encore activés');
+assert.ok(!html.includes('id="accountFavorites"'),'L’accès aux favoris doit disparaître.');
 found('55 questions sur argc/argv et stdarg.h');
 found('id="favoriteItems"');
 found('holberton-favorites-v2');
 found('holberton-dark-v2');
-found('Ta progression reste sur cet appareil.');
+found('tes résultats de quiz restent dans ce navigateur');
 assert.ok(!html.includes('La suppression des données locales et la suppression d’un futur compte'),
  'Ancienne phrase sur les données bancaires encore présente.');
 const scripts=[...html.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/g)];
@@ -36,4 +37,4 @@ found('id="quiz-argc-bank"');
 found('id="quiz-variadic-bank"');
 assert.ok(app,'Script d’application introuvable');
 const check=new Function(app);assert.equal(typeof check,'function','JS de l’application invalide');
-console.log('Navigation Accueil, Compte, Quiz, Fiches, À propos et maintien des favoris vérifiés.');
+console.log('Navigation complète, compte en préparation, quiz pleine largeur et favoris masqués vérifiés.');

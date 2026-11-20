@@ -64,3 +64,11 @@
 .quiz-theme-panel .quiz-theme-selection label[hidden],#quizThemeNoMatch[hidden]{display:none}
 #quizThemeNoMatch{margin:0}
 @media(max-width:680px){.quiz-theme-panel{padding:10px}.quiz-theme-panel .quiz-theme-selection{max-height:40vh}}
+
+/* Historique de sessions dans Quiz, y compris en mode invité. */
+.quiz-recent{margin-top:12px}
+.quiz-recent h3{margin-top:0}
+.quiz-recent-list{list-style:none;padding:0;margin:14px 0;display:grid;gap:9px}
+.quiz-recent-list li{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap;padding:11px 14px;border:1px solid var(--line);border-radius:9px;background:var(--surface-alt)}
+.quiz-recent-list strong{font-weight:800}
+.quiz-recent-list span{color:var(--muted);font-size:13px}

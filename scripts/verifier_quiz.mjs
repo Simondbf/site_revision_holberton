@@ -276,8 +276,14 @@ assert.ok(html.includes('holberton:account:status'),'La connexion doit mettre à
 
 assert.deepEqual(embedded('quiz-variadic-bank'),varia,
  'Le paquet intégré doit contenir exactement les 30 questions variadiques relues.');
-assert.ok(html.includes('Tes sessions et résultats sont sauvegardés sur cet appareil, dans ce navigateur.'),
- 'La progression invitée doit indiquer le navigateur et l’appareil de sauvegarde.');
+assert.ok(html.includes('id="accountComingSoon"')&&html.includes('À venir prochainement'),
+ 'Le compte invité doit afficher seulement son ouverture prochaine.');
+assert.ok(html.includes('quizExport')&&html.includes('quizClear'),
+ 'L’accès à ses résultats doit rester dans Quiz.');
+assert.ok(html.includes('account-competencies')&&html.includes('accountTabSettings'),
+ 'Le tableau personnel et ses paramètres doivent être réservés au compte connecté.');
+assert.ok(!html.includes('Tes sessions et résultats sont sauvegardés sur cet appareil, dans ce navigateur.'),
+ 'Les mentions de stockage superflues doivent être retirées de Quiz et Compte.');
 assert.ok(!html.includes('VERSION TEST')&&!html.includes('relecture pédagogique')&&
  !html.includes('La suppression des données locales et la suppression d’un futur compte'),
  'Les anciens avertissements obsolètes ne doivent plus apparaître.');

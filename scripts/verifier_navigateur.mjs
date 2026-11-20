@@ -54,6 +54,10 @@ try{
 
  // Les post-it gardent leur définition et n'ouvrent plus de fenêtre superposée.
  await page.goto(origin+'/#theme/'+slug(topicName));
+ assert.equal(await page.locator('body.dark').count(),0,
+  'Un visiteur sans préférence doit démarrer en mode clair.');
+ assert.equal(await page.locator('#courseSidebar').innerText().then(t=>t.includes('CATÉGORIES ET NOTIONS')),false,
+  'Le sous-titre redondant du sommaire doit avoir disparu.');
  const cards=page.locator('#definitions article.def');
  assert.equal(await cards.count(),expectedCards,'Le thème doit afficher tous ses post-it.');
  assert.match(await cards.first().innerText(),/Variable dont la valeur est une adresse/);
@@ -161,18 +165,38 @@ try{
  await page.waitForFunction(()=>location.hash==='#fiches');
  assert.equal(await page.locator('#search').inputValue(),'modulo','La recherche doit rester remplie.');
  assert.ok(await page.locator('#results article.def').count()>0,'Les résultats doivent être restaurés.');
+ assert.ok(await page.locator('#searchClear').isVisible(),
+  'La croix de recherche doit apparaître quand une valeur est saisie.');
+ assert.equal(await page.locator('#quickSearch').inputValue(),'modulo',
+  'La barre de recherche du haut doit être synchronisée.');
+ await page.locator('#searchClear').click();
+ assert.equal(await page.locator('#search').inputValue(),'');
+ assert.equal(await page.locator('#quickSearch').inputValue(),'');
+ assert.equal(await page.locator('#searchClear').isVisible(),false);
+ assert.ok(await page.locator('#cards .topic').count()>0,
+  'Effacer une recherche doit restaurer la liste des thèmes.');
+ await page.locator('#quickSearch').fill('printf');
+ assert.ok(await page.locator('#quickSearchClear').isVisible(),
+  'La croix de recherche de l’en-tête doit apparaître.');
+ await page.locator('#quickSearchClear').click();
+ assert.equal(await page.locator('#quickSearch').inputValue(),'');
+ assert.equal(await page.locator('#search').inputValue(),'');
+ await page.locator('#theme').click();
+ assert.equal(await page.locator('body.dark').count(),1,
+  'Le thème sombre doit rester activable.');
+ await page.locator('#theme').click();
+ assert.equal(await page.locator('body.dark').count(),0,
+  'Revenir au thème clair doit fonctionner.');
 
- // Les favoris conservent eux aussi le comportement post-it.
+ // Les favoris ne sont plus proposés ; les anciennes URL sont redirigées vers les fiches.
  await page.goto(origin+'/#theme/pointeurs-et-tableaux-c');
- await page.locator('#definitions [data-fav]').first().click();
+ assert.equal(await page.locator('#definitions [data-fav]').count(),0,
+  'Les étoiles de favoris ne doivent plus être proposées.');
  await page.goto(origin+'/#favoris');
- assert.ok(await page.locator('#favoriteItems .card-hit').count()>0,'Favori introuvable.');
- await page.locator('#favoriteItems .card-hit').first().click();
- await page.waitForFunction(()=>location.hash.startsWith('#cours/'));
- await page.locator('#courseBack').click();
- await page.waitForFunction(()=>location.hash==='#favoris');
- assert.ok(await page.locator('#favoriteItems .card-hit').count()>0,'Le retour aux favoris a échoué.');
-
+ await page.waitForFunction(()=>location.hash==='#fiches');
+ assert.equal(await page.locator('#favoriteItems').isVisible(),false,
+  'La vue de favoris ne doit plus apparaître.');
+ 
  // Les anciens liens #apercu restent utilisables mais ne créent aucune pop-up.
  await page.goto(origin+'/#apercu/pointeurs-et-tableaux-c/1-pointeur-pointer');
  await page.waitForFunction(()=>location.hash.startsWith('#cours/'));
@@ -280,10 +304,12 @@ try{
  // À propos : structure simplifiée, liens de contribution et hiérarchie lisible.
  await page.goto(origin+'/#apropos');
  await page.waitForFunction(()=>!document.querySelector('#about')?.classList.contains('hidden'));
- assert.equal(await page.locator('#about .helpgrid article').count(),2,
-  'La page À propos doit conserver deux présentations synthétiques.');
- assert.ok(await page.locator('#about .project-details').isVisible(),
-  'Les informations pratiques doivent être visibles.');
+ assert.equal(await page.locator('#about .helpgrid article').count(),0,
+  'Les deux cartes supprimées ne doivent pas revenir.');
+ assert.equal(await page.locator('#about .project-details').count(),0,
+  'Le bloc Informations pratiques a été retiré.');
+ assert.ok(await page.locator('#about .about-data').isVisible(),
+  'À propos doit expliquer le stockage local et les comptes.');
  assert.ok((await page.locator('#about').innerText()).includes('Un site de révision collaboratif'),
   'La contribution doit rester proposée aux visiteurs.');
  assert.equal(await page.locator('#about .project-help a').count(),2,
@@ -293,6 +319,9 @@ try{
  // Préversion du quiz : charger deux lots, valider une réponse, mettre en pause et reprendre.
  await page.goto(origin+'/#quiz');
  await page.locator('#quizStart').waitFor({state:'visible',timeout:15000});
+ assert.equal(await page.locator('#courseSidebar').isVisible(),false,
+  'Le sommaire doit être masqué dans Quiz.');
+ assert.equal(await page.evaluate(()=>document.body.dataset.fullpage),'true');
  assert.match(await page.locator('#quiz .quiz-app').innerText(),/55 questions sur argc\/argv et stdarg\.h/);
  assert.doesNotMatch(await page.locator('#quiz .quiz-app').innerText(),/VERSION TEST|relecture pédagogique|ne constituent pas une certification/,
   'La page publique ne doit plus prétendre que les questions restent en relecture.');
@@ -391,17 +420,18 @@ try{
  await page.locator('#quizFinish').click();
  assert.match(await page.locator('#quiz .quiz-score').innerText(),/\/ 2/,'Le bilan doit refléter seulement les deux réponses données.');
  await page.goto(origin+'/#compte');
- await page.locator('#guestProgress').waitFor({state:'visible'});
- assert.match(await page.locator('#guestProgress').innerText(),/1 session/,'La progression invitée n’est pas enregistrée.');
- assert.match(await page.locator('#guestProgress').innerText(),/sur cet appareil, dans ce navigateur/,
-  'La sauvegarde invitée doit préciser cet appareil et ce navigateur.');
- assert.doesNotMatch(await page.locator('#account').innerText(),/aucune donnée bancaire|La suppression des données locales/,
-  'Le texte hors sujet sur les banques doit être supprimé.');
+ assert.ok(await page.locator('#accountComingSoon').isVisible(),'Un invité ne doit voir que À venir prochainement.');
+ assert.match(await page.locator('#account').innerText(),/À venir prochainement/);
+ assert.equal(await page.locator('#guestProgress').count(),0,'Les statistiques invitées ne doivent pas apparaître dans Compte.');
+ assert.equal(await page.locator('#courseSidebar').isVisible(),false,'Le sommaire doit disparaître de Compte.');
  await page.screenshot({path:'apercus/quiz-compte-progression.png'});
 
  // La sauvegarde émet un événement exploitable par l'interface de synchronisation.
  await page.goto(origin+'/#quiz');
  await page.locator('#quizAgain').click();
+ assert.match(await page.locator('.quiz-recent').innerText(),/Dernières sessions/,
+  'Les résultats récents doivent être consultables directement depuis Quiz.');
+ assert.equal(await page.locator('.quiz-recent-list li').count()>0,true);
  await page.evaluate(()=>{
   window.__quizUpdates=0;
   window.addEventListener('holberton:quiz:updated',()=>window.__quizUpdates++);
@@ -440,8 +470,9 @@ try{
   localStorage.setItem(key,JSON.stringify(current));
   window.dispatchEvent(new Event('holberton:quiz:reload'));
  });
- assert.match(await page.locator('#guestProgress').innerText(),/0 session/,
-  'Le compte a restauré une progression mais le quiz garde son ancien historique.');
+ await page.goto(origin+'/#quiz');
+ assert.match(await page.locator('#quiz .quiz-stats').innerText(),/0 session/,
+  'Un chargement distant doit actualiser les statistiques du quiz.');
  await page.goto(origin+'/#quiz');
  assert.equal(await page.locator('#quizResume').count(),0,
   'La session précédente reste active après un chargement distant.');
@@ -553,6 +584,13 @@ try{
  assert.equal(await page.locator('#quizFeedbackMode').count(),0,
   'Un compte connecté ne doit plus afficher le sélecteur dans le quiz.');
  await page.evaluate(()=>{location.hash='#compte'});
+ assert.ok(await page.locator('#accountTabQuiz').isVisible(),
+  'Le compte connecté doit ouvrir sur l’onglet Quiz.');
+ assert.equal(await page.locator('#accountTabQuiz').getAttribute('aria-selected'),'true',
+  'L’historique de quiz doit être ouvert par défaut.');
+ assert.ok(await page.locator('.account-competencies').isVisible(),
+  'Les catégories de progression doivent être visibles pour un compte connecté.');
+ await page.locator('#accountTabSettings').click();
  assert.ok(await page.locator('#accountQuizFeedbackMode').isVisible(),
   'Le choix du moment du corrigé doit être disponible depuis Compte.');
  assert.ok(await page.locator('#accountQuizAdaptiveEnabled').isVisible(),
