@@ -175,10 +175,35 @@ function renderQuestion(){
 function renderResults(){
  const sum=lastReport;if(!sum){renderMenu();return}
  const list=sum.notions.map(n=>'<li><strong>'+escape(n.label)+'</strong><span>'+n.correct+' / '+n.done+'</span></li>').join('');
- const errors=sum.mistakes.length?'<h3>À retravailler</h3>'+sum.mistakes.slice(0,15).map(n=>'<div class="quiz-mistake"><strong>'+escape(n.notion)+'</strong><p>'+escape(n.explanation)+'</p></div>').join(''):'<p>Aucune erreur dans cette session de test.</p>';
+ const showEndReview=lastReviewedSession&&feedbackMode(lastReviewedSession.feedbackMode)==='end';
+ const errors=!showEndReview?
+  (sum.mistakes.length?'<h3>À retravailler</h3>'+sum.mistakes.slice(0,15).map(n=>'<div class="quiz-mistake"><strong>'+escape(n.notion)+'</strong><p>'+formatInline(n.explanation)+'</p></div>').join(''):'<p>Aucune erreur dans cette session.</p>'):'';
+ const review=showEndReview?'<h3>Corrigé complet de ta session</h3><p class="quiz-muted">Ouvre chaque question pour retrouver les bonnes réponses et leur justification.</p>'+
+  lastReviewedSession.questionIds.map((id,index)=>{
+   const q=findQuestion(id),entry=lastReviewedSession.answers?.[id];
+   if(!q||!entry)return '';
+   const help=pedagogicHelp[id]||{},selected=new Set(entry.selected||[]);
+   const correctIds=new Set(q.correct_option_ids);
+   const optionIds=lastReviewedSession.optionOrder?.[id]||q.options.map(o=>o.id);
+   const byId=new Map(q.options.map(o=>[o.id,o]));
+   const status=entry.skipped?'Je ne sais pas':entry.correct?'Réponse exacte':'À revoir';
+   const given=entry.skipped?'Je ne sais pas':optionIds.filter(id=>selected.has(id)).map(id=>formatInline(byId.get(id)?.text)).join(' ; ');
+   const correct=optionIds.filter(id=>correctIds.has(id)).map(id=>'<li>'+formatInline(byId.get(id)?.text)+'</li>').join('');
+   const details=optionIds.map(id=>{
+    const reason=help.feedback?.[id]||q.explanation;
+    return '<li class="'+(correctIds.has(id)?'quiz-reason-good':'quiz-reason-bad')+'"><strong>'+
+     (correctIds.has(id)?'Correcte':'Incorrecte')+' :</strong> '+formatInline(byId.get(id)?.text)+' — '+formatInline(reason)+'</li>';
+   }).join('');
+   return '<details class="quiz-review-question"><summary>Question '+(index+1)+' — '+escape(q.notion)+' : '+status+'</summary>'+
+    '<div class="quiz-review-content"><h4>'+formatInline(help.prompt||q.prompt)+'</h4>'+
+    '<p><strong>Ta réponse :</strong> '+(given||'Aucune')+'</p><h4>Bonne(s) réponse(s)</h4><ul class="quiz-correct-answers">'+correct+'</ul>'+
+    '<p>'+formatInline(q.explanation)+'</p><h4>Pourquoi chaque proposition est-elle juste ou fausse ?</h4>'+
+    '<ul class="quiz-option-reasons">'+details+'</ul>'+linkCourse(q)+'</div></details>';
+  }).join(''):'';
  page('Bilan de révision','Une réponse multiple est exacte uniquement si toutes les bonnes propositions et aucune mauvaise ont été sélectionnées.',
- '<div class="quiz-score"><strong>'+sum.correct+' / '+sum.total+'</strong><span>'+sum.percent+' %</span></div><h3>Par notion</h3><ul class="quiz-concepts">'+list+'</ul>'+errors+
- '<p class="quiz-muted">Une réponse erronée isolée ne suffit pas à conclure à une notion non maîtrisée. L’adaptation s’appuie sur plusieurs tentatives.</p><button id="quizAgain" class="quiz-primary">Nouvelle session</button>');
+ '<div class="quiz-score"><strong>'+sum.correct+' / '+sum.total+'</strong><span>'+sum.percent+' %</span></div><h3>Par notion</h3><ul class="quiz-concepts">'+list+'</ul>'+errors+review+
+ '<p class="quiz-muted">Une réponse erronée isolée ne suffit pas à conclure à une notion non maîtrisée. L’adaptation s’appuie sur plusieurs tentatives.</p><button id="quizAgain" class="quiz-primary">Nouvelle session</button>',
+ sum.total+' questions traitées');
  document.getElementById('quizAgain').onclick=()=>{lastReport=null;lastReviewedSession=null;renderMenu()};
 }
 function renderAccount(){
@@ -186,11 +211,21 @@ function renderAccount(){
  if(!holder){holder=document.createElement('section');holder.id='guestProgress';holder.className='quiz-card quiz-account';account.querySelector('.helpgrid')?.insertAdjacentElement('afterend',holder)}
  if(!holder)return;
  const info=progressSummary(progress),last=progress.history?.at(-1);
- holder.innerHTML='<h3>Ma progression — invité</h3><p>Tes sessions et résultats sont sauvegardés sur cet appareil, dans ce navigateur. Ils ne sont pas synchronisés entre appareils.</p>'+
+ holder.innerHTML='<h3>'+(isAccountActive()?'Ma progression — appareil connecté':'Ma progression — invité')+'</h3><p>Tes sessions et résultats sont sauvegardés sur cet appareil, dans ce navigateur.'+(isAccountActive()?' La synchronisation dépend des réglages de ton compte.':' Ils ne sont pas synchronisés entre appareils.')+'</p>'+
  '<div class="quiz-stats"><span>'+info.sessions+' session(s)</span><span>'+info.answered+' réponse(s)</span><span>'+info.notions+' notion(s)</span></div>'+
  (last?'<p>Dernière session : '+escape(last.correct)+' / '+escape(last.total)+' réponses exactes.</p>':'<p>Commence un quiz pour enregistrer ta première session.</p>')+
  (info.unfinished?'<p><strong>Une session peut être reprise depuis l’onglet Quiz.</strong></p>':'')+
+ '<div class="quiz-feedback-settings"><label for="accountQuizFeedbackMode">Afficher les réponses et explications</label>'+
+ '<select id="accountQuizFeedbackMode"><option value="immediate">Après chaque question</option><option value="end">À la fin de la session</option></select>'+
+ '<p class="quiz-muted">Ce réglage s’applique aux prochaines sessions. Il est sauvegardé dans ta progression'+(isAccountActive()?' et peut être synchronisé avec ton compte.': ' sur cet appareil.')+'</p></div>'+
  '<div class="quiz-actions"><button id="guestExport" class="quiz-secondary">Exporter ma progression</button><button id="guestClear" class="quiz-secondary quiz-danger">Effacer ma progression quiz</button></div>';
+ const accountTiming=document.getElementById('accountQuizFeedbackMode');
+ accountTiming.value=feedbackMode(progress.feedbackMode);
+ accountTiming.onchange=()=>{
+  if(!persist({...progress,feedbackMode:feedbackMode(accountTiming.value)})){accountTiming.value=feedbackMode(progress.feedbackMode);return}
+  renderAccount();
+  if(isQuiz()&&!progress.current)renderMenu();
+ };
  document.getElementById('guestExport').onclick=()=>{
   const url=URL.createObjectURL(new Blob([JSON.stringify(progress,null,2)],{type:'application/json'}));
   const a=document.createElement('a');a.href=url;a.download='holberton-progression-invite.json';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),500);
@@ -241,6 +276,11 @@ function reloadLocalProgress(){
 }
 // Le chargement depuis un compte doit aussi remplacer l'état en mémoire du moteur.
 window.addEventListener('holberton:quiz:reload',reloadLocalProgress);
+// L’application de comptes (PR #26) signale les changements de connexion sur <html>.
+window.addEventListener('holberton:account:status',()=>{
+ renderAccount();
+ if(isQuiz()&&(!progress.current||paused||progress.current.paused))renderMenu();
+});
 // Un autre onglet peut mettre à jour le même historique invité.
 window.addEventListener('storage',event=>{
  if(event.key==='holberton-quiz-guest-v1')reloadLocalProgress();
