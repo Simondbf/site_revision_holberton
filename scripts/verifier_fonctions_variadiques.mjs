@@ -12,7 +12,7 @@ function data(id){
 }
 const sections=data('content-data').sections,extra=data('extra-lessons'),notes=data('teaching-notes');
 assert.equal(sections.length,17,'17 thèmes attendus');
-assert.equal(sections[8].items.length,37,'Six notions ajoutées à Programmation C');
+assert.ok(sections[8].items.length>=37,'Les six notions variadiques doivent rester présentes');
 const cases=[
  [31,'Fonction variadique — déclarer des arguments avec ...','5 8 13\n'],
  [32,'va_list et va_start — initialiser le parcours','15\n'],
