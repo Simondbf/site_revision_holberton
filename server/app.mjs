@@ -127,7 +127,8 @@ export function createAuthApp({db,publicOrigin,sendLoginEmail=null,secureCookies
    }
    if(path==='/api/analytics/visit'&&method==='POST'){
     if(Number(req.headers['content-length']||0)>0)throw new ApiError(400,'Aucun corps de requête attendu.');
-    if(!rate('visit:'+sha256(clientIp(req)),100,3600000))throw new ApiError(429,'Limite de comptage atteinte.');
+    // Limite globale anti-abus, sans lecture ni hachage de l’adresse IP pour l’audience.
+    if(!rate('analytics-total',20000,3600000))throw new ApiError(429,'Limite globale de comptage atteinte.');
     const day=new Date(now()).toISOString().slice(0,10);
     db.prepare('INSERT INTO visits_by_day(day,visits) VALUES(?,1) ON CONFLICT(day) DO UPDATE SET visits=visits+1').run(day);
     response(res,202,{recorded:true});return;
@@ -142,7 +143,7 @@ export function createAuthApp({db,publicOrigin,sendLoginEmail=null,secureCookies
     const active=db.prepare('SELECT COUNT(*) AS count FROM progress').get().count;
     response(res,200,{visitsTotal:total,visitsLast30Days:days.reduce((n,x)=>n+x.visits,0),
      daily:days,registeredAccounts:users,accountsWithProgress:active,githubContributors:await contributors(),
-     note:'Visites = ouvertures par onglet et par jour UTC, pas visiteurs uniques.'});return;
+     note:'Estimation quotidienne par profil de navigateur avec stockage local, sans identifiant envoyé. Un navigateur utilisé plusieurs jours compte plusieurs fois ; les personnes uniques ne peuvent pas être établies.'});return;
    }
    if(path==='/api/auth/request-link'&&method==='POST'){
     if(!sendLoginEmail)throw new ApiError(503,'Le service d’envoi transactionnel n’est pas encore activé.');
