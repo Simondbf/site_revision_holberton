@@ -1,7 +1,7 @@
 export const STORAGE_KEY='holberton-quiz-guest-v1';
 export const MAX_HISTORY=60;
 export const normalizeFeedbackMode=mode=>mode==='end'?'end':'immediate';
-export const emptyProgress=()=>({version:1,current:null,history:[],stats:{},seen:{},feedbackMode:'immediate',adaptiveEnabled:true});
+export const emptyProgress=()=>({version:1,current:null,history:[],stats:{},seen:{},feedbackMode:'immediate',adaptiveEnabled:false,adaptivePreferenceVersion:2});
 export function normalizeProgress(data){
  const fresh=emptyProgress();
  if(!data||typeof data!=='object'||data.version!==1)return fresh;
@@ -12,7 +12,8 @@ export function normalizeProgress(data){
   stats:data.stats&&typeof data.stats==='object'?data.stats:{},
   seen:data.seen&&typeof data.seen==='object'?data.seen:{},
   feedbackMode:normalizeFeedbackMode(data.feedbackMode),
-  adaptiveEnabled:data.adaptiveEnabled!==false
+  adaptiveEnabled:data.adaptivePreferenceVersion===2&&data.adaptiveEnabled===true,
+  adaptivePreferenceVersion:2
  };
 }
 export function readProgress(storage){
@@ -50,7 +51,7 @@ export function matchesAnswer(given,answer){
  if(!Array.isArray(given)||!given.length||new Set(given).size!==given.length)return false;
  return given.length===answer.length && given.every(x=>answer.includes(x));
 }
-export function selectQuestions(bank,{family='all',families=null,amount=10,stats={},seen={},random=Math.random,adaptive=true}={}){
+export function selectQuestions(bank,{family='all',families=null,amount=10,stats={},seen={},random=Math.random,adaptive=false}={}){
  const chosen=Array.isArray(families)?new Set(families):family==='all'?null:new Set([family]);
  const eligible=bank.filter(q=>!chosen||chosen.has(q.family));
  if(!adaptive){
@@ -93,7 +94,7 @@ export function shuffleOptionIds(options,random=Math.random){
  }
  return ids;
 }
-export function newSession(questions,family='all',now=new Date(),random=Math.random,feedbackMode='immediate',adaptiveEnabled=true){
+export function newSession(questions,family='all',now=new Date(),random=Math.random,feedbackMode='immediate',adaptiveEnabled=false){
  if(!questions.length)throw Error('Aucune question disponible');
  // Le tirage est renouvelé pour chaque session, mais enregistré pour pause/reprise.
  const optionOrder=Object.fromEntries(questions.map(q=>[q.id,shuffleOptionIds(q.options,random)]));
