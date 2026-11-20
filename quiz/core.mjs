@@ -90,6 +90,14 @@ export function applyAnswer(session,question,selected,now=new Date()){
  saved.answers[question.id]={selected:[...selected],correct:matchesAnswer(selected,question.correct_option_ids),at:now.toISOString()};
  return saved;
 }
+// « Je ne sais pas » compte comme une question traitée mais incorrecte.
+ // Cette trace distincte aide à revoir les notions difficiles sans inventer de réponse.
+export function skipAnswer(session,question,now=new Date()){
+ if(!session.questionIds.includes(question.id)||session.answers[question.id])throw Error('Réponse déjà enregistrée ou question inconnue');
+ const saved={...session,answers:{...session.answers}};
+ saved.answers[question.id]={selected:[],skipped:true,correct:false,at:now.toISOString()};
+ return saved;
+}
 export function resultSummary(session,bank){
  const map=new Map(bank.map(q=>[q.id,q]));
  let answered=0,correct=0;
