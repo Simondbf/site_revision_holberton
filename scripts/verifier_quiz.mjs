@@ -166,7 +166,18 @@ const storage={getItem:key=>memory.get(key)??null,setItem:(key,val)=>memory.set(
 assert.equal(writeProgress(storage,result.progress),true);
 assert.equal(readProgress(storage).history.length,1,'Historique local persisté');
 const html=readFileSync(new URL('index.html',dir),'utf8');
-assert.ok(html.includes('src="./quiz/engine.mjs"'),'Le quiz n’est pas chargé sur la page');
-assert.ok(html.includes('href="./quiz/styles.css"'),'CSS quiz non chargé');
+assert.ok(html.includes('id="quiz-inline-module"'),'Le module quiz autonome n’est pas intégré');
+assert.ok(html.includes('id="quiz-inline-style"'),'Les styles quiz ne sont pas intégrés');
+const embedded=id=>{
+ const start='<script id="'+id+'" type="application/json">';
+ const i=html.indexOf(start),j=html.indexOf('</script>',i+start.length);
+ assert.ok(i>=0&&j>i,'Données quiz intégrées manquantes : '+id);
+ return JSON.parse(html.slice(i+start.length,j));
+};
+assert.deepEqual(embedded('quiz-argc-bank').questions,
+ argc.questions.filter(q=>/^V1-N09_07[2-6]-0[1-5]$/.test(q.id)),
+ 'Le paquet intégré doit contenir exactement les 25 questions argc relues.');
+assert.deepEqual(embedded('quiz-variadic-bank'),varia,
+ 'Le paquet intégré doit contenir exactement les 30 questions variadiques relues.');
 assert.ok(!html.includes('data-page="favorites"'),'L’onglet principal doit ouvrir Compte et non Favoris');
 console.log('Quiz invité : 55 questions candidates / 11 notions, score exact, diversité, sauvegarde et reprise cohérents.');
