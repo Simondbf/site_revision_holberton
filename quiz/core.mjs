@@ -16,6 +16,14 @@ export function normalizeProgress(data){
   adaptivePreferenceVersion:2
  };
 }
+// Un invité ne conserve que sa session inachevée, pour pouvoir la reprendre.
+// Ni historique terminé, ni statistiques de maîtrise, ni préférence utilisateur sauvegardée.
+export function guestResumeOnly(data){
+ const result=emptyProgress();
+ const source=normalizeProgress(data);
+ result.current=source.current;
+ return result;
+}
 export function readProgress(storage){
  try{return normalizeProgress(JSON.parse(storage.getItem(STORAGE_KEY)||'null'))}catch{return emptyProgress()}
 }
