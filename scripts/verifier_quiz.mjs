@@ -179,5 +179,10 @@ assert.deepEqual(embedded('quiz-argc-bank').questions,
  'Le paquet intégré doit contenir exactement les 25 questions argc relues.');
 assert.deepEqual(embedded('quiz-variadic-bank'),varia,
  'Le paquet intégré doit contenir exactement les 30 questions variadiques relues.');
+assert.ok(html.includes('Tes sessions et résultats sont sauvegardés sur cet appareil, dans ce navigateur.'),
+ 'La progression invitée doit indiquer le navigateur et l’appareil de sauvegarde.');
+assert.ok(!html.includes('VERSION TEST')&&!html.includes('relecture pédagogique')&&
+ !html.includes('La suppression des données locales et la suppression d’un futur compte'),
+ 'Les anciens avertissements obsolètes ne doivent plus apparaître.');
 assert.ok(!html.includes('data-page="favorites"'),'L’onglet principal doit ouvrir Compte et non Favoris');
 console.log('Quiz invité : 55 questions candidates / 11 notions, score exact, diversité, sauvegarde et reprise cohérents.');

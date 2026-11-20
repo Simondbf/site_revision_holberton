@@ -246,20 +246,18 @@ body.dark .lesson-visual figcaption{color:#c5d9e7}
 <section id="course" class="hidden"><div class="course-toolbar" id="courseToolbar"><button class="linkbtn" id="courseBack" type="button">← Retour aux fiches</button><div class="crumb" id="courseBreadcrumb"></div></div><article class="course-article" id="courseArticle"></article></section>
 <section id="favorites" class="hidden"><div class="sectionhead"><div><h2>Mes favoris</h2><p>Retrouve rapidement les notions enregistrées sur cet appareil.</p></div></div><div class="mininote">Les favoris sont enregistrés dans ce navigateur uniquement. Ils ne sont pas synchronisés entre les appareils.</div><div id="favoriteItems" class="defs" style="margin-top:15px"></div></section>
 <section id="account" class="hidden">
-<div class="sectionhead"><div><h2>Mon compte</h2><p>Mode invité : les cours restent accessibles sans inscription.</p></div></div>
+<div class="sectionhead"><div><h2>Mon compte</h2><p>Mode invité : cours et quiz accessibles sans inscription. Ta progression reste sur cet appareil.</p></div></div>
 <div class="helpgrid">
  <article class="def"><h3>Connexion et inscription</h3><p>L’espace de compte personnel est en préparation. Les inscriptions et les e-mails Brevo ne sont pas encore activés sur ce site.</p><p class="mininote">Une fois le service sécurisé et testé, un compte facultatif permettra de synchroniser favoris et progression entre appareils.</p></article>
- <article class="def"><h3>Mes favoris</h3><p>Tu peux continuer à retrouver les notions marquées d’une étoile sur cet appareil.</p><button id="accountFavorites" type="button" class="cta">Voir mes favoris</button><p class="mininote">Les favoris actuels ne sont pas synchronisés : ne les efface pas en attendant la fonction d’import volontaire.</p></article>
+ <article class="def"><h3>Mes favoris</h3><p>Tu peux continuer à retrouver les notions marquées d’une étoile sur cet appareil.</p><button id="accountFavorites" type="button" class="cta">Voir mes favoris</button><p class="mininote">Tes favoris sont enregistrés sur cet appareil, dans ce navigateur.</p></article>
 </div>
-<div class="mininote">La suppression des données locales et la suppression d’un futur compte seront des opérations différentes ; aucune donnée bancaire n’est gérée par Holberton Révision.</div>
 </section>
 <section id="quiz" class="hidden">
-<div class="sectionhead"><div><h2>Quiz de révision</h2><p>Réviser ses connaissances avec des questions sur les notions étudiées.</p></div></div>
+<div class="sectionhead"><div><h2>Quiz de révision</h2><p>55 questions sur argc/argv et stdarg.h, sans inscription.</p></div></div>
 <div class="helpgrid">
- <article class="def"><h3>Première banque : pointeurs, tableaux et structures</h3><p>315 questions candidates sont conservées sur GitHub. Elles font encore l’objet d’une vérification pédagogique indépendante et ne sont pas affichées comme quiz public pour le moment.</p><p class="mininote">Un futur quiz restera utilisable sans compte, avec des questions à une ou plusieurs bonnes réponses, une explication et un lien direct vers le cours.</p></article>
- <article class="def"><h3>Suivi et progression</h3><p>Le moteur de quiz, le bilan des réponses et la pause/reprise restent à développer. L’espace « Ma progression » permettra ensuite la sauvegarde sur plusieurs appareils pour les comptes volontaires.</p><button id="quizExplore" type="button" class="cta">Réviser les fiches</button></article>
+ <article class="def"><h3>Réviser librement</h3><p>Les questions proposent une ou plusieurs bonnes réponses. Après validation, une explication et un lien vers le cours sont disponibles.</p><p class="mininote">Le quiz interactif nécessite JavaScript.</p></article>
+ <article class="def"><h3>Progression sur cet appareil</h3><p>Tes sessions sont enregistrées dans ce navigateur. Tu peux les reprendre ou exporter ton historique depuis Compte.</p><button id="quizExplore" type="button" class="cta">Réviser les fiches</button></article>
 </div>
-<p class="mininote">Les questions de travail sont accessibles aux relecteurs dans le <a href="https://github.com/Simondbf/site_revision_holberton/tree/main/docs/quiz/vague1" target="_blank" rel="noopener noreferrer">dépôt GitHub</a>, sans publication de leurs corrigés dans une session de quiz.</p>
 </section>
 <section id="about" class="hidden">
 <div class="sectionhead"><div><h2>À propos de Holberton Révision</h2><p>Réviser, comprendre et partager.</p></div></div>
@@ -1591,7 +1589,7 @@ function persist(next){
 }
 const findQuestion=id=>bank.find(q=>q.id===id);
 function page(title,sub,body){
- root.innerHTML='<div class="quiz-app"><header class="quiz-heading"><span class="quiz-kicker">RÉVISION C · VERSION TEST</span><h2>'+escape(title)+'</h2><p>'+escape(sub)+'</p></header><div class="quiz-warning" role="note">Les réponses de cette première banque restent en relecture pédagogique. Les scores servent à t’entraîner et ne constituent pas une certification.</div>'+body+'</div>';
+ root.innerHTML='<div class="quiz-app"><header class="quiz-heading"><span class="quiz-kicker">RÉVISION C · QUIZ</span><h2>'+escape(title)+'</h2><p>'+escape(sub)+'</p></header>'+body+'</div>';
 }
 function linkCourse(q){
  const course=q.source_urls?.find(s=>s.startsWith('https://revision-hbtn.soleiljaune.be/#cours/'));
@@ -1606,13 +1604,13 @@ function linkCourse(q){
 }
 function renderMenu(){
  const info=progressSummary(progress),running=progress.current&&progress.current.questionIds?.length;
- page('Réviser librement','55 questions candidates sur argc/argv et stdarg.h. Aucune durée ni quantité imposée : termine ta session quand tu veux. La sélection privilégie progressivement les notions à renforcer.',
+ page('Réviser librement','55 questions sur argc/argv et stdarg.h. Aucune durée ni quantité imposée : termine ta session quand tu veux. La sélection privilégie progressivement les notions à renforcer.',
  (running?'<div class="quiz-card"><strong>Session enregistrée</strong><p>'+Object.keys(progress.current.answers||{}).length+' réponse(s) déjà enregistrée(s).</p><button id="quizResume" class="quiz-primary">Reprendre</button></div>':'')+
  '<div class="quiz-card quiz-start"><label>Thèmes<select id="quizFamily"><option value="all">Tous les thèmes</option><option value="argc">argc et argv</option><option value="stdarg">stdarg.h et fonctions variadiques</option></select></label>'+
  '<p class="quiz-muted">Pas de nombre de questions prédéfini : tu peux faire une pause ou afficher ton bilan après chaque réponse.</p>'+
  '<button class="quiz-primary" id="quizStart">Démarrer</button></div>'+
  '<div class="quiz-stats"><span>'+info.sessions+' session(s)</span><span>'+info.answered+' question(s) traitée(s)</span><span>'+info.notions+' notion(s) révisée(s)</span></div>'+
- '<p class="quiz-muted">Sans compte et sans API payante. Les données sont locales ; elles peuvent être exportées depuis Compte.</p>');
+ '<p class="quiz-muted">Sans compte : tes sessions et résultats sont sauvegardés sur cet appareil, dans ce navigateur. Tu peux les exporter depuis Compte.</p>');
  document.getElementById('quizFamily').value=family;
  document.getElementById('quizStart').onclick=()=>{
   family=document.getElementById('quizFamily').value;
@@ -1703,7 +1701,7 @@ function renderAccount(){
  if(!holder){holder=document.createElement('section');holder.id='guestProgress';holder.className='quiz-card quiz-account';account.querySelector('.helpgrid')?.insertAdjacentElement('afterend',holder)}
  if(!holder)return;
  const info=progressSummary(progress),last=progress.history?.at(-1);
- holder.innerHTML='<h3>Ma progression — invité</h3><p>Suivi local, sans inscription. L’historique n’est pas encore synchronisé sur le serveur.</p>'+
+ holder.innerHTML='<h3>Ma progression — invité</h3><p>Tes sessions et résultats sont sauvegardés sur cet appareil, dans ce navigateur. Ils ne sont pas synchronisés entre appareils.</p>'+
  '<div class="quiz-stats"><span>'+info.sessions+' session(s)</span><span>'+info.answered+' réponse(s)</span><span>'+info.notions+' notion(s)</span></div>'+
  (last?'<p>Dernière session : '+escape(last.correct)+' / '+escape(last.total)+' réponses exactes.</p>':'<p>Commence un quiz pour enregistrer ta première session.</p>')+
  (info.unfinished?'<p><strong>Une session peut être reprise depuis l’onglet Quiz.</strong></p>':'')+
