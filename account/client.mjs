@@ -9,6 +9,11 @@ function enableSync(){syncOptIn=true;try{localStorage.setItem('holberton-account
 function checkSyncOwner(){try{if(!me.userId||localStorage.getItem('holberton-account-sync-user-v1')!==me.userId)disableSync()}catch{disableSync()}}
 try{syncOptIn=localStorage.getItem('holberton-account-sync-v1')==='yes'}catch{}
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function announceLoginStatus(){
+ document.documentElement.dataset.holbertonAccount=me.authenticated?'connected':'guest';
+ window.dispatchEvent(new Event('holberton:account:status'));
+}
+
 const api=async(path,{method='GET',body,csrf}={})=>{
  const headers={};
  if(body!==undefined)headers['Content-Type']='application/json';
@@ -43,6 +48,7 @@ function reloadQuiz(data){
 }
 async function refreshRemote(){remote=await api('/api/progress')}
 function displayGuest(){
+ announceLoginStatus();
  card.innerHTML='<h3>Se connecter ou créer un compte</h3><p>Un compte est facultatif. Il permet la synchronisation de la progression entre appareils après validation de l’adresse e-mail.</p>'+
  '<form id="accountLoginForm"><label for="accountEmail">Adresse e-mail</label><input id="accountEmail" type="email" name="email" autocomplete="email" required maxlength="254" placeholder="adresse@exemple.fr">'+
  '<button class="quiz-primary" type="submit">Recevoir un lien de connexion</button></form><p class="quiz-muted">Un même lien sert à vérifier une nouvelle adresse ou à se reconnecter. Aucun mot de passe n’est nécessaire.</p>'+
@@ -56,10 +62,12 @@ function displayGuest(){
  };
 }
 function displayUnavailable(){
+ announceLoginStatus();
  card.innerHTML='<h3>Comptes en préparation</h3><p>Le backend privé et son relais Brevo ne sont pas encore activés sur le site public. L’accès invité, les favoris et les quiz restent disponibles.</p>'+
  '<p class="quiz-muted">Dès que le service sera sécurisé et déployé, cette page proposera l’inscription et la connexion facultatives.</p>';
 }
 function displayConnected(){
+ announceLoginStatus();
  const local=progressLocal(),guest=progressSummary(local);
  const remoteSummary=remote.data?progressSummary(remote.data):null;
  card.innerHTML='<h3>Mon compte</h3><p>Adresse vérifiée : <strong>'+esc(me.email)+'</strong></p>'+
