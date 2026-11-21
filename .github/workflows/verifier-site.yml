@@ -67,6 +67,27 @@ jobs:
             -v "${PWD}/server/snapshot.mjs:/tools/snapshot.mjs:ro" \
             node:22.15.0-bookworm-slim node /tools/snapshot.mjs check /backup/accounts.sqlite
 
+      - name: Sauvegarder puis restaurer un snapshot avec Restic dans Docker
+        run: |
+          mkdir -p /tmp/hbtn-test/restic/repository /tmp/hbtn-test/restic/restored
+          sudo chown -R 1000:1000 /tmp/hbtn-test/backup /tmp/hbtn-test/restic
+          chmod 0755 /tmp/hbtn-test/backup
+          for command in init "backup /data" "restore latest --target /restored"; do
+            # Le dépôt de test est local, isolé et chiffré avec un mot de passe éphémère.
+            docker run --rm --network none --read-only --cap-drop ALL \
+              --security-opt no-new-privileges \
+              -e RESTIC_REPOSITORY=/repo -e RESTIC_PASSWORD=ci-ephemere \
+              -v /tmp/hbtn-test/backup:/data:ro \
+              -v /tmp/hbtn-test/restic/repository:/repo:rw \
+              -v /tmp/hbtn-test/restic/restored:/restored:rw \
+              holberton-restic:test --no-cache $command
+          done
+          cmp /tmp/hbtn-test/backup/accounts.sqlite /tmp/hbtn-test/restic/restored/data/accounts.sqlite
+          docker run --rm --network none --read-only --cap-drop ALL \
+            -v /tmp/hbtn-test/restic/restored:/backup:ro \
+            -v "${PWD}/server/snapshot.mjs:/tools/snapshot.mjs:ro" \
+            node:22.15.0-bookworm-slim node /tools/snapshot.mjs check /backup/data/accounts.sqlite
+
       - name: Conserver les ressources statiques vérifiées
         uses: actions/upload-artifact@v4
         with:
