@@ -2157,6 +2157,7 @@ window.addEventListener('storage',event=>{
 });
 renderAccount();load();
 
+
 // Client sans secret. Intégré dans le module autonome du site par le script de génération.
 (()=>{
  const root=document.getElementById('account');
@@ -2244,6 +2245,7 @@ renderAccount();load();
    '<button id="accountDelete" class="quiz-secondary quiz-danger" type="button">Supprimer mon compte</button></div>'+
    '<p id="accountSecurityStatus" role="status" aria-live="polite"></p>';
   document.getElementById('accountLogout').onclick=async()=>{
+   if((dirty||conflict)&&!confirm('Une progression n’est pas encore synchronisée. Se déconnecter peut la perdre. Continuer ?'))return;
    try{
     await api('/api/auth/logout',{method:'POST',csrf:me.csrf});
     me={authenticated:false};remote={revision:0,data:null};enabled=false;dirty=false;conflict=false;
