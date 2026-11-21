@@ -1,0 +1,1659 @@
+{
+  "version": "scenarios-v1",
+  "status": "non_verifie",
+  "questions": [
+    {
+      "id": "EXPL-00-002-01",
+      "notion_id": "N00_002",
+      "legacy_notion_key": "0:2",
+      "theme": "Bases informatiques",
+      "notion": "Kernel",
+      "question_type": "raisonnement",
+      "answer_mode": "single",
+      "prompt": "Le noyau Linux gère-t-il directement toutes les interfaces graphiques et applications utilisateur ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Oui : tout logiciel graphique fait partie du noyau"
+        },
+        {
+          "id": "B",
+          "text": "Oui : Git est un module obligatoire du noyau"
+        },
+        {
+          "id": "C",
+          "text": "Oui : Firefox s'exécute dans le noyau"
+        },
+        {
+          "id": "D",
+          "text": "Non : il gère notamment ressources matérielles et processus"
+        }
+      ],
+      "correct_option_ids": [
+        "D"
+      ],
+      "explanation": "Le noyau gère les ressources, mais applications et interfaces utilisateur s'exécutent généralement en espace utilisateur.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/bases-informatiques/3-kernel"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "editorial_scenario",
+        "verify_technical_claims"
+      ]
+    },
+    {
+      "id": "EXPL-00-003-01",
+      "notion_id": "N00_003",
+      "legacy_notion_key": "0:3",
+      "theme": "Bases informatiques",
+      "notion": "Linux / Ubuntu",
+      "question_type": "raisonnement",
+      "answer_mode": "multiple",
+      "prompt": "Quelles affirmations distinguent Linux et Ubuntu ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Linux désigne aussi le noyau utilisé par Ubuntu"
+        },
+        {
+          "id": "B",
+          "text": "Ubuntu est une distribution GNU/Linux"
+        },
+        {
+          "id": "C",
+          "text": "Ubuntu est un composant matériel"
+        },
+        {
+          "id": "D",
+          "text": "Toutes les distributions Linux ont forcément la même interface graphique"
+        }
+      ],
+      "correct_option_ids": [
+        "A",
+        "B"
+      ],
+      "explanation": "Linux est le noyau ; Ubuntu fournit un système de distribution et d'autres composants.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/bases-informatiques/4-linux-ubuntu"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "editorial_scenario",
+        "verify_technical_claims"
+      ]
+    },
+    {
+      "id": "EXPL-00-004-01",
+      "notion_id": "N00_004",
+      "legacy_notion_key": "0:4",
+      "theme": "Bases informatiques",
+      "notion": "WSL",
+      "question_type": "raisonnement",
+      "answer_mode": "single",
+      "prompt": "À quoi sert principalement WSL sous Windows ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Supprimer les systèmes de fichiers"
+        },
+        {
+          "id": "B",
+          "text": "Exécuter un environnement Linux sous Windows"
+        },
+        {
+          "id": "C",
+          "text": "Remplacer physiquement le processeur"
+        },
+        {
+          "id": "D",
+          "text": "Transformer Git en compilateur C"
+        }
+      ],
+      "correct_option_ids": [
+        "B"
+      ],
+      "explanation": "WSL permet d'utiliser un environnement Linux sous Windows.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/bases-informatiques/5-wsl"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "editorial_scenario",
+        "verify_technical_claims"
+      ]
+    },
+    {
+      "id": "EXPL-01-000-01",
+      "notion_id": "N01_000",
+      "legacy_notion_key": "1:0",
+      "theme": "Terminal et Shell",
+      "notion": "Terminal",
+      "question_type": "raisonnement",
+      "answer_mode": "single",
+      "prompt": "Que distingue le terminal du Shell ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Le terminal compile automatiquement les commandes"
+        },
+        {
+          "id": "B",
+          "text": "Ils désignent toujours le même programme"
+        },
+        {
+          "id": "C",
+          "text": "Le terminal fournit l'interface d'entrée/sortie ; le Shell interprète les commandes"
+        },
+        {
+          "id": "D",
+          "text": "Le Shell est nécessairement un périphérique matériel"
+        }
+      ],
+      "correct_option_ids": [
+        "C"
+      ],
+      "explanation": "Le terminal présente l'interface et le Shell exécute l'interprétation des commandes.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/terminal-et-shell/1-terminal"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "editorial_scenario",
+        "verify_technical_claims"
+      ]
+    },
+    {
+      "id": "EXPL-01-003-01",
+      "notion_id": "N01_003",
+      "legacy_notion_key": "1:3",
+      "theme": "Terminal et Shell",
+      "notion": "Script Shell",
+      "question_type": "raisonnement",
+      "answer_mode": "multiple",
+      "prompt": "Quelles sont des propriétés d'un script Shell ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Il modifie toujours le noyau"
+        },
+        {
+          "id": "B",
+          "text": "Il doit obligatoirement être écrit en C"
+        },
+        {
+          "id": "C",
+          "text": "Il contient des commandes interprétables par un Shell"
+        },
+        {
+          "id": "D",
+          "text": "Il peut utiliser variables et conditions"
+        }
+      ],
+      "correct_option_ids": [
+        "C",
+        "D"
+      ],
+      "explanation": "Un script Bash peut combiner commandes et structures de contrôle.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/terminal-et-shell/4-script-shell"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "editorial_scenario",
+        "verify_technical_claims"
+      ]
+    },
+    {
+      "id": "EXPL-02-005-01",
+      "notion_id": "N02_005",
+      "legacy_notion_key": "2:5",
+      "theme": "Chemins et fichiers Linux",
+      "notion": "pwd / cd / ls",
+      "question_type": "raisonnement",
+      "answer_mode": "single",
+      "prompt": "Si `pwd` affiche `/home/lea` puis `cd /tmp` réussit, que doit afficher `pwd` ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "/tmp"
+        },
+        {
+          "id": "B",
+          "text": ".."
+        },
+        {
+          "id": "C",
+          "text": "/"
+        },
+        {
+          "id": "D",
+          "text": "/home/lea"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "Le répertoire courant devient /tmp après cd réussi.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/chemins-et-fichiers-linux/6-pwd-cd-ls"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "editorial_scenario",
+        "verify_technical_claims"
+      ]
+    },
+    {
+      "id": "EXPL-02-005-02",
+      "notion_id": "N02_005",
+      "legacy_notion_key": "2:5",
+      "theme": "Chemins et fichiers Linux",
+      "notion": "pwd / cd / ls",
+      "question_type": "raisonnement",
+      "answer_mode": "single",
+      "prompt": "Quelle commande remonte exactement au répertoire parent courant ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "cd .."
+        },
+        {
+          "id": "B",
+          "text": "cd /"
+        },
+        {
+          "id": "C",
+          "text": "cd ."
+        },
+        {
+          "id": "D",
+          "text": "pwd .."
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": ".. représente le parent, alors que . est le répertoire courant.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/chemins-et-fichiers-linux/6-pwd-cd-ls"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "editorial_scenario",
+        "verify_technical_claims"
+      ]
+    },
+    {
+      "id": "EXPL-02-007-01",
+      "notion_id": "N02_007",
+      "legacy_notion_key": "2:7",
+      "theme": "Chemins et fichiers Linux",
+      "notion": "cp / mv / rm",
+      "question_type": "raisonnement",
+      "answer_mode": "single",
+      "prompt": "Quelle commande réalise une copie de `a.txt` vers `b.txt` sans supprimer `a.txt` ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "cp a.txt b.txt"
+        },
+        {
+          "id": "B",
+          "text": "rm a.txt b.txt"
+        },
+        {
+          "id": "C",
+          "text": "mv a.txt b.txt"
+        },
+        {
+          "id": "D",
+          "text": "find a.txt b.txt"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "cp copie ; mv déplace.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/chemins-et-fichiers-linux/8-cp-mv-rm"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "editorial_scenario",
+        "verify_technical_claims"
+      ]
+    },
+    {
+      "id": "EXPL-03-000-01",
+      "notion_id": "N03_000",
+      "legacy_notion_key": "3:0",
+      "theme": "Permissions et flux",
+      "notion": "r w x",
+      "question_type": "raisonnement",
+      "answer_mode": "multiple",
+      "prompt": "Quelles capacités exprime `rwx` pour un répertoire sur un Linux usuel ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "x autorise la traversée du dossier si les autres permissions le permettent"
+        },
+        {
+          "id": "B",
+          "text": "r permet d'énumérer les noms d'entrées"
+        },
+        {
+          "id": "C",
+          "text": "w seule garantit toujours la suppression de fichiers"
+        },
+        {
+          "id": "D",
+          "text": "x signifie exécuter le répertoire comme un programme binaire"
+        }
+      ],
+      "correct_option_ids": [
+        "A",
+        "B"
+      ],
+      "explanation": "Sur un répertoire, lecture, écriture et traversée ont une sémantique spécifique.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/permissions-et-flux/1-r-w-x"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "editorial_scenario",
+        "verify_technical_claims"
+      ]
+    },
+    {
+      "id": "EXPL-03-001-01",
+      "notion_id": "N03_001",
+      "legacy_notion_key": "3:1",
+      "theme": "Permissions et flux",
+      "notion": "chmod / chown / sudo",
+      "question_type": "raisonnement",
+      "answer_mode": "single",
+      "prompt": "Pourquoi faut-il éviter `sudo` quand il n'est pas nécessaire ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Il donne des privilèges élevés et accroît l'impact d'une erreur"
+        },
+        {
+          "id": "B",
+          "text": "Il remplace toujours chmod"
+        },
+        {
+          "id": "C",
+          "text": "Il limite le programme à la lecture seule"
+        },
+        {
+          "id": "D",
+          "text": "Il désactive automatiquement les permissions"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "sudo exécute avec des privilèges potentiellement élevés.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/permissions-et-flux/2-chmod-chown-sudo"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "editorial_scenario",
+        "verify_technical_claims"
+      ]
+    },
+    {
+      "id": "EXPL-03-002-01",
+      "notion_id": "N03_002",
+      "legacy_notion_key": "3:2",
+      "theme": "Permissions et flux",
+      "notion": "stdin / stdout / stderr",
+      "question_type": "raisonnement",
+      "answer_mode": "multiple",
+      "prompt": "Quelles correspondances sont exactes ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "stderr = 2"
+        },
+        {
+          "id": "B",
+          "text": "stderr = 1 et stdout = 2"
+        },
+        {
+          "id": "C",
+          "text": "stdin = 0"
+        },
+        {
+          "id": "D",
+          "text": "stdout = 1"
+        }
+      ],
+      "correct_option_ids": [
+        "A",
+        "C",
+        "D"
+      ],
+      "explanation": "Les descripteurs standard sont 0, 1 et 2.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/permissions-et-flux/3-stdin-stdout-stderr"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "editorial_scenario",
+        "verify_technical_claims"
+      ]
+    },
+    {
+      "id": "EXPL-03-003-01",
+      "notion_id": "N03_003",
+      "legacy_notion_key": "3:3",
+      "theme": "Permissions et flux",
+      "notion": "> et >>",
+      "question_type": "raisonnement",
+      "answer_mode": "single",
+      "prompt": "Quelle différence entre `>` et `>>` avec une redirection stdout vers un fichier existant ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "`>` ne fonctionne que pour stderr"
+        },
+        {
+          "id": "B",
+          "text": "`>>` supprime le fichier"
+        },
+        {
+          "id": "C",
+          "text": "Ils ont toujours le même effet sur un fichier"
+        },
+        {
+          "id": "D",
+          "text": "`>` tronque habituellement le fichier, `>>` ajoute à la fin"
+        }
+      ],
+      "correct_option_ids": [
+        "D"
+      ],
+      "explanation": "La distinction est écrasement/troncation contre ajout.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/permissions-et-flux/4-et"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "editorial_scenario",
+        "verify_technical_claims"
+      ]
+    },
+    {
+      "id": "EXPL-03-004-01",
+      "notion_id": "N03_004",
+      "legacy_notion_key": "3:4",
+      "theme": "Permissions et flux",
+      "notion": "2> et <",
+      "question_type": "raisonnement",
+      "answer_mode": "single",
+      "prompt": "Que signifie `commande < entree.txt` ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Les sorties stdout sont ajoutées au fichier"
+        },
+        {
+          "id": "B",
+          "text": "Les erreurs vont vers le fichier"
+        },
+        {
+          "id": "C",
+          "text": "Le flux stdin de la commande provient du fichier"
+        },
+        {
+          "id": "D",
+          "text": "Le programme compile le fichier"
+        }
+      ],
+      "correct_option_ids": [
+        "C"
+      ],
+      "explanation": "Le symbole < redirige l'entrée standard.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/permissions-et-flux/5-2-et"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "editorial_scenario",
+        "verify_technical_claims"
+      ]
+    },
+    {
+      "id": "EXPL-03-005-01",
+      "notion_id": "N03_005",
+      "legacy_notion_key": "3:5",
+      "theme": "Permissions et flux",
+      "notion": "|",
+      "question_type": "raisonnement",
+      "answer_mode": "single",
+      "prompt": "Pour `printf 'a\\nb\\n' | grep b`, quelle ligne est sélectionnée ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "a"
+        },
+        {
+          "id": "B",
+          "text": "a et b"
+        },
+        {
+          "id": "C",
+          "text": "b"
+        },
+        {
+          "id": "D",
+          "text": "aucune"
+        }
+      ],
+      "correct_option_ids": [
+        "C"
+      ],
+      "explanation": "Le tube transmet la sortie de printf à grep ; grep conserve la ligne contenant b.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/permissions-et-flux/6-"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "editorial_scenario",
+        "verify_technical_claims"
+      ]
+    },
+    {
+      "id": "EXPL-03-006-01",
+      "notion_id": "N03_006",
+      "legacy_notion_key": "3:6",
+      "theme": "Permissions et flux",
+      "notion": "&& / || en Shell",
+      "question_type": "raisonnement",
+      "answer_mode": "multiple",
+      "prompt": "Quelles affirmations sont vraies en Bash ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "`&&` teste obligatoirement si la sortie texte est non vide"
+        },
+        {
+          "id": "B",
+          "text": "`commande1 || commande2` peut lancer la seconde si la première échoue"
+        },
+        {
+          "id": "C",
+          "text": "`&&` et `||` sont des concaténations de chaînes"
+        },
+        {
+          "id": "D",
+          "text": "`commande1 && commande2` ne lance la seconde que si la première réussit"
+        }
+      ],
+      "correct_option_ids": [
+        "B",
+        "D"
+      ],
+      "explanation": "Les opérateurs utilisent le code de retour.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/permissions-et-flux/7-en-shell"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "editorial_scenario",
+        "verify_technical_claims"
+      ]
+    },
+    {
+      "id": "EXPL-03-007-01",
+      "notion_id": "N03_007",
+      "legacy_notion_key": "3:7",
+      "theme": "Permissions et flux",
+      "notion": "grep / wc -l / tr",
+      "question_type": "raisonnement",
+      "answer_mode": "multiple",
+      "prompt": "À propos de `wc -l`, quelles affirmations sont correctes ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Il donne toujours le nombre de mots"
+        },
+        {
+          "id": "B",
+          "text": "Il compte les caractères de fin de ligne"
+        },
+        {
+          "id": "C",
+          "text": "Il compte les fichiers d'un dossier"
+        },
+        {
+          "id": "D",
+          "text": "Un fichier sans caractère `\\n` peut contenir du texte et pourtant donner 0"
+        }
+      ],
+      "correct_option_ids": [
+        "B",
+        "D"
+      ],
+      "explanation": "Une dernière ligne sans saut de ligne n'ajoute pas un caractère `\\n`.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/permissions-et-flux/8-grep-wc-l-tr"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "editorial_scenario",
+        "verify_technical_claims"
+      ]
+    },
+    {
+      "id": "EXPL-03-008-01",
+      "notion_id": "N03_008",
+      "legacy_notion_key": "3:8",
+      "theme": "Permissions et flux",
+      "notion": "sort / uniq / cut / head / tail / rev",
+      "question_type": "raisonnement",
+      "answer_mode": "single",
+      "prompt": "Quel effet a `cut -d: -f1` sur des lignes séparées par `:` ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Classe les lignes par nombre"
+        },
+        {
+          "id": "B",
+          "text": "Inverse les caractères"
+        },
+        {
+          "id": "C",
+          "text": "Remplace tous les deux-points par des espaces"
+        },
+        {
+          "id": "D",
+          "text": "Sélectionne le premier champ"
+        }
+      ],
+      "correct_option_ids": [
+        "D"
+      ],
+      "explanation": "cut sélectionne un champ avec un délimiteur.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/permissions-et-flux/9-sort-uniq-cut-head-tail-rev"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "editorial_scenario",
+        "verify_technical_claims"
+      ]
+    },
+    {
+      "id": "EXPL-03-009-01",
+      "notion_id": "N03_009",
+      "legacy_notion_key": "3:9",
+      "theme": "Permissions et flux",
+      "notion": "grep -A 3",
+      "question_type": "raisonnement",
+      "answer_mode": "single",
+      "prompt": "Que signifie `grep -A 3 motif fichier` ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Afficher uniquement les trois lignes précédentes"
+        },
+        {
+          "id": "B",
+          "text": "Inverser toutes les lignes"
+        },
+        {
+          "id": "C",
+          "text": "Afficher les lignes correspondantes et jusqu'à trois lignes suivantes"
+        },
+        {
+          "id": "D",
+          "text": "Limiter le nombre de résultats à trois"
+        }
+      ],
+      "correct_option_ids": [
+        "C"
+      ],
+      "explanation": "-A sélectionne le contexte après une correspondance.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/permissions-et-flux/10-grep-a-3"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "editorial_scenario",
+        "verify_technical_claims"
+      ]
+    },
+    {
+      "id": "EXPL-03-010-01",
+      "notion_id": "N03_010",
+      "legacy_notion_key": "3:10",
+      "theme": "Permissions et flux",
+      "notion": "grep -i / -v / -c",
+      "question_type": "raisonnement",
+      "answer_mode": "multiple",
+      "prompt": "Quelles options de grep sont correctement décrites ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "-v inverse la sélection des lignes"
+        },
+        {
+          "id": "B",
+          "text": "-i convertit le fichier en majuscules sur disque"
+        },
+        {
+          "id": "C",
+          "text": "-i ignore la casse"
+        },
+        {
+          "id": "D",
+          "text": "-c compte les lignes sélectionnées"
+        }
+      ],
+      "correct_option_ids": [
+        "A",
+        "C",
+        "D"
+      ],
+      "explanation": "Ces options modifient recherche, sélection et comptage.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/permissions-et-flux/11-grep-i-v-c"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "editorial_scenario",
+        "verify_technical_claims"
+      ]
+    },
+    {
+      "id": "EXPL-03-011-01",
+      "notion_id": "N03_011",
+      "legacy_notion_key": "3:11",
+      "theme": "Permissions et flux",
+      "notion": "sort / uniq",
+      "question_type": "raisonnement",
+      "answer_mode": "single",
+      "prompt": "Pourquoi écrit-on souvent `sort fichier | uniq` plutôt que `uniq fichier` ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "uniq trie automatiquement toutes les lignes"
+        },
+        {
+          "id": "B",
+          "text": "sort supprime les doublons à lui seul"
+        },
+        {
+          "id": "C",
+          "text": "uniq ne lit pas stdin"
+        },
+        {
+          "id": "D",
+          "text": "uniq regroupe les doublons adjacents, sort peut les rapprocher"
+        }
+      ],
+      "correct_option_ids": [
+        "D"
+      ],
+      "explanation": "uniq n'élimine pas les doublons éloignés sans tri préalable.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/permissions-et-flux/12-sort-uniq"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "editorial_scenario",
+        "verify_technical_claims"
+      ]
+    },
+    {
+      "id": "EXPL-04-001-01",
+      "notion_id": "N04_001",
+      "legacy_notion_key": "4:1",
+      "theme": "Variables et Bash",
+      "notion": "Variable Shell",
+      "question_type": "raisonnement",
+      "answer_mode": "single",
+      "prompt": "Dans Bash, `nom=valeur` est-il forcément visible depuis un processus enfant ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Oui, toutes les variables Shell sont automatiquement exportées"
+        },
+        {
+          "id": "B",
+          "text": "Non, les processus enfants n'ont jamais d'environnement"
+        },
+        {
+          "id": "C",
+          "text": "Non, la variable doit généralement être exportée pour figurer dans l'environnement transmis"
+        },
+        {
+          "id": "D",
+          "text": "Oui, mais seulement si son nom commence par _"
+        }
+      ],
+      "correct_option_ids": [
+        "C"
+      ],
+      "explanation": "Une variable Shell non exportée reste dans le Shell courant.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/variables-et-bash/2-variable-shell"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "editorial_scenario",
+        "verify_technical_claims"
+      ]
+    },
+    {
+      "id": "EXPL-04-003-01",
+      "notion_id": "N04_003",
+      "legacy_notion_key": "4:3",
+      "theme": "Variables et Bash",
+      "notion": "Variable d’environnement",
+      "question_type": "raisonnement",
+      "answer_mode": "multiple",
+      "prompt": "À propos de `export VAR`, quelles propositions sont correctes ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Ne garantit pas la transmission à tous les processus déjà lancés"
+        },
+        {
+          "id": "B",
+          "text": "Convertit automatiquement VAR en constante C"
+        },
+        {
+          "id": "C",
+          "text": "Remplace la valeur par 0"
+        },
+        {
+          "id": "D",
+          "text": "Marque VAR pour transmission aux processus enfants"
+        }
+      ],
+      "correct_option_ids": [
+        "A",
+        "D"
+      ],
+      "explanation": "export agit sur l'environnement des processus lancés ultérieurement.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/variables-et-bash/4-variable-d-environnement"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "editorial_scenario",
+        "verify_technical_claims"
+      ]
+    },
+    {
+      "id": "EXPL-04-005-01",
+      "notion_id": "N04_005",
+      "legacy_notion_key": "4:5",
+      "theme": "Variables et Bash",
+      "notion": "set / printenv",
+      "question_type": "raisonnement",
+      "answer_mode": "single",
+      "prompt": "Quelle commande permet d'afficher les variables d'environnement d'un processus Shell ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "chmod"
+        },
+        {
+          "id": "B",
+          "text": "printenv"
+        },
+        {
+          "id": "C",
+          "text": "uname -r"
+        },
+        {
+          "id": "D",
+          "text": "touch"
+        }
+      ],
+      "correct_option_ids": [
+        "B"
+      ],
+      "explanation": "printenv affiche l'environnement.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/variables-et-bash/6-set-printenv"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "editorial_scenario",
+        "verify_technical_claims"
+      ]
+    },
+    {
+      "id": "EXPL-04-006-01",
+      "notion_id": "N04_006",
+      "legacy_notion_key": "4:6",
+      "theme": "Variables et Bash",
+      "notion": "alias / unalias",
+      "question_type": "raisonnement",
+      "answer_mode": "single",
+      "prompt": "Qu'est-ce qu'un alias Bash ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Un nouveau programme compilé en C"
+        },
+        {
+          "id": "B",
+          "text": "Un raccourci de substitution de commande défini dans le Shell"
+        },
+        {
+          "id": "C",
+          "text": "Une branche Git distante"
+        },
+        {
+          "id": "D",
+          "text": "Une permission Linux"
+        }
+      ],
+      "correct_option_ids": [
+        "B"
+      ],
+      "explanation": "alias définit une substitution textuelle de nom de commande dans le Shell.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/variables-et-bash/7-alias-unalias"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "editorial_scenario",
+        "verify_technical_claims"
+      ]
+    },
+    {
+      "id": "EXPL-04-009-01",
+      "notion_id": "N04_009",
+      "legacy_notion_key": "4:9",
+      "theme": "Variables et Bash",
+      "notion": "$VAR / ${VAR}",
+      "question_type": "raisonnement",
+      "answer_mode": "single",
+      "prompt": "Quelle forme évite une ambiguïté quand on veut ajouter `-fin` à la valeur de `$nom` ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "`${nom}-fin`"
+        },
+        {
+          "id": "B",
+          "text": "`$nom fin` supprime tous les espaces"
+        },
+        {
+          "id": "C",
+          "text": "`(nom)-fin`"
+        },
+        {
+          "id": "D",
+          "text": "`$nom-fin` garantit toujours un nom sans ambiguïté"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "Les accolades délimitent explicitement le nom de la variable.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/variables-et-bash/10-var-var"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "editorial_scenario",
+        "verify_technical_claims"
+      ]
+    },
+    {
+      "id": "EXPL-04-010-01",
+      "notion_id": "N04_010",
+      "legacy_notion_key": "4:10",
+      "theme": "Variables et Bash",
+      "notion": "$(commande)",
+      "question_type": "raisonnement",
+      "answer_mode": "single",
+      "prompt": "Quel type de résultat fournit `$(commande)` en Bash ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "La sortie standard produite par la commande, avec traitement de fin de ligne"
+        },
+        {
+          "id": "B",
+          "text": "L'adresse mémoire d'une fonction"
+        },
+        {
+          "id": "C",
+          "text": "Toujours le code retour"
+        },
+        {
+          "id": "D",
+          "text": "Le PID du processus parent"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "La substitution de commande insère du texte provenant de stdout.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/variables-et-bash/11-commande"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "editorial_scenario",
+        "verify_technical_claims"
+      ]
+    },
+    {
+      "id": "EXPL-04-011-01",
+      "notion_id": "N04_011",
+      "legacy_notion_key": "4:11",
+      "theme": "Variables et Bash",
+      "notion": "$((...))",
+      "question_type": "raisonnement",
+      "answer_mode": "multiple",
+      "prompt": "Quelles expressions relèvent de l'arithmétique Bash ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "`$(echo 2+3)` évalue automatiquement 2+3 comme entier"
+        },
+        {
+          "id": "B",
+          "text": "`$((8%3))`"
+        },
+        {
+          "id": "C",
+          "text": "`$((2+3))`"
+        },
+        {
+          "id": "D",
+          "text": "`$PATH` force un calcul numérique"
+        }
+      ],
+      "correct_option_ids": [
+        "B",
+        "C"
+      ],
+      "explanation": "$((...)) est l'expansion arithmétique.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/variables-et-bash/12-"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "editorial_scenario",
+        "verify_technical_claims"
+      ]
+    },
+    {
+      "id": "EXPL-04-012-01",
+      "notion_id": "N04_012",
+      "legacy_notion_key": "4:12",
+      "theme": "Variables et Bash",
+      "notion": "$? / $1 / $#",
+      "question_type": "raisonnement",
+      "answer_mode": "single",
+      "prompt": "À quoi correspond `$#` dans un script Bash ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Au chemin du Shell"
+        },
+        {
+          "id": "B",
+          "text": "Au nombre de paramètres positionnels"
+        },
+        {
+          "id": "C",
+          "text": "Au code retour précédent"
+        },
+        {
+          "id": "D",
+          "text": "À la taille de PATH"
+        }
+      ],
+      "correct_option_ids": [
+        "B"
+      ],
+      "explanation": "$# donne le nombre d'arguments positionnels.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/variables-et-bash/13-1"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "editorial_scenario",
+        "verify_technical_claims"
+      ]
+    },
+    {
+      "id": "EXPL-04-013-01",
+      "notion_id": "N04_013",
+      "legacy_notion_key": "4:13",
+      "theme": "Variables et Bash",
+      "notion": "Découper PATH",
+      "question_type": "raisonnement",
+      "answer_mode": "single",
+      "prompt": "Pour découper PATH en segments, quel caractère sépare habituellement les répertoires sous Linux ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "|"
+        },
+        {
+          "id": "B",
+          "text": ";"
+        },
+        {
+          "id": "C",
+          "text": "\\"
+        },
+        {
+          "id": "D",
+          "text": ":"
+        }
+      ],
+      "correct_option_ids": [
+        "D"
+      ],
+      "explanation": "PATH utilise généralement les deux-points comme séparateur.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/variables-et-bash/14-decouper-path"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "editorial_scenario",
+        "verify_technical_claims"
+      ]
+    },
+    {
+      "id": "EXPL-05-000-01",
+      "notion_id": "N05_000",
+      "legacy_notion_key": "5:0",
+      "theme": "Conditions et boucles C",
+      "notion": "if / else if / else",
+      "question_type": "raisonnement",
+      "answer_mode": "single",
+      "prompt": "Avec `int x=5; if(x>3) ... else ...`, quelle branche est prise ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "if"
+        },
+        {
+          "id": "B",
+          "text": "else"
+        },
+        {
+          "id": "C",
+          "text": "Les deux branches"
+        },
+        {
+          "id": "D",
+          "text": "Aucune"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "La condition compare les deux entiers : 5 est supérieur à 3, donc la branche if est sélectionnée.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/conditions-et-boucles-c/1-if-else-if-else"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "editorial_scenario",
+        "verify_technical_claims"
+      ]
+    },
+    {
+      "id": "EXPL-05-001-01",
+      "notion_id": "N05_001",
+      "legacy_notion_key": "5:1",
+      "theme": "Conditions et boucles C",
+      "notion": "== / !=",
+      "question_type": "raisonnement",
+      "answer_mode": "single",
+      "prompt": "En C, quelle différence entre `=` et `==` ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "== ne fonctionne que pour les chaînes"
+        },
+        {
+          "id": "B",
+          "text": "= affecte, == compare l'égalité"
+        },
+        {
+          "id": "C",
+          "text": "Ils sont toujours équivalents"
+        },
+        {
+          "id": "D",
+          "text": "= compare et == affecte"
+        }
+      ],
+      "correct_option_ids": [
+        "B"
+      ],
+      "explanation": "Ne pas confondre affectation et comparaison.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/conditions-et-boucles-c/2-"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "editorial_scenario",
+        "verify_technical_claims"
+      ]
+    },
+    {
+      "id": "EXPL-05-003-01",
+      "notion_id": "N05_003",
+      "legacy_notion_key": "5:3",
+      "theme": "Conditions et boucles C",
+      "notion": "&& / || / !",
+      "question_type": "raisonnement",
+      "answer_mode": "single",
+      "prompt": "Avec `int a=0,b=1;`, que vaut l'expression logique `a || b` ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "2"
+        },
+        {
+          "id": "B",
+          "text": "0"
+        },
+        {
+          "id": "C",
+          "text": "Comportement indéfini"
+        },
+        {
+          "id": "D",
+          "text": "1"
+        }
+      ],
+      "correct_option_ids": [
+        "D"
+      ],
+      "explanation": "L'opérateur logique || donne 1 si au moins un opérande est non nul.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/conditions-et-boucles-c/4-"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "editorial_scenario",
+        "verify_technical_claims"
+      ]
+    },
+    {
+      "id": "EXPL-05-008-01",
+      "notion_id": "N05_008",
+      "legacy_notion_key": "5:8",
+      "theme": "Conditions et boucles C",
+      "notion": "0 et booléens C",
+      "question_type": "raisonnement",
+      "answer_mode": "single",
+      "prompt": "Quel est le sens d'une valeur non nulle dans la condition d'un if en C ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Erreur de compilation"
+        },
+        {
+          "id": "B",
+          "text": "Une valeur NULL"
+        },
+        {
+          "id": "C",
+          "text": "Toujours fausse"
+        },
+        {
+          "id": "D",
+          "text": "Vraie"
+        }
+      ],
+      "correct_option_ids": [
+        "D"
+      ],
+      "explanation": "En C, zéro est faux et non-zéro est vrai.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/conditions-et-boucles-c/9-0-et-booleens-c"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "editorial_scenario",
+        "verify_technical_claims"
+      ]
+    },
+    {
+      "id": "EXPL-05-008-02",
+      "notion_id": "N05_008",
+      "legacy_notion_key": "5:8",
+      "theme": "Conditions et boucles C",
+      "notion": "0 et booléens C",
+      "question_type": "raisonnement",
+      "answer_mode": "single",
+      "prompt": "Pour `int x=-7;`, comment `if(x)` évalue-t-il la condition ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Vraie car -7 est non nul"
+        },
+        {
+          "id": "B",
+          "text": "Vraie seulement si x vaut 1"
+        },
+        {
+          "id": "C",
+          "text": "Fausse car x est négatif"
+        },
+        {
+          "id": "D",
+          "text": "Toujours indéfinie"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "Toutes les valeurs scalaires non nulles sont vraies dans un test logique.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/conditions-et-boucles-c/9-0-et-booleens-c"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "editorial_scenario",
+        "verify_technical_claims"
+      ]
+    },
+    {
+      "id": "EXPL-06-002-01",
+      "notion_id": "N06_002",
+      "legacy_notion_key": "6:2",
+      "theme": "Git et GitHub",
+      "notion": "Repository",
+      "question_type": "raisonnement",
+      "answer_mode": "single",
+      "prompt": "Quel élément distingue un dépôt Git de la simple copie d'un dossier source ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Une obligation de posséder un compte GitHub"
+        },
+        {
+          "id": "B",
+          "text": "L'absence de fichiers texte"
+        },
+        {
+          "id": "C",
+          "text": "Les métadonnées Git avec historique et références"
+        },
+        {
+          "id": "D",
+          "text": "Un compilateur C embarqué"
+        }
+      ],
+      "correct_option_ids": [
+        "C"
+      ],
+      "explanation": "Les données .git enregistrent l'historique et les références.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/git-et-github/3-repository"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "editorial_scenario",
+        "verify_technical_claims"
+      ]
+    },
+    {
+      "id": "EXPL-06-004-01",
+      "notion_id": "N06_004",
+      "legacy_notion_key": "6:4",
+      "theme": "Git et GitHub",
+      "notion": "Commit",
+      "question_type": "raisonnement",
+      "answer_mode": "multiple",
+      "prompt": "Quelles opérations sont réellement séparées dans Git ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "git commit crée un commit local"
+        },
+        {
+          "id": "B",
+          "text": "git push publie sur un distant"
+        },
+        {
+          "id": "C",
+          "text": "git add publie obligatoirement sur GitHub"
+        },
+        {
+          "id": "D",
+          "text": "git add prépare l'index"
+        }
+      ],
+      "correct_option_ids": [
+        "A",
+        "B",
+        "D"
+      ],
+      "explanation": "Index, historique local et distant sont distincts.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/git-et-github/5-commit"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "editorial_scenario",
+        "verify_technical_claims"
+      ]
+    },
+    {
+      "id": "EXPL-06-005-01",
+      "notion_id": "N06_005",
+      "legacy_notion_key": "6:5",
+      "theme": "Git et GitHub",
+      "notion": "Branch / merge",
+      "question_type": "raisonnement",
+      "answer_mode": "single",
+      "prompt": "Supprimer une branche locale après sa fusion efface-t-il nécessairement les commits fusionnés ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Oui, tous les changements disparaissent"
+        },
+        {
+          "id": "B",
+          "text": "Oui, le dépôt entier devient vide"
+        },
+        {
+          "id": "C",
+          "text": "Non, ils restent accessibles via l'historique de la branche cible"
+        },
+        {
+          "id": "D",
+          "text": "Oui, GitHub efface automatiquement la PR"
+        }
+      ],
+      "correct_option_ids": [
+        "C"
+      ],
+      "explanation": "Les commits intégrés au graphe restent référencés par la branche cible.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/git-et-github/6-branch-merge"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "editorial_scenario",
+        "verify_technical_claims"
+      ]
+    },
+    {
+      "id": "EXPL-06-006-01",
+      "notion_id": "N06_006",
+      "legacy_notion_key": "6:6",
+      "theme": "Git et GitHub",
+      "notion": "Pull request",
+      "question_type": "raisonnement",
+      "answer_mode": "single",
+      "prompt": "Que signifie une PR fusionnée dont un ancien check était rouge puis le dernier vert ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Le code final est forcément vulnérable"
+        },
+        {
+          "id": "B",
+          "text": "La fusion annule tout test négatif"
+        },
+        {
+          "id": "C",
+          "text": "Il faut supprimer l'historique Git"
+        },
+        {
+          "id": "D",
+          "text": "Les anciennes exécutions restent rouges, mais le dernier état peut avoir corrigé le défaut"
+        }
+      ],
+      "correct_option_ids": [
+        "D"
+      ],
+      "explanation": "On évalue les checks du commit final, pas seulement une ancienne révision.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/git-et-github/7-pull-request"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "editorial_scenario",
+        "verify_technical_claims"
+      ]
+    },
+    {
+      "id": "EXPL-06-007-01",
+      "notion_id": "N06_007",
+      "legacy_notion_key": "6:7",
+      "theme": "Git et GitHub",
+      "notion": "Conflit de fusion",
+      "question_type": "raisonnement",
+      "answer_mode": "single",
+      "prompt": "Une fusion Git rencontre des modifications concurrentes aux mêmes lignes. Que faut-il vérifier ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Le nombre de caractères dans le README"
+        },
+        {
+          "id": "B",
+          "text": "Aucune vérification, Git choisit toujours seul"
+        },
+        {
+          "id": "C",
+          "text": "Les choix retenus dans le fichier final"
+        },
+        {
+          "id": "D",
+          "text": "Uniquement le nom de la branche"
+        }
+      ],
+      "correct_option_ids": [
+        "C"
+      ],
+      "explanation": "La résolution de conflit nécessite une revue du résultat.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/git-et-github/8-conflit-de-fusion"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "editorial_scenario",
+        "verify_technical_claims"
+      ]
+    },
+    {
+      "id": "EXPL-06-009-01",
+      "notion_id": "N06_009",
+      "legacy_notion_key": "6:9",
+      "theme": "Git et GitHub",
+      "notion": "git push / pull / fetch",
+      "question_type": "raisonnement",
+      "answer_mode": "single",
+      "prompt": "Quelle différence entre `git fetch` et `git pull` dans une configuration habituelle ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "fetch récupère, pull récupère puis intègre selon la configuration"
+        },
+        {
+          "id": "B",
+          "text": "fetch fusionne toujours, pull jamais"
+        },
+        {
+          "id": "C",
+          "text": "les deux suppriment les commits locaux"
+        },
+        {
+          "id": "D",
+          "text": "aucune : ce sont deux alias complets"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "pull combine fetch et une opération d'intégration.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/git-et-github/10-git-push-pull-fetch"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "editorial_scenario",
+        "verify_technical_claims"
+      ]
+    },
+    {
+      "id": "EXPL-06-010-01",
+      "notion_id": "N06_010",
+      "legacy_notion_key": "6:10",
+      "theme": "Git et GitHub",
+      "notion": "git clone / log / switch",
+      "question_type": "raisonnement",
+      "answer_mode": "single",
+      "prompt": "Que fait `git clone URL` ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Efface le dépôt distant"
+        },
+        {
+          "id": "B",
+          "text": "Change uniquement le nom de la branche courante"
+        },
+        {
+          "id": "C",
+          "text": "Envoie automatiquement une PR"
+        },
+        {
+          "id": "D",
+          "text": "Crée une copie locale d'un dépôt distant"
+        }
+      ],
+      "correct_option_ids": [
+        "D"
+      ],
+      "explanation": "clone crée un dépôt local à partir du distant.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/git-et-github/11-git-clone-log-switch"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "editorial_scenario",
+        "verify_technical_claims"
+      ]
+    }
+  ]
+}
