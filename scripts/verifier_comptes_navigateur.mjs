@@ -79,6 +79,9 @@ try{
   const data=await (await fetch('/api/progress')).json();
   return data.data?.theme==='dark'&&data.revision>=2;
  });
+ const afterDark=await remote(a);
+ const savedDark=db.prepare('SELECT user_id,revision,payload FROM progress').all().map(x=>({user_id:x.user_id,revision:x.revision,theme:JSON.parse(x.payload).theme}));
+ console.log('Diagnostic avant navigateur B:',JSON.stringify({afterDark,savedDark}));
  const b=await newPage();
  await login(b,'test-auto@example.org');
  const remoteB=await remote(b);
