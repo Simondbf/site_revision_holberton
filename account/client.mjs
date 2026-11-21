@@ -190,7 +190,7 @@ import {readProgress,writeProgress,emptyProgress,guestResumeOnly} from '../quiz/
  }
  window.addEventListener('holberton:quiz:updated',scheduleSync);
  window.addEventListener('holberton:preferences:updated',scheduleSync);
- window.addEventListener('focus',pullIfClean);
+ window.addEventListener('focus',()=>{if(dirty&&!conflict)sync();else pullIfClean()});
  window.addEventListener('hashchange',()=>{
   if(location.hash.startsWith('#compte/verification/'))initialize();
   if(location.hash==='#compte'&&me.authenticated)panel();
