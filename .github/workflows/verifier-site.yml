@@ -76,6 +76,7 @@ jobs:
             # Le dépôt de test est local, isolé et chiffré avec un mot de passe éphémère.
             docker run --rm --network none --read-only --cap-drop ALL \
               --security-opt no-new-privileges \
+              --tmpfs /tmp:rw,noexec,nosuid,size=128m \
               -e RESTIC_REPOSITORY=/repo -e RESTIC_PASSWORD=ci-ephemere \
               -v /tmp/hbtn-test/backup:/data:ro \
               -v /tmp/hbtn-test/restic/repository:/repo:rw \
