@@ -43,7 +43,7 @@ services:
     tmpfs:
       - /tmp:rw,noexec,nosuid,size=16m
     volumes:
-      - /opt/holberton-revision/accounts/data:/data:ro
+      - /opt/holberton-revision/accounts/data:/data:rw
       - /opt/holberton-revision/accounts-backup/work:/backup:rw
       - ../../server/snapshot.mjs:/tools/snapshot.mjs:ro
     cap_drop:
