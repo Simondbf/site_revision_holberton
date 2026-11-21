@@ -71,7 +71,7 @@ jobs:
         run: |
           mkdir -p /tmp/hbtn-test/restic/repository /tmp/hbtn-test/restic/restored
           sudo chown -R 1000:1000 /tmp/hbtn-test/backup /tmp/hbtn-test/restic
-          chmod 0755 /tmp/hbtn-test/backup
+          sudo chmod 0755 /tmp/hbtn-test/backup
           for command in init "backup /data" "restore latest --target /restored"; do
             # Le dépôt de test est local, isolé et chiffré avec un mot de passe éphémère.
             docker run --rm --network none --read-only --cap-drop ALL \
