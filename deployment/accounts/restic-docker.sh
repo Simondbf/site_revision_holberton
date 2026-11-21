@@ -4,7 +4,7 @@ set -eu
 # Initialiser /etc/holberton-revision/backup.env et les secrets privés.
 : "${HBTN_BACKUP_ROOT:=/opt/holberton-revision/accounts-backup}"
 exec docker run --rm --read-only --cap-drop ALL --security-opt no-new-privileges \
-  --tmpfs /tmp:rw,nosuid,noexec,size=16m \
+  --tmpfs /tmp:rw,nosuid,noexec,size=128m \
   --env-file /etc/holberton-revision/backup.env \
   -e RESTIC_PASSWORD_FILE=/run/secrets/restic_password \
   -e RESTIC_CACHE_DIR=/cache \
