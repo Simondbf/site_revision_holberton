@@ -87,7 +87,7 @@ jobs:
               -v /tmp/hbtn-test/restic/restored:/restored:rw \
               holberton-restic:test --no-cache $command
           done
-          cmp /tmp/hbtn-test/backup/accounts.sqlite /tmp/hbtn-test/restic/restored/data/accounts.sqlite
+          sudo cmp /tmp/hbtn-test/backup/accounts.sqlite /tmp/hbtn-test/restic/restored/data/accounts.sqlite
           docker run --rm --network none --read-only --cap-drop ALL \
             -v /tmp/hbtn-test/restic/restored:/backup:ro \
             -v "${PWD}/server/snapshot.mjs:/tools/snapshot.mjs:ro" \
