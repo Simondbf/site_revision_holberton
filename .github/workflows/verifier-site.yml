@@ -88,7 +88,7 @@ jobs:
               holberton-restic:test --no-cache $command
           done
           sudo cmp /tmp/hbtn-test/backup/accounts.sqlite /tmp/hbtn-test/restic/restored/data/accounts.sqlite
-          docker run --rm --network none --read-only --cap-drop ALL \
+          docker run --rm --network none --read-only --cap-drop ALL --user 1000:1000 \
             -v /tmp/hbtn-test/restic/restored:/backup:ro \
             -v "${PWD}/server/snapshot.mjs:/tools/snapshot.mjs:ro" \
             node:22.15.0-bookworm-slim node /tools/snapshot.mjs check /backup/data/accounts.sqlite
