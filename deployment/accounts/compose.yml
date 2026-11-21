@@ -1,3 +1,5 @@
+name: holberton-revision-accounts
+
 # Déploiement en staging : ne pas router /api/ dans Nginx avant validation.
 # Dossiers appartenant à l'UID/GID 1000 (utilisateur node) et droits 0700.
 services:
