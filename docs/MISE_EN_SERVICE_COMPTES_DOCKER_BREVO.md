@@ -54,7 +54,13 @@ sudo install -d -m 0700 -o 1000 -g 1000 /opt/holberton-revision/accounts-backup/
 
 Vérifier que UID/GID 1000 correspondent aux droits voulus et ajuster si nécessaire. Les sources server/ et deployment/accounts/ doivent être installées sous /opt/holberton-revision, car l'ancien déployeur ne publie que index.html.
 
-Placer les variables de server/env.example dans /etc/holberton-revision/accounts.env (0600). Utiliser une clé SMTP propre à Holberton, un expéditeur Brevo vérifié, et vérifier SPF/DKIM/DMARC. Aucun secret dans GitHub.
+Préférer l'assistant interactif, qui crée `accounts.env` en mode 0600 sans afficher la clé ni utiliser une commande contenant le secret :
+
+~~~sh
+bash /opt/holberton-revision/deployment/accounts/configurer-smtp.sh
+~~~
+
+Il demande l'identifiant SMTP Brevo, la **clé SMTP** (masquée) et une adresse expéditeur déjà vérifiée chez Brevo. Il n'utilise ni ne modifie les secrets de l'application Comptes et refuse d'écraser un fichier existant. On peut aussi installer manuellement les variables de `server/env.example` dans `/etc/holberton-revision/accounts.env` (0600), sans jamais les committer ni les afficher. Utiliser une clé SMTP propre à Holberton et vérifier SPF/DKIM/DMARC. Aucun secret dans GitHub.
 
 ## Démarrage local de staging
 
