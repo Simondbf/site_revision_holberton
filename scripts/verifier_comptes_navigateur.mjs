@@ -28,16 +28,21 @@ const website=createServer((req,res)=>{
  }
 });
 let browser,app;
-const waitForServer=async page=>page.waitForFunction(async()=>{
- const response=await fetch('/api/progress',{credentials:'same-origin'});
- if(!response.ok)return false;
- const data=await response.json();
- return data?.data&&Number.isInteger(data.revision);
-});
 const remote=page=>page.evaluate(async()=>{
  const response=await fetch('/api/progress',{credentials:'same-origin',cache:'no-store'});
  return response.json();
 });
+async function waitForRemote(page,accept,timeout=15000){
+ const end=Date.now()+timeout;
+ let last;
+ do{
+  last=await remote(page);
+  if(accept(last))return last;
+  await new Promise(resolve=>setTimeout(resolve,150));
+ }while(Date.now()<end);
+ throw new Error('Condition API non atteinte après '+timeout+' ms : '+JSON.stringify(last));
+}
+const waitForServer=page=>waitForRemote(page,data=>Boolean(data.data&&Number.isInteger(data.revision)));
 try{
  await new Promise(resolve=>website.listen(0,'127.0.0.1',resolve));
  const origin='http://127.0.0.1:'+website.address().port;
@@ -75,23 +80,10 @@ try{
   localStorage.setItem('holberton-dark-v2','yes');
   window.dispatchEvent(new Event('holberton:preferences:updated'));
  });
- await a.waitForFunction(async()=>{
-  const data=await (await fetch('/api/progress')).json();
-  return data.data?.theme==='dark'&&data.revision>=2;
- });
- const afterDark=await remote(a);
- const savedDark=db.prepare('SELECT user_id,revision,payload FROM progress').all().map(x=>({user_id:x.user_id,revision:x.revision,theme:JSON.parse(x.payload).theme}));
- console.log('Diagnostic avant navigateur B:',JSON.stringify({afterDark,savedDark}));
+ await waitForRemote(a,data=>data.data?.theme==='dark'&&data.revision>=2);
  const b=await newPage();
  await login(b,'test-auto@example.org');
- const remoteB=await remote(b);
- const localThemeB=await b.evaluate(()=>({theme:localStorage.getItem('holberton-dark-v2'),progress:JSON.parse(localStorage.getItem('holberton-quiz-guest-v1'))?.theme}));
- const authA=await a.evaluate(async()=> (await (await fetch('/api/auth/me')).json()));
- const authB=await b.evaluate(async()=> (await (await fetch('/api/auth/me')).json()));
- const users=db.prepare('SELECT id,email FROM users').all();
- const progressRows=db.prepare('SELECT user_id,revision,payload FROM progress').all().map(x=>({user_id:x.user_id,revision:x.revision,theme:JSON.parse(x.payload).theme}));
- console.log('Diagnostic second navigateur :',JSON.stringify({localThemeB,remoteTheme:remoteB.data?.theme,revision:remoteB.revision,authA,authB,users,progressRows}));
- assert.equal(localThemeB.theme,'yes',
+ assert.equal(await b.evaluate(()=>localStorage.getItem('holberton-dark-v2')),'yes',
   'Le second navigateur doit récupérer la préférence distante dès la connexion.');
 
  // Modifier une seconde fois pendant un PUT en vol : la seconde écriture
@@ -111,16 +103,13 @@ try{
   localStorage.setItem('holberton-dark-v2','no');
   window.dispatchEvent(new Event('holberton:preferences:updated'));
  });
- await intercepted;
+ await Promise.race([intercepted,new Promise((_,reject)=>setTimeout(()=>reject(Error('Aucune requête PUT interceptée.')),7000))]);
  await a.evaluate(()=>{
   localStorage.setItem('holberton-dark-v2','yes');
   window.dispatchEvent(new Event('holberton:preferences:updated'));
  });
  release();
- await a.waitForFunction(async()=>{
-  const data=await (await fetch('/api/progress')).json();
-  return data.data?.theme==='dark'&&data.revision>=4;
- },null,{timeout:15000});
+ await waitForRemote(a,data=>data.data?.theme==='dark'&&data.revision>=4);
  await a.unroute('**/api/progress');
 
  // Le navigateur B, resté hors de la fenêtre, recharge sa dernière révision
@@ -133,10 +122,7 @@ try{
   localStorage.setItem('holberton-dark-v2','no');
   window.dispatchEvent(new Event('holberton:preferences:updated'));
  });
- await b.waitForFunction(async()=>{
-  const data=await (await fetch('/api/progress')).json();
-  return data.data?.theme==='light'&&data.revision>=5;
- },null,{timeout:15000});
+ await waitForRemote(b,data=>data.data?.theme==='light'&&data.revision>=5);
  await a.evaluate(()=>window.dispatchEvent(new Event('focus')));
  await a.waitForFunction(()=>localStorage.getItem('holberton-dark-v2')==='no');
  assert.equal((await remote(a)).data.theme,'light');
@@ -144,10 +130,7 @@ try{
  // La session invitée reste récupérable même si le compte en a déjà une.
  await a.goto(origin+'/#quiz');
  await a.locator('#quizStart').click();
- await a.waitForFunction(async()=>{
-  const data=await (await fetch('/api/progress')).json();
-  return !!data.data?.current;
- });
+ await waitForRemote(a,data=>!!data.data?.current);
  const originalId=(await remote(a)).data.current.id;
  const guest=await newPage();
  await guest.goto(origin+'/#quiz');
