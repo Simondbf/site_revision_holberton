@@ -81,7 +81,10 @@ try{
  });
  const b=await newPage();
  await login(b,'test-auto@example.org');
- assert.equal(await b.evaluate(()=>localStorage.getItem('holberton-dark-v2')),'yes',
+ const remoteB=await remote(b);
+ const localThemeB=await b.evaluate(()=>({theme:localStorage.getItem('holberton-dark-v2'),progress:JSON.parse(localStorage.getItem('holberton-quiz-guest-v1'))?.theme}));
+ console.log('Diagnostic second navigateur :',JSON.stringify({localThemeB,remoteTheme:remoteB.data?.theme,revision:remoteB.revision}));
+ assert.equal(localThemeB.theme,'yes',
   'Le second navigateur doit récupérer la préférence distante dès la connexion.');
 
  // Modifier une seconde fois pendant un PUT en vol : la seconde écriture
