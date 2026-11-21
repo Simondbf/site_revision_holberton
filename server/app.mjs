@@ -84,7 +84,7 @@ function progressPayload(data){
   const s=data.current;
   if(!isRecord(s)||!safeId(s.id)||!Array.isArray(s.questionIds)||s.questionIds.length<1||
    s.questionIds.length>5000||!s.questionIds.every(safeId)||!isRecord(s.answers)||
-   Object.keys(s.answers).length>5000||!count(s.cursor)||s.cursor>=s.questionIds.length)
+   Object.keys(s.answers).length>5000||!count(s.cursor)||s.cursor>s.questionIds.length)
    throw new ApiError(400,'Session en cours invalide.');
  }
  for(const s of data.history){
