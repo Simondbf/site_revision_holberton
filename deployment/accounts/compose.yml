@@ -12,6 +12,7 @@ services:
     environment:
       HBTN_BIND_HOST: 0.0.0.0
       HBTN_CONTAINER_ONLY: "1"
+      HBTN_TRUST_LOCAL_PROXY: "1"
       HBTN_DB_PATH: /data/accounts.sqlite
       HBTN_PORT: "3024"
     ports:
