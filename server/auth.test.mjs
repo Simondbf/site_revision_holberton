@@ -34,16 +34,15 @@ test('Inscription par e-mail, sessions, isolation, CSRF, conflits et suppression
   const cookieA=verifiedA.cookie,csrfA=verifiedA.body.csrf;
   assert.equal((await req('/api/auth/me','GET',null,cookieA)).body.authenticated,true);
   assert.equal((await req('/api/progress','GET',null,cookieA)).body.revision,0);
-  const data={version:1,current:null,history:[],stats:{},seen:{},favorites:['9:72','8:31'],theme:'dark'};
+  const data={version:1,current:null,history:[],stats:{},seen:{},theme:'dark'};
   assert.equal((await req('/api/progress','PUT',{revision:0,data},cookieA)).status,403,'CSRF doit être présent');
   assert.equal((await req('/api/progress','PUT',{revision:0,data},cookieA,'wrong')).status,403,'CSRF invalide rejeté');
   const up=await req('/api/progress','PUT',{revision:0,data},cookieA,csrfA);
   assert.equal(up.status,200);assert.equal(up.body.revision,1);
   assert.equal((await req('/api/progress','PUT',{revision:0,data},cookieA,csrfA)).status,409,'Conflit de révision détecté');
   assert.equal((await req('/api/progress','GET',null,cookieA)).body.data.version,1);
-  assert.deepEqual((await req('/api/progress','GET',null,cookieA)).body.data.favorites,['9:72','8:31']);
   assert.equal((await req('/api/progress','GET',null,cookieA)).body.data.theme,'dark');
-  assert.equal((await req('/api/progress','PUT',{revision:1,data:{...data,favorites:['bad-id']}},cookieA,csrfA)).status,400,'Identifiant de favori invalide rejeté');
+  assert.equal((await req('/api/progress','PUT',{revision:1,data:{...data,favorites:['9:72']}},cookieA,csrfA)).status,400,'Fonction favoris supprimée du compte');
   assert.equal((await req('/api/progress','PUT',{revision:1,data:{...data,theme:'unknown'}},cookieA,csrfA)).status,400,'Thème invalide rejeté');
   assert.equal((await req('/api/auth/request-link','POST',{email:'beta@example.org'})).status,202);
   const tokenB=sent[1].link.split('/').at(-1);
