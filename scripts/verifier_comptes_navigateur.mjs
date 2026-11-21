@@ -83,7 +83,11 @@ try{
  await login(b,'test-auto@example.org');
  const remoteB=await remote(b);
  const localThemeB=await b.evaluate(()=>({theme:localStorage.getItem('holberton-dark-v2'),progress:JSON.parse(localStorage.getItem('holberton-quiz-guest-v1'))?.theme}));
- console.log('Diagnostic second navigateur :',JSON.stringify({localThemeB,remoteTheme:remoteB.data?.theme,revision:remoteB.revision}));
+ const authA=await a.evaluate(async()=> (await (await fetch('/api/auth/me')).json()));
+ const authB=await b.evaluate(async()=> (await (await fetch('/api/auth/me')).json()));
+ const users=db.prepare('SELECT id,email FROM users').all();
+ const progressRows=db.prepare('SELECT user_id,revision,payload FROM progress').all().map(x=>({user_id:x.user_id,revision:x.revision,theme:JSON.parse(x.payload).theme}));
+ console.log('Diagnostic second navigateur :',JSON.stringify({localThemeB,remoteTheme:remoteB.data?.theme,revision:remoteB.revision,authA,authB,users,progressRows}));
  assert.equal(localThemeB.theme,'yes',
   'Le second navigateur doit récupérer la préférence distante dès la connexion.');
 
