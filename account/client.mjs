@@ -7,6 +7,7 @@ import {readProgress,writeProgress,emptyProgress,guestResumeOnly} from '../quiz/
  if(!root||!coming)return;
  let me={authenticated:false},remote={revision:0,data:null};
  let enabled=false,busy=false,dirty=false,conflict=false,debounce=null;
+ let changeSerial=0;
  let pendingGuestSession=null;
  const KEY='holberton-quiz-guest-v1';
  const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -79,7 +80,8 @@ import {readProgress,writeProgress,emptyProgress,guestResumeOnly} from '../quiz/
   if(!me.authenticated)return;
   security.innerHTML='<h3>Gestion du compte</h3><p>Adresse vérifiée : <strong>'+esc(me.email)+'</strong></p>'+
    '<p>Synchronisation automatique des quiz et du thème clair/sombre : <strong>'+(conflict?'conflit à résoudre':dirty?'en attente':'active')+'</strong>.</p>'+
-   (pendingGuestSession?'<p>Une session invitée inachevée a été conservée séparément pour éviter de remplacer un quiz déjà présent dans ce compte.</p>':'')+
+   (pendingGuestSession?'<p>Une session invitée inachevée a été conservée séparément pour éviter de remplacer un quiz déjà présent dans ce compte.</p>'+
+    '<button id="accountRecoverGuest" class="quiz-secondary" type="button">Reprendre cette session sur le compte</button>':'')+
    (conflict?'<p class="account-error">Une modification a été effectuée sur un autre appareil. Aucune progression n’a été écrasée.</p>'+
     '<button id="accountUseRemote" class="quiz-secondary" type="button">Conserver la version du compte</button>'+
     '<button id="accountUseLocal" class="quiz-secondary" type="button">Remplacer la version distante par cet appareil</button>':'')+
@@ -90,7 +92,10 @@ import {readProgress,writeProgress,emptyProgress,guestResumeOnly} from '../quiz/
    if((dirty||conflict)&&!confirm('Une progression n’est pas encore synchronisée. Se déconnecter peut la perdre. Continuer ?'))return;
    try{
     await api('/api/auth/logout',{method:'POST',csrf:me.csrf});
+    const recoveryKey='holberton-session-a-recuperer-v1:'+me.userId;
     me={authenticated:false};remote={revision:0,data:null};enabled=false;dirty=false;conflict=false;
+    pendingGuestSession=null;changeSerial=0;
+    try{localStorage.removeItem(recoveryKey)}catch{}
     resetLocal();setConnected(false);renderLogin();status('Déconnexion effectuée.');
    }catch(e){status(e.message,true)}
   };
@@ -99,9 +104,26 @@ import {readProgress,writeProgress,emptyProgress,guestResumeOnly} from '../quiz/
    if(!confirm('Confirmer la suppression définitive du compte ? Cette opération est irréversible sur la base active.'))return;
    try{
     await api('/api/account',{method:'DELETE',csrf:me.csrf});
+    const recoveryKey='holberton-session-a-recuperer-v1:'+me.userId;
     me={authenticated:false};remote={revision:0,data:null};enabled=false;dirty=false;conflict=false;
+    pendingGuestSession=null;changeSerial=0;
+    try{localStorage.removeItem(recoveryKey)}catch{}
     resetLocal();setConnected(false);renderLogin();status('Compte et données actives supprimés.');
    }catch(e){status(e.message,true)}
+  };
+  const recoverGuest=document.getElementById('accountRecoverGuest');
+  if(recoverGuest)recoverGuest.onclick=async()=>{
+   if(!pendingGuestSession)return;
+   if(!confirm('Remplacer uniquement la session en cours du compte par cette session invitée ? Les résultats déjà terminés seront conservés.'))return;
+   try{
+    const latest=await api('/api/progress');
+    const merged={...(latest.data||emptyProgress()),current:pendingGuestSession};
+    const updated=await api('/api/progress',{method:'PUT',csrf:me.csrf,body:{revision:latest.revision,data:merged}});
+    remote={revision:updated.revision,data:merged};
+    pendingGuestSession=null;dirty=false;conflict=false;
+    try{localStorage.removeItem('holberton-session-a-recuperer-v1:'+me.userId)}catch{}
+    install(merged);panel();
+   }catch(e){status(e.status===409?'La session du compte a changé sur un autre appareil. Réessaie.':e.message,true)}
   };
   const useRemote=document.getElementById('accountUseRemote');
   if(useRemote)useRemote.onclick=async()=>{
@@ -123,33 +145,50 @@ import {readProgress,writeProgress,emptyProgress,guestResumeOnly} from '../quiz/
  async function sync(){
   if(!enabled||!me.authenticated||busy||conflict)return;
   busy=true;
+  const startedAt=changeSerial;
   try{
    const payload=progressLocal();
    const updated=await api('/api/progress',{method:'PUT',csrf:me.csrf,body:{revision:remote.revision,data:payload}});
-   remote={revision:updated.revision,data:payload};dirty=false;
+   remote={revision:updated.revision,data:payload};
+   // Une nouvelle réponse peut arriver pendant que la requête est en vol.
+   // Elle ne fait PAS partie de l'instantané envoyé.
+   dirty=changeSerial!==startedAt;
   }catch(e){
    dirty=true;
    if(e.status===409){conflict=true;try{remote=await api('/api/progress')}catch{}}
    if(location.hash.startsWith('#compte')){panel();status(e.status===409?'Conflit entre appareils : sélectionne la version à conserver.':e.message,true)}
-  }finally{busy=false;if(location.hash.startsWith('#compte'))panel()}
+  }finally{
+   busy=false;
+   if(location.hash.startsWith('#compte'))panel();
+   if(dirty&&!conflict&&changeSerial!==startedAt){
+    if(debounce)clearTimeout(debounce);
+    debounce=setTimeout(sync,1000);
+   }
+  }
  }
  function scheduleSync(){
   if(!enabled||!me.authenticated)return;
+  changeSerial++;
   dirty=true;
   if(debounce)clearTimeout(debounce);
   debounce=setTimeout(sync,1000);
  }
  async function pullIfClean(){
   if(!enabled||dirty||busy||conflict)return;
+  const startedAt=changeSerial;
   try{
    const next=await api('/api/progress');
-   if(next.revision!==remote.revision){remote=next;install(next.data||emptyProgress());panel()}
+   // Ne jamais écraser un changement local apparu pendant ce GET.
+   if(!enabled||dirty||busy||conflict||changeSerial!==startedAt)return;
+   if(next.revision>remote.revision){remote=next;install(next.data||emptyProgress());panel()}
   }catch{}
  }
  async function connectSession(check,afterVerification=false){
   me=check;remote=await api('/api/progress');
   const local=readProgress(localStorage);
-  pendingGuestSession=local.current||null;
+  const recoveryKey='holberton-session-a-recuperer-v1:'+me.userId;
+  try{pendingGuestSession=JSON.parse(localStorage.getItem(recoveryKey)||'null')||local.current||null}
+  catch{pendingGuestSession=local.current||null}
   if(remote.data){
    const serverData=remote.data;
    if(pendingGuestSession&&!serverData.current){
@@ -160,7 +199,7 @@ import {readProgress,writeProgress,emptyProgress,guestResumeOnly} from '../quiz/
     }catch(e){if(e.status!==409)throw e;remote=await api('/api/progress')}
    }else if(pendingGuestSession&&serverData.current&&pendingGuestSession.id!==serverData.current.id){
     // La session invitée n'est jamais effacée silencieusement au premier accès.
-    try{localStorage.setItem('holberton-session-a-recuperer-v1',JSON.stringify(pendingGuestSession))}catch{}
+    try{localStorage.setItem(recoveryKey,JSON.stringify(pendingGuestSession))}catch{}
    }else pendingGuestSession=null;
   }else{
    const fresh={...emptyProgress(),current:pendingGuestSession,theme:theme()};
@@ -178,11 +217,10 @@ import {readProgress,writeProgress,emptyProgress,guestResumeOnly} from '../quiz/
   if(token)history.replaceState(history.state,'','#compte');
   try{
    const health=await api('/api/health');
-   if(!health.emailsAvailable){showComingSoon();return}
    if(token)await api('/api/auth/verify',{method:'POST',body:{token}});
    const check=await api('/api/auth/me');
    if(check.authenticated)await connectSession(check,!!token);
-   else{setConnected(false);renderLogin()}
+   else{setConnected(false);if(health.emailsAvailable)renderLogin();else showComingSoon()}
   }catch(e){
    enabled=false;setConnected(false);
    if(token){renderLogin();status('Vérification impossible : '+e.message,true)}
@@ -192,6 +230,12 @@ import {readProgress,writeProgress,emptyProgress,guestResumeOnly} from '../quiz/
  window.addEventListener('holberton:quiz:updated',scheduleSync);
  window.addEventListener('holberton:preferences:updated',scheduleSync);
  window.addEventListener('focus',()=>{if(dirty&&!conflict)sync();else pullIfClean()});
+ document.addEventListener('visibilitychange',()=>{
+  if(document.visibilityState==='visible'){if(dirty&&!conflict)sync();else pullIfClean()}
+ });
+ // Un compte ouvert sur deux appareils récupère aussi les changements sans
+ // devoir recharger la page ni revenir manuellement sur l'onglet Compte.
+ setInterval(()=>{if(document.visibilityState==='visible')pullIfClean()},15000);
  window.addEventListener('hashchange',()=>{
   if(location.hash.startsWith('#compte/verification/'))initialize();
   if(location.hash==='#compte'&&me.authenticated)panel();
