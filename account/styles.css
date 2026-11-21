@@ -1,0 +1,13 @@
+/* Interface comptes : formulaire uniquement quand l'API Brevo est disponible. */
+#accountLoginForm{display:grid;gap:12px;max-width:500px;margin:22px auto;text-align:left}
+#accountLoginForm label{font-size:14px;font-weight:700}
+#accountLoginForm input{padding:12px 14px;border-radius:10px;border:1px solid var(--line);font:inherit;background:var(--surface-alt);color:var(--text);width:100%;min-width:0}
+#accountLoginForm button{justify-self:start}
+#account .account-privacy{max-width:700px;margin:22px auto 0;text-align:left;font-size:14px;line-height:1.7;color:var(--muted)}
+#accountSecurity{max-width:980px;margin:20px auto}
+#accountSecurity p{line-height:1.65}
+.account-error{color:#a92f2f;font-weight:700}
+.account-info{color:var(--primary);font-weight:700}
+#account #accountSecurity .quiz-actions{display:flex;flex-wrap:wrap;gap:12px}
+#account #accountSecurity button{max-width:100%}
+@media(max-width:600px){#accountLoginForm button{justify-self:stretch}}
