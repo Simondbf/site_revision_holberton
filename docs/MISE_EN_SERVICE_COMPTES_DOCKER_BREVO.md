@@ -10,6 +10,24 @@
 - Toute exécution Node, SQLite, Restic et sauvegarde doit rester dans Docker ; le timer système se limite à déclencher le conteneur.
 - Les invités continuent à utiliser cours et quiz sans connexion.
 
+## Autorisation de préparer le déploiement — 21 novembre 2026
+
+Le propriétaire a autorisé la mise en service **si les prérequis opérationnels sont réunis**. Cette autorisation ne remplace pas les tests de sauvegarde, la preuve de délivrabilité Brevo sur Holberton et la validation finale des chemins Nginx. Un e-mail Brevo reçu depuis l'application financière Comptes valide uniquement cette application et éventuellement le fournisseur : il ne prouve pas la configuration des identifiants Holberton.
+
+La connexion GitHub n'exécute aucune commande sur le VPS. **Ne pas fusionner la PR #37 uniquement pour tenter de déployer** : l'ancien timer ne publie que `index.html`, jamais le backend, la base ni les services de sauvegarde. Installer d'abord la branche PR en espace de staging privé, sans route publique `/api/`.
+
+### Prévol non destructif sur le VPS
+
+Après avoir installé explicitement le code de la branche de PR dans `/opt/holberton-revision`, créé les répertoires dédiés et provisionné les secrets distincts, lancer :
+
+~~~sh
+sudo bash /opt/holberton-revision/deployment/accounts/preflight-staging.sh
+~~~
+
+Le prévol ne modifie ni un service ni un fichier, ne révèle aucune valeur de secret et refuse de poursuivre si Docker/Compose, Nginx, le port 3024, les fichiers ou les permissions ne sont pas prêts. **Ne pas stopper arbitrairement le service qui occuperait ce port.** Il ne remplace pas un audit des namespaces Docker/rootless ni la vérification hors bande du `known_hosts`.
+
+Lorsque ce prévol réussit : démarrer l'API privée, tester une authentification Brevo **depuis Holberton**, deux comptes isolés et la synchronisation sur deux navigateurs. Exécuter ensuite une sauvegarde Restic sur le dépôt SFTP propre à Holberton et une restauration de contrôle isolée. Seulement après ces preuves, examiner et tester Nginx/HTTPS, la rétention des données et le retour arrière avant toute publication.
+
 ## Dossiers VPS (à préparer sans perturber les services existants)
 
 ~~~sh
