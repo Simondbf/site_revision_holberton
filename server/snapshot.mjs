@@ -21,7 +21,10 @@ function run(){
    if(Object.values(row)[0]!=='ok')throw Error('Intégrité SQLite invalide après snapshot.');
   }finally{verify.close()}
   if(statSync(target).size===0)throw Error('Snapshot SQLite vide.');
-  // Un seul fichier stable est sauvegardé ; ne pas inclure les anciens snapshots\n  // dans chaque sauvegarde (sinon la rétention des données serait faussée).\n  renameSync(target,'/backup/accounts.sqlite');\n  console.log('Snapshot SQLite validé : accounts.sqlite');
+  // Un seul fichier stable est sauvegardé ; ne pas inclure les anciens snapshots
+  // dans chaque sauvegarde (sinon la rétention des données serait faussée).
+  renameSync(target,'/backup/accounts.sqlite');
+  console.log('Snapshot SQLite validé : accounts.sqlite');
   return;
  }
  if(command==='check'){
