@@ -44,6 +44,7 @@ jobs:
           bash -n deployment/accounts/backup-now.sh
           bash -n deployment/accounts/preflight-staging.sh
           bash -n deployment/accounts/bootstrap-staging.sh
+          bash -n deployment/accounts/configurer-smtp.sh
           bash -n deployment/accounts/restic-docker.sh
           bash -n deployment/accounts/restic-restore-check.sh
           node scripts/preparer_publication.mjs
