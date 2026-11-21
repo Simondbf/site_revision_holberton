@@ -8,11 +8,11 @@ const SESSION_TTL=14*24*60*60*1000;
 const MAX_PROGRESS_BYTES=256*1024;
 const sha256=text=>createHash('sha256').update(text).digest('hex');
 const secret=()=>randomBytes(32).toString('base64url');
-function clientIp(req){
+function clientIp(req,trustedProxy=false){
  const socket=String(req.socket.remoteAddress||'unknown');
  const loopback=['127.0.0.1','::1','::ffff:127.0.0.1'].includes(socket);
  const forwarded=String(req.headers['x-real-ip']||'');
- return loopback&&isIP(forwarded)?forwarded:socket;
+ return (loopback||trustedProxy)&&isIP(forwarded)?forwarded:socket;
 }
 class ApiError extends Error{
  constructor(status,message){super(message);this.status=status}
@@ -69,7 +69,7 @@ function progressPayload(data){
  if(Buffer.byteLength(text)>MAX_PROGRESS_BYTES)throw new ApiError(413,'Progression trop volumineuse.');
  return text;
 }
-export function createAuthApp({db,publicOrigin,sendLoginEmail=null,secureCookies=true,now=()=>Date.now()}={}){
+export function createAuthApp({db,publicOrigin,sendLoginEmail=null,secureCookies=true,trustedProxy=false,now=()=>Date.now()}={}){
  if(!db)throw Error('Base SQLite obligatoire.');
  if(!publicOrigin||new URL(publicOrigin).origin!==publicOrigin)throw Error('PUBLIC_ORIGIN doit être une origine exacte.');
  const cookieName=secureCookies?'__Host-hbtn_session':'hbtn_session_dev';
@@ -114,7 +114,7 @@ export function createAuthApp({db,publicOrigin,sendLoginEmail=null,secureCookies
     if(!sendLoginEmail)throw new ApiError(503,'Le service d’envoi transactionnel n’est pas encore activé.');
     const body=await jsonBody(req,12*1024),email=normalizeEmail(body.email);
     if(!email)throw new ApiError(400,'Adresse électronique invalide.');
-    const ip=clientIp(req);
+    const ip=clientIp(req,trustedProxy);
     const allowed=rate('ip:'+ip,8)&&rate('email:'+sha256(email),3);
     // Réponse identique quelle que soit l'existence d'un compte.
     if(allowed){
@@ -131,7 +131,7 @@ export function createAuthApp({db,publicOrigin,sendLoginEmail=null,secureCookies
     response(res,202,{message:'Si la demande peut être traitée, un lien de connexion sera envoyé.'});return;
    }
    if(path==='/api/auth/verify'&&method==='POST'){
-    const ip=clientIp(req);
+    const ip=clientIp(req,trustedProxy);
     if(!rate('verify:'+ip,16))throw new ApiError(429,'Trop de tentatives, réessayer plus tard.');
     const body=await jsonBody(req,4096),token=body.token;
     if(typeof token!=='string'||!(/^[a-zA-Z0-9_-]{43}$/).test(token))throw new ApiError(400,'Lien invalide ou expiré.');
