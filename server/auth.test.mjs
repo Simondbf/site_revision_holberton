@@ -50,6 +50,7 @@ test('Inscription par e-mail, sessions, isolation, CSRF, conflits et suppression
   assert.equal((await req('/api/progress','PUT',{revision:1,data:{...data,history:[{id:'quiz-1',total:1,correct:2}]}},cookieA,csrfA)).status,400,'Historique incohérent rejeté');
   const running={id:'guest-123456',questionIds:['V1-N09_072-01'],answers:{},cursor:0};
   assert.equal((await req('/api/progress','PUT',{revision:1,data:{...data,current:running}},cookieA,csrfA)).status,200,'Session normale acceptée');
+  assert.equal((await req('/api/progress','PUT',{revision:2,data:{...data,current:{...running,cursor:running.questionIds.length}}},cookieA,csrfA)).status,200,'Curseur de fin de quiz accepté');
   assert.equal((await req('/api/auth/request-link','POST',{email:'beta@example.org'})).status,202);
   const tokenB=sent[1].link.split('/').at(-1);
   const verifiedB=await req('/api/auth/verify','POST',{token:tokenB});
