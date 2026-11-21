@@ -1,0 +1,17 @@
+{
+  "name": "holberton-revision-accounts",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "API facultative de comptes Holberton Révision",
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "dependencies": {
+    "nodemailer": "^7.0.0"
+  },
+  "scripts": {
+    "start": "node index.mjs",
+    "test": "node --test auth.test.mjs"
+  }
+}
