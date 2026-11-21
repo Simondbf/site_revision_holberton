@@ -7,9 +7,10 @@ const root=fileURLToPath(new URL('../',import.meta.url));
 const source=path=>readFileSync(join(root,path),'utf8');
 const htmlPath=join(root,'index.html');
 const original=readFileSync(htmlPath,'utf8');
-const css=source('quiz/styles.css').trim();
+const css=source('quiz/styles.css').trim()+'\n'+source('account/styles.css').trim();
 const core=source('quiz/core.mjs');
 const engine=source('quiz/engine.mjs');
+const account=source('account/client.mjs');
 const argc=JSON.parse(source('docs/quiz/vague1/section-09-pointeurs-et-tableaux-c.json'));
 const variadic=JSON.parse(source('quiz/questions-variadiques.json'));
 const help=JSON.parse(source('quiz/aide-pedagogique.json'));
@@ -30,9 +31,11 @@ for(const question of questions){
 const safeJSON=data=>JSON.stringify(data).replace(/</g,'\\u003c');
 const pureCore=core.replace(/^export /gm,'');
 const pureEngine=engine.replace(/^import \{[^\n]+\} from '\.\/core\.mjs';\n/,'');
+const pureAccount=account.replace(/^import \{[^\n]+\} from '\.\.\/quiz\/core\.mjs';\n/,'');
 assert.notEqual(pureCore,core,'Les exports du moteur doivent être intégrés.');
 assert.notEqual(pureEngine,engine,'Le module moteur doit importer le core.');
-assert.ok(!/<\/script/i.test(pureCore+pureEngine),'Un script HTML ne doit pas être clos depuis le bundle.');
+assert.notEqual(pureAccount,account,'Le client comptes doit importer le core.');
+assert.ok(!/<\/script/i.test(pureCore+pureEngine+pureAccount),'Un script HTML ne doit pas être clos depuis le bundle.');
 assert.ok(engine.includes("getElementById('quiz-argc-bank')"),'Le quiz doit savoir lire la banque intégrée.');
 
 const cssStart='<!-- DEBUT QUIZ CSS INTEGRE -->';
@@ -44,7 +47,7 @@ const appBlock=appStart+'\n'+
  '<script id="quiz-argc-bank" type="application/json">'+safeJSON({questions:argcQuestions})+'</script>\n'+
  '<script id="quiz-variadic-bank" type="application/json">'+safeJSON(variadic)+'</script>\n'+
  '<script id="quiz-aide-bank" type="application/json">'+safeJSON(help)+'</script>\n'+
- '<script type="module" id="quiz-inline-module">\n'+pureCore+'\n'+pureEngine+'\n</script>\n'+appEnd;
+ '<script type="module" id="quiz-inline-module">\n'+pureCore+'\n'+pureEngine+'\n'+pureAccount+'\n</script>\n'+appEnd;
 function replaceBlock(text,start,end,legacy,replacement){
  const i=text.indexOf(start);
  if(i!==-1){
