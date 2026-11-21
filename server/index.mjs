@@ -15,7 +15,9 @@ if(!Number.isSafeInteger(port)||port<1||port>65535)throw Error('Port serveur inv
 mkdirSync(resolve(dbPath,'..'),{recursive:true,mode:0o700});
 const db=openDatabase(dbPath);
 const sendLoginEmail=await makeBrevoSmtpSender(env);
-const {server}=createAuthApp({db,publicOrigin,sendLoginEmail,secureCookies:publicOrigin.startsWith('https://')});
+const trustedProxy=env.HBTN_TRUST_LOCAL_PROXY==='1';
+if(trustedProxy&&env.HBTN_CONTAINER_ONLY!=='1')throw Error('Confiance du proxy autorisée seulement dans le réseau Docker isolé.');
+const {server}=createAuthApp({db,publicOrigin,sendLoginEmail,secureCookies:publicOrigin.startsWith('https://'),trustedProxy});
 server.listen(port,bind,()=>{
  console.log('Service comptes Holberton Révision sur '+bind+':'+port+' (e-mail '+(sendLoginEmail?'configuré':'désactivé')+').');
 });
