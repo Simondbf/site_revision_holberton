@@ -87,6 +87,7 @@ import {readProgress,writeProgress,emptyProgress,guestResumeOnly} from '../quiz/
    '<button id="accountDelete" class="quiz-secondary quiz-danger" type="button">Supprimer mon compte</button></div>'+
    '<p id="accountSecurityStatus" role="status" aria-live="polite"></p>';
   document.getElementById('accountLogout').onclick=async()=>{
+   if((dirty||conflict)&&!confirm('Une progression n’est pas encore synchronisée. Se déconnecter peut la perdre. Continuer ?'))return;
    try{
     await api('/api/auth/logout',{method:'POST',csrf:me.csrf});
     me={authenticated:false};remote={revision:0,data:null};enabled=false;dirty=false;conflict=false;
