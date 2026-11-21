@@ -42,6 +42,7 @@ jobs:
           node --check server/index.mjs
           node --test server/auth.test.mjs
           bash -n deployment/accounts/backup-now.sh
+          bash -n deployment/accounts/preflight-staging.sh
           bash -n deployment/accounts/restic-docker.sh
           bash -n deployment/accounts/restic-restore-check.sh
           node scripts/preparer_publication.mjs
