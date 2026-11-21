@@ -65,6 +65,7 @@ jobs:
             -v /tmp/hbtn-test/backup:/backup:rw \
             -v "${PWD}/server/snapshot.mjs:/tools/snapshot.mjs:ro" \
             node:22.15.0-bookworm-slim node /tools/snapshot.mjs create
+          test "$(stat -c %a /tmp/hbtn-test/backup/accounts.sqlite)" = 600
           docker run --rm --network none --read-only \
             -v /tmp/hbtn-test/backup:/backup:ro \
             -v "${PWD}/server/snapshot.mjs:/tools/snapshot.mjs:ro" \
