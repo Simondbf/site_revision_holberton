@@ -44,6 +44,12 @@ test('Inscription par e-mail, sessions, isolation, CSRF, conflits et suppression
   assert.equal((await req('/api/progress','GET',null,cookieA)).body.data.theme,'dark');
   assert.equal((await req('/api/progress','PUT',{revision:1,data:{...data,favorites:['9:72']}},cookieA,csrfA)).status,400,'Fonction favoris supprimée du compte');
   assert.equal((await req('/api/progress','PUT',{revision:1,data:{...data,theme:'unknown'}},cookieA,csrfA)).status,400,'Thème invalide rejeté');
+  assert.equal((await req('/api/progress','PUT',{revision:1,data:{...data,stats:{notion:{attempts:1,errors:2}}}},cookieA,csrfA)).status,400,'Compteurs incohérents rejetés');
+  assert.equal((await req('/api/progress','PUT',{revision:1,data:{...data,seen:{question:'invalide'}}},cookieA,csrfA)).status,400,'Compteurs non numériques rejetés');
+  assert.equal((await req('/api/progress','PUT',{revision:1,data:{...data,current:{id:'quiz-1',questionIds:[],answers:{},cursor:0}}},cookieA,csrfA)).status,400,'Session vide rejetée');
+  assert.equal((await req('/api/progress','PUT',{revision:1,data:{...data,history:[{id:'quiz-1',total:1,correct:2}]}},cookieA,csrfA)).status,400,'Historique incohérent rejeté');
+  const running={id:'guest-123456',questionIds:['V1-N09_072-01'],answers:{},cursor:0};
+  assert.equal((await req('/api/progress','PUT',{revision:1,data:{...data,current:running}},cookieA,csrfA)).status,200,'Session normale acceptée');
   assert.equal((await req('/api/auth/request-link','POST',{email:'beta@example.org'})).status,202);
   const tokenB=sent[1].link.split('/').at(-1);
   const verifiedB=await req('/api/auth/verify','POST',{token:tokenB});
