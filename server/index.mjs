@@ -1,0 +1,22 @@
+import {openDatabase,createAuthApp} from './app.mjs';
+import {makeBrevoSmtpSender} from './email.mjs';
+import {isAbsolute,resolve} from 'node:path';
+import {mkdirSync} from 'node:fs';
+const env=process.env;
+const publicOrigin=env.HBTN_PUBLIC_ORIGIN||'https://revision-hbtn.soleiljaune.be';
+const dbPath=env.HBTN_DB_PATH;
+const bind=env.HBTN_BIND_HOST||'127.0.0.1';
+const port=Number(env.HBTN_PORT||3024);
+if(!dbPath||!isAbsolute(dbPath))throw Error('HBTN_DB_PATH doit être un chemin absolu, hors du dossier web.');
+if(dbPath.includes('/site_revision_holberton/')||dbPath.includes('/var/www/'))throw Error('Base SQLite interdite dans le dossier public.');
+if(env.NODE_ENV==='production'&&!publicOrigin.startsWith('https://'))throw Error('HTTPS requis en production.');
+if(bind!=='127.0.0.1'&&bind!=='::1')throw Error('Le backend doit écouter uniquement l’interface locale.');
+if(!Number.isSafeInteger(port)||port<1||port>65535)throw Error('Port serveur invalide.');
+mkdirSync(resolve(dbPath,'..'),{recursive:true,mode:0o700});
+const db=openDatabase(dbPath);
+const sendLoginEmail=await makeBrevoSmtpSender(env);
+const {server}=createAuthApp({db,publicOrigin,sendLoginEmail,secureCookies:publicOrigin.startsWith('https://')});
+server.listen(port,bind,()=>{
+ console.log('Service comptes Holberton Révision sur '+bind+':'+port+' (e-mail '+(sendLoginEmail?'configuré':'désactivé')+').');
+});
+process.on('SIGTERM',()=>server.close(()=>{db.close();process.exit(0)}));
