@@ -1,0 +1,11 @@
+[Unit]
+Description=Planifier les sauvegardes chiffrées Holberton Révision
+
+[Timer]
+OnCalendar=*-*-* 05:10:00 UTC
+RandomizedDelaySec=15m
+Persistent=true
+Unit=holberton-backup-docker.service
+
+[Install]
+WantedBy=timers.target

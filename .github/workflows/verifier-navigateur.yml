@@ -34,6 +34,9 @@ jobs:
       - name: Tester les illustrations et la navigation
         run: node scripts/verifier_navigateur.mjs
 
+      - name: Tester les comptes, le multi-appareils et la synchronisation
+        run: node scripts/verifier_comptes_navigateur.mjs
+
       - name: Enregistrer les captures de vérification
         if: always()
         uses: actions/upload-artifact@v4

@@ -12,6 +12,15 @@ Ce fichier est destiné aux agents et assistants qui proposent des modifications
 - Éviter les doublons : consulter toutes les notions existantes avant d'en créer une nouvelle. Enrichir une fiche existante lorsque le sujet y est déjà traité.
 - Ne pas créer de quiz à partir d'une question d'exercice collée comme simple contexte, sauf demande explicite. Ne pas reproduire ses mauvaises propositions comme des vérités.
 
+## Comptes en préparation — comportement cible validé
+
+- **Sans compte :** accès aux cours et quiz, sauvegarde locale uniquement du quiz en cours pour reprise. **Aucun historique de sessions terminées, aucune statistique par notion, aucun export de résultats ni favoris.**
+- **Avec compte :** connexion par lien Brevo à usage unique ; historique et progression par notion dans Compte → Quiz, réglages (correction immédiate / fin du quiz, adaptation facultative) dans Compte → Paramètres. Les questions sont aléatoires par défaut pour tous.
+- **Synchronisation : activée automatiquement pour les utilisateurs authentifiés**, sans interrupteur « synchroniser ou non ». Les résultats, la session en cours, les préférences de quiz et le mode clair/sombre doivent se retrouver entre navigateurs. Aucune modification concurrente ne doit être écrasée automatiquement ; répondre à un conflit HTTP 409 par résolution explicite.
+- Les comptes sont un **service Docker + SQLite propre à Holberton**, séparé de l'application financière Comptes. Brevo peut être commun comme fournisseur, jamais les clés, bases, volumes, secrets ou sauvegardes.
+- Les sauvegardes Restic chiffrées vers Hetzner utilisent un dépôt indépendant et un snapshot cohérent (VACUUM INTO). Lire docs/MISE_EN_SERVICE_COMPTES_DOCKER_BREVO.md avant toute intervention sur le VPS.
+- Le backend et le client comptes sont **en développement sur une PR**, pas activés en production ; pas de publication sans essai SMTP réel, sauvegarde/restauration, sécurité, RGPD et autorisation expresse du propriétaire. La suppression active immédiate n'implique pas une suppression physique immédiate des anciennes sauvegardes chiffrées.
+
 ## Architecture actuelle
 
 Le site est principalement un **fichier HTML statique autonome** : `index.html`, avec CSS et JavaScript intégrés. Il doit conserver ses fonctionnalités : accueil, thèmes, fiches, cours à lecture continue, recherche, sommaire, thème clair/sombre, navigation par URL, affichage mobile et quiz. Les favoris ont été retirés de l’interface.

@@ -37,9 +37,60 @@ jobs:
           node --check quiz/core.mjs
           node --check quiz/engine.mjs
           node scripts/integrer_quiz_html.mjs --check
+          node --check account/client.mjs
+          node --check server/app.mjs
+          node --check server/index.mjs
+          node --test server/auth.test.mjs
+          bash -n deployment/accounts/backup-now.sh
+          bash -n deployment/accounts/preflight-staging.sh
+          bash -n deployment/accounts/bootstrap-staging.sh
+          bash -n deployment/accounts/configurer-smtp.sh
+          bash -n deployment/accounts/restic-docker.sh
+          bash -n deployment/accounts/restic-restore-check.sh
           node scripts/preparer_publication.mjs
           bash -n deploiement/verifier_ci_main.sh
           bash -n deploiement/publier_statique.sh
+
+      - name: Construire les conteneurs comptes et sauvegarde
+        run: |
+          docker build -t holberton-accounts:test -f server/Dockerfile .
+          docker build -t holberton-restic:test -f deployment/accounts/restic.Dockerfile deployment/accounts
+
+      - name: Tester un snapshot SQLite cohérent dans Docker
+        run: |
+          mkdir -p /tmp/hbtn-test/data /tmp/hbtn-test/backup
+          node --input-type=module -e "import {DatabaseSync} from 'node:sqlite'; const db=new DatabaseSync('/tmp/hbtn-test/data/accounts.sqlite');db.exec('CREATE TABLE sample (value TEXT NOT NULL)');db.prepare('INSERT INTO sample (value) VALUES (?)').run('test');db.close()"
+          docker run --rm --network none --read-only \
+            -v /tmp/hbtn-test/data:/data:rw \
+            -v /tmp/hbtn-test/backup:/backup:rw \
+            -v "${PWD}/server/snapshot.mjs:/tools/snapshot.mjs:ro" \
+            node:22.15.0-bookworm-slim node /tools/snapshot.mjs create
+          docker run --rm --network none --read-only \
+            -v /tmp/hbtn-test/backup:/backup:ro \
+            -v "${PWD}/server/snapshot.mjs:/tools/snapshot.mjs:ro" \
+            node:22.15.0-bookworm-slim node /tools/snapshot.mjs check /backup/accounts.sqlite
+
+      - name: Sauvegarder puis restaurer un snapshot avec Restic dans Docker
+        run: |
+          mkdir -p /tmp/hbtn-test/restic/repository /tmp/hbtn-test/restic/restored
+          sudo chown -R 1000:1000 /tmp/hbtn-test/backup /tmp/hbtn-test/restic
+          sudo chmod 0755 /tmp/hbtn-test/backup
+          for command in init "backup /data" "restore latest --target /restored"; do
+            # Le dépôt de test est local, isolé et chiffré avec un mot de passe éphémère.
+            docker run --rm --network none --read-only --cap-drop ALL \
+              --security-opt no-new-privileges \
+              --tmpfs /tmp:rw,noexec,nosuid,size=128m \
+              -e RESTIC_REPOSITORY=/repo -e RESTIC_PASSWORD=ci-ephemere \
+              -v /tmp/hbtn-test/backup:/data:ro \
+              -v /tmp/hbtn-test/restic/repository:/repo:rw \
+              -v /tmp/hbtn-test/restic/restored:/restored:rw \
+              holberton-restic:test --no-cache $command
+          done
+          cmp /tmp/hbtn-test/backup/accounts.sqlite /tmp/hbtn-test/restic/restored/data/accounts.sqlite
+          docker run --rm --network none --read-only --cap-drop ALL \
+            -v /tmp/hbtn-test/restic/restored:/backup:ro \
+            -v "${PWD}/server/snapshot.mjs:/tools/snapshot.mjs:ro" \
+            node:22.15.0-bookworm-slim node /tools/snapshot.mjs check /backup/data/accounts.sqlite
 
       - name: Conserver les ressources statiques vérifiées
         uses: actions/upload-artifact@v4
