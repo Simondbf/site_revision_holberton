@@ -28,6 +28,20 @@ Le prévol ne modifie ni un service ni un fichier, ne révèle aucune valeur de 
 
 Lorsque ce prévol réussit : démarrer l'API privée, tester une authentification Brevo **depuis Holberton**, deux comptes isolés et la synchronisation sur deux navigateurs. Exécuter ensuite une sauvegarde Restic sur le dépôt SFTP propre à Holberton et une restauration de contrôle isolée. Seulement après ces preuves, examiner et tester Nginx/HTTPS, la rétention des données et le retour arrière avant toute publication.
 
+## Installation isolée à partir de la branche GitHub
+
+**Ne pas fusionner uniquement pour installer.** Tant que les comptes ne sont pas qualifiés, cloner le dépôt dans un nouveau dossier de staging hors du volume du serveur statique :
+
+~~~sh
+test ! -e /opt/holberton-revision || { echo 'Dossier déjà présent : inspection nécessaire.' >&2; exit 1; }
+git clone --branch preparer-comptes-docker-brevo-restic-20261121 --single-branch \
+  https://github.com/Simondbf/site_revision_holberton.git /opt/holberton-revision
+cd /opt/holberton-revision
+sudo bash deployment/accounts/bootstrap-staging.sh
+~~~
+
+L'amorceur refuse toute branche autre que la PR, vérifie l'origine Git et le port 3024, crée seulement les dossiers dédiés avec permissions privées. Le nom explicite du projet Docker, `holberton-revision-accounts`, évite de mélanger les ressources de Compose avec celles des autres applications. **Il ne démarre ni ne publie rien.** Les clés Brevo et Restic se configurent ensuite dans les fichiers privés distincts décrits ci-dessous.
+
 ## Dossiers VPS (à préparer sans perturber les services existants)
 
 ~~~sh
