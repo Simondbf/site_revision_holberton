@@ -27,7 +27,8 @@ export function openDatabase(path){
  'CREATE INDEX IF NOT EXISTS login_links_expiry ON login_links(expires_at)',
  'CREATE TABLE IF NOT EXISTS sessions (token_hash TEXT PRIMARY KEY, user_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE, csrf TEXT NOT NULL, created_at INTEGER NOT NULL, expires_at INTEGER NOT NULL)',
  'CREATE INDEX IF NOT EXISTS sessions_user ON sessions(user_id)',
- 'CREATE TABLE IF NOT EXISTS progress (user_id TEXT PRIMARY KEY REFERENCES users(id) ON DELETE CASCADE, revision INTEGER NOT NULL, payload TEXT NOT NULL, updated_at INTEGER NOT NULL)'
+ 'CREATE TABLE IF NOT EXISTS progress (user_id TEXT PRIMARY KEY REFERENCES users(id) ON DELETE CASCADE, revision INTEGER NOT NULL, payload TEXT NOT NULL, updated_at INTEGER NOT NULL)',
+ 'CREATE TABLE IF NOT EXISTS rate_limits (bucket TEXT PRIMARY KEY, reset_at INTEGER NOT NULL, attempts INTEGER NOT NULL)'
  ].join(';')+';');
  return db;
 }
@@ -73,12 +74,23 @@ export function createAuthApp({db,publicOrigin,sendLoginEmail=null,secureCookies
  if(!db)throw Error('Base SQLite obligatoire.');
  if(!publicOrigin||new URL(publicOrigin).origin!==publicOrigin)throw Error('PUBLIC_ORIGIN doit être une origine exacte.');
  const cookieName=secureCookies?'__Host-hbtn_session':'hbtn_session_dev';
- const limits=new Map();
+ // Limites persistantes dans SQLite : un redémarrage du conteneur ne remet
+ // pas les compteurs à zéro. Une seule instruction UPSERT reste atomique.
+ let rateRequests=0;
+ const rateStatement=db.prepare([
+  'INSERT INTO rate_limits(bucket,reset_at,attempts) VALUES(?,?,1)',
+  'ON CONFLICT(bucket) DO UPDATE SET',
+  'attempts=CASE WHEN rate_limits.reset_at<=? THEN 1 ELSE rate_limits.attempts+1 END,',
+  'reset_at=CASE WHEN rate_limits.reset_at<=? THEN excluded.reset_at ELSE rate_limits.reset_at END',
+  'RETURNING attempts AS attempts'
+ ].join(' '));
+ const cleanupLimits=db.prepare('DELETE FROM rate_limits WHERE reset_at<=?');
  function rate(key,max,windowMs=15*60*1000){
-  const t=now(),recent=(limits.get(key)||[]).filter(x=>x>t-windowMs);
-  const allowed=recent.length<max;
-  if(allowed)recent.push(t);
-  limits.set(key,recent);return allowed;
+  const t=now();
+  const row=rateStatement.get(key,t+windowMs,t,t);
+  // Éviter l'accumulation illimitée de clés expirées.
+  if(++rateRequests%250===0)cleanupLimits.run(t);
+  return row.attempts<=max;
  }
  const signedCookie=token=>cookieName+'='+token+'; Path=/; HttpOnly; SameSite=Lax; Max-Age='+Math.floor(SESSION_TTL/1000)+(secureCookies?'; Secure':'');
  const expiredCookie=()=>cookieName+'=; Path=/; HttpOnly; SameSite=Lax; Max-Age=0'+(secureCookies?'; Secure':'');
