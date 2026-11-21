@@ -21,7 +21,9 @@ function run(){
    if(Object.values(row)[0]!=='ok')throw Error('Intégrité SQLite invalide après snapshot.');
   }finally{verify.close()}
   if(statSync(target).size===0)throw Error('Snapshot SQLite vide.');
-  // L'image SQLite contient des données personnelles ; interdire l'accès aux autres utilisateurs.\n  chmodSync(target,0o600);\n  // Un seul fichier stable est sauvegardé ; ne pas inclure les anciens snapshots
+  // L'image SQLite contient des données personnelles ; interdire l'accès aux autres utilisateurs.
+  chmodSync(target,0o600);
+  // Un seul fichier stable est sauvegardé ; ne pas inclure les anciens snapshots
   // dans chaque sauvegarde (sinon la rétention des données serait faussée).
   renameSync(target,'/backup/accounts.sqlite');
   console.log('Snapshot SQLite validé : accounts.sqlite');
