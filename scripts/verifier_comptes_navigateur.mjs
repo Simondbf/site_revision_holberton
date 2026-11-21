@@ -113,6 +113,10 @@ try{
  },null,{timeout:15000});
  await a.unroute('**/api/progress');
 
+ // Le navigateur B, resté hors de la fenêtre, recharge sa dernière révision
+ // avant d'émettre à son tour : aucune donnée distante n'est écrasée.
+ await b.reload();
+ await b.waitForFunction(()=>document.documentElement.dataset.holbertonAccount==='connected');
  // Récupération d'une modification faite sur un autre appareil sans écraser
  // un état local en cours de synchronisation.
  await b.evaluate(()=>{
