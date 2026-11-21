@@ -40,14 +40,26 @@ La réponse doit indiquer emailsAvailable: true, mais cela ne prouve PAS que le 
 Sur Comptes, le mécanisme éprouvé repose sur un snapshot SQLite cohérent, Docker + Restic chiffré, un dépôt Hetzner SFTP distant, une restauration et un contrôle intégral. Réutiliser cette architecture et non les données ni les secrets de Comptes.
 
 1. Créer un dépôt Restic propre à Holberton (par exemple /restic-holberton chez Hetzner), avec un mot de passe indépendant et, idéalement, une clé SFTP distincte.
-2. Placer les secrets privés sous /etc/holberton-revision/ : backup.env, restic_password, id_ed25519, known_hosts. Vérifier hors bande la clé hôte SSH. Restic Docker doit pouvoir lire ces fichiers sans les exposer publiquement.
+2. Placer les secrets privés sous /etc/holberton-revision/ : backup.env, restic_password, id_ed25519, known_hosts. Vérifier **hors bande** la clé hôte SSH (ne jamais accepter automatiquement une empreinte inconnue). Le conteneur Restic s'exécute en UID/GID **1000:1000** ; attention, les fichiers secrets montés **root:root en 0600 seraient illisibles dans le conteneur**, même si Docker peut les monter. Laisser le répertoire parent privé à root (0700) et ajuster les propriétaires des trois fichiers nécessaires :
+
+~~~sh
+sudo chown 1000:1000 /etc/holberton-revision/restic_password /etc/holberton-revision/id_ed25519 /etc/holberton-revision/known_hosts
+sudo chmod 0400 /etc/holberton-revision/restic_password /etc/holberton-revision/id_ed25519
+sudo chmod 0444 /etc/holberton-revision/known_hosts
+sudo chown root:root /etc/holberton-revision/backup.env
+sudo chmod 0600 /etc/holberton-revision/backup.env
+~~~
+
+Vérifier d'abord que le démon Docker et les UID réels correspondent à ce modèle (un Docker rootless/userns-remap peut nécessiter des droits différents). Ne pas réutiliser les secrets d'un autre service. Les permissions du répertoire /etc/holberton-revision empêchent les utilisateurs ordinaires de parcourir ces fichiers sur l'hôte.
 3. Construire le conteneur : docker build -t holberton-restic:local -f deployment/accounts/restic.Dockerfile deployment/accounts
 4. Rendre exécutables les scripts deployment/accounts/*.sh sur le VPS (chmod 0700), puis initialiser le dépôt avec deployment/accounts/restic-docker.sh init.
 5. Exécuter deployment/accounts/backup-now.sh. Le conteneur SQLite produit un snapshot via VACUUM INTO, puis vérifie PRAGMA integrity_check ; Restic transfère une copie chiffrée.
 6. Restaurer dans /opt/holberton-revision/accounts-backup/restore, vérifier le SQLite avec deployment/accounts/restic-restore-check.sh /backup/data/accounts.sqlite. Ne jamais écraser la base active pendant le test.
-7. Activer seulement ensuite le timer holberton-backup-docker.timer. Contrôler les journaux et connecter une surveillance Healthchecks distincte.
+7. Activer seulement ensuite le timer holberton-backup-docker.timer. Contrôler les journaux et connecter une surveillance Healthchecks distincte. Vérifier périodiquement non seulement la réussite du timer mais aussi la présence de snapshots récents et la capacité à les restaurer.
 
-La rotation proposée est de 7 jours. IMPORTANT : supprimer un compte supprime immédiatement la base active, mais pas instantanément toutes les anciennes copies Restic chiffrées. Ne promettre aucun effacement instantané des sauvegardes ; vérifier la rétention et les engagements RGPD avant publication.
+**Ne jamais restaurer sur la base active** : le test doit porter sur une copie isolée. La rétention des snapshots chiffrés et celle du fichier temporaire local `accounts-backup/work/accounts.sqlite` doivent être prises en compte dans l'information de confidentialité et dans le nettoyage des sauvegardes.
+
+La rotation Restic proposée est de 7 jours sous réserve d'une exécution régulière et réussie de la purge. IMPORTANT : supprimer un compte supprime immédiatement la base active, mais pas instantanément toutes les anciennes copies Restic chiffrées. Ne promettre aucun effacement instantané des sauvegardes ; vérifier la rétention et les engagements RGPD avant publication.
 
 ## Nginx et retour arrière
 
