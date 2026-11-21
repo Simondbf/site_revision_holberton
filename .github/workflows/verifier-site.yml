@@ -48,6 +48,25 @@ jobs:
           bash -n deploiement/verifier_ci_main.sh
           bash -n deploiement/publier_statique.sh
 
+      - name: Construire les conteneurs comptes et sauvegarde
+        run: |
+          docker build -t holberton-accounts:test -f server/Dockerfile .
+          docker build -t holberton-restic:test -f deployment/accounts/restic.Dockerfile deployment/accounts
+
+      - name: Tester un snapshot SQLite cohérent dans Docker
+        run: |
+          mkdir -p /tmp/hbtn-test/data /tmp/hbtn-test/backup
+          node --input-type=module -e "import {DatabaseSync} from 'node:sqlite'; const db=new DatabaseSync('/tmp/hbtn-test/data/accounts.sqlite');db.exec('CREATE TABLE sample (value TEXT NOT NULL)');db.prepare('INSERT INTO sample (value) VALUES (?)').run('test');db.close()"
+          docker run --rm --network none --read-only \
+            -v /tmp/hbtn-test/data:/data:rw \
+            -v /tmp/hbtn-test/backup:/backup:rw \
+            -v "${PWD}/server/snapshot.mjs:/tools/snapshot.mjs:ro" \
+            node:22.15.0-bookworm-slim node /tools/snapshot.mjs create
+          docker run --rm --network none --read-only \
+            -v /tmp/hbtn-test/backup:/backup:ro \
+            -v "${PWD}/server/snapshot.mjs:/tools/snapshot.mjs:ro" \
+            node:22.15.0-bookworm-slim node /tools/snapshot.mjs check /backup/accounts.sqlite
+
       - name: Conserver les ressources statiques vérifiées
         uses: actions/upload-artifact@v4
         with:
