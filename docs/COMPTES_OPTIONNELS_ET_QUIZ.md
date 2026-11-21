@@ -1,5 +1,6 @@
 # Cahier des charges — comptes facultatifs, progression et quiz
 
+> **IMPORTANT — historisation :** ce cahier des charges initial conserve des propositions anciennes (favoris, export invité, synchronisation optionnelle). La décision actuelle du propriétaire, applicable aux nouvelles PR, est consignée dans AGENTS.md et docs/MISE_EN_SERVICE_COMPTES_DOCKER_BREVO.md. Invité : reprendre seulement un quiz inachevé ; compte : synchronisation automatique des quiz et préférences ; aucun favori ni export des résultats via l'interface. Cette note prime sur les sections historiques ci-dessous.\n\n
 **Statut : conception — aucune création de compte ni collecte de données personnelles n'est implémentée dans cette PR.**
 
 ## Principe non négociable : accès libre
