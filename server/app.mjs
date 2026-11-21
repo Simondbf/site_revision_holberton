@@ -66,6 +66,31 @@ function progressPayload(data){
  if(!data||typeof data!=='object'||Array.isArray(data)||data.version!==1||!Array.isArray(data.history)||data.history.length>60||typeof data.stats!=='object'||!data.stats||typeof data.seen!=='object'||!data.seen)throw new ApiError(400,'Format de progression invalide.');
  if(data.favorites!==undefined)throw new ApiError(400,'Les favoris ne font plus partie du suivi.');
  if(data.theme!==undefined&&!['light','dark'].includes(data.theme))throw new ApiError(400,'Thème invalide.');
+ // Le JSON reçu est non fiable, même s'il appartient au compte authentifié.
+ // Ne pas laisser un navigateur corrompre le suivi ou saturer le rendu.
+ const isRecord=value=>value!==null&&typeof value==='object'&&!Array.isArray(value);
+ const safeId=id=>typeof id==='string'&&/^[A-Za-z0-9_.:-]{1,128}$/.test(id)&&!['__proto__','constructor','prototype'].includes(id);
+ const count=value=>Number.isSafeInteger(value)&&value>=0&&value<=1000000;
+ if(!isRecord(data.stats)||!isRecord(data.seen)||Object.keys(data.stats).length>2000||Object.keys(data.seen).length>10000)
+  throw new ApiError(400,'Statistiques invalides.');
+ for(const [id,value] of Object.entries(data.stats)){
+  if(!safeId(id)||!isRecord(value)||!count(value.attempts)||!count(value.errors)||value.errors>value.attempts)
+   throw new ApiError(400,'Statistiques invalides.');
+ }
+ for(const [id,value] of Object.entries(data.seen)){
+  if(!safeId(id)||!count(value))throw new ApiError(400,'Historique de questions invalide.');
+ }
+ if(data.current!==undefined&&data.current!==null){
+  const s=data.current;
+  if(!isRecord(s)||!safeId(s.id)||!Array.isArray(s.questionIds)||s.questionIds.length<1||
+   s.questionIds.length>5000||!s.questionIds.every(safeId)||!isRecord(s.answers)||
+   Object.keys(s.answers).length>5000||!count(s.cursor)||s.cursor>=s.questionIds.length)
+   throw new ApiError(400,'Session en cours invalide.');
+ }
+ for(const s of data.history){
+  if(!isRecord(s)||!safeId(s.id)||!count(s.total)||!count(s.correct)||s.correct>s.total)
+   throw new ApiError(400,'Historique de quiz invalide.');
+ }
  const text=JSON.stringify(data);
  if(Buffer.byteLength(text)>MAX_PROGRESS_BYTES)throw new ApiError(413,'Progression trop volumineuse.');
  return text;
