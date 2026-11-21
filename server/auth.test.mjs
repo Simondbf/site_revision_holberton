@@ -81,3 +81,40 @@ test('Service sans SMTP : accès invité possible et inscription indisponible',a
   assert.equal((await (await fetch(base+'/api/auth/me')).json()).authenticated,false);
  }finally{await new Promise(resolve=>server.close(resolve));db.close()}
 });
+
+test('Limites de tentatives conservées après un redémarrage de l’API',async()=>{
+ const db=openDatabase(':memory:'),sent=[];
+ let clock=Date.parse('2026-11-21T00:00:00Z');
+ const origin='http://site.test';
+ async function start(){
+  const {server}=createAuthApp({
+   db,publicOrigin:origin,secureCookies:false,now:()=>clock,
+   sendLoginEmail:async(to,link)=>sent.push({to,link})
+  });
+  await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
+  return server;
+ }
+ async function request(server,email){
+  const response=await fetch('http://127.0.0.1:'+server.address().port+'/api/auth/request-link',{
+   method:'POST',
+   headers:{Origin:origin,'Content-Type':'application/json'},
+   body:JSON.stringify({email})
+  });
+  assert.equal(response.status,202,'Réponse uniforme même si le quota est atteint');
+ }
+ let server=await start();
+ try{
+  for(let i=0;i<8;i++)await request(server,'test'+i+'@example.org');
+  assert.equal(sent.length,8);
+  await new Promise(resolve=>server.close(resolve));
+  server=await start();
+  await request(server,'apres-redemarrage@example.org');
+  assert.equal(sent.length,8,'Un redémarrage ne doit pas contourner la limite de débit');
+  clock+=15*60*1000+1;
+  await request(server,'apres-expiration@example.org');
+  assert.equal(sent.length,9,'Le quota doit expirer et permettre une nouvelle demande');
+ }finally{
+  if(server.listening)await new Promise(resolve=>server.close(resolve));
+  db.close();
+ }
+});
