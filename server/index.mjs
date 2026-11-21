@@ -10,7 +10,7 @@ const port=Number(env.HBTN_PORT||3024);
 if(!dbPath||!isAbsolute(dbPath))throw Error('HBTN_DB_PATH doit être un chemin absolu, hors du dossier web.');
 if(dbPath.includes('/site_revision_holberton/')||dbPath.includes('/var/www/'))throw Error('Base SQLite interdite dans le dossier public.');
 if(env.NODE_ENV==='production'&&!publicOrigin.startsWith('https://'))throw Error('HTTPS requis en production.');
-if(bind!=='127.0.0.1'&&bind!=='::1')throw Error('Le backend doit écouter uniquement l’interface locale.');
+if(bind!=='127.0.0.1'&&bind!=='::1'&&!(bind==='0.0.0.0'&&env.HBTN_CONTAINER_ONLY==='1'))throw Error('Adresse d’écoute refusée. Pour Docker, exiger HBTN_CONTAINER_ONLY=1 et un port hôte 127.0.0.1.');
 if(!Number.isSafeInteger(port)||port<1||port>65535)throw Error('Port serveur invalide.');
 mkdirSync(resolve(dbPath,'..'),{recursive:true,mode:0o700});
 const db=openDatabase(dbPath);
