@@ -73,6 +73,20 @@ curl -fsS http://127.0.0.1:3024/api/health
 
 La réponse doit indiquer emailsAvailable: true, mais cela ne prouve PAS que le message arrive. Tester un vrai lien à usage unique, puis deux comptes indépendants, la protection CSRF, la connexion HTTPS et la synchronisation entre navigateurs. Ne pas exposer /api/ publiquement avant validation.
 
+## Compatibilité Hetzner Storage Box (novembre 2026)
+
+Pour un déploiement Restic avec **clé ED25519 au format OpenSSH**, utiliser le port **23** (support SSH activé dans Hetzner Console). Le port 22 exige un format de clé publique différent pour les Storage Boxes. Le script `restic-docker.sh` force donc `ssh -p 23` et la vérification stricte de l'hôte.
+
+1. Créer un **sous-compte Storage Box propre à Holberton** dans Hetzner Console, avec répertoire dédié. Ne pas réutiliser le mot de passe, le dépôt, ni la clé de Comptes ou Germain.
+2. Générer sur le VPS une **nouvelle** paire SSH ED25519 pour Holberton et un **nouveau** mot de passe Restic aléatoire. Le mot de passe Restic doit aussi être conservé dans un gestionnaire sécurisé **hors VPS** : sans lui, aucune restauration n'est possible.
+3. Ajouter **uniquement la clé publique** dans le `.ssh/authorized_keys` du sous-compte correspondant. Attention : un `scp ... authorized_keys` peut **écraser toutes les autres clés** ; préférer l'outil `install-ssh-key` de Hetzner sur le port 23, ou une procédure d'ajout sans remplacement.
+4. Avant de créer `known_hosts`, comparer l'empreinte ED25519 reçue avec les empreintes de l'hôte publiées dans la [documentation officielle Hetzner](https://docs.hetzner.com/storage/storage-box/general/). Ne jamais désactiver `StrictHostKeyChecking` ni accepter automatiquement une empreinte non vérifiée.
+5. Pour `/etc/holberton-revision/backup.env`, utiliser un chemin relatif à la racine du sous-compte, p. ex. `RESTIC_REPOSITORY=sftp:uXXXXX-subX@uXXXXX-subX.your-storagebox.de:restic-holberton` ; ne pas utiliser une adresse IP fixe ni le chemin de sauvegarde d'un autre service.
+6. Provisionner les secrets avec les propriétaires/perms documentés ci-dessous. Ne lancer `restic-docker.sh init` qu'après une connexion SFTP authentifiée et après avoir vérifié que le chemin n'abrite pas un dépôt préexistant.
+7. Après `backup-now.sh`, exécuter `restic-restore-check.sh /backup/data/accounts.sqlite` pour contrôler une restauration **hors de la base active** ; seulement ensuite installer le timer.
+
+Le script de snapshot applique désormais le mode **0600** au fichier SQLite temporaire, qui est supprimé par le processus de sauvegarde après exécution. Les données ne doivent pas être exposées en dehors des répertoires privés.
+
 ## Sauvegardes : méthode Comptes adaptée à Holberton
 
 Sur Comptes, le mécanisme éprouvé repose sur un snapshot SQLite cohérent, Docker + Restic chiffré, un dépôt Hetzner SFTP distant, une restauration et un contrôle intégral. Réutiliser cette architecture et non les données ni les secrets de Comptes.
