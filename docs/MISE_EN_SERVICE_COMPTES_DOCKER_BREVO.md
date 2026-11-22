@@ -1,6 +1,6 @@
 # Mise en service des comptes — Docker, Brevo et Restic
 
-**Statut : préparation sur branche, pas encore installée sur le VPS.**
+**Statut : API de staging et sauvegardes automatisées installées sur le VPS. PR #37 encore en brouillon, site public inchangé ; validation de l'accès HTTPS et des comptes réels à terminer.**
 
 ## Contraintes de sécurité
 
@@ -110,6 +110,8 @@ Vérifier d'abord que le démon Docker et les UID réels correspondent à ce mod
 7. Activer seulement ensuite le timer holberton-backup-docker.timer. Contrôler les journaux et connecter une surveillance Healthchecks distincte. Vérifier périodiquement non seulement la réussite du timer mais aussi la présence de snapshots récents et la capacité à les restaurer.
 
 **Ne jamais restaurer sur la base active** : le test doit porter sur une copie isolée. La rétention des snapshots chiffrés et celle du fichier temporaire local `accounts-backup/work/accounts.sqlite` doivent être prises en compte dans l'information de confidentialité et dans le nettoyage des sauvegardes.
+
+**Correction de la rétention des conteneurs éphémères (22 novembre 2026) :** les sauvegardes Restic emploient désormais un hôte explicite `holberton-revision`, et `forget` regroupe par `paths,tags` sans segmenter par le nom d'hôte variable de chaque conteneur. Avant cette correction, la sortie Restic montrait un groupe par sauvegarde ; une politique `keep-within 7d` par groupe isolé risquait de conserver toutes les premières copies. Ne pas réinitialiser le dépôt distant existant ; actualiser le script de staging avant le prochain timer. CI : tester deux sauvegardes avec des noms d'hôte distincts et leur regroupement avant restauration.
 
 La rotation Restic proposée est de 7 jours sous réserve d'une exécution régulière et réussie de la purge. IMPORTANT : supprimer un compte supprime immédiatement la base active, mais pas instantanément toutes les anciennes copies Restic chiffrées. Ne promettre aucun effacement instantané des sauvegardes ; vérifier la rétention et les engagements RGPD avant publication.
 
