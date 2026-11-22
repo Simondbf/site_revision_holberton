@@ -1,7 +1,7 @@
 #!/bin/sh
 set -eu
 cd /opt/holberton-revision/deployment/accounts
-./restic-docker.sh restore latest --target /restore
+sh ./restic-docker.sh restore latest --target /restore
 # Le chemin du fichier SQLite est à récupérer depuis la sortie de restore.
 # Pour contrôler sans écraser la base active :
 docker run --rm --network none --read-only --cap-drop ALL --user 1000:1000 \
