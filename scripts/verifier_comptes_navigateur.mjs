@@ -75,6 +75,17 @@ try{
  await login(a,'test-auto@example.org');
  assert.equal((await remote(a)).data.history.length,0);
 
+ // Le tableau de bord n'affiche pas onze notions vides ; les actions du compte
+ // restent regroupées sous Paramètres, pas sous l'historique des quiz.
+ await a.locator('#accountEmptyState').waitFor();
+ assert.equal(await a.locator('.account-metric').count(),4,'Quatre indicateurs compacts attendus');
+ assert.equal(await a.locator('.account-competency-list li').count(),0,'Ne pas encombrer l’écran de notions non évaluées');
+ await a.locator('#accountTabSettings').click();
+ await a.locator('#accountSecurity').waitFor();
+ assert.equal(await a.locator('#accountQuizFeedbackMode').count(),1);
+ await a.locator('#accountTabQuiz').click();
+ assert.equal(await a.locator('#accountSecurity').count(),0,'Gestion du compte réservée à Paramètres');
+
  // Changement local -> synchronisation sans bouton.
  await a.evaluate(()=>{
   localStorage.setItem('holberton-dark-v2','yes');
