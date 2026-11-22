@@ -9,6 +9,7 @@ import {readProgress,writeProgress,emptyProgress,guestResumeOnly} from '../quiz/
  let enabled=false,busy=false,dirty=false,conflict=false,debounce=null;
  let changeSerial=0;
  let pendingGuestSession=null;
+ let adminStatsCache=null,adminStatsFetchedAt=0,adminRequest=null;
  const KEY='holberton-quiz-guest-v1';
  const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
  const theme=()=>localStorage.getItem('holberton-dark-v2')==='yes'?'dark':'light';
@@ -29,8 +30,93 @@ import {readProgress,writeProgress,emptyProgress,guestResumeOnly} from '../quiz/
  const progressLocal=()=>({...readProgress(localStorage),theme:theme()});
  function setConnected(value){
   document.documentElement.dataset.holbertonAccount=value?'connected':'guest';
+  document.documentElement.dataset.holbertonAdmin=value&&me.isAdmin===true?'true':'false';
+  if(!value){adminStatsCache=null;adminStatsFetchedAt=0;adminRequest=null}
   window.dispatchEvent(new Event('holberton:account:status'));
  }
+
+ // Statistiques agrégées et strictement privées : jamais de liste d’utilisateurs.
+ const adminNumber=n=>Number.isSafeInteger(n)&&n>=0?n.toLocaleString('fr-FR'):'—';
+ function adminMarkup(data){
+  const last30=Array.isArray(data.daily)?data.daily.filter(d=>/^\d{4}-\d{2}-\d{2}$/.test(d.day)&&Number.isSafeInteger(d.visits)&&d.visits>=0).slice(-30):[];
+  const byDay=new Map(last30.map(d=>[d.day,d.visits]));
+  const days=Array.from({length:14},(_,i)=>{
+   const day=new Date(Date.now()-(13-i)*86400000).toISOString().slice(0,10);
+   return {day,count:byDay.get(day)||0};
+  });
+  const max=Math.max(1,...days.map(d=>d.count));
+  const chart=days.map((d,i)=>{
+   const height=d.count?Math.max(8,Math.round(d.count/max*100)):0;
+   return '<div class="admin-day" title="'+esc(d.day)+' : '+d.count+'">'+
+    '<span class="admin-day-value">'+(d.count?adminNumber(d.count):'')+'</span>'+
+    '<div class="admin-day-track"><i style="height:'+height+'%" class="'+(d.count?'':'is-empty')+'"></i></div>'+
+    '<span class="admin-day-label">'+(i%3===0||i===13?esc(d.day.slice(5)):'&nbsp;')+'</span></div>';
+  }).join('');
+  const gh=data.githubContributors;
+  const ghLabel=gh?adminNumber(gh.count)+(gh.complete?'':' +'):'—';
+  const metric=(number,label,sub)=>'<div class="admin-metric"><strong>'+number+'</strong><span>'+label+'</span>'+
+   '<small>'+sub+'</small></div>';
+  const rows=last30.slice().reverse().map(d=>'<tr><th scope="row">'+esc(d.day)+'</th><td>'+adminNumber(d.visits)+'</td></tr>').join('');
+  return '<div class="admin-hero" id="accountAdminOverview"><div><span class="account-eyebrow">ESPACE PRIVÉ</span>'+
+   '<h3>Vue d’ensemble du site</h3>'+
+   '<p>Une vue synthétique de Holberton Révision, sans accès aux données personnelles des autres comptes.</p></div>'+
+   '<span class="admin-private-mark">Accès propriétaire</span></div>'+
+   '<div class="admin-metrics">'+
+   metric(adminNumber(data.registeredAccounts),'Comptes inscrits','Adresses vérifiées')+
+   metric(adminNumber(data.accountsWithProgress),'Comptes avec progression','Au moins une sauvegarde')+
+   metric(adminNumber(data.storedQuizSessions),'Quiz enregistrés','Sessions encore conservées')+
+   metric(adminNumber(data.visitors30Days),'Activités sur 30 jours','Événements de navigateurs estimés')+
+   '</div>'+
+   '<div class="admin-panels"><section class="account-panel admin-chart-card">'+
+   '<div class="account-panel-head"><div><span class="account-eyebrow">AUDIENCE</span><h3>Activité récente</h3></div>'+
+   '<span class="account-count">14 jours</span></div>'+
+   '<p class="account-hint">Ouvertures déclarées par navigateur et par jour UTC. Ce ne sont pas des visiteurs uniques.</p>'+
+   '<div class="admin-bars" role="img" aria-label="Évolution des événements de navigateurs sur les quatorze derniers jours">'+chart+'</div>'+
+   '<details class="account-more"><summary>Voir le détail des 30 derniers jours</summary>'+
+   '<div class="admin-table-wrap"><table class="admin-table"><thead><tr><th>Date UTC</th><th>Activités</th></tr></thead>'+
+   '<tbody>'+(rows||'<tr><td colspan="2">Aucune donnée enregistrée</td></tr>')+'</tbody></table></div></details>'+
+   '</section><section class="account-panel admin-side-card">'+
+   '<div class="account-panel-head"><div><span class="account-eyebrow">COMMUNAUTÉ</span><h3>Contributions et suivi</h3></div></div>'+
+   '<div class="admin-side-stat"><span>Contributeurs GitHub</span><strong>'+ghLabel+'</strong></div>'+
+   '<a href="https://github.com/Simondbf/site_revision_holberton/graphs/contributors" target="_blank" rel="noopener noreferrer" class="admin-link">Consulter les contributions GitHub</a>'+
+   '<div class="admin-side-stat"><span>Activités comptées depuis l’activation</span><strong>'+adminNumber(data.visitorsTotal)+'</strong></div>'+
+   '<p class="account-hint admin-note">Comptages non rétroactifs et approximatifs. Les profils de navigateur, les personnes et les sessions ne sont pas identifiables à partir de ces agrégats.</p>'+
+   '<button type="button" id="accountAdminRefresh" class="quiz-secondary">Actualiser les chiffres</button></section></div>';
+ }
+ async function showAdmin(){
+  const slot=document.getElementById('accountAdminSlot');
+  if(!slot||!me.authenticated||me.isAdmin!==true)return;
+  const display=data=>{
+   const latest=document.getElementById('accountAdminSlot');
+   if(!latest||!me.authenticated||!me.isAdmin)return;
+   latest.innerHTML=adminMarkup(data);
+   const refresh=latest.querySelector('#accountAdminRefresh');
+   if(refresh)refresh.onclick=()=>{adminStatsCache=null;adminStatsFetchedAt=0;showAdmin()};
+  };
+  if(adminStatsCache&&Date.now()-adminStatsFetchedAt<60000){display(adminStatsCache);return}
+  slot.innerHTML='<p class="account-admin-loading" role="status">Chargement de l’administration…</p>';
+  if(adminRequest)return;
+  adminRequest=api('/api/admin/stats');
+  try{
+   const data=await adminRequest;
+   adminStatsCache=data;adminStatsFetchedAt=Date.now();
+   display(data);
+  }catch(e){
+   const latest=document.getElementById('accountAdminSlot');
+   if(latest&&me.authenticated&&me.isAdmin)latest.innerHTML=
+    '<div class="account-panel admin-error" role="alert">Impossible de charger les statistiques : '+esc(e.message)+'</div>';
+  }finally{adminRequest=null}
+ }
+ async function recordAnonymousActivity(){
+  // Une seule déclaration par stockage local et journée UTC ; aucun identifiant transmis.
+  try{
+   const day=new Date().toISOString().slice(0,10),key='holberton-audience-day-v1';
+   if(localStorage.getItem(key)===day)return;
+   await api('/api/analytics/visit',{method:'POST'});
+   localStorage.setItem(key,day);
+  }catch{}
+ }
+
  function install(data){
   const next=data||emptyProgress();
   if(!writeProgress(localStorage,next))throw Error('Stockage local indisponible ; synchronisation arrêtée.');
@@ -236,7 +322,7 @@ import {readProgress,writeProgress,emptyProgress,guestResumeOnly} from '../quiz/
    else showComingSoon();
   }
  }
- window.addEventListener('holberton:account:rendered',panel);
+ window.addEventListener('holberton:account:rendered',()=>{panel();showAdmin()});
  window.addEventListener('holberton:quiz:updated',scheduleSync);
  window.addEventListener('holberton:preferences:updated',scheduleSync);
  window.addEventListener('focus',()=>{if(dirty&&!conflict)sync();else pullIfClean()});
@@ -250,5 +336,6 @@ import {readProgress,writeProgress,emptyProgress,guestResumeOnly} from '../quiz/
   if(location.hash.startsWith('#compte/verification/'))initialize();
   if(location.hash==='#compte'&&me.authenticated)panel();
  });
+ recordAnonymousActivity();
  initialize();
 })();
