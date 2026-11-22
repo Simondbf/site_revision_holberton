@@ -75,12 +75,38 @@ try{
  await login(a,'test-auto@example.org');
  assert.equal((await remote(a)).data.history.length,0);
 
+ // Le tableau de bord n'affiche pas onze notions vides ; les actions du compte
+ // restent regroupées sous Paramètres, pas sous l'historique des quiz.
+ await a.locator('#accountEmptyState').waitFor();
+ assert.equal(await a.locator('.account-metric').count(),4,'Quatre indicateurs compacts attendus');
+ assert.equal(await a.locator('.account-competency-list li').count(),0,'Ne pas encombrer l’écran de notions non évaluées');
+ await a.locator('#accountTabSettings').click();
+ await a.locator('#accountSecurity').waitFor();
+ assert.equal(await a.locator('#accountQuizFeedbackMode').count(),1);
+ await a.locator('#accountTabQuiz').click();
+ assert.equal(await a.locator('#accountSecurity').count(),0,'Gestion du compte réservée à Paramètres');
+
  // Changement local -> synchronisation sans bouton.
  await a.evaluate(()=>{
   localStorage.setItem('holberton-dark-v2','yes');
   window.dispatchEvent(new Event('holberton:preferences:updated'));
  });
  await waitForRemote(a,data=>data.data?.theme==='dark'&&data.revision>=2);
+ // Captures de l'interface réelle de la PR, via navigateur et API de test.
+ // Les données utilisées sont éphémères et les mails sont capturés localement.
+ await a.setViewportSize({width:1366,height:900});
+ await a.goto(origin+'/#compte');
+ await a.locator('.account-metric').first().waitFor();
+ await a.screenshot({path:'apercus/espace-compte-pr38-tableau-de-bord.png',fullPage:true});
+ await a.locator('#accountTabSettings').click();
+ await a.locator('#accountSecurity').waitFor();
+ await a.screenshot({path:'apercus/espace-compte-pr38-parametres.png',fullPage:true});
+ await a.evaluate(()=>document.body.classList.add('dark'));
+ await a.screenshot({path:'apercus/espace-compte-pr38-parametres-sombre.png',fullPage:true});
+ await a.locator('#accountTabQuiz').click();
+ await a.screenshot({path:'apercus/espace-compte-pr38-tableau-de-bord-sombre.png',fullPage:true});
+ await a.evaluate(()=>document.body.classList.remove('dark'));
+
  const b=await newPage();
  await login(b,'test-auto@example.org');
  assert.equal(await b.evaluate(()=>localStorage.getItem('holberton-dark-v2')),'yes',

@@ -52,13 +52,19 @@ import {readProgress,writeProgress,emptyProgress,guestResumeOnly} from '../quiz/
  }
  function renderLogin(){
   coming.hidden=false;
-  coming.innerHTML='<h3>Connexion ou création de compte</h3>'+
-   '<p>Un même lien reçu par e-mail permet de créer un compte ou de se connecter.</p>'+
-   '<form id="accountLoginForm"><label for="accountEmail">Adresse e-mail</label>'+
+  coming.innerHTML='<div class="account-login-head"><span class="account-eyebrow">MON ESPACE</span>'+
+   '<h3>Reprends tes révisions où tu veux</h3>'+
+   '<p>Un lien par e-mail suffit pour créer ton compte ou te reconnecter. Aucun mot de passe à retenir.</p></div>'+
+   '<ul class="account-login-benefits"><li>Retrouve tes résultats de quiz</li><li>Suis tes progrès par notion</li>'+
+   '<li>Synchronise tes préférences entre appareils</li></ul>'+
+   '<form id="accountLoginForm"><label for="accountEmail">Ton adresse e-mail</label>'+
    '<input id="accountEmail" name="email" type="email" required autocomplete="email" maxlength="254" placeholder="adresse@exemple.fr">'+
    '<button class="quiz-primary" type="submit">Recevoir mon lien de connexion</button></form>'+
-   '<p class="account-privacy">Les résultats du compte et ses préférences sont synchronisés entre appareils. Nous ne vendons pas les données personnelles et ne les utilisons pas pour la publicité. Tu peux supprimer ton compte et ses données actives depuis Paramètres ; les éventuelles sauvegardes chiffrées sont conservées temporairement selon la politique de conservation.</p>'+
-   '<p id="accountLoginStatus" role="status" aria-live="polite"></p>';
+   '<p id="accountLoginStatus" role="status" aria-live="polite"></p>'+
+   '<details class="account-privacy"><summary>Confidentialité et suppression des données</summary>'+
+   '<p>Les résultats et préférences sont synchronisés entre appareils. Nous ne vendons pas les données personnelles '+
+   'et ne les utilisons pas pour la publicité. Tu peux supprimer ton compte et ses données actives dans Paramètres. '+
+   'Les sauvegardes chiffrées sont conservées temporairement selon la politique de conservation.</p></details>';
   document.getElementById('accountLoginForm').onsubmit=async event=>{
    event.preventDefault();
    const email=document.getElementById('accountEmail').value;
@@ -71,13 +77,14 @@ import {readProgress,writeProgress,emptyProgress,guestResumeOnly} from '../quiz/
   const security=document.getElementById('accountSecurity');if(security)security.hidden=true;
  }
  function panel(){
+  const slot=document.getElementById('accountSecuritySlot');
   let security=document.getElementById('accountSecurity');
+  if(!slot||!me.authenticated){if(security)security.remove();return}
   if(!security){
-   security=document.createElement('section');security.id='accountSecurity';security.className='quiz-card account-security';
-   root.append(security);
+   security=document.createElement('section');security.id='accountSecurity';security.className='account-panel account-security';
   }
-  security.hidden=!me.authenticated;
-  if(!me.authenticated)return;
+  if(security.parentElement!==slot)slot.append(security);
+  security.hidden=false;
   security.innerHTML='<h3>Gestion du compte</h3><p>Adresse vérifiée : <strong>'+esc(me.email)+'</strong></p>'+
    '<p>Synchronisation automatique des quiz et du thème clair/sombre : <strong>'+(conflict?'conflit à résoudre':dirty?'en attente':'active')+'</strong>.</p>'+
    (pendingGuestSession?'<p>Une session invitée inachevée a été conservée séparément pour éviter de remplacer un quiz déjà présent dans ce compte.</p>'+
@@ -208,7 +215,9 @@ import {readProgress,writeProgress,emptyProgress,guestResumeOnly} from '../quiz/
   }
   install(remote.data||emptyProgress());
   enabled=true;dirty=false;conflict=false;
-  coming.hidden=true;setConnected(true);panel();
+  coming.hidden=true;setConnected(true);
+  if(pendingGuestSession)document.getElementById('accountTabSettings')?.click();
+  panel();
   if(afterVerification)status('Connexion confirmée. Tes données sont synchronisées automatiquement.');
  }
  async function initialize(){
@@ -227,6 +236,7 @@ import {readProgress,writeProgress,emptyProgress,guestResumeOnly} from '../quiz/
    else showComingSoon();
   }
  }
+ window.addEventListener('holberton:account:rendered',panel);
  window.addEventListener('holberton:quiz:updated',scheduleSync);
  window.addEventListener('holberton:preferences:updated',scheduleSync);
  window.addEventListener('focus',()=>{if(dirty&&!conflict)sync();else pullIfClean()});
