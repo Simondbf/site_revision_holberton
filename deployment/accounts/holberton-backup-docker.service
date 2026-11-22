@@ -5,6 +5,6 @@ Requires=docker.service
 
 [Service]
 Type=oneshot
-ExecStart=/opt/holberton-revision/deployment/accounts/backup-now.sh
+ExecStart=/bin/sh /opt/holberton-revision/deployment/accounts/backup-now.sh
 User=root
 TimeoutStartSec=1800
