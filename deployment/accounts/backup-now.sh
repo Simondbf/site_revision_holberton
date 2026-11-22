@@ -8,6 +8,9 @@ flock -n 9 || { echo 'Sauvegarde Holberton déjà en cours.' >&2; exit 1; }
 # Le snapshot local est temporaire ; la restauration se fait depuis Restic.
 trap 'rm -f -- /opt/holberton-revision/accounts-backup/work/accounts.sqlite' EXIT
 docker compose -f compose.yml --profile maintenance run --rm snapshot
-sh ./restic-docker.sh backup /data --tag holberton-revision
-sh ./restic-docker.sh forget --tag holberton-revision --keep-within 7d --prune
+# Le nom d'hôte doit rester stable malgré les conteneurs éphémères.
+sh ./restic-docker.sh backup /data --tag holberton-revision --host holberton-revision
+# Grouper par chemin et tag, pas par hôte Docker : sinon chaque conteneur
+# crée un groupe distinct dont la première sauvegarde est gardée indéfiniment.
+sh ./restic-docker.sh forget --tag holberton-revision --group-by paths,tags --keep-within 7d --prune
 # Le fichier temporaire local est effacé par le trap, même en cas d'échec.
