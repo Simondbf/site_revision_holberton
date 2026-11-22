@@ -17,7 +17,7 @@ const db=openDatabase(dbPath);
 const sendLoginEmail=await makeBrevoSmtpSender(env);
 const trustedProxy=env.HBTN_TRUST_LOCAL_PROXY==='1';
 if(trustedProxy&&env.HBTN_CONTAINER_ONLY!=='1')throw Error('Confiance du proxy autorisée seulement dans le réseau Docker isolé.');
-const {server}=createAuthApp({db,publicOrigin,sendLoginEmail,secureCookies:publicOrigin.startsWith('https://'),trustedProxy});
+const {server}=createAuthApp({db,publicOrigin,sendLoginEmail,secureCookies:publicOrigin.startsWith('https://'),trustedProxy,adminEmail:env.HBTN_ADMIN_EMAIL||''});
 server.listen(port,bind,()=>{
  console.log('Service comptes Holberton Révision sur '+bind+':'+port+' (e-mail '+(sendLoginEmail?'configuré':'désactivé')+').');
 });
