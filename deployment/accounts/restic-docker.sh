@@ -14,4 +14,4 @@ exec docker run --rm --read-only --cap-drop ALL --security-opt no-new-privileges
   -v "${HBTN_BACKUP_ROOT}/work:/data:ro" \
   -v "${HBTN_BACKUP_ROOT}/cache:/cache:rw" \
   -v "${HBTN_BACKUP_ROOT}/restore:/restore:rw" \
-  holberton-restic:local -o "sftp.command=ssh -p 23 -i /run/secrets/id_ed25519 -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes -o UserKnownHostsFile=/run/secrets/known_hosts -o BatchMode=yes -o ConnectTimeout=15 -o ServerAliveInterval=60" "$@"
+  holberton-restic:local -o "sftp.args=-p 23 -i /run/secrets/id_ed25519 -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes -o UserKnownHostsFile=/run/secrets/known_hosts -o BatchMode=yes -o ConnectTimeout=15 -o ServerAliveInterval=60" "$@"
