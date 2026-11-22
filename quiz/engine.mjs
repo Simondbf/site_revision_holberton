@@ -276,35 +276,59 @@ function renderAccount(){
   weak:notions.filter(n=>n.category==='À renforcer').length,
   new:notions.filter(n=>n.category==='À découvrir').length
  };
- connected.innerHTML='<nav class="account-tabs" aria-label="Mon compte"><button type="button" id="accountTabQuiz" role="tab" aria-selected="'+(accountTab==='quiz')+'">Quiz</button>'+
-  '<button type="button" id="accountTabSettings" role="tab" aria-selected="'+(accountTab==='settings')+'">Paramètres</button></nav>'+
-  (accountTab==='quiz'?
-   '<div class="account-dashboard"><section class="quiz-card"><h3>Ma progression</h3>'+
-   '<div class="account-competencies">'+
-   '<div><strong>'+counts.strong+'</strong><span>Bien assimilées</span></div>'+
-   '<div><strong>'+counts.practice+'</strong><span>En progression</span></div>'+
-   '<div><strong>'+counts.weak+'</strong><span>À renforcer</span></div>'+
-   '<div><strong>'+counts.new+'</strong><span>À découvrir</span></div></div>'+
-   '<p class="quiz-muted">Classement indicatif : une notion n’est évaluée qu’après plusieurs réponses.</p>'+
-   '<h4>Résultats par notion</h4><ul class="account-competency-list">'+
-   notions.map(n=>'<li><span><strong>'+escape(n.label)+'</strong><small> — '+escape(n.category)+
-    ' ('+n.attempts+' réponse'+(n.attempts>1?'s':'')+')</small></span>'+
-    '<div class="account-competency-bar" aria-label="'+n.rate+' % de réussite"><i style="width:'+n.rate+'%"></i></div>'+
-    '<span>'+(!n.attempts?'Non évaluée':n.rate+' %')+'</span></li>').join('')+'</ul></section>'+
-   '<section class="quiz-card"><h3>Historique de mes quiz</h3><p>'+info.sessions+' session(s) terminée(s).</p>'+
-   (progress.history.length?'<ul class="quiz-recent-list">'+progress.history.slice().reverse().map(session=>
-    '<li><span>'+escape(new Date(session.finishedAt||session.createdAt).toLocaleDateString('fr-FR'))+
-    '</span><strong>'+escape(session.correct)+' / '+escape(session.total)+'</strong></li>').join('')+'</ul>':
-    '<p>Aucun quiz terminé.</p>')+'</section></div>':
-   '<section class="quiz-card account-dashboard"><h3>Préférences de quiz</h3>'+
-   '<div class="quiz-feedback-settings"><label for="accountQuizFeedbackMode">Afficher les réponses et explications</label>'+
-   '<select id="accountQuizFeedbackMode"><option value="immediate">Après chaque question</option><option value="end">À la fin du quiz</option></select></div>'+
-   '<div class="quiz-feedback-settings quiz-adaptive-settings"><label class="quiz-adaptive-label" for="accountQuizAdaptiveEnabled">'+
-   '<input type="checkbox" id="accountQuizAdaptiveEnabled"> Priorité aux notions en difficulté</label>'+
-   '<p class="quiz-muted">Désactivée par défaut. Activable pour tes prochaines sessions.</p></div></section>');
+ const sessions=progress.history.length;
+ const answered=progress.history.reduce((total,s)=>total+(Number(s.total)||0),0);
+ const correct=progress.history.reduce((total,s)=>total+(Number(s.correct)||0),0);
+ const started=notions.filter(n=>n.attempts>0).sort((a,b)=>b.attempts-a.attempts);
+ const completion=answered?Math.round(100*correct/answered)+' %':'—';
+ const metric=(value,label)=>'<div class="account-metric"><strong>'+value+'</strong><span>'+label+'</span></div>';
+ const dates=progress.history.slice().reverse();
+ const historyItem=s=>'<li><span class="account-history-date">'+escape(new Date(s.finishedAt||s.createdAt).toLocaleDateString('fr-FR'))+'</span>'+
+  '<span class="account-history-result"><strong>'+escape(s.correct)+' / '+escape(s.total)+'</strong> bonnes réponses</span></li>';
+ const metrics='<div class="account-metrics">'+
+  metric(sessions,'Quiz terminés')+metric(answered,'Questions traitées')+
+  metric(completion,'Taux de réussite')+metric(started.length,'Notions travaillées')+'</div>';
+ const history='<section class="account-panel account-history"><div class="account-panel-head"><h3>Historique des quiz</h3>'+
+  '<span class="account-count">'+sessions+'</span></div>'+
+  (dates.length?'<ul class="account-history-list">'+dates.slice(0,5).map(historyItem).join('')+'</ul>'+
+    (dates.length>5?'<details class="account-more"><summary>Afficher les '+(dates.length-5)+' autres sessions</summary>'+
+     '<ul class="account-history-list">'+dates.slice(5).map(historyItem).join('')+'</ul></details>':''):
+   '<div class="account-empty" id="accountEmptyState"><p>Aucun quiz terminé pour le moment.</p>'+
+   '<a href="#quiz" class="account-start">Commencer un quiz</a></div>')+'</section>';
+ const notionsCard='<section class="account-panel account-notions"><div class="account-panel-head"><h3>Progression par notion</h3>'+
+  '<span class="account-count">'+started.length+' / '+notions.length+'</span></div>'+
+  (started.length?'<p class="account-hint">Retrouve les notions déjà abordées et leurs résultats.</p>'+
+   '<details class="account-more"><summary>Voir mes '+started.length+' notions travaillées</summary>'+
+   '<ul class="account-competency-list">'+started.map(n=>'<li><div class="account-notion-info"><strong>'+escape(n.label)+'</strong>'+
+    '<small>'+escape(n.category)+' · '+n.attempts+' réponse'+(n.attempts>1?'s':'')+'</small></div>'+
+    '<div class="account-notion-score"><div class="account-competency-bar" aria-label="'+n.rate+' % de réussite">'+
+    '<i style="width:'+n.rate+'%"></i></div><span>'+n.rate+' %</span></div></li>').join('')+
+   '</ul></details>':
+   '<div class="account-empty"><p>Les notions apparaîtront ici après tes premières réponses.</p></div>')+'</section>';
+ const tabs='<nav class="account-tabs" role="tablist" aria-label="Sections de mon compte">'+
+  '<button type="button" id="accountTabQuiz" role="tab" aria-controls="accountTabPanel" aria-selected="'+(accountTab==='quiz')+'">Quiz</button>'+
+  '<button type="button" id="accountTabSettings" role="tab" aria-controls="accountTabPanel" aria-selected="'+(accountTab==='settings')+'">Paramètres</button></nav>';
+ const quizView='<div class="account-dashboard"><div class="account-intro"><div><span class="account-eyebrow">MON ESPACE</span>'+
+  '<h3>Mes révisions en un coup d’œil</h3><p>Résultats et progrès enregistrés sur ton compte, accessibles sur tes appareils.</p></div>'+
+  '<a href="#quiz" class="account-start">Faire un quiz</a></div>'+metrics+
+  '<div class="account-content-grid">'+history+notionsCard+'</div>'+
+  (started.length?'<p class="account-hint account-hint-bottom">La maîtrise d’une notion se mesure sur plusieurs réponses, pas sur un seul quiz.</p>':'')+
+  '</div>';
+ const settingsView='<div class="account-settings-grid">'+
+  '<section class="account-panel account-prefs"><h3>Préférences des quiz</h3><p class="account-hint">Ces réglages suivent ton compte sur tes appareils.</p>'+
+  '<div class="quiz-feedback-settings"><label for="accountQuizFeedbackMode">Afficher les réponses et explications</label>'+
+  '<select id="accountQuizFeedbackMode"><option value="immediate">Après chaque question</option><option value="end">À la fin du quiz</option></select></div>'+
+  '<div class="quiz-feedback-settings quiz-adaptive-settings"><label class="quiz-adaptive-label" for="accountQuizAdaptiveEnabled">'+
+  '<input type="checkbox" id="accountQuizAdaptiveEnabled"> Priorité aux notions en difficulté</label>'+
+  '<p class="quiz-muted">Pour les prochaines sessions, privilégier les notions à retravailler.</p></div></section>'+
+  '<div id="accountSecuritySlot" class="account-security-slot"></div></div>';
+ connected.innerHTML=tabs+'<div id="accountTabPanel" role="tabpanel" aria-labelledby="'+
+  (accountTab==='quiz'?'accountTabQuiz':'accountTabSettings')+'">'+
+  (accountTab==='quiz'?quizView:settingsView)+'</div>';
  const tabQuiz=document.getElementById('accountTabQuiz'),tabSettings=document.getElementById('accountTabSettings');
  tabQuiz.onclick=()=>{accountTab='quiz';renderAccount()};
  tabSettings.onclick=()=>{accountTab='settings';renderAccount()};
+ window.dispatchEvent(new Event('holberton:account:rendered'));
  if(accountTab!=='settings')return;
  const timing=document.getElementById('accountQuizFeedbackMode');
  timing.value=feedbackMode(progress.feedbackMode);
