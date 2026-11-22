@@ -98,14 +98,14 @@ try{
  await a.goto(origin+'/#compte');
  await a.locator('.account-metric').first().waitFor();
  await a.screenshot({path:'apercus/espace-compte-pr38-tableau-de-bord.png',fullPage:true});
- await a.evaluate(()=>document.body.classList.add('dark'));
- await a.screenshot({path:'apercus/espace-compte-pr38-tableau-de-bord-sombre.png',fullPage:true});
  await a.locator('#accountTabSettings').click();
  await a.locator('#accountSecurity').waitFor();
  await a.screenshot({path:'apercus/espace-compte-pr38-parametres.png',fullPage:true});
+ await a.evaluate(()=>document.body.classList.add('dark'));
  await a.screenshot({path:'apercus/espace-compte-pr38-parametres-sombre.png',fullPage:true});
- await a.evaluate(()=>document.body.classList.remove('dark'));
  await a.locator('#accountTabQuiz').click();
+ await a.screenshot({path:'apercus/espace-compte-pr38-tableau-de-bord-sombre.png',fullPage:true});
+ await a.evaluate(()=>document.body.classList.remove('dark'));
 
  const b=await newPage();
  await login(b,'test-auto@example.org');
