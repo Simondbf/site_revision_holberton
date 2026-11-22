@@ -633,8 +633,8 @@ try{
   'Le compte connecté doit ouvrir sur l’onglet Quiz.');
  assert.equal(await page.locator('#accountTabQuiz').getAttribute('aria-selected'),'true',
   'L’historique de quiz doit être ouvert par défaut.');
- assert.ok(await page.locator('.account-competencies').isVisible(),
-  'Les catégories de progression doivent être visibles pour un compte connecté.');
+ assert.equal(await page.locator('.account-metric').count(),4,
+   'Le tableau de bord du compte doit afficher quatre indicateurs compacts.');
  await page.locator('#accountTabSettings').click();
  assert.ok(await page.locator('#accountQuizFeedbackMode').isVisible(),
   'Le choix du moment du corrigé doit être disponible depuis Compte.');
