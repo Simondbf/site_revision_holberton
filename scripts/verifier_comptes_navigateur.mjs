@@ -92,6 +92,17 @@ try{
   window.dispatchEvent(new Event('holberton:preferences:updated'));
  });
  await waitForRemote(a,data=>data.data?.theme==='dark'&&data.revision>=2);
+ // Captures de l'interface réelle de la PR, via navigateur et API de test.
+ // Les données utilisées sont éphémères et les mails sont capturés localement.
+ await a.setViewportSize({width:1366,height:900});
+ await a.goto(origin+'/#compte');
+ await a.locator('.account-metric').first().waitFor();
+ await a.screenshot({path:'apercus/espace-compte-pr38-tableau-de-bord.png',fullPage:true});
+ await a.locator('#accountTabSettings').click();
+ await a.locator('#accountSecurity').waitFor();
+ await a.screenshot({path:'apercus/espace-compte-pr38-parametres.png',fullPage:true});
+ await a.locator('#accountTabQuiz').click();
+
  const b=await newPage();
  await login(b,'test-auto@example.org');
  assert.equal(await b.evaluate(()=>localStorage.getItem('holberton-dark-v2')),'yes',
