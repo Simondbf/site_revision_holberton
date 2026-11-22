@@ -76,7 +76,13 @@ jobs:
           mkdir -p /tmp/hbtn-test/restic/repository /tmp/hbtn-test/restic/restored
           sudo chown -R 1000:1000 /tmp/hbtn-test/backup /tmp/hbtn-test/restic
           sudo chmod 0755 /tmp/hbtn-test/backup
-          for command in init "backup /data" "restore latest --target /restored"; do
+          # Deux sauvegardes de conteneurs distincts : le regroupement Restic
+          # doit ignorer leurs noms d’hôtes éphémères.
+          for command in init \
+            "backup /data --tag holberton-revision --host ci-hote-1" \
+            "backup /data --tag holberton-revision --host ci-hote-2" \
+            "forget --tag holberton-revision --group-by paths,tags --keep-last 1 --prune" \
+            "restore latest --target /restored"; do
             # Le dépôt de test est local, isolé et chiffré avec un mot de passe éphémère.
             docker run --rm --network none --read-only --cap-drop ALL \
               --security-opt no-new-privileges \
