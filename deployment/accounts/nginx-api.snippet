@@ -1,0 +1,10 @@
+# À appliquer après test SMTP réel, restauration et vérification sécurité.
+location /api/ {
+  client_max_body_size 300k;
+  proxy_pass http://127.0.0.1:3024;
+  proxy_set_header Host $host;
+  proxy_set_header X-Forwarded-Proto $scheme;
+  proxy_set_header X-Real-IP $remote_addr;
+  proxy_read_timeout 20s;
+  add_header Cache-Control "no-store" always;
+}
