@@ -8,6 +8,7 @@ base=/opt/holberton-revision/deploiement
 static_service=holberton-deploy.service
 api_service=holberton-api-deploy.service
 static_timer=holberton-deploy.timer
+deploy_bin=/usr/local/sbin/holberton-auto-update-api
 target=/etc/systemd/system/$api_service
 hook_dir=/etc/systemd/system/$static_service.d
 hook=$hook_dir/50-api-on-success.conf
@@ -33,6 +34,7 @@ exec_start=$(systemctl show "$static_service" --value -p ExecStart)
 [[ ! -e "$hook" ]] ||
  cmp -s "$base/holberton-deploy-api-on-success.conf" "$hook" ||
  { echo 'Drop-in du service statique différent : ne pas écraser automatiquement.' >&2; exit 1; }
+install -D -m 0700 "$base/mettre-a-jour-api.sh" "$deploy_bin"
 install -D -m 0644 "$base/holberton-api-deploy.service" "$target"
 install -d -m 0755 "$hook_dir"
 install -m 0644 "$base/holberton-deploy-api-on-success.conf" "$hook"
