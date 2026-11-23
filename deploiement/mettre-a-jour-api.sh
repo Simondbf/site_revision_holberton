@@ -98,6 +98,9 @@ release_image="holberton-accounts:release-${candidate:0:12}"
 say "Construction de l'API au SHA ${candidate:0:12}…"
 docker build --pull=false -t "$release_image" -f "$workdir/src/server/Dockerfile" "$workdir/src"
 
+# Valider le démarrage réel dans un conteneur sans données ni réseau de production.
+bash "$workdir/src/deploiement/verifier-image-api.sh" "$release_image"
+
 # À partir d'ici, restaurer l'ancienne image sur toute erreur.
 rollback_needed=1
 docker image tag "$release_image" "$image_name"
@@ -111,7 +114,11 @@ for i in {1..30}; do
  if [[ "$health" == unhealthy || "$health" == missing ]]; then break; fi
  sleep 2
 done
-(( healthy == 1 )) || abort "Conteneur API non sain (${health:-inconnu})."
+if (( healthy != 1 )); then
+ docker inspect --format '{{json .State.Health}}' "$container_id" >&2 || :
+ docker logs --tail 40 "$container_id" >&2 || :
+ abort "Conteneur API non sain (${health:-inconnu})."
+fi
 curl --fail --silent --show-error --connect-timeout 3 --max-time 8 \
  'http://127.0.0.1:3024/api/health' |
  jq -e '.status=="ok" and .emailsAvailable==true' >/dev/null ||
