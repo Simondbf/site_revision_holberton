@@ -56,7 +56,15 @@ jobs:
 
       - name: Construire les conteneurs comptes et sauvegarde
         run: |
-          docker build -t holberton-accounts:test -f server/Dockerfile .
+          # Reproduire les permissions restrictives du worktree de production.
+          (
+            umask 077
+            git worktree add --detach "$RUNNER_TEMP/hbtn-private" HEAD
+          )
+          chmod 0600 "$RUNNER_TEMP/hbtn-private"/server/{app.mjs,email.mjs,index.mjs,package.json,package-lock.json}
+          docker build -t holberton-accounts:test -f "$RUNNER_TEMP/hbtn-private/server/Dockerfile" "$RUNNER_TEMP/hbtn-private"
+          bash deploiement/verifier-image-api.sh holberton-accounts:test
+          git worktree remove --force "$RUNNER_TEMP/hbtn-private"
           docker build -t holberton-restic:test -f deployment/accounts/restic.Dockerfile deployment/accounts
 
       - name: Tester un snapshot SQLite cohérent dans Docker
