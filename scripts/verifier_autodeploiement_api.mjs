@@ -34,6 +34,7 @@ assert.match(deploy,/\/api\/admin\/stats/,'Vérifier la protection de la route a
 assert.match(deploy,/diff --quiet "\$current" "\$candidate"/,'Ignorer les commits uniquement pédagogiques.');
 before('verifier_ci_main.sh" "$candidate"','docker build','CI validée avant build.');
 before('systemctl start holberton-backup-docker.service','docker compose -f "$compose_file" up -d','Sauvegarde avant remplacement.');
-before('docker compose -f "$compose_file" up -d','last-successful-main.sha','État du déploiement mis à jour après lancement.');
+assert.ok(deploy.lastIndexOf('mv -f "$state_file.tmp" "$state_file"')>deploy.indexOf('docker compose -f "$compose_file" up -d'),
+ 'L’état doit être validé seulement après le déploiement.');
 assert.doesNotMatch(deploy,/\brm\s+-rf\s+\/opt\/holberton-revision\/accounts\/data/,'Interdiction de supprimer les données SQLite.');
 console.log('Autodéploiement Holberton : règles de sécurité et chaînage systemd vérifiés.');
