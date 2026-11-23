@@ -28,7 +28,8 @@ export function openDatabase(path){
  'CREATE TABLE IF NOT EXISTS sessions (token_hash TEXT PRIMARY KEY, user_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE, csrf TEXT NOT NULL, created_at INTEGER NOT NULL, expires_at INTEGER NOT NULL)',
  'CREATE INDEX IF NOT EXISTS sessions_user ON sessions(user_id)',
  'CREATE TABLE IF NOT EXISTS progress (user_id TEXT PRIMARY KEY REFERENCES users(id) ON DELETE CASCADE, revision INTEGER NOT NULL, payload TEXT NOT NULL, updated_at INTEGER NOT NULL)',
- 'CREATE TABLE IF NOT EXISTS rate_limits (bucket TEXT PRIMARY KEY, reset_at INTEGER NOT NULL, attempts INTEGER NOT NULL)'
+ 'CREATE TABLE IF NOT EXISTS rate_limits (bucket TEXT PRIMARY KEY, reset_at INTEGER NOT NULL, attempts INTEGER NOT NULL)',
+ 'CREATE TABLE IF NOT EXISTS visits_by_day (day TEXT PRIMARY KEY, visits INTEGER NOT NULL CHECK(visits>=0))'
  ].join(';')+';');
  return db;
 }
@@ -95,9 +96,31 @@ function progressPayload(data){
  if(Buffer.byteLength(text)>MAX_PROGRESS_BYTES)throw new ApiError(413,'Progression trop volumineuse.');
  return text;
 }
-export function createAuthApp({db,publicOrigin,sendLoginEmail=null,secureCookies=true,trustedProxy=false,now=()=>Date.now()}={}){
+// Github : seuls les chiffres publics des contributeurs sont interrogés et mis en cache.
+async function githubContributors(){
+ const url='https://api.github.com/repos/Simondbf/site_revision_holberton/contributors?per_page=100&anon=true';
+ const res=await fetch(url,{headers:{'Accept':'application/vnd.github+json','User-Agent':'Holberton-Revision-Admin'},signal:AbortSignal.timeout(4000)});
+ if(!res.ok)throw Error('Statistiques GitHub indisponibles');
+ const contributors=await res.json();
+ if(!Array.isArray(contributors))throw Error('Réponse GitHub inattendue');
+ return {count:contributors.length,complete:!String(res.headers.get('link')||'').includes('rel="next"')};
+}
+export function createAuthApp({db,publicOrigin,sendLoginEmail=null,secureCookies=true,trustedProxy=false,
+ adminEmail='',getContributorStats=githubContributors,now=()=>Date.now()}={}){
  if(!db)throw Error('Base SQLite obligatoire.');
  if(!publicOrigin||new URL(publicOrigin).origin!==publicOrigin)throw Error('PUBLIC_ORIGIN doit être une origine exacte.');
+ const ownerEmail=adminEmail?normalizeEmail(adminEmail):null;
+ if(adminEmail&&!ownerEmail)throw Error('Adresse administrateur invalide.');
+ let githubCache=null,githubUntil=0;
+ async function contributors(){
+  if(now()<githubUntil)return githubCache;
+  githubUntil=now()+60*60*1000;
+  try{
+   const data=await getContributorStats();
+   githubCache=Number.isSafeInteger(data?.count)&&data.count>=0?{count:data.count,complete:!!data.complete}:null;
+  }catch{githubCache=null}
+  return githubCache;
+ }
  const cookieName=secureCookies?'__Host-hbtn_session':'hbtn_session_dev';
  // Limites persistantes dans SQLite : un redémarrage du conteneur ne remet
  // pas les compteurs à zéro. Une seule instruction UPSERT reste atomique.
@@ -145,7 +168,33 @@ export function createAuthApp({db,publicOrigin,sendLoginEmail=null,secureCookies
    }
    if(path==='/api/auth/me'&&method==='GET'){
     const s=sessionFor(req);
-    response(res,200,s?{authenticated:true,email:s.email,csrf:s.csrf,userId:s.user_id}:{authenticated:false});return;
+    response(res,200,s?{authenticated:true,email:s.email,csrf:s.csrf,userId:s.user_id,isAdmin:!!ownerEmail&&s.email===ownerEmail}:{authenticated:false});return;
+   }
+   if(path==='/api/analytics/visit'&&method==='POST'){
+    if(Number(req.headers['content-length']||0)!==0||req.headers['transfer-encoding'])throw new ApiError(400,'Aucun contenu attendu.');
+    // Aucun identifiant de navigateur, e-mail ou adresse IP stocké dans l'audience.
+    // Limite globale persistante : l'indicateur reste indicatif, non une mesure d'utilisateurs uniques.
+    if(!rate('analytics:global',5000,60*60*1000))throw new ApiError(429,'Comptage temporairement limité.');
+    const day=new Date(now()).toISOString().slice(0,10);
+    db.prepare('INSERT INTO visits_by_day(day,visits) VALUES(?,1) ON CONFLICT(day) DO UPDATE SET visits=visits+1').run(day);
+    response(res,202,{recorded:true});return;
+   }
+   if(path==='/api/admin/stats'&&method==='GET'){
+    const s=authorized(req);
+    if(!ownerEmail||s.email!==ownerEmail)throw new ApiError(403,'Accès réservé au propriétaire.');
+    const since=new Date(now()-29*24*60*60*1000).toISOString().slice(0,10);
+    const daily=db.prepare('SELECT day,visits FROM visits_by_day WHERE day>=? ORDER BY day ASC').all(since);
+    const visitors30Days=daily.reduce((sum,x)=>sum+x.visits,0);
+    const visitorsTotal=db.prepare('SELECT COALESCE(SUM(visits),0) AS total FROM visits_by_day').get().total;
+    const registeredAccounts=db.prepare('SELECT COUNT(*) AS total FROM users').get().total;
+    const accountsWithProgress=db.prepare('SELECT COUNT(*) AS total FROM progress').get().total;
+    const storedQuizSessions=db.prepare(
+     "SELECT COALESCE(SUM(json_array_length(json_extract(payload,'$.history'))),0) AS total FROM progress"
+    ).get().total;
+    response(res,200,{registeredAccounts,accountsWithProgress,storedQuizSessions,visitors30Days,visitorsTotal,
+     daily,githubContributors:await contributors(),
+     note:'Comptage indicatif des navigateurs ayant transmis un événement, au plus une fois par jour et par stockage local. Les visiteurs uniques ne peuvent pas être déterminés. Historique non rétroactif.'});
+    return;
    }
    if(path==='/api/auth/request-link'&&method==='POST'){
     if(!sendLoginEmail)throw new ApiError(503,'Le service d’envoi transactionnel n’est pas encore activé.');

@@ -46,7 +46,13 @@ const waitForServer=page=>waitForRemote(page,data=>Boolean(data.data&&Number.isI
 try{
  await new Promise(resolve=>website.listen(0,'127.0.0.1',resolve));
  const origin='http://127.0.0.1:'+website.address().port;
- app=createAuthApp({db,publicOrigin:origin,secureCookies:false,
+ // Données fictives et agrégées pour la prévisualisation admin : aucune donnée réelle.
+ for(let i=13;i>=0;i--){
+  const day=new Date(Date.now()-i*86400000).toISOString().slice(0,10);
+  db.prepare('INSERT INTO visits_by_day(day,visits) VALUES(?,?)').run(day,Math.max(0,Math.round(16+11*Math.sin(i*1.15)+i)));
+ }
+ app=createAuthApp({db,publicOrigin:origin,secureCookies:false,adminEmail:'test-auto@example.org',
+  getContributorStats:async()=>({count:6,complete:true}),
   sendLoginEmail:async(to,link)=>{messages.push({to,link})}});
  await new Promise(resolve=>app.server.listen(0,'127.0.0.1',resolve));
  apiPort=app.server.address().port;
@@ -74,6 +80,17 @@ try{
  const a=await newPage();
  await login(a,'test-auto@example.org');
  assert.equal((await remote(a)).data.history.length,0);
+ // L’administration est visible uniquement au compte propriétaire.
+ await a.locator('#accountTabAdmin').waitFor();
+ await a.locator('#accountTabAdmin').click();
+ await a.locator('#accountAdminOverview').waitFor();
+ assert.equal(await a.locator('.admin-metric').count(),4,'Statistiques admin dans quatre indicateurs.');
+ await a.setViewportSize({width:1440,height:950});
+ await a.screenshot({path:'apercus/espace-admin-pr39-clair.png',fullPage:true});
+ await a.evaluate(()=>document.body.classList.add('dark'));
+ await a.screenshot({path:'apercus/espace-admin-pr39-sombre.png',fullPage:true});
+ await a.evaluate(()=>document.body.classList.remove('dark'));
+ await a.locator('#accountTabQuiz').click();
 
  // Le tableau de bord n'affiche pas onze notions vides ; les actions du compte
  // restent regroupées sous Paramètres, pas sous l'historique des quiz.
@@ -107,6 +124,13 @@ try{
  await a.screenshot({path:'apercus/espace-compte-pr38-tableau-de-bord-sombre.png',fullPage:true});
  await a.evaluate(()=>document.body.classList.remove('dark'));
 
+ const visitor=await newPage();
+ await login(visitor,'autre-compte@example.org');
+ assert.equal(await visitor.locator('#accountTabAdmin').count(),0,'Pas d’onglet admin sur un compte ordinaire.');
+ const forbidden=await visitor.evaluate(async()=>{
+  const r=await fetch('/api/admin/stats',{credentials:'same-origin'});return r.status;
+ });
+ assert.equal(forbidden,403,'Le serveur refuse un compte non administrateur.');
  const b=await newPage();
  await login(b,'test-auto@example.org');
  assert.equal(await b.evaluate(()=>localStorage.getItem('holberton-dark-v2')),'yes',

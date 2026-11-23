@@ -424,6 +424,54 @@ body[data-fullpage="true"] #quiz .quiz-app{max-width:1280px;margin:0 auto}
  #account .account-competency-list li{grid-template-columns:minmax(0,1fr)}
  #account #accountLoginForm button{justify-self:stretch}
 }
+
+
+/* Administration : exclusivement visible pour le compte propriétaire vérifié côté serveur. */
+#account .account-admin-layout{display:grid;gap:16px}
+#account .account-admin-loading{padding:28px 22px;border:1px solid var(--line);border-radius:15px;background:var(--surface);color:var(--muted)}
+#account .admin-hero{display:flex;justify-content:space-between;align-items:center;gap:16px;min-width:0;padding:23px 25px;border:1px solid var(--line);border-radius:16px;background:var(--surface)}
+#account .admin-hero h3{margin:9px 0 7px;font-size:clamp(22px,2.7vw,30px);line-height:1.25;color:var(--text)}
+#account .admin-hero p{margin:0;max-width:640px;font-size:13px;line-height:1.65;color:var(--muted)}
+#account .admin-private-mark{display:inline-flex;align-items:center;gap:7px;white-space:nowrap;border:1px solid var(--line);border-radius:999px;padding:8px 12px;background:var(--surface-alt);font-size:11px;font-weight:800;color:var(--text)}
+#account .admin-private-mark::before{content:"●";color:var(--teal);font-size:10px}
+#account .admin-metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:11px}
+#account .admin-metric{padding:21px 19px;background:var(--surface);border:1px solid var(--line);border-radius:14px;display:flex;flex-direction:column;gap:7px;min-width:0}
+#account .admin-metric strong{font-size:clamp(26px,2.6vw,35px);font-weight:850;color:var(--text);line-height:1.1;font-variant-numeric:tabular-nums}
+#account .admin-metric span{font-weight:800;font-size:12px;line-height:1.45;color:var(--text)}
+#account .admin-metric small{font-weight:500;font-size:11px;line-height:1.5;color:var(--muted)}
+#account .admin-panels{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(270px,1fr);gap:15px;align-items:start}
+#account .admin-chart-card,#account .admin-side-card{margin:0}
+#account .admin-chart-card .account-panel-head{margin-bottom:12px}
+#account .admin-chart-card h3,#account .admin-side-card h3{margin:5px 0 0}
+#account .admin-bars{height:205px;display:flex;align-items:stretch;gap:7px;margin:20px 0 7px;padding:10px 2px 0;border-bottom:1px solid var(--line)}
+#account .admin-day{display:flex;flex:1;flex-direction:column;gap:6px;align-items:center;min-width:0}
+#account .admin-day-value{height:18px;line-height:18px;font-size:10px;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+#account .admin-day-track{flex:1;width:100%;min-height:0;display:flex;align-items:flex-end}
+#account .admin-day-track i{display:block;width:100%;min-height:3px;border-radius:6px 6px 0 0;background:var(--teal);opacity:.9}
+#account .admin-day-track i.is-empty{opacity:.13}
+#account .admin-day-label{display:block;height:16px;white-space:nowrap;font-size:10px;color:var(--muted);letter-spacing:-.02em}
+#account .admin-side-stat{display:flex;justify-content:space-between;gap:12px;align-items:baseline;padding:17px 0;border-bottom:1px solid var(--line)}
+#account .admin-side-stat span{font-size:13px;line-height:1.45;color:var(--muted)}
+#account .admin-side-stat strong{font-size:24px;line-height:1.25;font-variant-numeric:tabular-nums;color:var(--text)}
+#account .admin-link{display:inline-flex;margin:12px 0 6px;color:var(--teal);font-size:12px;font-weight:800;text-decoration:underline;text-underline-offset:3px}
+#account .admin-note{margin:17px 0}
+#account #accountAdminRefresh{font-size:12px;padding:10px 13px}
+#account .admin-table-wrap{max-height:300px;overflow:auto;margin-top:12px}
+#account .admin-table{border-collapse:collapse;width:100%;font-size:12px;font-variant-numeric:tabular-nums}
+#account .admin-table th,#account .admin-table td{padding:9px 11px;border-bottom:1px solid var(--line);text-align:left}
+#account .admin-table thead th{font-size:11px;color:var(--muted)}
+#account .admin-error{color:#d77581}
+@media(max-width:980px){
+ #account .admin-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}
+ #account .admin-panels{grid-template-columns:minmax(0,1fr)}
+}
+@media(max-width:550px){
+ #account .admin-hero{padding:19px;flex-direction:column;align-items:flex-start}
+ #account .admin-metric{padding:16px}
+ #account .admin-bars{gap:4px;height:180px}
+ #account .admin-day-label{font-size:9px}
+ #account .admin-metric strong{font-size:27px}
+}
 </style>
 <!-- FIN QUIZ CSS INTEGRE -->
 </head>
@@ -2119,6 +2167,8 @@ function renderAccount(){
  const active=isAccountActive();
  soon.hidden=active;connected.hidden=!active;
  if(!active){connected.replaceChildren();accountTab='quiz';return}
+ const isAdmin=document.documentElement.dataset.holbertonAdmin==='true';
+ if(!isAdmin&&accountTab==='admin')accountTab='quiz';
  const info=progressSummary(progress);
  const notions=[...new Map(bank.map(q=>[q.notion_id,q.notion])).entries()].map(([id,label])=>{
   const stat=progress.stats[id]||{};
@@ -2165,7 +2215,8 @@ function renderAccount(){
    '<div class="account-empty"><p>Les notions apparaîtront ici après tes premières réponses.</p></div>')+'</section>';
  const tabs='<nav class="account-tabs" role="tablist" aria-label="Sections de mon compte">'+
   '<button type="button" id="accountTabQuiz" role="tab" aria-controls="accountTabPanel" aria-selected="'+(accountTab==='quiz')+'">Quiz</button>'+
-  '<button type="button" id="accountTabSettings" role="tab" aria-controls="accountTabPanel" aria-selected="'+(accountTab==='settings')+'">Paramètres</button></nav>';
+  '<button type="button" id="accountTabSettings" role="tab" aria-controls="accountTabPanel" aria-selected="'+(accountTab==='settings')+'">Paramètres</button>'+
+  (isAdmin?'<button type="button" id="accountTabAdmin" role="tab" aria-controls="accountTabPanel" aria-selected="'+(accountTab==='admin')+'">Administration</button>':'')+'</nav>';
  const quizView='<div class="account-dashboard"><div class="account-intro"><div><span class="account-eyebrow">MON ESPACE</span>'+
   '<h3>Mes révisions en un coup d’œil</h3><p>Résultats et progrès enregistrés sur ton compte, accessibles sur tes appareils.</p></div>'+
   '<a href="#quiz" class="account-start">Faire un quiz</a></div>'+metrics+
@@ -2180,12 +2231,16 @@ function renderAccount(){
   '<input type="checkbox" id="accountQuizAdaptiveEnabled"> Priorité aux notions en difficulté</label>'+
   '<p class="quiz-muted">Pour les prochaines sessions, privilégier les notions à retravailler.</p></div></section>'+
   '<div id="accountSecuritySlot" class="account-security-slot"></div></div>';
+ const adminView='<div id="accountAdminSlot" class="account-admin-layout" aria-live="polite">'+
+  '<div class="account-admin-loading">Chargement des statistiques privées…</div></div>';
  connected.innerHTML=tabs+'<div id="accountTabPanel" role="tabpanel" aria-labelledby="'+
-  (accountTab==='quiz'?'accountTabQuiz':'accountTabSettings')+'">'+
-  (accountTab==='quiz'?quizView:settingsView)+'</div>';
+  (accountTab==='quiz'?'accountTabQuiz':accountTab==='settings'?'accountTabSettings':'accountTabAdmin')+'">'+
+  (accountTab==='quiz'?quizView:accountTab==='settings'?settingsView:adminView)+'</div>';
  const tabQuiz=document.getElementById('accountTabQuiz'),tabSettings=document.getElementById('accountTabSettings');
  tabQuiz.onclick=()=>{accountTab='quiz';renderAccount()};
  tabSettings.onclick=()=>{accountTab='settings';renderAccount()};
+ const tabAdmin=document.getElementById('accountTabAdmin');
+ if(tabAdmin)tabAdmin.onclick=()=>{accountTab='admin';renderAccount()};
  window.dispatchEvent(new Event('holberton:account:rendered'));
  if(accountTab!=='settings')return;
  const timing=document.getElementById('accountQuizFeedbackMode');
@@ -2264,6 +2319,7 @@ renderAccount();load();
  let enabled=false,busy=false,dirty=false,conflict=false,debounce=null;
  let changeSerial=0;
  let pendingGuestSession=null;
+ let adminStatsCache=null,adminStatsFetchedAt=0,adminRequest=null;
  const KEY='holberton-quiz-guest-v1';
  const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
  const theme=()=>localStorage.getItem('holberton-dark-v2')==='yes'?'dark':'light';
@@ -2284,8 +2340,93 @@ renderAccount();load();
  const progressLocal=()=>({...readProgress(localStorage),theme:theme()});
  function setConnected(value){
   document.documentElement.dataset.holbertonAccount=value?'connected':'guest';
+  document.documentElement.dataset.holbertonAdmin=value&&me.isAdmin===true?'true':'false';
+  if(!value){adminStatsCache=null;adminStatsFetchedAt=0;adminRequest=null}
   window.dispatchEvent(new Event('holberton:account:status'));
  }
+
+ // Statistiques agrégées et strictement privées : jamais de liste d’utilisateurs.
+ const adminNumber=n=>Number.isSafeInteger(n)&&n>=0?n.toLocaleString('fr-FR'):'—';
+ function adminMarkup(data){
+  const last30=Array.isArray(data.daily)?data.daily.filter(d=>/^\d{4}-\d{2}-\d{2}$/.test(d.day)&&Number.isSafeInteger(d.visits)&&d.visits>=0).slice(-30):[];
+  const byDay=new Map(last30.map(d=>[d.day,d.visits]));
+  const days=Array.from({length:14},(_,i)=>{
+   const day=new Date(Date.now()-(13-i)*86400000).toISOString().slice(0,10);
+   return {day,count:byDay.get(day)||0};
+  });
+  const max=Math.max(1,...days.map(d=>d.count));
+  const chart=days.map((d,i)=>{
+   const height=d.count?Math.max(8,Math.round(d.count/max*100)):0;
+   return '<div class="admin-day" title="'+esc(d.day)+' : '+d.count+'">'+
+    '<span class="admin-day-value">'+(d.count?adminNumber(d.count):'')+'</span>'+
+    '<div class="admin-day-track"><i style="height:'+height+'%" class="'+(d.count?'':'is-empty')+'"></i></div>'+
+    '<span class="admin-day-label">'+(i%3===0||i===13?esc(d.day.slice(5)):'&nbsp;')+'</span></div>';
+  }).join('');
+  const gh=data.githubContributors;
+  const ghLabel=gh?adminNumber(gh.count)+(gh.complete?'':' +'):'—';
+  const metric=(number,label,sub)=>'<div class="admin-metric"><strong>'+number+'</strong><span>'+label+'</span>'+
+   '<small>'+sub+'</small></div>';
+  const rows=last30.slice().reverse().map(d=>'<tr><th scope="row">'+esc(d.day)+'</th><td>'+adminNumber(d.visits)+'</td></tr>').join('');
+  return '<div class="admin-hero" id="accountAdminOverview"><div><span class="account-eyebrow">ESPACE PRIVÉ</span>'+
+   '<h3>Vue d’ensemble du site</h3>'+
+   '<p>Une vue synthétique de Holberton Révision, sans accès aux données personnelles des autres comptes.</p></div>'+
+   '<span class="admin-private-mark">Accès propriétaire</span></div>'+
+   '<div class="admin-metrics">'+
+   metric(adminNumber(data.registeredAccounts),'Comptes inscrits','Adresses vérifiées')+
+   metric(adminNumber(data.accountsWithProgress),'Comptes avec progression','Au moins une sauvegarde')+
+   metric(adminNumber(data.storedQuizSessions),'Quiz enregistrés','Sessions encore conservées')+
+   metric(adminNumber(data.visitors30Days),'Activités sur 30 jours','Événements de navigateurs estimés')+
+   '</div>'+
+   '<div class="admin-panels"><section class="account-panel admin-chart-card">'+
+   '<div class="account-panel-head"><div><span class="account-eyebrow">AUDIENCE</span><h3>Activité récente</h3></div>'+
+   '<span class="account-count">14 jours</span></div>'+
+   '<p class="account-hint">Ouvertures déclarées par navigateur et par jour UTC. Ce ne sont pas des visiteurs uniques.</p>'+
+   '<div class="admin-bars" role="img" aria-label="Évolution des événements de navigateurs sur les quatorze derniers jours">'+chart+'</div>'+
+   '<details class="account-more"><summary>Voir le détail des 30 derniers jours</summary>'+
+   '<div class="admin-table-wrap"><table class="admin-table"><thead><tr><th>Date UTC</th><th>Activités</th></tr></thead>'+
+   '<tbody>'+(rows||'<tr><td colspan="2">Aucune donnée enregistrée</td></tr>')+'</tbody></table></div></details>'+
+   '</section><section class="account-panel admin-side-card">'+
+   '<div class="account-panel-head"><div><span class="account-eyebrow">COMMUNAUTÉ</span><h3>Contributions et suivi</h3></div></div>'+
+   '<div class="admin-side-stat"><span>Contributeurs GitHub</span><strong>'+ghLabel+'</strong></div>'+
+   '<a href="https://github.com/Simondbf/site_revision_holberton/graphs/contributors" target="_blank" rel="noopener noreferrer" class="admin-link">Consulter les contributions GitHub</a>'+
+   '<div class="admin-side-stat"><span>Activités comptées depuis l’activation</span><strong>'+adminNumber(data.visitorsTotal)+'</strong></div>'+
+   '<p class="account-hint admin-note">Comptages non rétroactifs et approximatifs. Les profils de navigateur, les personnes et les sessions ne sont pas identifiables à partir de ces agrégats.</p>'+
+   '<button type="button" id="accountAdminRefresh" class="quiz-secondary">Actualiser les chiffres</button></section></div>';
+ }
+ async function showAdmin(){
+  const slot=document.getElementById('accountAdminSlot');
+  if(!slot||!me.authenticated||me.isAdmin!==true)return;
+  const display=data=>{
+   const latest=document.getElementById('accountAdminSlot');
+   if(!latest||!me.authenticated||!me.isAdmin)return;
+   latest.innerHTML=adminMarkup(data);
+   const refresh=latest.querySelector('#accountAdminRefresh');
+   if(refresh)refresh.onclick=()=>{adminStatsCache=null;adminStatsFetchedAt=0;showAdmin()};
+  };
+  if(adminStatsCache&&Date.now()-adminStatsFetchedAt<60000){display(adminStatsCache);return}
+  slot.innerHTML='<p class="account-admin-loading" role="status">Chargement de l’administration…</p>';
+  if(adminRequest)return;
+  adminRequest=api('/api/admin/stats');
+  try{
+   const data=await adminRequest;
+   adminStatsCache=data;adminStatsFetchedAt=Date.now();
+   display(data);
+  }catch(e){
+   const latest=document.getElementById('accountAdminSlot');
+   if(latest&&me.authenticated&&me.isAdmin)latest.innerHTML=
+    '<div class="account-panel admin-error" role="alert">Impossible de charger les statistiques : '+esc(e.message)+'</div>';
+  }finally{adminRequest=null}
+ }
+ async function recordAnonymousActivity(){
+  // Une seule déclaration par stockage local et journée UTC ; aucun identifiant transmis.
+  try{
+   const day=new Date().toISOString().slice(0,10),key='holberton-audience-day-v1';
+   if(localStorage.getItem(key)===day)return;
+   await api('/api/analytics/visit',{method:'POST'});
+   localStorage.setItem(key,day);
+  }catch{}
+ }
+
  function install(data){
   const next=data||emptyProgress();
   if(!writeProgress(localStorage,next))throw Error('Stockage local indisponible ; synchronisation arrêtée.');
@@ -2491,7 +2632,7 @@ renderAccount();load();
    else showComingSoon();
   }
  }
- window.addEventListener('holberton:account:rendered',panel);
+ window.addEventListener('holberton:account:rendered',()=>{panel();showAdmin()});
  window.addEventListener('holberton:quiz:updated',scheduleSync);
  window.addEventListener('holberton:preferences:updated',scheduleSync);
  window.addEventListener('focus',()=>{if(dirty&&!conflict)sync();else pullIfClean()});
@@ -2505,6 +2646,7 @@ renderAccount();load();
   if(location.hash.startsWith('#compte/verification/'))initialize();
   if(location.hash==='#compte'&&me.authenticated)panel();
  });
+ recordAnonymousActivity();
  initialize();
 })();
 

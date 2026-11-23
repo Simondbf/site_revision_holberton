@@ -125,3 +125,61 @@ test('Limites de tentatives conservées après un redémarrage de l’API',async
   db.close();
  }
 });
+
+
+test('Administration privée : rôle serveur, audience agrégée, isolation et désactivation',async()=>{
+ const db=openDatabase(':memory:'),sent=[];
+ const origin='http://site.test';
+ const now=()=>Date.parse('2026-11-22T11:00:00Z');
+ const {server}=createAuthApp({db,publicOrigin:origin,secureCookies:false,now,
+  adminEmail:'owner@example.org',getContributorStats:async()=>({count:7,complete:true}),
+  sendLoginEmail:async(to,link)=>sent.push({to,link})});
+ await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
+ const base='http://127.0.0.1:'+server.address().port;
+ async function req(path,method='GET',body,cookie,requestOrigin=origin){
+  const headers={};
+  if(method!=='GET')headers.Origin=requestOrigin;
+  if(body)headers['Content-Type']='application/json';
+  if(cookie)headers.Cookie=cookie;
+  const r=await fetch(base+path,{method,headers,body:body?JSON.stringify(body):undefined});
+  return {status:r.status,body:await r.json(),cookie:r.headers.get('set-cookie')?.split(';')[0]};
+ }
+ async function login(email){
+  assert.equal((await req('/api/auth/request-link','POST',{email})).status,202);
+  return req('/api/auth/verify','POST',{token:sent.at(-1).link.split('/').at(-1)});
+ }
+ try{
+  assert.equal((await req('/api/admin/stats')).status,401,'Le visiteur ne peut pas lire les statistiques.');
+  assert.equal((await req('/api/analytics/visit','POST',null,null,'http://external.test')).status,403);
+  assert.equal((await req('/api/analytics/visit','POST')).status,202);
+  assert.equal((await req('/api/analytics/visit','POST')).status,202);
+  const regular=await login('regular@example.org');
+  assert.equal((await req('/api/auth/me','GET',null,regular.cookie)).body.isAdmin,false);
+  assert.equal((await req('/api/admin/stats','GET',null,regular.cookie)).status,403);
+  const owner=await login('owner@example.org');
+  assert.equal((await req('/api/auth/me','GET',null,owner.cookie)).body.isAdmin,true);
+  const stats=await req('/api/admin/stats','GET',null,owner.cookie);
+  assert.equal(stats.status,200);
+  assert.equal(stats.body.registeredAccounts,2);
+  assert.equal(stats.body.accountsWithProgress,0);
+  assert.equal(stats.body.storedQuizSessions,0);
+  assert.equal(stats.body.visitors30Days,2);
+  assert.equal(stats.body.visitorsTotal,2);
+  assert.equal(stats.body.daily[0].day,'2026-11-22');
+  assert.equal(stats.body.githubContributors.count,7);
+  assert.ok(!JSON.stringify(stats.body).includes('regular@example.org'),'Pas de données individuelles dans les statistiques.');
+  const accountData={version:1,history:[{id:'quiz-a',correct:3,total:5}],current:null,stats:{},seen:{}};
+  const stored=db.prepare('SELECT id FROM users WHERE email=?').get('regular@example.org');
+  db.prepare('INSERT INTO progress(user_id,revision,payload,updated_at) VALUES(?,?,?,?)')
+   .run(stored.id,1,JSON.stringify(accountData),now());
+  const updated=await req('/api/admin/stats','GET',null,owner.cookie);
+  assert.equal(updated.body.accountsWithProgress,1);
+  assert.equal(updated.body.storedQuizSessions,1);
+ }finally{await new Promise(resolve=>server.close(resolve));db.close()}
+ const disabled=createAuthApp({db:openDatabase(':memory:'),publicOrigin:origin,secureCookies:false});
+ try{
+  await new Promise(resolve=>disabled.server.listen(0,'127.0.0.1',resolve));
+  const response=await fetch('http://127.0.0.1:'+disabled.server.address().port+'/api/admin/stats');
+  assert.equal(response.status,401);
+ }finally{await new Promise(resolve=>disabled.server.close(resolve));disabled.db.close()}
+});

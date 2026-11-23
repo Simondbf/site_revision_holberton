@@ -261,6 +261,8 @@ function renderAccount(){
  const active=isAccountActive();
  soon.hidden=active;connected.hidden=!active;
  if(!active){connected.replaceChildren();accountTab='quiz';return}
+ const isAdmin=document.documentElement.dataset.holbertonAdmin==='true';
+ if(!isAdmin&&accountTab==='admin')accountTab='quiz';
  const info=progressSummary(progress);
  const notions=[...new Map(bank.map(q=>[q.notion_id,q.notion])).entries()].map(([id,label])=>{
   const stat=progress.stats[id]||{};
@@ -307,7 +309,8 @@ function renderAccount(){
    '<div class="account-empty"><p>Les notions apparaîtront ici après tes premières réponses.</p></div>')+'</section>';
  const tabs='<nav class="account-tabs" role="tablist" aria-label="Sections de mon compte">'+
   '<button type="button" id="accountTabQuiz" role="tab" aria-controls="accountTabPanel" aria-selected="'+(accountTab==='quiz')+'">Quiz</button>'+
-  '<button type="button" id="accountTabSettings" role="tab" aria-controls="accountTabPanel" aria-selected="'+(accountTab==='settings')+'">Paramètres</button></nav>';
+  '<button type="button" id="accountTabSettings" role="tab" aria-controls="accountTabPanel" aria-selected="'+(accountTab==='settings')+'">Paramètres</button>'+
+  (isAdmin?'<button type="button" id="accountTabAdmin" role="tab" aria-controls="accountTabPanel" aria-selected="'+(accountTab==='admin')+'">Administration</button>':'')+'</nav>';
  const quizView='<div class="account-dashboard"><div class="account-intro"><div><span class="account-eyebrow">MON ESPACE</span>'+
   '<h3>Mes révisions en un coup d’œil</h3><p>Résultats et progrès enregistrés sur ton compte, accessibles sur tes appareils.</p></div>'+
   '<a href="#quiz" class="account-start">Faire un quiz</a></div>'+metrics+
@@ -322,12 +325,16 @@ function renderAccount(){
   '<input type="checkbox" id="accountQuizAdaptiveEnabled"> Priorité aux notions en difficulté</label>'+
   '<p class="quiz-muted">Pour les prochaines sessions, privilégier les notions à retravailler.</p></div></section>'+
   '<div id="accountSecuritySlot" class="account-security-slot"></div></div>';
+ const adminView='<div id="accountAdminSlot" class="account-admin-layout" aria-live="polite">'+
+  '<div class="account-admin-loading">Chargement des statistiques privées…</div></div>';
  connected.innerHTML=tabs+'<div id="accountTabPanel" role="tabpanel" aria-labelledby="'+
-  (accountTab==='quiz'?'accountTabQuiz':'accountTabSettings')+'">'+
-  (accountTab==='quiz'?quizView:settingsView)+'</div>';
+  (accountTab==='quiz'?'accountTabQuiz':accountTab==='settings'?'accountTabSettings':'accountTabAdmin')+'">'+
+  (accountTab==='quiz'?quizView:accountTab==='settings'?settingsView:adminView)+'</div>';
  const tabQuiz=document.getElementById('accountTabQuiz'),tabSettings=document.getElementById('accountTabSettings');
  tabQuiz.onclick=()=>{accountTab='quiz';renderAccount()};
  tabSettings.onclick=()=>{accountTab='settings';renderAccount()};
+ const tabAdmin=document.getElementById('accountTabAdmin');
+ if(tabAdmin)tabAdmin.onclick=()=>{accountTab='admin';renderAccount()};
  window.dispatchEvent(new Event('holberton:account:rendered'));
  if(accountTab!=='settings')return;
  const timing=document.getElementById('accountQuizFeedbackMode');
