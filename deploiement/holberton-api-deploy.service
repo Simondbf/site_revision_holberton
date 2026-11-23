@@ -1,0 +1,17 @@
+[Unit]
+Description=Holberton Révision - mise à jour automatique de l'API après publication statique
+Documentation=https://github.com/Simondbf/site_revision_holberton
+Wants=network-online.target
+After=network-online.target docker.service
+Requires=docker.service
+
+[Service]
+Type=oneshot
+User=root
+Group=root
+ExecStart=/usr/local/sbin/holberton-auto-update-api
+TimeoutStartSec=2700
+NoNewPrivileges=true
+PrivateTmp=false
+
+# Aucun timer propre : lancé par OnSuccess de holberton-deploy.service.
