@@ -50,6 +50,9 @@ jobs:
           node scripts/preparer_publication.mjs
           bash -n deploiement/verifier_ci_main.sh
           bash -n deploiement/publier_statique.sh
+          bash -n deploiement/mettre-a-jour-api.sh
+          bash -n deploiement/installer-autodeploiement-api.sh
+          node scripts/verifier_autodeploiement_api.mjs
 
       - name: Construire les conteneurs comptes et sauvegarde
         run: |
