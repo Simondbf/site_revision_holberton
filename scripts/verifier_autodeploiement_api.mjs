@@ -8,6 +8,9 @@ const deploy=read('deploiement/mettre-a-jour-api.sh');
 const installer=read('deploiement/installer-autodeploiement-api.sh');
 const service=read('deploiement/holberton-api-deploy.service');
 const hook=read('deploiement/holberton-deploy-api-on-success.conf');
+const dockerfile=read('server/Dockerfile');
+const smoke=read('deploiement/verifier-image-api.sh');
+const workflow=read('.github/workflows/verifier-site.yml');
 
 const before=(first,second,description)=>{
  const a=deploy.indexOf(first),b=deploy.indexOf(second);
@@ -38,4 +41,13 @@ before('systemctl start holberton-backup-docker.service','docker image tag "$rel
 assert.ok(deploy.lastIndexOf('mv -f "$state_file.tmp" "$state_file"')>deploy.indexOf('docker compose -f "$compose_file" up -d'),
  'L’état doit être validé seulement après le déploiement.');
 assert.doesNotMatch(deploy,/\brm\s+-rf\s+\/opt\/holberton-revision\/accounts\/data/,'Interdiction de supprimer les données SQLite.');
+assert.match(dockerfile,/COPY --chmod=0644 server\/app\.mjs server\/email\.mjs server\/index\.mjs/);
+assert.match(dockerfile,/^USER node$/m);
+assert.match(smoke,/--network none --read-only/);
+assert.match(smoke,/--tmpfs \/data:rw,uid=1000,gid=1000,mode=0700/);
+assert.doesNotMatch(smoke,/--env-file|--publish|\s-p\s/);
+assert.match(workflow,/chmod 0600 "\$RUNNER_TEMP\/hbtn-private"/);
+assert.match(workflow,/bash deploiement\/verifier-image-api\.sh holberton-accounts:test/);
+before('bash "$workdir/src/deploiement/verifier-image-api.sh" "$release_image"','docker image tag "$release_image" "$image_name"','Tester réellement l’image avant toute bascule.');
+assert.match(deploy,/docker logs --tail 40 "\$container_id"/);
 console.log('Autodéploiement Holberton : règles de sécurité et chaînage systemd vérifiés.');
