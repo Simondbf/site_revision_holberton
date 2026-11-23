@@ -34,7 +34,7 @@ assert.match(deploy,/\/api\/health/,'Vérifier la santé de l’API.');
 assert.match(deploy,/\/api\/admin\/stats/,'Vérifier la protection de la route admin.');
 assert.match(deploy,/diff --quiet "\$current" "\$candidate"/,'Ignorer les commits uniquement pédagogiques.');
 before('verifier_ci_main.sh" "$candidate"','docker build','CI validée avant build.');
-before('systemctl start holberton-backup-docker.service','docker compose -f "$compose_file" up -d','Sauvegarde avant remplacement.');
+before('systemctl start holberton-backup-docker.service','docker image tag "$release_image" "$image_name"','Sauvegarde avant remplacement de l’image.');
 assert.ok(deploy.lastIndexOf('mv -f "$state_file.tmp" "$state_file"')>deploy.indexOf('docker compose -f "$compose_file" up -d'),
  'L’état doit être validé seulement après le déploiement.');
 assert.doesNotMatch(deploy,/\brm\s+-rf\s+\/opt\/holberton-revision\/accounts\/data/,'Interdiction de supprimer les données SQLite.');
