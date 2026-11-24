@@ -267,6 +267,20 @@ try{
  assert.ok(await page.locator('#notion-14-7 .lesson-reading p').count()>=3,
   'La notion d’invariant doit être structurée.');
 
+ // Flowcharts : navigation, symboles et diagrammes accessibles.
+ for(const [ii,term,file] of [
+  [15,'Flowchart — représenter un algorithme','flowchart-sequence'],
+  [16,'Flowchart — symboles essentiels','flowchart-symboles-essentiels'],
+  [17,'Flowchart — documents, sous-processus et connecteurs','flowchart-symboles-complementaires'],
+  [18,'Flowchart — traduire une condition et une boucle','flowchart-boucle-while']
+ ]){
+  await page.goto(origin+'/'+route('Qualité et méthode en C',term));
+  await page.waitForFunction(i=>document.querySelector('#notion-14-'+i)?.classList.contains('lesson-selected'),ii);
+  const fiche=page.locator('#notion-14-'+ii);
+  assert.equal(await fiche.locator('figure.lesson-visual svg[aria-label]').count(),1,'Schéma flowchart manquant');
+  assert.ok(await fiche.locator('.lesson-sources a').count()>=2,'Sources flowchart absentes');
+  await fiche.locator('figure.lesson-visual').screenshot({path:'apercus/'+file+'.png'});
+ }
  // Nouveaux cours : pointeurs bruts, ownership et diagnostics, accessibles en lien direct.
  await page.goto(origin+'/'+route('Pointeurs et tableaux C','memcpy() — copier des octets sans chevauchement'));
  await page.waitForFunction(()=>document.querySelector('#notion-9-60')?.classList.contains('lesson-selected'));
