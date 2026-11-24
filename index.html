@@ -1489,7 +1489,7 @@ function visualFlowLoop(){
  b.push(visualArrow(395,76,395,110),visualText(421,98,'Oui','vtext vsmall'));
  b.push('<path d="M 337 112 H 469 L 453 155 H 321 Z" fill="#e8f6ff" stroke="#257ab8" stroke-width="2"/>',visualText(395,139,'Afficher i'),visualArrow(395,155,395,182));
  b.push(visualBox(335,184,120,42,'#e8f6ff','#257ab8',0),visualText(395,211,'i--'));
- b.push('<path d="M 335 205 H 273 V 87 H 395" fill="none" stroke="#257ab8" stroke-width="3" stroke-linejoin="round"/>',visualArrow(395,87,395,76));
+ b.push('<path d="M 335 205 H 307 V 41" fill="none" stroke="#257ab8" stroke-width="3" stroke-linejoin="round"/><circle cx="307" cy="41" r="4" fill="#257ab8"/>');
  b.push(visualText(350,249,'Retour au test après chaque décrémentation','vtext vsmall'));
  return visualFigure('Une boucle while en organigramme','i = 3 ; tant que i > 0, afficher i puis i-- et revenir au test. La branche Non mène à la fin, même si elle est prise dès le premier test.',b.join(''));
 }
