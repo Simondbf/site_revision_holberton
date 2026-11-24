@@ -126,6 +126,11 @@ try{
     run('gcc',['-std=gnu89','-pedantic-errors',...(test.secure?['-Wall','-Wextra','-Werror']:[]),'-x','c','-o',exe,'-'],{input:test.source});
     assert.equal(run(exe,[],{input:test.input||''}),test.output,'Résultat incorrect : '+test.name);
   }
+  const chaine=join(travail,'taille-holberton');
+  run('gcc',['-std=gnu89','-Wall','-Wextra','-Werror','-pedantic','-x','c','-o',chaine,'-'],{
+    input:'#include <string.h>\nint main(void) {\n'+pointers['21'].example+'\nreturn !(strlen(mot) == 9 && sizeof mot == 10);\n}\n'
+  });
+  run(chaine,[]);
   const conversion=join(travail,'strtol-ligne');
   run('gcc',['-std=gnu89','-Wall','-Wextra','-Werror','-pedantic','-x','c','-o',conversion,'-'],{input:extra['8:27'].example});
   const limite='0'.repeat(29)+'42';
