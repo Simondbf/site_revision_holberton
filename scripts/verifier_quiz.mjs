@@ -4,39 +4,41 @@ import {readProgress,writeProgress,emptyProgress,guestResumeOnly,combineCandidat
 const dir=new URL('../',import.meta.url);
 const argc=JSON.parse(readFileSync(new URL('docs/quiz/vague1/section-09-pointeurs-et-tableaux-c.json',dir),'utf8'));
 const varia=JSON.parse(readFileSync(new URL('quiz/questions-variadiques.json',dir),'utf8'));
-const bank=combineCandidates(argc,varia);
+const reviewed=JSON.parse(readFileSync(new URL('quiz/questions-revisees.json',dir),'utf8'));
+const historical=combineCandidates(argc,varia);
+const bank=combineCandidates(argc,varia,reviewed);
 const help=JSON.parse(readFileSync(new URL('quiz/aide-pedagogique.json',dir),'utf8'));
 
-assert.equal(bank.length,55,'25 questions argc + 30 questions stdarg attendues');
+assert.equal(historical.length,55,'25 questions argc + 30 questions stdarg attendues');
 assert.equal(bank.filter(q=>q.family==='argc').length,25);
 assert.equal(bank.filter(q=>q.family==='stdarg').length,30);
-assert.equal(new Set(bank.map(q=>q.notion_id)).size,11,'Les onze notions prioritaires doivent être couvertes');
-assert.ok(bank.every(q=>q.review_status==='a_verifier'),'Ne jamais marquer comme validée une question encore candidate');
+assert.equal(new Set(historical.map(q=>q.notion_id)).size,11,'Les onze notions prioritaires doivent être couvertes');
+assert.ok(historical.every(q=>q.review_status==='a_verifier'),'Ne jamais marquer comme validée une question encore candidate');
 assert.ok(bank.every(q=>q.source_urls[0].startsWith('https://revision-hbtn.soleiljaune.be/#cours/')));
 assert.ok(bank.some(q=>q.options.length===5),'Questions à cinq propositions attendues');
 assert.ok(bank.some(q=>q.correct_option_ids.length===3),'Variation des bonnes réponses requise');
 assert.ok(bank.some(q=>q.correct_option_ids.length===1)&&bank.some(q=>q.correct_option_ids.length===2));
 assert.equal(checkBank(bank),true);
-assert.equal(Object.keys(help.questions).length,55,'Toutes les questions doivent être reformulées.');
+assert.equal(Object.keys(help.questions).length,bank.length,'Toutes les questions doivent être reformulées.');
 for(const q of bank){
  const explanations=help.questions[q.id];
  assert.ok(explanations?.prompt?.length>=30,'Reformulation absente : '+q.id);
  assert.deepEqual(Object.keys(explanations.feedback||{}).sort(),q.options.map(o=>o.id).sort(),
   'Chaque proposition doit être justifiée : '+q.id);
 }
-assert.equal(bank.reduce((n,q)=>n+Object.keys(help.questions[q.id].feedback).length,0),226,
+assert.equal(historical.reduce((n,q)=>n+Object.keys(help.questions[q.id].feedback).length,0),226,
  '226 justifications indépendantes des positions sont requises.');
 
 // Relecture éditoriale : aucun corrigé ne doit apparaître dans le dossier aveugle.
-assert.equal(bank.reduce((n,q)=>n+q.options.length,0),226,'226 propositions attendues.');
-assert.equal(bank.filter(q=>q.answer_mode==='multiple').length,11,'11 questions multiples attendues.');
-for(const question of bank){
+assert.equal(historical.reduce((n,q)=>n+q.options.length,0),226,'226 propositions attendues.');
+assert.equal(historical.filter(q=>q.answer_mode==='multiple').length,11,'11 questions multiples attendues.');
+for(const question of historical){
  const regex=question.answer_mode==='single'?/une seule (?:bonne )?réponse correcte/i:/plusieurs (?:bonnes )?réponses correctes/i;
  assert.ok(regex.test(question.prompt),'Mode explicite absent : '+question.id);
 }
 const blind=readFileSync(new URL('docs/quiz/relecture-20261119/QUESTIONS_SANS_CORRIGES.md',dir),'utf8');
 assert.equal((blind.match(/^### (?:V1-N09_|VAR-08-)/gm)||[]).length,55,'55 questions requises dans le document aveugle.');
-for(const q of bank){
+for(const q of historical){
  assert.ok(blind.includes('### '+q.id+' — '),'Question absente du dossier aveugle : '+q.id);
  assert.ok(blind.includes(q.prompt),'Énoncé aveugle désynchronisé : '+q.id);
  for(const option of q.options){
@@ -270,6 +272,26 @@ const embedded=id=>{
 assert.deepEqual(embedded('quiz-argc-bank').questions,
  argc.questions.filter(q=>/^V1-N09_07[2-6]-0[1-5]$/.test(q.id)),
  'Le paquet intégré doit contenir exactement les 25 questions argc relues.');
+assert.deepEqual(embedded('quiz-reviewed-bank'),reviewed,'Le HTML autonome doit contenir la banque relue.');
+const sections=embedded('content-data').sections;
+const slug=s=>s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+const families=new Set();
+for(const q of reviewed.questions){
+ const [si,ii]=q.legacy_notion_key.split(':').map(Number);
+ const section=sections[si],item=section?.items[ii];
+ assert.ok(item,'Fiche absente : '+q.id);
+ assert.equal(q.notion_id,'N'+String(si).padStart(2,'0')+'_'+String(ii).padStart(3,'0'),q.id);
+ assert.equal(q.theme,section.title,q.id);
+ assert.equal(q.notion,item.term,q.id);
+ assert.equal(q.source_urls[0],'https://revision-hbtn.soleiljaune.be/#cours/'+slug(section.title)+'/'+(ii+1)+'-'+slug(item.term),q.id);
+ assert.ok(q.candidate_ids?.length,'Le rattachement au brouillon est manquant : '+q.id);
+ families.add('chapitre-'+si);
+}
+assert.equal(families.size,13,'Les treize chapitres des deux banques doivent être représentés.');
+for(const family of families){
+ const selected=selectQuestions(bank,{family,amount:bank.length});
+ assert.ok(selected.length>0&&selected.every(q=>q.family===family),'Tirage du thème '+family);
+}
 assert.deepEqual(embedded('quiz-aide-bank'),help,'Les explications intégrées doivent correspondre au fichier source.');
 assert.ok(html.includes('name="quizTheme"'),'Le quiz publié doit proposer les thèmes multisélection.');
 assert.ok(html.includes('id="quizThemeDropdown"')&&html.includes('id="quizThemeSearch"'),
@@ -303,4 +325,4 @@ assert.ok(!html.includes('VERSION TEST')&&!html.includes('relecture pédagogique
  !html.includes('La suppression des données locales et la suppression d’un futur compte'),
  'Les anciens avertissements obsolètes ne doivent plus apparaître.');
 assert.ok(!html.includes('data-page="favorites"'),'L’onglet principal doit ouvrir Compte et non Favoris');
-console.log('Quiz invité : 55 questions candidates / 11 notions, score exact, diversité, sauvegarde et reprise cohérents.');
+console.log('Quiz invité : '+bank.length+' questions, score, diversité, sauvegarde et reprise vérifiés.');

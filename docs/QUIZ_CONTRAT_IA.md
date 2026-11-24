@@ -1,11 +1,12 @@
 # Contrat des questions de quiz — référence pour les IA
 
-Ce document décrit **le format réellement utilisé** par les 55 questions accessibles du site (25 sur `argc/argv`, 30 sur `stdarg.h`). Il sert à créer, corriger et relire les futures questions. Ne pas inventer un autre schéma ou remplacer silencieusement les banques existantes.
+Ce document décrit **le format réellement utilisé** par les banques accessibles du site. Il sert à créer, corriger et relire les futures questions. Ne pas inventer un autre schéma ou remplacer silencieusement les banques existantes.
 
 ## Sources de vérité
 
 - `docs/quiz/vague1/section-09-pointeurs-et-tableaux-c.json` : banque plus large ; seules les **25 questions** dont l'identifiant correspond à `^V1-N09_07[2-6]-0[1-5]$` sont actuellement publiées.
 - `quiz/questions-variadiques.json` : **30 questions** sur les fonctions variadiques, intégralement publiées.
+- `quiz/questions-revisees.json` : scénarios préparés à partir des deux vagues, triés par chapitre. Le champ `candidate_ids` renvoie aux brouillons dans le [tableau de tri](quiz/relecture-20261124/tri-questions.csv).
 - `quiz/aide-pedagogique.json` : reformulations visibles et justifications individuelles des réponses pour **chaque** question publiée.
 - `quiz/core.mjs` : validations, sélection aléatoire ou adaptative, notation et progression.
 - `quiz/engine.mjs` : interface et gestion des sessions.
@@ -61,7 +62,7 @@ Les fichiers racines possèdent des métadonnées différentes (`version`, `sche
 }
 ```
 
-L'extrait ci-dessus illustre les champs actifs ; les URLs et métadonnées complémentaires restent dans le JSON source. Lors de la lecture d'une session, `combineCandidates()` ajoute la propriété interne `family` (`argc` ou `stdarg`) pour le filtrage par thèmes.
+L'extrait ci-dessus illustre les champs actifs ; les URLs et métadonnées complémentaires restent dans le JSON source. Lors de la lecture d'une session, `combineCandidates()` ajoute la propriété interne `family` (`argc`, `stdarg` ou `chapitre-<index>`) pour le filtrage par thèmes.
 
 ## Reformulations et justification de **toutes** les options
 

@@ -294,7 +294,7 @@
 
 ### VAR-08-032-02 — va_list et va_start — initialiser le parcours
 
-**Mode : une seule bonne réponse.** Pour `void f(int nombre, ...)`, comment initialiser `va_list ap` ? (Une seule réponse correcte.)
+**Mode : une seule bonne réponse.** En C89, pour `void f(int nombre, ...)`, comment initialiser `va_list ap` ? (Une seule réponse correcte.)
 
 - **A.** `va_start(ap, nombre);`
 - **B.** `va_start(nombre, ap);`
@@ -322,7 +322,7 @@
 
 ### VAR-08-032-05 — va_list et va_start — initialiser le parcours
 
-**Mode : une seule bonne réponse.** Pour `void f(const char *format, ...)`, quel second argument faut-il donner à va_start ? (Une seule réponse correcte.)
+**Mode : une seule bonne réponse.** En C89, pour `void f(const char *format, ...)`, quel second argument faut-il donner à va_start ? (Une seule réponse correcte.)
 
 - **A.** ap
 - **B.** format

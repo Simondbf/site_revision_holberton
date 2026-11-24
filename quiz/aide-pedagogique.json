@@ -30,11 +30,11 @@
       }
     },
     "V1-N09_072-04": {
-      "prompt": "Dans `int main(int argc, char *argv[])`, quelle condition faut-il vérifier avant de lire `argv[1]` ?",
+      "prompt": "Dans `int main(int argc, char *argv[])`, quelle condition garantit que `argv[1]` désigne une chaîne que le programme peut utiliser ?",
       "feedback": {
         "A": "argc peut valoir 1 sans argument utilisateur.",
-        "B": "argc égal à 1 désigne habituellement le seul argv[0].",
-        "C": "argc > 1 garantit la présence d’argv[1].",
+        "B": "Si argc vaut 1, la case argv[1] contient le pointeur nul de fin de tableau.",
+        "C": "Si argc est supérieur à 1, argv[1] désigne la chaîne du premier argument utilisateur.",
         "D": "Ne garantit pas d’argument utilisateur."
       }
     },
@@ -84,11 +84,11 @@
       }
     },
     "V1-N09_073-05": {
-      "prompt": "On a vérifié que `argv[1]` contient bien une chaîne valide. Quelle expression donne sa longueur en caractères, sans compter `\\0` ?",
+      "prompt": "On a vérifié que `argv[1]` désigne une chaîne valide. Quelle expression donne son nombre d’octets avant le caractère nul final ?",
       "feedback": {
         "A": "argc-1 compte les arguments utilisateur usuels.",
         "B": "sizeof argv dans main mesure le pointeur ajusté, pas la chaîne.",
-        "C": "strlen retourne le nombre de caractères avant le nul final.",
+        "C": "strlen compte les octets précédant le caractère nul final. Un caractère affiché peut occuper plusieurs octets.",
         "D": "argv[argc] est le pointeur nul sentinelle."
       }
     },
@@ -231,7 +231,7 @@
       "prompt": "En C89, quelle déclaration permet à une fonction de recevoir un nombre variable d'arguments après un paramètre fixe ?",
       "feedback": {
         "A": "La forme sans paramètre fixe n’est pas admise en ISO C89.",
-        "B": "Le paramètre fixe n précède les points de suspension.",
+        "B": "En C89, le prototype place au moins un paramètre fixe avant la virgule et les points de suspension. Ici, ce paramètre est int n.",
         "C": "L’ellipse ne peut pas se placer au milieu d’un déclarateur.",
         "D": "Cette syntaxe ne déclare pas valablement un paramètre facultatif C89."
       }
@@ -246,12 +246,12 @@
       }
     },
     "VAR-08-031-03": {
-      "prompt": "Une fonction variadique possède des paramètres fixes, puis éventuellement `...`. Quelles affirmations sont exactes ?",
+      "prompt": "En C89, une fonction est déclarée avec `int f(int n, ...);`. Quelles affirmations décrivent les arguments variables et leur lecture ?",
       "feedback": {
-        "A": "Le nombre de paramètres après l’ellipse peut varier.",
+        "A": "D’un appel à l’autre, le nombre d’arguments transmis après le paramètre fixe peut varier.",
         "B": "argc ne s’applique pas automatiquement aux fonctions variadiques.",
         "C": "L’appelant et la fonction doivent convenir des types et de l’arrêt.",
-        "D": "En C89, l’ellipse exige au moins un paramètre fixe nommé.",
+        "D": "En C89, le prototype d’une fonction variadique doit comporter un paramètre fixe avant les points de suspension.",
         "E": "va_arg ne découvre pas dynamiquement les types."
       }
     },
@@ -283,7 +283,7 @@
       }
     },
     "VAR-08-032-02": {
-      "prompt": "Dans `void f(int nombre, ...)`, comment initialise-t-on une variable `va_list ap` avant de lire les arguments variables ?",
+      "prompt": "En C89, dans `void f(int nombre, ...)`, comment initialise-t-on une variable `va_list ap` avant de lire les arguments variables ?",
       "feedback": {
         "A": "va_start prend l’objet va_list puis le dernier paramètre fixe nommé.",
         "B": "Les paramètres sont inversés.",
@@ -311,7 +311,7 @@
       }
     },
     "VAR-08-032-05": {
-      "prompt": "Dans `void f(const char *format, ...)`, quel est le deuxième argument à fournir à `va_start(ap, ...)` ?",
+      "prompt": "En C89, dans `void f(const char *format, ...)`, quel deuxième argument doit-on fournir à `va_start(ap, ...)` ?",
       "feedback": {
         "A": "ap est l’objet curseur et non le dernier paramètre fixe.",
         "B": "format est le dernier paramètre fixe de f.",
@@ -389,7 +389,7 @@
         "A": "Un parcours terminé ne peut pas être relu tel quel.",
         "B": "La valeur zéro ne réactive pas un va_list terminé.",
         "C": "Le signe de n ne change pas la validité du curseur.",
-        "D": "va_start doit réinitialiser avant une nouvelle lecture."
+        "D": "Avant une nouvelle lecture, il faut initialiser ap à nouveau, par exemple avec va_start dans la fonction variadique."
       }
     },
     "VAR-08-034-04": {
@@ -501,6 +501,1338 @@
         "C": "__va_copy n’est qu’une extension GNU et ne garantit pas ISO C89.",
         "D": "Les types et le nombre d’arguments doivent respecter le format.",
         "E": "free(ap) ne remplace pas va_end."
+      }
+    },
+    "APP-06-000-001": {
+      "prompt": "Tu as créé un dossier de projet sur ton ordinateur. Quelle commande initialise un dépôt Git dans ce dossier depuis celui-ci ?",
+      "feedback": {
+        "A": "git add prépare du contenu dans un dépôt déjà initialisé.",
+        "B": "Cette commande crée notamment les métadonnées du dépôt dans le répertoire courant.",
+        "C": "Un commit enregistre un instantané dans un dépôt existant."
+      }
+    },
+    "REV-06-001-01": {
+      "prompt": "Ton projet possède déjà un dépôt Git local. Que permet spécifiquement l’ouverture d’une pull request sur GitHub ?",
+      "feedback": {
+        "A": "La commande git commit fonctionne depuis le dépôt local, y compris hors ligne.",
+        "B": "La plateforme ne connaît pas les changements simplement préparés sur ton ordinateur.",
+        "C": "Les participants peuvent examiner le diff et commenter les changements proposés.",
+        "D": "La comparaison repose sur les commits accessibles au dépôt hébergé."
+      }
+    },
+    "REV-06-002-01": {
+      "prompt": "Tu copies uniquement les fichiers suivis d’un petit projet dans un dossier vide situé hors de tout dépôt. Pourquoi git log ne retrouve-t-il pas les commits ?",
+      "feedback": {
+        "A": "La permission d’exécution des sources ne reconstitue aucun historique.",
+        "B": "Préparer les fichiers ne restituerait pas les anciens objets ni leurs liens de parenté.",
+        "C": "Sans accès aux objets et aux références du dépôt, Git ne peut parcourir les anciens commits.",
+        "D": "Le nom du dossier de travail ne fournit pas les références Git."
+      }
+    },
+    "REV-06-003-01": {
+      "prompt": "Tu prépares la version A de main.c avec git add, puis écris la version B sans refaire git add. Que contient un git commit sans option qui réussit ?",
+      "feedback": {
+        "A": "Le commit prend la version présente dans l’index.",
+        "B": "Cette version existe seulement dans le fichier de travail.",
+        "C": "Un instantané associe ce chemin à une seule version du fichier.",
+        "D": "La nouvelle modification n’a pas annulé la préparation de la version A."
+      }
+    },
+    "EXPL-06-004-01": {
+      "prompt": "Dans un dépôt local, quelles descriptions du rôle de ces commandes Git sont exactes ?",
+      "feedback": {
+        "A": "La commande utilise l’index pour créer un nouvel instantané local.",
+        "B": "Le push transmet les objets nécessaires et demande la mise à jour de la référence distante.",
+        "C": "La préparation modifie l’index local sans transfert vers le serveur.",
+        "D": "L’entrée de l’index est mise à jour pour le chemin indiqué."
+      }
+    },
+    "EXPL-06-005-01": {
+      "prompt": "Tu as fusionné essai dans main avec git merge, sans squash. Puis tu supprimes le nom de branche local essai. Que deviennent ses commits déjà intégrés ?",
+      "feedback": {
+        "A": "Supprimer un nom de branche ne réécrit pas l’instantané de main.",
+        "B": "Le graphe local les conserve parmi les ancêtres de main.",
+        "C": "La fusion sans squash conserve un chemin de parenté vers les commits intégrés.",
+        "D": "La suppression du nom essai ne crée aucun nouvel objet commit."
+      }
+    },
+    "EXPL-06-006-01": {
+      "prompt": "Un test de la PR a échoué sur un premier commit, puis le même test a réussi sur le dernier commit. Que peut conclure la personne qui relit la PR ?",
+      "feedback": {
+        "A": "L’historique de la première exécution conserve son propre résultat.",
+        "B": "La réussite du test couvre seulement les conditions qu’il vérifie.",
+        "C": "Un résultat de test ne prouve pas une mise en production.",
+        "D": "C’est le résultat observé pour cette révision précise."
+      }
+    },
+    "REV-06-007-01": {
+      "prompt": "Une fusion a laissé un conflit de contenu dans README.md. Quelles étapes permettent de préparer une résolution que tu as choisie ?",
+      "feedback": {
+        "A": "Les marqueurs montrent des versions en concurrence. La résolution peut combiner des parties des deux.",
+        "B": "La disparition des marqueurs ne garantit pas que les changements conservés sont cohérents.",
+        "C": "Cette commande enregistre dans l’index le fichier choisi comme résolution.",
+        "D": "La récupération de références distantes ne réconcilie pas ce fichier de travail."
+      }
+    },
+    "APP-06-008-001": {
+      "prompt": "Quelle commande indique à la fois les changements préparés, les changements suivis non préparés et, par défaut, les fichiers non suivis non ignorés ?",
+      "feedback": {
+        "A": "Cette commande détaille les changements préparés sans lister les autres catégories.",
+        "B": "La sortie habituelle regroupe ces différentes catégories.",
+        "C": "Cette commande parcourt les commits déjà enregistrés."
+      }
+    },
+    "APP-06-009-001": {
+      "prompt": "Dans un clone ordinaire, ton collègue vient de pousser un commit sur main. Tu lances git fetch origin avec la configuration créée par git clone. Quel est son effet ?",
+      "feedback": {
+        "A": "La référence de suivi local mémorise la pointe de la branche distante.",
+        "B": "Fetch n’exécute pas de rebase de la branche de travail.",
+        "C": "Récupérer des objets n’enregistre pas l’index local.",
+        "D": "Un transfert de tes commits vers le distant relève habituellement de git push."
+      }
+    },
+    "REV-06-010-01": {
+      "prompt": "Après un clone ordinaire, tu entres dans le dossier créé. Quelle commande affiche au plus trois commits accessibles depuis HEAD, avec une ligne par commit ?",
+      "feedback": {
+        "A": "Ce résumé porte sur les fichiers et l’index, pas sur les trois derniers commits.",
+        "B": "Cette commande liste les noms de branches locales.",
+        "C": "Les deux options limitent respectivement le nombre de commits et le format de chaque entrée.",
+        "D": "Le diff compare des contenus et ne produit pas une liste de commits."
+      }
+    },
+    "REV-10-000-01": {
+      "prompt": "Un programme répartit 37 pièces en boîtes de 6, sans couper les pièces. Quelles expressions C donnent le nombre de pièces restant après le remplissage des boîtes complètes ?",
+      "feedback": {
+        "A": "La division entière vaut 6, le nombre de boîtes complètes.",
+        "B": "Le reste entier vaut 1.",
+        "C": "Le résultat est 6, car on multiplie le reste par la capacité de la boîte.",
+        "D": "On retranche les six lots complets et on obtient la pièce restante."
+      }
+    },
+    "REV-10-001-01": {
+      "prompt": "En C, on initialise double resultat = 7 / 2;. Quelle valeur est stockée dans resultat ?",
+      "feedback": {
+        "A": "La conversion finale de 3 en double préserve sa valeur.",
+        "B": "Pour conserver la fraction, il faut un opérande flottant lors de la division, par exemple 7.0.",
+        "C": "La division entière positive supprime la partie fractionnaire sans arrondir au plus proche."
+      }
+    },
+    "REV-10-002-01": {
+      "prompt": "En C99, quelles conditions reconnaissent tout entier impair, y compris -3, si n est de type int ?",
+      "feedback": {
+        "A": "Le reste peut valoir 1 ou -1 pour un impair, deux valeurs différentes de zéro.",
+        "B": "Avec n égal à -3, le reste vaut -1 en C99 et cette comparaison échoue.",
+        "C": "Cette négation revient à demander que le reste soit différent de zéro.",
+        "D": "Cette comparaison serait vraie pour 4, qui est pair, et fausse pour 1, qui est impair."
+      }
+    },
+    "REV-10-003-01": {
+      "prompt": "Un capteur envoie le nombre entier positif 347. Quelle expression C isole son chiffre des unités ?",
+      "feedback": {
+        "A": "Le quotient 34 a perdu le chiffre des unités.",
+        "B": "347 = 34 × 10 + 7, donc le reste est 7.",
+        "C": "Cette expression conserve 47 et non le seul chiffre des unités.",
+        "D": "En retirant les unités puis en prenant le reste, on obtient le chiffre des dizaines, 4."
+      }
+    },
+    "REV-10-004-01": {
+      "prompt": "En C, int n = 205; est suivi de while (n > 0) { n /= 10; }. Quelles valeurs prend n après les divisions successives ?",
+      "feedback": {
+        "A": "Diviser 20 par 10 donne 2. Le chiffre 5 a disparu dès la première division.",
+        "B": "Les quotients successifs correspondent à 205 / 10, 20 / 10 et 2 / 10.",
+        "C": "Le premier reste par 10 vaut 5, mais la boucle utilise une division."
+      }
+    },
+    "REV-10-005-01": {
+      "prompt": "En C, quelle suite de caractères produit printf(\"%02d\", 1207 % 100) si l’affichage réussit ?",
+      "feedback": {
+        "A": "12 est le quotient de 1207 par 100, pas le reste.",
+        "B": "Avec %d seul, on obtiendrait 7. Le format %02d occupe ici deux positions.",
+        "C": "Le zéro de remplissage précède le chiffre du nombre.",
+        "D": "Le reste 7 est affiché sur deux positions avec un zéro en tête."
+      }
+    },
+    "REV-10-006-01": {
+      "prompt": "Un programme C évalue 12 / 10 puis 12 / 10.0. Quelle description des deux résultats est correcte ?",
+      "feedback": {
+        "A": "Le type des opérandes détermine le type de division.",
+        "B": "Le diviseur 10.0 est un double et le calcul conserve une partie fractionnaire.",
+        "C": "Les littéraux 12 et 10 sont tous deux entiers dans la première expression."
+      }
+    },
+    "REV-10-007-01": {
+      "prompt": "On sait que 12 = 1 × 10 + 2. Quelle paire C associe correctement le nombre de dizaines complètes de 12 et le reste ?",
+      "feedback": {
+        "A": "Cette paire intervertit le quotient et le reste.",
+        "B": "Soustraire le seul quotient donne 11. Il faut soustraire les dix unités de la dizaine complète.",
+        "C": "Ces expressions donnent respectivement 1 et 2."
+      }
+    },
+    "REV-10-008-01": {
+      "prompt": "Pour vérifier à la main un calcul de 89 % 7, quelle décomposition fournit à la fois une égalité exacte et un reste valide ?",
+      "feedback": {
+        "A": "L’égalité est exacte, mais on peut encore retirer un groupe de 7 au reste annoncé.",
+        "B": "84 + 5 vaut 89 et 5 est inférieur au diviseur 7.",
+        "C": "L’égalité est exacte, mais le reste d’une division de deux entiers positifs ne peut pas être négatif.",
+        "D": "Cette décomposition donne 88, une unité de moins que le dividende."
+      }
+    },
+    "APP-11-000-001": {
+      "prompt": "En C, après int i = 2; int j = i++; quelles sont les valeurs des variables ?",
+      "feedback": {
+        "A": "Ce serait le résultat de la forme préfixée ++i.",
+        "B": "L’opérateur modifie i, pas la variable qui reçoit l’ancienne valeur.",
+        "C": "La valeur transmise à j est celle de i avant l’augmentation.",
+        "D": "L’initialisation de j n’annule pas l’effet de ++ sur i."
+      }
+    },
+    "REV-11-001-01": {
+      "prompt": "Deux compteurs int commencent à 4. On exécute ++a; puis b++; sans utiliser la valeur de ces expressions. Que peut-on affirmer ?",
+      "feedback": {
+        "A": "Chacune des deux instructions incrémente sa propre variable.",
+        "B": "L’effet d’une post-incrémentation a lieu même quand son résultat est ignoré.",
+        "C": "La forme préfixée fournit 5 et la forme postfixée fournit l’ancienne valeur, 4.",
+        "D": "Les instructions ne contiennent aucune affectation du résultat des expressions."
+      }
+    },
+    "REV-11-002-01": {
+      "prompt": "Un compteur de places vaut 4. En C, int annonce = places--; est exécuté. Quel nombre a été annoncé et combien de places restent ensuite ?",
+      "feedback": {
+        "A": "La valeur fournie par places-- précède la décrémentation.",
+        "B": "Le compteur diminue bien lors de l’évaluation.",
+        "C": "La forme postfixée permet de copier 4 et laisse ensuite places à 3."
+      }
+    },
+    "REV-11-003-01": {
+      "prompt": "Le compteur signé vaut 1. Quel effet produit if (--compteur) { puts(\"reste\"); } ?",
+      "feedback": {
+        "A": "La condition utilise directement le zéro obtenu après décrémentation.",
+        "B": "Ce comportement correspondrait ici au test de l’ancienne valeur avec compteur--.",
+        "C": "L’effet de la décrémentation est conservé même lorsque la condition est fausse."
+      }
+    },
+    "REV-11-004-01": {
+      "prompt": "int i = 2; est suivi de while (i--) { printf(\"%d\", i); }. Quelles observations sont exactes si l’affichage réussit ?",
+      "feedback": {
+        "A": "Les valeurs 2 et 1 sont testées avant la décrémentation, mais le corps lit i après celle-ci.",
+        "B": "Le corps s’exécute deux fois, avec 1 puis avec 0.",
+        "C": "Même le test dont l’ancienne valeur est zéro effectue la décrémentation.",
+        "D": "Le dernier test est faux et le corps ne s’exécute donc pas."
+      }
+    },
+    "REV-11-005-01": {
+      "prompt": "int i = 2; est suivi de while (--i) { printf(\"%d\", i); }. Quel est le texte affiché si l’affichage réussit, et combien vaut i à la sortie ?",
+      "feedback": {
+        "A": "Cette trace correspond à la post-décrémentation dans la condition de cet exemple.",
+        "B": "La première valeur lue par le corps est déjà décrémentée et vaut 1.",
+        "C": "Un deuxième test a lieu après le premier passage et ramène i à zéro.",
+        "D": "La condition utilise la valeur déjà décrémentée et s’arrête dès qu’elle vaut zéro."
+      }
+    },
+    "REV-C-001": {
+      "prompt": "Avec int x = 5, que donne cette chaîne ? if (x > 0) puts(\"positif\"); else if (x > 3) puts(\"grand\"); else puts(\"autre\");",
+      "feedback": {
+        "A": "Le test x > 0 est vrai dès la première branche.",
+        "B": "Le second test aurait réussi, mais il est ignoré dès que la première branche est prise.",
+        "C": "Les deux tests appartiennent à une même chaîne if / else if.",
+        "D": "Le else final ne traite que les cas où les conditions précédentes sont fausses."
+      }
+    },
+    "REV-C-002": {
+      "prompt": "Avec int x = 3, que vaut x après if ((x = 0)) x = 7; ?",
+      "feedback": {
+        "A": "L’affectation dans la condition modifie x avant le choix de branche.",
+        "B": "La nouvelle valeur de x est zéro et le corps du if est sauté.",
+        "C": "L’expression d’affectation a la valeur zéro, qui rend la condition fausse."
+      }
+    },
+    "REV-C-003": {
+      "prompt": "Quel test accepte toutes les valeurs entières de 10 à 20 incluses, et seulement celles-là ?",
+      "feedback": {
+        "A": "Les deux bornes sont exclues par les comparaisons strictes.",
+        "B": "Chaque borne est incluse et les deux tests doivent réussir.",
+        "C": "Cette disjonction est vraie pour tout entier, y compris 30.",
+        "D": "En C, le premier test donne 0 ou 1, puis cette valeur est comparée à 20."
+      }
+    },
+    "REV-C-004": {
+      "prompt": "Après int a = 0, b = 1; int ok = a && ++b; quelles valeurs obtient-on ?",
+      "feedback": {
+        "A": "Le premier opérande faux suffit à rendre le ET faux.",
+        "B": "Cette réponse évalue ++b alors que le premier opérande est faux.",
+        "C": "Le ET logique court-circuite le second opérande."
+      }
+    },
+    "REV-C-005": {
+      "prompt": "Après int i; for (i = 2; i < 7; i += 2) { } quelles affirmations sont exactes ?",
+      "feedback": {
+        "A": "Les valeurs admises dans le corps sont 2, 4 et 6.",
+        "B": "La progression de deux en deux ne prend jamais la valeur 7.",
+        "C": "La mise à jour qui suit le passage avec 6 fait passer i à 8, puis le test échoue.",
+        "D": "Le test avec 8 échoue avant un éventuel quatrième passage."
+      }
+    },
+    "REV-C-006": {
+      "prompt": "Avec int n = 0; while (n > 0) { puts(\"X\"); --n; } que se passe-t-il ?",
+      "feedback": {
+        "A": "Cela correspondrait à un premier passage avant le test.",
+        "B": "0 > 0 est faux avant le premier passage.",
+        "C": "Le décrément appartient au corps, qui n’est jamais exécuté."
+      }
+    },
+    "V1-N05_006-04": {
+      "prompt": "Dans une boucle `do…while` en C, quelles affirmations sont correctes ?",
+      "feedback": {
+        "A": "Le premier passage précède le premier test.",
+        "B": "La fin normale du corps conduit à l’évaluation de la condition.",
+        "C": "Un break sort de la boucle immédiatement.",
+        "D": "Un continue passe au test de fin de do…while."
+      }
+    },
+    "APP-05-006-005": {
+      "prompt": "Dans le code C suivant, combien de caractères X sont affichés ? `int i = 0; do { i++; if (i == 2) continue; printf(\"X\"); } while (i < 4);`",
+      "feedback": {
+        "A": "Le passage avec i égal à 4 affiche aussi X avant le dernier test.",
+        "B": "Les valeurs 1, 3 et 4 produisent chacune un X.",
+        "C": "Le continue saute l’affichage lorsque i vaut 2.",
+        "D": "La boucle se termine dès le test avec i égal à 4."
+      }
+    },
+    "REV-C-009": {
+      "prompt": "Pour int n = -7, quelles expressions ont la valeur 1 en C ?",
+      "feedback": {
+        "A": "La négation d’une valeur non nulle donne zéro.",
+        "B": "La première négation donne 0 et la seconde donne 1.",
+        "C": "La comparaison est vraie, donc son résultat entier vaut 1.",
+        "D": "Utilisé comme condition, −7 est vrai, mais sa valeur reste −7."
+      }
+    },
+    "REV-C-010": {
+      "prompt": "Avec int i, j; for (i = 0; i < 3; ++i) for (j = 0; j < i; ++j) putchar('X'); combien de X sont écrits ?",
+      "feedback": {
+        "A": "Seule la boucle extérieure a une borne fixe égale à 3.",
+        "B": "La borne intérieure est strictement inférieure à i, pas inférieure ou égale.",
+        "C": "Les passages extérieurs donnent successivement 0, 1 puis 2 affichages.",
+        "D": "Pour i égal à 1 puis à 2, la condition initiale de la boucle intérieure est vraie."
+      }
+    },
+    "REV-C-011": {
+      "prompt": "Dans un programme C hébergé, que garantissent int main(void) et son instruction finale return 0; ?",
+      "feedback": {
+        "A": "Dans une liste de paramètres, void employé seul indique une liste vide.",
+        "B": "Retourner un statut n’écrit rien dans un flux de sortie.",
+        "C": "Zéro est une valeur de réussite portable pour la fin de main.",
+        "D": "Une fonction ordinaire rend la main à son appelant."
+      }
+    },
+    "REV-C-012": {
+      "prompt": "En C89, que permet de savoir la seule déclaration void noter(int); ?",
+      "feedback": {
+        "A": "Le prototype donne le type du paramètre, même sans son nom.",
+        "B": "void se trouve ici à la place du type de retour.",
+        "C": "Le type de retour est void.",
+        "D": "Le point-virgule termine une déclaration sans corps."
+      }
+    },
+    "REV-C-013": {
+      "prompt": "Une fonction void verifier(void), appelée par main, atteint return;. Que se passe-t-il ensuite ?",
+      "feedback": {
+        "A": "Cette règle du succès ne transforme pas le return d’une fonction ordinaire en terminaison du processus.",
+        "B": "Un return sans valeur convient à une fonction void et rend la main à son appelant.",
+        "C": "Le début ne sera atteint de nouveau que si un autre appel est effectué."
+      }
+    },
+    "REV-C-014": {
+      "prompt": "Sur une machine utilisant ASCII, quelle sortie donne printf(\"%c %d\", 'A', 'A'); ?",
+      "feedback": {
+        "A": "La première conversion, %c, écrit un caractère.",
+        "B": "Le même argument entier est rendu comme caractère puis comme nombre décimal.",
+        "C": "La seconde conversion est %d, elle affiche le code décimal.",
+        "D": "Ces résultats sont dans l’ordre inverse des conversions du format."
+      }
+    },
+    "REV-C-015": {
+      "prompt": "En locale C, avec float x = 1.5f, que produit printf(\"%.2f\", x); ?",
+      "feedback": {
+        "A": "Six décimales constituent la précision par défaut, remplacée ici par .2.",
+        "B": "Le float transmis à printf est promu en double et la précision fixe deux décimales.",
+        "C": "Le format conserve les deux chiffres demandés après le point.",
+        "D": "Une adresse serait attendue pour une lecture par scanf, pas pour cet affichage."
+      }
+    },
+    "REV-C-016": {
+      "prompt": "main.c appelle somme, déclarée dans calcul.h et définie dans calcul.c. gcc -c main.c réussit. Quelle commande produit l’exécutable avec ces deux fichiers ?",
+      "feedback": {
+        "A": "-E ne fait que prétraiter le fichier source.",
+        "B": "Cette commande s’arrête à la production d’un objet et n’inclut pas main.o.",
+        "C": "GCC traduit calcul.c puis lie son objet avec main.o pour résoudre l’appel.",
+        "D": "Le seul objet main.o contient une référence à somme sans sa définition."
+      }
+    },
+    "REV-C-017": {
+      "prompt": "Que produit gcc -S calcul.c -o resultat lorsqu’il réussit sur un source C classique ?",
+      "feedback": {
+        "A": "Pour s’arrêter au fichier objet, il faudrait -c.",
+        "B": "-S fixe l’étape d’arrêt et -o choisit le chemin de sortie.",
+        "C": "-S empêche l’assemblage et l’édition de liens.",
+        "D": "Pour s’arrêter juste après le prétraitement, il faudrait -E."
+      }
+    },
+    "REV-C-018": {
+      "prompt": "Avec GCC et -std=gnu89 -Wall -Wextra -Werror -pedantic, comment déclarer et utiliser le compteur d’une boucle for ?",
+      "feedback": {
+        "A": "La déclaration dans cette partie du for exige le C99 ou une version ultérieure avec GCC.",
+        "B": "Le for utilise une variable dont la déclaration précède les instructions du bloc.",
+        "C": "Une affectation à un nom inconnu ne déclare pas une variable."
+      }
+    },
+    "REV-C-019": {
+      "prompt": "Que produit puts(\"lot %d\"); lorsque l’écriture réussit ?",
+      "feedback": {
+        "A": "puts n’analyse aucune conversion et ne reçoit pas d’argument entier.",
+        "B": "puts ajoute un caractère de fin de ligne.",
+        "C": "Les deux caractères % et d font partie du texte de la chaîne."
+      }
+    },
+    "REV-C-020": {
+      "prompt": "Avec <limits.h> inclus, on initialise unsigned int u = UINT_MAX; et int s = INT_MAX;. Quelles affirmations décrivent l’évaluation de u + 1U et de s + 1 en C standard ?",
+      "feedback": {
+        "A": "Les deux opérandes sont unsigned int et l’addition se fait modulo UINT_MAX + 1 au sens mathématique.",
+        "B": "Le langage ne spécifie pas un repli pour cette addition signée.",
+        "C": "Le résultat mathématique dépasse la plage du type int.",
+        "D": "L’opération non signée est définie et aucune forme particulière n’est imposée pour le comportement indéfini."
+      }
+    },
+    "REV-C-021": {
+      "prompt": "En C, quels objets peut-on initialiser avec la constante de caractère 'A' sans fournir d’adresse ?",
+      "feedback": {
+        "A": "La valeur du caractère de base A peut être représentée en char.",
+        "B": "Une constante ordinaire comme 'A' est déjà de type int.",
+        "C": "La valeur entière du caractère n’est pas un pointeur vers une chaîne.",
+        "D": "Le tableau demanderait par exemple \"A\" ou une liste d’initialisation entre accolades."
+      }
+    },
+    "REV-C-022": {
+      "prompt": "Une fonction doit rendre un int * utilisable immédiatement après son retour. Quelles adresses peuvent convenir ?",
+      "feedback": {
+        "A": "Renvoyer cette adresse ne change pas la durée de vie de l’objet appartenant à l’appelant.",
+        "B": "Cet objet cesse d’exister à la sortie de la fonction.",
+        "C": "Un objet static conserve sa durée de vie après le retour.",
+        "D": "La durée de vie de l’objet alloué s’est terminée au free."
+      }
+    },
+    "REV-C-023": {
+      "prompt": "Avec char buf[4] et une entrée ABCD suivie d’un saut de ligne, que fait un appel réussi à fgets(buf, sizeof buf, stdin) ?",
+      "feedback": {
+        "A": "La limite fournie empêche la lecture de quatre caractères de données.",
+        "B": "Sur quatre cases, trois au maximum sont disponibles pour l’entrée.",
+        "C": "fgets s’arrête dès que les trois caractères autorisés ont été lus.",
+        "D": "Le premier appel atteint sa limite avant ce saut de ligne."
+      }
+    },
+    "REV-C-024": {
+      "prompt": "En base 10, après long n = strtol(\"42abc\", &fin, 10); avec char *fin, quelles affirmations sont exactes ?",
+      "feedback": {
+        "A": "Les deux chiffres forment un préfixe numérique représentable dans long.",
+        "B": "La lecture s’arrête au premier caractère non décimal.",
+        "C": "fin désigne le premier caractère du texte qui n’a pas été converti.",
+        "D": "Le suffixe abc reste à examiner pour valider une saisie entière."
+      }
+    },
+    "REV-C-025": {
+      "prompt": "Avec const char *message = \"Avancement : 50%\"; quels appels écrivent ce texte sur stdout, avec ou sans saut de ligne ?",
+      "feedback": {
+        "A": "Le format constant demande d’écrire la chaîne sans analyser ses propres caractères %.",
+        "B": "puts écrit la chaîne sans la traiter comme un format, puis ajoute une fin de ligne.",
+        "C": "Cette conversion écrit uniquement le premier caractère.",
+        "D": "Cette chaîne est le texte littéral message, pas le contenu de la variable."
+      }
+    },
+    "REV-C-026": {
+      "prompt": "getchar() vient de renvoyer EOF. Quels tests permettent de distinguer la fin de fichier d’une erreur sur stdin ?",
+      "feedback": {
+        "A": "L’indicateur est établi lorsqu’une lecture rencontre la fin de fichier.",
+        "B": "Un caractère nul est une donnée lisible et ne représente pas EOF.",
+        "C": "Ce test signale qu’une erreur d’entrée-sortie a été enregistrée sur le flux.",
+        "D": "Une conversion en char perd la distinction que le type int permet habituellement de conserver."
+      }
+    },
+    "SCN-001": {
+      "prompt": "Avec `int a=0,b=99;` et l'entrée `12 x`, que peut-on affirmer après `scanf(\"%d %d\", &a, &b)` ?",
+      "feedback": {
+        "A": "La première affectation, celle de a, est la seule à réussir.",
+        "B": "Aucun second entier ne correspond à x, donc scanf ne modifie pas b.",
+        "C": "Après une affectation réussie, le retour compte cette affectation.",
+        "D": "Les chiffres 1 et 2 sont consommés par le premier %d et donnent 12."
+      }
+    },
+    "SCN-002": {
+      "prompt": "Avec l'entrée `10 20` et `scanf(\"%*d %d\", &n)`, quelles propositions sont vraies ?",
+      "feedback": {
+        "A": "Seule l’affectation à n entre dans le nombre retourné.",
+        "B": "L’astérisque supprime l’affectation du premier %d, mais cette conversion consomme bien 10.",
+        "C": "Le nombre de valeurs présentes et le nombre d’affectations sont distincts.",
+        "D": "Le second %d est le seul associé à une adresse et y écrit le second entier."
+      }
+    },
+    "SCN-003": {
+      "prompt": "On a `int n=7;`. L'entrée commence par `bonjour`. Que renvoie `scanf(\"%d\", &n)` en cas d'échec de correspondance sans erreur de lecture ?",
+      "feedback": {
+        "A": "Le retour de scanf indique un nombre d’affectations, indépendamment de la valeur initiale de n.",
+        "B": "La lettre b est disponible, donc il s’agit d’un échec de correspondance.",
+        "C": "La première conversion échoue sans affecter de variable.",
+        "D": "Un retour de 1 supposerait une affectation réussie."
+      }
+    },
+    "REV-C-030": {
+      "prompt": "Avec char lettres[3], on lit avec scanf(\"%3c\", lettres) les trois caractères espace, A, B. Quelles affirmations sont exactes si la lecture réussit ?",
+      "feedback": {
+        "A": "La conversion %c ne saute pas les blancs initiaux.",
+        "B": "%c écrit les caractères demandés sans terminer une chaîne.",
+        "C": "La directive renseigne un seul champ, même si celui-ci contient trois caractères.",
+        "D": "Les trois cases contiennent les données espace, A et B ; aucune ne contient le terminateur."
+      }
+    },
+    "REV-C-031": {
+      "prompt": "Si chaque appel recommence au début de la chaîne \"010\", quels nombres sscanf lit-il avec %d et avec %i dans un int ?",
+      "feedback": {
+        "A": "C’est l’inverse : %d impose une lecture décimale.",
+        "B": "%i tient compte du zéro initial pour reconnaître l’octal.",
+        "C": "010 représente dix en base dix et huit en base huit.",
+        "D": "Un zéro initial n’impose pas la base huit à %d."
+      }
+    },
+    "SCN-010": {
+      "prompt": "Pour `char mot[8];`, quelles affirmations sont correctes avec `scanf(\"%7s\", mot)` ?",
+      "feedback": {
+        "A": "Sur huit cases, sept peuvent recevoir des caractères du mot et la dernière son caractère nul.",
+        "B": "Un caractère blanc après le mot marque la fin de cette conversion.",
+        "C": "La conversion %s saute les blancs avant le premier caractère du mot.",
+        "D": "La lecture s’arrête au prochain blanc ou dès que la largeur est atteinte."
+      }
+    },
+    "SCN-014": {
+      "prompt": "Pourquoi mélanger `scanf(\"%d\", &n)` puis `fgets` demande-t-il une attention particulière ?",
+      "feedback": {
+        "A": "Le choix dépend de ce que le programme souhaite faire des caractères restés sur la ligne.",
+        "B": "Si le saut de ligne est le prochain caractère disponible, fgets peut renvoyer une chaîne qui ne contient que ce saut de ligne.",
+        "C": "Le %d s’arrête avant le saut de ligne qui suit immédiatement les chiffres.",
+        "D": "Un %d isolé ne demande pas de lire jusqu’à la fin de la ligne."
+      }
+    },
+    "REV-C-034": {
+      "prompt": "En C89, quelles déclarations constituent un prototype qui impose un nombre précis de paramètres ?",
+      "feedback": {
+        "A": "void seul indique exactement zéro paramètre.",
+        "B": "En C89, cette déclaration non suivie d’un corps ne précise pas les paramètres.",
+        "C": "Ce prototype impose un seul paramètre de type int sans avoir besoin de lui donner un nom."
+      }
+    },
+    "REV-C-035": {
+      "prompt": "Une fonction doit accepter les notes entières de 0 à 20 incluses. Quel ensemble vérifie les deux bornes et leurs voisins extérieurs ?",
+      "feedback": {
+        "A": "Les deux bornes sont testées, mais aucune valeur hors plage.",
+        "B": "Les deux valeurs limites attendues et leurs deux voisins refusés sont présents.",
+        "C": "Aucune des deux valeurs limites acceptées n’est testée.",
+        "D": "Ces entrées sont toutes valides et n’exercent pas la limite inférieure."
+      }
+    },
+    "REV-C-036": {
+      "prompt": "Quelles affirmations sur sizeof sont garanties par le C, même sur une autre architecture ?",
+      "feedback": {
+        "A": "Le caractère constitue l’unité de taille de sizeof.",
+        "B": "Plusieurs tailles de int sont possibles selon l’implémentation.",
+        "C": "size_t est le type entier non signé du résultat de sizeof.",
+        "D": "Le nombre de bits du byte C est donné par CHAR_BIT et peut dépasser huit."
+      }
+    },
+    "V2-N14_002-05": {
+      "prompt": "Avec `gcc -std=gnu89 -Wall -Wextra -Werror -pedantic`, que se passe-t-il pour `int main(void) { int compteur = 7; return 0; }` ? (Une seule réponse correcte.)",
+      "feedback": {
+        "A": "-Wall active le diagnostic sur cette variable locale et -Werror le rend bloquant.",
+        "B": "Évaluer un initialiseur n’affiche rien et la compilation demandée échoue.",
+        "C": "compteur est une variable dans le corps de main, pas un paramètre.",
+        "D": "Ce programme n’appelle aucune fonction nécessitant stdio.h.",
+        "E": "Donner une valeur à une variable locale ne suffit pas à utiliser cette valeur."
+      }
+    },
+    "V2-N14_004-05": {
+      "prompt": "Quel est l'effet précis de `-Werror` lors d'une compilation GCC ? (Une seule réponse correcte.)",
+      "feedback": {
+        "A": "Le dialecte relève de -std, indépendamment de la sévérité des avertissements.",
+        "B": "Un avertissement émis est traité comme une erreur ; -Werror seul ne sélectionne pas tous les avertissements possibles.",
+        "C": "-Werror ne désactive aucun avertissement ; il modifie leur sévérité.",
+        "D": "C’est un réglage de compilation, pas un contrôle d’exécution."
+      }
+    },
+    "V2-N14_005-05": {
+      "prompt": "Dans `int somme(int a, int b) { (void)b; return a; }`, pourquoi écrire `(void)b;` sous GNU89 avec `-Wall -Wextra -Werror` ? (Une seule réponse correcte.)",
+      "feedback": {
+        "A": "Le type déclaré de b reste int durant tout l’appel.",
+        "B": "Un paramètre ordinaire de type int ne demande aucune libération.",
+        "C": "Cette expression ne réalise aucune sortie.",
+        "D": "Le cast vers void marque cette valeur comme volontairement ignorée, ce qui convient à un paramètre imposé par une interface."
+      }
+    },
+    "REV-C-040": {
+      "prompt": "Une boucle parcourt un tableau dans l’ordre des indices, à partir de 0. Son accumulateur est initialisé à zéro et toutes les additions sont représentables. Quel invariant est vrai juste avant de traiter l’indice i ?",
+      "feedback": {
+        "A": "Elle vaut zéro seulement au départ ou pour certains jeux de données.",
+        "B": "C’est vrai au départ et reste vrai au passage suivant après l’ajout de l’élément i.",
+        "C": "Au début du parcours, il reste généralement des éléments à traiter.",
+        "D": "Ajouter l’élément suivant peut changer sa valeur sans rompre l’invariant."
+      }
+    },
+    "REV-C-041": {
+      "prompt": "Dans un exemple de cours, p et alias désignent le même bloc alloué, puis free(p); p = NULL; est exécuté. Quel suivi du bloc est correct ?",
+      "feedback": {
+        "A": "Un seul bloc a été alloué. Un second free sur ce bloc serait incorrect.",
+        "B": "Copier un pointeur n’alloue pas de second objet et n’en prolonge pas la durée de vie.",
+        "C": "Cette affectation modifie uniquement la variable p."
+      }
+    },
+    "REV-N00_000-01": {
+      "prompt": "On ajoute de la RAM à un ordinateur puis on installe un navigateur. Comment classer ces deux changements ?",
+      "feedback": {
+        "A": "On peut remplacer physiquement la barrette de RAM et installer le navigateur sous forme de fichiers.",
+        "B": "L’exécution d’un navigateur mobilise le matériel sans transformer le programme en composant physique.",
+        "C": "Les données placées en RAM peuvent être du logiciel, mais la RAM qui les stocke est un composant."
+      }
+    },
+    "REV-N00_001-01": {
+      "prompt": "Un éditeur enregistre un document pendant qu’un navigateur joue de la musique. Quels services le système d’exploitation fournit-il à ces programmes ?",
+      "feedback": {
+        "A": "L’éditeur utilise les services du système pour ouvrir et écrire son document.",
+        "B": "Le format relève de l’application et du choix de l’utilisateur.",
+        "C": "C’est une décision de l’application de lecture.",
+        "D": "L’ordonnanceur du noyau décide quelles tâches obtiennent du temps processeur."
+      }
+    },
+    "REV-N00_002-01": {
+      "prompt": "Une application Linux veut lire des octets dans un fichier déjà ouvert. Quelle opération fait intervenir le noyau ?",
+      "feedback": {
+        "A": "Une telle opération arithmétique ne nécessite aucun appel système.",
+        "B": "Le processeur peut effectuer cette comparaison en espace utilisateur.",
+        "C": "Le noyau traite la demande portant sur le descripteur de fichier."
+      }
+    },
+    "EXPL-00-003-01": {
+      "prompt": "Quelles affirmations décrivent le lien entre Ubuntu et Linux ?",
+      "feedback": {
+        "A": "Le noyau commun ne fixe ni le bureau ni l’ensemble des paquets.",
+        "B": "Le noyau gère des ressources système. Sous Ubuntu, APT est un outil de gestion des paquets.",
+        "C": "Une installation Ubuntu comprend notamment ce noyau et des logiciels en espace utilisateur.",
+        "D": "Une installation serveur peut fonctionner en ligne de commande."
+      }
+    },
+    "EXPL-00-004-01": {
+      "prompt": "Sur un PC Windows, qu’apporte WSL pour travailler avec les outils d’Ubuntu ?",
+      "feedback": {
+        "A": "Ce fonctionnement correspond au double démarrage.",
+        "B": "L’interpréteur de commandes de la distribution reste distinct de PowerShell.",
+        "C": "On peut lancer les outils de la distribution depuis Windows."
+      }
+    },
+    "REV-N00_005-01": {
+      "prompt": "Tu veux répéter chaque semaine le même traitement sur une série de fichiers. Pourquoi garder la commande exacte qui fonctionne dans le terminal ?",
+      "feedback": {
+        "A": "Conserver une commande ne crée aucun calendrier d’exécution.",
+        "B": "Les permissions dépendent de l’identité et des droits du processus.",
+        "C": "Le texte de la commande décrit les opérations à exécuter à nouveau."
+      }
+    },
+    "EXPL-01-000-01": {
+      "prompt": "Dans une fenêtre de terminal qui lance Bash, qui interprète la commande saisie et qui en affiche la sortie ?",
+      "feedback": {
+        "A": "Ce sont deux programmes distincts avec des rôles complémentaires.",
+        "B": "Bash traite les redirections avant de lancer la commande concernée.",
+        "C": "L’analyse des commandes appartient ici à Bash."
+      }
+    },
+    "REV-N01_001-01": {
+      "prompt": "Dans Bash, tu saisis `printf '%s\\n' \"$HOME\"`. Qui remplace `$HOME` par sa valeur ?",
+      "feedback": {
+        "A": "Le spécificateur %s affiche l’argument qui lui est fourni.",
+        "B": "Le terminal reçoit le résultat à afficher après le traitement de la commande.",
+        "C": "Les guillemets doubles permettent cette expansion et préservent la valeur en un seul argument."
+      }
+    },
+    "REV-N01_002-01": {
+      "prompt": "Pourquoi `cd` est-il habituellement une commande intégrée à Bash ?",
+      "feedback": {
+        "A": "Des programmes externes tels que ls acceptent des chemins.",
+        "B": "Le changement demeure effectif à l’invite suivante.",
+        "C": "Changer de dossier dans un processus enfant ne change pas le répertoire courant du parent."
+      }
+    },
+    "REV-N01_003-01": {
+      "prompt": "Un fichier lisible nommé `bonjour.sh` contient un script Bash. Tu l’exécutes avec `bash bonjour.sh`. Quelles affirmations sont exactes ?",
+      "feedback": {
+        "A": "Bash peut lire un fichier de commandes dont la première ligne n’est pas un shebang.",
+        "B": "Le nom de l’interpréteur figure dans la commande lancée.",
+        "C": "Le suffixe est une convention de nommage.",
+        "D": "C’est le programme bash qui est exécuté, puis il ouvre le fichier en lecture."
+      }
+    },
+    "APP-02-000-001": {
+      "prompt": "Sous Linux, quel chemin désigne la racine de l’arborescence visible par le processus ?",
+      "feedback": {
+        "A": "C’est le point de départ des chemins absolus.",
+        "B": "C’est un répertoire sous la racine souvent utilisé pour les dossiers personnels.",
+        "C": "Il s’agit généralement du répertoire personnel du compte root."
+      }
+    },
+    "REV-N02_001-01": {
+      "prompt": "Dans Bash, HOME vaut /home/lea. Quelles expressions donnent le texte /home/lea sans inclure de guillemets dans le résultat ?",
+      "feedback": {
+        "A": "Les guillemets simples conservent les caractères dollar et HOME littéralement.",
+        "B": "Le tilde seul et non cité est remplacé ici par la valeur de HOME.",
+        "C": "Les guillemets doubles autorisent l’expansion de HOME.",
+        "D": "Un tilde entre guillemets doubles reste un tilde."
+      }
+    },
+    "APP-02-002-001": {
+      "prompt": "Dans /home/lea/projet, sans lien symbolique sur ce chemin, quel dossier désigne `..` ?",
+      "feedback": {
+        "A": "Le dossier courant est désigné par un seul point.",
+        "B": "Il faudrait remonter deux niveaux pour y arriver.",
+        "C": "La racine serait atteinte après trois remontées.",
+        "D": "C’est le parent immédiat du dossier projet."
+      }
+    },
+    "APP-02-003-001": {
+      "prompt": "Parmi ces chemins Linux, lequel est absolu avant toute expansion du shell ?",
+      "feedback": {
+        "A": "La barre oblique initiale ancre le chemin à la racine.",
+        "B": "La recherche du répertoire etc part du répertoire courant.",
+        "C": "Le point initial désigne explicitement le répertoire courant."
+      }
+    },
+    "REV-N02_004-01": {
+      "prompt": "Depuis /home/lea/projet, sans lien symbolique, tu ouvres `docs/a.txt`. Quel chemin absolu correspond au fichier demandé ?",
+      "feedback": {
+        "A": "Ce chemin conviendrait si l’on partait du parent du projet.",
+        "B": "On ajoute docs puis a.txt au répertoire courant.",
+        "C": "Cela partirait de la racine et non du projet."
+      }
+    },
+    "EXPL-02-005-01": {
+      "prompt": "Dans Bash, `pwd` affiche /home/lea. Tu tapes ensuite `cd /tmp`, qui réussit. Que donne alors `pwd` en mode logique ?",
+      "feedback": {
+        "A": "C’était le dossier de départ, avant la réussite de cd.",
+        "B": "C’est le chemin demandé au dernier changement de répertoire.",
+        "C": "Un chemin absolu est résolu depuis la racine, sans faire de la racine la destination finale."
+      }
+    },
+    "REV-N02_006-01": {
+      "prompt": "Tu exécutes `mkdir -p projet/src`, puis `touch projet/src/main.c`. Le fichier main.c existe déjà et est accessible en écriture. Que se passe-t-il dans les conditions usuelles ?",
+      "feedback": {
+        "A": "Une troncature modifierait sa taille, ce que touch ne demande pas.",
+        "B": "touch actualise les horodatages sans écrire dans les données du fichier.",
+        "C": "L’option -p accepte les répertoires déjà créés."
+      }
+    },
+    "EXPL-02-007-01": {
+      "prompt": "Le fichier ordinaire a.txt est lisible et non vide et b.txt n’existe pas. Quelle commande crée une copie nommée b.txt en conservant a.txt ?",
+      "feedback": {
+        "A": "Après réussite, la source et la copie existent sous deux noms.",
+        "B": "Cette commande renomme ou déplace la source et fait disparaître l’ancien nom.",
+        "C": "Le nouveau fichier est vide, même si a.txt contient du texte."
+      }
+    },
+    "REV-N02_008-01": {
+      "prompt": "Tu veux chercher les fichiers ordinaires dont le nom se termine par .c dans le dossier courant et ses sous-dossiers. Quelle commande convient ?",
+      "feedback": {
+        "A": "file examine le type des chemins fournis par le shell sans parcourir les sous-dossiers à la recherche de noms.",
+        "B": "Cette forme vise les noms correspondant au motif dans le dossier courant, sans parcours récursif.",
+        "C": "Les guillemets transmettent le motif à find sans laisser Bash le développer avant le parcours."
+      }
+    },
+    "EXPL-03-000-01": {
+      "prompt": "Pour un répertoire Linux, quelles opérations les bits de permission ordinaires permettent-ils à l’utilisateur auquel ils s’appliquent ?",
+      "feedback": {
+        "A": "Pour atteindre un fichier par son chemin, il faut pouvoir traverser les répertoires de ce chemin.",
+        "B": "La lecture du répertoire permet l’énumération de ses noms.",
+        "C": "La modification des entrées demande aussi la traversée, et des restrictions supplémentaires peuvent s’appliquer.",
+        "D": "Lire les noms des entrées ne donne aucun droit de lecture automatique sur les fichiers."
+      }
+    },
+    "APP-03-000-006": {
+      "prompt": "Sur un fichier ordinaire sans ACL étendue ni bits spéciaux, quels droits symboliques correspondent au mode 640 ?",
+      "feedback": {
+        "A": "On lit les triplets rw-, r-- et ---.",
+        "B": "Le propriétaire aurait le droit d’exécution, soit le chiffre 7.",
+        "C": "Le groupe aurait aussi le droit d’écriture, soit le chiffre 6.",
+        "D": "Les autres auraient le droit de lecture, soit le chiffre 4."
+      }
+    },
+    "REV-N03_001-01": {
+      "prompt": "Tu es propriétaire de script.sh. Quelle commande ajoute le droit d’exécution au propriétaire en conservant les autres bits ordinaires de permission ?",
+      "feedback": {
+        "A": "La modification est ciblée sur le bit d’exécution du propriétaire.",
+        "B": "Le bit d’exécution est ajouté au groupe et aux autres en plus du propriétaire.",
+        "C": "Ce mode fixe aussi les droits de lecture et d’écriture du propriétaire et retire ceux du groupe et des autres."
+      }
+    },
+    "EXPL-03-002-01": {
+      "prompt": "Sous Unix, quelles associations entre les flux standard d’un processus et les numéros de descripteur sont exactes ?",
+      "feedback": {
+        "A": "Le numéro 1 correspond à la sortie standard, qui peut par exemple aller dans un fichier.",
+        "B": "Un programme lit normalement les données d’entrée sur ce descripteur.",
+        "C": "Une redirection > sans numéro agit sur ce descripteur.",
+        "D": "La redirection 2> cible explicitement ce descripteur."
+      }
+    },
+    "EXPL-03-003-01": {
+      "prompt": "Dans Bash avec ses réglages par défaut, un fichier ordinaire journal existe et peut être modifié. Quelle différence entre `> journal` et `>> journal` ?",
+      "feedback": {
+        "A": "Sans numéro explicite, les deux opérateurs ciblent la sortie standard.",
+        "B": "Seule la redirection en ajout garantit cette position pour les nouvelles écritures.",
+        "C": "La différence est visible même si journal contenait déjà des lignes."
+      }
+    },
+    "REV-N03_004-01": {
+      "prompt": "Une commande lit ses données sur stdin et écrit diagnostics et résultats séparément. Dans `outil < entree 2> erreurs`, où circulent ces données si les redirections réussissent ?",
+      "feedback": {
+        "A": "Aucune redirection du descripteur 1 n’est indiquée.",
+        "B": "2> redirige le descripteur 2 vers le fichier nommé.",
+        "C": "Le fichier erreurs est ici une destination d’écriture.",
+        "D": "L’opérateur < sans numéro redirige le descripteur 0."
+      }
+    },
+    "REV-N03_005-01": {
+      "prompt": "Avec `producteur | filtre`, sans autre redirection, quelles données entrent dans le filtre ?",
+      "feedback": {
+        "A": "Un statut de fin et les octets transmis dans un tube sont deux mécanismes différents.",
+        "B": "Le filtre peut lire ces octets sur son entrée standard.",
+        "C": "Un tube ordinaire laisse stderr sur sa destination existante."
+      }
+    },
+    "REV-N03_006-01": {
+      "prompt": "Sans option errexit, tu exécutes dans Bash `false && printf A || printf B`. Quel texte est écrit ?",
+      "feedback": {
+        "A": "Seul le second printf est exécuté.",
+        "B": "Le printf placé juste après && dépend du succès de false.",
+        "C": "Le statut d’échec conduit bien à exécuter la commande placée après ||.",
+        "D": "Les deux printf ne s’exécutent pas successivement dans ce cas."
+      }
+    },
+    "REV-N03_007-01": {
+      "prompt": "Quelle valeur numérique affiche `printf 'a\\nb' | wc -l` ?",
+      "feedback": {
+        "A": "L’entrée comporte bien un saut de ligne entre les deux lettres.",
+        "B": "Seul le caractère qui suit a est compté.",
+        "C": "Le fragment b n’est terminé par aucun saut de ligne."
+      }
+    },
+    "EXPL-03-008-01": {
+      "prompt": "Une entrée contient la ligne `alice:dev:42`. Quel texte produit `cut -d: -f1` pour cette ligne ?",
+      "feedback": {
+        "A": "La commande sélectionne un champ entier et non un caractère.",
+        "B": "Cette sortie contiendrait les deux premiers champs.",
+        "C": "C’est le texte situé avant le premier deux-points.",
+        "D": "dev constitue le deuxième champ."
+      }
+    },
+    "EXPL-03-009-01": {
+      "prompt": "Avec GNU grep, que demande `grep -A 3 motif fichier` ?",
+      "feedback": {
+        "A": "Une limite sur le nombre de lignes sélectionnées se demande avec -m.",
+        "B": "Le contexte précédent se demande avec -B.",
+        "C": "A désigne le contexte qui suit la correspondance."
+      }
+    },
+    "REV-N03_010-01": {
+      "prompt": "Un fichier contient deux lignes, `Erreur erreur` puis `OK`. Quelle valeur donne `grep -ic erreur fichier` avec GNU grep ?",
+      "feedback": {
+        "A": "Deux occurrences sur une ligne ne comptent que pour une ligne sélectionnée.",
+        "B": "Une seule ligne contient le motif.",
+        "C": "La recherche ignore la casse et trouve le mot sur la première ligne."
+      }
+    },
+    "REV-N03_011-01": {
+      "prompt": "Un fichier contient dans l’ordre trois lignes, rouge, bleu, rouge. Que se passe-t-il si tu l’envoies directement à `uniq` ?",
+      "feedback": {
+        "A": "uniq ne commence pas par trier l’entrée.",
+        "B": "Aucune paire de lignes voisines n’est identique.",
+        "C": "Cette sortie supposerait de reconnaître un doublon séparé par une autre ligne."
+      }
+    },
+    "APP-04-000-001": {
+      "prompt": "Quelle commande Bash seule affecte la valeur `deux mots` à la variable NOM dans le shell courant ?",
+      "feedback": {
+        "A": "Bash traite mots comme un nom de commande auquel l’affectation temporaire NOM=deux est associée.",
+        "B": "Bash essaie d’exécuter une commande appelée NOM avec deux arguments.",
+        "C": "Les guillemets rassemblent les deux mots en une valeur unique."
+      }
+    },
+    "REV-N04_001-01": {
+      "prompt": "Dans un Bash sans export automatique, PROJET est initialement absente. Tu exécutes `PROJET=bleu` puis lances le programme externe `printenv PROJET`. Que se passe-t-il ?",
+      "feedback": {
+        "A": "Son argument est le nom à chercher, pas une chaîne à recopier.",
+        "B": "Partager un terminal ne transmet pas les variables privées du shell.",
+        "C": "Le nom demandé est absent de l’environnement du programme."
+      }
+    },
+    "REV-N04_002-01": {
+      "prompt": "Dans Bash, tu exécutes `nom=dehors; f() { local nom=dedans; }; f`. Quelle valeur a nom après le retour de f ?",
+      "feedback": {
+        "A": "Cette valeur a été affectée à la variable créée dans la fonction.",
+        "B": "local protège ici la valeur portée par le nom dans le contexte appelant.",
+        "C": "La fin de la portée locale ne supprime pas la variable extérieure."
+      }
+    },
+    "EXPL-04-003-01": {
+      "prompt": "Dans Bash, tu définis `PROJET=bleu`, puis `export PROJET`. Quels effets en découlent ?",
+      "feedback": {
+        "A": "L’export marque la variable et conserve sa valeur.",
+        "B": "La valeur exportée est transmise lors du lancement.",
+        "C": "L’environnement de ce programme a été établi avant l’export.",
+        "D": "Les environnements sont distincts et la modification n’est pas propagée vers le parent."
+      }
+    },
+    "APP-04-004-001": {
+      "prompt": "Dans Bash, `NOM` est une variable ordinaire modifiable. Quel effet a `unset NOM` dans ce shell ?",
+      "feedback": {
+        "A": "Retirer l’attribut d’export peut se faire avec export -n dans Bash.",
+        "B": "Les commandes lancées ensuite n’héritent plus de cette variable depuis ce shell.",
+        "C": "C’est le résultat de NOM='', pas celui de unset NOM."
+      }
+    },
+    "REV-N04_005-01": {
+      "prompt": "Dans un nouveau Bash, `TASSE=bleue` est définie mais non exportée. Quel constat peut-on faire avec `set` et le programme externe `printenv` ?",
+      "feedback": {
+        "A": "Leur périmètre d’observation diffère pour les variables non exportées.",
+        "B": "Une variable du shell peut exister sans appartenir à l’environnement transmis.",
+        "C": "printenv ne modifie pas les attributs d’une variable du shell parent."
+      }
+    },
+    "EXPL-04-006-01": {
+      "prompt": "Dans un Bash interactif, que crée la commande `alias ll='ls -l'` ?",
+      "feedback": {
+        "A": "Quand l’alias est actif, Bash remplace le mot ll lors de la lecture de la commande.",
+        "B": "C’est la saisie du nom ll qui déclenche le remplacement.",
+        "C": "Définir l’alias n’écrit aucun exécutable dans le système de fichiers."
+      }
+    },
+    "APP-04-007-001": {
+      "prompt": "Le fichier lisible choix.sh contient seulement `COULEUR=vert`. Pourquoi utiliser `source ./choix.sh` pour définir COULEUR dans le Bash courant ?",
+      "feedback": {
+        "A": "Le changement a lieu dans le processus Bash qui poursuit la session.",
+        "B": "L’effet persiste justement parce que la commande se déroule dans le shell courant.",
+        "C": "source n’ajoute aucun attribut d’export aux affectations ordinaires."
+      }
+    },
+    "APP-04-008-001": {
+      "prompt": "Dans Bash, à quoi sert PATH lorsqu’on lance un programme externe par un nom sans barre oblique, sans alias, fonction ni commande intégrée du même nom ?",
+      "feedback": {
+        "A": "Si plusieurs candidats sont disponibles, leur ordre de recherche compte.",
+        "B": "Les chemins relatifs ordinaires se résolvent depuis le répertoire courant.",
+        "C": "L’autorisation d’écriture dépend des permissions du système de fichiers."
+      }
+    },
+    "REV-N04_009-01": {
+      "prompt": "Dans Bash, nom vaut ab et nom_fin vaut cd. Quelle expression donne exactement ab_fin ?",
+      "feedback": {
+        "A": "L’expansion lit nom et ajoute ensuite le texte littéral _fin.",
+        "B": "Le nom complet nom_fin est lu et sa valeur est cd.",
+        "C": "Entre guillemets simples, Bash garde le texte de l’expression sans développer la variable."
+      }
+    },
+    "REV-N04_010-01": {
+      "prompt": "Dans Bash, après `v=$(printf 'a\\nb\\n\\n')`, que contient la variable v ?",
+      "feedback": {
+        "A": "La suppression ne vise pas le saut de ligne intérieur.",
+        "B": "Le saut intérieur sépare les lettres et les deux sauts finaux sont supprimés.",
+        "C": "Les sauts de ligne qui terminaient la sortie de printf sont retirés."
+      }
+    },
+    "APP-04-011-001": {
+      "prompt": "En Bash, quelle valeur affiche `echo $((3 + 4 * 2))` ?",
+      "feedback": {
+        "A": "L’expansion arithmétique évalue l’expression avant l’appel à echo.",
+        "B": "On calcule 4 × 2 = 8 puis 3 + 8 = 11.",
+        "C": "Ce résultat correspondrait à (3 + 4) × 2."
+      }
+    },
+    "REV-N04_012-01": {
+      "prompt": "Un script Bash est lancé avec `bash voir.sh \"un deux\" trois`. Que valent ses paramètres positionnels au début du script ?",
+      "feedback": {
+        "A": "L’espace protégé est conservé dans le premier argument.",
+        "B": "Le deuxième paramètre est trois. Le mot deux fait partie du premier paramètre.",
+        "C": "Deux arguments ont été transmis au script après son nom.",
+        "D": "Le nom utilisé pour le script est accessible dans $0."
+      }
+    },
+    "EXPL-04-013-01": {
+      "prompt": "Sous Linux, quel caractère sépare les répertoires dans une valeur de PATH comme /usr/local/bin:/usr/bin:/bin ?",
+      "feedback": {
+        "A": "Elle sépare les composants d’un même chemin.",
+        "B": "Il sépare ici trois chemins de répertoires distincts.",
+        "C": "Ce séparateur s’utilise notamment pour le PATH de Windows."
+      }
+    },
+    "CDEEP-09-006-01": {
+      "prompt": "Dans le bloc `int n = 3; int *p = &n;`, quelles affirmations décrivent correctement p, *p et &p ?",
+      "feedback": {
+        "A": "Lire *p consulte l’entier désigné par p, ici n qui vaut 3.",
+        "B": "L’initialiseur &n fournit l’adresse de n et la stocke dans p.",
+        "C": "L’opérateur & appliqué à p fournit un int ** qui désigne p.",
+        "D": "p a le type int * et *p a le type int.",
+        "E": "Écrire à travers p revient à écrire dans n tant que p le désigne."
+      }
+    },
+    "CDEEP-09-008-01": {
+      "prompt": "Avec `int n = 4; int *p = &n;` et <stdio.h> inclus, quel appel à printf affiche l’adresse contenue dans p avec le type attendu ?",
+      "feedback": {
+        "A": "%d attend un int, alors que l’argument transmis est un int *.",
+        "B": "La conversion en void * fournit exactement le type attendu par %p.",
+        "C": "%c attend un entier qui représente un caractère, alors que p est un pointeur.",
+        "D": "%s attend l’adresse de caractères formant une chaîne. L’objet désigné ici est un int."
+      }
+    },
+    "REV-09-009-01": {
+      "prompt": "Dans un même bloc, on déclare int a[4]; int *p = a;. Quelles égalités sont garanties ?",
+      "feedback": {
+        "A": "Les quatre éléments sont contigus et de même type. Leur taille totale est quatre fois celle du premier.",
+        "B": "Le standard n’impose pas d’égalité entre la taille de quatre int et celle d’un int *.",
+        "C": "Le type de l’expression *p, comme celui de a[0], est int.",
+        "D": "Le quotient utilise une taille de pointeur et une taille d’int. Il ne donne pas le nombre d’éléments transmis."
+      }
+    },
+    "REV-09-018-01": {
+      "prompt": "On déclare `int tab[5];`. Quel couple de types correspond, dans l’ordre, à &tab et à &tab[0] ?",
+      "feedback": {
+        "A": "Le premier & porte sur le tableau entier, son résultat est un pointeur vers un tableau de cinq int.",
+        "B": "Un tableau contient ici cinq int. Il ne contient pas une variable de type int * dont &tab prendrait l’adresse.",
+        "C": "&tab pointe vers l’objet tableau de cinq int. &tab[0] pointe vers son premier entier.",
+        "D": "Cet ordre inverse les opérandes de l’opérateur &."
+      }
+    },
+    "REV-09-019-01": {
+      "prompt": "Avec `int t[3] = {2,4,6}; int *fin = t + 3;`, quelles opérations ont un comportement défini ?",
+      "feedback": {
+        "A": "Les deux pointeurs représentent la même position située juste après t.",
+        "B": "Aucun des trois éléments n’occupe cette position.",
+        "C": "L’expression équivaut à *(fin - 1), c’est-à-dire t[2], qui vaut 6.",
+        "D": "Ce calcul dépasserait même la position autorisée juste après le tableau."
+      }
+    },
+    "APP-09-020-004": {
+      "prompt": "Après `int t[2] = {2,4}; int *p = t;`, on initialise un entier avec l’expression `*p++`. Quelles affirmations sont exactes ?",
+      "feedback": {
+        "A": "p++ fournit l’ancienne valeur de p au déréférencement. L’entier lu est t[0].",
+        "B": "L’effet de l’incrément est terminé au plus tard à la fin de l’instruction.",
+        "C": "L’incrément s’applique au pointeur. Les deux valeurs du tableau sont conservées.",
+        "D": "Avec *(++p), l’adresse transmise au déréférencement serait déjà celle de t[1]."
+      }
+    },
+    "REV-09-026-01": {
+      "prompt": "Avec `int t[3] = {2,4,6}; int i;`, quelle condition, dans `for (i = 0; CONDITION; ++i)`, permet de lire une fois chacun des trois éléments avec t[i] ?",
+      "feedback": {
+        "A": "Lorsque i atteint 3, la condition est encore vraie. t[3] dépasse le dernier indice.",
+        "B": "La boucle s’arrête avant i égal à 2 et omet le dernier élément.",
+        "C": "La boucle visite 0, 1, puis 2. Elle s’arrête avant toute lecture à l’indice 3.",
+        "D": "La condition est fausse dès le premier test, car i est initialisé à zéro."
+      }
+    },
+    "APP-09-039-003": {
+      "prompt": "Avec `char s[] = {'A', '\\0', 'B', '\\0'};` et <string.h> inclus, quelles affirmations sont exactes ?",
+      "feedback": {
+        "A": "Seul A se trouve avant le premier caractère nul, à l’indice 1.",
+        "B": "L’initialiseur fournit quatre char, chacun occupe un octet C.",
+        "C": "L’élément d’indice 2 est explicitement initialisé à B.",
+        "D": "strlen rencontre déjà le terminateur à l’indice 1 et ne compte pas les deux octets suivants.",
+        "E": "sizeof s mesure le tableau de quatre char. Une égalité avec la taille d’un pointeur dépendrait de la machine."
+      }
+    },
+    "REV-09-033-01": {
+      "prompt": "Dans `char a[] = \"abc\"; const char *p = \"abc\";`, quelles instructions sont autorisées en C et ont un comportement défini, considérées séparément ?",
+      "feedback": {
+        "A": "a réserve ses propres cases char et la première est accessible en écriture.",
+        "B": "Le cast retire un qualificatif du type de l’expression. Modifier le littéral désigné reste un comportement indéfini.",
+        "C": "Le pointeur p peut désigner une autre suite de char. Son type autorise cette affectation.",
+        "D": "Le nom a désigne un tableau. L’affectation d’une nouvelle adresse à ce tableau viole les contraintes du C."
+      }
+    },
+    "CDEEP-09-034-01": {
+      "prompt": "Après `int *p = malloc(sizeof *p);`, quel fragment écrit 1 dans l’entier seulement si l’allocation a réussi ?",
+      "feedback": {
+        "A": "La condition conduit précisément à déréférencer le pointeur quand il est nul.",
+        "B": "Le test lit déjà *p. L’allocation peut avoir échoué, et sur succès l’entier n’a encore reçu aucune valeur.",
+        "C": "sizeof p mesure la taille du type pointeur et fournit le même résultat en cas d’échec de malloc.",
+        "D": "Lorsque p diffère de NULL, le bloc nouvellement obtenu peut recevoir cet int."
+      }
+    },
+    "REV-09-038-01": {
+      "prompt": "Pour réserver n éléments de type double dans `double *p;`, quel appel exprime la quantité voulue indépendamment des tailles de la machine ? On suppose n positif et le produit représentable en size_t.",
+      "feedback": {
+        "A": "Cette expression réserve la taille du type de n, quel que soit le nombre d’éléments demandé.",
+        "B": "sizeof *p mesure un double, et n multiplie ce nombre d’octets par le nombre d’éléments.",
+        "C": "Une taille de pointeur peut différer de celle d’un double.",
+        "D": "Cette quantité compte n octets. Un double peut occuper plusieurs octets."
+      }
+    },
+    "CDEEP-09-042-01": {
+      "prompt": "Quelles affirmations sur la durée de vie d’un objet local ordinaire ou d’un bloc obtenu par malloc sont exactes ?",
+      "feedback": {
+        "A": "Une fonction peut retourner l’adresse d’un bloc obtenu par malloc et laisser l’appelant le libérer.",
+        "B": "La sortie du bloc de code ne libère pas automatiquement la mémoire obtenue par malloc.",
+        "C": "Un objet automatique ordinaire existe pendant l’exécution du bloc auquel il appartient, y compris les appels effectués depuis ce bloc.",
+        "D": "Renvoyer l’adresse de l’objet local ne change pas sa durée de vie. Après le retour on ne peut plus l’utiliser pour accéder à cet objet."
+      }
+    },
+    "REV-09-043-01": {
+      "prompt": "Après `int *p = malloc(3 * sizeof *p);` et vérification du succès, quelles expressions peuvent être passées à free ? Considère chaque proposition isolément, avant toute libération.",
+      "feedback": {
+        "A": "C’est l’adresse renvoyée par malloc pour le bloc de trois entiers.",
+        "B": "Cette adresse désigne le deuxième entier. Seule l’adresse de départ convient pour rendre l’allocation.",
+        "C": "free(NULL) est défini et ne fait rien. Cela laisse le bloc désigné par p à libérer ultérieurement.",
+        "D": "Cette borne peut servir à délimiter un parcours. Elle ne désigne pas le début du bloc à libérer."
+      }
+    },
+    "REV-09-045-01": {
+      "prompt": "p est l’adresse renvoyée par malloc(4). L’allocation a réussi et ses quatre octets ont été initialisés. On écrit char *tmp = realloc(p, 12);. Quelles affirmations sont exactes ?",
+      "feedback": {
+        "A": "L’échec d’une demande de taille positive laisse l’ancienne allocation intacte. L’adresse p permet encore de la libérer.",
+        "B": "realloc ne garantit aucune initialisation de la partie nouvellement ajoutée.",
+        "C": "Le contenu précédent est conservé sur la plus petite des deux tailles.",
+        "D": "L’ancien objet a terminé sa durée de vie. Seul le pointeur renvoyé lors du succès doit servir pour libérer le bloc redimensionné."
+      }
+    },
+    "REV-09-047-01": {
+      "prompt": "Après `char dest[4]; strncpy(dest, \"lundi\", sizeof dest);`, quel est l’état de dest ?",
+      "feedback": {
+        "A": "L’appel ne réserve pas la dernière case au terminateur. La quatrième lettre d est copiée.",
+        "B": "Le troisième argument borne la copie à quatre octets. dest n’en possède que quatre.",
+        "C": "La copie tient exactement dans dest, mais dest ne peut alors pas être transmis comme chaîne à strlen.",
+        "D": "strncpy ne signale pas ainsi la troncature. Elle copie le nombre d’octets demandé si la source atteint cette longueur."
+      }
+    },
+    "CDEEP-09-052-01": {
+      "prompt": "n a le type size_t et p le type int *. Quelle condition garantit que le produit `n * sizeof *p` est représentable en size_t avant l’appel à malloc ?",
+      "feedback": {
+        "A": "Une valeur positive peut dépasser la limite admise pour le produit.",
+        "B": "L’égalité éventuelle de deux tailles ne borne pas la valeur de n.",
+        "C": "Une valeur située juste au-dessous du maximum peut encore donner un produit trop grand si sizeof *p dépasse un.",
+        "D": "Pour des entiers non négatifs, ce test borne n avant la multiplication et évite le dépassement."
+      }
+    },
+    "REV-09-054-01": {
+      "prompt": "Avec `char s[] = \"ABCD\";`, quelle instruction décale les trois premiers caractères d’une case vers la droite en acceptant le recouvrement ?",
+      "feedback": {
+        "A": "memcpy exige des zones sans recouvrement pour cette copie.",
+        "B": "La destination commence à l’indice 1 et la source à 0. memmove préserve les octets source nécessaires.",
+        "C": "Les arguments inversés déplacent B, C et D vers la gauche.",
+        "D": "Les zones se recouvrent et la destination ne peut pas contenir toute la chaîne avec son terminateur."
+      }
+    },
+    "CDEEP-09-066-01": {
+      "prompt": "Quelle déclaration fait de f une variable pouvant recevoir l’adresse d’une fonction qui prend un int et renvoie un int ?",
+      "feedback": {
+        "A": "f est d’abord lu comme un pointeur, puis comme désignant une fonction int vers int.",
+        "B": "Cette déclaration décrit une fonction qui renvoie un pointeur vers int.",
+        "C": "f est ici une fonction dont le paramètre est un pointeur vers int.",
+        "D": "Après l’identificateur f, l’étoile n’occupe pas une position valide dans ce déclarateur."
+      }
+    },
+    "CDEEP-09-067-01": {
+      "prompt": "Dans `int (*f)(int)`, f a été initialisé avec l’adresse d’une fonction compatible. Quelles écritures appellent cette fonction avec l’argument 5 et produisent son résultat ?",
+      "feedback": {
+        "A": "L’arithmétique des pointeurs ne s’applique pas à un pointeur de fonction en C standard.",
+        "B": "La syntaxe d’appel accepte un pointeur vers fonction de signature compatible.",
+        "C": "Le résultat de l’appel est une valeur int dont on ne peut pas prendre l’adresse avec & dans cette expression.",
+        "D": "Le déréférencement explicite désigne la même fonction pour l’appel."
+      }
+    },
+    "CDEEP-09-071-01": {
+      "prompt": "Dans un comparateur de qsort, a et b sont les deux valeurs de type int à comparer par ordre croissant. Quel avantage présente (a > b) - (a < b) par rapport à a - b ?",
+      "feedback": {
+        "A": "Un calcul comme INT_MAX moins un entier négatif peut dépasser l’intervalle représentable. La différence des booléens reste dans cet intervalle.",
+        "B": "La stabilité est une propriété du tri des éléments égaux. Le choix de cette expression ne la garantit pas.",
+        "C": "Le prototype du comparateur de qsort reçoit toujours les adresses des éléments sous forme de const void *.",
+        "D": "Le résultat est négatif lorsque a est plus petit que b, donc le sens indiqué ici est croissant."
+      }
+    },
+    "REV-16-001-01": {
+      "prompt": "Après `struct point { int x; int y; };` et sans autre déclaration de type, quelle ligne définit un objet nommé origine de ce type ?",
+      "feedback": {
+        "A": "Aucun typedef n’a introduit point comme nom de type utilisable seul.",
+        "B": "Les noms sont inversés. Cette ligne mentionne une structure d’étiquette origine.",
+        "C": "Le type est struct point et l’identificateur de la variable est origine.",
+        "D": "Cette déclaration définit un pointeur, qui pourra désigner un objet de type struct point."
+      }
+    },
+    "REV-16-019-01": {
+      "prompt": "`struct point { int x; }; struct point a = {2}; struct point *p = &a;` Quelles expressions désignent le même membre x de a ?",
+      "feedback": {
+        "A": "Le point accède au membre x de l’objet a.",
+        "B": "Les parenthèses font d’abord obtenir l’objet désigné par p. Le point sélectionne ensuite x.",
+        "C": "L’opérande gauche de ce point est un pointeur. Il faut d’abord le déréférencer.",
+        "D": "L’opérateur flèche réalise le même accès que (*p).x.",
+        "E": "L’opérande gauche de la flèche devrait être un pointeur, alors que a est l’objet structure."
+      }
+    },
+    "REV-16-004-01": {
+      "prompt": "Dans `struct mesure { int jour; int valeur; }; struct mesure m = {3, 8};`, que valent m.jour et m.valeur ?",
+      "feedback": {
+        "A": "jour est le premier membre du type et reçoit le premier initialiseur.",
+        "B": "Associer le dernier initialiseur au premier membre inverserait l’ordre prévu par C.",
+        "C": "Le zéro implicite concerne les membres omis. Le second membre reçoit ici explicitement 8.",
+        "D": "Chaque entrée de la liste sert à initialiser son propre membre."
+      }
+    },
+    "REV-16-005-01": {
+      "prompt": "En C99, on écrit `struct date { int jour; int mois; }; struct date d = {.mois = 8, .jour = 3};`. Quelles affirmations sont exactes ?",
+      "feedback": {
+        "A": "Le nom .jour sélectionne explicitement le membre auquel 3 est affecté dans l’initialiseur.",
+        "B": "La règle positionnelle ne remplace pas les désignateurs explicites dans cette liste.",
+        "C": "Le C90 standard utilise l’initialisation positionnelle. Un compilateur peut offrir les désignateurs comme extension.",
+        "D": "L’initialisation d’un objet ne change pas la disposition déclarée du type."
+      }
+    },
+    "REV-16-006-01": {
+      "prompt": "On déclare `struct point { int x; int y; }; struct point a[2] = {{1,2}, {3,4}};`. Quelle expression lit l’ordonnée du deuxième point ?",
+      "feedback": {
+        "A": "Cette expression lit bien un membre y, mais dans le premier élément, où il vaut 2.",
+        "B": "L’indice est celui du deuxième point mais x est l’abscisse, ici 3.",
+        "C": "L’indice 1 sélectionne le deuxième point. Son membre y a reçu 4.",
+        "D": "Ce tableau a deux éléments. L’indice 2 dépasse donc le dernier élément disponible."
+      }
+    },
+    "REV-16-007-01": {
+      "prompt": "On a `struct coord { int x; }; struct fiche { struct coord pos; }; struct fiche f = {{8}}; struct fiche *p = &f;`. Quelle expression lit l’entier 8 à partir de p ?",
+      "feedback": {
+        "A": "p est un pointeur. Le premier point ne peut pas sélectionner directement un membre sur p.",
+        "B": "La première flèche est correcte, mais son résultat est une struct coord et non un pointeur vers coord.",
+        "C": "L’expression commence par un accès avec point sur le pointeur p et utilise ensuite une flèche sur le membre objet pos.",
+        "D": "La flèche atteint le membre pos de f, puis le point sélectionne x dans pos."
+      }
+    },
+    "REV-16-008-01": {
+      "prompt": "Dans `struct fiche { int age; int *score; };`, a.score pointe vers l’entier n. Après `b = a;` entre deux fiches distinctes, quelles affirmations sont exactes ?",
+      "feedback": {
+        "A": "Le membre age existe séparément dans chacun des deux objets structure.",
+        "B": "L’écriture modifie l’entier désigné. Elle ne réaffecte aucun des deux membres pointeurs.",
+        "C": "Après la copie, les deux pointeurs désignent le même entier.",
+        "D": "L’affectation de structure copie la valeur du pointeur sans effectuer d’allocation supplémentaire."
+      }
+    },
+    "REV-16-009-01": {
+      "prompt": "Une fonction `int changer(struct point copie) { copie.x = 9; return copie.x; }` reçoit p par valeur. Si p.x vaut 2 à l’appel, que vaut p.x après `int r = changer(p);`, et que vaut r ?",
+      "feedback": {
+        "A": "Le 9 est bien renvoyé, mais la fonction a écrit dans une copie de la structure.",
+        "B": "Le paramètre local reçoit une copie de p. Sa modification n’altère pas le p de l’appelant.",
+        "C": "La fonction renvoie son propre champ après y avoir écrit 9.",
+        "D": "Cette proposition inverse la destination de l’écriture et la valeur effectivement renvoyée."
+      }
+    },
+    "REV-16-011-01": {
+      "prompt": "Après `typedef unsigned int identifiant;`, quelles déclarations créent un objet de même type que `unsigned int modele;` ?",
+      "feedback": {
+        "A": "identifiant est l’alias de unsigned int, donc a a le même type que modele.",
+        "B": "Le déclarateur avec étoile fait de b un pointeur vers unsigned int.",
+        "C": "La déclaration utilise directement le type auquel l’alias correspond.",
+        "D": "Cette déclaration introduit une structure d’étiquette identifiant. Son membre int ne transforme pas d en entier."
+      }
+    },
+    "REV-16-014-01": {
+      "prompt": "Pour `struct donnees { char code; int valeur; };`, quelles propriétés de la disposition mémoire sont garanties par C ?",
+      "feedback": {
+        "A": "La somme ne tient pas compte d’un éventuel remplissage entre ou après les membres.",
+        "B": "Les membres ordinaires ont des adresses croissantes dans l’ordre de leur déclaration.",
+        "C": "Le standard autorise le remplissage entre les membres et à la fin, mais pas au début de la structure.",
+        "D": "Ces deux membres sont des objets distincts dans la structure, dont la taille inclut aussi le remplissage éventuel."
+      }
+    },
+    "REV-16-016-01": {
+      "prompt": "Pendant la définition de `struct noeud`, quel membre permet de chaîner directement un autre nœud du même type ?",
+      "feedback": {
+        "A": "À cet endroit struct noeud est incomplet et ne peut pas servir d’objet membre par valeur.",
+        "B": "Le membre est un pointeur pouvant recevoir l’adresse d’un autre nœud ou une valeur nulle.",
+        "C": "Même avec une longueur de un, les éléments de ce tableau devraient avoir un type objet complet.",
+        "D": "Un entier peut servir d’indice dans une autre conception. Ce type ne déclare pas un pointeur vers un nœud."
+      }
+    },
+    "REV-16-018-01": {
+      "prompt": "On a lu `typedef struct cellule cellule_t;` mais pas encore la définition des membres. Quelles déclarations sont valides à cet endroit ?",
+      "feedback": {
+        "A": "La taille d’un pointeur vers struct cellule est connue indépendamment de celle de la structure.",
+        "B": "sizeof exige ici un type complet. La taille de cellule_t reste inconnue.",
+        "C": "Cette déclaration annonce un objet défini ailleurs, sans en réserver le stockage à cet endroit.",
+        "D": "Même si la longueur du tableau est connue, son type élément doit être complet."
+      }
+    },
+    "REV-16-020-01": {
+      "prompt": "main.c inclut a.h et b.h, qui incluent tous deux point.h. La définition de struct point est entourée d’une garde #ifndef dans point.h. Quel effet cette garde a-t-elle ?",
+      "feedback": {
+        "A": "La macro reste définie jusqu’à la fin de ce prétraitement, tant que le code ne l’annule pas.",
+        "B": "Chaque unité de traduction dispose de son propre état de préprocesseur.",
+        "C": "Une garde agit sur l’inclusion répétée. Elle ne change pas la liaison d’une fonction.",
+        "D": "Le préprocesseur saute un bloc déjà inclus. Il ne compare pas les types et ne les fusionne pas."
+      }
+    },
+    "CDEEP-16-015-01": {
+      "prompt": "Pour `struct fiche { char nom[48]; int age; }; struct fiche *p;`, quelle ligne réserve la taille appropriée pour une fiche, quelle que soit l’architecture ?",
+      "feedback": {
+        "A": "sizeof donne une taille, pas une adresse renvoyée par une allocation.",
+        "B": "sizeof p mesure un pointeur. Ce nombre ne garantit pas l’espace nécessaire pour la structure.",
+        "C": "Pour ce type structure complet, sizeof *p détermine la taille sans lire l’adresse actuellement contenue dans p.",
+        "D": "free attend un pointeur approprié, libère de la mémoire et ne renvoie aucune valeur à affecter."
+      }
+    },
+    "REV-09-027-01": {
+      "prompt": "Pour `int grille[2][3] = {{1,2,3}, {4,5,6}};`, quelle expression désigne la case dont la valeur est 5 ?",
+      "feedback": {
+        "A": "Cette case contient le troisième entier de la première ligne, qui vaut 3.",
+        "B": "Cette case est la troisième de la seconde ligne, qui vaut 6.",
+        "C": "La seconde ligne contient 4, 5 et 6. Son élément d’indice 1 vaut 5.",
+        "D": "L’indice de ligne 2 est hors limites pour un tableau de deux lignes."
+      }
+    },
+    "REV-09-025-01": {
+      "prompt": "Après `int notes[4] = {7, 9};`, quelle affirmation décrit les deux dernières cases ?",
+      "feedback": {
+        "A": "La borne 4 dans la déclaration fixe le nombre d’éléments. L’initialiseur ne le réduit pas.",
+        "B": "La liste d’initialisation ne se répète pas pour remplir le tableau.",
+        "C": "Ces deux éléments non explicitement nommés sont initialisés implicitement à zéro.",
+        "D": "Un initialiseur est présent. Le troisième élément a déjà reçu une valeur définie."
+      }
+    },
+    "REV-09-028-01": {
+      "prompt": "On part de `char a = 'A', b = 'B';`. Pourquoi `a = b; b = a;` ne termine-t-il pas l’échange des deux valeurs ?",
+      "feedback": {
+        "A": "En C, une lecture de a fournit sa valeur actuelle. Pour conserver son ancienne valeur, il faut l’avoir mémorisée ailleurs.",
+        "B": "Après a = b, l’ancienne valeur A ne se trouve plus dans ces deux variables. Une variable temporaire permet de la conserver.",
+        "C": "a et b sont des variables modifiables. Le problème concerne l’ordre des opérations.",
+        "D": "Il s’agit de deux instructions successives et l’effet de la première doit être visible par la seconde."
+      }
+    },
+    "REV-09-029-01": {
+      "prompt": "Pour inverser sur place le texte du tableau `char s[] = \"ABCD\";` par échanges successifs, quelles paires d’indices faut-il échanger ?",
+      "feedback": {
+        "A": "L’échange des deux extrémités place D au début et A au dernier emplacement du texte.",
+        "B": "L’indice 4 contient le terminateur. Le déplacer au début transformerait le début du tableau en chaîne vide.",
+        "C": "Après l’échange des extrémités, cet échange central place C avant B.",
+        "D": "L’élément d’indice 3 participe déjà à la paire extérieure. L’échanger ensuite avec l’indice 2 détruirait l’ordre obtenu."
+      }
+    },
+    "REV-09-048-01": {
+      "prompt": "Après `unsigned char *p = calloc(3, sizeof *p);` et vérification du succès, quelles affirmations sont exactes ?",
+      "feedback": {
+        "A": "Chaque élément occupe un octet. Tous ses bits sont initialisés à zéro, ce qui représente zéro pour unsigned char.",
+        "B": "L’allocation comporte seulement trois éléments. calloc n’ajoute aucun caractère final hors de ce bloc.",
+        "C": "L’adresse issue de calloc suit les mêmes règles de libération qu’une allocation de malloc.",
+        "D": "Le type de p reste unsigned char *. Sa taille est celle du pointeur sur cette plateforme."
+      }
+    },
+    "REV-09-063-01": {
+      "prompt": "Une fonction reçoit `const char *p` censé désigner des données de longueur inconnue. Quel renseignement fournit le type de p, à lui seul ?",
+      "feedback": {
+        "A": "Un const char * peut désigner un seul caractère ou le début d’un tableau dépourvu de terminateur.",
+        "B": "Une capacité ou une longueur doit être fournie ou déterminée par un autre moyen adapté.",
+        "C": "L’élément désigné est qualifié const dans cette expression. Le pointeur lui-même peut être réaffecté.",
+        "D": "Le même type de pointeur peut désigner un objet de durée de vie automatique, statique ou allouée."
       }
     }
   }

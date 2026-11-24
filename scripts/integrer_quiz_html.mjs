@@ -13,11 +13,12 @@ const engine=source('quiz/engine.mjs');
 const account=source('account/client.mjs');
 const argc=JSON.parse(source('docs/quiz/vague1/section-09-pointeurs-et-tableaux-c.json'));
 const variadic=JSON.parse(source('quiz/questions-variadiques.json'));
+const reviewed=JSON.parse(source('quiz/questions-revisees.json'));
 const help=JSON.parse(source('quiz/aide-pedagogique.json'));
 const argcQuestions=argc.questions.filter(q=>/^V1-N09_07[2-6]-0[1-5]$/.test(q.id));
 assert.equal(argcQuestions.length,25,'25 questions argc/argv attendues');
 assert.equal(variadic.questions.length,30,'30 questions variadiques attendues');
-const questions=[...argcQuestions,...variadic.questions];
+const questions=[...argcQuestions,...variadic.questions,...reviewed.questions];
 assert.equal(Object.keys(help.questions).length,questions.length,'Une reformulation par question attendue.');
 for(const question of questions){
  const item=help.questions[question.id];
@@ -46,6 +47,7 @@ const cssBlock=cssStart+'\n<style id="quiz-inline-style">\n'+css+'\n</style>\n'+
 const appBlock=appStart+'\n'+
  '<script id="quiz-argc-bank" type="application/json">'+safeJSON({questions:argcQuestions})+'</script>\n'+
  '<script id="quiz-variadic-bank" type="application/json">'+safeJSON(variadic)+'</script>\n'+
+ '<script id="quiz-reviewed-bank" type="application/json">'+safeJSON(reviewed)+'</script>\n'+
  '<script id="quiz-aide-bank" type="application/json">'+safeJSON(help)+'</script>\n'+
  '<script type="module" id="quiz-inline-module">\n'+pureCore+'\n'+pureEngine+'\n'+pureAccount+'\n</script>\n'+appEnd;
 function replaceBlock(text,start,end,legacy,replacement){
@@ -70,7 +72,7 @@ if(process.argv.includes('--check')){
  console.log('Le quiz autonome intégré dans index.html correspond exactement aux sources.');
 }else if(process.argv.includes('--write')){
  writeFileSync(htmlPath,output);
- console.log('Quiz intégré dans index.html : 25 argc/argv + 30 stdarg.h, JS et CSS autonomes.');
+ console.log(questions.length+' questions intégrées dans index.html, JS et CSS autonomes.');
 }else{
  throw Error('Usage : node scripts/integrer_quiz_html.mjs --write|--check');
 }

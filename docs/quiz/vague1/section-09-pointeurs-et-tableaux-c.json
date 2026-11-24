@@ -6446,7 +6446,7 @@
       "correct_option_ids": [
         "C"
       ],
-      "explanation": "strlen calcule le nombre de caractères avant le terminateur nul de cette chaîne ; argc compte les arguments et sizeof argv mesure le pointeur dans main.",
+      "explanation": "strlen compte les octets précédant le caractère nul. argc compte les arguments et sizeof argv donne la taille du pointeur dans main.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/74-argc-compter-les-arguments-de-la-ligne-de-commande",
         "https://publications.gbdirect.com/c_book/chapter10/arguments_to_main.html",
