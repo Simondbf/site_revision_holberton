@@ -93,11 +93,11 @@ try{
     {name:'struct/typedef 16:1',source:extra['16:1'].example+'\n',output:"3 7\n"},
     {name:'struct/typedef 16:2',source:extra['16:2'].example+'\n',output:"7 3\n"},
     {name:'struct/typedef 16:3',source:extra['16:3'].example+'\n',output:"9 9 9\n"},
-    {name:'struct/typedef 16:4',source:extra['16:4'].example+'\n',output:"4 5 0\n"},
+    {name:'struct/typedef 16:4',source:extra['16:4'].example+'\n',output:"4 5 0\n",secure:true},
     {name:'struct/typedef 16:6',source:extra['16:6'].example+'\n',output:"3 4\n"},
     {name:'struct/typedef 16:7',source:extra['16:7'].example+'\n',output:"8 5\n"},
     {name:'struct/typedef 16:8',source:extra['16:8'].example+'\n',output:"2 9\n"},
-    {name:'struct/typedef 16:9',source:extra['16:9'].example+'\n',output:"2\n"},
+    {name:'struct/typedef 16:9',source:extra['16:9'].example+'\n',output:"9 2\n",secure:true},
     {name:'struct/typedef 16:10',source:extra['16:10'].example+'\n',output:"9\n"},
     {name:'struct/typedef 16:11',source:extra['16:11'].example+'\n',output:"42\n"},
     {name:'struct/typedef 16:12',source:extra['16:12'].example+'\n',output:"4\n"},
@@ -126,6 +126,15 @@ try{
     run('gcc',['-std=gnu89','-pedantic-errors',...(test.secure?['-Wall','-Wextra','-Werror']:[]),'-x','c','-o',exe,'-'],{input:test.source});
     assert.equal(run(exe,[],{input:test.input||''}),test.output,'Résultat incorrect : '+test.name);
   }
+  const conversion=join(travail,'strtol-ligne');
+  run('gcc',['-std=gnu89','-Wall','-Wextra','-Werror','-pedantic','-x','c','-o',conversion,'-'],{input:extra['8:27'].example});
+  const limite='0'.repeat(29)+'42';
+  for(const input of [limite+'\n',limite,'42']){
+    assert.equal(run(conversion,[],{input}),'Nombre : 42\n');
+  }
+  const tropLong=spawnSync(conversion,[],{input:limite+'abc\n',encoding:'utf8'});
+  assert.equal(tropLong.status,1);
+  assert.match(tropLong.stdout,/trop longue/);
   const c99quiz=extra['16:18'].example.replace('point p = {1, 2};','point p = { .y = 2, .x = 1 };');
   assert.notEqual(c99quiz, extra['16:18'].example, 'Cas du quiz désigné absent.');
   const quizexe=join(travail,'typedef-designe-c99');
