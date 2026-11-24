@@ -317,6 +317,19 @@ try{
  }
  await page.screenshot({path:'apercus/atoi-et-formats-c.png'});
 
+ // write() : vérifier les deux fiches, leurs schémas et références.
+ for(const [index,term,needle] of [
+  [43,'write() — écrire des octets sur un descripteur','STDOUT_FILENO'],
+  [44,'write() — valeur de retour, erreurs et écritures partielles','EBADF']
+ ]){
+  await page.goto(origin+'/'+route('Programmation C',term));
+  await page.waitForFunction(i=>document.querySelector('#notion-8-'+i)?.classList.contains('lesson-selected'),index);
+  const fiche=page.locator('#notion-8-'+index);
+  assert.ok((await fiche.innerText()).includes(needle),'Notion write absente');
+  assert.equal(await fiche.locator('figure.lesson-visual svg[aria-label]').count(),1,'Schéma write manquant');
+  assert.ok(await fiche.locator('.lesson-sources a').count()>=2,'Sources write manquantes');
+  await fiche.locator('figure.lesson-visual').screenshot({path:'apercus/write-'+index+'.png'});
+ }
  // Le nouveau thème récursivité doit être navigable, avec onze cours détaillés.
  await page.goto(origin+'/#theme/recursivite-en-c');
  await page.waitForFunction(()=>!document.querySelector('#detail')?.classList.contains('hidden'));

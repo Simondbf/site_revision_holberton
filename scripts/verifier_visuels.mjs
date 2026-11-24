@@ -43,6 +43,8 @@ assert.ok(count>=35,'Seuil minimal indicatif : les illustrations utiles ont-elle
 
 // Contrats de sens : un dessin ne remplace pas la notion par un schéma générique.
 const expected={
+ '8:43':['write(1,','6 octets','fd = 1','\\0','Non envoyé'],
+ '8:44':['2 octets écrits','3 octets restants','buf + 2'],
  '14:15':['Lire x','Afficher x','Fin'],
  '14:16':['Début ou fin','Entrée / sortie','Décision','Oui','Non'],
  '14:17':['Document','Sous-processus','Annotation','Raccord sur page','Raccord autre page','Base de données'],
