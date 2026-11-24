@@ -1,0 +1,1178 @@
+[
+  {
+    "id": "APP-09-020-003",
+    "reponses": [
+      "B"
+    ],
+    "explication": "p désigne t[1] ; p[-1] est identique à *(p-1), soit t[0]."
+  },
+  {
+    "id": "APP-09-014-004",
+    "reponses": [
+      "A"
+    ],
+    "explication": "Le dernier indice d'un tableau de n éléments est n-1."
+  },
+  {
+    "id": "APP-09-026-004",
+    "reponses": [
+      "D"
+    ],
+    "explication": "La boucle additionne t[2], t[1] et t[0], soit 8+4+2=14."
+  },
+  {
+    "id": "APP-09-017-002",
+    "reponses": [
+      "B"
+    ],
+    "explication": "Le tableau contient aussi le terminateur nul : 2 octets."
+  },
+  {
+    "id": "APP-09-017-004",
+    "reponses": [
+      "A",
+      "B"
+    ],
+    "explication": "Le tableau possède huit octets ; après H, i et le nul, les éléments restants sont initialisés à zéro."
+  },
+  {
+    "id": "CDEEP-09-000-01",
+    "reponses": [
+      "A"
+    ],
+    "explication": "L'opérateur unaire & prend l'adresse."
+  },
+  {
+    "id": "CDEEP-09-002-01",
+    "reponses": [
+      "C"
+    ],
+    "explication": "&a désigne l'adresse de l'objet a."
+  },
+  {
+    "id": "CDEEP-09-003-01",
+    "reponses": [
+      "A"
+    ],
+    "explication": "L'astérisque appartient à la déclaration du pointeur C."
+  },
+  {
+    "id": "CDEEP-09-007-01",
+    "reponses": [
+      "C"
+    ],
+    "explication": "Le type guide l'interprétation et la taille d'un accès."
+  },
+  {
+    "id": "CDEEP-09-010-01",
+    "reponses": [
+      "D"
+    ],
+    "explication": "La représentation et taille des pointeurs dépendent de la plateforme."
+  },
+  {
+    "id": "CDEEP-09-011-01",
+    "reponses": [
+      "D"
+    ],
+    "explication": "Un paramètre reçoit une copie de la valeur."
+  },
+  {
+    "id": "CDEEP-09-012-01",
+    "reponses": [
+      "A"
+    ],
+    "explication": "Le pointeur donne accès à l'objet original."
+  },
+  {
+    "id": "CDEEP-09-013-01",
+    "reponses": [
+      "B"
+    ],
+    "explication": "La déclaration donne cinq éléments indexés 0…4."
+  },
+  {
+    "id": "CDEEP-09-021-01",
+    "reponses": [
+      "C"
+    ],
+    "explication": "La terminaison nulle délimite la chaîne."
+  },
+  {
+    "id": "CDEEP-09-022-01",
+    "reponses": [
+      "D"
+    ],
+    "explication": "Les fonctions sur les chaînes repèrent le caractère nul."
+  },
+  {
+    "id": "CDEEP-09-023-01",
+    "reponses": [
+      "B"
+    ],
+    "explication": "%s lit une chaîne terminée par un caractère nul."
+  },
+  {
+    "id": "CDEEP-09-030-01",
+    "reponses": [
+      "C",
+      "D"
+    ],
+    "explication": "malloc peut échouer et n'initialise pas les octets alloués."
+  },
+  {
+    "id": "CDEEP-09-035-01",
+    "reponses": [
+      "C"
+    ],
+    "explication": "Un bloc dynamique devenu inaccessible avant d'avoir été libéré est une fuite ; un pointeur encore accessible n'implique pas nécessairement une fuite."
+  },
+  {
+    "id": "CDEEP-09-036-01",
+    "reponses": [
+      "C"
+    ],
+    "explication": "La catégorie definitely lost appartient aux rapports de fuites de Memcheck ; les autres outils n'émettent pas ce diagnostic."
+  },
+  {
+    "id": "CDEEP-09-040-01",
+    "reponses": [
+      "D"
+    ],
+    "explication": "strcpy copie aussi le caractère nul final, sans connaître la capacité de dest. L'appelant doit fournir une destination suffisamment grande."
+  },
+  {
+    "id": "CDEEP-09-041-01",
+    "reponses": [
+      "B"
+    ],
+    "explication": "La copie sur le tas doit être libérée."
+  },
+  {
+    "id": "CDEEP-09-044-01",
+    "reponses": [
+      "B"
+    ],
+    "explication": "Le pointeur indéterminé ne désigne pas une cible valide garantie."
+  },
+  {
+    "id": "CDEEP-09-046-01",
+    "reponses": [
+      "B"
+    ],
+    "explication": "Une segfault peut avoir différentes causes, selon l'environnement."
+  },
+  {
+    "id": "CDEEP-09-050-01",
+    "reponses": [
+      "B"
+    ],
+    "explication": "La durée de vie du bloc est terminée."
+  },
+  {
+    "id": "CDEEP-09-053-01",
+    "reponses": [
+      "A"
+    ],
+    "explication": "Invalid write décrit une écriture considérée invalide : adresse hors limites, libérée ou autrement inaccessible."
+  },
+  {
+    "id": "CDEEP-09-055-01",
+    "reponses": [
+      "B"
+    ],
+    "explication": "La lecture elle-même doit être bornée. Une copie ou une libération ultérieure ne répare pas les écritures hors limites déjà commises."
+  },
+  {
+    "id": "CDEEP-09-057-01",
+    "reponses": [
+      "D"
+    ],
+    "explication": "Chaque appel récursif peut ajouter des informations de pile ; une récursion non bornée peut épuiser cette ressource."
+  },
+  {
+    "id": "CDEEP-09-058-01",
+    "reponses": [
+      "B"
+    ],
+    "explication": "Un seul bloc totalisant 32 octets a été perdu sans pointeur connu permettant de le récupérer."
+  },
+  {
+    "id": "CDEEP-09-059-01",
+    "reponses": [
+      "D"
+    ],
+    "explication": "strlen ne reçoit pas de capacité : une chaîne doit avoir un terminateur nul accessible."
+  },
+  {
+    "id": "CDEEP-09-062-01",
+    "reponses": [
+      "B"
+    ],
+    "explication": "La cible n'existe plus."
+  },
+  {
+    "id": "CDEEP-09-065-01",
+    "reponses": [
+      "C"
+    ],
+    "explication": "Les catégories de diagnostics résument un symptôme ; leur contexte d'exécution et les traces sont nécessaires pour conclure."
+  },
+  {
+    "id": "CDEEP-16-017-01",
+    "reponses": [
+      "C"
+    ],
+    "explication": "La documentation décrit le rôle du type et des membres. Elle ne change ni la mémoire ni la sémantique du langage."
+  },
+  {
+    "id": "CDEEP-09-068-01",
+    "reponses": [
+      "B"
+    ],
+    "explication": "Un callback est appelé via une référence de fonction, et sa signature doit être compatible avec celle attendue."
+  },
+  {
+    "id": "CDEEP-09-069-01",
+    "reponses": [
+      "A",
+      "D"
+    ],
+    "explication": "L'indice et le pointeur de fonction doivent être valides ; les signatures appelées doivent être compatibles."
+  },
+  {
+    "id": "CDEEP-09-070-01",
+    "reponses": [
+      "C"
+    ],
+    "explication": "typedef nomme un type de pointeur vers fonction, sans créer ni exécuter de fonction."
+  },
+  {
+    "id": "V1-N09_000-04",
+    "reponses": [
+      "A",
+      "D"
+    ],
+    "explication": "Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet."
+  },
+  {
+    "id": "V1-N09_001-04",
+    "reponses": [
+      "A",
+      "B"
+    ],
+    "explication": "Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet."
+  },
+  {
+    "id": "V1-N09_002-04",
+    "reponses": [
+      "B",
+      "C"
+    ],
+    "explication": "Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet."
+  },
+  {
+    "id": "V1-N09_003-04",
+    "reponses": [
+      "C",
+      "D"
+    ],
+    "explication": "Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet."
+  },
+  {
+    "id": "V1-N09_004-04",
+    "reponses": [
+      "A",
+      "D"
+    ],
+    "explication": "Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet."
+  },
+  {
+    "id": "V1-N09_005-04",
+    "reponses": [
+      "A",
+      "B"
+    ],
+    "explication": "Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet."
+  },
+  {
+    "id": "V1-N09_007-04",
+    "reponses": [
+      "C",
+      "D"
+    ],
+    "explication": "Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet."
+  },
+  {
+    "id": "V1-N09_009-04",
+    "reponses": [
+      "C",
+      "D",
+      "E"
+    ],
+    "explication": "Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet."
+  },
+  {
+    "id": "V1-N09_010-04",
+    "reponses": [
+      "B",
+      "C"
+    ],
+    "explication": "Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet."
+  },
+  {
+    "id": "V1-N09_011-04",
+    "reponses": [
+      "C",
+      "D"
+    ],
+    "explication": "Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet."
+  },
+  {
+    "id": "V1-N09_012-04",
+    "reponses": [
+      "A",
+      "B",
+      "E"
+    ],
+    "explication": "Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet."
+  },
+  {
+    "id": "V1-N09_013-04",
+    "reponses": [
+      "A",
+      "B"
+    ],
+    "explication": "Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet."
+  },
+  {
+    "id": "V1-N09_014-04",
+    "reponses": [
+      "B",
+      "C"
+    ],
+    "explication": "Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet."
+  },
+  {
+    "id": "V1-N09_015-04",
+    "reponses": [
+      "B",
+      "C",
+      "D"
+    ],
+    "explication": "Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet."
+  },
+  {
+    "id": "V1-N09_016-04",
+    "reponses": [
+      "A",
+      "D"
+    ],
+    "explication": "Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet."
+  },
+  {
+    "id": "V1-N09_017-04",
+    "reponses": [
+      "A",
+      "B"
+    ],
+    "explication": "Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet."
+  },
+  {
+    "id": "V1-N09_019-04",
+    "reponses": [
+      "C",
+      "D"
+    ],
+    "explication": "Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet."
+  },
+  {
+    "id": "V1-N09_020-04",
+    "reponses": [
+      "A",
+      "D"
+    ],
+    "explication": "Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet."
+  },
+  {
+    "id": "V1-N09_021-04",
+    "reponses": [
+      "A",
+      "B",
+      "C"
+    ],
+    "explication": "Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet."
+  },
+  {
+    "id": "V1-N09_022-04",
+    "reponses": [
+      "B",
+      "C"
+    ],
+    "explication": "Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet."
+  },
+  {
+    "id": "V1-N09_023-04",
+    "reponses": [
+      "C",
+      "D"
+    ],
+    "explication": "Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet."
+  },
+  {
+    "id": "V1-N09_024-04",
+    "reponses": [
+      "A",
+      "D"
+    ],
+    "explication": "Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet."
+  },
+  {
+    "id": "V1-N09_026-04",
+    "reponses": [
+      "B",
+      "C"
+    ],
+    "explication": "Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet."
+  },
+  {
+    "id": "V1-N09_030-04",
+    "reponses": [
+      "B",
+      "C",
+      "D"
+    ],
+    "explication": "Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet."
+  },
+  {
+    "id": "V1-N09_031-04",
+    "reponses": [
+      "C",
+      "D"
+    ],
+    "explication": "Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet."
+  },
+  {
+    "id": "V1-N09_032-04",
+    "reponses": [
+      "A",
+      "D"
+    ],
+    "explication": "Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet."
+  },
+  {
+    "id": "V1-N09_035-04",
+    "reponses": [
+      "C",
+      "D"
+    ],
+    "explication": "Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet."
+  },
+  {
+    "id": "V1-N09_036-04",
+    "reponses": [
+      "A",
+      "D"
+    ],
+    "explication": "Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet."
+  },
+  {
+    "id": "V1-N09_037-04",
+    "reponses": [
+      "A",
+      "B"
+    ],
+    "explication": "Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet."
+  },
+  {
+    "id": "V1-N09_040-04",
+    "reponses": [
+      "A",
+      "D"
+    ],
+    "explication": "Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet."
+  },
+  {
+    "id": "V1-N09_041-04",
+    "reponses": [
+      "A",
+      "B"
+    ],
+    "explication": "Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet."
+  },
+  {
+    "id": "V1-N09_043-04",
+    "reponses": [
+      "C",
+      "D"
+    ],
+    "explication": "Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet."
+  },
+  {
+    "id": "V1-N09_044-04",
+    "reponses": [
+      "A",
+      "D"
+    ],
+    "explication": "Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet."
+  },
+  {
+    "id": "V1-N09_046-04",
+    "reponses": [
+      "B",
+      "C"
+    ],
+    "explication": "Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet."
+  },
+  {
+    "id": "V1-N09_049-04",
+    "reponses": [
+      "A",
+      "B"
+    ],
+    "explication": "Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet."
+  },
+  {
+    "id": "V1-N09_050-04",
+    "reponses": [
+      "B",
+      "C"
+    ],
+    "explication": "Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet."
+  },
+  {
+    "id": "V1-N09_051-04",
+    "reponses": [
+      "A",
+      "B",
+      "C"
+    ],
+    "explication": "Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet."
+  },
+  {
+    "id": "V1-N09_053-04",
+    "reponses": [
+      "A",
+      "B"
+    ],
+    "explication": "Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet."
+  },
+  {
+    "id": "V1-N09_055-04",
+    "reponses": [
+      "C",
+      "D"
+    ],
+    "explication": "Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet."
+  },
+  {
+    "id": "V1-N09_056-04",
+    "reponses": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "explication": "Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet."
+  },
+  {
+    "id": "V1-N09_057-04",
+    "reponses": [
+      "A",
+      "B",
+      "E"
+    ],
+    "explication": "Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet."
+  },
+  {
+    "id": "V1-N09_058-04",
+    "reponses": [
+      "B",
+      "C"
+    ],
+    "explication": "Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet."
+  },
+  {
+    "id": "V1-N09_059-04",
+    "reponses": [
+      "C",
+      "D"
+    ],
+    "explication": "Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet."
+  },
+  {
+    "id": "V1-N09_060-04",
+    "reponses": [
+      "B",
+      "C",
+      "D"
+    ],
+    "explication": "Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet."
+  },
+  {
+    "id": "V1-N09_061-04",
+    "reponses": [
+      "A",
+      "B"
+    ],
+    "explication": "Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet."
+  },
+  {
+    "id": "V1-N09_062-04",
+    "reponses": [
+      "B",
+      "C"
+    ],
+    "explication": "Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet."
+  },
+  {
+    "id": "V1-N09_064-04",
+    "reponses": [
+      "A",
+      "D"
+    ],
+    "explication": "Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet."
+  },
+  {
+    "id": "V1-N09_065-04",
+    "reponses": [
+      "A",
+      "B"
+    ],
+    "explication": "Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet."
+  },
+  {
+    "id": "V1-N09_068-04",
+    "reponses": [
+      "A",
+      "D"
+    ],
+    "explication": "Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet."
+  },
+  {
+    "id": "V1-N09_069-04",
+    "reponses": [
+      "C",
+      "D",
+      "E"
+    ],
+    "explication": "Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet."
+  },
+  {
+    "id": "V1-N09_070-04",
+    "reponses": [
+      "B",
+      "C"
+    ],
+    "explication": "Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet."
+  },
+  {
+    "id": "V1-N09_003-05",
+    "reponses": [
+      "A",
+      "B",
+      "C"
+    ],
+    "explication": "p est un pointeur local initialisé, mais sa valeur n'est jamais utilisée. -Wall active -Wunused-variable et -Werror transforme l'avertissement en erreur. (void)p peut documenter une utilisation intentionnellement omise, tandis que supprimer p est préférable s'il est inutile ; p ne pointe pas vers un objet alloué dynamiquement et ne doit pas être libéré."
+  },
+  {
+    "id": "V1-N09_072-06",
+    "reponses": [
+      "D"
+    ],
+    "explication": "Le cast explicite vers void évalue la valeur des paramètres sans l'exploiter ; GCC ne les considère alors plus comme paramètres inutilisés. Leur type et leur valeur ne changent pas, et aucune mémoire n'est libérée."
+  },
+  {
+    "id": "V1-N16_000-04",
+    "reponses": [
+      "A",
+      "B",
+      "E"
+    ],
+    "explication": "Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet."
+  },
+  {
+    "id": "V1-N16_002-04",
+    "reponses": [
+      "C",
+      "D"
+    ],
+    "explication": "Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet."
+  },
+  {
+    "id": "V1-N16_003-04",
+    "reponses": [
+      "A",
+      "D"
+    ],
+    "explication": "Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet."
+  },
+  {
+    "id": "V1-N16_010-04",
+    "reponses": [
+      "C",
+      "D"
+    ],
+    "explication": "Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet."
+  },
+  {
+    "id": "V1-N16_012-04",
+    "reponses": [
+      "C",
+      "D",
+      "E"
+    ],
+    "explication": "Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet."
+  },
+  {
+    "id": "V1-N16_013-04",
+    "reponses": [
+      "B",
+      "C"
+    ],
+    "explication": "Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet."
+  },
+  {
+    "id": "V1-N16_017-04",
+    "reponses": [
+      "B",
+      "C"
+    ],
+    "explication": "Les réponses exactes reprennent des propriétés de la notion ; les distracteurs décrivent des erreurs plausibles concernant ce même sujet."
+  },
+  {
+    "id": "APP-05-006-001",
+    "reponses": [
+      "D"
+    ],
+    "explication": "Le corps d'une boucle do…while s'exécute au moins une fois."
+  },
+  {
+    "id": "APP-05-005-002",
+    "reponses": [
+      "C"
+    ],
+    "explication": "i prend successivement les valeurs 3 à 1, soit 3 passages."
+  },
+  {
+    "id": "APP-05-006-002",
+    "reponses": [
+      "A"
+    ],
+    "explication": "Le corps s’exécute pour i = 0, 1 et 2. Après le troisième affichage, i vaut 3 : le test placé à la fin est faux."
+  },
+  {
+    "id": "APP-05-009-002",
+    "reponses": [
+      "B"
+    ],
+    "explication": "Les 3 tours extérieurs entraînent 3 tours intérieurs chacun."
+  },
+  {
+    "id": "APP-05-004-003",
+    "reponses": [
+      "D"
+    ],
+    "explication": "Les valeurs de i vont de 0 à 3, soit 4 passages."
+  },
+  {
+    "id": "APP-05-005-003",
+    "reponses": [
+      "C"
+    ],
+    "explication": "i prend successivement les valeurs 4 à 1, soit 4 passages."
+  },
+  {
+    "id": "APP-05-006-003",
+    "reponses": [
+      "B"
+    ],
+    "explication": "Le compteur décroît après chaque affichage : il passe de 5 à 4, puis de 4 à 3. Le test final 3 > 3 est faux."
+  },
+  {
+    "id": "APP-05-009-003",
+    "reponses": [
+      "C"
+    ],
+    "explication": "Les 4 tours extérieurs entraînent 3 tours intérieurs chacun."
+  },
+  {
+    "id": "APP-05-004-004",
+    "reponses": [
+      "D"
+    ],
+    "explication": "Les valeurs de i vont de 0 à 4, soit 5 passages."
+  },
+  {
+    "id": "APP-05-005-004",
+    "reponses": [
+      "C"
+    ],
+    "explication": "i prend successivement les valeurs 5 à 1, soit 5 passages."
+  },
+  {
+    "id": "APP-05-006-004",
+    "reponses": [
+      "A"
+    ],
+    "explication": "Au premier passage, i devient 1 et X est affiché. Au deuxième, i devient 2 et break quitte immédiatement la boucle avant printf."
+  },
+  {
+    "id": "APP-05-009-004",
+    "reponses": [
+      "A"
+    ],
+    "explication": "Les 5 tours extérieurs entraînent 3 tours intérieurs chacun."
+  },
+  {
+    "id": "APP-05-004-005",
+    "reponses": [
+      "D"
+    ],
+    "explication": "Les valeurs de i vont de 0 à 5, soit 6 passages."
+  },
+  {
+    "id": "APP-05-005-005",
+    "reponses": [
+      "A"
+    ],
+    "explication": "i prend successivement les valeurs 6 à 1, soit 6 passages."
+  },
+  {
+    "id": "APP-05-009-005",
+    "reponses": [
+      "C"
+    ],
+    "explication": "Les 6 tours extérieurs entraînent 3 tours intérieurs chacun."
+  },
+  {
+    "id": "APP-05-004-006",
+    "reponses": [
+      "D"
+    ],
+    "explication": "Les valeurs de i vont de 0 à 6, soit 7 passages."
+  },
+  {
+    "id": "APP-05-005-006",
+    "reponses": [
+      "A"
+    ],
+    "explication": "i prend successivement les valeurs 7 à 1, soit 7 passages."
+  },
+  {
+    "id": "APP-05-006-006",
+    "reponses": [
+      "A"
+    ],
+    "explication": "Avant chaque test, le corps affiche X puis double i : i vaut successivement 2, 4 puis 8. Le troisième test est faux."
+  },
+  {
+    "id": "APP-05-009-006",
+    "reponses": [
+      "B"
+    ],
+    "explication": "Les 7 tours extérieurs entraînent 3 tours intérieurs chacun."
+  },
+  {
+    "id": "APP-05-004-007",
+    "reponses": [
+      "D"
+    ],
+    "explication": "Les valeurs de i vont de 0 à 7, soit 8 passages."
+  },
+  {
+    "id": "APP-05-005-007",
+    "reponses": [
+      "C"
+    ],
+    "explication": "i prend successivement les valeurs 8 à 1, soit 8 passages."
+  },
+  {
+    "id": "APP-05-006-007",
+    "reponses": [
+      "B"
+    ],
+    "explication": "Les quatre affichages correspondent aux valeurs de départ i = 1, 3, 5 et 7. Après le quatrième, i vaut 9 et le test est faux."
+  },
+  {
+    "id": "APP-05-009-007",
+    "reponses": [
+      "B"
+    ],
+    "explication": "Les 8 tours extérieurs entraînent 3 tours intérieurs chacun."
+  },
+  {
+    "id": "APP-05-004-008",
+    "reponses": [
+      "A"
+    ],
+    "explication": "Les valeurs de i vont de 0 à 8, soit 9 passages."
+  },
+  {
+    "id": "APP-05-005-008",
+    "reponses": [
+      "D"
+    ],
+    "explication": "i prend successivement les valeurs 9 à 1, soit 9 passages."
+  },
+  {
+    "id": "APP-05-006-008",
+    "reponses": [
+      "B"
+    ],
+    "explication": "Le corps est exécuté trois fois, mais i vaut 0 au premier passage : if(i) est alors faux. Seuls les passages où i vaut 1 et 2 affichent X."
+  },
+  {
+    "id": "APP-05-009-008",
+    "reponses": [
+      "C"
+    ],
+    "explication": "Les 9 tours extérieurs entraînent 3 tours intérieurs chacun."
+  },
+  {
+    "id": "APP-05-004-009",
+    "reponses": [
+      "C"
+    ],
+    "explication": "Les valeurs de i vont de 0 à 9, soit 10 passages."
+  },
+  {
+    "id": "APP-05-005-009",
+    "reponses": [
+      "D"
+    ],
+    "explication": "i prend successivement les valeurs 10 à 1, soit 10 passages."
+  },
+  {
+    "id": "APP-05-006-009",
+    "reponses": [
+      "A"
+    ],
+    "explication": "Après le premier X, i passe à 1 : le test i++ < 2 compare 1 puis incrémente i à 2. Après le deuxième X, i vaut 3 : le test compare 3 à 2 et s’arrête."
+  },
+  {
+    "id": "APP-03-000-001",
+    "reponses": [
+      "C"
+    ],
+    "explication": "Le premier chiffre autorise rwx au propriétaire ; groupe et autres n'ont aucune permission."
+  },
+  {
+    "id": "APP-03-000-002",
+    "reponses": [
+      "C"
+    ],
+    "explication": "Le propriétaire a la lecture et l'écriture ; groupe et autres disposent de la lecture seule."
+  },
+  {
+    "id": "APP-03-000-003",
+    "reponses": [
+      "D"
+    ],
+    "explication": "Le propriétaire possède tous les droits ; le groupe et les autres peuvent lire et traverser/exécuter."
+  },
+  {
+    "id": "APP-03-000-004",
+    "reponses": [
+      "B"
+    ],
+    "explication": "Seul le propriétaire peut lire et écrire ; groupe et autres n'ont aucun droit."
+  },
+  {
+    "id": "APP-03-000-005",
+    "reponses": [
+      "C"
+    ],
+    "explication": "Les trois catégories peuvent lire mais ne disposent ni d'écriture ni d'exécution."
+  },
+  {
+    "id": "APP-03-000-007",
+    "reponses": [
+      "A"
+    ],
+    "explication": "Le propriétaire peut tout faire, le groupe lire et exécuter, les autres seulement exécuter/traverser."
+  },
+  {
+    "id": "APP-03-000-008",
+    "reponses": [
+      "C"
+    ],
+    "explication": "Le propriétaire peut tout faire, le groupe lire et exécuter, les autres n'ont aucun droit."
+  },
+  {
+    "id": "APP-02-007-001",
+    "reponses": [
+      "A"
+    ],
+    "explication": "mv déplace/renomme."
+  },
+  {
+    "id": "APP-02-008-001",
+    "reponses": [
+      "B"
+    ],
+    "explication": "man ouvre la documentation."
+  },
+  {
+    "id": "APP-04-012-001",
+    "reponses": [
+      "B"
+    ],
+    "explication": "$? contient le code retour."
+  },
+  {
+    "id": "CDEEP-08-009-01",
+    "reponses": [
+      "C"
+    ],
+    "explication": "-o définit le nom de sortie."
+  },
+  {
+    "id": "CDEEP-08-024-01",
+    "reponses": [
+      "C"
+    ],
+    "explication": "Dennis Ritchie a conçu le langage C."
+  },
+  {
+    "id": "CDEEP-08-025-01",
+    "reponses": [
+      "B"
+    ],
+    "explication": "scanf exige l'adresse de l'objet int à remplir."
+  },
+  {
+    "id": "CDEEP-08-025-02",
+    "reponses": [
+      "B"
+    ],
+    "explication": "Aucune conversion n'est affectée : échec de correspondance."
+  },
+  {
+    "id": "CDEEP-14-001-01",
+    "reponses": [
+      "A"
+    ],
+    "explication": "La documentation explicite le contrat."
+  },
+  {
+    "id": "CDEEP-14-004-01",
+    "reponses": [
+      "A"
+    ],
+    "explication": "La liaison résout les symboles externes."
+  },
+  {
+    "id": "CDEEP-14-005-01",
+    "reponses": [
+      "C"
+    ],
+    "explication": "Un commentaire utile apporte le contexte et les invariants."
+  },
+  {
+    "id": "SCN-006",
+    "reponses": [
+      "A",
+      "B",
+      "D"
+    ],
+    "explication": "`%d` s'arrête avant le caractère blanc, puis `%c` lit ce caractère, puisqu'il ne saute pas les blancs."
+  },
+  {
+    "id": "SCN-007",
+    "reponses": [
+      "A"
+    ],
+    "explication": "Les caractères ordinaires d'un format doivent correspondre à l'entrée dans l'ordre ; seul `%d` affecte la variable."
+  },
+  {
+    "id": "SCN-008",
+    "reponses": [
+      "A",
+      "C",
+      "D"
+    ],
+    "explication": "La largeur limite le nombre de caractères examinés dans ce champ, et non la valeur numérique."
+  },
+  {
+    "id": "SCN-011",
+    "reponses": [
+      "A"
+    ],
+    "explication": "Ne jamais présumer qu'une conversion a réussi ; contrôler le nombre d'affectations et gérer l'échec."
+  },
+  {
+    "id": "SCN-012",
+    "reponses": [
+      "A",
+      "B",
+      "C"
+    ],
+    "explication": "`%n` rapporte la quantité déjà consommée ; c'est un cas particulier qui ne compte pas comme conversion affectée dans le retour."
+  },
+  {
+    "id": "SCN-013",
+    "reponses": [
+      "A"
+    ],
+    "explication": "Un scanset accepte les caractères appartenant à l'ensemble spécifié, pas seulement une séquence exacte."
+  },
+  {
+    "id": "SCN-015",
+    "reponses": [
+      "B"
+    ],
+    "explication": "La conversion `%d` attend un `int *` pointant vers l'élément ciblé."
+  },
+  {
+    "id": "EXPL-02-005-02",
+    "reponses": [
+      "A"
+    ],
+    "explication": ".. représente le parent, alors que . est le répertoire courant."
+  },
+  {
+    "id": "EXPL-03-001-01",
+    "reponses": [
+      "A"
+    ],
+    "explication": "sudo exécute avec des privilèges potentiellement élevés."
+  },
+  {
+    "id": "V1-N05_006-01",
+    "reponses": [
+      "A"
+    ],
+    "explication": "La condition d’un do…while est contrôlée après le corps : X apparaît une fois. Avec while, for ou if, la condition initialement fausse empêche l’affichage."
+  },
+  {
+    "id": "V1-N05_006-02",
+    "reponses": [
+      "A"
+    ],
+    "explication": "while teste la condition avant son premier passage : aucun W. do…while exécute d’abord son corps : un D, puis le test faux arrête la boucle."
+  },
+  {
+    "id": "V1-N05_006-03",
+    "reponses": [
+      "C"
+    ],
+    "explication": "Le corps ne modifie jamais i. La condition i < 2 reste vraie après chaque passage : la boucle ne possède ici aucune sortie normale. Ne pas exécuter cet exemple tel quel."
+  },
+  {
+    "id": "V2-N14_002-06",
+    "reponses": [
+      "A",
+      "B",
+      "C"
+    ],
+    "explication": "-Wall inclut -Wunused-variable ; -Wextra avec -Wall active le contrôle des paramètres inutilisés ; (void)parametre marque une utilisation volontaire. -Werror transforme les avertissements activés en erreurs, et [[maybe_unused]] n'appartient pas au C89 portable."
+  },
+  {
+    "id": "V2-N14_002-07",
+    "reponses": [
+      "C"
+    ],
+    "explication": "Quand la variable est vraiment inutile et que son initialisation n'a pas d'effet requis, la supprimer clarifie le code. Le cast vers void sert surtout lorsque conserver une déclaration ou un paramètre est intentionnel."
+  }
+]

@@ -1,0 +1,3650 @@
+[
+  {
+    "id": "APP-09-020-003",
+    "mode": "single",
+    "question": "Avec `int t[]={2,4,6}; int *p=t+1;`, que vaut `p[-1]` ? (Une seule réponse correcte.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "4"
+      },
+      {
+        "id": "B",
+        "text": "2"
+      },
+      {
+        "id": "C",
+        "text": "6"
+      },
+      {
+        "id": "D",
+        "text": "Comportement indéfini dans ce contexte."
+      }
+    ]
+  },
+  {
+    "id": "APP-09-014-004",
+    "mode": "single",
+    "question": "Dans `int t[4]={4,8,12,16};`, quel indice désigne le dernier élément valide ? (Une seule réponse correcte.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "3"
+      },
+      {
+        "id": "B",
+        "text": "4"
+      },
+      {
+        "id": "C",
+        "text": "2"
+      },
+      {
+        "id": "D",
+        "text": "5"
+      }
+    ]
+  },
+  {
+    "id": "APP-09-026-004",
+    "mode": "single",
+    "question": "Avec `int t[3]={2,4,8}; int i=3,s=0; for(;i-->0;) s+=t[i];`, quelle est la valeur finale de s ? (Une seule réponse correcte.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "6"
+      },
+      {
+        "id": "B",
+        "text": "8"
+      },
+      {
+        "id": "C",
+        "text": "12"
+      },
+      {
+        "id": "D",
+        "text": "14"
+      }
+    ]
+  },
+  {
+    "id": "APP-09-017-002",
+    "mode": "single",
+    "question": "Avec `char mot[]=\"C\";`, que vaut `sizeof mot` ? (Une seule réponse correcte.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "0"
+      },
+      {
+        "id": "B",
+        "text": "2"
+      },
+      {
+        "id": "C",
+        "text": "1"
+      },
+      {
+        "id": "D",
+        "text": "3"
+      }
+    ]
+  },
+  {
+    "id": "APP-09-017-004",
+    "mode": "multiple",
+    "question": "Pour `char s[8]=\"Hi\";`, quelles affirmations sont exactes ? (Plusieurs réponses correctes.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "sizeof s vaut 8."
+      },
+      {
+        "id": "B",
+        "text": "strlen(s) vaut 2."
+      },
+      {
+        "id": "C",
+        "text": "sizeof s vaut 3 puisqu'il inclut le nul."
+      },
+      {
+        "id": "D",
+        "text": "Les octets qui suivent le nul restent non initialisés."
+      }
+    ]
+  },
+  {
+    "id": "CDEEP-09-000-01",
+    "mode": "single",
+    "question": "Quel opérateur donne l'adresse d'un objet ordinaire en C ? (Une seule réponse correcte.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "&"
+      },
+      {
+        "id": "B",
+        "text": "||"
+      },
+      {
+        "id": "C",
+        "text": "%"
+      },
+      {
+        "id": "D",
+        "text": "*"
+      }
+    ]
+  },
+  {
+    "id": "CDEEP-09-002-01",
+    "mode": "single",
+    "question": "Avec `int a=7;`, quelle expression a le type int * ? (Une seule réponse correcte.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "a"
+      },
+      {
+        "id": "B",
+        "text": "sizeof a"
+      },
+      {
+        "id": "C",
+        "text": "&a"
+      },
+      {
+        "id": "D",
+        "text": "*a"
+      }
+    ]
+  },
+  {
+    "id": "CDEEP-09-003-01",
+    "mode": "single",
+    "question": "Quelle déclaration exprime correctement un pointeur vers int ? (Une seule réponse correcte.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "int *p;"
+      },
+      {
+        "id": "B",
+        "text": "pointer<int> p;"
+      },
+      {
+        "id": "C",
+        "text": "int &p;"
+      },
+      {
+        "id": "D",
+        "text": "int p*;"
+      }
+    ]
+  },
+  {
+    "id": "CDEEP-09-007-01",
+    "mode": "single",
+    "question": "Pourquoi le type pointé d'un int * est-il important ? (Une seule réponse correcte.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Il autorise la modification arbitraire de n'importe quel objet"
+      },
+      {
+        "id": "B",
+        "text": "Il force toutes les adresses à valoir zéro"
+      },
+      {
+        "id": "C",
+        "text": "Il définit le type de l'objet lors du déréférencement"
+      },
+      {
+        "id": "D",
+        "text": "Il donne automatiquement la capacité d'une zone allouée"
+      }
+    ]
+  },
+  {
+    "id": "CDEEP-09-010-01",
+    "mode": "single",
+    "question": "Est-il portable de considérer que tout pointeur de fonction fait exactement 8 octets ? (Une seule réponse correcte.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Oui, même en C89"
+      },
+      {
+        "id": "B",
+        "text": "Oui, pour tout système Linux"
+      },
+      {
+        "id": "C",
+        "text": "Oui, seulement avec GNU89"
+      },
+      {
+        "id": "D",
+        "text": "Non"
+      }
+    ]
+  },
+  {
+    "id": "CDEEP-09-011-01",
+    "mode": "single",
+    "question": "En C, modifier un paramètre `int n` change-t-il automatiquement l'argument original ? (Une seule réponse correcte.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Oui : C utilise le passage par référence partout"
+      },
+      {
+        "id": "B",
+        "text": "Oui : seulement si n vaut 0"
+      },
+      {
+        "id": "C",
+        "text": "Oui : la pile est toujours partagée"
+      },
+      {
+        "id": "D",
+        "text": "Non : les arguments sont passés par valeur"
+      }
+    ]
+  },
+  {
+    "id": "CDEEP-09-012-01",
+    "mode": "single",
+    "question": "Comment une fonction peut-elle modifier un int de l'appelant ? (Une seule réponse correcte.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Recevoir son adresse dans int *p et écrire *p"
+      },
+      {
+        "id": "B",
+        "text": "Recevoir une copie int p et écrire p"
+      },
+      {
+        "id": "C",
+        "text": "Déclarer p en local et l'affecter"
+      },
+      {
+        "id": "D",
+        "text": "Recevoir int p et appeler printf"
+      }
+    ]
+  },
+  {
+    "id": "CDEEP-09-013-01",
+    "mode": "single",
+    "question": "Combien d'éléments comporte `int tab[5]` ? (Une seule réponse correcte.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "6"
+      },
+      {
+        "id": "B",
+        "text": "5"
+      },
+      {
+        "id": "C",
+        "text": "sizeof(int)"
+      },
+      {
+        "id": "D",
+        "text": "4"
+      }
+    ]
+  },
+  {
+    "id": "CDEEP-09-021-01",
+    "mode": "single",
+    "question": "Qu'est-ce qu'une chaîne C valide ? (Une seule réponse correcte.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Un pointeur non initialisé"
+      },
+      {
+        "id": "B",
+        "text": "Une valeur char unique"
+      },
+      {
+        "id": "C",
+        "text": "Une suite de caractères terminée par '\\0' dans une zone accessible"
+      },
+      {
+        "id": "D",
+        "text": "Un tableau obligatoirement de 100 octets"
+      }
+    ]
+  },
+  {
+    "id": "CDEEP-09-022-01",
+    "mode": "single",
+    "question": "Quel rôle joue '\\0' dans une chaîne C ? (Une seule réponse correcte.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Indiquer la mémoire allouée"
+      },
+      {
+        "id": "B",
+        "text": "Être un saut de ligne"
+      },
+      {
+        "id": "C",
+        "text": "Signifier EOF dans le fichier source"
+      },
+      {
+        "id": "D",
+        "text": "Marquer la fin de chaîne"
+      }
+    ]
+  },
+  {
+    "id": "CDEEP-09-023-01",
+    "mode": "single",
+    "question": "Que faut-il passer à printf %s ? (Une seule réponse correcte.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Une adresse de tableau sans terminateur"
+      },
+      {
+        "id": "B",
+        "text": "Une adresse de chaîne valide terminée par nul"
+      },
+      {
+        "id": "C",
+        "text": "Un simple caractère sans adresse"
+      },
+      {
+        "id": "D",
+        "text": "Une valeur int quelconque"
+      }
+    ]
+  },
+  {
+    "id": "CDEEP-09-030-01",
+    "mode": "multiple",
+    "question": "Quels comportements sont possibles pour malloc selon la taille et l'environnement ? (Plusieurs réponses correctes.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Mettre obligatoirement tous les octets à zéro"
+      },
+      {
+        "id": "B",
+        "text": "Libérer le pointeur automatiquement à la fin du bloc local"
+      },
+      {
+        "id": "C",
+        "text": "Renvoyer un pointeur utilisable si elle réussit"
+      },
+      {
+        "id": "D",
+        "text": "Renvoyer NULL si l'allocation échoue"
+      }
+    ]
+  },
+  {
+    "id": "CDEEP-09-035-01",
+    "mode": "single",
+    "question": "Quelle situation caractérise une fuite mémoire certaine ? (Une seule réponse correcte.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Un bloc alloué qui a été libéré puis dont un alias est encore stocké."
+      },
+      {
+        "id": "B",
+        "text": "Un bloc alloué conservé volontairement et accessible jusqu'à la fin du programme."
+      },
+      {
+        "id": "C",
+        "text": "Un bloc alloué non libéré devenu inaccessible pour le programme."
+      },
+      {
+        "id": "D",
+        "text": "Un tableau automatique dont la durée de vie s'est normalement terminée."
+      }
+    ]
+  },
+  {
+    "id": "CDEEP-09-036-01",
+    "mode": "single",
+    "question": "Quel outil peut rapporter une fuite dans la catégorie `definitely lost` ? (Une seule réponse correcte.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Le préprocesseur gcc -E."
+      },
+      {
+        "id": "B",
+        "text": "Le chargeur de bibliothèques ldd."
+      },
+      {
+        "id": "C",
+        "text": "Valgrind Memcheck."
+      },
+      {
+        "id": "D",
+        "text": "Le débogueur gdb utilisé sans analyse de fuites."
+      }
+    ]
+  },
+  {
+    "id": "CDEEP-09-040-01",
+    "mode": "single",
+    "question": "Quel risque présente `strcpy(dest, src)` si dest ne possède pas assez de place ? (Une seule réponse correcte.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Une conversion automatique en int."
+      },
+      {
+        "id": "B",
+        "text": "Une allocation automatique de la zone manquante."
+      },
+      {
+        "id": "C",
+        "text": "Une troncature garantie sans dépassement."
+      },
+      {
+        "id": "D",
+        "text": "Une écriture hors des limites de dest."
+      }
+    ]
+  },
+  {
+    "id": "CDEEP-09-041-01",
+    "mode": "single",
+    "question": "Pourquoi faut-il généralement free le résultat réussi de strdup ? (Une seule réponse correcte.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Le résultat pointe forcément vers un littéral"
+      },
+      {
+        "id": "B",
+        "text": "La chaîne dupliquée est allouée dynamiquement"
+      },
+      {
+        "id": "C",
+        "text": "strdup renvoie toujours un objet automatique"
+      },
+      {
+        "id": "D",
+        "text": "Le résultat est une constante du compilateur"
+      }
+    ]
+  },
+  {
+    "id": "CDEEP-09-044-01",
+    "mode": "single",
+    "question": "Quel risque avec `int *p; *p=3;` si p n'a pas été initialisé ? (Une seule réponse correcte.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Allocation automatique d'un int pointé"
+      },
+      {
+        "id": "B",
+        "text": "Comportement indéfini"
+      },
+      {
+        "id": "C",
+        "text": "Écriture garantie dans un bloc malloc"
+      },
+      {
+        "id": "D",
+        "text": "Valeur 3 stockée dans p"
+      }
+    ]
+  },
+  {
+    "id": "CDEEP-09-046-01",
+    "mode": "single",
+    "question": "Une erreur de segmentation signifie-t-elle automatiquement qu'un pointeur nul a été déréférencé ? (Une seule réponse correcte.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Non, elle ne concerne jamais la mémoire"
+      },
+      {
+        "id": "B",
+        "text": "Non, plusieurs accès mémoire invalides peuvent la provoquer"
+      },
+      {
+        "id": "C",
+        "text": "Oui, c'est sa cause unique"
+      },
+      {
+        "id": "D",
+        "text": "Oui, sinon ce n'est pas une segfault"
+      }
+    ]
+  },
+  {
+    "id": "CDEEP-09-050-01",
+    "mode": "single",
+    "question": "Après `free(p)`, que produit l'accès `*p=4` au bloc libéré ? (Une seule réponse correcte.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Un zéro automatique"
+      },
+      {
+        "id": "B",
+        "text": "Un comportement indéfini"
+      },
+      {
+        "id": "C",
+        "text": "Un appel valide de malloc"
+      },
+      {
+        "id": "D",
+        "text": "Une réallocation implicite"
+      }
+    ]
+  },
+  {
+    "id": "CDEEP-09-053-01",
+    "mode": "single",
+    "question": "Dans un rapport Memcheck, que signifie un diagnostic `Invalid write` ? (Une seule réponse correcte.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Une écriture dans un emplacement que Memcheck estime invalide."
+      },
+      {
+        "id": "B",
+        "text": "Une fuite directe de 32 octets sans écriture."
+      },
+      {
+        "id": "C",
+        "text": "La lecture d'une valeur non initialisée sans écriture."
+      },
+      {
+        "id": "D",
+        "text": "Un bloc encore accessible lors de la fin du processus."
+      }
+    ]
+  },
+  {
+    "id": "CDEEP-09-055-01",
+    "mode": "single",
+    "question": "La saisie déborde déjà un tampon local avant un appel ultérieur à malloc. Quel correctif doit intervenir en premier ? (Une seule réponse correcte.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Contrôler la taille seulement après que la lecture est terminée."
+      },
+      {
+        "id": "B",
+        "text": "Limiter la lecture d'après la capacité réelle du tableau local."
+      },
+      {
+        "id": "C",
+        "text": "Conserver strcpy, puisque malloc corrigera la corruption initiale."
+      },
+      {
+        "id": "D",
+        "text": "Ajouter un second appel à free lors du nettoyage."
+      }
+    ]
+  },
+  {
+    "id": "CDEEP-09-057-01",
+    "mode": "single",
+    "question": "Quelle situation peut épuiser la pile d'appels d'un processus ? (Une seule réponse correcte.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Une boucle itérative qui n'ajoute aucun appel de fonction."
+      },
+      {
+        "id": "B",
+        "text": "Une opération malloc dont le résultat est conservé dans un pointeur."
+      },
+      {
+        "id": "C",
+        "text": "Une fonction qui retourne aussitôt au premier appel."
+      },
+      {
+        "id": "D",
+        "text": "Une récursion qui ne rencontre jamais de condition d'arrêt."
+      }
+    ]
+  },
+  {
+    "id": "CDEEP-09-058-01",
+    "mode": "single",
+    "question": "Que signifie `definitely lost: 32 bytes in 1 blocks` dans Memcheck ? (Une seule réponse correcte.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Un bloc de 32 octets correctement libéré."
+      },
+      {
+        "id": "B",
+        "text": "Un bloc inaccessible de 32 octets perdu directement."
+      },
+      {
+        "id": "C",
+        "text": "Trente-deux blocs d'un octet encore accessibles."
+      },
+      {
+        "id": "D",
+        "text": "Un bloc de 32 octets classé comme still reachable."
+      }
+    ]
+  },
+  {
+    "id": "CDEEP-09-059-01",
+    "mode": "single",
+    "question": "Pourquoi `strlen` sur un tableau sans caractère nul accessible est-elle dangereuse ? (Une seule réponse correcte.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Elle complète automatiquement le tableau avec un nul."
+      },
+      {
+        "id": "B",
+        "text": "Elle s'arrête automatiquement aux limites réelles du tableau."
+      },
+      {
+        "id": "C",
+        "text": "Elle utilise sizeof pour déterminer la capacité sans aide."
+      },
+      {
+        "id": "D",
+        "text": "Elle continue à rechercher le nul, avec accès potentiel hors limites."
+      }
+    ]
+  },
+  {
+    "id": "CDEEP-09-062-01",
+    "mode": "single",
+    "question": "Un pointeur vers un objet local dont la durée de vie s'est terminée est appelé comment ? (Une seule réponse correcte.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Pointeur vers un objet toujours valide"
+      },
+      {
+        "id": "B",
+        "text": "Dangling pointer"
+      },
+      {
+        "id": "C",
+        "text": "Pointeur de fonction"
+      },
+      {
+        "id": "D",
+        "text": "Pointeur garanti NULL"
+      }
+    ]
+  },
+  {
+    "id": "CDEEP-09-065-01",
+    "mode": "single",
+    "question": "Pourquoi un intitulé de diagnostic mémoire ne suffit-il pas à établir la cause exacte d'un problème ? (Une seule réponse correcte.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Il garantit que toute erreur mémoire provient de malloc."
+      },
+      {
+        "id": "B",
+        "text": "La présence d'un nom de catégorie suffit à identifier la ligne fautive."
+      },
+      {
+        "id": "C",
+        "text": "Il faut confronter la catégorie aux accès, allocations et traces d'exécution réels."
+      },
+      {
+        "id": "D",
+        "text": "Un rapport de fuite prouve qu'aucun dépassement de tampon n'a eu lieu."
+      }
+    ]
+  },
+  {
+    "id": "CDEEP-16-017-01",
+    "mode": "single",
+    "question": "Pourquoi documenter une structure et ses membres dans un en-tête selon Betty ? (Une seule réponse correcte.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Pour supprimer les membres non utilisés lors de la compilation."
+      },
+      {
+        "id": "B",
+        "text": "Pour garantir l'absence de padding dans la structure."
+      },
+      {
+        "id": "C",
+        "text": "Pour expliciter le contrat et la signification des champs."
+      },
+      {
+        "id": "D",
+        "text": "Pour permettre de modifier les membres en contournant leurs types."
+      }
+    ]
+  },
+  {
+    "id": "CDEEP-09-068-01",
+    "mode": "single",
+    "question": "Qu'appelle-t-on callback en C ? (Une seule réponse correcte.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Une fonction qui doit être exécutée uniquement après la fin de main."
+      },
+      {
+        "id": "B",
+        "text": "Une fonction passée à une autre fonction afin que celle-ci puisse l'appeler."
+      },
+      {
+        "id": "C",
+        "text": "Une fonction implicitement compatible avec toutes les signatures."
+      },
+      {
+        "id": "D",
+        "text": "Une fonction recevant automatiquement toutes les variables locales de l'appelant."
+      }
+    ]
+  },
+  {
+    "id": "CDEEP-09-069-01",
+    "mode": "multiple",
+    "question": "Quelles précautions respecter pour un tableau de pointeurs de fonctions ? (Plusieurs réponses correctes.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Contrôler qu'un élément n'est pas NULL avant de l'appeler."
+      },
+      {
+        "id": "B",
+        "text": "Considérer deux signatures de fonctions différentes comme interchangeables."
+      },
+      {
+        "id": "C",
+        "text": "Supposer que tout indice est sûr si le tableau a une durée de vie statique."
+      },
+      {
+        "id": "D",
+        "text": "Vérifier les bornes de l'indice avant l'accès."
+      }
+    ]
+  },
+  {
+    "id": "CDEEP-09-070-01",
+    "mode": "single",
+    "question": "Que déclare `typedef int (*operation_fn)(int,int);` ? (Une seule réponse correcte.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Une fonction operation_fn appelée immédiatement au chargement."
+      },
+      {
+        "id": "B",
+        "text": "Un alias de type int pour le résultat de toutes les opérations."
+      },
+      {
+        "id": "C",
+        "text": "Un alias pour un pointeur vers fonction prenant deux int et renvoyant int."
+      },
+      {
+        "id": "D",
+        "text": "Un tableau de deux fonctions ayant des résultats entiers."
+      }
+    ]
+  },
+  {
+    "id": "V1-N09_000-04",
+    "mode": "multiple",
+    "question": "Concernant « Pointeur (pointer) », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Toujours initialiser un pointeur avant de le déréférencer."
+      },
+      {
+        "id": "B",
+        "text": "int *p crée automatiquement un entier vers lequel p pointe."
+      },
+      {
+        "id": "C",
+        "text": "Un pointeur conserve la taille du tableau désigné."
+      },
+      {
+        "id": "D",
+        "text": "Variable dont la valeur est une adresse mémoire. Exemple : int *p; déclare un pointeur vers un int."
+      }
+    ]
+  },
+  {
+    "id": "V1-N09_001-04",
+    "mode": "multiple",
+    "question": "Concernant « Adresse mémoire », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "L’adresse affichée peut changer d’une exécution à l’autre."
+      },
+      {
+        "id": "B",
+        "text": "Emplacement où une variable est stockée. On ne choisit généralement pas soi-même son adresse."
+      },
+      {
+        "id": "C",
+        "text": "Deux variables différentes ont obligatoirement la même adresse."
+      },
+      {
+        "id": "D",
+        "text": "Le programmeur choisit directement l'adresse de toute variable locale."
+      }
+    ]
+  },
+  {
+    "id": "V1-N09_002-04",
+    "mode": "multiple",
+    "question": "Concernant « & (opérateur d’adresse) », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "&5 désigne un entier modifiable en mémoire."
+      },
+      {
+        "id": "B",
+        "text": "Ne confonds pas &n (adresse de n) avec n (valeur de n)."
+      },
+      {
+        "id": "C",
+        "text": "&n produit l’adresse de la variable n ; p = &n fait pointer p vers n."
+      },
+      {
+        "id": "D",
+        "text": "&n donne la valeur numérique de n, pas son adresse."
+      }
+    ]
+  },
+  {
+    "id": "V1-N09_003-04",
+    "mode": "multiple",
+    "question": "Concernant « * dans une déclaration », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "int *p déclare un int ordinaire, non un pointeur."
+      },
+      {
+        "id": "B",
+        "text": "int *p, q déclare deux pointeurs."
+      },
+      {
+        "id": "C",
+        "text": "Avec plusieurs variables déclarées sur une même ligne, chaque déclarateur doit être lu séparément."
+      },
+      {
+        "id": "D",
+        "text": "int *p; : p est une variable de type « pointeur vers int ». Le * indique le type de variable déclaré."
+      }
+    ]
+  },
+  {
+    "id": "V1-N09_004-04",
+    "mode": "multiple",
+    "question": "Concernant « * dans une expression », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "*p accède à l’objet situé à l’adresse contenue dans p : c’est le déréférencement."
+      },
+      {
+        "id": "B",
+        "text": "*p renvoie nécessairement l'adresse stockée dans p."
+      },
+      {
+        "id": "C",
+        "text": "Déréférencer NULL est permis en lecture."
+      },
+      {
+        "id": "D",
+        "text": "Déréférencer un pointeur non initialisé ou invalide entraîne un comportement indéfini."
+      }
+    ]
+  },
+  {
+    "id": "V1-N09_005-04",
+    "mode": "multiple",
+    "question": "Concernant « Modifier une valeur par un pointeur », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "p = &autreVariable changerait, à l’inverse, l’objet pointé."
+      },
+      {
+        "id": "B",
+        "text": "Si p = &n, alors *p = 402; modifie n, qui prend la valeur 402."
+      },
+      {
+        "id": "C",
+        "text": "Si p=&n, affecter p=7 change la valeur de n."
+      },
+      {
+        "id": "D",
+        "text": "Écrire *p=7 ne peut pas modifier n."
+      }
+    ]
+  },
+  {
+    "id": "V1-N09_007-04",
+    "mode": "multiple",
+    "question": "Concernant « Type pointé », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "p+1 avance d'un octet pour tous les types pointés."
+      },
+      {
+        "id": "B",
+        "text": "Le type pointé n'a aucune influence sur l'interprétation de *p."
+      },
+      {
+        "id": "C",
+        "text": "int *p pointe vers un int ; char *q pointe vers un char. Le type sert notamment à interpréter les valeurs et à avancer dans un tableau."
+      },
+      {
+        "id": "D",
+        "text": "L’arithmétique des pointeurs doit rester dans les limites du même tableau, ou juste après."
+      }
+    ]
+  },
+  {
+    "id": "V1-N09_009-04",
+    "mode": "multiple",
+    "question": "Concernant « sizeof », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "sizeof mesure toujours strlen d'une chaîne."
+      },
+      {
+        "id": "B",
+        "text": "sizeof(int) vaut obligatoirement 4."
+      },
+      {
+        "id": "C",
+        "text": "sizeof donne la taille en octets d’un type ou d’un objet. Exemple : sizeof(int) pour un entier."
+      },
+      {
+        "id": "D",
+        "text": "L'opérateur sizeof produit une valeur de type size_t."
+      },
+      {
+        "id": "E",
+        "text": "sizeof appliqué à un tableau local donne la taille de ce tableau entier en octets."
+      }
+    ]
+  },
+  {
+    "id": "V1-N09_010-04",
+    "mode": "multiple",
+    "question": "Concernant « Tailles des pointeurs », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Tous les pointeurs de fonction ont forcément la même taille que int *."
+      },
+      {
+        "id": "B",
+        "text": "Sur de nombreux Linux 64 bits, un pointeur d’objet occupe 8 octets ; sa taille dépend de la plateforme."
+      },
+      {
+        "id": "C",
+        "text": "Ne jamais coder en dur une taille de pointeur à partir de suppositions."
+      },
+      {
+        "id": "D",
+        "text": "sizeof(int *) est nécessairement égal à sizeof(int)."
+      }
+    ]
+  },
+  {
+    "id": "V1-N09_011-04",
+    "mode": "multiple",
+    "question": "Concernant « Passage d’arguments par valeur », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Modifier un paramètre int modifie directement l'argument entier de l'appelant."
+      },
+      {
+        "id": "B",
+        "text": "Les arguments int sont automatiquement passés par référence."
+      },
+      {
+        "id": "C",
+        "text": "Pour modifier une variable de l’appelant, on peut transmettre son adresse."
+      },
+      {
+        "id": "D",
+        "text": "En C, un paramètre reçoit une copie de l’argument. Modifier un paramètre int local ne modifie pas la variable initiale."
+      }
+    ]
+  },
+  {
+    "id": "V1-N09_012-04",
+    "mode": "multiple",
+    "question": "Concernant « Passer une adresse à une fonction », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "La fonction doit recevoir une adresse valide avant de déréférencer p."
+      },
+      {
+        "id": "B",
+        "text": "Une fonction peut modifier un int de l'appelant en recevant int *p et en écrivant *p."
+      },
+      {
+        "id": "C",
+        "text": "Passer &n ne transmet que la valeur entière de n."
+      },
+      {
+        "id": "D",
+        "text": "Modifier le paramètre local p de type int * change le pointeur original de l'appelant."
+      },
+      {
+        "id": "E",
+        "text": "Une fonction recevant int *p peut modifier la variable de l’appelant grâce à *p ; le pointeur lui-même reste passé par valeur."
+      }
+    ]
+  },
+  {
+    "id": "V1-N09_013-04",
+    "mode": "multiple",
+    "question": "Concernant « Tableau », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Les accès à l’extérieur du tableau sont invalides."
+      },
+      {
+        "id": "B",
+        "text": "Zone contiguë de mémoire contenant plusieurs éléments de même type : int a[5]; réserve 5 entiers."
+      },
+      {
+        "id": "C",
+        "text": "Un tableau int[5] contient cinq pointeurs indépendants."
+      },
+      {
+        "id": "D",
+        "text": "Les éléments d'un tableau ne sont pas stockés de façon contiguë."
+      }
+    ]
+  },
+  {
+    "id": "V1-N09_014-04",
+    "mode": "multiple",
+    "question": "Concernant « Indices de tableau », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "a[-1] est toujours autorisé pour un tableau."
+      },
+      {
+        "id": "B",
+        "text": "Les indices commencent à 0 : a[0] est le premier élément et a[4] le cinquième dans int a[5]."
+      },
+      {
+        "id": "C",
+        "text": "Pour `int a[5]`, seuls les indices 0 à 4 désignent des éléments : lire ou modifier `a[5]` serait hors limites."
+      },
+      {
+        "id": "D",
+        "text": "Le dernier indice de int a[5] est 5."
+      }
+    ]
+  },
+  {
+    "id": "V1-N09_015-04",
+    "mode": "multiple",
+    "question": "Concernant « Tableau ≠ pointeur », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "sizeof(tableau) vaut toujours sizeof(pointeur)."
+      },
+      {
+        "id": "B",
+        "text": "sizeof(a) et sizeof(p) ne mesurent pas la même chose."
+      },
+      {
+        "id": "C",
+        "text": "Un tableau n’est pas une variable pointeur. Son nom identifie le tableau et ne peut pas recevoir une nouvelle adresse par affectation."
+      },
+      {
+        "id": "D",
+        "text": "Un tableau n'est pas une variable pointeur réaffectable."
+      },
+      {
+        "id": "E",
+        "text": "Le nom d'un tableau peut recevoir une nouvelle adresse par affectation."
+      }
+    ]
+  },
+  {
+    "id": "V1-N09_016-04",
+    "mode": "multiple",
+    "question": "Concernant « Conversion tableau → pointeur », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Cette conversion ne se produit pas dans certains contextes, notamment sizeof(a) et &a."
+      },
+      {
+        "id": "B",
+        "text": "La conversion tableau-pointeur alloue une copie des éléments."
+      },
+      {
+        "id": "C",
+        "text": "L'opérande de sizeof est toujours converti en pointeur."
+      },
+      {
+        "id": "D",
+        "text": "Dans la plupart des expressions, le nom du tableau est converti en pointeur vers son premier élément. Ainsi a et &a[0] désignent la même adresse."
+      }
+    ]
+  },
+  {
+    "id": "V1-N09_017-04",
+    "mode": "multiple",
+    "question": "Concernant « sizeof(tableau) », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "sizeof(a) donne la taille de tout le tableau (nombre d’éléments × taille d’un élément), pas celle d’un pointeur."
+      },
+      {
+        "id": "B",
+        "text": "Dans un paramètre de fonction déclaré int a[], a est traité comme un pointeur : sizeof(a) n’y mesure pas le tableau d’origine."
+      },
+      {
+        "id": "C",
+        "text": "sizeof(a) ne mesure que l'adresse du tableau a."
+      },
+      {
+        "id": "D",
+        "text": "sizeof(int a[3]) représente toujours 3 octets."
+      }
+    ]
+  },
+  {
+    "id": "V1-N09_019-04",
+    "mode": "multiple",
+    "question": "Concernant « Arithmétique des pointeurs », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Ajouter 1 à int *p avance d'un seul octet."
+      },
+      {
+        "id": "B",
+        "text": "Faire f++ sur un pointeur de fonction est un parcours de fonctions défini."
+      },
+      {
+        "id": "C",
+        "text": "Ajouter 1 à un pointeur vers int avance de sizeof(int) octets, donc d’un élément int."
+      },
+      {
+        "id": "D",
+        "text": "Le déplacement n’est défini que dans le même tableau, ou une position juste après."
+      }
+    ]
+  },
+  {
+    "id": "V1-N09_020-04",
+    "mode": "multiple",
+    "question": "Concernant « Notation équivalente », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Pour un tableau a, a[2] désigne le même élément que *(a + 2)."
+      },
+      {
+        "id": "B",
+        "text": "a[2] désigne nécessairement *(a+3)."
+      },
+      {
+        "id": "C",
+        "text": "Les indices de tableau vérifient automatiquement les limites."
+      },
+      {
+        "id": "D",
+        "text": "Cette équivalence ne rend pas valides les indices hors limites."
+      }
+    ]
+  },
+  {
+    "id": "V1-N09_021-04",
+    "mode": "multiple",
+    "question": "Concernant « Chaîne de caractères en C », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Toutes les suites de char ne sont pas nécessairement des chaînes valides."
+      },
+      {
+        "id": "B",
+        "text": "Suite de caractères stockée notamment dans un tableau de char et terminée par le caractère nul \\0."
+      },
+      {
+        "id": "C",
+        "text": "Pour être une chaîne C valide, une suite de caractères doit avoir un terminateur nul accessible."
+      },
+      {
+        "id": "D",
+        "text": "Un tableau de char sans nul final forme nécessairement une chaîne C."
+      },
+      {
+        "id": "E",
+        "text": "Tout tableau char insère automatiquement le terminateur."
+      }
+    ]
+  },
+  {
+    "id": "V1-N09_022-04",
+    "mode": "multiple",
+    "question": "Concernant « Caractère nul », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Le caractère nul doit apparaître visuellement avec printf(\"%s\")."
+      },
+      {
+        "id": "B",
+        "text": "\\0 a pour valeur numérique 0 et marque la fin d’une chaîne C, par exemple dans char a[10] = \"Holberton\";."
+      },
+      {
+        "id": "C",
+        "text": "Les fonctions sur les chaînes doivent pouvoir trouver le terminateur nul."
+      },
+      {
+        "id": "D",
+        "text": "Le caractère '\\0' est identique au caractère '0'."
+      }
+    ]
+  },
+  {
+    "id": "V1-N09_023-04",
+    "mode": "multiple",
+    "question": "Concernant « %s avec printf », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Le format %s connaît la capacité du tableau source."
+      },
+      {
+        "id": "B",
+        "text": "%s peut afficher n'importe quelle adresse sans chaîne terminée."
+      },
+      {
+        "id": "C",
+        "text": "Une chaîne non terminée correctement peut provoquer un accès mémoire invalide."
+      },
+      {
+        "id": "D",
+        "text": "Le format %s affiche les caractères d’une chaîne jusqu’au caractère nul de fin."
+      }
+    ]
+  },
+  {
+    "id": "V1-N09_024-04",
+    "mode": "multiple",
+    "question": "Concernant « Exercices d’observation », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Réponse : n vaut 8. Essaie ensuite d’expliquer pourquoi, plutôt que de retenir le chiffre."
+      },
+      {
+        "id": "B",
+        "text": "Une valeur pointée et une adresse sont interchangeables dans printf."
+      },
+      {
+        "id": "C",
+        "text": "On peut toujours ignorer la durée de vie des objets dans un raisonnement sur les pointeurs."
+      },
+      {
+        "id": "D",
+        "text": "Pour comprendre un pointeur, distinguer à chaque ligne : variable, adresse contenue dans le pointeur et valeur à cette adresse."
+      }
+    ]
+  },
+  {
+    "id": "V1-N09_026-04",
+    "mode": "multiple",
+    "question": "Concernant « Parcourir un tableau », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "tab[n] est toujours valide lors d'un parcours de n éléments."
+      },
+      {
+        "id": "B",
+        "text": "Une boucle peut visiter chaque élément d'un tableau en utilisant un indice qui va de 0 à la taille moins 1."
+      },
+      {
+        "id": "C",
+        "text": "Évite les indices négatifs et les accès au-delà de la dernière case."
+      },
+      {
+        "id": "D",
+        "text": "Pour n éléments, il faut parcourir les indices de 0 à n inclus."
+      }
+    ]
+  },
+  {
+    "id": "V1-N09_030-04",
+    "mode": "multiple",
+    "question": "Concernant « malloc — allocation dynamique », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Un bloc obtenu par malloc reste légalement accessible après free."
+      },
+      {
+        "id": "B",
+        "text": "malloc réserve un bloc de mémoire pendant l’exécution et renvoie son adresse (ou NULL si l’allocation échoue)."
+      },
+      {
+        "id": "C",
+        "text": "Vérifier p != NULL avant de le déréférencer. malloc ne met pas les octets à zéro ; chaque allocation réussie doit être libérée une fois quand elle n’est plus utile."
+      },
+      {
+        "id": "D",
+        "text": "Sur succès pour une taille positive, malloc renvoie une adresse de zone allouée."
+      },
+      {
+        "id": "E",
+        "text": "malloc met automatiquement tous les octets à zéro."
+      }
+    ]
+  },
+  {
+    "id": "V1-N09_031-04",
+    "mode": "multiple",
+    "question": "Concernant « free — libérer la mémoire », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "free(p) met tous les alias de p à NULL."
+      },
+      {
+        "id": "B",
+        "text": "L'adresse d'un tableau automatique peut être transmise à free."
+      },
+      {
+        "id": "C",
+        "text": "free ne convient ni aux objets automatiques ni aux littéraux ; p=NULL ne modifie pas ses autres alias."
+      },
+      {
+        "id": "D",
+        "text": "free libère un bloc obtenu par allocation dynamique ; le pointeur ne devient pas automatiquement NULL."
+      }
+    ]
+  },
+  {
+    "id": "V1-N09_032-04",
+    "mode": "multiple",
+    "question": "Concernant « Allocation automatique — variables locales », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Les variables locales et les tableaux locaux ordinaires ont une durée de vie liée à l’exécution de leur bloc ; on ne les libère pas avec free."
+      },
+      {
+        "id": "B",
+        "text": "Toute variable locale doit être libérée par free."
+      },
+      {
+        "id": "C",
+        "text": "Une variable automatique reste valide après la sortie de son bloc."
+      },
+      {
+        "id": "D",
+        "text": "Ne pas retourner l’adresse d’un tableau local pour l’utiliser après le retour de la fonction. Ne jamais appeler free sur une variable ou un tableau automatique."
+      }
+    ]
+  },
+  {
+    "id": "V1-N09_035-04",
+    "mode": "multiple",
+    "question": "Concernant « Fuite mémoire — allocation perdue », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Une allocation sauvegardée dans un pointeur ne peut plus fuiter."
+      },
+      {
+        "id": "B",
+        "text": "Le C libère automatiquement tout bloc devenu inaccessible."
+      },
+      {
+        "id": "C",
+        "text": "Une fuite mémoire (memory leak) survient lorsqu’un bloc alloué n’est pas libéré et devient inaccessible ; les fuites répétées épuisent la mémoire."
+      },
+      {
+        "id": "D",
+        "text": "Memcheck distingue les blocs définitivement perdus de ceux encore accessibles à la fin de l'exécution."
+      }
+    ]
+  },
+  {
+    "id": "V1-N09_036-04",
+    "mode": "multiple",
+    "question": "Concernant « Valgrind — détecter les fuites », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Valgrind Memcheck détecte à l’exécution des fuites mémoire (memory leaks) et de nombreux accès mémoire invalides ; compiler avec -g pour obtenir les lignes du code."
+      },
+      {
+        "id": "B",
+        "text": "Valgrind est une alternative au compilateur plutôt qu'un outil d'exécution."
+      },
+      {
+        "id": "C",
+        "text": "Aucune fuite signalée garantit qu'aucun accès mémoire invalide n'existe."
+      },
+      {
+        "id": "D",
+        "text": "Valgrind s’utilise dans le terminal sur un programme compilé, pas comme un #include C. « ERROR SUMMARY: 0 errors » seul ne suffit pas : consulter aussi les catégories de fuites. L’outil ne vérifie que les chemins réellement exécutés."
+      }
+    ]
+  },
+  {
+    "id": "V1-N09_037-04",
+    "mode": "multiple",
+    "question": "Concernant « Chaînes littérales et .rodata (avancé) », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Notion avancée : .rodata est un détail courant de l’implémentation, pas une garantie universelle du langage C. Les optimisations peuvent modifier l’apparence des données dans l’exécutable."
+      },
+      {
+        "id": "B",
+        "text": "Sur de nombreux systèmes, les chaînes littérales peuvent être placées en section en lecture seule, souvent .rodata ; cela dépend de la compilation."
+      },
+      {
+        "id": "C",
+        "text": "ISO C exige l'utilisation physique de la section .rodata pour les littéraux."
+      },
+      {
+        "id": "D",
+        "text": "Une chaîne littérale est toujours modifiable par char *."
+      }
+    ]
+  },
+  {
+    "id": "V1-N09_040-04",
+    "mode": "multiple",
+    "question": "Concernant « strcpy : copier dans un espace existant », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "strcpy ne réalise jamais malloc à ta place. Il faut prévoir strlen(src) + 1 cases char, y compris '\\0', et éviter les zones qui se chevauchent."
+      },
+      {
+        "id": "B",
+        "text": "strcpy crée automatiquement la destination."
+      },
+      {
+        "id": "C",
+        "text": "strcpy tronque toujours pour respecter la capacité de dest."
+      },
+      {
+        "id": "D",
+        "text": "strcpy(dest, src) copie les caractères et '\\0' vers dest, mais n’alloue aucune mémoire : dest doit déjà disposer de suffisamment de place."
+      }
+    ]
+  },
+  {
+    "id": "V1-N09_041-04",
+    "mode": "multiple",
+    "question": "Concernant « strdup : copie allouée dynamiquement », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "strcpy copie vers une zone existante ; strdup crée une nouvelle zone allouée. Sous GNU89, strdup est une fonction POSIX, pas une fonction du C89 standard."
+      },
+      {
+        "id": "B",
+        "text": "strdup(src) alloue une nouvelle chaîne et la copie ; il faut vérifier NULL puis appeler free sur le résultat."
+      },
+      {
+        "id": "C",
+        "text": "strdup est une fonction ISO C89 obligatoire."
+      },
+      {
+        "id": "D",
+        "text": "strdup renvoie toujours exactement l'adresse de sa source."
+      }
+    ]
+  },
+  {
+    "id": "V1-N09_043-04",
+    "mode": "multiple",
+    "question": "Concernant « free : quelles adresses peut-on libérer ? », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "free accepte l'adresse d'un littéral de chaîne."
+      },
+      {
+        "id": "B",
+        "text": "Deux free sur la même allocation sont sans danger si aucune lecture ne suit."
+      },
+      {
+        "id": "C",
+        "text": "free accepte NULL ou un pointeur valide obtenu par une allocation dynamique compatible ; ni un littéral ni un tableau local ne se libèrent avec free."
+      },
+      {
+        "id": "D",
+        "text": "Ne libère jamais un littéral, l’adresse d’un objet automatique ou le même bloc deux fois. free(NULL) est autorisé, mais ne rend pas valide un ancien pointeur libéré."
+      }
+    ]
+  },
+  {
+    "id": "V1-N09_044-04",
+    "mode": "multiple",
+    "question": "Concernant « Pointeur non initialisé : comportement indéfini », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Déclarer int *ptr; sans lui donner d’adresse valide, puis écrire *ptr = 98; provoque un comportement indéfini, pas nécessairement un segfault."
+      },
+      {
+        "id": "B",
+        "text": "Un pointeur non initialisé vaut forcément NULL."
+      },
+      {
+        "id": "C",
+        "text": "Un comportement indéfini provoque nécessairement un segfault."
+      },
+      {
+        "id": "D",
+        "text": "Un segfault est une conséquence fréquente, jamais une garantie du langage. Un programme qui compile peut contenir un comportement indéfini à l’exécution."
+      }
+    ]
+  },
+  {
+    "id": "V1-N09_046-04",
+    "mode": "multiple",
+    "question": "Concernant « Segfault — faute de segmentation », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Un segfault prouve automatiquement qu'un double free a eu lieu."
+      },
+      {
+        "id": "B",
+        "text": "Un segfault peut signaler un accès mémoire interdit, mais tout comportement indéfini ne provoque pas ce signal."
+      },
+      {
+        "id": "C",
+        "text": "Un segfault (souvent signalé par « Segmentation fault ») est un arrêt causé par un accès mémoire interdit ; un comportement indéfini en C ne provoque cependant pas toujours ce signal."
+      },
+      {
+        "id": "D",
+        "text": "Tout comportement indéfini émet SIGSEGV."
+      }
+    ]
+  },
+  {
+    "id": "V1-N09_049-04",
+    "mode": "multiple",
+    "question": "Concernant « Buffer overflow — dépassement de tampon », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Pour une chaîne, le tableau doit accueillir strlen(source) + 1 octets. Un programme qui ne plante pas n'est pas forcément correct : une écriture hors limites est déjà un bug."
+      },
+      {
+        "id": "B",
+        "text": "Un buffer overflow se produit lorsque le programme écrit au-delà d'une zone mémoire prévue ; il faut contrôler les capacités avant de copier."
+      },
+      {
+        "id": "C",
+        "text": "Un débordement est impossible pour un tableau local."
+      },
+      {
+        "id": "D",
+        "text": "Écrire un octet juste au-delà d'un tableau reste défini."
+      }
+    ]
+  },
+  {
+    "id": "V1-N09_050-04",
+    "mode": "multiple",
+    "question": "Concernant « Use-after-free — réutiliser un bloc libéré », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "p=NULL met automatiquement à NULL tous ses alias."
+      },
+      {
+        "id": "B",
+        "text": "Après free, aucun alias vers le bloc ne doit servir à accéder aux anciennes données. Un test sans crash ne prouve pas que l'accès serait autorisé."
+      },
+      {
+        "id": "C",
+        "text": "Un use-after-free se produit lorsqu'un programme lit ou écrit dans un bloc déjà libéré par free ; il s'agit d'un comportement indéfini."
+      },
+      {
+        "id": "D",
+        "text": "Un bloc libéré reste valide si son contenu est inchangé."
+      }
+    ]
+  },
+  {
+    "id": "V1-N09_051-04",
+    "mode": "multiple",
+    "question": "Concernant « Double free — ne pas libérer deux fois », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Deux chemins de nettoyage qui libèrent la même allocation peuvent provoquer une double libération."
+      },
+      {
+        "id": "B",
+        "text": "Appeler free deux fois avec la même adresse d'un bloc déjà libéré est un comportement indéfini ; free(NULL) est sans effet."
+      },
+      {
+        "id": "C",
+        "text": "Après free(p), mettre p à NULL ne modifie pas les autres pointeurs qui copiaient son ancienne adresse."
+      },
+      {
+        "id": "D",
+        "text": "free(NULL) provoque un double free."
+      },
+      {
+        "id": "E",
+        "text": "Une allocation peut être libérée deux fois si aucune lecture ne suit."
+      }
+    ]
+  },
+  {
+    "id": "V1-N09_053-04",
+    "mode": "multiple",
+    "question": "Concernant « Valgrind Memcheck — comprendre les alertes », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Memcheck distingue les accès Invalid read/write, les valeurs non initialisées, les libérations invalides et plusieurs catégories de fuites."
+      },
+      {
+        "id": "B",
+        "text": "Dans Memcheck, « definitely lost: 32 bytes in 1 blocks » désigne un bloc perdu de 32 octets."
+      },
+      {
+        "id": "C",
+        "text": "Memcheck classe une lecture invalide comme « definitely lost »."
+      },
+      {
+        "id": "D",
+        "text": "Une valeur non initialisée est nécessairement égale à NULL."
+      }
+    ]
+  },
+  {
+    "id": "V1-N09_055-04",
+    "mode": "multiple",
+    "question": "Concernant « Dépassement de tampon sur la pile — erreur avant malloc », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Un strcpy ultérieur correct annule la corruption d'une lecture antérieure."
+      },
+      {
+        "id": "B",
+        "text": "Les tableaux locaux ne peuvent pas subir de dépassement."
+      },
+      {
+        "id": "C",
+        "text": "La taille du tampon doit être contrôlée pendant la lecture ; une copie ultérieure ne répare pas un débordement."
+      },
+      {
+        "id": "D",
+        "text": "Si la lecture de la saisie déborde un tableau local, la mémoire peut être corrompue AVANT malloc et strcpy : copier ensuite ne répare pas cette erreur."
+      }
+    ]
+  },
+  {
+    "id": "V1-N09_056-04",
+    "mode": "multiple",
+    "question": "Concernant « Tampon fixe, statique et dynamique — emplacement et durée de vie », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Un tampon peut être de taille fixe, avoir une durée de vie statique ou être alloué dynamiquement : ces propriétés sont différentes."
+      },
+      {
+        "id": "B",
+        "text": "Un tableau local ordinaire et un tableau local static peuvent avoir la même capacité et des durées de vie différentes."
+      },
+      {
+        "id": "C",
+        "text": "Un tableau local de taille fixe peut avoir une durée de vie automatique."
+      },
+      {
+        "id": "D",
+        "text": "Un tableau déclaré static dans une fonction possède une durée de vie statique."
+      },
+      {
+        "id": "E",
+        "text": "Un tampon malloc est obligatoirement global."
+      }
+    ]
+  },
+  {
+    "id": "V1-N09_057-04",
+    "mode": "multiple",
+    "question": "Concernant « Stack overflow — épuisement de la pile d'appels », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Une récursion sans cas d'arrêt peut épuiser la pile ; une grande variable locale peut également poser problème. Stack overflow et stack buffer overflow ne désignent pas la même erreur."
+      },
+      {
+        "id": "B",
+        "text": "Une récursion sans cas d'arrêt peut épuiser l'espace réservé aux appels de fonctions."
+      },
+      {
+        "id": "C",
+        "text": "Un stack overflow est simplement un accès au-delà d'un tableau local."
+      },
+      {
+        "id": "D",
+        "text": "Une récursion non bornée n'utilise aucun espace pour les appels."
+      },
+      {
+        "id": "E",
+        "text": "Un stack overflow survient lorsque l'espace disponible pour les appels de fonctions est épuisé, souvent par récursion sans arrêt ou objets automatiques trop volumineux."
+      }
+    ]
+  },
+  {
+    "id": "V1-N09_058-04",
+    "mode": "multiple",
+    "question": "Concernant « Valgrind : « definitely lost » et les octets perdus », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "« 1 blocks » signifie qu'un seul octet a été perdu."
+      },
+      {
+        "id": "B",
+        "text": "Dans « 32 bytes in 1 blocks », 32 est le nombre d'octets perdus et 1 celui des blocs."
+      },
+      {
+        "id": "C",
+        "text": "« Definitely lost: 32 bytes in 1 blocks » signifie qu'un bloc alloué de 32 octets reste non libéré et sans pointeur retrouvé : fuite certaine."
+      },
+      {
+        "id": "D",
+        "text": "« definitely lost » signifie qu'un pointeur valide vers le bloc subsiste."
+      }
+    ]
+  },
+  {
+    "id": "V1-N09_059-04",
+    "mode": "multiple",
+    "question": "Concernant « strlen sans terminateur nul — lecture hors limites », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "strlen connaît la capacité du tableau derrière char *."
+      },
+      {
+        "id": "B",
+        "text": "Sans nul final strlen renvoie nécessairement la taille du tableau."
+      },
+      {
+        "id": "C",
+        "text": "strlen n'est pas un contrôle de taille pour une mémoire arbitraire. Vérifier l'existence de '\\0' dans les limites connues avant de traiter un tampon comme une chaîne. Ne pas confondre strlen et sizeof."
+      },
+      {
+        "id": "D",
+        "text": "strlen attend une chaîne se terminant par '\\0' ; si un tableau de caractères n'en contient pas, la fonction peut lire hors de sa zone."
+      }
+    ]
+  },
+  {
+    "id": "V1-N09_060-04",
+    "mode": "multiple",
+    "question": "Concernant « memcpy() — copier des octets sans chevauchement », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Le paramètre n de memcpy est une longueur déduite de strlen."
+      },
+      {
+        "id": "B",
+        "text": "Avec recouvrement des deux zones mémoire, memmove convient, contrairement à memcpy."
+      },
+      {
+        "id": "C",
+        "text": "memcpy(dest, src, n) copie exactement n octets entre deux zones valides qui ne se recouvrent pas ; aucun '\\0' n'est ajouté automatiquement."
+      },
+      {
+        "id": "D",
+        "text": "Le troisième paramètre de memcpy est un nombre d'octets à copier."
+      },
+      {
+        "id": "E",
+        "text": "memcpy ajoute automatiquement un nul final."
+      }
+    ]
+  },
+  {
+    "id": "V1-N09_061-04",
+    "mode": "multiple",
+    "question": "Concernant « Ownership — qui est responsable de free() ? », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "L'ownership désigne la responsabilité de libérer une allocation ; copier ou transmettre un pointeur ne transfère pas automatiquement cette responsabilité."
+      },
+      {
+        "id": "B",
+        "text": "VRAI : copier un pointeur dans plusieurs variables crée un risque de confusion de propriété. FAUX : cela transfère automatiquement la propriété ou duplique l'allocation. Seul le responsable désigné libère le bloc, une fois."
+      },
+      {
+        "id": "C",
+        "text": "Copier une adresse transfère automatiquement l'ownership."
+      },
+      {
+        "id": "D",
+        "text": "Chaque alias doit appeler free une fois sur le même bloc."
+      }
+    ]
+  },
+  {
+    "id": "V1-N09_062-04",
+    "mode": "multiple",
+    "question": "Concernant « Dangling pointer — pointeur vers un objet qui n'existe plus », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Une adresse de variable locale reste utilisable après la fin du bloc."
+      },
+      {
+        "id": "B",
+        "text": "Un dangling pointer désigne un pointeur dont l'objet pointé n'est plus valide, notamment après free ou à la fin de vie d'une variable locale."
+      },
+      {
+        "id": "C",
+        "text": "Mettre p à NULL après free(p) ne met pas à NULL les autres alias de l'ancienne adresse."
+      },
+      {
+        "id": "D",
+        "text": "p=NULL efface l'adresse enregistrée dans tous les alias."
+      }
+    ]
+  },
+  {
+    "id": "V1-N09_064-04",
+    "mode": "multiple",
+    "question": "Concernant « char * — pointeur vers un caractère ou une chaîne », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "sizeof p mesure le pointeur char *, alors que sizeof tableau mesure le tableau de char lui-même."
+      },
+      {
+        "id": "B",
+        "text": "char * contient automatiquement la capacité de la zone désignée."
+      },
+      {
+        "id": "C",
+        "text": "Tout char * désigne une chaîne C terminée."
+      },
+      {
+        "id": "D",
+        "text": "char * est un pointeur vers char ; il peut désigner le début d'un tableau de caractères, mais ne stocke ni sa capacité ni son terminateur."
+      }
+    ]
+  },
+  {
+    "id": "V1-N09_065-04",
+    "mode": "multiple",
+    "question": "Concernant « Diagnostics mémoire — INVALID_WRITE, UNINITIALIZED_VALUE et fuites », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "INVALID_WRITE, UNINITIALIZED_VALUE, MEMORY_LEAK_DEFINITE, USE_AFTER_FREE et INDIRECT_LEAK sont des catégories d'erreurs ; elles ne correspondent pas toutes à des messages littéraux de Valgrind."
+      },
+      {
+        "id": "B",
+        "text": "Une fuite indirecte n'est pas la même chose qu'une fuite certaine directe ; un use-after-free peut apparaître comme un Invalid read/write. Les labels INVALID_WRITE, UNINITIALIZED_VALUE, etc. ne sont pas tous des messages émis mot pour mot par Valgrind."
+      },
+      {
+        "id": "C",
+        "text": "USE_AFTER_FREE est toujours un message textuel exact de Memcheck."
+      },
+      {
+        "id": "D",
+        "text": "Une fuite indirecte est la même erreur qu'une écriture invalide."
+      }
+    ]
+  },
+  {
+    "id": "V1-N09_068-04",
+    "mode": "multiple",
+    "question": "Concernant « Callback — transmettre une fonction en paramètre », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Un callback est une fonction dont l'adresse est passée à une autre fonction ; celle-ci l'appelle au bon moment via le pointeur reçu."
+      },
+      {
+        "id": "B",
+        "text": "Un callback doit toujours s'exécuter de manière asynchrone."
+      },
+      {
+        "id": "C",
+        "text": "Le callback possède automatiquement toutes les variables locales de l'appelant."
+      },
+      {
+        "id": "D",
+        "text": "Un callback n'est pas forcément asynchrone : appliquer appelle ici directement afficher_double. La signature du paramètre doit correspondre à celle de la fonction."
+      }
+    ]
+  },
+  {
+    "id": "V1-N09_069-04",
+    "mode": "multiple",
+    "question": "Concernant « Tableau de pointeurs de fonctions — choisir une opération », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Tout indice de tableau de pointeurs de fonctions peut être appelé sans contrôle."
+      },
+      {
+        "id": "B",
+        "text": "Un tableau de pointeurs de fonctions peut mélanger librement des signatures incompatibles."
+      },
+      {
+        "id": "C",
+        "text": "operations[index] est un pointeur de fonction, pas le résultat d'une fonction. Toujours valider l'indice et la non-nullité avant l'appel."
+      },
+      {
+        "id": "D",
+        "text": "Un tableau de pointeurs de fonctions regroupe des fonctions de même signature ; un indice contrôlé permet de choisir une opération sans longue chaîne de if."
+      },
+      {
+        "id": "E",
+        "text": "Appeler un élément NULL d'un tableau de pointeurs de fonctions est invalide."
+      }
+    ]
+  },
+  {
+    "id": "V1-N09_070-04",
+    "mode": "multiple",
+    "question": "Concernant « typedef d'un pointeur de fonction — simplifier les signatures », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "typedef rend automatiquement compatibles des fonctions aux signatures différentes."
+      },
+      {
+        "id": "B",
+        "text": "typedef définit un alias de type, pas une fonction ni une allocation. La signature doit rester compatible et les pointeurs peuvent valoir NULL si le contrat l'autorise."
+      },
+      {
+        "id": "C",
+        "text": "typedef int (*operation_t)(int, int) crée un nom pour un type de pointeur vers une fonction ; il n'appelle pas de fonction."
+      },
+      {
+        "id": "D",
+        "text": "typedef int (*fn)(int) appelle automatiquement la fonction fn."
+      }
+    ]
+  },
+  {
+    "id": "V1-N09_003-05",
+    "mode": "multiple",
+    "question": "Dans `int main(void) { int valeur = 1; int *p = &valeur; return valeur - 1; }`, compilé avec `gcc -std=gnu89 -Wall -Wextra -Werror -pedantic`, quelles affirmations sont exactes ? (Plusieurs réponses correctes.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "GCC détecte que la variable locale p est inutilisée avec -Wall."
+      },
+      {
+        "id": "B",
+        "text": "Ajouter `(void)p;` peut signaler que le non-emploi de p est intentionnel."
+      },
+      {
+        "id": "C",
+        "text": "Si p ne sert réellement à rien, supprimer sa déclaration est une correction pertinente."
+      },
+      {
+        "id": "D",
+        "text": "Il faut appeler free(p) puisque p contient une adresse."
+      },
+      {
+        "id": "E",
+        "text": "-Werror désactive le diagnostic -Wunused-variable."
+      }
+    ]
+  },
+  {
+    "id": "V1-N09_072-06",
+    "mode": "single",
+    "question": "Quel est l'effet des instructions `(void)argc; (void)argv;` dans `int main(int argc, char **argv) { (void)argc; (void)argv; return 0; }` sous GNU89 avec `-Wall -Wextra -Werror` ? (Une seule réponse correcte.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Elles convertissent les arguments en pointeurs NULL."
+      },
+      {
+        "id": "B",
+        "text": "Elles empêchent l'appel standard de main par le système."
+      },
+      {
+        "id": "C",
+        "text": "Elles libèrent automatiquement la mémoire contenant les arguments."
+      },
+      {
+        "id": "D",
+        "text": "Elles signalent que les paramètres sont intentionnellement inutilisés et évitent leurs avertissements."
+      },
+      {
+        "id": "E",
+        "text": "Elles modifient la valeur de argc avant return."
+      }
+    ]
+  },
+  {
+    "id": "V1-N16_000-04",
+    "mode": "multiple",
+    "question": "Concernant « struct : regrouper plusieurs données », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Une struct définit un type composé de membres nommés, éventuellement de types différents."
+      },
+      {
+        "id": "B",
+        "text": "Les membres d'une structure sont nommés dans sa définition et peuvent avoir des types différents."
+      },
+      {
+        "id": "C",
+        "text": "Les membres d'une struct doivent tous avoir le même type."
+      },
+      {
+        "id": "D",
+        "text": "Définir une struct lance automatiquement malloc."
+      },
+      {
+        "id": "E",
+        "text": "Le nom point est l’étiquette (tag) du type ; les membres sont déclarés dans les accolades. Ne pas oublier le ; final."
+      }
+    ]
+  },
+  {
+    "id": "V1-N16_002-04",
+    "mode": "multiple",
+    "question": "Concernant « Accès aux membres avec . », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "L'opérateur . s'applique directement à un pointeur de struct."
+      },
+      {
+        "id": "B",
+        "text": "objet.x désigne nécessairement une adresse NULL."
+      },
+      {
+        "id": "C",
+        "text": "À retenir : OBJET struct => objet.membre. Ici position est la structure elle-même ; position.x = 7 ne modifie pas position.y. Le point choisit le membre, tandis que = réalise l'affectation."
+      },
+      {
+        "id": "D",
+        "text": "Si p est une variable de type struct point (l’objet lui-même), p.x lit ou modifie son membre x. Le point s’emploie sur l’objet, pas directement sur son adresse."
+      }
+    ]
+  },
+  {
+    "id": "V1-N16_003-04",
+    "mode": "multiple",
+    "question": "Concernant « Accès par pointeur avec -> », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Trois expressions pour le MÊME membre : position.x (objet), ptr->x (pointeur) et (*ptr).x (pointeur déréférencé). ptr.x et position->x sont incorrects. -> choisit un membre ; = donne une valeur."
+      },
+      {
+        "id": "B",
+        "text": "ptr->x est correct lorsque ptr est une struct et non un pointeur."
+      },
+      {
+        "id": "C",
+        "text": "ptr->x et ptr.x sont toujours équivalents sans tenir compte du type."
+      },
+      {
+        "id": "D",
+        "text": "Si ptr est un pointeur valide vers une struct, ptr->x accède au membre x de l’objet pointé. La flèche -> équivaut à (*ptr).x, mais n’est pas un signe d’affectation."
+      }
+    ]
+  },
+  {
+    "id": "V1-N16_010-04",
+    "mode": "multiple",
+    "question": "Concernant « Modifier une struct via son adresse », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Passer &objet à une fonction empêche la modification de ses membres."
+      },
+      {
+        "id": "B",
+        "text": "L'opérateur -> est réservé aux membres globaux."
+      },
+      {
+        "id": "C",
+        "text": "Le paramètre p reçoit une copie de l'adresse de la struct, et p->x permet d'accéder à son membre x."
+      },
+      {
+        "id": "D",
+        "text": "En passant struct point *p à une fonction, celle-ci peut modifier l’objet de l’appelant via p->x."
+      }
+    ]
+  },
+  {
+    "id": "V1-N16_012-04",
+    "mode": "multiple",
+    "question": "Concernant « typedef struct : nommer une structure », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "typedef struct animal {...} animal_t déclare automatiquement un objet animal_t."
+      },
+      {
+        "id": "B",
+        "text": "Les membres de struct cessent d'exister après typedef."
+      },
+      {
+        "id": "C",
+        "text": "Le ; après le } est obligatoire. struct animal et animal_t désignent le même type ; animal_t a; crée une variable."
+      },
+      {
+        "id": "D",
+        "text": "typedef struct animal { int age; } animal_t; rend le type utilisable sous le nom animal_t."
+      },
+      {
+        "id": "E",
+        "text": "Après cet alias de type, animal_t a; déclare un objet sans écrire struct animal."
+      }
+    ]
+  },
+  {
+    "id": "V1-N16_013-04",
+    "mode": "multiple",
+    "question": "Concernant « typedef avec structure anonyme », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "point_t p exige le préfixe struct."
+      },
+      {
+        "id": "B",
+        "text": "typedef struct { int x; int y; } point_t; crée un alias pour une struct sans étiquette."
+      },
+      {
+        "id": "C",
+        "text": "point_t est l’alias ; struct point_t n’est pas un nom de type valide dans cet exemple."
+      },
+      {
+        "id": "D",
+        "text": "Un typedef de struct anonyme crée une étiquette struct point_t."
+      }
+    ]
+  },
+  {
+    "id": "V1-N16_017-04",
+    "mode": "multiple",
+    "question": "Concernant « Documenter une struct pour Betty », quelles affirmations sont techniquement exactes ? (Plusieurs réponses correctes.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Les annotations @membre doivent obligatoirement figurer dans le .c."
+      },
+      {
+        "id": "B",
+        "text": "La convention Betty demande une documentation de la structure et de ses membres : nom, description et annotations @membre."
+      },
+      {
+        "id": "C",
+        "text": "Betty est une convention de documentation externe au C : commenter struct point ainsi que chaque membre avec @x: et @y:. La documentation doit accompagner la définition, pas être reportée à la fin."
+      },
+      {
+        "id": "D",
+        "text": "Betty ne demande aucune documentation des membres de la struct."
+      }
+    ]
+  },
+  {
+    "id": "APP-05-006-001",
+    "mode": "single",
+    "question": "Avec `int i=2; do {printf(\"X\"); i++;} while(i<2);`, combien de X ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "2"
+      },
+      {
+        "id": "B",
+        "text": "0"
+      },
+      {
+        "id": "C",
+        "text": "3"
+      },
+      {
+        "id": "D",
+        "text": "1"
+      }
+    ]
+  },
+  {
+    "id": "APP-05-005-002",
+    "mode": "single",
+    "question": "Avec `int i=3; while (i>0) {printf(\"X\"); i--;}`, combien de X ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "4"
+      },
+      {
+        "id": "B",
+        "text": "2"
+      },
+      {
+        "id": "C",
+        "text": "3"
+      },
+      {
+        "id": "D",
+        "text": "0"
+      }
+    ]
+  },
+  {
+    "id": "APP-05-006-002",
+    "mode": "single",
+    "question": "Dans le code C suivant, combien de caractères X sont affichés ? `int i = 0; do { printf(\"X\"); i++; } while (i < 3);`",
+    "choix": [
+      {
+        "id": "A",
+        "text": "3"
+      },
+      {
+        "id": "B",
+        "text": "2"
+      },
+      {
+        "id": "C",
+        "text": "4"
+      },
+      {
+        "id": "D",
+        "text": "5"
+      }
+    ]
+  },
+  {
+    "id": "APP-05-009-002",
+    "mode": "single",
+    "question": "Une boucle `for (i=0;i<3;i++)` contient `for(j=0;j<3;j++) printf(\"X\");`. Combien de X ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "6"
+      },
+      {
+        "id": "B",
+        "text": "9"
+      },
+      {
+        "id": "C",
+        "text": "-1"
+      },
+      {
+        "id": "D",
+        "text": "3"
+      }
+    ]
+  },
+  {
+    "id": "APP-05-004-003",
+    "mode": "single",
+    "question": "Avec `int i; for (i=0; i<4; i++) printf(\"X\");`, combien de X ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "0"
+      },
+      {
+        "id": "B",
+        "text": "3"
+      },
+      {
+        "id": "C",
+        "text": "5"
+      },
+      {
+        "id": "D",
+        "text": "4"
+      }
+    ]
+  },
+  {
+    "id": "APP-05-005-003",
+    "mode": "single",
+    "question": "Avec `int i=4; while (i>0) {printf(\"X\"); i--;}`, combien de X ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "5"
+      },
+      {
+        "id": "B",
+        "text": "0"
+      },
+      {
+        "id": "C",
+        "text": "4"
+      },
+      {
+        "id": "D",
+        "text": "3"
+      }
+    ]
+  },
+  {
+    "id": "APP-05-006-003",
+    "mode": "single",
+    "question": "Dans le code C suivant, combien de caractères X sont affichés ? `int i = 5; do { printf(\"X\"); i--; } while (i > 3);`",
+    "choix": [
+      {
+        "id": "A",
+        "text": "1"
+      },
+      {
+        "id": "B",
+        "text": "2"
+      },
+      {
+        "id": "C",
+        "text": "3"
+      },
+      {
+        "id": "D",
+        "text": "4"
+      }
+    ]
+  },
+  {
+    "id": "APP-05-009-003",
+    "mode": "single",
+    "question": "Une boucle `for (i=0;i<4;i++)` contient `for(j=0;j<3;j++) printf(\"X\");`. Combien de X ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "-1"
+      },
+      {
+        "id": "B",
+        "text": "7"
+      },
+      {
+        "id": "C",
+        "text": "12"
+      },
+      {
+        "id": "D",
+        "text": "4"
+      }
+    ]
+  },
+  {
+    "id": "APP-05-004-004",
+    "mode": "single",
+    "question": "Avec `int i; for (i=0; i<5; i++) printf(\"X\");`, combien de X ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "6"
+      },
+      {
+        "id": "B",
+        "text": "0"
+      },
+      {
+        "id": "C",
+        "text": "4"
+      },
+      {
+        "id": "D",
+        "text": "5"
+      }
+    ]
+  },
+  {
+    "id": "APP-05-005-004",
+    "mode": "single",
+    "question": "Avec `int i=5; while (i>0) {printf(\"X\"); i--;}`, combien de X ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "4"
+      },
+      {
+        "id": "B",
+        "text": "0"
+      },
+      {
+        "id": "C",
+        "text": "5"
+      },
+      {
+        "id": "D",
+        "text": "6"
+      }
+    ]
+  },
+  {
+    "id": "APP-05-006-004",
+    "mode": "single",
+    "question": "Dans le code C suivant, combien de caractères X sont affichés ? `int i = 0; do { i++; if (i == 2) break; printf(\"X\"); } while (i < 4);`",
+    "choix": [
+      {
+        "id": "A",
+        "text": "1"
+      },
+      {
+        "id": "B",
+        "text": "0"
+      },
+      {
+        "id": "C",
+        "text": "2"
+      },
+      {
+        "id": "D",
+        "text": "3"
+      }
+    ]
+  },
+  {
+    "id": "APP-05-009-004",
+    "mode": "single",
+    "question": "Une boucle `for (i=0;i<5;i++)` contient `for(j=0;j<3;j++) printf(\"X\");`. Combien de X ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "15"
+      },
+      {
+        "id": "B",
+        "text": "-1"
+      },
+      {
+        "id": "C",
+        "text": "8"
+      },
+      {
+        "id": "D",
+        "text": "5"
+      }
+    ]
+  },
+  {
+    "id": "APP-05-004-005",
+    "mode": "single",
+    "question": "Avec `int i; for (i=0; i<6; i++) printf(\"X\");`, combien de X ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "7"
+      },
+      {
+        "id": "B",
+        "text": "5"
+      },
+      {
+        "id": "C",
+        "text": "0"
+      },
+      {
+        "id": "D",
+        "text": "6"
+      }
+    ]
+  },
+  {
+    "id": "APP-05-005-005",
+    "mode": "single",
+    "question": "Avec `int i=6; while (i>0) {printf(\"X\"); i--;}`, combien de X ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "6"
+      },
+      {
+        "id": "B",
+        "text": "5"
+      },
+      {
+        "id": "C",
+        "text": "0"
+      },
+      {
+        "id": "D",
+        "text": "7"
+      }
+    ]
+  },
+  {
+    "id": "APP-05-009-005",
+    "mode": "single",
+    "question": "Une boucle `for (i=0;i<6;i++)` contient `for(j=0;j<3;j++) printf(\"X\");`. Combien de X ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "9"
+      },
+      {
+        "id": "B",
+        "text": "-1"
+      },
+      {
+        "id": "C",
+        "text": "18"
+      },
+      {
+        "id": "D",
+        "text": "6"
+      }
+    ]
+  },
+  {
+    "id": "APP-05-004-006",
+    "mode": "single",
+    "question": "Avec `int i; for (i=0; i<7; i++) printf(\"X\");`, combien de X ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "8"
+      },
+      {
+        "id": "B",
+        "text": "0"
+      },
+      {
+        "id": "C",
+        "text": "6"
+      },
+      {
+        "id": "D",
+        "text": "7"
+      }
+    ]
+  },
+  {
+    "id": "APP-05-005-006",
+    "mode": "single",
+    "question": "Avec `int i=7; while (i>0) {printf(\"X\"); i--;}`, combien de X ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "7"
+      },
+      {
+        "id": "B",
+        "text": "0"
+      },
+      {
+        "id": "C",
+        "text": "6"
+      },
+      {
+        "id": "D",
+        "text": "8"
+      }
+    ]
+  },
+  {
+    "id": "APP-05-006-006",
+    "mode": "single",
+    "question": "Dans le code C suivant, combien de caractères X sont affichés ? `int i = 1; do { printf(\"X\"); i *= 2; } while (i < 5);`",
+    "choix": [
+      {
+        "id": "A",
+        "text": "3"
+      },
+      {
+        "id": "B",
+        "text": "2"
+      },
+      {
+        "id": "C",
+        "text": "4"
+      },
+      {
+        "id": "D",
+        "text": "5"
+      }
+    ]
+  },
+  {
+    "id": "APP-05-009-006",
+    "mode": "single",
+    "question": "Une boucle `for (i=0;i<7;i++)` contient `for(j=0;j<3;j++) printf(\"X\");`. Combien de X ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "10"
+      },
+      {
+        "id": "B",
+        "text": "21"
+      },
+      {
+        "id": "C",
+        "text": "7"
+      },
+      {
+        "id": "D",
+        "text": "-1"
+      }
+    ]
+  },
+  {
+    "id": "APP-05-004-007",
+    "mode": "single",
+    "question": "Avec `int i; for (i=0; i<8; i++) printf(\"X\");`, combien de X ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "0"
+      },
+      {
+        "id": "B",
+        "text": "9"
+      },
+      {
+        "id": "C",
+        "text": "7"
+      },
+      {
+        "id": "D",
+        "text": "8"
+      }
+    ]
+  },
+  {
+    "id": "APP-05-005-007",
+    "mode": "single",
+    "question": "Avec `int i=8; while (i>0) {printf(\"X\"); i--;}`, combien de X ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "0"
+      },
+      {
+        "id": "B",
+        "text": "7"
+      },
+      {
+        "id": "C",
+        "text": "8"
+      },
+      {
+        "id": "D",
+        "text": "9"
+      }
+    ]
+  },
+  {
+    "id": "APP-05-006-007",
+    "mode": "single",
+    "question": "Dans le code C suivant, combien de caractères X sont affichés ? `int i = 1; do { printf(\"X\"); i += 2; } while (i < 9);`",
+    "choix": [
+      {
+        "id": "A",
+        "text": "3"
+      },
+      {
+        "id": "B",
+        "text": "4"
+      },
+      {
+        "id": "C",
+        "text": "5"
+      },
+      {
+        "id": "D",
+        "text": "6"
+      }
+    ]
+  },
+  {
+    "id": "APP-05-009-007",
+    "mode": "single",
+    "question": "Une boucle `for (i=0;i<8;i++)` contient `for(j=0;j<3;j++) printf(\"X\");`. Combien de X ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "8"
+      },
+      {
+        "id": "B",
+        "text": "24"
+      },
+      {
+        "id": "C",
+        "text": "-1"
+      },
+      {
+        "id": "D",
+        "text": "11"
+      }
+    ]
+  },
+  {
+    "id": "APP-05-004-008",
+    "mode": "single",
+    "question": "Avec `int i; for (i=0; i<9; i++) printf(\"X\");`, combien de X ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "9"
+      },
+      {
+        "id": "B",
+        "text": "0"
+      },
+      {
+        "id": "C",
+        "text": "10"
+      },
+      {
+        "id": "D",
+        "text": "8"
+      }
+    ]
+  },
+  {
+    "id": "APP-05-005-008",
+    "mode": "single",
+    "question": "Avec `int i=9; while (i>0) {printf(\"X\"); i--;}`, combien de X ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "0"
+      },
+      {
+        "id": "B",
+        "text": "8"
+      },
+      {
+        "id": "C",
+        "text": "10"
+      },
+      {
+        "id": "D",
+        "text": "9"
+      }
+    ]
+  },
+  {
+    "id": "APP-05-006-008",
+    "mode": "single",
+    "question": "Dans le code C suivant, combien de caractères X sont affichés ? `int i = 0; do { if (i) printf(\"X\"); i++; } while (i < 3);`",
+    "choix": [
+      {
+        "id": "A",
+        "text": "1"
+      },
+      {
+        "id": "B",
+        "text": "2"
+      },
+      {
+        "id": "C",
+        "text": "3"
+      },
+      {
+        "id": "D",
+        "text": "4"
+      }
+    ]
+  },
+  {
+    "id": "APP-05-009-008",
+    "mode": "single",
+    "question": "Une boucle `for (i=0;i<9;i++)` contient `for(j=0;j<3;j++) printf(\"X\");`. Combien de X ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "9"
+      },
+      {
+        "id": "B",
+        "text": "12"
+      },
+      {
+        "id": "C",
+        "text": "27"
+      },
+      {
+        "id": "D",
+        "text": "-1"
+      }
+    ]
+  },
+  {
+    "id": "APP-05-004-009",
+    "mode": "single",
+    "question": "Avec `int i; for (i=0; i<10; i++) printf(\"X\");`, combien de X ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "0"
+      },
+      {
+        "id": "B",
+        "text": "11"
+      },
+      {
+        "id": "C",
+        "text": "10"
+      },
+      {
+        "id": "D",
+        "text": "9"
+      }
+    ]
+  },
+  {
+    "id": "APP-05-005-009",
+    "mode": "single",
+    "question": "Avec `int i=10; while (i>0) {printf(\"X\"); i--;}`, combien de X ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "9"
+      },
+      {
+        "id": "B",
+        "text": "0"
+      },
+      {
+        "id": "C",
+        "text": "11"
+      },
+      {
+        "id": "D",
+        "text": "10"
+      }
+    ]
+  },
+  {
+    "id": "APP-05-006-009",
+    "mode": "single",
+    "question": "Dans le code C suivant, combien de caractères X sont affichés ? `int i = 0; do { printf(\"X\"); i++; } while (i++ < 2);`",
+    "choix": [
+      {
+        "id": "A",
+        "text": "2"
+      },
+      {
+        "id": "B",
+        "text": "1"
+      },
+      {
+        "id": "C",
+        "text": "3"
+      },
+      {
+        "id": "D",
+        "text": "4"
+      }
+    ]
+  },
+  {
+    "id": "APP-03-000-001",
+    "mode": "single",
+    "question": "À quelles permissions symboliques correspond `chmod 700 fichier` (en ignorant ACL et bits spéciaux) ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "rwxrwxrwx"
+      },
+      {
+        "id": "B",
+        "text": "rw-rw-rw-"
+      },
+      {
+        "id": "C",
+        "text": "rwx------"
+      },
+      {
+        "id": "D",
+        "text": "---------"
+      }
+    ]
+  },
+  {
+    "id": "APP-03-000-002",
+    "mode": "single",
+    "question": "À quelles permissions symboliques correspond `chmod 644 fichier` (en ignorant ACL et bits spéciaux) ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "rwxrwxrwx"
+      },
+      {
+        "id": "B",
+        "text": "---------"
+      },
+      {
+        "id": "C",
+        "text": "rw-r--r--"
+      },
+      {
+        "id": "D",
+        "text": "rw-rw-rw-"
+      }
+    ]
+  },
+  {
+    "id": "APP-03-000-003",
+    "mode": "single",
+    "question": "À quelles permissions symboliques correspond `chmod 755 fichier` (en ignorant ACL et bits spéciaux) ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "---------"
+      },
+      {
+        "id": "B",
+        "text": "rwxrwxrwx"
+      },
+      {
+        "id": "C",
+        "text": "rw-rw-rw-"
+      },
+      {
+        "id": "D",
+        "text": "rwxr-xr-x"
+      }
+    ]
+  },
+  {
+    "id": "APP-03-000-004",
+    "mode": "single",
+    "question": "À quelles permissions symboliques correspond `chmod 600 fichier` (en ignorant ACL et bits spéciaux) ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "rwxrwxrwx"
+      },
+      {
+        "id": "B",
+        "text": "rw-------"
+      },
+      {
+        "id": "C",
+        "text": "rw-rw-rw-"
+      },
+      {
+        "id": "D",
+        "text": "---------"
+      }
+    ]
+  },
+  {
+    "id": "APP-03-000-005",
+    "mode": "single",
+    "question": "À quelles permissions symboliques correspond `chmod 444 fichier` (en ignorant ACL et bits spéciaux) ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "rwxrwxrwx"
+      },
+      {
+        "id": "B",
+        "text": "rw-rw-rw-"
+      },
+      {
+        "id": "C",
+        "text": "r--r--r--"
+      },
+      {
+        "id": "D",
+        "text": "---------"
+      }
+    ]
+  },
+  {
+    "id": "APP-03-000-007",
+    "mode": "single",
+    "question": "À quelles permissions symboliques correspond `chmod 751 fichier` (en ignorant ACL et bits spéciaux) ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "rwxr-x--x"
+      },
+      {
+        "id": "B",
+        "text": "rw-rw-rw-"
+      },
+      {
+        "id": "C",
+        "text": "rwxrwxrwx"
+      },
+      {
+        "id": "D",
+        "text": "---------"
+      }
+    ]
+  },
+  {
+    "id": "APP-03-000-008",
+    "mode": "single",
+    "question": "À quelles permissions symboliques correspond `chmod 750 fichier` (en ignorant ACL et bits spéciaux) ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "---------"
+      },
+      {
+        "id": "B",
+        "text": "rw-rw-rw-"
+      },
+      {
+        "id": "C",
+        "text": "rwxr-x---"
+      },
+      {
+        "id": "D",
+        "text": "rwxrwxrwx"
+      }
+    ]
+  },
+  {
+    "id": "APP-02-007-001",
+    "mode": "single",
+    "question": "Quelle commande déplace ou renomme un fichier sans en garder une copie à l'ancien chemin ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "mv ancien nouveau"
+      },
+      {
+        "id": "B",
+        "text": "cp ancien nouveau"
+      },
+      {
+        "id": "C",
+        "text": "cat ancien"
+      },
+      {
+        "id": "D",
+        "text": "touch nouveau"
+      }
+    ]
+  },
+  {
+    "id": "APP-02-008-001",
+    "mode": "single",
+    "question": "Quelle commande consulte les pages de manuel ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "file grep"
+      },
+      {
+        "id": "B",
+        "text": "man grep"
+      },
+      {
+        "id": "C",
+        "text": "ls grep"
+      },
+      {
+        "id": "D",
+        "text": "wc grep"
+      }
+    ]
+  },
+  {
+    "id": "APP-04-012-001",
+    "mode": "single",
+    "question": "Quel paramètre spécial Bash contient le dernier statut ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "$1"
+      },
+      {
+        "id": "B",
+        "text": "$?"
+      },
+      {
+        "id": "C",
+        "text": "$$"
+      },
+      {
+        "id": "D",
+        "text": "$#"
+      }
+    ]
+  },
+  {
+    "id": "CDEEP-08-009-01",
+    "mode": "single",
+    "question": "Que fait `gcc -o programme main.c` lorsque toutes les étapes réussissent ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Affiche uniquement le prétraitement"
+      },
+      {
+        "id": "B",
+        "text": "Produit forcément main.o sans lien"
+      },
+      {
+        "id": "C",
+        "text": "Produit un exécutable nommé programme"
+      },
+      {
+        "id": "D",
+        "text": "Démarre un dépôt Git"
+      }
+    ]
+  },
+  {
+    "id": "CDEEP-08-024-01",
+    "mode": "single",
+    "question": "À quel langage associe-t-on Dennis Ritchie parmi les propositions ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Python"
+      },
+      {
+        "id": "B",
+        "text": "Java"
+      },
+      {
+        "id": "C",
+        "text": "C"
+      },
+      {
+        "id": "D",
+        "text": "Rust"
+      }
+    ]
+  },
+  {
+    "id": "CDEEP-08-025-01",
+    "mode": "single",
+    "question": "Pour `int n;`, quel argument de `scanf(\"%d\", ...)` est correct ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "*n"
+      },
+      {
+        "id": "B",
+        "text": "&n"
+      },
+      {
+        "id": "C",
+        "text": "n"
+      },
+      {
+        "id": "D",
+        "text": "sizeof n"
+      }
+    ]
+  },
+  {
+    "id": "CDEEP-08-025-02",
+    "mode": "single",
+    "question": "Pour une saisie non numérique dès le premier caractère, que renvoie usuellement `scanf(\"%d\", &n)` ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "1"
+      },
+      {
+        "id": "B",
+        "text": "0"
+      },
+      {
+        "id": "C",
+        "text": "Le contenu de n"
+      },
+      {
+        "id": "D",
+        "text": "-2"
+      }
+    ]
+  },
+  {
+    "id": "CDEEP-14-001-01",
+    "mode": "single",
+    "question": "Pourquoi documenter les paramètres d'une fonction ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Clarifier ses entrées et son résultat"
+      },
+      {
+        "id": "B",
+        "text": "Changer la valeur de retour automatiquement"
+      },
+      {
+        "id": "C",
+        "text": "Supprimer toute erreur de compilation"
+      },
+      {
+        "id": "D",
+        "text": "Rendre inutile tout test"
+      }
+    ]
+  },
+  {
+    "id": "CDEEP-14-004-01",
+    "mode": "single",
+    "question": "Quelle erreur correspond à la phase de liaison et non à la syntaxe C ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "undefined reference to symbole"
+      },
+      {
+        "id": "B",
+        "text": "Une variable déclarée dans un for GNU89 strict"
+      },
+      {
+        "id": "C",
+        "text": "Une accolade manquante"
+      },
+      {
+        "id": "D",
+        "text": "Une expression avec un ; supplémentaire"
+      }
+    ]
+  },
+  {
+    "id": "CDEEP-14-005-01",
+    "mode": "single",
+    "question": "Quel commentaire est le plus utile à un lecteur ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Une duplication de tous les messages stdout"
+      },
+      {
+        "id": "B",
+        "text": "Un mot au hasard"
+      },
+      {
+        "id": "C",
+        "text": "Une explication du pourquoi d'un choix non évident"
+      },
+      {
+        "id": "D",
+        "text": "Un commentaire qui répète chaque opérateur évident"
+      }
+    ]
+  },
+  {
+    "id": "SCN-006",
+    "mode": "multiple",
+    "question": "Pour l'entrée `42\\n`, que produit `scanf(\"%d%c\", &n, &c)` si `n` est un `int` et `c` un `char` ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "`c` reçoit le caractère retour à la ligne."
+      },
+      {
+        "id": "B",
+        "text": "Le retour vaut 2 si les deux affectations réussissent."
+      },
+      {
+        "id": "C",
+        "text": "`%c` supprime automatiquement le retour à la ligne."
+      },
+      {
+        "id": "D",
+        "text": "`n` reçoit 42."
+      }
+    ]
+  },
+  {
+    "id": "SCN-007",
+    "mode": "single",
+    "question": "Pour l'entrée `a=5`, quelle écriture lit l'entier après les caractères littéraux `a=` ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "`scanf(\"a=%d\", &n)`"
+      },
+      {
+        "id": "B",
+        "text": "`scanf(\"%d=a\", &n)`"
+      },
+      {
+        "id": "C",
+        "text": "`scanf(\"%a=%d\", &n)`"
+      },
+      {
+        "id": "D",
+        "text": "`scanf(\"a%d\", &n)`"
+      }
+    ]
+  },
+  {
+    "id": "SCN-008",
+    "mode": "multiple",
+    "question": "Avec `int n=0;` et l'entrée `123`, quel résultat est attendu pour `scanf(\"%2d\", &n)` ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Le caractère `3` peut rester disponible pour une lecture suivante."
+      },
+      {
+        "id": "B",
+        "text": "La largeur impose une valeur maximale de 2."
+      },
+      {
+        "id": "C",
+        "text": "`n` peut recevoir 12."
+      },
+      {
+        "id": "D",
+        "text": "La conversion de `n` utilise au plus deux caractères."
+      }
+    ]
+  },
+  {
+    "id": "SCN-011",
+    "mode": "single",
+    "question": "Un programme ne teste pas le résultat de `scanf(\"%d\", &nombre)`. Quel est le défaut principal ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Il risque d'utiliser `nombre` alors qu'aucune valeur nouvelle n'a été affectée."
+      },
+      {
+        "id": "B",
+        "text": "La compilation échoue toujours."
+      },
+      {
+        "id": "C",
+        "text": "`scanf` bloque systématiquement le clavier."
+      },
+      {
+        "id": "D",
+        "text": "L'appel initialise forcément `nombre` à zéro."
+      }
+    ]
+  },
+  {
+    "id": "SCN-012",
+    "mode": "multiple",
+    "question": "Dans un format de saisie, quelles propriétés de `%n` sont correctes (si son utilisation est adaptée et sûre) ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Il n'exige pas de lire un caractère d'entrée supplémentaire."
+      },
+      {
+        "id": "B",
+        "text": "Il écrit le nombre de caractères consommés jusque-là dans un `int *`."
+      },
+      {
+        "id": "C",
+        "text": "Il ne compte pas comme une conversion affectée dans la valeur de retour."
+      },
+      {
+        "id": "D",
+        "text": "Il initialise une chaîne de caractères terminée par zéro."
+      }
+    ]
+  },
+  {
+    "id": "SCN-013",
+    "mode": "single",
+    "question": "Avec `scanf(\"%3[abc]\", mot)`, que décrit le scanset `[abc]` ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Une suite non vide de caractères appartenant à l'ensemble a, b ou c, avec largeur maximale 3."
+      },
+      {
+        "id": "B",
+        "text": "Une chaîne quelconque de trois caractères maximum."
+      },
+      {
+        "id": "C",
+        "text": "Exactement la chaîne `abc`."
+      },
+      {
+        "id": "D",
+        "text": "Un nombre octal."
+      }
+    ]
+  },
+  {
+    "id": "SCN-015",
+    "mode": "single",
+    "question": "Pour lire une valeur dans `tab[1]` avec `int tab[3];`, quel argument convient à `%d` ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "`tab[1]`"
+      },
+      {
+        "id": "B",
+        "text": "`&tab[1]`"
+      },
+      {
+        "id": "C",
+        "text": "`&tab`"
+      },
+      {
+        "id": "D",
+        "text": "`*tab[1]`"
+      }
+    ]
+  },
+  {
+    "id": "EXPL-02-005-02",
+    "mode": "single",
+    "question": "Quelle commande remonte exactement au répertoire parent courant ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "cd .."
+      },
+      {
+        "id": "B",
+        "text": "cd /"
+      },
+      {
+        "id": "C",
+        "text": "cd ."
+      },
+      {
+        "id": "D",
+        "text": "pwd .."
+      }
+    ]
+  },
+  {
+    "id": "EXPL-03-001-01",
+    "mode": "single",
+    "question": "Pourquoi faut-il éviter `sudo` quand il n'est pas nécessaire ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Il donne des privilèges élevés et accroît l'impact d'une erreur"
+      },
+      {
+        "id": "B",
+        "text": "Il remplace toujours chmod"
+      },
+      {
+        "id": "C",
+        "text": "Il limite le programme à la lecture seule"
+      },
+      {
+        "id": "D",
+        "text": "Il désactive automatiquement les permissions"
+      }
+    ]
+  },
+  {
+    "id": "V1-N05_006-01",
+    "mode": "single",
+    "question": "Avec `int i = 5;`, quelle structure affiche \"X\" malgré une condition `i < 3` fausse dès le départ ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "do { printf(\"X\"); } while (i < 3);"
+      },
+      {
+        "id": "B",
+        "text": "while (i < 3) { printf(\"X\"); }"
+      },
+      {
+        "id": "C",
+        "text": "for (; i < 3; i++) { printf(\"X\"); }"
+      },
+      {
+        "id": "D",
+        "text": "if (i < 3) { printf(\"X\"); }"
+      }
+    ]
+  },
+  {
+    "id": "V1-N05_006-02",
+    "mode": "single",
+    "question": "Avec `int i = 5;`, on compare `while (i < 4) { printf(\"W\"); }` et `do { printf(\"D\"); } while (i < 4);`. Quelle affirmation est exacte ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "La boucle while n’affiche rien et la boucle do…while affiche D une fois."
+      },
+      {
+        "id": "B",
+        "text": "Les deux boucles n’affichent rien car 5 < 4 est faux."
+      },
+      {
+        "id": "C",
+        "text": "La boucle while affiche W une fois et la boucle do…while n’affiche rien."
+      },
+      {
+        "id": "D",
+        "text": "Les deux boucles affichent chacune un caractère une fois."
+      }
+    ]
+  },
+  {
+    "id": "V1-N05_006-03",
+    "mode": "single",
+    "question": "Dans `int i = 0; do { printf(\"X\"); } while (i < 2);`, sans intervention extérieure, que se passe-t-il ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "La boucle s’arrête après deux affichages car 2 est sa borne."
+      },
+      {
+        "id": "B",
+        "text": "Le corps ne s’exécute pas car i vaut 0."
+      },
+      {
+        "id": "C",
+        "text": "La boucle continue indéfiniment : i reste à 0 et la condition reste vraie."
+      },
+      {
+        "id": "D",
+        "text": "La boucle s’arrête automatiquement dès qu’une condition a été évaluée."
+      }
+    ]
+  },
+  {
+    "id": "V2-N14_002-06",
+    "mode": "multiple",
+    "question": "Quelles affirmations sont exactes pour GCC en C GNU89 ? (Plusieurs réponses correctes.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "L'option -Wall active généralement le diagnostic -Wunused-variable."
+      },
+      {
+        "id": "B",
+        "text": "Avec -Wall -Wextra, GCC peut signaler un paramètre nommé inutilisé."
+      },
+      {
+        "id": "C",
+        "text": "L'instruction `(void)parametre;` peut indiquer une non-utilisation intentionnelle et supprimer cet avertissement."
+      },
+      {
+        "id": "D",
+        "text": "-Werror désactive les avertissements du compilateur."
+      },
+      {
+        "id": "E",
+        "text": "`[[maybe_unused]]` est une fonctionnalité du C89 portable."
+      }
+    ]
+  },
+  {
+    "id": "V2-N14_002-07",
+    "mode": "single",
+    "question": "Après un refactoring, une variable locale n'a plus aucune utilité ni effet de bord. Quelle correction est généralement préférable ? (Une seule réponse correcte.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "La laisser et désactiver -Wall pour tout le projet."
+      },
+      {
+        "id": "B",
+        "text": "L'entourer d'une boucle qui ne s'exécute jamais."
+      },
+      {
+        "id": "C",
+        "text": "Supprimer sa déclaration et l'initialisation devenue inutile."
+      },
+      {
+        "id": "D",
+        "text": "Faire systématiquement `(void)variable;` même si elle n'a aucune utilité."
+      }
+    ]
+  }
+]
