@@ -2,6 +2,10 @@
 
 Ce document décrit **le format réellement utilisé** par les banques accessibles du site. Il sert à créer, corriger et relire les futures questions. Ne pas inventer un autre schéma ou remplacer silencieusement les banques existantes.
 
+## Critères de relecture
+
+Deux motifs justifient de demander une correction : un corrigé inexact ou un énoncé ambigu. Consigner l’identifiant et le problème précis, corriger puis revérifier. Conserver les questions de mémorisation, les variantes proches, les répétitions et les questions faciles dès lors que l’énoncé est clair et le corrigé exact.
+
 ## Sources de vérité
 
 - `docs/quiz/vague1/section-09-pointeurs-et-tableaux-c.json` : banque plus large ; seules les **25 questions** dont l'identifiant correspond à `^V1-N09_07[2-6]-0[1-5]$` sont actuellement publiées.

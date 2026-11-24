@@ -7,7 +7,6 @@ Le HTML servi par le site lors du contrôle avait la même empreinte SHA-256 que
 | Emplacement | Effet pour l’élève | Suite donnée |
 |---|---|---|
 | C, fiche 8:27, `strtol` | Une ligne composée de 29 zéros puis de `42abc` était acceptée. Le tampon s’arrêtait juste avant `abc`. | La PR #43 distingue fin de ligne, fin d’entrée et saisie tronquée. Les tests couvrent les deux fins valides et le suffixe invalide. |
-| Pointeurs, fiche 9:21 | L’exemple comptait neuf lettres dans « Holberton ». Il y en a huit et le caractère nul occupe la neuvième case. | Exemple corrigé dans la PR #43. |
 | Structures, fiches 16:4 et 16:9 | La suite utilisait des options plus permissives pour ces exemples. Les options strictes du projet faisaient échouer la compilation. | Exemples et tests alignés dans la PR #43. Les valeurs de la copie et de l’original sont désormais visibles toutes les deux. |
 | Taille des types, division entière, mesures du temps | `%zu` était présenté sans précision de dialecte, deux textes généralisaient l’arrondi des quotients négatifs et deux exemples appelaient des fonctions au niveau du fichier. | La PR #43 propose une version GNU89, précise la différence C90/C99 et place les appels à `clock` et `time` dans des programmes autonomes. |
 | Bash, Git, Docker, récursivité | La portée de `local`, le contexte de `COPY`, les marqueurs de conflit et les variables locales étaient présentés sans leurs conditions. | Précisions sur les fonctions Bash appelées, `COPY --from`, les conflits modification/suppression et la durée de vie de `static`, entre autres corrections de la PR #43. |
@@ -25,10 +24,10 @@ Sources figées pour la relecture : [banque de la PR #19](https://github.com/Sim
 |---|---:|
 | Déjà jouables sur argc/argv | 25 |
 | Utilisés dans les scénarios proposés (50 conservent leur identifiant) | 502 |
-| Écartés du lot pour reconnaissance ou restitution de la fiche | 416 |
-| Applications mises de côté pour diversifier les scénarios | 45 |
-| Réserve technique nécessitant une contre-relecture individuelle | 111 |
+| Conservés pour vérification de l’exactitude du corrigé et de la clarté de l’énoncé | 572 |
 | **Total inventorié** | **1 099** |
+
+Une question est à corriger uniquement si son corrigé est inexact ou si son énoncé est ambigu. Les questions de restitution, répétitions, variantes numériques et questions faciles sont conservées. Le rattachement à un scénario retravaillé indique la provenance et conserve la candidature de l’original. Les questions encore à vérifier sont identifiées dans le tableau.
 
 Les 153 nouvelles questions couvrent 144 notions. Elles comprennent 101 questions simples et 52 multiples. Les 567 choix disposent d’une justification individuelle. Les liens sont vérifiés jusqu’à la fiche exacte à partir de son titre et de son index. Les 55 questions existantes conservent leurs identifiants pour la reprise des sessions.
 
