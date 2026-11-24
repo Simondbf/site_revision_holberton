@@ -32,7 +32,7 @@
       "correct_option_ids": [
         "B"
       ],
-      "explanation": "Un paramètre fixe nommé précède ... en C89.",
+      "explanation": "En C89, le prototype comporte au moins un paramètre fixe avant les points de suspension.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/32-fonction-variadique-declarer-des-arguments-avec",
         "https://man7.org/linux/man-pages/man3/stdarg.3.html",
@@ -274,7 +274,7 @@
       "question_type": "initialisation",
       "difficulty_internal": 1,
       "answer_mode": "single",
-      "prompt": "Pour `void f(int nombre, ...)`, comment initialiser `va_list ap` ? (Une seule réponse correcte.)",
+      "prompt": "En C89, pour `void f(int nombre, ...)`, comment initialiser `va_list ap` ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -296,7 +296,7 @@
       "correct_option_ids": [
         "A"
       ],
-      "explanation": "Le second argument de va_start est le dernier paramètre fixe nommé.",
+      "explanation": "En C89, le second argument de va_start est le dernier paramètre fixe nommé.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/33-va-list-et-va-start-initialiser-le-parcours",
         "https://man7.org/linux/man-pages/man3/stdarg.3.html",
@@ -410,7 +410,7 @@
       "question_type": "initialisation",
       "difficulty_internal": 3,
       "answer_mode": "single",
-      "prompt": "Pour `void f(const char *format, ...)`, quel second argument faut-il donner à va_start ? (Une seule réponse correcte.)",
+      "prompt": "En C89, pour `void f(const char *format, ...)`, quel second argument faut-il donner à va_start ? (Une seule réponse correcte.)",
       "options": [
         {
           "id": "A",
@@ -432,7 +432,7 @@
       "correct_option_ids": [
         "B"
       ],
-      "explanation": "format est le dernier paramètre fixe.",
+      "explanation": "En C89, format est le dernier paramètre fixe.",
       "source_urls": [
         "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/33-va-list-et-va-start-initialiser-le-parcours",
         "https://man7.org/linux/man-pages/man3/stdarg.3.html",

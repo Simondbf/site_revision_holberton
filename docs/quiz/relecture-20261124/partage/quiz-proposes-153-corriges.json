@@ -1,0 +1,1135 @@
+[
+  {
+    "id": "REV-N00_000-01",
+    "reponses": [
+      "A"
+    ],
+    "explication": "La RAM est un composant physique. Le navigateur est un programme que le processeur exécute."
+  },
+  {
+    "id": "REV-N00_001-01",
+    "reponses": [
+      "A",
+      "D"
+    ],
+    "explication": "Le système répartit les ressources de la machine et expose des services de fichiers aux applications."
+  },
+  {
+    "id": "REV-N00_002-01",
+    "reponses": [
+      "C"
+    ],
+    "explication": "Un appel système permet à un programme en espace utilisateur de demander un service au noyau."
+  },
+  {
+    "id": "EXPL-00-003-01",
+    "reponses": [
+      "A",
+      "C"
+    ],
+    "explication": "Ubuntu associe le noyau Linux à des bibliothèques, des outils et des paquets pour former une distribution utilisable."
+  },
+  {
+    "id": "EXPL-00-004-01",
+    "reponses": [
+      "C"
+    ],
+    "explication": "WSL permet d’installer et d’utiliser une distribution Linux depuis Windows. WSL 2 s’appuie sur un noyau Linux dans une machine virtuelle légère gérée par Windows."
+  },
+  {
+    "id": "REV-N00_005-01",
+    "reponses": [
+      "C"
+    ],
+    "explication": "Une commande écrite peut être rejouée, transmise ou intégrée à un script."
+  },
+  {
+    "id": "EXPL-01-000-01",
+    "reponses": [
+      "A"
+    ],
+    "explication": "Le terminal assure les échanges de texte avec l’utilisateur. Bash interprète la ligne de commande."
+  },
+  {
+    "id": "REV-N01_001-01",
+    "reponses": [
+      "C"
+    ],
+    "explication": "Bash développe les paramètres avant l’exécution de la commande. printf reçoit alors la valeur comme argument."
+  },
+  {
+    "id": "REV-N01_002-01",
+    "reponses": [
+      "B"
+    ],
+    "explication": "Le répertoire courant appartient à chaque processus. Pour changer celui du shell qui continuera à lire les commandes, le changement doit se faire dans ce shell."
+  },
+  {
+    "id": "REV-N01_003-01",
+    "reponses": [
+      "B",
+      "D"
+    ],
+    "explication": "Dans cette forme d’appel, Bash ouvre lui-même le fichier comme entrée. Exécuter directement ./bonjour.sh fait intervenir d’autres conditions, dont le droit d’exécution."
+  },
+  {
+    "id": "APP-02-000-001",
+    "reponses": [
+      "A"
+    ],
+    "explication": "Le premier caractère / ancre un chemin absolu. Le chemin réduit à / désigne cette racine elle-même."
+  },
+  {
+    "id": "REV-N02_001-01",
+    "reponses": [
+      "B",
+      "C"
+    ],
+    "explication": "Un tilde initial non cité peut être développé par Bash. Une variable placée entre guillemets doubles est également développée."
+  },
+  {
+    "id": "APP-02-002-001",
+    "reponses": [
+      "D"
+    ],
+    "explication": "Chaque composant .. remonte d’un niveau dans l’arborescence."
+  },
+  {
+    "id": "APP-02-003-001",
+    "reponses": [
+      "A"
+    ],
+    "explication": "Un chemin absolu commence par une barre oblique et se résout à partir de la racine."
+  },
+  {
+    "id": "REV-N02_004-01",
+    "reponses": [
+      "B"
+    ],
+    "explication": "Le chemin fourni est relatif. La recherche de docs commence dans le répertoire de travail /home/lea/projet."
+  },
+  {
+    "id": "EXPL-02-005-01",
+    "reponses": [
+      "B"
+    ],
+    "explication": "Le chemin absolu /tmp devient le répertoire courant. pwd affiche le répertoire dans lequel travaille le shell."
+  },
+  {
+    "id": "REV-N02_006-01",
+    "reponses": [
+      "B"
+    ],
+    "explication": "mkdir -p accepte les répertoires déjà présents. Par défaut touch actualise les dates d’accès et de modification du fichier existant tout en conservant son contenu."
+  },
+  {
+    "id": "EXPL-02-007-01",
+    "reponses": [
+      "A"
+    ],
+    "explication": "cp lit le fichier source et écrit la copie sous le nom de destination."
+  },
+  {
+    "id": "REV-N02_008-01",
+    "reponses": [
+      "C"
+    ],
+    "explication": "find parcourt le point de départ. Le test -type f limite le résultat aux fichiers ordinaires et -name teste leur nom."
+  },
+  {
+    "id": "APP-03-000-006",
+    "reponses": [
+      "A"
+    ],
+    "explication": "Les chiffres se lisent dans l’ordre propriétaire, groupe, autres. Six combine lecture et écriture, quatre accorde la lecture et zéro retire les trois droits."
+  },
+  {
+    "id": "EXPL-03-000-01",
+    "reponses": [
+      "A",
+      "B"
+    ],
+    "explication": "Les droits d’un répertoire contrôlent notamment ses noms d’entrées et leur recherche. Les permissions du fichier visé restent distinctes."
+  },
+  {
+    "id": "REV-N03_001-01",
+    "reponses": [
+      "A"
+    ],
+    "explication": "Dans un mode symbolique, u désigne le propriétaire, + ajoute un droit et x désigne l’exécution."
+  },
+  {
+    "id": "EXPL-03-002-01",
+    "reponses": [
+      "B",
+      "C",
+      "D"
+    ],
+    "explication": "Les trois flux standard sont l’entrée standard sur 0, la sortie standard sur 1 et la sortie d’erreur sur 2. Une redirection peut changer leur destination."
+  },
+  {
+    "id": "EXPL-03-003-01",
+    "reponses": [
+      "C"
+    ],
+    "explication": "Le shell ouvre le fichier avant de lancer la commande. > ramène sa taille à zéro et >> dirige les nouvelles écritures vers la fin."
+  },
+  {
+    "id": "REV-N03_004-01",
+    "reponses": [
+      "B",
+      "D"
+    ],
+    "explication": "Le signe < ouvre entree pour l’entrée standard. Le préfixe 2 choisit la sortie d’erreur pour écrire dans erreurs."
+  },
+  {
+    "id": "REV-N03_005-01",
+    "reponses": [
+      "B"
+    ],
+    "explication": "Dans un pipeline ordinaire, le shell relie stdout de la commande de gauche à stdin de celle de droite."
+  },
+  {
+    "id": "REV-N03_006-01",
+    "reponses": [
+      "A"
+    ],
+    "explication": "false échoue et fait sauter printf A. La partie à gauche de || a alors un statut d’échec, donc printf B s’exécute."
+  },
+  {
+    "id": "REV-N03_007-01",
+    "reponses": [
+      "B"
+    ],
+    "explication": "wc -l compte les caractères de fin de ligne. L’entrée contient un saut de ligne entre a et b, sans saut de ligne final."
+  },
+  {
+    "id": "EXPL-03-008-01",
+    "reponses": [
+      "C"
+    ],
+    "explication": "-d indique le séparateur de champ et -f1 sélectionne le champ numéro un."
+  },
+  {
+    "id": "EXPL-03-009-01",
+    "reponses": [
+      "C"
+    ],
+    "explication": "-A ajoute du contexte après les lignes sélectionnées. À la fin du fichier, il peut rester moins de trois lignes à afficher."
+  },
+  {
+    "id": "REV-N03_010-01",
+    "reponses": [
+      "B"
+    ],
+    "explication": "L’option -i ignore la casse et -c compte les lignes sélectionnées. Les deux occurrences se trouvent sur une même ligne."
+  },
+  {
+    "id": "REV-N03_011-01",
+    "reponses": [
+      "B"
+    ],
+    "explication": "uniq traite les séries de lignes identiques consécutives. Ici les deux rouges appartiennent à des séries différentes."
+  },
+  {
+    "id": "APP-04-000-001",
+    "reponses": [
+      "C"
+    ],
+    "explication": "L’affectation simple utilise nom=valeur sans espace autour du signe égal. Une valeur littérale contenant un espace peut être placée entre guillemets."
+  },
+  {
+    "id": "REV-N04_001-01",
+    "reponses": [
+      "C"
+    ],
+    "explication": "L’affectation crée une variable du shell. Sans export, sa valeur ne figure pas dans l’environnement transmis à printenv."
+  },
+  {
+    "id": "REV-N04_002-01",
+    "reponses": [
+      "B"
+    ],
+    "explication": "La variable locale masque le nom extérieur pendant l’appel. La liaison extérieure redevient visible au retour de la fonction."
+  },
+  {
+    "id": "EXPL-04-003-01",
+    "reponses": [
+      "A",
+      "B"
+    ],
+    "explication": "L’export inclut le nom et sa valeur dans l’environnement transmis aux futurs programmes. Chaque programme reçoit son propre environnement au lancement."
+  },
+  {
+    "id": "APP-04-004-001",
+    "reponses": [
+      "B"
+    ],
+    "explication": "unset retire la variable. Cela se distingue d’une affectation vide, qui laisse le nom défini."
+  },
+  {
+    "id": "REV-N04_005-01",
+    "reponses": [
+      "B"
+    ],
+    "explication": "Sans argument, set affiche les variables du shell Bash. printenv consulte uniquement son propre environnement."
+  },
+  {
+    "id": "EXPL-04-006-01",
+    "reponses": [
+      "A"
+    ],
+    "explication": "Un alias associe un nom à du texte de remplacement interprété comme une partie de la commande."
+  },
+  {
+    "id": "APP-04-007-001",
+    "reponses": [
+      "A"
+    ],
+    "explication": "source lit le fichier et exécute ses commandes dans le contexte du shell appelant."
+  },
+  {
+    "id": "APP-04-008-001",
+    "reponses": [
+      "A"
+    ],
+    "explication": "Bash utilise PATH pour localiser l’exécutable correspondant au nom demandé. Les répertoires y sont ordonnés."
+  },
+  {
+    "id": "REV-N04_009-01",
+    "reponses": [
+      "A"
+    ],
+    "explication": "Le caractère souligné peut appartenir au nom d’une variable. Les accolades situent la fin du nom avant le suffixe."
+  },
+  {
+    "id": "REV-N04_010-01",
+    "reponses": [
+      "B"
+    ],
+    "explication": "La substitution de commande capture stdout et retire tous les sauts de ligne finaux. Elle conserve celui placé entre les deux lettres."
+  },
+  {
+    "id": "APP-04-011-001",
+    "reponses": [
+      "B"
+    ],
+    "explication": "Dans une expansion arithmétique, la multiplication est évaluée avant l’addition, comme dans l’expression 3 + (4 × 2)."
+  },
+  {
+    "id": "REV-N04_012-01",
+    "reponses": [
+      "A",
+      "C"
+    ],
+    "explication": "Les guillemets gardent un deux dans un seul argument. Le nom du script occupe la position zéro et ne compte pas dans $#."
+  },
+  {
+    "id": "EXPL-04-013-01",
+    "reponses": [
+      "B"
+    ],
+    "explication": "La convention Unix utilise le deux-points comme séparateur entre les entrées du chemin de recherche."
+  },
+  {
+    "id": "REV-C-001",
+    "reponses": [
+      "A"
+    ],
+    "explication": "Dès qu’une condition de la chaîne réussit, son instruction s’exécute et les branches suivantes sont sautées."
+  },
+  {
+    "id": "REV-C-002",
+    "reponses": [
+      "C"
+    ],
+    "explication": "Le = du test affecte zéro à x. Pour comparer x à zéro sans le modifier, on écrirait x == 0."
+  },
+  {
+    "id": "REV-C-003",
+    "reponses": [
+      "B"
+    ],
+    "explication": "Écris une comparaison par borne et relie-les par un ET logique."
+  },
+  {
+    "id": "REV-C-004",
+    "reponses": [
+      "C"
+    ],
+    "explication": "&& évalue d’abord a. Quand a vaut zéro, le résultat est déjà connu et ++b ne s’exécute pas."
+  },
+  {
+    "id": "REV-C-005",
+    "reponses": [
+      "A",
+      "C"
+    ],
+    "explication": "Distingue les valeurs observées dans le corps et la dernière valeur utilisée pour tester la condition."
+  },
+  {
+    "id": "REV-C-006",
+    "reponses": [
+      "B"
+    ],
+    "explication": "while évalue la condition avant le corps, y compris lors du tout premier passage."
+  },
+  {
+    "id": "APP-05-006-005",
+    "reponses": [
+      "B"
+    ],
+    "explication": "X est affiché pour i = 1, 3 et 4. Pour i = 2, continue saute printf mais n’interrompt pas la boucle : le test de fin est quand même exécuté."
+  },
+  {
+    "id": "V1-N05_006-04",
+    "reponses": [
+      "B",
+      "C"
+    ],
+    "explication": "Le test du do…while se trouve en fin de boucle. break la quitte immédiatement ; continue saute le reste du corps et rejoint le test final, sans forcément quitter la boucle."
+  },
+  {
+    "id": "REV-C-009",
+    "reponses": [
+      "B",
+      "C"
+    ],
+    "explication": "Un entier non nul est vrai dans une condition. Les opérateurs logiques et les comparaisons normalisent leur résultat à 0 ou 1."
+  },
+  {
+    "id": "REV-C-010",
+    "reponses": [
+      "C"
+    ],
+    "explication": "Quand la borne intérieure dépend de l’indice extérieur, additionne ses nombres de passages au lieu de multiplier deux bornes fixes."
+  },
+  {
+    "id": "APP-06-000-001",
+    "reponses": [
+      "B"
+    ],
+    "explication": "git init initialise les métadonnées locales. Les fichiers présents restent à sélectionner pour le premier commit."
+  },
+  {
+    "id": "REV-06-001-01",
+    "reponses": [
+      "C"
+    ],
+    "explication": "La pull request fournit un espace de comparaison et de discussion entre une branche proposée et sa base."
+  },
+  {
+    "id": "REV-06-002-01",
+    "reponses": [
+      "C"
+    ],
+    "explication": "Les fichiers de travail représentent une version du projet. L’historique et les références appartiennent aux métadonnées du dépôt."
+  },
+  {
+    "id": "REV-06-003-01",
+    "reponses": [
+      "A"
+    ],
+    "explication": "La préparation capture le contenu à cet instant. La modification ultérieure reste dans le répertoire de travail."
+  },
+  {
+    "id": "EXPL-06-004-01",
+    "reponses": [
+      "A",
+      "B",
+      "D"
+    ],
+    "explication": "L’index prépare l’instantané. Le commit l’inscrit dans l’historique local. Un push peut ensuite transmettre les commits au dépôt distant."
+  },
+  {
+    "id": "EXPL-06-005-01",
+    "reponses": [
+      "C"
+    ],
+    "explication": "La suppression retire une référence locale. Les commits qui sont ancêtres de main restent accessibles via main."
+  },
+  {
+    "id": "EXPL-06-006-01",
+    "reponses": [
+      "D"
+    ],
+    "explication": "Une exécution concerne la révision testée. La dernière exécution réussie renseigne sur ce test et cette révision."
+  },
+  {
+    "id": "REV-06-007-01",
+    "reponses": [
+      "A",
+      "C"
+    ],
+    "explication": "On décide du contenu attendu, vérifie le fichier résolu et prépare ce résultat dans l’index avant de terminer la fusion."
+  },
+  {
+    "id": "APP-06-008-001",
+    "reponses": [
+      "B"
+    ],
+    "explication": "git status distingue les différences entre HEAD et l’index et celles entre l’index et les fichiers de travail. Il signale aussi les fichiers non suivis selon sa configuration."
+  },
+  {
+    "id": "APP-06-009-001",
+    "reponses": [
+      "A"
+    ],
+    "explication": "Fetch récupère les objets et met à jour les références de suivi comme origin/main. Une intégration dans ta branche locale est une opération distincte."
+  },
+  {
+    "id": "REV-06-010-01",
+    "reponses": [
+      "C"
+    ],
+    "explication": "git log parcourt l’historique accessible depuis HEAD par défaut. -3 borne le nombre de commits et --oneline en condense l’affichage."
+  },
+  {
+    "id": "REV-C-011",
+    "reponses": [
+      "A",
+      "C"
+    ],
+    "explication": "Le type int de main et sa valeur de retour décrivent l’entrée et la terminaison du programme hébergé."
+  },
+  {
+    "id": "REV-C-012",
+    "reponses": [
+      "A",
+      "C"
+    ],
+    "explication": "Lis à gauche du nom le type de retour et entre les parenthèses les types des paramètres."
+  },
+  {
+    "id": "REV-C-013",
+    "reponses": [
+      "B"
+    ],
+    "explication": "return quitte la fonction en cours. Un appel à exit peut terminer le programme depuis n’importe quelle fonction."
+  },
+  {
+    "id": "REV-C-014",
+    "reponses": [
+      "B"
+    ],
+    "explication": "En C, une constante ordinaire de caractère comme 'A' a le type int. L’hypothèse ASCII fixe ici sa valeur à 65."
+  },
+  {
+    "id": "REV-C-015",
+    "reponses": [
+      "B"
+    ],
+    "explication": "La promotion de float en double s’applique aux arguments variables. %.2f règle l’affichage sans changer la valeur stockée dans x."
+  },
+  {
+    "id": "REV-C-016",
+    "reponses": [
+      "C"
+    ],
+    "explication": "Le prototype permet de compiler l’appel. Sa définition doit aussi être présente parmi les éléments fournis pour l’édition de liens."
+  },
+  {
+    "id": "REV-C-018",
+    "reponses": [
+      "B"
+    ],
+    "explication": "Le même parcours est possible en GNU89 avec la déclaration du compteur placée avant les instructions."
+  },
+  {
+    "id": "REV-C-017",
+    "reponses": [
+      "B"
+    ],
+    "explication": "Une extension de fichier n’est pas requise pour que -o nomme la sortie. L’étape choisie fixe son contenu."
+  },
+  {
+    "id": "REV-C-019",
+    "reponses": [
+      "C"
+    ],
+    "explication": "puts écrit la chaîne telle quelle puis ajoute une fin de ligne. printf, lui, interprète son premier argument comme un format."
+  },
+  {
+    "id": "REV-C-020",
+    "reponses": [
+      "A",
+      "C"
+    ],
+    "explication": "Le type de l’opération commande la règle. L’addition non signée se replie ; l’addition signée hors plage n’a pas de résultat garanti."
+  },
+  {
+    "id": "REV-C-021",
+    "reponses": [
+      "A",
+      "B"
+    ],
+    "explication": "Les apostrophes forment une constante entière de caractère. Les guillemets doubles forment un tableau de caractères terminé par un nul."
+  },
+  {
+    "id": "REV-C-022",
+    "reponses": [
+      "A",
+      "C"
+    ],
+    "explication": "Pour utiliser le pointeur au retour, l’objet pointé doit encore exister. La portée du nom et la durée de vie de l’objet sont deux propriétés différentes."
+  },
+  {
+    "id": "REV-C-030",
+    "reponses": [
+      "A",
+      "C"
+    ],
+    "explication": "La largeur 3 de %c signifie trois caractères. Le tableau suffit pour ces trois écritures, mais leur résultat ne forme pas ici une chaîne C."
+  },
+  {
+    "id": "REV-C-031",
+    "reponses": [
+      "C"
+    ],
+    "explication": "Le format %d impose la base 10. Le format %i prend en compte les préfixes de base."
+  },
+  {
+    "id": "SCN-001",
+    "reponses": [
+      "A",
+      "B",
+      "D"
+    ],
+    "explication": "Une première affectation réussit. Le second entier ne correspond pas à `x` : échec de correspondance et arrêt, sans écraser `b`."
+  },
+  {
+    "id": "SCN-002",
+    "reponses": [
+      "A",
+      "B",
+      "D"
+    ],
+    "explication": "L'astérisque supprime l'affectation du premier nombre ; elle n'est pas comptée dans le résultat."
+  },
+  {
+    "id": "SCN-003",
+    "reponses": [
+      "C"
+    ],
+    "explication": "Le premier caractère ne correspond pas à un nombre entier ; aucune conversion n'est affectée. La valeur initiale de n est conservée."
+  },
+  {
+    "id": "SCN-010",
+    "reponses": [
+      "A",
+      "B",
+      "C"
+    ],
+    "explication": "Le champ `%s` produit une chaîne terminée par `\\0` et s'arrête à l'espace ; sa largeur doit préserver la capacité de destination."
+  },
+  {
+    "id": "SCN-014",
+    "reponses": [
+      "A",
+      "B",
+      "C"
+    ],
+    "explication": "La conversion numérique peut laisser des caractères, dont `\\n`, à lire par l'opération suivante."
+  },
+  {
+    "id": "REV-C-023",
+    "reponses": [
+      "B",
+      "C"
+    ],
+    "explication": "Une chaîne terminée par un caractère nul peut représenter seulement le début d’une ligne."
+  },
+  {
+    "id": "REV-C-024",
+    "reponses": [
+      "A",
+      "C"
+    ],
+    "explication": "Il faut vérifier le pointeur de fin en plus du nombre obtenu pour imposer une conversion complète."
+  },
+  {
+    "id": "REV-C-025",
+    "reponses": [
+      "A",
+      "B"
+    ],
+    "explication": "Garde le format sous le contrôle du programme et passe le texte à afficher comme donnée."
+  },
+  {
+    "id": "REV-C-026",
+    "reponses": [
+      "A",
+      "C"
+    ],
+    "explication": "EOF sert aux deux situations. Les indicateurs du flux permettent de déterminer ce que signale cet échec de lecture."
+  },
+  {
+    "id": "CDEEP-09-006-01",
+    "reponses": [
+      "A",
+      "B",
+      "C",
+      "E"
+    ],
+    "explication": "L’initialisation associe p à n. Le déréférencement donne accès à n, tandis que prendre l’adresse de p désigne la variable pointeur."
+  },
+  {
+    "id": "CDEEP-09-008-01",
+    "reponses": [
+      "B"
+    ],
+    "explication": "Le format %p attend un pointeur de type void *. L’implémentation choisit la représentation textuelle de l’adresse."
+  },
+  {
+    "id": "REV-09-009-01",
+    "reponses": [
+      "A",
+      "C"
+    ],
+    "explication": "sizeof a mesure le tableau entier, tandis que sizeof p mesure le pointeur. Les expressions a[0] et *p ont toutes deux le type int."
+  },
+  {
+    "id": "REV-09-018-01",
+    "reponses": [
+      "C"
+    ],
+    "explication": "Prendre l’adresse du tableau conserve son type de tableau. Prendre celle d’un élément désigne un seul int."
+  },
+  {
+    "id": "REV-09-019-01",
+    "reponses": [
+      "A",
+      "C"
+    ],
+    "explication": "La position qui suit immédiatement le tableau peut servir de borne. Reculer d’un élément depuis cette position permet de lire le dernier entier."
+  },
+  {
+    "id": "APP-09-020-004",
+    "reponses": [
+      "A",
+      "B"
+    ],
+    "explication": "Les opérateurs se groupent comme *(p++). L’expression lit le premier entier et, après cette instruction, p pointe sur le second."
+  },
+  {
+    "id": "REV-09-025-01",
+    "reponses": [
+      "C"
+    ],
+    "explication": "Lorsqu’une liste d’initialisation contient moins de valeurs que d’éléments, les éléments entiers restants reçoivent la valeur zéro."
+  },
+  {
+    "id": "REV-09-026-01",
+    "reponses": [
+      "C"
+    ],
+    "explication": "Les trois indices des éléments sont 0, 1 et 2. La condition est testée avant chaque itération."
+  },
+  {
+    "id": "REV-09-027-01",
+    "reponses": [
+      "C"
+    ],
+    "explication": "Le premier indice sélectionne une ligne de trois entiers. Le second indice sélectionne un élément de cette ligne, en partant de zéro."
+  },
+  {
+    "id": "REV-09-028-01",
+    "reponses": [
+      "B"
+    ],
+    "explication": "Chaque affectation lit la valeur présente à ce moment. Après la première instruction, les deux variables contiennent B."
+  },
+  {
+    "id": "REV-09-029-01",
+    "reponses": [
+      "A",
+      "C"
+    ],
+    "explication": "Le texte occupe les indices 0 à 3, suivis du caractère nul à l’indice 4. L’inversion échange les extrémités de la partie texte, puis la paire intérieure."
+  },
+  {
+    "id": "REV-09-033-01",
+    "reponses": [
+      "A",
+      "C"
+    ],
+    "explication": "Le tableau a contient une copie modifiable. Le pointeur p peut être réaffecté et son type empêche l’écriture à travers lui."
+  },
+  {
+    "id": "CDEEP-09-034-01",
+    "reponses": [
+      "D"
+    ],
+    "explication": "Le résultat de malloc est le premier élément à contrôler. Après un succès, écrire dans l’objet initialise sa valeur."
+  },
+  {
+    "id": "REV-09-038-01",
+    "reponses": [
+      "B"
+    ],
+    "explication": "malloc reçoit un nombre d’octets. Le type du résultat de *p fournit la taille d’un élément, même avant l’affectation à p."
+  },
+  {
+    "id": "APP-09-039-003",
+    "reponses": [
+      "A",
+      "B",
+      "C"
+    ],
+    "explication": "strlen(s) s’arrête au premier caractère nul. sizeof s compte toute la capacité du tableau, y compris ce qui suit ce caractère."
+  },
+  {
+    "id": "CDEEP-09-042-01",
+    "reponses": [
+      "A",
+      "C"
+    ],
+    "explication": "Il faut distinguer la durée de vie de la variable pointeur de celle du bloc obtenu par allocation. La fin du bloc de code termine la durée de vie de ses variables automatiques ordinaires."
+  },
+  {
+    "id": "REV-09-043-01",
+    "reponses": [
+      "A",
+      "C"
+    ],
+    "explication": "free accepte le pointeur de début du bloc encore alloué ou un pointeur nul. Un pointeur vers l’intérieur ou après le bloc ne convient pas."
+  },
+  {
+    "id": "REV-09-045-01",
+    "reponses": [
+      "A",
+      "C"
+    ],
+    "explication": "Pour une nouvelle taille positive, un échec conserve le bloc initial. Une réussite donne un bloc de la taille demandée et préserve le préfixe déjà présent."
+  },
+  {
+    "id": "REV-09-047-01",
+    "reponses": [
+      "C"
+    ],
+    "explication": "strncpy copie les quatre premiers caractères. Le premier nul de la source se situe après ces quatre caractères, donc aucun des octets copiés ne vaut zéro."
+  },
+  {
+    "id": "REV-09-048-01",
+    "reponses": [
+      "A",
+      "C"
+    ],
+    "explication": "calloc met à zéro les octets du bloc. L’allocation contient ici trois objets de type unsigned char et reste à libérer."
+  },
+  {
+    "id": "CDEEP-09-052-01",
+    "reponses": [
+      "D"
+    ],
+    "explication": "La valeur maximale de size_t est (size_t)-1. Diviser cette limite par la taille non nulle de l’élément donne le nombre maximal d’éléments représentable pour ce calcul."
+  },
+  {
+    "id": "REV-09-054-01",
+    "reponses": [
+      "B"
+    ],
+    "explication": "Les trois octets source et destination se recouvrent. Après le déplacement, les cinq cases contiennent A, A, B, C et le terminateur initial."
+  },
+  {
+    "id": "REV-09-063-01",
+    "reponses": [
+      "C"
+    ],
+    "explication": "Ce type indique comment la fonction peut accéder aux caractères par p. La longueur, la terminaison et la durée de vie doivent être établies par le contrat d’appel."
+  },
+  {
+    "id": "CDEEP-09-066-01",
+    "reponses": [
+      "A"
+    ],
+    "explication": "Les parenthèses autour de *f rattachent l’étoile à f avant la liste des paramètres de la fonction pointée."
+  },
+  {
+    "id": "CDEEP-09-067-01",
+    "reponses": [
+      "B",
+      "D"
+    ],
+    "explication": "Le langage permet l’appel direct à travers le pointeur et l’appel après déréférencement explicite."
+  },
+  {
+    "id": "CDEEP-09-071-01",
+    "reponses": [
+      "A"
+    ],
+    "explication": "Les comparaisons renvoient chacune 0 ou 1. Leur différence produit −1, 0 ou 1 et fournit le signe attendu même pour des int très éloignés."
+  },
+  {
+    "id": "REV-10-000-01",
+    "reponses": [
+      "B",
+      "D"
+    ],
+    "explication": "On remplit six boîtes, ce qui utilise 36 pièces. Le reste vaut 1 et peut se calculer directement ou en soustrayant la quantité utilisée."
+  },
+  {
+    "id": "REV-10-001-01",
+    "reponses": [
+      "A"
+    ],
+    "explication": "Les deux opérandes de la division sont des int. Le quotient entier 3 est calculé avant sa conversion en double."
+  },
+  {
+    "id": "REV-10-002-01",
+    "reponses": [
+      "A",
+      "C"
+    ],
+    "explication": "Le reste d’une division par 2 vaut zéro pour un entier pair. Un reste non nul indique un entier impair, quel que soit son signe."
+  },
+  {
+    "id": "REV-10-003-01",
+    "reponses": [
+      "B"
+    ],
+    "explication": "Le chiffre des unités est le reste après retrait des dizaines complètes. Pour 347, ce reste vaut 7."
+  },
+  {
+    "id": "REV-10-004-01",
+    "reponses": [
+      "B"
+    ],
+    "explication": "Chaque division entière retire un chiffre décimal à ce nombre positif. Le zéro au milieu de 205 fait partie de son écriture."
+  },
+  {
+    "id": "REV-10-005-01",
+    "reponses": [
+      "D"
+    ],
+    "explication": "Le reste entier vaut 7. La conversion décimale de largeur minimale 2 complète cette valeur positive par un zéro à gauche."
+  },
+  {
+    "id": "REV-10-006-01",
+    "reponses": [
+      "A"
+    ],
+    "explication": "Deux opérandes entiers produisent le quotient entier 1. La présence de 10.0 entraîne une division en double dont le résultat est voisin de 1,2."
+  },
+  {
+    "id": "REV-10-007-01",
+    "reponses": [
+      "C"
+    ],
+    "explication": "La division entière fournit le quotient, ici 1. L’opérateur % fournit le reste, ici 2."
+  },
+  {
+    "id": "REV-10-008-01",
+    "reponses": [
+      "B"
+    ],
+    "explication": "Pour ces entiers positifs, le reste doit être compris entre 0 inclus et 7 exclu. Une égalité exacte ne suffit pas à elle seule."
+  },
+  {
+    "id": "APP-11-000-001",
+    "reponses": [
+      "C"
+    ],
+    "explication": "La post-incrémentation fournit l’ancienne valeur à j et augmente i de 1. À la fin de cette initialisation, les deux valeurs diffèrent."
+  },
+  {
+    "id": "REV-11-001-01",
+    "reponses": [
+      "A",
+      "D"
+    ],
+    "explication": "Dans les deux instructions, le compteur augmente de 1. La forme préfixée et la forme postfixée se distinguent par la valeur de l’expression, qui est ignorée ici."
+  },
+  {
+    "id": "REV-11-002-01",
+    "reponses": [
+      "C"
+    ],
+    "explication": "L’initialisation d’annonce utilise l’ancienne valeur, tandis que places diminue de 1."
+  },
+  {
+    "id": "REV-11-003-01",
+    "reponses": [
+      "A"
+    ],
+    "explication": "La pré-décrémentation fait passer le compteur de 1 à 0. Cette nouvelle valeur sert au test et zéro est faux en C."
+  },
+  {
+    "id": "REV-11-004-01",
+    "reponses": [
+      "B",
+      "C"
+    ],
+    "explication": "Les tests utilisent successivement 2, 1 puis 0. Les deux premiers exécutent le corps avec 1 puis 0. Le troisième diminue encore i."
+  },
+  {
+    "id": "REV-11-005-01",
+    "reponses": [
+      "D"
+    ],
+    "explication": "Le premier test décrémente i à 1 et le corps affiche 1. Le test suivant décrémente i à 0 et la boucle se termine."
+  },
+  {
+    "id": "REV-C-034",
+    "reponses": [
+      "A",
+      "C"
+    ],
+    "explication": "Avant C23, une liste vide dans une simple déclaration ne donne pas les garanties de (void)."
+  },
+  {
+    "id": "REV-C-035",
+    "reponses": [
+      "B"
+    ],
+    "explication": "Un test de frontière vérifie les valeurs sur la borne puis juste de l’autre côté, où la réponse attendue change."
+  },
+  {
+    "id": "V2-N14_002-05",
+    "reponses": [
+      "A"
+    ],
+    "explication": "compteur est initialisée mais sa valeur n'est jamais utilisée ; -Wall active l'avertissement -Wunused-variable, et -Werror le transforme en erreur. L'initialisation n'est pas une utilisation du résultat."
+  },
+  {
+    "id": "REV-C-036",
+    "reponses": [
+      "A",
+      "C"
+    ],
+    "explication": "sizeof compte les unités de stockage d’un char. La machine détermine combien de bits contient une telle unité."
+  },
+  {
+    "id": "V2-N14_004-05",
+    "reponses": [
+      "B"
+    ],
+    "explication": "-Werror transforme les avertissements du compilateur en erreurs de compilation. Il n'active pas à lui seul toutes les familles de diagnostics, et ne change pas le dialecte du langage."
+  },
+  {
+    "id": "V2-N14_005-05",
+    "reponses": [
+      "D"
+    ],
+    "explication": "Le cast explicite vers void évalue b sans exploiter sa valeur, ce qui évite le diagnostic de paramètre inutilisé. Il ne change pas la signature de la fonction et ne libère aucune mémoire."
+  },
+  {
+    "id": "REV-C-040",
+    "reponses": [
+      "B"
+    ],
+    "explication": "Un invariant est une relation préservée aux points choisis. Les valeurs qui interviennent dans cette relation peuvent évoluer."
+  },
+  {
+    "id": "REV-C-041",
+    "reponses": [
+      "B"
+    ],
+    "explication": "On associe la libération au bloc alloué. Un autre nom qui le désignait ne conserve aucun droit d’accès après free."
+  },
+  {
+    "id": "REV-16-001-01",
+    "reponses": [
+      "C"
+    ],
+    "explication": "point est ici l’étiquette de la structure. En C, struct fait partie de la façon de désigner ce type tant qu’aucun alias n’a été déclaré."
+  },
+  {
+    "id": "REV-16-004-01",
+    "reponses": [
+      "A"
+    ],
+    "explication": "Sans désignateurs, les initialiseurs sont associés aux membres dans l’ordre de leur déclaration."
+  },
+  {
+    "id": "REV-16-005-01",
+    "reponses": [
+      "A",
+      "C"
+    ],
+    "explication": "Les désignateurs associent chaque valeur au membre nommé. La disposition du type continue de suivre l’ordre de déclaration."
+  },
+  {
+    "id": "REV-16-006-01",
+    "reponses": [
+      "C"
+    ],
+    "explication": "L’indice choisit d’abord une structure entière et le nom y désigne ensuite le membre contenant l’ordonnée."
+  },
+  {
+    "id": "REV-16-007-01",
+    "reponses": [
+      "D"
+    ],
+    "explication": "La première sélection part d’un pointeur vers fiche. Le membre pos obtenu est un objet de type struct coord."
+  },
+  {
+    "id": "REV-16-008-01",
+    "reponses": [
+      "A",
+      "C"
+    ],
+    "explication": "L’affectation copie les valeurs des membres. Copier une adresse crée deux chemins d’accès à l’entier désigné."
+  },
+  {
+    "id": "REV-16-009-01",
+    "reponses": [
+      "B"
+    ],
+    "explication": "La fonction écrit dans le champ de son paramètre, puis renvoie la valeur de ce champ. L’objet p de l’appelant possède son propre champ x."
+  },
+  {
+    "id": "REV-16-011-01",
+    "reponses": [
+      "A",
+      "C"
+    ],
+    "explication": "Un typedef donne un nom supplémentaire à un type. La déclaration avec ce nom reste soumise aux règles ordinaires des pointeurs et des structures."
+  },
+  {
+    "id": "REV-16-014-01",
+    "reponses": [
+      "B",
+      "D"
+    ],
+    "explication": "Les membres ordinaires restent dans l’ordre de déclaration. L’implémentation peut insérer des octets de remplissage entre eux et à la fin pour l’alignement."
+  },
+  {
+    "id": "CDEEP-16-015-01",
+    "reponses": [
+      "C"
+    ],
+    "explication": "L’expression sizeof *p mesure la structure entière en tenant compte du remplissage éventuel. Il faut vérifier le résultat de malloc avant d’écrire ses membres."
+  },
+  {
+    "id": "REV-16-016-01",
+    "reponses": [
+      "B"
+    ],
+    "explication": "Un pointeur peut désigner un type encore incomplet. Le compilateur peut donc définir le membre pointeur avant de connaître tous les membres du nœud."
+  },
+  {
+    "id": "REV-16-018-01",
+    "reponses": [
+      "A",
+      "C"
+    ],
+    "explication": "Le nom cellule_t désigne un type incomplet. On peut manipuler des pointeurs vers ce type et déclarer un objet défini ailleurs."
+  },
+  {
+    "id": "REV-16-019-01",
+    "reponses": [
+      "A",
+      "B",
+      "D"
+    ],
+    "explication": "p pointe vers a. On peut sélectionner le membre sur l’objet lui-même, ou déréférencer le pointeur avant la sélection."
+  },
+  {
+    "id": "REV-16-020-01",
+    "reponses": [
+      "A"
+    ],
+    "explication": "La macro de garde est définie lors du premier passage dans point.h. Le second passage dans la même unité de traduction saute alors le contenu protégé."
+  }
+]

@@ -25,6 +25,8 @@ const assets={
  '/quiz/engine.mjs':'text/javascript',
  '/quiz/styles.css':'text/css',
  '/quiz/questions-variadiques.json':'application/json',
+ '/quiz/questions-revisees.json':'application/json',
+ '/quiz/aide-pedagogique.json':'application/json',
  '/docs/quiz/vague1/section-09-pointeurs-et-tableaux-c.json':'application/json'
 };
 const requestedExtra=[];
@@ -351,6 +353,50 @@ try{
   'Les deux liens vers GitHub doivent être visibles.');
  await page.screenshot({path:'apercus/a-propos-simplifie.png'});
 
+ // Une sélection provisoire survit à pause/reprise et recharge sans être notée.
+ const draftPage=await browser.newPage();
+ await draftPage.route('**/api/**',route=>route.fulfill({status:503,json:{error:'Compte indisponible dans cette recette invitée'}}));
+ await draftPage.goto(origin+'/#quiz');
+ await draftPage.locator('#quizStart').waitFor({state:'visible'});
+ for(const mode of ['single','multiple']){
+  await draftPage.evaluate(answerMode=>{
+   const a=JSON.parse(document.getElementById('quiz-argc-bank').textContent);
+   const v=JSON.parse(document.getElementById('quiz-variadic-bank').textContent);
+   const reviewed=JSON.parse(document.getElementById('quiz-reviewed-bank').textContent);
+  const q=[...a.questions,...v.questions,...reviewed.questions].find(item=>item.answer_mode===answerMode);
+   const current={version:1,id:'draft-'+answerMode,family:'all',createdAt:new Date().toISOString(),
+    questionIds:[q.id],cursor:0,answers:{},optionOrder:{[q.id]:q.options.map(option=>option.id)},feedbackMode:'immediate'};
+   localStorage.setItem('holberton-quiz-guest-v1',JSON.stringify({version:1,current,history:[],stats:{},seen:{}}));
+   window.dispatchEvent(new Event('holberton:quiz:reload'));
+  },mode);
+  const amount=mode==='single'?1:2;
+  for(let i=0;i<amount;i++)await draftPage.locator('input[name="quiz-answer"]').nth(i).check();
+  const chosen=await draftPage.locator('input[name="quiz-answer"]:checked').evaluateAll(inputs=>inputs.map(input=>input.value));
+  await draftPage.locator('#quizPause').click();
+  await draftPage.reload();
+  await draftPage.locator('#quizResume').click();
+  assert.deepEqual(await draftPage.locator('input[name="quiz-answer"]:checked').evaluateAll(inputs=>inputs.map(input=>input.value)),chosen,
+   'Les choix provisoires doivent survivre à pause et rechargement en mode '+mode);
+  assert.equal(await draftPage.evaluate(()=>Object.keys(JSON.parse(localStorage.getItem('holberton-quiz-guest-v1')).current.answers).length),0,
+   'Une sélection provisoire ne doit jamais devenir une réponse notée.');
+  assert.equal(await draftPage.locator('.quiz-feedback').count(),0);
+  await draftPage.locator('#quizDontKnow').check();
+  await draftPage.reload();
+  await draftPage.locator('#quizDontKnow').waitFor({state:'visible'});
+  assert.ok(await draftPage.locator('#quizDontKnow').isChecked());
+  assert.equal(await draftPage.locator('input[name="quiz-answer"]:checked').count(),0);
+  assert.equal(await draftPage.locator('input[name="quiz-answer"]:enabled').count(),0);
+  assert.equal(await draftPage.evaluate(()=>Object.keys(JSON.parse(localStorage.getItem('holberton-quiz-guest-v1')).current.answers).length),0);
+  await draftPage.locator('#quizDontKnow').uncheck();
+  assert.equal(await draftPage.locator('input[name="quiz-answer"]:enabled').count(),await draftPage.locator('input[name="quiz-answer"]').count());
+  for(let i=0;i<amount;i++)await draftPage.locator('input[name="quiz-answer"]').nth(i).check();
+  await draftPage.locator('#quizSubmit').click();
+  assert.equal(await draftPage.evaluate(()=>Object.keys(JSON.parse(localStorage.getItem('holberton-quiz-guest-v1')).current.answers).length),1);
+  assert.equal(await draftPage.evaluate(()=>Object.keys(JSON.parse(localStorage.getItem('holberton-quiz-guest-v1')).current.draftAnswers).length),0,
+   'Valider doit retirer le brouillon de la question.');
+ }
+ await draftPage.close();
+
  // Préversion du quiz : charger deux lots, valider une réponse, mettre en pause et reprendre.
  await page.goto(origin+'/#quiz');
  await page.locator('#quizStart').waitFor({state:'visible',timeout:15000});
@@ -366,16 +412,21 @@ try{
  assert.equal(await page.locator('#courseSidebar').isVisible(),false,
   'Le sommaire doit être masqué dans Quiz.');
  assert.equal(await page.evaluate(()=>document.body.dataset.fullpage),'true');
- assert.match(await page.locator('#quiz .quiz-app').innerText(),/55 questions sur argc\/argv et stdarg\.h/);
+ const publishedQuestions=Object.fromEntries(['argc','variadic','reviewed'].map(name=>{
+  const marker='<script id="quiz-'+name+'-bank" type="application/json">';
+  return [name,JSON.parse(source.toString('utf8').split(marker)[1].split('</script>')[0]).questions];
+ }));
+ const totalQuestions=Object.values(publishedQuestions).flat().length;
+ const familyIds=['argc','stdarg',...new Set(publishedQuestions.reviewed.map(q=>'chapitre-'+q.legacy_notion_key.split(':')[0]))];
  assert.doesNotMatch(await page.locator('#quiz .quiz-app').innerText(),/VERSION TEST|relecture pédagogique|ne constituent pas une certification/,
   'La page publique ne doit plus prétendre que les questions restent en relecture.');
  assert.equal(await page.locator('#quizCount').count(),0,'Le choix imposé de 5/10/20 questions doit être absent.');
  const themes=page.locator('input[name="quizTheme"]');
- assert.equal(await themes.count(),2,'Deux thèmes doivent être proposés séparément.');
- assert.equal(await page.locator('input[name="quizTheme"]:checked').count(),2,'Les deux thèmes sont sélectionnés par défaut.');
+ assert.equal(await themes.count(),familyIds.length,'Chaque thème de la banque doit être proposé.');
+ assert.equal(await page.locator('input[name="quizTheme"]:checked').count(),familyIds.length,'Tous les thèmes sont sélectionnés par défaut.');
  assert.equal(await page.locator('#quizThemeDropdown').getAttribute('open'),null,
   'La liste déroulante doit être repliée par défaut.');
- assert.match(await page.locator('#quizThemeSummary').innerText(),/Tous les thèmes \(2\)/);
+ assert.equal(await page.locator('#quizThemeSummary').innerText(),'Tous les thèmes ('+familyIds.length+')');
  await page.locator('#quizThemeSummary').click();
  await page.locator('#quizThemeSearch').fill('argc');
  assert.equal(await page.locator('.quiz-theme-selection label:visible').count(),1,
@@ -384,7 +435,8 @@ try{
  assert.ok(await page.locator('#quizThemeNoMatch').isVisible(),
   'Une recherche sans résultat doit être signalée.');
  await page.locator('#quizThemeSearch').fill('');
- await themes.nth(1).uncheck();
+ await page.locator('#quizThemeNone').click();
+ await page.locator('input[name="quizTheme"][value="argc"]').check();
  assert.match(await page.locator('#quizThemeSummary').innerText(),/argc et argv/);
  assert.match(await page.locator('.quiz-question-count').innerText(),/25 questions disponibles/);
  await page.locator('#quizThemeNone').click();
@@ -393,9 +445,9 @@ try{
  assert.ok(await page.locator('#quizThemeError').isVisible(),'Aucun quiz ne doit démarrer sans thème.');
  await page.locator('#quizThemeSummary').click();
  await page.locator('#quizThemeAll').click();
- assert.equal(await page.locator('input[name="quizTheme"]:checked').count(),2,
+ assert.equal(await page.locator('input[name="quizTheme"]:checked').count(),familyIds.length,
   'Tout sélectionner doit cocher tous les thèmes.');
- assert.match(await page.locator('.quiz-question-count').innerText(),/55 questions disponibles/);
+ assert.equal(await page.locator('.quiz-question-count').innerText(),totalQuestions+' questions disponibles');
  await page.locator('#quizThemeSummary').click();
  await page.screenshot({path:'apercus/quiz-menu-bureau.png'});
  await page.locator('#quizStart').click();
@@ -405,9 +457,9 @@ try{
  assert.ok(desktopNavQuestion&&desktopQuestionTitle&&desktopQuestionTitle.y>=desktopNavQuestion.y+desktopNavQuestion.height-2,
   'Le titre de la question empiète sur la navigation sur ordinateur.');
  await page.screenshot({path:'apercus/quiz-question-bureau.png'});
- assert.deepEqual(await page.evaluate(()=>JSON.parse(localStorage.getItem('holberton-quiz-guest-v1')).current.family),['argc','stdarg'],
+ assert.deepEqual(await page.evaluate(()=>JSON.parse(localStorage.getItem('holberton-quiz-guest-v1')).current.family),familyIds,
   'La sélection de plusieurs thèmes doit être enregistrée.');
- assert.equal(await page.locator('#quiz .quiz-choice').count()>=4,true);
+ assert.equal(await page.locator('#quiz .quiz-choice').count()>=3,true);
  assert.ok(await page.locator('#quizDontKnow').isVisible(),'Je ne sais pas doit être disponible pour chaque question.');
  const firstHelp=await page.evaluate(()=>{
   const current=JSON.parse(localStorage.getItem('holberton-quiz-guest-v1')).current;
@@ -458,7 +510,7 @@ try{
  await page.locator('#quizSubmit').click();
  assert.match(await page.locator('#quiz .quiz-feedback').innerText(),/Question passée/,
   'Je ne sais pas doit afficher le corrigé.');
- assert.equal(await page.locator('#quiz .quiz-option-reasons li').count()>=4,true,
+ assert.equal(await page.locator('#quiz .quiz-option-reasons li').count(),await page.locator('#quiz .quiz-choice').count(),
   'Les explications détaillées de toutes les propositions sont attendues.');
  assert.ok(await page.locator('#quiz .quiz-correct-answers li').count()>0,
   'Les bonnes réponses doivent être montrées après avoir passé une question.');
@@ -505,7 +557,8 @@ try{
   const argc=JSON.parse(document.getElementById('quiz-argc-bank').textContent);
   const stdarg=JSON.parse(document.getElementById('quiz-variadic-bank').textContent);
   const id=session.questionIds[session.cursor];
-  const q=[...argc.questions,...stdarg.questions].find(item=>item.id===id);
+  const reviewed=JSON.parse(document.getElementById('quiz-reviewed-bank').textContent);
+  const q=[...argc.questions,...stdarg.questions,...reviewed.questions].find(item=>item.id===id);
   if(!q)throw Error('Question introuvable pour la vérification de notation.');
   return {id,correct:q.correct_option_ids,order:session.optionOrder[id]};
  });
@@ -571,14 +624,15 @@ try{
   const current=JSON.parse(localStorage.getItem('holberton-quiz-guest-v1')).current;
   const argc=JSON.parse(document.getElementById('quiz-argc-bank').textContent);
   const varia=JSON.parse(document.getElementById('quiz-variadic-bank').textContent);
-  const q=[...argc.questions,...varia.questions].find(q=>q.id===current.questionIds[0]);
+  const reviewed=JSON.parse(document.getElementById('quiz-reviewed-bank').textContent);
+  const q=[...argc.questions,...varia.questions,...reviewed.questions].find(q=>q.id===current.questionIds[0]);
   return q.options.find(option=>!q.correct_option_ids.includes(option.id)).id;
  });
  await page.locator('#quiz .quiz-choice input[value="'+wrong+'"]').check();
  await page.locator('#quizSubmit').click();
  assert.match(await page.locator('#quiz .quiz-feedback').innerText(),/Réponse fausse ou incomplète/,
   'Une réponse incorrecte doit rester incorrecte.');
- assert.ok(await page.locator('#quiz .quiz-option-reasons li').count()>=4,
+ assert.equal(await page.locator('#quiz .quiz-option-reasons li').count(),await page.locator('#quiz .quiz-choice').count(),
   'Le moteur doit expliquer pourquoi chaque proposition est juste ou fausse.');
  assert.ok(await page.locator('#quiz .quiz-correct-answers li').count()>0,
   'Une erreur doit afficher les réponses attendues.');
@@ -602,7 +656,8 @@ try{
   const p=JSON.parse(localStorage.getItem('holberton-quiz-guest-v1')).current;
   const a=JSON.parse(document.getElementById('quiz-argc-bank').textContent);
   const v=JSON.parse(document.getElementById('quiz-variadic-bank').textContent);
-  const q=[...a.questions,...v.questions].find(q=>q.id===p.questionIds[0]);
+  const reviewed=JSON.parse(document.getElementById('quiz-reviewed-bank').textContent);
+  const q=[...a.questions,...v.questions,...reviewed.questions].find(q=>q.id===p.questionIds[0]);
   return q.options.find(o=>!q.correct_option_ids.includes(o.id)).id;
  });
  await page.locator('#quiz .quiz-choice input[value="'+endWrong+'"]').check();
@@ -628,7 +683,7 @@ try{
  assert.equal(await page.locator('#quiz .quiz-review-question').count(),2,
   'Le bilan différé doit contenir une correction par question traitée.');
  await page.locator('#quiz .quiz-review-question').first().locator('summary').click();
- assert.ok(await page.locator('#quiz .quiz-review-question').first().locator('.quiz-option-reasons li').count()>=4,
+ assert.ok(await page.locator('#quiz .quiz-review-question').first().locator('.quiz-option-reasons li').count()>=3,
   'Le bilan doit expliquer les choix de la première question.');
  await page.locator('#quiz .quiz-review-question').nth(1).locator('summary').click();
  assert.match(await page.locator('#quiz .quiz-review-question').nth(1).innerText(),/Je ne sais pas/,

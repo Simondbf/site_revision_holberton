@@ -2936,7 +2936,7 @@ Quelle expression mesure la longueur de la chaîne `argv[1]`, une fois l'existen
 - **C ✅** `strlen(argv[1])`
 - **D ❌** `argv[argc]`
 
-**Corrigé candidat :** C. strlen calcule le nombre de caractères avant le terminateur nul de cette chaîne ; argc compte les arguments et sizeof argv mesure le pointeur dans main.
+**Corrigé candidat :** C. strlen compte les octets précédant le caractère nul. argc compte les arguments et sizeof argv donne la taille du pointeur dans main.
 
 **Fiche et sources :** https://revision-hbtn.soleiljaune.be/#cours/pointeurs-et-tableaux-c/74-argc-compter-les-arguments-de-la-ligne-de-commande · https://publications.gbdirect.com/c_book/chapter10/arguments_to_main.html · https://en.cppreference.com/w/c/language/main_function
 

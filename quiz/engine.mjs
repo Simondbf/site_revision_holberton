@@ -1,4 +1,4 @@
-import {readProgress,writeProgress,emptyProgress,guestResumeOnly,checkBank,combineCandidates,selectQuestions,shuffleOptionIds,newSession,applyAnswer,skipAnswer,completeSession,finishSession,progressSummary} from './core.mjs';
+import {readProgress,writeProgress,emptyProgress,guestResumeOnly,combineCandidates,selectQuestions,shuffleOptionIds,newSession,applyAnswer,skipAnswer,completeSession,finishSession,progressSummary} from './core.mjs';
 const root=document.getElementById('quiz'),account=document.getElementById('account');
 if(!root||!account)throw Error('Pages Compte et Quiz absentes.');
 // Nettoyer uniquement les paramètres de provenance ajoutés par des liens ChatGPT.
@@ -36,7 +36,7 @@ function persist(next){
 const findQuestion=id=>bank.find(q=>q.id===id);
 function page(title,sub,body,counter){
  const count=counter===undefined?(bank.length?bank.length+' questions':''):counter;
- root.innerHTML='<div class="quiz-app"><header class="quiz-heading"><div class="quiz-heading-top"><span class="quiz-kicker">RÉVISION C · QUIZ</span>'+
+ root.innerHTML='<div class="quiz-app"><header class="quiz-heading"><div class="quiz-heading-top"><span class="quiz-kicker">QUIZ DE RÉVISION</span>'+
   (count?'<span class="quiz-question-count" aria-label="Progression du quiz">'+escape(count)+'</span>':'')+
   '</div><h2>'+escape(title)+'</h2><p>'+escape(sub)+'</p></header>'+body+'</div>';
 }
@@ -55,12 +55,12 @@ function renderMenu(){
  const running=progress.current&&progress.current.questionIds?.length;
  const themeNames={argc:'argc et argv',stdarg:'stdarg.h et fonctions variadiques'};
  const themeIds=[...new Set(bank.map(q=>q.family))];
- const themeLabel=id=>themeNames[id]||id;
+ const themeLabel=id=>themeNames[id]||bank.find(q=>q.family===id).theme;
  const timingControl=isAccountActive()?
   '<p class="quiz-muted quiz-timing-note">Le moment d’affichage des corrigés se règle dans l’onglet Compte.</p>':
   '<label for="quizFeedbackMode">Afficher les réponses et explications'+
   '<select id="quizFeedbackMode"><option value="immediate">Après chaque question (par défaut)</option><option value="end">À la fin de la session</option></select></label>';
- page('Réviser librement','55 questions sur argc/argv et stdarg.h. Aucune durée ni quantité imposée : termine ta session quand tu veux. '+(useAdaptivePriority()?'Les notions difficiles sont privilégiées.':'Les questions sont tirées au sort sans priorité adaptative.'),
+ page('Réviser librement','Choisis tes thèmes et termine ta session quand tu veux. '+(useAdaptivePriority()?'Les notions difficiles sont privilégiées.':'Les questions sont tirées au sort sans priorité adaptative.'),
  (running?'<div class="quiz-card"><strong>Session en cours</strong><p>'+Object.keys(progress.current.answers||{}).length+' réponse(s) déjà enregistrée(s).</p><button id="quizResume" class="quiz-primary">Reprendre</button></div>':'')+
  '<div class="quiz-card quiz-start"><div class="quiz-theme-container"><p class="quiz-theme-heading">Thèmes à réviser (un ou plusieurs)</p>'+
  '<details class="quiz-theme-dropdown" id="quizThemeDropdown"><summary id="quizThemeSummary">Tous les thèmes</summary>'+
@@ -147,11 +147,14 @@ function renderQuestion(){
  const optionById=new Map(q.options.map(option=>[option.id,option]));
  const correctIds=new Set(q.correct_option_ids);
  const given=session.answers[q.id],answered=!!given,mode=q.answer_mode==='single'?'Une seule bonne réponse':'Plusieurs bonnes réponses';
+ const draft=session.draftAnswers?.[q.id];
+ const selectedIds=given?.selected||(Array.isArray(draft?.selected)?draft.selected:[]);
+ const unknownSelected=!answered&&draft?.skipped===true;
  const options=order.map((id,position)=>{
   const o=optionById.get(id);
-  const selected=given?.selected?.includes(o.id)||false,correct=correctIds.has(o.id);
+  const selected=selectedIds.includes(o.id),correct=correctIds.has(o.id);
   const cls=answered&&!showAtEnd?(correct?' correct':selected?' incorrect':''):'';
-  return '<label class="quiz-choice'+cls+'"><input name="quiz-answer" type="'+(q.answer_mode==='single'?'radio':'checkbox')+'" value="'+escape(o.id)+'" '+(selected?'checked ':'')+(answered?'disabled':'')+'><b>'+String.fromCharCode(65+position)+'</b><span>'+formatInline(o.text)+'</span></label>';
+  return '<label class="quiz-choice'+cls+'"><input name="quiz-answer" type="'+(q.answer_mode==='single'?'radio':'checkbox')+'" value="'+escape(o.id)+'" '+(selected?'checked ':'')+(answered||unknownSelected?'disabled':'')+'><b>'+String.fromCharCode(65+position)+'</b><span>'+formatInline(o.text)+'</span></label>';
  }).join('');
  const correctOptions=order.filter(id=>correctIds.has(id)).map(id=>{
   const position=order.indexOf(id),o=optionById.get(id);
@@ -172,13 +175,23 @@ function renderQuestion(){
  page('Question '+(index+1),q.notion,
  '<p class="quiz-muted">Prends ton temps : tu peux répondre, indiquer « Je ne sais pas » ou mettre la session en pause.</p>'+
  '<div class="quiz-card"><p class="quiz-mode">'+mode+'</p><h3 class="quiz-question-title">'+formatInline(help.prompt||q.prompt)+'</h3><fieldset class="quiz-options"><legend class="sr-only">Choix de réponse</legend>'+options+'</fieldset>'+
- (answered?'':'<label class="quiz-unknown"><input type="checkbox" id="quizDontKnow"> <span>Je ne sais pas</span></label><p class="quiz-muted quiz-unknown-help">'+(showAtEnd?'Ta réponse sera enregistrée sans dévoiler le corrigé avant la fin.':'Afficher le corrigé avant de passer à la question suivante.')+'</p>')+
+ (answered?'':'<label class="quiz-unknown"><input type="checkbox" id="quizDontKnow" '+(unknownSelected?'checked':'')+'> <span>Je ne sais pas</span></label><p class="quiz-muted quiz-unknown-help">'+(showAtEnd?'Ta réponse sera enregistrée sans dévoiler le corrigé avant la fin.':'Afficher le corrigé avant de passer à la question suivante.')+'</p>')+
  '<p id="quizError" class="quiz-error" role="alert" hidden>Choisis une proposition ou coche « Je ne sais pas ».</p>'+feedback+
  '<div class="quiz-actions">'+(answered?'<button class="quiz-primary" id="quizNext">'+(index+1===session.questionIds.length?'Voir le bilan':'Question suivante')+'</button>':'<button class="quiz-primary" id="quizSubmit">Valider</button>')+
  '<button class="quiz-secondary" id="quizPause">Pause</button>'+(answered&&index+1<session.questionIds.length?'<button class="quiz-secondary" id="quizFinish">Terminer et voir mon bilan</button>':'')+'</div></div>',
  'Question '+(index+1)+' / '+session.questionIds.length);
  const submit=document.getElementById('quizSubmit');
  const unknown=document.getElementById('quizDontKnow');
+ // Un brouillon conserve la saisie sans la noter ni dévoiler le corrigé.
+ const saveDraft=()=>{
+  const selected=[...root.querySelectorAll('input[name="quiz-answer"]:checked')].map(input=>input.value);
+  const current=progress.current;
+  return persist({...progress,current:{...current,draftAnswers:{...current.draftAnswers,[q.id]:{selected,skipped:!!unknown?.checked}}}});
+ };
+ if(!answered){
+  for(const input of root.querySelectorAll('input[name="quiz-answer"]'))input.onchange=saveDraft;
+ }
+ if(submit&&unknownSelected)submit.textContent=showAtEnd?'Enregistrer sans réponse':'Voir la correction';
  if(unknown)unknown.onchange=()=>{
   for(const input of root.querySelectorAll('.quiz-choice input')){
    if(unknown.checked)input.checked=false;
@@ -186,6 +199,7 @@ function renderQuestion(){
   }
   if(submit)submit.textContent=unknown.checked?(showAtEnd?'Enregistrer sans réponse':'Voir la correction'):'Valider';
   document.getElementById('quizError').hidden=true;
+  saveDraft();
  };
  if(submit)submit.onclick=()=>{
   const skipped=!!unknown?.checked;
@@ -193,7 +207,9 @@ function renderQuestion(){
   if(!skipped&&!selected.length){document.getElementById('quizError').hidden=false;return}
   try{
    const current=skipped?skipAnswer(progress.current,q):applyAnswer(progress.current,q,selected);
-   if(!persist({...progress,current}))return;
+   const draftAnswers={...current.draftAnswers};
+   delete draftAnswers[q.id];
+   if(!persist({...progress,current:{...current,draftAnswers}}))return;
    renderQuestion();renderAccount();
   }catch(e){let el=document.getElementById('quizError');el.textContent=e.message;el.hidden=false}
  };
@@ -365,19 +381,21 @@ async function load(){
  try{
   const embeddedPointer=document.getElementById('quiz-argc-bank');
   const embeddedVaria=document.getElementById('quiz-variadic-bank');
-  let pointer,varia;
-  if(embeddedPointer&&embeddedVaria){
-   // Le serveur historique ne déploie que index.html : les deux banques y sont intégrées.
+  const embeddedReviewed=document.getElementById('quiz-reviewed-bank');
+  let pointer,varia,reviewed;
+  if(embeddedPointer&&embeddedVaria&&embeddedReviewed){
    pointer=JSON.parse(embeddedPointer.textContent);
    varia=JSON.parse(embeddedVaria.textContent);
+   reviewed=JSON.parse(embeddedReviewed.textContent);
   }else{
    // Conserve la compatibilité du module source avec un serveur de développement complet.
-   const urls=[new URL('../docs/quiz/vague1/section-09-pointeurs-et-tableaux-c.json',import.meta.url),new URL('questions-variadiques.json',import.meta.url)];
+   const urls=[new URL('../docs/quiz/vague1/section-09-pointeurs-et-tableaux-c.json',import.meta.url),new URL('questions-variadiques.json',import.meta.url),new URL('questions-revisees.json',import.meta.url),new URL('aide-pedagogique.json',import.meta.url)];
    const response=await Promise.all(urls.map(url=>fetch(url,{cache:'no-cache'})));
    if(response.some(r=>!r.ok))throw Error('Les fichiers de questions ne sont pas disponibles.');
-   [pointer,varia]=await Promise.all(response.map(r=>r.json()));
+   const [pointers,variadics,candidates,help]=await Promise.all(response.map(r=>r.json()));
+   pointer=pointers;varia=variadics;reviewed=candidates;pedagogicHelp=help.questions;
   }
-  bank=combineCandidates(pointer,varia);checkBank(bank);
+  bank=combineCandidates(pointer,varia,reviewed);
   if(progress.current?.questionIds?.some(id=>!findQuestion(id)))progress.current=null;
  }catch(e){error=e.message||String(e)}
  loading=false;render();renderAccount();

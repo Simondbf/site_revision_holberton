@@ -14,13 +14,13 @@ const required=['index.html'];
 assert.ok(quizInline!==quizExternal,'Il faut exactement un mode de chargement du quiz.');
 if(quizInline){
  assert.ok(html.includes('id="quiz-inline-style"')&&
-  html.includes('id="quiz-argc-bank"')&&html.includes('id="quiz-variadic-bank"'),
+  html.includes('id="quiz-argc-bank"')&&html.includes('id="quiz-variadic-bank"')&&html.includes('id="quiz-reviewed-bank"')&&html.includes('id="quiz-aide-bank"'),
   'Le quiz autonome doit inclure les styles et toutes les questions.');
  assert.ok(!html.includes('href="./quiz/styles.css"'),'Le site autonome ne doit pas charger de CSS externe.');
 }else if(quizExternal){
  assert.ok(html.includes('href="./quiz/styles.css"'),'CSS du quiz non référencé.');
  required.push('quiz/core.mjs','quiz/engine.mjs','quiz/styles.css',
-  'quiz/questions-variadiques.json',
+  'quiz/questions-variadiques.json','quiz/questions-revisees.json','quiz/aide-pedagogique.json',
   'docs/quiz/vague1/section-09-pointeurs-et-tableaux-c.json');
 }
 if(account){

@@ -47,11 +47,12 @@ export function checkBank(questions){
  }
  return true;
 }
-export function combineCandidates(pointerSection,variadicBank){
+export function combineCandidates(pointerSection,variadicBank,reviewedBank={questions:[]}){
  const argc=pointerSection.questions.filter(q=>/^V1-N09_07[2-6]-0[1-5]$/.test(q.id));
  const others=variadicBank.questions;
  if(argc.length!==25||others.length!==30)throw Error('Le corpus de préversion doit contenir 25 questions argc et 30 stdarg.');
- const questions=[...argc.map(q=>({...q,family:'argc'})),...others.map(q=>({...q,family:'stdarg'}))];
+ const reviewed=reviewedBank.questions.map(q=>({...q,family:'chapitre-'+q.legacy_notion_key.split(':')[0]}));
+ const questions=[...argc.map(q=>({...q,family:'argc'})),...others.map(q=>({...q,family:'stdarg'})),...reviewed];
  checkBank(questions);
  return questions;
 }

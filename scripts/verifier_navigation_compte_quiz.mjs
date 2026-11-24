@@ -22,7 +22,7 @@ assert.ok(!html.includes('Accessible hors ligne'),'Promesse hors ligne non véri
 assert.ok(!html.includes('Consultation hors ligne.'),'Meta-description hors ligne incorrecte');
 assert.ok(!html.includes('les favoris et le thème d\'affichage sont conservés dans ton navigateur'),'Ancien libellé de données locales');
 assert.ok(!html.includes('id="accountFavorites"'),'L’accès aux favoris doit disparaître.');
-found('55 questions sur argc/argv et stdarg.h');
+found('id="quiz-reviewed-bank"');
 found('id="favoriteItems"');
 found('holberton-favorites-v2');
 found('holberton-dark-v2');

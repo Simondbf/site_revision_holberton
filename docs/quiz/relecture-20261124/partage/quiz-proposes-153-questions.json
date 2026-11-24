@@ -1,0 +1,3341 @@
+[
+  {
+    "id": "REV-N00_000-01",
+    "mode": "single",
+    "question": "On ajoute de la RAM à un ordinateur puis on installe un navigateur. Comment classer ces deux changements ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "La RAM relève du matériel et le navigateur du logiciel."
+      },
+      {
+        "id": "B",
+        "text": "La RAM et le navigateur relèvent tous deux du matériel."
+      },
+      {
+        "id": "C",
+        "text": "La RAM et le navigateur relèvent tous deux du logiciel."
+      }
+    ]
+  },
+  {
+    "id": "REV-N00_001-01",
+    "mode": "multiple",
+    "question": "Un éditeur enregistre un document pendant qu’un navigateur joue de la musique. Quels services le système d’exploitation fournit-il à ces programmes ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Il permet à l’éditeur de demander l’écriture d’un fichier."
+      },
+      {
+        "id": "B",
+        "text": "Il choisit le format de document que l’éditeur doit produire."
+      },
+      {
+        "id": "C",
+        "text": "Il détermine la piste suivante dans la liste de lecture du navigateur."
+      },
+      {
+        "id": "D",
+        "text": "Il répartit le temps processeur entre les tâches prêtes à s’exécuter."
+      }
+    ]
+  },
+  {
+    "id": "REV-N00_002-01",
+    "mode": "single",
+    "question": "Une application Linux veut lire des octets dans un fichier déjà ouvert. Quelle opération fait intervenir le noyau ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Incrémenter un compteur déjà placé dans un registre."
+      },
+      {
+        "id": "B",
+        "text": "Comparer deux valeurs déjà présentes dans ses registres."
+      },
+      {
+        "id": "C",
+        "text": "Demander une lecture au moyen de l’appel système read."
+      }
+    ]
+  },
+  {
+    "id": "EXPL-00-003-01",
+    "mode": "multiple",
+    "question": "Quelles affirmations décrivent le lien entre Ubuntu et Linux ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Deux distributions Linux peuvent proposer des outils ou des interfaces différents."
+      },
+      {
+        "id": "B",
+        "text": "Linux est le nom du gestionnaire de paquets propre à Ubuntu."
+      },
+      {
+        "id": "C",
+        "text": "Ubuntu est une distribution qui utilise le noyau Linux."
+      },
+      {
+        "id": "D",
+        "text": "Installer Ubuntu impose d’installer un bureau graphique."
+      }
+    ]
+  },
+  {
+    "id": "EXPL-00-004-01",
+    "mode": "single",
+    "question": "Sur un PC Windows, qu’apporte WSL pour travailler avec les outils d’Ubuntu ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Un menu de démarrage imposant de choisir entre Ubuntu et Windows."
+      },
+      {
+        "id": "B",
+        "text": "Un terminal qui interprète les commandes Bash avec la seule syntaxe de PowerShell."
+      },
+      {
+        "id": "C",
+        "text": "Un environnement Linux utilisable pendant que Windows fonctionne."
+      }
+    ]
+  },
+  {
+    "id": "REV-N00_005-01",
+    "mode": "single",
+    "question": "Tu veux répéter chaque semaine le même traitement sur une série de fichiers. Pourquoi garder la commande exacte qui fonctionne dans le terminal ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Pour que le système programme automatiquement son exécution hebdomadaire."
+      },
+      {
+        "id": "B",
+        "text": "Pour donner au traitement des droits que l’interface graphique ne possède jamais."
+      },
+      {
+        "id": "C",
+        "text": "Pour pouvoir la réutiliser dans un script."
+      }
+    ]
+  },
+  {
+    "id": "EXPL-01-000-01",
+    "mode": "single",
+    "question": "Dans une fenêtre de terminal qui lance Bash, qui interprète la commande saisie et qui en affiche la sortie ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Bash interprète la ligne, le terminal affiche la sortie qui lui est envoyée."
+      },
+      {
+        "id": "B",
+        "text": "Le terminal et Bash doivent interpréter chacun la syntaxe des redirections."
+      },
+      {
+        "id": "C",
+        "text": "Le terminal interprète la ligne, Bash se contente d’afficher la sortie."
+      }
+    ]
+  },
+  {
+    "id": "REV-N01_001-01",
+    "mode": "single",
+    "question": "Dans Bash, tu saisis `printf '%s\\n' \"$HOME\"`. Qui remplace `$HOME` par sa valeur ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "printf, lorsqu’il lit le format %s."
+      },
+      {
+        "id": "B",
+        "text": "Le terminal, lorsqu’il dessine les caractères à l’écran."
+      },
+      {
+        "id": "C",
+        "text": "Bash, pendant le traitement de la ligne."
+      }
+    ]
+  },
+  {
+    "id": "REV-N01_002-01",
+    "mode": "single",
+    "question": "Pourquoi `cd` est-il habituellement une commande intégrée à Bash ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Toute commande qui accepte un chemin doit être intégrée au shell."
+      },
+      {
+        "id": "B",
+        "text": "Une commande intégrée peut changer le répertoire du shell courant."
+      },
+      {
+        "id": "C",
+        "text": "Seul un processus enfant peut changer le répertoire de son parent."
+      }
+    ]
+  },
+  {
+    "id": "REV-N01_003-01",
+    "mode": "multiple",
+    "question": "Un fichier lisible nommé `bonjour.sh` contient un script Bash. Tu l’exécutes avec `bash bonjour.sh`. Quelles affirmations sont exactes ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Le script doit commencer par un shebang pour cet appel précis."
+      },
+      {
+        "id": "B",
+        "text": "La commande choisit explicitement Bash pour lire le script."
+      },
+      {
+        "id": "C",
+        "text": "Le suffixe .sh sélectionne automatiquement l’interpréteur."
+      },
+      {
+        "id": "D",
+        "text": "Le fichier peut être lu ainsi même sans droit d’exécution sur le fichier lui-même."
+      }
+    ]
+  },
+  {
+    "id": "APP-02-000-001",
+    "mode": "single",
+    "question": "Sous Linux, quel chemin désigne la racine de l’arborescence visible par le processus ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "/"
+      },
+      {
+        "id": "B",
+        "text": "/home"
+      },
+      {
+        "id": "C",
+        "text": "/root"
+      }
+    ]
+  },
+  {
+    "id": "REV-N02_001-01",
+    "mode": "multiple",
+    "question": "Dans Bash, HOME vaut /home/lea. Quelles expressions donnent le texte /home/lea sans inclure de guillemets dans le résultat ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "'$HOME'"
+      },
+      {
+        "id": "B",
+        "text": "~"
+      },
+      {
+        "id": "C",
+        "text": "\"$HOME\""
+      },
+      {
+        "id": "D",
+        "text": "\"~\""
+      }
+    ]
+  },
+  {
+    "id": "APP-02-002-001",
+    "mode": "single",
+    "question": "Dans /home/lea/projet, sans lien symbolique sur ce chemin, quel dossier désigne `..` ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "/home/lea/projet"
+      },
+      {
+        "id": "B",
+        "text": "/home"
+      },
+      {
+        "id": "C",
+        "text": "/"
+      },
+      {
+        "id": "D",
+        "text": "/home/lea"
+      }
+    ]
+  },
+  {
+    "id": "APP-02-003-001",
+    "mode": "single",
+    "question": "Parmi ces chemins Linux, lequel est absolu avant toute expansion du shell ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "/etc/hosts"
+      },
+      {
+        "id": "B",
+        "text": "etc/hosts"
+      },
+      {
+        "id": "C",
+        "text": "./etc/hosts"
+      }
+    ]
+  },
+  {
+    "id": "REV-N02_004-01",
+    "mode": "single",
+    "question": "Depuis /home/lea/projet, sans lien symbolique, tu ouvres `docs/a.txt`. Quel chemin absolu correspond au fichier demandé ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "/home/lea/docs/a.txt"
+      },
+      {
+        "id": "B",
+        "text": "/home/lea/projet/docs/a.txt"
+      },
+      {
+        "id": "C",
+        "text": "/docs/a.txt"
+      }
+    ]
+  },
+  {
+    "id": "EXPL-02-005-01",
+    "mode": "single",
+    "question": "Dans Bash, `pwd` affiche /home/lea. Tu tapes ensuite `cd /tmp`, qui réussit. Que donne alors `pwd` en mode logique ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "/home/lea"
+      },
+      {
+        "id": "B",
+        "text": "/tmp"
+      },
+      {
+        "id": "C",
+        "text": "/"
+      }
+    ]
+  },
+  {
+    "id": "REV-N02_006-01",
+    "mode": "single",
+    "question": "Tu exécutes `mkdir -p projet/src`, puis `touch projet/src/main.c`. Le fichier main.c existe déjà et est accessible en écriture. Que se passe-t-il dans les conditions usuelles ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Le fichier main.c est vidé."
+      },
+      {
+        "id": "B",
+        "text": "Le contenu de main.c est conservé."
+      },
+      {
+        "id": "C",
+        "text": "La commande mkdir -p échoue parce que projet/src existe déjà comme répertoire."
+      }
+    ]
+  },
+  {
+    "id": "EXPL-02-007-01",
+    "mode": "single",
+    "question": "Le fichier ordinaire a.txt est lisible et non vide et b.txt n’existe pas. Quelle commande crée une copie nommée b.txt en conservant a.txt ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "cp a.txt b.txt"
+      },
+      {
+        "id": "B",
+        "text": "mv a.txt b.txt"
+      },
+      {
+        "id": "C",
+        "text": "touch b.txt"
+      }
+    ]
+  },
+  {
+    "id": "REV-N02_008-01",
+    "mode": "single",
+    "question": "Tu veux chercher les fichiers ordinaires dont le nom se termine par .c dans le dossier courant et ses sous-dossiers. Quelle commande convient ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "file *.c"
+      },
+      {
+        "id": "B",
+        "text": "ls *.c"
+      },
+      {
+        "id": "C",
+        "text": "find . -type f -name '*.c'"
+      }
+    ]
+  },
+  {
+    "id": "APP-03-000-006",
+    "mode": "single",
+    "question": "Sur un fichier ordinaire sans ACL étendue ni bits spéciaux, quels droits symboliques correspondent au mode 640 ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "rw-r-----"
+      },
+      {
+        "id": "B",
+        "text": "rwxr-----"
+      },
+      {
+        "id": "C",
+        "text": "rw-rw----"
+      },
+      {
+        "id": "D",
+        "text": "rw-r--r--"
+      }
+    ]
+  },
+  {
+    "id": "EXPL-03-000-01",
+    "mode": "multiple",
+    "question": "Pour un répertoire Linux, quelles opérations les bits de permission ordinaires permettent-ils à l’utilisateur auquel ils s’appliquent ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "x permet de rechercher un nom connu lors de la traversée du répertoire."
+      },
+      {
+        "id": "B",
+        "text": "r permet de lire la liste des noms d’entrées."
+      },
+      {
+        "id": "C",
+        "text": "w seul garantit qu’on pourra supprimer n’importe quelle entrée."
+      },
+      {
+        "id": "D",
+        "text": "r sur le répertoire permet de lire le contenu de tous ses fichiers."
+      }
+    ]
+  },
+  {
+    "id": "REV-N03_001-01",
+    "mode": "single",
+    "question": "Tu es propriétaire de script.sh. Quelle commande ajoute le droit d’exécution au propriétaire en conservant les autres bits ordinaires de permission ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "chmod u+x script.sh"
+      },
+      {
+        "id": "B",
+        "text": "chmod a+x script.sh"
+      },
+      {
+        "id": "C",
+        "text": "chmod 700 script.sh"
+      }
+    ]
+  },
+  {
+    "id": "EXPL-03-002-01",
+    "mode": "multiple",
+    "question": "Sous Unix, quelles associations entre les flux standard d’un processus et les numéros de descripteur sont exactes ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Le descripteur 1 désigne exclusivement le clavier."
+      },
+      {
+        "id": "B",
+        "text": "L’entrée standard correspond au descripteur 0."
+      },
+      {
+        "id": "C",
+        "text": "La sortie standard correspond au descripteur 1."
+      },
+      {
+        "id": "D",
+        "text": "La sortie d’erreur correspond au descripteur 2."
+      }
+    ]
+  },
+  {
+    "id": "EXPL-03-003-01",
+    "mode": "single",
+    "question": "Dans Bash avec ses réglages par défaut, un fichier ordinaire journal existe et peut être modifié. Quelle différence entre `> journal` et `>> journal` ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Le premier dirige stdout et le second dirige stderr."
+      },
+      {
+        "id": "B",
+        "text": "Les deux se placent toujours après la dernière ligne existante."
+      },
+      {
+        "id": "C",
+        "text": "Le premier tronque journal et le second ajoute les écritures à sa fin."
+      }
+    ]
+  },
+  {
+    "id": "REV-N03_004-01",
+    "mode": "multiple",
+    "question": "Une commande lit ses données sur stdin et écrit diagnostics et résultats séparément. Dans `outil < entree 2> erreurs`, où circulent ces données si les redirections réussissent ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Les résultats écrits sur stdout vont dans erreurs."
+      },
+      {
+        "id": "B",
+        "text": "Les diagnostics écrits sur stderr vont dans erreurs."
+      },
+      {
+        "id": "C",
+        "text": "Le contenu d’erreurs est fourni à l’outil en entrée."
+      },
+      {
+        "id": "D",
+        "text": "Les données lues sur stdin proviennent de entree."
+      }
+    ]
+  },
+  {
+    "id": "REV-N03_005-01",
+    "mode": "single",
+    "question": "Avec `producteur | filtre`, sans autre redirection, quelles données entrent dans le filtre ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Le code de sortie de producteur, converti en texte."
+      },
+      {
+        "id": "B",
+        "text": "Les octets que producteur écrit sur sa sortie standard."
+      },
+      {
+        "id": "C",
+        "text": "Les octets que producteur écrit uniquement sur sa sortie d’erreur."
+      }
+    ]
+  },
+  {
+    "id": "REV-N03_006-01",
+    "mode": "single",
+    "question": "Sans option errexit, tu exécutes dans Bash `false && printf A || printf B`. Quel texte est écrit ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "B"
+      },
+      {
+        "id": "B",
+        "text": "A"
+      },
+      {
+        "id": "C",
+        "text": "Aucun texte"
+      },
+      {
+        "id": "D",
+        "text": "AB"
+      }
+    ]
+  },
+  {
+    "id": "REV-N03_007-01",
+    "mode": "single",
+    "question": "Quelle valeur numérique affiche `printf 'a\\nb' | wc -l` ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "0"
+      },
+      {
+        "id": "B",
+        "text": "1"
+      },
+      {
+        "id": "C",
+        "text": "2"
+      }
+    ]
+  },
+  {
+    "id": "EXPL-03-008-01",
+    "mode": "single",
+    "question": "Une entrée contient la ligne `alice:dev:42`. Quel texte produit `cut -d: -f1` pour cette ligne ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "a"
+      },
+      {
+        "id": "B",
+        "text": "alice:dev"
+      },
+      {
+        "id": "C",
+        "text": "alice"
+      },
+      {
+        "id": "D",
+        "text": "dev"
+      }
+    ]
+  },
+  {
+    "id": "EXPL-03-009-01",
+    "mode": "single",
+    "question": "Avec GNU grep, que demande `grep -A 3 motif fichier` ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Afficher seulement les trois premières correspondances."
+      },
+      {
+        "id": "B",
+        "text": "Afficher jusqu’à trois lignes de contexte avant chaque correspondance."
+      },
+      {
+        "id": "C",
+        "text": "Afficher chaque ligne qui correspond et jusqu’à trois lignes de contexte après elle."
+      }
+    ]
+  },
+  {
+    "id": "REV-N03_010-01",
+    "mode": "single",
+    "question": "Un fichier contient deux lignes, `Erreur erreur` puis `OK`. Quelle valeur donne `grep -ic erreur fichier` avec GNU grep ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "2"
+      },
+      {
+        "id": "B",
+        "text": "1"
+      },
+      {
+        "id": "C",
+        "text": "0"
+      }
+    ]
+  },
+  {
+    "id": "REV-N03_011-01",
+    "mode": "single",
+    "question": "Un fichier contient dans l’ordre trois lignes, rouge, bleu, rouge. Que se passe-t-il si tu l’envoies directement à `uniq` ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Seules les lignes bleu puis rouge ressortent."
+      },
+      {
+        "id": "B",
+        "text": "Les trois lignes ressortent dans leur ordre initial."
+      },
+      {
+        "id": "C",
+        "text": "Seules les lignes rouge puis bleu ressortent."
+      }
+    ]
+  },
+  {
+    "id": "APP-04-000-001",
+    "mode": "single",
+    "question": "Quelle commande Bash seule affecte la valeur `deux mots` à la variable NOM dans le shell courant ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "NOM=deux mots"
+      },
+      {
+        "id": "B",
+        "text": "NOM = \"deux mots\""
+      },
+      {
+        "id": "C",
+        "text": "NOM=\"deux mots\""
+      }
+    ]
+  },
+  {
+    "id": "REV-N04_001-01",
+    "mode": "single",
+    "question": "Dans un Bash sans export automatique, PROJET est initialement absente. Tu exécutes `PROJET=bleu` puis lances le programme externe `printenv PROJET`. Que se passe-t-il ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "printenv affiche le texte PROJET."
+      },
+      {
+        "id": "B",
+        "text": "printenv affiche bleu car il s’exécute depuis le même terminal."
+      },
+      {
+        "id": "C",
+        "text": "printenv n’affiche pas de valeur et renvoie un statut non nul."
+      }
+    ]
+  },
+  {
+    "id": "REV-N04_002-01",
+    "mode": "single",
+    "question": "Dans Bash, tu exécutes `nom=dehors; f() { local nom=dedans; }; f`. Quelle valeur a nom après le retour de f ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "dedans"
+      },
+      {
+        "id": "B",
+        "text": "dehors"
+      },
+      {
+        "id": "C",
+        "text": "Aucune valeur, car le nom extérieur a également été supprimé."
+      }
+    ]
+  },
+  {
+    "id": "EXPL-04-003-01",
+    "mode": "multiple",
+    "question": "Dans Bash, tu définis `PROJET=bleu`, puis `export PROJET`. Quels effets en découlent ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Le shell courant peut toujours lire la valeur de PROJET."
+      },
+      {
+        "id": "B",
+        "text": "Un nouveau programme lancé depuis ce shell peut lire PROJET dans son environnement."
+      },
+      {
+        "id": "C",
+        "text": "Un programme déjà lancé reçoit immédiatement cette nouvelle valeur."
+      },
+      {
+        "id": "D",
+        "text": "Un enfant qui redéfinit PROJET change la valeur du shell parent."
+      }
+    ]
+  },
+  {
+    "id": "APP-04-004-001",
+    "mode": "single",
+    "question": "Dans Bash, `NOM` est une variable ordinaire modifiable. Quel effet a `unset NOM` dans ce shell ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Seul l’attribut d’export est supprimé et la valeur est gardée."
+      },
+      {
+        "id": "B",
+        "text": "La variable NOM cesse d’être définie dans le shell courant."
+      },
+      {
+        "id": "C",
+        "text": "NOM reste définie avec une valeur de longueur zéro."
+      }
+    ]
+  },
+  {
+    "id": "REV-N04_005-01",
+    "mode": "single",
+    "question": "Dans un nouveau Bash, `TASSE=bleue` est définie mais non exportée. Quel constat peut-on faire avec `set` et le programme externe `printenv` ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Les deux outils doivent toujours montrer la même valeur."
+      },
+      {
+        "id": "B",
+        "text": "set peut montrer TASSE alors que printenv TASSE ne donne pas sa valeur."
+      },
+      {
+        "id": "C",
+        "text": "printenv TASSE exporte automatiquement TASSE avant de l’afficher."
+      }
+    ]
+  },
+  {
+    "id": "EXPL-04-006-01",
+    "mode": "single",
+    "question": "Dans un Bash interactif, que crée la commande `alias ll='ls -l'` ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Un raccourci que ce shell peut développer en ls -l en position de commande."
+      },
+      {
+        "id": "B",
+        "text": "Une nouvelle option qui modifie chaque appel de ls."
+      },
+      {
+        "id": "C",
+        "text": "Un fichier exécutable nommé ll dans le premier dossier de PATH."
+      }
+    ]
+  },
+  {
+    "id": "APP-04-007-001",
+    "mode": "single",
+    "question": "Le fichier lisible choix.sh contient seulement `COULEUR=vert`. Pourquoi utiliser `source ./choix.sh` pour définir COULEUR dans le Bash courant ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "L’affectation reste active dans le shell après la lecture du fichier."
+      },
+      {
+        "id": "B",
+        "text": "Le script met à jour le parent en lançant un second Bash."
+      },
+      {
+        "id": "C",
+        "text": "source transforme toutes les affectations en variables exportées."
+      }
+    ]
+  },
+  {
+    "id": "APP-04-008-001",
+    "mode": "single",
+    "question": "Dans Bash, à quoi sert PATH lorsqu’on lance un programme externe par un nom sans barre oblique, sans alias, fonction ni commande intégrée du même nom ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "À fournir les répertoires où rechercher un exécutable de ce nom."
+      },
+      {
+        "id": "B",
+        "text": "À lister les répertoires sous lesquels le programme cherchera ses fichiers de données relatifs."
+      },
+      {
+        "id": "C",
+        "text": "À indiquer les répertoires où le programme pourra écrire après son lancement."
+      }
+    ]
+  },
+  {
+    "id": "REV-N04_009-01",
+    "mode": "single",
+    "question": "Dans Bash, nom vaut ab et nom_fin vaut cd. Quelle expression donne exactement ab_fin ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "\"${nom}_fin\""
+      },
+      {
+        "id": "B",
+        "text": "\"$nom_fin\""
+      },
+      {
+        "id": "C",
+        "text": "'${nom}_fin'"
+      }
+    ]
+  },
+  {
+    "id": "REV-N04_010-01",
+    "mode": "single",
+    "question": "Dans Bash, après `v=$(printf 'a\\nb\\n\\n')`, que contient la variable v ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "a puis b, sans aucun saut de ligne"
+      },
+      {
+        "id": "B",
+        "text": "a, un saut de ligne, puis b"
+      },
+      {
+        "id": "C",
+        "text": "a, un saut de ligne, b, puis deux sauts de ligne"
+      }
+    ]
+  },
+  {
+    "id": "APP-04-011-001",
+    "mode": "single",
+    "question": "En Bash, quelle valeur affiche `echo $((3 + 4 * 2))` ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "3 + 4 * 2"
+      },
+      {
+        "id": "B",
+        "text": "11"
+      },
+      {
+        "id": "C",
+        "text": "14"
+      }
+    ]
+  },
+  {
+    "id": "REV-N04_012-01",
+    "mode": "multiple",
+    "question": "Un script Bash est lancé avec `bash voir.sh \"un deux\" trois`. Que valent ses paramètres positionnels au début du script ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "$1 vaut la chaîne un deux."
+      },
+      {
+        "id": "B",
+        "text": "$2 vaut deux."
+      },
+      {
+        "id": "C",
+        "text": "$# vaut 2."
+      },
+      {
+        "id": "D",
+        "text": "$1 vaut voir.sh."
+      }
+    ]
+  },
+  {
+    "id": "EXPL-04-013-01",
+    "mode": "single",
+    "question": "Sous Linux, quel caractère sépare les répertoires dans une valeur de PATH comme /usr/local/bin:/usr/bin:/bin ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "La barre oblique (/)"
+      },
+      {
+        "id": "B",
+        "text": "Le deux-points (:)"
+      },
+      {
+        "id": "C",
+        "text": "Le point-virgule (;)"
+      }
+    ]
+  },
+  {
+    "id": "REV-C-001",
+    "mode": "single",
+    "question": "Avec int x = 5, que donne cette chaîne ? if (x > 0) puts(\"positif\"); else if (x > 3) puts(\"grand\"); else puts(\"autre\");",
+    "choix": [
+      {
+        "id": "A",
+        "text": "positif"
+      },
+      {
+        "id": "B",
+        "text": "grand"
+      },
+      {
+        "id": "C",
+        "text": "positif puis grand"
+      },
+      {
+        "id": "D",
+        "text": "autre"
+      }
+    ]
+  },
+  {
+    "id": "REV-C-002",
+    "mode": "single",
+    "question": "Avec int x = 3, que vaut x après if ((x = 0)) x = 7; ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "3"
+      },
+      {
+        "id": "B",
+        "text": "7"
+      },
+      {
+        "id": "C",
+        "text": "0"
+      }
+    ]
+  },
+  {
+    "id": "REV-C-003",
+    "mode": "single",
+    "question": "Quel test accepte toutes les valeurs entières de 10 à 20 incluses, et seulement celles-là ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "10 < n && n < 20"
+      },
+      {
+        "id": "B",
+        "text": "10 <= n && n <= 20"
+      },
+      {
+        "id": "C",
+        "text": "10 <= n || n <= 20"
+      },
+      {
+        "id": "D",
+        "text": "10 <= n <= 20"
+      }
+    ]
+  },
+  {
+    "id": "REV-C-004",
+    "mode": "single",
+    "question": "Après int a = 0, b = 1; int ok = a && ++b; quelles valeurs obtient-on ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "ok vaut 1 et b vaut 2."
+      },
+      {
+        "id": "B",
+        "text": "ok vaut 0 et b vaut 2."
+      },
+      {
+        "id": "C",
+        "text": "ok vaut 0 et b vaut 1."
+      }
+    ]
+  },
+  {
+    "id": "REV-C-005",
+    "mode": "multiple",
+    "question": "Après int i; for (i = 2; i < 7; i += 2) { } quelles affirmations sont exactes ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Le corps s’exécute trois fois."
+      },
+      {
+        "id": "B",
+        "text": "Le dernier passage du corps se fait avec i égal à 7."
+      },
+      {
+        "id": "C",
+        "text": "À la sortie, i vaut 8."
+      },
+      {
+        "id": "D",
+        "text": "Le corps s’exécute quatre fois."
+      }
+    ]
+  },
+  {
+    "id": "REV-C-006",
+    "mode": "single",
+    "question": "Avec int n = 0; while (n > 0) { puts(\"X\"); --n; } que se passe-t-il ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Un X apparaît, puis n vaut −1."
+      },
+      {
+        "id": "B",
+        "text": "Rien n’est affiché et n reste à 0."
+      },
+      {
+        "id": "C",
+        "text": "Rien n’est affiché et n vaut −1."
+      }
+    ]
+  },
+  {
+    "id": "APP-05-006-005",
+    "mode": "single",
+    "question": "Dans le code C suivant, combien de caractères X sont affichés ? `int i = 0; do { i++; if (i == 2) continue; printf(\"X\"); } while (i < 4);`",
+    "choix": [
+      {
+        "id": "A",
+        "text": "2"
+      },
+      {
+        "id": "B",
+        "text": "3"
+      },
+      {
+        "id": "C",
+        "text": "4"
+      },
+      {
+        "id": "D",
+        "text": "5"
+      }
+    ]
+  },
+  {
+    "id": "V1-N05_006-04",
+    "mode": "multiple",
+    "question": "Dans une boucle `do…while` en C, quelles affirmations sont correctes ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "La condition est évaluée avant la toute première exécution du corps."
+      },
+      {
+        "id": "B",
+        "text": "La condition est évaluée après l’exécution normale du corps."
+      },
+      {
+        "id": "C",
+        "text": "`break` permet de quitter immédiatement la boucle sans retester sa condition."
+      },
+      {
+        "id": "D",
+        "text": "`continue` quitte définitivement la boucle, exactement comme `break`."
+      }
+    ]
+  },
+  {
+    "id": "REV-C-009",
+    "mode": "multiple",
+    "question": "Pour int n = -7, quelles expressions ont la valeur 1 en C ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "!n"
+      },
+      {
+        "id": "B",
+        "text": "!!n"
+      },
+      {
+        "id": "C",
+        "text": "n != 0"
+      },
+      {
+        "id": "D",
+        "text": "n"
+      }
+    ]
+  },
+  {
+    "id": "REV-C-010",
+    "mode": "single",
+    "question": "Avec int i, j; for (i = 0; i < 3; ++i) for (j = 0; j < i; ++j) putchar('X'); combien de X sont écrits ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "9"
+      },
+      {
+        "id": "B",
+        "text": "6"
+      },
+      {
+        "id": "C",
+        "text": "3"
+      },
+      {
+        "id": "D",
+        "text": "0"
+      }
+    ]
+  },
+  {
+    "id": "APP-06-000-001",
+    "mode": "single",
+    "question": "Tu as créé un dossier de projet sur ton ordinateur. Quelle commande initialise un dépôt Git dans ce dossier depuis celui-ci ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "git add ."
+      },
+      {
+        "id": "B",
+        "text": "git init"
+      },
+      {
+        "id": "C",
+        "text": "git commit"
+      }
+    ]
+  },
+  {
+    "id": "REV-06-001-01",
+    "mode": "single",
+    "question": "Ton projet possède déjà un dépôt Git local. Que permet spécifiquement l’ouverture d’une pull request sur GitHub ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Créer le premier commit local."
+      },
+      {
+        "id": "B",
+        "text": "Voir les fichiers en attente dans ton index local."
+      },
+      {
+        "id": "C",
+        "text": "Faire relire les changements d’une branche avant leur intégration."
+      },
+      {
+        "id": "D",
+        "text": "Récupérer les changements locaux non enregistrés d’un collègue."
+      }
+    ]
+  },
+  {
+    "id": "REV-06-002-01",
+    "mode": "single",
+    "question": "Tu copies uniquement les fichiers suivis d’un petit projet dans un dossier vide situé hors de tout dépôt. Pourquoi git log ne retrouve-t-il pas les commits ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Les fichiers copiés doivent d’abord être rendus exécutables."
+      },
+      {
+        "id": "B",
+        "text": "Il manque simplement un nouveau git add ."
+      },
+      {
+        "id": "C",
+        "text": "La copie ne contient pas les métadonnées Git du dépôt."
+      },
+      {
+        "id": "D",
+        "text": "Il faut renommer le dossier comme le dépôt d’origine."
+      }
+    ]
+  },
+  {
+    "id": "REV-06-003-01",
+    "mode": "single",
+    "question": "Tu prépares la version A de main.c avec git add, puis écris la version B sans refaire git add. Que contient un git commit sans option qui réussit ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "La version A de main.c."
+      },
+      {
+        "id": "B",
+        "text": "La version B de main.c."
+      },
+      {
+        "id": "C",
+        "text": "Deux versions de main.c au même chemin."
+      },
+      {
+        "id": "D",
+        "text": "Aucune version de main.c."
+      }
+    ]
+  },
+  {
+    "id": "EXPL-06-004-01",
+    "mode": "multiple",
+    "question": "Dans un dépôt local, quelles descriptions du rôle de ces commandes Git sont exactes ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "git commit -m \"message\" enregistre le contenu préparé si le commit réussit."
+      },
+      {
+        "id": "B",
+        "text": "git push peut mettre à jour une branche sur un dépôt distant."
+      },
+      {
+        "id": "C",
+        "text": "git add envoie le contenu préparé au dépôt distant."
+      },
+      {
+        "id": "D",
+        "text": "git add fichier prépare le contenu actuel de ce fichier."
+      }
+    ]
+  },
+  {
+    "id": "EXPL-06-005-01",
+    "mode": "single",
+    "question": "Tu as fusionné essai dans main avec git merge, sans squash. Puis tu supprimes le nom de branche local essai. Que deviennent ses commits déjà intégrés ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Leurs modifications disparaissent du contenu de main."
+      },
+      {
+        "id": "B",
+        "text": "Ils deviennent accessibles uniquement depuis un dépôt distant."
+      },
+      {
+        "id": "C",
+        "text": "Ils restent accessibles depuis l’historique de main."
+      },
+      {
+        "id": "D",
+        "text": "Ils deviennent automatiquement de nouveaux commits sur main."
+      }
+    ]
+  },
+  {
+    "id": "EXPL-06-006-01",
+    "mode": "single",
+    "question": "Un test de la PR a échoué sur un premier commit, puis le même test a réussi sur le dernier commit. Que peut conclure la personne qui relit la PR ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Le premier test est désormais considéré comme réussi sur le premier commit."
+      },
+      {
+        "id": "B",
+        "text": "Le dernier commit est nécessairement exempt de défauts."
+      },
+      {
+        "id": "C",
+        "text": "Le dernier commit a déjà été déployé par ce seul test."
+      },
+      {
+        "id": "D",
+        "text": "Ce test a réussi pour le dernier commit examiné."
+      }
+    ]
+  },
+  {
+    "id": "REV-06-007-01",
+    "mode": "multiple",
+    "question": "Une fusion a laissé un conflit de contenu dans README.md. Quelles étapes permettent de préparer une résolution que tu as choisie ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Relire les deux côtés et écrire le contenu final voulu."
+      },
+      {
+        "id": "B",
+        "text": "Supprimer seulement les marqueurs et accepter le résultat sans le lire."
+      },
+      {
+        "id": "C",
+        "text": "Faire git add README.md après avoir vérifié le contenu résolu."
+      },
+      {
+        "id": "D",
+        "text": "Faire git fetch pour que le conflit local soit résolu par le serveur."
+      }
+    ]
+  },
+  {
+    "id": "APP-06-008-001",
+    "mode": "single",
+    "question": "Quelle commande indique à la fois les changements préparés, les changements suivis non préparés et, par défaut, les fichiers non suivis non ignorés ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "git diff --cached"
+      },
+      {
+        "id": "B",
+        "text": "git status"
+      },
+      {
+        "id": "C",
+        "text": "git log --oneline"
+      }
+    ]
+  },
+  {
+    "id": "APP-06-009-001",
+    "mode": "single",
+    "question": "Dans un clone ordinaire, ton collègue vient de pousser un commit sur main. Tu lances git fetch origin avec la configuration créée par git clone. Quel est son effet ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "origin/main peut avancer alors que ta branche locale reste en place."
+      },
+      {
+        "id": "B",
+        "text": "Ta branche locale main est automatiquement rebasée."
+      },
+      {
+        "id": "C",
+        "text": "Les changements préparés sont enregistrés dans un nouveau commit."
+      },
+      {
+        "id": "D",
+        "text": "Tes commits locaux sont transmis au serveur."
+      }
+    ]
+  },
+  {
+    "id": "REV-06-010-01",
+    "mode": "single",
+    "question": "Après un clone ordinaire, tu entres dans le dossier créé. Quelle commande affiche au plus trois commits accessibles depuis HEAD, avec une ligne par commit ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "git status --short"
+      },
+      {
+        "id": "B",
+        "text": "git branch --list"
+      },
+      {
+        "id": "C",
+        "text": "git log -3 --oneline"
+      },
+      {
+        "id": "D",
+        "text": "git diff HEAD"
+      }
+    ]
+  },
+  {
+    "id": "REV-C-011",
+    "mode": "multiple",
+    "question": "Dans un programme C hébergé, que garantissent int main(void) et son instruction finale return 0; ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Cette définition de main ne déclare aucun paramètre."
+      },
+      {
+        "id": "B",
+        "text": "Le programme doit afficher le chiffre 0."
+      },
+      {
+        "id": "C",
+        "text": "La terminaison normale signale une réussite à l’environnement."
+      },
+      {
+        "id": "D",
+        "text": "Toute fonction de type int qui retourne 0 termine également le programme."
+      }
+    ]
+  },
+  {
+    "id": "REV-C-012",
+    "mode": "multiple",
+    "question": "En C89, que permet de savoir la seule déclaration void noter(int); ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "noter attend un argument convertible en int."
+      },
+      {
+        "id": "B",
+        "text": "noter n’accepte aucun argument."
+      },
+      {
+        "id": "C",
+        "text": "L’appel ne fournit aucune valeur de retour à utiliser."
+      },
+      {
+        "id": "D",
+        "text": "Le corps de noter est déjà défini par cette ligne."
+      }
+    ]
+  },
+  {
+    "id": "REV-C-013",
+    "mode": "single",
+    "question": "Une fonction void verifier(void), appelée par main, atteint return;. Que se passe-t-il ensuite ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Le programme se termine automatiquement avec le statut zéro."
+      },
+      {
+        "id": "B",
+        "text": "L’exécution reprend dans main après l’appel à verifier."
+      },
+      {
+        "id": "C",
+        "text": "La fonction recommence son exécution au début."
+      }
+    ]
+  },
+  {
+    "id": "REV-C-014",
+    "mode": "single",
+    "question": "Sur une machine utilisant ASCII, quelle sortie donne printf(\"%c %d\", 'A', 'A'); ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "65 65"
+      },
+      {
+        "id": "B",
+        "text": "A 65"
+      },
+      {
+        "id": "C",
+        "text": "A A"
+      },
+      {
+        "id": "D",
+        "text": "65 A"
+      }
+    ]
+  },
+  {
+    "id": "REV-C-015",
+    "mode": "single",
+    "question": "En locale C, avec float x = 1.5f, que produit printf(\"%.2f\", x); ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "1.500000"
+      },
+      {
+        "id": "B",
+        "text": "1.50"
+      },
+      {
+        "id": "C",
+        "text": "1.5"
+      },
+      {
+        "id": "D",
+        "text": "Un appel incompatible car %f exige un float *."
+      }
+    ]
+  },
+  {
+    "id": "REV-C-016",
+    "mode": "single",
+    "question": "main.c appelle somme, déclarée dans calcul.h et définie dans calcul.c. gcc -c main.c réussit. Quelle commande produit l’exécutable avec ces deux fichiers ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "gcc -E main.c -o programme"
+      },
+      {
+        "id": "B",
+        "text": "gcc -c calcul.c -o programme"
+      },
+      {
+        "id": "C",
+        "text": "gcc main.o calcul.c -o programme"
+      },
+      {
+        "id": "D",
+        "text": "gcc main.o -o programme"
+      }
+    ]
+  },
+  {
+    "id": "REV-C-018",
+    "mode": "single",
+    "question": "Avec GCC et -std=gnu89 -Wall -Wextra -Werror -pedantic, comment déclarer et utiliser le compteur d’une boucle for ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "for (int i = 0; i < 3; ++i) { }"
+      },
+      {
+        "id": "B",
+        "text": "Déclarer int i; en tête du bloc, puis écrire for (i = 0; i < 3; ++i) { }."
+      },
+      {
+        "id": "C",
+        "text": "Omettre int i; et écrire for (i = 0; i < 3; ++i) { } sans déclaration accessible de i."
+      }
+    ]
+  },
+  {
+    "id": "REV-C-017",
+    "mode": "single",
+    "question": "Que produit gcc -S calcul.c -o resultat lorsqu’il réussit sur un source C classique ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Un fichier objet assemblé nommé resultat."
+      },
+      {
+        "id": "B",
+        "text": "Du texte assembleur dans le fichier resultat."
+      },
+      {
+        "id": "C",
+        "text": "Un exécutable nommé resultat."
+      },
+      {
+        "id": "D",
+        "text": "Le source C prétraité seul."
+      }
+    ]
+  },
+  {
+    "id": "REV-C-019",
+    "mode": "single",
+    "question": "Que produit puts(\"lot %d\"); lorsque l’écriture réussit ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "lot suivi d’un entier lu par puts."
+      },
+      {
+        "id": "B",
+        "text": "lot %d sans saut de ligne."
+      },
+      {
+        "id": "C",
+        "text": "lot %d suivi d’un saut de ligne."
+      }
+    ]
+  },
+  {
+    "id": "REV-C-020",
+    "mode": "multiple",
+    "question": "Avec <limits.h> inclus, on initialise unsigned int u = UINT_MAX; et int s = INT_MAX;. Quelles affirmations décrivent l’évaluation de u + 1U et de s + 1 en C standard ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "u + 1U vaut 0U."
+      },
+      {
+        "id": "B",
+        "text": "s + 1 vaut toujours INT_MIN."
+      },
+      {
+        "id": "C",
+        "text": "Évaluer s + 1 entraîne un comportement indéfini."
+      },
+      {
+        "id": "D",
+        "text": "Les deux expressions provoquent obligatoirement l’arrêt du programme."
+      }
+    ]
+  },
+  {
+    "id": "REV-C-021",
+    "mode": "multiple",
+    "question": "En C, quels objets peut-on initialiser avec la constante de caractère 'A' sans fournir d’adresse ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "char lettre = 'A';"
+      },
+      {
+        "id": "B",
+        "text": "int code = 'A';"
+      },
+      {
+        "id": "C",
+        "text": "char *texte = 'A';"
+      },
+      {
+        "id": "D",
+        "text": "char mot[2] = 'A';"
+      }
+    ]
+  },
+  {
+    "id": "REV-C-022",
+    "mode": "multiple",
+    "question": "Une fonction doit rendre un int * utilisable immédiatement après son retour. Quelles adresses peuvent convenir ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "L’adresse d’un int du code appelant qui reste en vie."
+      },
+      {
+        "id": "B",
+        "text": "L’adresse d’un int automatique déclaré dans la fonction qui se termine."
+      },
+      {
+        "id": "C",
+        "text": "L’adresse d’un int static déclaré dans la fonction."
+      },
+      {
+        "id": "D",
+        "text": "L’adresse d’un bloc que cette fonction vient de libérer."
+      }
+    ]
+  },
+  {
+    "id": "REV-C-030",
+    "mode": "multiple",
+    "question": "Avec char lettres[3], on lit avec scanf(\"%3c\", lettres) les trois caractères espace, A, B. Quelles affirmations sont exactes si la lecture réussit ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "L’espace est stocké dans lettres[0]."
+      },
+      {
+        "id": "B",
+        "text": "Un caractère nul est ajouté après B."
+      },
+      {
+        "id": "C",
+        "text": "Le résultat retourné par scanf vaut 1."
+      },
+      {
+        "id": "D",
+        "text": "lettres peut être utilisé directement par puts comme une chaîne terminée."
+      }
+    ]
+  },
+  {
+    "id": "REV-C-031",
+    "mode": "single",
+    "question": "Si chaque appel recommence au début de la chaîne \"010\", quels nombres sscanf lit-il avec %d et avec %i dans un int ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "8 avec %d et 10 avec %i."
+      },
+      {
+        "id": "B",
+        "text": "10 avec les deux formats."
+      },
+      {
+        "id": "C",
+        "text": "10 avec %d et 8 avec %i."
+      },
+      {
+        "id": "D",
+        "text": "8 avec les deux formats."
+      }
+    ]
+  },
+  {
+    "id": "SCN-001",
+    "mode": "multiple",
+    "question": "Avec `int a=0,b=99;` et l'entrée `12 x`, que peut-on affirmer après `scanf(\"%d %d\", &a, &b)` ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "La fonction retourne 1."
+      },
+      {
+        "id": "B",
+        "text": "`b` reste à 99."
+      },
+      {
+        "id": "C",
+        "text": "La fonction retourne nécessairement EOF."
+      },
+      {
+        "id": "D",
+        "text": "`a` vaut 12."
+      }
+    ]
+  },
+  {
+    "id": "SCN-002",
+    "mode": "multiple",
+    "question": "Avec l'entrée `10 20` et `scanf(\"%*d %d\", &n)`, quelles propositions sont vraies ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Le résultat de `scanf` est 1 si la conversion réussit."
+      },
+      {
+        "id": "B",
+        "text": "Le premier entier est consommé sans être affecté."
+      },
+      {
+        "id": "C",
+        "text": "Le résultat est 2 puisque deux nombres figurent dans l'entrée."
+      },
+      {
+        "id": "D",
+        "text": "`n` reçoit 20."
+      }
+    ]
+  },
+  {
+    "id": "SCN-003",
+    "mode": "single",
+    "question": "On a `int n=7;`. L'entrée commence par `bonjour`. Que renvoie `scanf(\"%d\", &n)` en cas d'échec de correspondance sans erreur de lecture ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "7"
+      },
+      {
+        "id": "B",
+        "text": "EOF"
+      },
+      {
+        "id": "C",
+        "text": "0"
+      },
+      {
+        "id": "D",
+        "text": "1"
+      }
+    ]
+  },
+  {
+    "id": "SCN-010",
+    "mode": "multiple",
+    "question": "Pour `char mot[8];`, quelles affirmations sont correctes avec `scanf(\"%7s\", mot)` ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "La largeur 7 permet de garder une case pour le terminateur."
+      },
+      {
+        "id": "B",
+        "text": "La conversion s'arrête avant un espace après le mot."
+      },
+      {
+        "id": "C",
+        "text": "La conversion `%s` ignore les espaces initiaux."
+      },
+      {
+        "id": "D",
+        "text": "La conversion lit forcément toute une phrase contenant des espaces."
+      }
+    ]
+  },
+  {
+    "id": "SCN-014",
+    "mode": "multiple",
+    "question": "Pourquoi mélanger `scanf(\"%d\", &n)` puis `fgets` demande-t-il une attention particulière ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Il faut traiter explicitement le reste de la saisie selon le comportement souhaité."
+      },
+      {
+        "id": "B",
+        "text": "Le `fgets` suivant peut lire uniquement ce retour à la ligne."
+      },
+      {
+        "id": "C",
+        "text": "Un retour à la ligne peut rester dans le flux après l'entier."
+      },
+      {
+        "id": "D",
+        "text": "`scanf` vide toujours toute la ligne d'entrée."
+      }
+    ]
+  },
+  {
+    "id": "REV-C-023",
+    "mode": "multiple",
+    "question": "Avec char buf[4] et une entrée ABCD suivie d’un saut de ligne, que fait un appel réussi à fgets(buf, sizeof buf, stdin) ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Il lit ABCD et ajoute le terminateur en dehors de buf."
+      },
+      {
+        "id": "B",
+        "text": "Il place A, B, C puis le caractère nul dans buf."
+      },
+      {
+        "id": "C",
+        "text": "D reste disponible pour la lecture suivante."
+      },
+      {
+        "id": "D",
+        "text": "Le saut de ligne est toujours présent dans buf."
+      }
+    ]
+  },
+  {
+    "id": "REV-C-024",
+    "mode": "multiple",
+    "question": "En base 10, après long n = strtol(\"42abc\", &fin, 10); avec char *fin, quelles affirmations sont exactes ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "n vaut 42."
+      },
+      {
+        "id": "B",
+        "text": "*fin vaut le caractère nul."
+      },
+      {
+        "id": "C",
+        "text": "*fin vaut 'a'."
+      },
+      {
+        "id": "D",
+        "text": "Une valeur numérique renvoyée prouve que toute la chaîne est valide."
+      }
+    ]
+  },
+  {
+    "id": "REV-C-025",
+    "mode": "multiple",
+    "question": "Avec const char *message = \"Avancement : 50%\"; quels appels écrivent ce texte sur stdout, avec ou sans saut de ligne ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "printf(\"%s\", message);"
+      },
+      {
+        "id": "B",
+        "text": "puts(message);"
+      },
+      {
+        "id": "C",
+        "text": "printf(\"%c\", *message);"
+      },
+      {
+        "id": "D",
+        "text": "printf(\"message\");"
+      }
+    ]
+  },
+  {
+    "id": "REV-C-026",
+    "mode": "multiple",
+    "question": "getchar() vient de renvoyer EOF. Quels tests permettent de distinguer la fin de fichier d’une erreur sur stdin ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "feof(stdin) pour consulter l’indicateur de fin de fichier."
+      },
+      {
+        "id": "B",
+        "text": "Comparer le résultat à la valeur du caractère nul."
+      },
+      {
+        "id": "C",
+        "text": "ferror(stdin) pour consulter l’indicateur d’erreur."
+      },
+      {
+        "id": "D",
+        "text": "Convertir EOF en char et comparer à une lettre."
+      }
+    ]
+  },
+  {
+    "id": "CDEEP-09-006-01",
+    "mode": "multiple",
+    "question": "Dans le bloc `int n = 3; int *p = &n;`, quelles affirmations décrivent correctement p, *p et &p ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "*p lit la valeur actuellement stockée dans n."
+      },
+      {
+        "id": "B",
+        "text": "p contient l'adresse de n."
+      },
+      {
+        "id": "C",
+        "text": "&p désigne l'adresse de la variable pointeur p."
+      },
+      {
+        "id": "D",
+        "text": "p et *p ont obligatoirement le même type."
+      },
+      {
+        "id": "E",
+        "text": "L'affectation *p=7 modifierait n."
+      }
+    ]
+  },
+  {
+    "id": "CDEEP-09-008-01",
+    "mode": "single",
+    "question": "Avec `int n = 4; int *p = &n;` et <stdio.h> inclus, quel appel à printf affiche l’adresse contenue dans p avec le type attendu ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "printf(\"%d\", p);"
+      },
+      {
+        "id": "B",
+        "text": "printf(\"%p\", (void *)p);"
+      },
+      {
+        "id": "C",
+        "text": "printf(\"%c\", p);"
+      },
+      {
+        "id": "D",
+        "text": "printf(\"%s\", p);"
+      }
+    ]
+  },
+  {
+    "id": "REV-09-009-01",
+    "mode": "multiple",
+    "question": "Dans un même bloc, on déclare int a[4]; int *p = a;. Quelles égalités sont garanties ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "`sizeof a == 4 * sizeof a[0]`"
+      },
+      {
+        "id": "B",
+        "text": "`sizeof a == sizeof p` sur toute machine"
+      },
+      {
+        "id": "C",
+        "text": "`sizeof *p == sizeof a[0]`"
+      },
+      {
+        "id": "D",
+        "text": "`sizeof p / sizeof *p == 4` sur toute machine"
+      }
+    ]
+  },
+  {
+    "id": "REV-09-018-01",
+    "mode": "single",
+    "question": "On déclare `int tab[5];`. Quel couple de types correspond, dans l’ordre, à &tab et à &tab[0] ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "int * et int *"
+      },
+      {
+        "id": "B",
+        "text": "int ** et int *"
+      },
+      {
+        "id": "C",
+        "text": "int (*)[5] et int *"
+      },
+      {
+        "id": "D",
+        "text": "int * et int (*)[5]"
+      }
+    ]
+  },
+  {
+    "id": "REV-09-019-01",
+    "mode": "multiple",
+    "question": "Avec `int t[3] = {2,4,6}; int *fin = t + 3;`, quelles opérations ont un comportement défini ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Comparer fin à t + 3 avec ==."
+      },
+      {
+        "id": "B",
+        "text": "Lire *fin."
+      },
+      {
+        "id": "C",
+        "text": "Lire fin[-1]."
+      },
+      {
+        "id": "D",
+        "text": "Former le pointeur fin + 1, même sans le lire."
+      }
+    ]
+  },
+  {
+    "id": "APP-09-020-004",
+    "mode": "multiple",
+    "question": "Après `int t[2] = {2,4}; int *p = t;`, on initialise un entier avec l’expression `*p++`. Quelles affirmations sont exactes ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "L'expression lit 2."
+      },
+      {
+        "id": "B",
+        "text": "Après l'expression, p désigne t[1]."
+      },
+      {
+        "id": "C",
+        "text": "L'incrémentation modifie t[0]."
+      },
+      {
+        "id": "D",
+        "text": "L'expression est équivalente à `*(++p)`."
+      }
+    ]
+  },
+  {
+    "id": "REV-09-025-01",
+    "mode": "single",
+    "question": "Après `int notes[4] = {7, 9};`, quelle affirmation décrit les deux dernières cases ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Le tableau ne contient que deux cases."
+      },
+      {
+        "id": "B",
+        "text": "La troisième case vaut 7 et la quatrième vaut 9."
+      },
+      {
+        "id": "C",
+        "text": "notes[2] et notes[3] valent toutes deux zéro."
+      },
+      {
+        "id": "D",
+        "text": "Il est interdit de lire notes[2] avant une autre affectation."
+      }
+    ]
+  },
+  {
+    "id": "REV-09-026-01",
+    "mode": "single",
+    "question": "Avec `int t[3] = {2,4,6}; int i;`, quelle condition, dans `for (i = 0; CONDITION; ++i)`, permet de lire une fois chacun des trois éléments avec t[i] ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "`i <= 3`"
+      },
+      {
+        "id": "B",
+        "text": "`i < 2`"
+      },
+      {
+        "id": "C",
+        "text": "`i < 3`"
+      },
+      {
+        "id": "D",
+        "text": "`i > 0`"
+      }
+    ]
+  },
+  {
+    "id": "REV-09-027-01",
+    "mode": "single",
+    "question": "Pour `int grille[2][3] = {{1,2,3}, {4,5,6}};`, quelle expression désigne la case dont la valeur est 5 ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "`grille[0][2]`"
+      },
+      {
+        "id": "B",
+        "text": "`grille[1][2]`"
+      },
+      {
+        "id": "C",
+        "text": "`grille[1][1]`"
+      },
+      {
+        "id": "D",
+        "text": "`grille[2][1]`"
+      }
+    ]
+  },
+  {
+    "id": "REV-09-028-01",
+    "mode": "single",
+    "question": "On part de `char a = 'A', b = 'B';`. Pourquoi `a = b; b = a;` ne termine-t-il pas l’échange des deux valeurs ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "La seconde affectation relit automatiquement l’ancienne valeur de a."
+      },
+      {
+        "id": "B",
+        "text": "La première affectation remplace A avant que cette valeur soit sauvegardée."
+      },
+      {
+        "id": "C",
+        "text": "Les variables char ne peuvent pas recevoir une deuxième affectation."
+      },
+      {
+        "id": "D",
+        "text": "Le compilateur exécute nécessairement les deux affectations en même temps."
+      }
+    ]
+  },
+  {
+    "id": "REV-09-029-01",
+    "mode": "multiple",
+    "question": "Pour inverser sur place le texte du tableau `char s[] = \"ABCD\";` par échanges successifs, quelles paires d’indices faut-il échanger ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "0 et 3"
+      },
+      {
+        "id": "B",
+        "text": "0 et 4"
+      },
+      {
+        "id": "C",
+        "text": "1 et 2"
+      },
+      {
+        "id": "D",
+        "text": "2 et 3"
+      }
+    ]
+  },
+  {
+    "id": "REV-09-033-01",
+    "mode": "multiple",
+    "question": "Dans `char a[] = \"abc\"; const char *p = \"abc\";`, quelles instructions sont autorisées en C et ont un comportement défini, considérées séparément ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "`a[0] = 'A';`"
+      },
+      {
+        "id": "B",
+        "text": "`((char *)p)[0] = 'A';`"
+      },
+      {
+        "id": "C",
+        "text": "`p = a;`"
+      },
+      {
+        "id": "D",
+        "text": "`a = p;`"
+      }
+    ]
+  },
+  {
+    "id": "CDEEP-09-034-01",
+    "mode": "single",
+    "question": "Après `int *p = malloc(sizeof *p);`, quel fragment écrit 1 dans l’entier seulement si l’allocation a réussi ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "`if (p == NULL) { *p = 1; }`"
+      },
+      {
+        "id": "B",
+        "text": "`if (*p != 0) { *p = 1; }`"
+      },
+      {
+        "id": "C",
+        "text": "`if (sizeof p > 0) { *p = 1; }`"
+      },
+      {
+        "id": "D",
+        "text": "`if (p != NULL) { *p = 1; }`"
+      }
+    ]
+  },
+  {
+    "id": "REV-09-038-01",
+    "mode": "single",
+    "question": "Pour réserver n éléments de type double dans `double *p;`, quel appel exprime la quantité voulue indépendamment des tailles de la machine ? On suppose n positif et le produit représentable en size_t.",
+    "choix": [
+      {
+        "id": "A",
+        "text": "`malloc(sizeof n)`"
+      },
+      {
+        "id": "B",
+        "text": "`malloc(n * sizeof *p)`"
+      },
+      {
+        "id": "C",
+        "text": "`malloc(n * sizeof p)`"
+      },
+      {
+        "id": "D",
+        "text": "`malloc(n)`"
+      }
+    ]
+  },
+  {
+    "id": "APP-09-039-003",
+    "mode": "multiple",
+    "question": "Avec `char s[] = {'A', '\\0', 'B', '\\0'};` et <string.h> inclus, quelles affirmations sont exactes ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "strlen(s) vaut 1."
+      },
+      {
+        "id": "B",
+        "text": "sizeof s vaut 4."
+      },
+      {
+        "id": "C",
+        "text": "Le caractère B est stocké après le premier nul."
+      },
+      {
+        "id": "D",
+        "text": "strlen(s) vaut 3."
+      },
+      {
+        "id": "E",
+        "text": "sizeof s vaut nécessairement la taille d’un pointeur."
+      }
+    ]
+  },
+  {
+    "id": "CDEEP-09-042-01",
+    "mode": "multiple",
+    "question": "Quelles affirmations sur la durée de vie d’un objet local ordinaire ou d’un bloc obtenu par malloc sont exactes ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Une allocation malloc peut rester vivante après la sortie du bloc contenant le pointeur."
+      },
+      {
+        "id": "B",
+        "text": "malloc donne automatiquement une durée de vie de bloc à la zone allouée."
+      },
+      {
+        "id": "C",
+        "text": "Un objet local ordinaire à durée de vie automatique existe durant l'exécution de son bloc."
+      },
+      {
+        "id": "D",
+        "text": "Renvoyer un pointeur vers une variable automatique prolonge la durée de vie de celle-ci."
+      }
+    ]
+  },
+  {
+    "id": "REV-09-043-01",
+    "mode": "multiple",
+    "question": "Après `int *p = malloc(3 * sizeof *p);` et vérification du succès, quelles expressions peuvent être passées à free ? Considère chaque proposition isolément, avant toute libération.",
+    "choix": [
+      {
+        "id": "A",
+        "text": "`p`"
+      },
+      {
+        "id": "B",
+        "text": "`p + 1`"
+      },
+      {
+        "id": "C",
+        "text": "`NULL`"
+      },
+      {
+        "id": "D",
+        "text": "`p + 3`"
+      }
+    ]
+  },
+  {
+    "id": "REV-09-045-01",
+    "mode": "multiple",
+    "question": "p est l’adresse renvoyée par malloc(4). L’allocation a réussi et ses quatre octets ont été initialisés. On écrit char *tmp = realloc(p, 12);. Quelles affirmations sont exactes ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Si tmp vaut NULL, le bloc initial reste alloué."
+      },
+      {
+        "id": "B",
+        "text": "En cas de succès, les huit octets supplémentaires sont forcément à zéro."
+      },
+      {
+        "id": "C",
+        "text": "En cas de succès, tmp permet de retrouver les quatre premiers octets qui avaient été écrits."
+      },
+      {
+        "id": "D",
+        "text": "Si l’opération réussit, il faut encore libérer l’ancienne adresse p séparément."
+      }
+    ]
+  },
+  {
+    "id": "REV-09-047-01",
+    "mode": "single",
+    "question": "Après `char dest[4]; strncpy(dest, \"lundi\", sizeof dest);`, quel est l’état de dest ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Le tableau contient l, u, n, puis un caractère nul."
+      },
+      {
+        "id": "B",
+        "text": "Le tableau contient une chaîne de cinq lettres et son terminateur."
+      },
+      {
+        "id": "C",
+        "text": "Le tableau contient l, u, n, d, sans terminateur."
+      },
+      {
+        "id": "D",
+        "text": "La copie échoue et laisse dest intact."
+      }
+    ]
+  },
+  {
+    "id": "REV-09-048-01",
+    "mode": "multiple",
+    "question": "Après `unsigned char *p = calloc(3, sizeof *p);` et vérification du succès, quelles affirmations sont exactes ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "p[0], p[1] et p[2] valent zéro."
+      },
+      {
+        "id": "B",
+        "text": "p[3] contient le terminateur ajouté automatiquement."
+      },
+      {
+        "id": "C",
+        "text": "Le bloc peut être rendu avec free(p)."
+      },
+      {
+        "id": "D",
+        "text": "sizeof p vaut obligatoirement 3 après cet appel."
+      }
+    ]
+  },
+  {
+    "id": "CDEEP-09-052-01",
+    "mode": "single",
+    "question": "n a le type size_t et p le type int *. Quelle condition garantit que le produit `n * sizeof *p` est représentable en size_t avant l’appel à malloc ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "n != 0"
+      },
+      {
+        "id": "B",
+        "text": "sizeof p == sizeof *p"
+      },
+      {
+        "id": "C",
+        "text": "n < (size_t)-1, quelle que soit la taille d’un int"
+      },
+      {
+        "id": "D",
+        "text": "`n <= ((size_t)-1) / sizeof *p`"
+      }
+    ]
+  },
+  {
+    "id": "REV-09-054-01",
+    "mode": "single",
+    "question": "Avec `char s[] = \"ABCD\";`, quelle instruction décale les trois premiers caractères d’une case vers la droite en acceptant le recouvrement ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "`memcpy(s + 1, s, 3);`"
+      },
+      {
+        "id": "B",
+        "text": "`memmove(s + 1, s, 3);`"
+      },
+      {
+        "id": "C",
+        "text": "`memmove(s, s + 1, 3);`"
+      },
+      {
+        "id": "D",
+        "text": "`strcpy(s + 1, s);`"
+      }
+    ]
+  },
+  {
+    "id": "REV-09-063-01",
+    "mode": "single",
+    "question": "Une fonction reçoit `const char *p` censé désigner des données de longueur inconnue. Quel renseignement fournit le type de p, à lui seul ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Il garantit que le dernier octet est nul."
+      },
+      {
+        "id": "B",
+        "text": "Il encode le nombre d’octets disponibles."
+      },
+      {
+        "id": "C",
+        "text": "Il interdit d’écrire directement p[0] = 'X' à travers ce pointeur."
+      },
+      {
+        "id": "D",
+        "text": "Il prouve que les données ont été allouées par malloc."
+      }
+    ]
+  },
+  {
+    "id": "CDEEP-09-066-01",
+    "mode": "single",
+    "question": "Quelle déclaration fait de f une variable pouvant recevoir l’adresse d’une fonction qui prend un int et renvoie un int ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "int (*f)(int);"
+      },
+      {
+        "id": "B",
+        "text": "int *f(int);"
+      },
+      {
+        "id": "C",
+        "text": "int f(int *);"
+      },
+      {
+        "id": "D",
+        "text": "int f*(int);"
+      }
+    ]
+  },
+  {
+    "id": "CDEEP-09-067-01",
+    "mode": "multiple",
+    "question": "Dans `int (*f)(int)`, f a été initialisé avec l’adresse d’une fonction compatible. Quelles écritures appellent cette fonction avec l’argument 5 et produisent son résultat ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "`(f + 1)(5)` pour appeler la fonction suivante en mémoire"
+      },
+      {
+        "id": "B",
+        "text": "f(5)"
+      },
+      {
+        "id": "C",
+        "text": "&f(5) comme appel toujours équivalent"
+      },
+      {
+        "id": "D",
+        "text": "(*f)(5)"
+      }
+    ]
+  },
+  {
+    "id": "CDEEP-09-071-01",
+    "mode": "single",
+    "question": "Dans un comparateur de qsort, a et b sont les deux valeurs de type int à comparer par ordre croissant. Quel avantage présente (a > b) - (a < b) par rapport à a - b ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Éviter le débordement possible de `a-b`"
+      },
+      {
+        "id": "B",
+        "text": "Garantir que qsort est stable"
+      },
+      {
+        "id": "C",
+        "text": "Éviter de recevoir des void *"
+      },
+      {
+        "id": "D",
+        "text": "Trier nécessairement en ordre décroissant"
+      }
+    ]
+  },
+  {
+    "id": "REV-10-000-01",
+    "mode": "multiple",
+    "question": "Un programme répartit 37 pièces en boîtes de 6, sans couper les pièces. Quelles expressions C donnent le nombre de pièces restant après le remplissage des boîtes complètes ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "37 / 6"
+      },
+      {
+        "id": "B",
+        "text": "37 % 6"
+      },
+      {
+        "id": "C",
+        "text": "(37 % 6) * 6"
+      },
+      {
+        "id": "D",
+        "text": "37 - (37 / 6) * 6"
+      }
+    ]
+  },
+  {
+    "id": "REV-10-001-01",
+    "mode": "single",
+    "question": "En C, on initialise double resultat = 7 / 2;. Quelle valeur est stockée dans resultat ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "3.0"
+      },
+      {
+        "id": "B",
+        "text": "3.5"
+      },
+      {
+        "id": "C",
+        "text": "4.0"
+      }
+    ]
+  },
+  {
+    "id": "REV-10-002-01",
+    "mode": "multiple",
+    "question": "En C99, quelles conditions reconnaissent tout entier impair, y compris -3, si n est de type int ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "n % 2 != 0"
+      },
+      {
+        "id": "B",
+        "text": "n % 2 == 1"
+      },
+      {
+        "id": "C",
+        "text": "!(n % 2 == 0)"
+      },
+      {
+        "id": "D",
+        "text": "n / 2 != 0"
+      }
+    ]
+  },
+  {
+    "id": "REV-10-003-01",
+    "mode": "single",
+    "question": "Un capteur envoie le nombre entier positif 347. Quelle expression C isole son chiffre des unités ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "347 / 10"
+      },
+      {
+        "id": "B",
+        "text": "347 % 10"
+      },
+      {
+        "id": "C",
+        "text": "347 % 100"
+      },
+      {
+        "id": "D",
+        "text": "(347 / 10) % 10"
+      }
+    ]
+  },
+  {
+    "id": "REV-10-004-01",
+    "mode": "single",
+    "question": "En C, int n = 205; est suivi de while (n > 0) { n /= 10; }. Quelles valeurs prend n après les divisions successives ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "20, 5, 0"
+      },
+      {
+        "id": "B",
+        "text": "20, 2, 0"
+      },
+      {
+        "id": "C",
+        "text": "5, 0"
+      }
+    ]
+  },
+  {
+    "id": "REV-10-005-01",
+    "mode": "single",
+    "question": "En C, quelle suite de caractères produit printf(\"%02d\", 1207 % 100) si l’affichage réussit ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "12"
+      },
+      {
+        "id": "B",
+        "text": "7"
+      },
+      {
+        "id": "C",
+        "text": "70"
+      },
+      {
+        "id": "D",
+        "text": "07"
+      }
+    ]
+  },
+  {
+    "id": "REV-10-006-01",
+    "mode": "single",
+    "question": "Un programme C évalue 12 / 10 puis 12 / 10.0. Quelle description des deux résultats est correcte ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "La première expression vaut 1 et la seconde environ 1,2."
+      },
+      {
+        "id": "B",
+        "text": "Les deux expressions valent 1."
+      },
+      {
+        "id": "C",
+        "text": "Les deux expressions valent environ 1,2."
+      }
+    ]
+  },
+  {
+    "id": "REV-10-007-01",
+    "mode": "single",
+    "question": "On sait que 12 = 1 × 10 + 2. Quelle paire C associe correctement le nombre de dizaines complètes de 12 et le reste ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Dizaines : 12 % 10 ; reste : 12 / 10."
+      },
+      {
+        "id": "B",
+        "text": "Dizaines : 12 / 10 ; reste : 12 - 12 / 10."
+      },
+      {
+        "id": "C",
+        "text": "Dizaines : 12 / 10 ; reste : 12 % 10."
+      }
+    ]
+  },
+  {
+    "id": "REV-10-008-01",
+    "mode": "single",
+    "question": "Pour vérifier à la main un calcul de 89 % 7, quelle décomposition fournit à la fois une égalité exacte et un reste valide ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "89 = 7 × 11 + 12"
+      },
+      {
+        "id": "B",
+        "text": "89 = 7 × 12 + 5"
+      },
+      {
+        "id": "C",
+        "text": "89 = 7 × 13 - 2"
+      },
+      {
+        "id": "D",
+        "text": "89 = 7 × 12 + 4"
+      }
+    ]
+  },
+  {
+    "id": "APP-11-000-001",
+    "mode": "single",
+    "question": "En C, après int i = 2; int j = i++; quelles sont les valeurs des variables ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "i vaut 3 et j vaut 3."
+      },
+      {
+        "id": "B",
+        "text": "i vaut 2 et j vaut 3."
+      },
+      {
+        "id": "C",
+        "text": "i vaut 3 et j vaut 2."
+      },
+      {
+        "id": "D",
+        "text": "i vaut 2 et j vaut 2."
+      }
+    ]
+  },
+  {
+    "id": "REV-11-001-01",
+    "mode": "multiple",
+    "question": "Deux compteurs int commencent à 4. On exécute ++a; puis b++; sans utiliser la valeur de ces expressions. Que peut-on affirmer ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Les deux compteurs finissent à 5."
+      },
+      {
+        "id": "B",
+        "text": "Seul a change car b++ est employé seul."
+      },
+      {
+        "id": "C",
+        "text": "Les deux expressions fournissent la même valeur avant qu’on l’ignore."
+      },
+      {
+        "id": "D",
+        "text": "La différence de valeur entre les expressions n’est affectée à aucune variable."
+      }
+    ]
+  },
+  {
+    "id": "REV-11-002-01",
+    "mode": "single",
+    "question": "Un compteur de places vaut 4. En C, int annonce = places--; est exécuté. Quel nombre a été annoncé et combien de places restent ensuite ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "3 annoncées, 3 restantes."
+      },
+      {
+        "id": "B",
+        "text": "4 annoncées, 4 restantes."
+      },
+      {
+        "id": "C",
+        "text": "4 annoncées, 3 restantes."
+      }
+    ]
+  },
+  {
+    "id": "REV-11-003-01",
+    "mode": "single",
+    "question": "Le compteur signé vaut 1. Quel effet produit if (--compteur) { puts(\"reste\"); } ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Le texte ne s’affiche pas et le compteur vaut 0."
+      },
+      {
+        "id": "B",
+        "text": "Le texte s’affiche et le compteur vaut 0."
+      },
+      {
+        "id": "C",
+        "text": "Le texte ne s’affiche pas et le compteur vaut 1."
+      }
+    ]
+  },
+  {
+    "id": "REV-11-004-01",
+    "mode": "multiple",
+    "question": "int i = 2; est suivi de while (i--) { printf(\"%d\", i); }. Quelles observations sont exactes si l’affichage réussit ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Le texte produit est 21."
+      },
+      {
+        "id": "B",
+        "text": "Le texte produit est 10."
+      },
+      {
+        "id": "C",
+        "text": "Après le dernier test, i vaut -1."
+      },
+      {
+        "id": "D",
+        "text": "Le dernier test affiche -1."
+      }
+    ]
+  },
+  {
+    "id": "REV-11-005-01",
+    "mode": "single",
+    "question": "int i = 2; est suivi de while (--i) { printf(\"%d\", i); }. Quel est le texte affiché si l’affichage réussit, et combien vaut i à la sortie ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Texte 10, i vaut -1."
+      },
+      {
+        "id": "B",
+        "text": "Texte 21, i vaut 0."
+      },
+      {
+        "id": "C",
+        "text": "Texte 1, i vaut 1."
+      },
+      {
+        "id": "D",
+        "text": "Texte 1, i vaut 0."
+      }
+    ]
+  },
+  {
+    "id": "REV-C-034",
+    "mode": "multiple",
+    "question": "En C89, quelles déclarations constituent un prototype qui impose un nombre précis de paramètres ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "int lire(void);"
+      },
+      {
+        "id": "B",
+        "text": "int lire();"
+      },
+      {
+        "id": "C",
+        "text": "int lire(int);"
+      }
+    ]
+  },
+  {
+    "id": "REV-C-035",
+    "mode": "single",
+    "question": "Une fonction doit accepter les notes entières de 0 à 20 incluses. Quel ensemble vérifie les deux bornes et leurs voisins extérieurs ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "0, 1, 19, 20"
+      },
+      {
+        "id": "B",
+        "text": "−1, 0, 20, 21"
+      },
+      {
+        "id": "C",
+        "text": "−1, 1, 19, 21"
+      },
+      {
+        "id": "D",
+        "text": "5, 10, 15, 20"
+      }
+    ]
+  },
+  {
+    "id": "V2-N14_002-05",
+    "mode": "single",
+    "question": "Avec `gcc -std=gnu89 -Wall -Wextra -Werror -pedantic`, que se passe-t-il pour `int main(void) { int compteur = 7; return 0; }` ? (Une seule réponse correcte.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "La compilation échoue sur l'avertissement « unused variable » transformé en erreur."
+      },
+      {
+        "id": "B",
+        "text": "Le programme affiche 7 puis termine."
+      },
+      {
+        "id": "C",
+        "text": "Le compilateur signale un paramètre de fonction inutilisé."
+      },
+      {
+        "id": "D",
+        "text": "La compilation échoue pour absence de `#include <stdio.h>`."
+      },
+      {
+        "id": "E",
+        "text": "La variable est automatiquement considérée comme utilisée car elle est initialisée."
+      }
+    ]
+  },
+  {
+    "id": "REV-C-036",
+    "mode": "multiple",
+    "question": "Quelles affirmations sur sizeof sont garanties par le C, même sur une autre architecture ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "sizeof(char) vaut 1."
+      },
+      {
+        "id": "B",
+        "text": "sizeof(int) vaut 4."
+      },
+      {
+        "id": "C",
+        "text": "Le résultat de sizeof a le type size_t."
+      },
+      {
+        "id": "D",
+        "text": "Une unité comptée par sizeof contient toujours huit bits."
+      }
+    ]
+  },
+  {
+    "id": "V2-N14_004-05",
+    "mode": "single",
+    "question": "Quel est l'effet précis de `-Werror` lors d'une compilation GCC ? (Une seule réponse correcte.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Forcer le langage C99 même en mode GNU89."
+      },
+      {
+        "id": "B",
+        "text": "Traiter comme erreurs les avertissements émis et activés par le compilateur."
+      },
+      {
+        "id": "C",
+        "text": "Ignorer les paramètres inutilisés et les avertissements de style."
+      },
+      {
+        "id": "D",
+        "text": "Vérifier le programme uniquement pendant son exécution."
+      }
+    ]
+  },
+  {
+    "id": "V2-N14_005-05",
+    "mode": "single",
+    "question": "Dans `int somme(int a, int b) { (void)b; return a; }`, pourquoi écrire `(void)b;` sous GNU89 avec `-Wall -Wextra -Werror` ? (Une seule réponse correcte.)",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Pour convertir définitivement b en un objet de type void."
+      },
+      {
+        "id": "B",
+        "text": "Pour libérer l'espace mémoire alloué à b."
+      },
+      {
+        "id": "C",
+        "text": "Pour afficher la valeur de b sans printf."
+      },
+      {
+        "id": "D",
+        "text": "Pour signaler que b n'est pas utilisé intentionnellement et éviter l'avertissement de paramètre inutilisé."
+      }
+    ]
+  },
+  {
+    "id": "REV-C-040",
+    "mode": "single",
+    "question": "Une boucle parcourt un tableau dans l’ordre des indices, à partir de 0. Son accumulateur est initialisé à zéro et toutes les additions sont représentables. Quel invariant est vrai juste avant de traiter l’indice i ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "La somme vaut toujours zéro."
+      },
+      {
+        "id": "B",
+        "text": "L’accumulateur vaut la somme des éléments d’indices 0 à i−1, ou zéro si i vaut 0."
+      },
+      {
+        "id": "C",
+        "text": "La somme contient toujours tous les éléments du tableau."
+      },
+      {
+        "id": "D",
+        "text": "La somme ne change jamais entre deux passages."
+      }
+    ]
+  },
+  {
+    "id": "REV-C-041",
+    "mode": "single",
+    "question": "Dans un exemple de cours, p et alias désignent le même bloc alloué, puis free(p); p = NULL; est exécuté. Quel suivi du bloc est correct ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Le programme doit aussi appeler free(alias) pour équilibrer les deux noms."
+      },
+      {
+        "id": "B",
+        "text": "Le bloc a été libéré une fois ; aucun accès au bloc à travers alias ne doit suivre."
+      },
+      {
+        "id": "C",
+        "text": "Affecter NULL à p met automatiquement alias à NULL."
+      }
+    ]
+  },
+  {
+    "id": "REV-16-001-01",
+    "mode": "single",
+    "question": "Après `struct point { int x; int y; };` et sans autre déclaration de type, quelle ligne définit un objet nommé origine de ce type ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "`point origine;`"
+      },
+      {
+        "id": "B",
+        "text": "`struct origine point;`"
+      },
+      {
+        "id": "C",
+        "text": "`struct point origine;`"
+      },
+      {
+        "id": "D",
+        "text": "`struct point *origine;`"
+      }
+    ]
+  },
+  {
+    "id": "REV-16-004-01",
+    "mode": "single",
+    "question": "Dans `struct mesure { int jour; int valeur; }; struct mesure m = {3, 8};`, que valent m.jour et m.valeur ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "jour vaut 3 et valeur vaut 8."
+      },
+      {
+        "id": "B",
+        "text": "jour vaut 8 et valeur vaut 3."
+      },
+      {
+        "id": "C",
+        "text": "jour vaut 3 et valeur vaut 0."
+      },
+      {
+        "id": "D",
+        "text": "jour et valeur valent tous les deux 3."
+      }
+    ]
+  },
+  {
+    "id": "REV-16-005-01",
+    "mode": "multiple",
+    "question": "En C99, on écrit `struct date { int jour; int mois; }; struct date d = {.mois = 8, .jour = 3};`. Quelles affirmations sont exactes ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Le membre d.jour vaut 3."
+      },
+      {
+        "id": "B",
+        "text": "Le membre d.jour vaut 8 car jour est déclaré en premier."
+      },
+      {
+        "id": "C",
+        "text": "Cette forme des initialiseurs est standardisée depuis C99."
+      },
+      {
+        "id": "D",
+        "text": "Le membre mois devient le premier membre de struct date."
+      }
+    ]
+  },
+  {
+    "id": "REV-16-006-01",
+    "mode": "single",
+    "question": "On déclare `struct point { int x; int y; }; struct point a[2] = {{1,2}, {3,4}};`. Quelle expression lit l’ordonnée du deuxième point ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "`a[0].y`"
+      },
+      {
+        "id": "B",
+        "text": "`a[1].x`"
+      },
+      {
+        "id": "C",
+        "text": "`a[1].y`"
+      },
+      {
+        "id": "D",
+        "text": "`a[2].y`"
+      }
+    ]
+  },
+  {
+    "id": "REV-16-007-01",
+    "mode": "single",
+    "question": "On a `struct coord { int x; }; struct fiche { struct coord pos; }; struct fiche f = {{8}}; struct fiche *p = &f;`. Quelle expression lit l’entier 8 à partir de p ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "`p.pos.x`"
+      },
+      {
+        "id": "B",
+        "text": "`p->pos->x`"
+      },
+      {
+        "id": "C",
+        "text": "`p.pos->x`"
+      },
+      {
+        "id": "D",
+        "text": "`p->pos.x`"
+      }
+    ]
+  },
+  {
+    "id": "REV-16-008-01",
+    "mode": "multiple",
+    "question": "Dans `struct fiche { int age; int *score; };`, a.score pointe vers l’entier n. Après `b = a;` entre deux fiches distinctes, quelles affirmations sont exactes ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "Modifier b.age laisse a.age inchangé."
+      },
+      {
+        "id": "B",
+        "text": "Modifier *b.score change l’adresse contenue dans a.score."
+      },
+      {
+        "id": "C",
+        "text": "Écrire 7 dans *b.score modifie n."
+      },
+      {
+        "id": "D",
+        "text": "L’affectation réserve automatiquement un nouvel entier pour b.score."
+      }
+    ]
+  },
+  {
+    "id": "REV-16-009-01",
+    "mode": "single",
+    "question": "Une fonction `int changer(struct point copie) { copie.x = 9; return copie.x; }` reçoit p par valeur. Si p.x vaut 2 à l’appel, que vaut p.x après `int r = changer(p);`, et que vaut r ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "p.x vaut 9 et r vaut 9."
+      },
+      {
+        "id": "B",
+        "text": "p.x vaut 2 et r vaut 9."
+      },
+      {
+        "id": "C",
+        "text": "p.x vaut 2 et r vaut 2."
+      },
+      {
+        "id": "D",
+        "text": "p.x vaut 9 et r vaut 2."
+      }
+    ]
+  },
+  {
+    "id": "REV-16-011-01",
+    "mode": "multiple",
+    "question": "Après `typedef unsigned int identifiant;`, quelles déclarations créent un objet de même type que `unsigned int modele;` ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "`identifiant a;`"
+      },
+      {
+        "id": "B",
+        "text": "`identifiant *b;`"
+      },
+      {
+        "id": "C",
+        "text": "`unsigned int c;`"
+      },
+      {
+        "id": "D",
+        "text": "`struct identifiant { int valeur; } d;`"
+      }
+    ]
+  },
+  {
+    "id": "REV-16-014-01",
+    "mode": "multiple",
+    "question": "Pour `struct donnees { char code; int valeur; };`, quelles propriétés de la disposition mémoire sont garanties par C ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "La structure occupe exactement sizeof(char) + sizeof(int) octets."
+      },
+      {
+        "id": "B",
+        "text": "code précède valeur en mémoire."
+      },
+      {
+        "id": "C",
+        "text": "Le premier membre peut être précédé de remplissage interne."
+      },
+      {
+        "id": "D",
+        "text": "sizeof(struct donnees) est au moins la somme des tailles des deux membres."
+      }
+    ]
+  },
+  {
+    "id": "CDEEP-16-015-01",
+    "mode": "single",
+    "question": "Pour `struct fiche { char nom[48]; int age; }; struct fiche *p;`, quelle ligne réserve la taille appropriée pour une fiche, quelle que soit l’architecture ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "p = sizeof *p;"
+      },
+      {
+        "id": "B",
+        "text": "p = malloc(sizeof p); en toute circonstance"
+      },
+      {
+        "id": "C",
+        "text": "p = malloc(sizeof *p);"
+      },
+      {
+        "id": "D",
+        "text": "p = free(sizeof *p);"
+      }
+    ]
+  },
+  {
+    "id": "REV-16-016-01",
+    "mode": "single",
+    "question": "Pendant la définition de `struct noeud`, quel membre permet de chaîner directement un autre nœud du même type ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "`struct noeud suivant;`"
+      },
+      {
+        "id": "B",
+        "text": "`struct noeud *suivant;`"
+      },
+      {
+        "id": "C",
+        "text": "`struct noeud suivant[1];`"
+      },
+      {
+        "id": "D",
+        "text": "`int suivant;`"
+      }
+    ]
+  },
+  {
+    "id": "REV-16-018-01",
+    "mode": "multiple",
+    "question": "On a lu `typedef struct cellule cellule_t;` mais pas encore la définition des membres. Quelles déclarations sont valides à cet endroit ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "`cellule_t *p;`"
+      },
+      {
+        "id": "B",
+        "text": "`typedef char image[sizeof(cellule_t)];`"
+      },
+      {
+        "id": "C",
+        "text": "`extern cellule_t tete;`"
+      },
+      {
+        "id": "D",
+        "text": "`cellule_t pile[2];`"
+      }
+    ]
+  },
+  {
+    "id": "REV-16-019-01",
+    "mode": "multiple",
+    "question": "`struct point { int x; }; struct point a = {2}; struct point *p = &a;` Quelles expressions désignent le même membre x de a ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "`a.x`"
+      },
+      {
+        "id": "B",
+        "text": "`(*p).x`"
+      },
+      {
+        "id": "C",
+        "text": "`p.x`"
+      },
+      {
+        "id": "D",
+        "text": "`p->x`"
+      },
+      {
+        "id": "E",
+        "text": "`a->x`"
+      }
+    ]
+  },
+  {
+    "id": "REV-16-020-01",
+    "mode": "single",
+    "question": "main.c inclut a.h et b.h, qui incluent tous deux point.h. La définition de struct point est entourée d’une garde #ifndef dans point.h. Quel effet cette garde a-t-elle ?",
+    "choix": [
+      {
+        "id": "A",
+        "text": "La définition de struct point apparaît une seule fois lors du prétraitement de main.c."
+      },
+      {
+        "id": "B",
+        "text": "Les autres fichiers .c ne pourront plus inclure point.h."
+      },
+      {
+        "id": "C",
+        "text": "Toute définition de fonction placée dans point.h devient automatiquement locale."
+      },
+      {
+        "id": "D",
+        "text": "Le compilateur fusionne automatiquement les structures différentes portant ce nom."
+      }
+    ]
+  }
+]
