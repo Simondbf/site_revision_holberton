@@ -37,6 +37,7 @@ try{
   };
   const asProgram=snippet=>'#include <stdio.h>\nint main(void)\n{\n'+snippet+'\nreturn 0;\n}\n';
   const testsC=[
+    {name:'Flowchart while — décompte',source:extra['14:18'].example+'\n',output:'3\n2\n1\n'},
     {name:'Boucle for GNU89',source:asProgram(extra['5:4'].example),output:'0\n1\n2\n'},
     {name:'Boucles imbriquées GNU89',source:asProgram(extra['5:9'].example),output:'0,0\n0,1\n0,2\n1,0\n1,1\n1,2\n'},
     {name:'Parcours de tableau GNU89',source:asProgram(pointers['26'].example),output:'2\n4\n6\n'},
