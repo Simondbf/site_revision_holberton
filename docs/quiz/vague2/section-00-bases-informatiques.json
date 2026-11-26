@@ -1,0 +1,980 @@
+{
+  "version": "review-v1",
+  "status": "non_verifie",
+  "theme_id": 0,
+  "theme": "Bases informatiques",
+  "questions": [
+    {
+      "id": "V1-N00_000-01",
+      "notion_id": "N00_000",
+      "legacy_notion_key": "0:0",
+      "theme": "Bases informatiques",
+      "notion": "Hardware / Software",
+      "answer_mode": "single",
+      "question_type": "definition",
+      "prompt": "À quelle notion correspond la définition suivante : « Matériel physique / programmes exécutés par la machine. » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Système d’exploitation"
+        },
+        {
+          "id": "B",
+          "text": "WSL"
+        },
+        {
+          "id": "C",
+          "text": "Kernel"
+        },
+        {
+          "id": "D",
+          "text": "Hardware / Software"
+        }
+      ],
+      "correct_option_ids": [
+        "D"
+      ],
+      "explanation": "La définition est extraite du résumé de la fiche correspondante.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/bases-informatiques/1-hardware-software"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N00_000-02",
+      "notion_id": "N00_000",
+      "legacy_notion_key": "0:0",
+      "theme": "Bases informatiques",
+      "notion": "Hardware / Software",
+      "answer_mode": "single",
+      "question_type": "description",
+      "prompt": "Quelle description caractérise « Hardware / Software » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Noyau du système d’exploitation ; interface entre logiciels et ressources matérielles."
+        },
+        {
+          "id": "B",
+          "text": "Sous-système Windows pour Linux : environnement Linux utilisable sur Windows."
+        },
+        {
+          "id": "C",
+          "text": "Matériel physique / programmes exécutés par la machine."
+        },
+        {
+          "id": "D",
+          "text": "Gère les ressources, les processus, la mémoire, les fichiers et les périphériques."
+        }
+      ],
+      "correct_option_ids": [
+        "C"
+      ],
+      "explanation": "Le résumé de la fiche indique : Matériel physique / programmes exécutés par la machine.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/bases-informatiques/1-hardware-software"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N00_000-03",
+      "notion_id": "N00_000",
+      "legacy_notion_key": "0:0",
+      "theme": "Bases informatiques",
+      "notion": "Hardware / Software",
+      "answer_mode": "single",
+      "question_type": "vigilance",
+      "prompt": "Quel point à retenir est directement associé à « Hardware / Software » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Le noyau gère les ressources ; un appel système permet à l'application de demander un service."
+        },
+        {
+          "id": "B",
+          "text": "Le système d'exploitation sert d'intermédiaire : chaque application n'a pas à piloter directement les périphériques."
+        },
+        {
+          "id": "C",
+          "text": "Le matériel est physique ; un logiciel est un ensemble d'instructions. Ils travaillent ensemble."
+        },
+        {
+          "id": "D",
+          "text": "WSL 2 utilise un noyau Linux dans une VM légère. Les chemins Linux ne sont pas ceux de Windows."
+        }
+      ],
+      "correct_option_ids": [
+        "C"
+      ],
+      "explanation": "La fiche indique : Le matériel est physique ; un logiciel est un ensemble d'instructions. Ils travaillent ensemble.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/bases-informatiques/1-hardware-software"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N00_000-04",
+      "notion_id": "N00_000",
+      "legacy_notion_key": "0:0",
+      "theme": "Bases informatiques",
+      "notion": "Hardware / Software",
+      "answer_mode": "multiple",
+      "question_type": "synthese",
+      "prompt": "Quelles affirmations concernent directement « Hardware / Software » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "EOF est une valeur entière spéciale signalant la fin d'un flux ou une erreur ; getchar retourne un int et scanf peut aussi renvoyer EOF."
+        },
+        {
+          "id": "B",
+          "text": "Matériel physique / programmes exécutés par la machine."
+        },
+        {
+          "id": "C",
+          "text": "Le matériel est physique ; un logiciel est un ensemble d'instructions. Ils travaillent ensemble."
+        },
+        {
+          "id": "D",
+          "text": "Si p = &n, alors *p = 402; modifie n, qui prend la valeur 402."
+        }
+      ],
+      "correct_option_ids": [
+        "B",
+        "C"
+      ],
+      "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/bases-informatiques/1-hardware-software"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "cross_topic_distractors",
+        "check_possible_ambiguity"
+      ]
+    },
+    {
+      "id": "V1-N00_001-01",
+      "notion_id": "N00_001",
+      "legacy_notion_key": "0:1",
+      "theme": "Bases informatiques",
+      "notion": "Système d’exploitation",
+      "answer_mode": "single",
+      "question_type": "definition",
+      "prompt": "À quelle notion correspond la définition suivante : « Gère les ressources, les processus, la mémoire, les fichiers et les périphériques. » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Hardware / Software"
+        },
+        {
+          "id": "B",
+          "text": "Linux / Ubuntu"
+        },
+        {
+          "id": "C",
+          "text": "Système d’exploitation"
+        },
+        {
+          "id": "D",
+          "text": "WSL"
+        }
+      ],
+      "correct_option_ids": [
+        "C"
+      ],
+      "explanation": "La définition est extraite du résumé de la fiche correspondante.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/bases-informatiques/2-systeme-d-exploitation"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N00_001-02",
+      "notion_id": "N00_001",
+      "legacy_notion_key": "0:1",
+      "theme": "Bases informatiques",
+      "notion": "Système d’exploitation",
+      "answer_mode": "single",
+      "question_type": "description",
+      "prompt": "Quelle description caractérise « Système d’exploitation » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Gère les ressources, les processus, la mémoire, les fichiers et les périphériques."
+        },
+        {
+          "id": "B",
+          "text": "Linux est un noyau et une famille de systèmes ; Ubuntu est une distribution utilisant Linux."
+        },
+        {
+          "id": "C",
+          "text": "Sous-système Windows pour Linux : environnement Linux utilisable sur Windows."
+        },
+        {
+          "id": "D",
+          "text": "Matériel physique / programmes exécutés par la machine."
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "Le résumé de la fiche indique : Gère les ressources, les processus, la mémoire, les fichiers et les périphériques.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/bases-informatiques/2-systeme-d-exploitation"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N00_001-03",
+      "notion_id": "N00_001",
+      "legacy_notion_key": "0:1",
+      "theme": "Bases informatiques",
+      "notion": "Système d’exploitation",
+      "answer_mode": "single",
+      "question_type": "vigilance",
+      "prompt": "Quel point à retenir est directement associé à « Système d’exploitation » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "WSL 2 utilise un noyau Linux dans une VM légère. Les chemins Linux ne sont pas ceux de Windows."
+        },
+        {
+          "id": "B",
+          "text": "Le matériel est physique ; un logiciel est un ensemble d'instructions. Ils travaillent ensemble."
+        },
+        {
+          "id": "C",
+          "text": "Le système d'exploitation sert d'intermédiaire : chaque application n'a pas à piloter directement les périphériques."
+        },
+        {
+          "id": "D",
+          "text": "Linux est le noyau ; Ubuntu est une distribution qui l'utilise avec d'autres logiciels."
+        }
+      ],
+      "correct_option_ids": [
+        "C"
+      ],
+      "explanation": "La fiche indique : Le système d'exploitation sert d'intermédiaire : chaque application n'a pas à piloter directement les périphériques.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/bases-informatiques/2-systeme-d-exploitation"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N00_001-04",
+      "notion_id": "N00_001",
+      "legacy_notion_key": "0:1",
+      "theme": "Bases informatiques",
+      "notion": "Système d’exploitation",
+      "answer_mode": "multiple",
+      "question_type": "synthese",
+      "prompt": "Quelles affirmations concernent directement « Système d’exploitation » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Gère les ressources, les processus, la mémoire, les fichiers et les périphériques."
+        },
+        {
+          "id": "B",
+          "text": "Un passage dans une boucle."
+        },
+        {
+          "id": "C",
+          "text": "Instantané enregistré dans l’historique local."
+        },
+        {
+          "id": "D",
+          "text": "Le système d'exploitation sert d'intermédiaire : chaque application n'a pas à piloter directement les périphériques."
+        }
+      ],
+      "correct_option_ids": [
+        "A",
+        "D"
+      ],
+      "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/bases-informatiques/2-systeme-d-exploitation"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "cross_topic_distractors",
+        "check_possible_ambiguity"
+      ]
+    },
+    {
+      "id": "V1-N00_002-01",
+      "notion_id": "N00_002",
+      "legacy_notion_key": "0:2",
+      "theme": "Bases informatiques",
+      "notion": "Kernel",
+      "answer_mode": "single",
+      "question_type": "definition",
+      "prompt": "À quelle notion correspond la définition suivante : « Noyau du système d’exploitation ; interface entre logiciels et ressources matérielles. » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "GUI / CLI"
+        },
+        {
+          "id": "B",
+          "text": "Linux / Ubuntu"
+        },
+        {
+          "id": "C",
+          "text": "Hardware / Software"
+        },
+        {
+          "id": "D",
+          "text": "Kernel"
+        }
+      ],
+      "correct_option_ids": [
+        "D"
+      ],
+      "explanation": "La définition est extraite du résumé de la fiche correspondante.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/bases-informatiques/3-kernel"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N00_002-02",
+      "notion_id": "N00_002",
+      "legacy_notion_key": "0:2",
+      "theme": "Bases informatiques",
+      "notion": "Kernel",
+      "answer_mode": "single",
+      "question_type": "description",
+      "prompt": "Quelle description caractérise « Kernel » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Matériel physique / programmes exécutés par la machine."
+        },
+        {
+          "id": "B",
+          "text": "Interface graphique / interface en ligne de commande."
+        },
+        {
+          "id": "C",
+          "text": "Linux est un noyau et une famille de systèmes ; Ubuntu est une distribution utilisant Linux."
+        },
+        {
+          "id": "D",
+          "text": "Noyau du système d’exploitation ; interface entre logiciels et ressources matérielles."
+        }
+      ],
+      "correct_option_ids": [
+        "D"
+      ],
+      "explanation": "Le résumé de la fiche indique : Noyau du système d’exploitation ; interface entre logiciels et ressources matérielles.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/bases-informatiques/3-kernel"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N00_002-03",
+      "notion_id": "N00_002",
+      "legacy_notion_key": "0:2",
+      "theme": "Bases informatiques",
+      "notion": "Kernel",
+      "answer_mode": "single",
+      "question_type": "vigilance",
+      "prompt": "Quel point à retenir est directement associé à « Kernel » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Linux est le noyau ; Ubuntu est une distribution qui l'utilise avec d'autres logiciels."
+        },
+        {
+          "id": "B",
+          "text": "GUI et CLI sont deux façons d'interagir avec le système, souvent complémentaires."
+        },
+        {
+          "id": "C",
+          "text": "Le noyau gère les ressources ; un appel système permet à l'application de demander un service."
+        },
+        {
+          "id": "D",
+          "text": "Le matériel est physique ; un logiciel est un ensemble d'instructions. Ils travaillent ensemble."
+        }
+      ],
+      "correct_option_ids": [
+        "C"
+      ],
+      "explanation": "La fiche indique : Le noyau gère les ressources ; un appel système permet à l'application de demander un service.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/bases-informatiques/3-kernel"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N00_002-04",
+      "notion_id": "N00_002",
+      "legacy_notion_key": "0:2",
+      "theme": "Bases informatiques",
+      "notion": "Kernel",
+      "answer_mode": "multiple",
+      "question_type": "synthese",
+      "prompt": "Quelles affirmations concernent directement « Kernel » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Le noyau gère les ressources ; un appel système permet à l'application de demander un service."
+        },
+        {
+          "id": "B",
+          "text": "Créer un dossier / créer un fichier vide ou actualiser sa date."
+        },
+        {
+          "id": "C",
+          "text": "Fichier texte qui contient une suite de commandes exécutables par un Shell."
+        },
+        {
+          "id": "D",
+          "text": "Noyau du système d’exploitation ; interface entre logiciels et ressources matérielles."
+        }
+      ],
+      "correct_option_ids": [
+        "A",
+        "D"
+      ],
+      "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/bases-informatiques/3-kernel"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "cross_topic_distractors",
+        "check_possible_ambiguity"
+      ]
+    },
+    {
+      "id": "V1-N00_003-01",
+      "notion_id": "N00_003",
+      "legacy_notion_key": "0:3",
+      "theme": "Bases informatiques",
+      "notion": "Linux / Ubuntu",
+      "answer_mode": "single",
+      "question_type": "definition",
+      "prompt": "À quelle notion correspond la définition suivante : « Linux est un noyau et une famille de systèmes ; Ubuntu est une distribution utilisant Linux. » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "GUI / CLI"
+        },
+        {
+          "id": "B",
+          "text": "Linux / Ubuntu"
+        },
+        {
+          "id": "C",
+          "text": "Système d’exploitation"
+        },
+        {
+          "id": "D",
+          "text": "Kernel"
+        }
+      ],
+      "correct_option_ids": [
+        "B"
+      ],
+      "explanation": "La définition est extraite du résumé de la fiche correspondante.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/bases-informatiques/4-linux-ubuntu"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N00_003-02",
+      "notion_id": "N00_003",
+      "legacy_notion_key": "0:3",
+      "theme": "Bases informatiques",
+      "notion": "Linux / Ubuntu",
+      "answer_mode": "single",
+      "question_type": "description",
+      "prompt": "Quelle description caractérise « Linux / Ubuntu » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Interface graphique / interface en ligne de commande."
+        },
+        {
+          "id": "B",
+          "text": "Noyau du système d’exploitation ; interface entre logiciels et ressources matérielles."
+        },
+        {
+          "id": "C",
+          "text": "Linux est un noyau et une famille de systèmes ; Ubuntu est une distribution utilisant Linux."
+        },
+        {
+          "id": "D",
+          "text": "Gère les ressources, les processus, la mémoire, les fichiers et les périphériques."
+        }
+      ],
+      "correct_option_ids": [
+        "C"
+      ],
+      "explanation": "Le résumé de la fiche indique : Linux est un noyau et une famille de systèmes ; Ubuntu est une distribution utilisant Linux.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/bases-informatiques/4-linux-ubuntu"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N00_003-03",
+      "notion_id": "N00_003",
+      "legacy_notion_key": "0:3",
+      "theme": "Bases informatiques",
+      "notion": "Linux / Ubuntu",
+      "answer_mode": "single",
+      "question_type": "vigilance",
+      "prompt": "Quel point à retenir est directement associé à « Linux / Ubuntu » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Le noyau gère les ressources ; un appel système permet à l'application de demander un service."
+        },
+        {
+          "id": "B",
+          "text": "GUI et CLI sont deux façons d'interagir avec le système, souvent complémentaires."
+        },
+        {
+          "id": "C",
+          "text": "Linux est le noyau ; Ubuntu est une distribution qui l'utilise avec d'autres logiciels."
+        },
+        {
+          "id": "D",
+          "text": "Le système d'exploitation sert d'intermédiaire : chaque application n'a pas à piloter directement les périphériques."
+        }
+      ],
+      "correct_option_ids": [
+        "C"
+      ],
+      "explanation": "La fiche indique : Linux est le noyau ; Ubuntu est une distribution qui l'utilise avec d'autres logiciels.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/bases-informatiques/4-linux-ubuntu"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N00_003-04",
+      "notion_id": "N00_003",
+      "legacy_notion_key": "0:3",
+      "theme": "Bases informatiques",
+      "notion": "Linux / Ubuntu",
+      "answer_mode": "multiple",
+      "question_type": "synthese",
+      "prompt": "Quelles affirmations concernent directement « Linux / Ubuntu » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Conserve les deux derniers chiffres d’un entier positif."
+        },
+        {
+          "id": "B",
+          "text": "Linux est le noyau ; Ubuntu est une distribution qui l'utilise avec d'autres logiciels."
+        },
+        {
+          "id": "C",
+          "text": "Linux est un noyau et une famille de systèmes ; Ubuntu est une distribution utilisant Linux."
+        },
+        {
+          "id": "D",
+          "text": "Retirer 1, puis utiliser la nouvelle valeur."
+        }
+      ],
+      "correct_option_ids": [
+        "B",
+        "C"
+      ],
+      "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/bases-informatiques/4-linux-ubuntu"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "cross_topic_distractors",
+        "check_possible_ambiguity"
+      ]
+    },
+    {
+      "id": "V1-N00_004-01",
+      "notion_id": "N00_004",
+      "legacy_notion_key": "0:4",
+      "theme": "Bases informatiques",
+      "notion": "WSL",
+      "answer_mode": "single",
+      "question_type": "definition",
+      "prompt": "À quelle notion correspond la définition suivante : « Sous-système Windows pour Linux : environnement Linux utilisable sur Windows. » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "WSL"
+        },
+        {
+          "id": "B",
+          "text": "GUI / CLI"
+        },
+        {
+          "id": "C",
+          "text": "Système d’exploitation"
+        },
+        {
+          "id": "D",
+          "text": "Linux / Ubuntu"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "La définition est extraite du résumé de la fiche correspondante.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/bases-informatiques/5-wsl"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N00_004-02",
+      "notion_id": "N00_004",
+      "legacy_notion_key": "0:4",
+      "theme": "Bases informatiques",
+      "notion": "WSL",
+      "answer_mode": "single",
+      "question_type": "description",
+      "prompt": "Quelle description caractérise « WSL » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Gère les ressources, les processus, la mémoire, les fichiers et les périphériques."
+        },
+        {
+          "id": "B",
+          "text": "Sous-système Windows pour Linux : environnement Linux utilisable sur Windows."
+        },
+        {
+          "id": "C",
+          "text": "Linux est un noyau et une famille de systèmes ; Ubuntu est une distribution utilisant Linux."
+        },
+        {
+          "id": "D",
+          "text": "Interface graphique / interface en ligne de commande."
+        }
+      ],
+      "correct_option_ids": [
+        "B"
+      ],
+      "explanation": "Le résumé de la fiche indique : Sous-système Windows pour Linux : environnement Linux utilisable sur Windows.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/bases-informatiques/5-wsl"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N00_004-03",
+      "notion_id": "N00_004",
+      "legacy_notion_key": "0:4",
+      "theme": "Bases informatiques",
+      "notion": "WSL",
+      "answer_mode": "single",
+      "question_type": "vigilance",
+      "prompt": "Quel point à retenir est directement associé à « WSL » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "GUI et CLI sont deux façons d'interagir avec le système, souvent complémentaires."
+        },
+        {
+          "id": "B",
+          "text": "WSL 2 utilise un noyau Linux dans une VM légère. Les chemins Linux ne sont pas ceux de Windows."
+        },
+        {
+          "id": "C",
+          "text": "Linux est le noyau ; Ubuntu est une distribution qui l'utilise avec d'autres logiciels."
+        },
+        {
+          "id": "D",
+          "text": "Le système d'exploitation sert d'intermédiaire : chaque application n'a pas à piloter directement les périphériques."
+        }
+      ],
+      "correct_option_ids": [
+        "B"
+      ],
+      "explanation": "La fiche indique : WSL 2 utilise un noyau Linux dans une VM légère. Les chemins Linux ne sont pas ceux de Windows.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/bases-informatiques/5-wsl"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N00_004-04",
+      "notion_id": "N00_004",
+      "legacy_notion_key": "0:4",
+      "theme": "Bases informatiques",
+      "notion": "WSL",
+      "answer_mode": "multiple",
+      "question_type": "synthese",
+      "prompt": "Quelles affirmations concernent directement « WSL » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "strdup(src) alloue une nouvelle chaîne et la copie ; il faut vérifier NULL puis appeler free sur le résultat."
+        },
+        {
+          "id": "B",
+          "text": "WSL 2 utilise un noyau Linux dans une VM légère. Les chemins Linux ne sont pas ceux de Windows."
+        },
+        {
+          "id": "C",
+          "text": "Sous-système Windows pour Linux : environnement Linux utilisable sur Windows."
+        },
+        {
+          "id": "D",
+          "text": "Une allocation peut échouer : contrôler le pointeur avant toute lecture ou écriture dans le bloc demandé."
+        }
+      ],
+      "correct_option_ids": [
+        "B",
+        "C"
+      ],
+      "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/bases-informatiques/5-wsl"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "cross_topic_distractors",
+        "check_possible_ambiguity"
+      ]
+    },
+    {
+      "id": "V1-N00_005-01",
+      "notion_id": "N00_005",
+      "legacy_notion_key": "0:5",
+      "theme": "Bases informatiques",
+      "notion": "GUI / CLI",
+      "answer_mode": "single",
+      "question_type": "definition",
+      "prompt": "À quelle notion correspond la définition suivante : « Interface graphique / interface en ligne de commande. » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Linux / Ubuntu"
+        },
+        {
+          "id": "B",
+          "text": "Hardware / Software"
+        },
+        {
+          "id": "C",
+          "text": "Système d’exploitation"
+        },
+        {
+          "id": "D",
+          "text": "GUI / CLI"
+        }
+      ],
+      "correct_option_ids": [
+        "D"
+      ],
+      "explanation": "La définition est extraite du résumé de la fiche correspondante.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/bases-informatiques/6-gui-cli"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N00_005-02",
+      "notion_id": "N00_005",
+      "legacy_notion_key": "0:5",
+      "theme": "Bases informatiques",
+      "notion": "GUI / CLI",
+      "answer_mode": "single",
+      "question_type": "description",
+      "prompt": "Quelle description caractérise « GUI / CLI » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Matériel physique / programmes exécutés par la machine."
+        },
+        {
+          "id": "B",
+          "text": "Linux est un noyau et une famille de systèmes ; Ubuntu est une distribution utilisant Linux."
+        },
+        {
+          "id": "C",
+          "text": "Interface graphique / interface en ligne de commande."
+        },
+        {
+          "id": "D",
+          "text": "Gère les ressources, les processus, la mémoire, les fichiers et les périphériques."
+        }
+      ],
+      "correct_option_ids": [
+        "C"
+      ],
+      "explanation": "Le résumé de la fiche indique : Interface graphique / interface en ligne de commande.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/bases-informatiques/6-gui-cli"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N00_005-03",
+      "notion_id": "N00_005",
+      "legacy_notion_key": "0:5",
+      "theme": "Bases informatiques",
+      "notion": "GUI / CLI",
+      "answer_mode": "single",
+      "question_type": "vigilance",
+      "prompt": "Quel point à retenir est directement associé à « GUI / CLI » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "GUI et CLI sont deux façons d'interagir avec le système, souvent complémentaires."
+        },
+        {
+          "id": "B",
+          "text": "Le système d'exploitation sert d'intermédiaire : chaque application n'a pas à piloter directement les périphériques."
+        },
+        {
+          "id": "C",
+          "text": "Le matériel est physique ; un logiciel est un ensemble d'instructions. Ils travaillent ensemble."
+        },
+        {
+          "id": "D",
+          "text": "Linux est le noyau ; Ubuntu est une distribution qui l'utilise avec d'autres logiciels."
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "La fiche indique : GUI et CLI sont deux façons d'interagir avec le système, souvent complémentaires.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/bases-informatiques/6-gui-cli"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "check_every_distractor"
+      ]
+    },
+    {
+      "id": "V1-N00_005-04",
+      "notion_id": "N00_005",
+      "legacy_notion_key": "0:5",
+      "theme": "Bases informatiques",
+      "notion": "GUI / CLI",
+      "answer_mode": "multiple",
+      "question_type": "synthese",
+      "prompt": "Quelles affirmations concernent directement « GUI / CLI » ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Interface graphique / interface en ligne de commande."
+        },
+        {
+          "id": "B",
+          "text": "GUI et CLI sont deux façons d'interagir avec le système, souvent complémentaires."
+        },
+        {
+          "id": "C",
+          "text": "EOF est une valeur entière spéciale signalant la fin d'un flux ou une erreur ; getchar retourne un int et scanf peut aussi renvoyer EOF."
+        },
+        {
+          "id": "D",
+          "text": "Une fonction de type int * renvoie une adresse ou NULL ; l’objet pointé doit encore exister lors de son utilisation."
+        }
+      ],
+      "correct_option_ids": [
+        "A",
+        "B"
+      ],
+      "explanation": "Les affirmations retenues reprennent la définition et la précision pédagogique de la fiche. Les autres propositions renvoient à des notions différentes ; ce choix doit être contrôlé par un relecteur.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/bases-informatiques/6-gui-cli"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "generated_from_course",
+        "cross_topic_distractors",
+        "check_possible_ambiguity"
+      ]
+    }
+  ]
+}

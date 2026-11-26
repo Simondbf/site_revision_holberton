@@ -1,0 +1,26 @@
+name: Vérifier les questions PR #21 (hors production)
+on:
+  pull_request:
+    paths:
+      - 'docs/quiz/vague2/**'
+      - 'scripts/verifier_banque_quiz_autres.mjs'
+      - '.github/workflows/verifier-banque-quiz-autres.yml'
+permissions:
+  contents: read
+jobs:
+  banque_quiz_autres:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Vérifier 779 questions
+        run: node scripts/verifier_banque_quiz_autres.mjs
+      - uses: actions/upload-artifact@v4
+        if: success()
+        with:
+          name: banque-quiz-pr21-relecture
+          path: docs/quiz/vague2/**
+          if-no-files-found: error
+          retention-days: 30

@@ -1,0 +1,652 @@
+{
+  "version": "scanf-2026-v1",
+  "status": "non_verifie",
+  "questions": [
+    {
+      "id": "SCN-001",
+      "notion_id": "N08_025",
+      "legacy_notion_key": "8:25",
+      "theme": "Programmation C",
+      "notion": "scanf() — lire une saisie au clavier",
+      "level": 2,
+      "question_type": "cas_c",
+      "answer_mode": "multiple",
+      "prompt": "Avec `int a=0,b=99;` et l'entrée `12 x`, que peut-on affirmer après `scanf(\"%d %d\", &a, &b)` ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "La fonction retourne 1."
+        },
+        {
+          "id": "B",
+          "text": "`b` reste à 99."
+        },
+        {
+          "id": "C",
+          "text": "La fonction retourne nécessairement EOF."
+        },
+        {
+          "id": "D",
+          "text": "`a` vaut 12."
+        }
+      ],
+      "correct_option_ids": [
+        "A",
+        "B",
+        "D"
+      ],
+      "explanation": "Une première affectation réussit. Le second entier ne correspond pas à `x` : échec de correspondance et arrêt, sans écraser `b`.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/26-scanf-lire-une-saisie-au-clavier",
+        "https://man7.org/linux/man-pages/man3/scanf.3.html"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "manually_drafted",
+        "independent_review_required"
+      ]
+    },
+    {
+      "id": "SCN-002",
+      "notion_id": "N08_025",
+      "legacy_notion_key": "8:25",
+      "theme": "Programmation C",
+      "notion": "scanf() — lire une saisie au clavier",
+      "level": 2,
+      "question_type": "cas_c",
+      "answer_mode": "multiple",
+      "prompt": "Avec l'entrée `10 20` et `scanf(\"%*d %d\", &n)`, quelles propositions sont vraies ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Le résultat de `scanf` est 1 si la conversion réussit."
+        },
+        {
+          "id": "B",
+          "text": "Le premier entier est consommé sans être affecté."
+        },
+        {
+          "id": "C",
+          "text": "Le résultat est 2 puisque deux nombres figurent dans l'entrée."
+        },
+        {
+          "id": "D",
+          "text": "`n` reçoit 20."
+        }
+      ],
+      "correct_option_ids": [
+        "A",
+        "B",
+        "D"
+      ],
+      "explanation": "L'astérisque supprime l'affectation du premier nombre ; elle n'est pas comptée dans le résultat.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/26-scanf-lire-une-saisie-au-clavier",
+        "https://man7.org/linux/man-pages/man3/scanf.3.html"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "manually_drafted",
+        "independent_review_required"
+      ]
+    },
+    {
+      "id": "SCN-003",
+      "notion_id": "N08_025",
+      "legacy_notion_key": "8:25",
+      "theme": "Programmation C",
+      "notion": "scanf() — lire une saisie au clavier",
+      "level": 1,
+      "question_type": "cas_c",
+      "answer_mode": "single",
+      "prompt": "On a `int n=7;`. L'entrée commence par `bonjour`. Que renvoie `scanf(\"%d\", &n)` en cas d'échec de correspondance sans erreur de lecture ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "7"
+        },
+        {
+          "id": "B",
+          "text": "EOF"
+        },
+        {
+          "id": "C",
+          "text": "0"
+        },
+        {
+          "id": "D",
+          "text": "1"
+        }
+      ],
+      "correct_option_ids": [
+        "C"
+      ],
+      "explanation": "Le premier caractère ne correspond pas à un nombre entier ; aucune conversion n'est affectée. La valeur initiale de n est conservée.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/26-scanf-lire-une-saisie-au-clavier",
+        "https://man7.org/linux/man-pages/man3/scanf.3.html"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "manually_drafted",
+        "independent_review_required"
+      ]
+    },
+    {
+      "id": "SCN-004",
+      "notion_id": "N08_025",
+      "legacy_notion_key": "8:25",
+      "theme": "Programmation C",
+      "notion": "scanf() — lire une saisie au clavier",
+      "level": 2,
+      "question_type": "cas_c",
+      "answer_mode": "multiple",
+      "prompt": "Avec `scanf(\"%3c\", lettres)` et un tableau `char lettres[3]`, que faut-il savoir ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Le tableau doit avoir de la place pour les trois caractères."
+        },
+        {
+          "id": "B",
+          "text": "Elle ajoute systématiquement un `\\0`."
+        },
+        {
+          "id": "C",
+          "text": "Cette conversion n'ignore pas automatiquement les blancs initiaux."
+        },
+        {
+          "id": "D",
+          "text": "La conversion peut stocker trois caractères."
+        }
+      ],
+      "correct_option_ids": [
+        "A",
+        "C",
+        "D"
+      ],
+      "explanation": "`%c` avec largeur lit les caractères bruts sans ajouter de terminateur nul. Il faut une longueur de tableau adaptée.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/26-scanf-lire-une-saisie-au-clavier",
+        "https://man7.org/linux/man-pages/man3/scanf.3.html"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "manually_drafted",
+        "independent_review_required"
+      ]
+    },
+    {
+      "id": "SCN-005",
+      "notion_id": "N08_025",
+      "legacy_notion_key": "8:25",
+      "theme": "Programmation C",
+      "notion": "scanf() — lire une saisie au clavier",
+      "level": 1,
+      "question_type": "cas_c",
+      "answer_mode": "single",
+      "prompt": "Quelle différence principale existe entre les conversions `%d` et `%i` de `scanf` ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "`%i` déduit la base à partir du préfixe d'entrée, contrairement à `%d`."
+        },
+        {
+          "id": "B",
+          "text": "`%d` lit seulement un chiffre."
+        },
+        {
+          "id": "C",
+          "text": "`%i` exige toujours une entrée hexadécimale."
+        },
+        {
+          "id": "D",
+          "text": "`%d` exige un `double *`."
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "`%i` interprète par exemple `0x10` comme un entier en base 16, tandis que `%d` effectue une conversion décimale.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/26-scanf-lire-une-saisie-au-clavier",
+        "https://man7.org/linux/man-pages/man3/scanf.3.html"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "manually_drafted",
+        "independent_review_required"
+      ]
+    },
+    {
+      "id": "SCN-006",
+      "notion_id": "N08_025",
+      "legacy_notion_key": "8:25",
+      "theme": "Programmation C",
+      "notion": "scanf() — lire une saisie au clavier",
+      "level": 2,
+      "question_type": "cas_c",
+      "answer_mode": "multiple",
+      "prompt": "Pour l'entrée `42\\n`, que produit `scanf(\"%d%c\", &n, &c)` si `n` est un `int` et `c` un `char` ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "`c` reçoit le caractère retour à la ligne."
+        },
+        {
+          "id": "B",
+          "text": "Le retour vaut 2 si les deux affectations réussissent."
+        },
+        {
+          "id": "C",
+          "text": "`%c` supprime automatiquement le retour à la ligne."
+        },
+        {
+          "id": "D",
+          "text": "`n` reçoit 42."
+        }
+      ],
+      "correct_option_ids": [
+        "A",
+        "B",
+        "D"
+      ],
+      "explanation": "`%d` s'arrête avant le caractère blanc, puis `%c` lit ce caractère, puisqu'il ne saute pas les blancs.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/26-scanf-lire-une-saisie-au-clavier",
+        "https://man7.org/linux/man-pages/man3/scanf.3.html"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "manually_drafted",
+        "independent_review_required"
+      ]
+    },
+    {
+      "id": "SCN-007",
+      "notion_id": "N08_025",
+      "legacy_notion_key": "8:25",
+      "theme": "Programmation C",
+      "notion": "scanf() — lire une saisie au clavier",
+      "level": 2,
+      "question_type": "cas_c",
+      "answer_mode": "single",
+      "prompt": "Pour l'entrée `a=5`, quelle écriture lit l'entier après les caractères littéraux `a=` ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "`scanf(\"a=%d\", &n)`"
+        },
+        {
+          "id": "B",
+          "text": "`scanf(\"%d=a\", &n)`"
+        },
+        {
+          "id": "C",
+          "text": "`scanf(\"%a=%d\", &n)`"
+        },
+        {
+          "id": "D",
+          "text": "`scanf(\"a%d\", &n)`"
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "Les caractères ordinaires d'un format doivent correspondre à l'entrée dans l'ordre ; seul `%d` affecte la variable.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/26-scanf-lire-une-saisie-au-clavier",
+        "https://man7.org/linux/man-pages/man3/scanf.3.html"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "manually_drafted",
+        "independent_review_required"
+      ]
+    },
+    {
+      "id": "SCN-008",
+      "notion_id": "N08_025",
+      "legacy_notion_key": "8:25",
+      "theme": "Programmation C",
+      "notion": "scanf() — lire une saisie au clavier",
+      "level": 2,
+      "question_type": "cas_c",
+      "answer_mode": "multiple",
+      "prompt": "Avec `int n=0;` et l'entrée `123`, quel résultat est attendu pour `scanf(\"%2d\", &n)` ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Le caractère `3` peut rester disponible pour une lecture suivante."
+        },
+        {
+          "id": "B",
+          "text": "La largeur impose une valeur maximale de 2."
+        },
+        {
+          "id": "C",
+          "text": "`n` peut recevoir 12."
+        },
+        {
+          "id": "D",
+          "text": "La conversion de `n` utilise au plus deux caractères."
+        }
+      ],
+      "correct_option_ids": [
+        "A",
+        "C",
+        "D"
+      ],
+      "explanation": "La largeur limite le nombre de caractères examinés dans ce champ, et non la valeur numérique.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/26-scanf-lire-une-saisie-au-clavier",
+        "https://man7.org/linux/man-pages/man3/scanf.3.html"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "manually_drafted",
+        "independent_review_required"
+      ]
+    },
+    {
+      "id": "SCN-009",
+      "notion_id": "N08_025",
+      "legacy_notion_key": "8:25",
+      "theme": "Programmation C",
+      "notion": "scanf() — lire une saisie au clavier",
+      "level": 1,
+      "question_type": "cas_c",
+      "answer_mode": "single",
+      "prompt": "Que signifie `EOF` comme valeur de retour de `scanf` lorsque aucune conversion n'a encore réussi ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Un nombre négatif a été saisi."
+        },
+        {
+          "id": "B",
+          "text": "Toutes les conversions demandées ont réussi."
+        },
+        {
+          "id": "C",
+          "text": "Une fin d'entrée ou une erreur de lecture avant la première conversion."
+        },
+        {
+          "id": "D",
+          "text": "Un entier égal à -1 a été affecté."
+        }
+      ],
+      "correct_option_ids": [
+        "C"
+      ],
+      "explanation": "Il faut distinguer EOF (échec de lecture avant conversion) d'un retour zéro (échec de correspondance).",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/26-scanf-lire-une-saisie-au-clavier",
+        "https://man7.org/linux/man-pages/man3/scanf.3.html"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "manually_drafted",
+        "independent_review_required"
+      ]
+    },
+    {
+      "id": "SCN-010",
+      "notion_id": "N08_025",
+      "legacy_notion_key": "8:25",
+      "theme": "Programmation C",
+      "notion": "scanf() — lire une saisie au clavier",
+      "level": 2,
+      "question_type": "cas_c",
+      "answer_mode": "multiple",
+      "prompt": "Pour `char mot[8];`, quelles affirmations sont correctes avec `scanf(\"%7s\", mot)` ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "La largeur 7 permet de garder une case pour le terminateur."
+        },
+        {
+          "id": "B",
+          "text": "La conversion s'arrête avant un espace après le mot."
+        },
+        {
+          "id": "C",
+          "text": "La conversion `%s` ignore les espaces initiaux."
+        },
+        {
+          "id": "D",
+          "text": "La conversion lit forcément toute une phrase contenant des espaces."
+        }
+      ],
+      "correct_option_ids": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "Le champ `%s` produit une chaîne terminée par `\\0` et s'arrête à l'espace ; sa largeur doit préserver la capacité de destination.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/26-scanf-lire-une-saisie-au-clavier",
+        "https://man7.org/linux/man-pages/man3/scanf.3.html"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "manually_drafted",
+        "independent_review_required"
+      ]
+    },
+    {
+      "id": "SCN-011",
+      "notion_id": "N08_025",
+      "legacy_notion_key": "8:25",
+      "theme": "Programmation C",
+      "notion": "scanf() — lire une saisie au clavier",
+      "level": 3,
+      "question_type": "cas_c",
+      "answer_mode": "single",
+      "prompt": "Un programme ne teste pas le résultat de `scanf(\"%d\", &nombre)`. Quel est le défaut principal ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Il risque d'utiliser `nombre` alors qu'aucune valeur nouvelle n'a été affectée."
+        },
+        {
+          "id": "B",
+          "text": "La compilation échoue toujours."
+        },
+        {
+          "id": "C",
+          "text": "`scanf` bloque systématiquement le clavier."
+        },
+        {
+          "id": "D",
+          "text": "L'appel initialise forcément `nombre` à zéro."
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "Ne jamais présumer qu'une conversion a réussi ; contrôler le nombre d'affectations et gérer l'échec.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/26-scanf-lire-une-saisie-au-clavier",
+        "https://man7.org/linux/man-pages/man3/scanf.3.html"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "manually_drafted",
+        "independent_review_required"
+      ]
+    },
+    {
+      "id": "SCN-012",
+      "notion_id": "N08_025",
+      "legacy_notion_key": "8:25",
+      "theme": "Programmation C",
+      "notion": "scanf() — lire une saisie au clavier",
+      "level": 3,
+      "question_type": "cas_c",
+      "answer_mode": "multiple",
+      "prompt": "Dans un format de saisie, quelles propriétés de `%n` sont correctes (si son utilisation est adaptée et sûre) ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Il n'exige pas de lire un caractère d'entrée supplémentaire."
+        },
+        {
+          "id": "B",
+          "text": "Il écrit le nombre de caractères consommés jusque-là dans un `int *`."
+        },
+        {
+          "id": "C",
+          "text": "Il ne compte pas comme une conversion affectée dans la valeur de retour."
+        },
+        {
+          "id": "D",
+          "text": "Il initialise une chaîne de caractères terminée par zéro."
+        }
+      ],
+      "correct_option_ids": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "`%n` rapporte la quantité déjà consommée ; c'est un cas particulier qui ne compte pas comme conversion affectée dans le retour.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/26-scanf-lire-une-saisie-au-clavier",
+        "https://man7.org/linux/man-pages/man3/scanf.3.html"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "manually_drafted",
+        "independent_review_required"
+      ]
+    },
+    {
+      "id": "SCN-013",
+      "notion_id": "N08_025",
+      "legacy_notion_key": "8:25",
+      "theme": "Programmation C",
+      "notion": "scanf() — lire une saisie au clavier",
+      "level": 2,
+      "question_type": "cas_c",
+      "answer_mode": "single",
+      "prompt": "Avec `scanf(\"%3[abc]\", mot)`, que décrit le scanset `[abc]` ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Une suite non vide de caractères appartenant à l'ensemble a, b ou c, avec largeur maximale 3."
+        },
+        {
+          "id": "B",
+          "text": "Une chaîne quelconque de trois caractères maximum."
+        },
+        {
+          "id": "C",
+          "text": "Exactement la chaîne `abc`."
+        },
+        {
+          "id": "D",
+          "text": "Un nombre octal."
+        }
+      ],
+      "correct_option_ids": [
+        "A"
+      ],
+      "explanation": "Un scanset accepte les caractères appartenant à l'ensemble spécifié, pas seulement une séquence exacte.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/26-scanf-lire-une-saisie-au-clavier",
+        "https://man7.org/linux/man-pages/man3/scanf.3.html"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "manually_drafted",
+        "independent_review_required"
+      ]
+    },
+    {
+      "id": "SCN-014",
+      "notion_id": "N08_025",
+      "legacy_notion_key": "8:25",
+      "theme": "Programmation C",
+      "notion": "scanf() — lire une saisie au clavier",
+      "level": 1,
+      "question_type": "cas_c",
+      "answer_mode": "multiple",
+      "prompt": "Pourquoi mélanger `scanf(\"%d\", &n)` puis `fgets` demande-t-il une attention particulière ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Il faut traiter explicitement le reste de la saisie selon le comportement souhaité."
+        },
+        {
+          "id": "B",
+          "text": "Le `fgets` suivant peut lire uniquement ce retour à la ligne."
+        },
+        {
+          "id": "C",
+          "text": "Un retour à la ligne peut rester dans le flux après l'entier."
+        },
+        {
+          "id": "D",
+          "text": "`scanf` vide toujours toute la ligne d'entrée."
+        }
+      ],
+      "correct_option_ids": [
+        "A",
+        "B",
+        "C"
+      ],
+      "explanation": "La conversion numérique peut laisser des caractères, dont `\\n`, à lire par l'opération suivante.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/26-scanf-lire-une-saisie-au-clavier",
+        "https://man7.org/linux/man-pages/man3/scanf.3.html"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "manually_drafted",
+        "independent_review_required"
+      ]
+    },
+    {
+      "id": "SCN-015",
+      "notion_id": "N08_025",
+      "legacy_notion_key": "8:25",
+      "theme": "Programmation C",
+      "notion": "scanf() — lire une saisie au clavier",
+      "level": 2,
+      "question_type": "cas_c",
+      "answer_mode": "single",
+      "prompt": "Pour lire une valeur dans `tab[1]` avec `int tab[3];`, quel argument convient à `%d` ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "`tab[1]`"
+        },
+        {
+          "id": "B",
+          "text": "`&tab[1]`"
+        },
+        {
+          "id": "C",
+          "text": "`&tab`"
+        },
+        {
+          "id": "D",
+          "text": "`*tab[1]`"
+        }
+      ],
+      "correct_option_ids": [
+        "B"
+      ],
+      "explanation": "La conversion `%d` attend un `int *` pointant vers l'élément ciblé.",
+      "source_urls": [
+        "https://revision-hbtn.soleiljaune.be/#cours/programmation-c/26-scanf-lire-une-saisie-au-clavier",
+        "https://man7.org/linux/man-pages/man3/scanf.3.html"
+      ],
+      "review_status": "a_verifier",
+      "review_flags": [
+        "manually_drafted",
+        "independent_review_required"
+      ]
+    }
+  ]
+}
